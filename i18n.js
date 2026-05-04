@@ -1,0 +1,70 @@
+// i18n.js — UI strings for DE and HU
+
+const I18N = {
+  de: {
+    htmlLang:     "de",
+    moduleTitle:  "DSGVO & Recht",
+    subtitle:     n => `Applikationsentwickler­Coding · Österreich / EU · ${n} Fragen`,
+    progress:     (cur, tot) => `Frage ${cur} von ${tot}`,
+    score:        n => `Punkte: ${n}`,
+    nextBtn:      "Nächste Frage →",
+    resultBtn:    "Ergebnis anzeigen",
+    resultHeading: "Dein Ergebnis",
+    ringSub:      "Richtig",
+    scoreLabel:   "Fragen richtig",
+    wrongSection: "Falsch beantwortete Fragen",
+    yourAnswer:   "Deine Antwort:",
+    correctAnswer: "Richtig:",
+    allCorrect:   "Alle Fragen richtig beantwortet!",
+    restartBtn:   "Quiz neu starten",
+    gradePass:    "Ausgezeichnet – bestanden!",
+    gradeOk:      "Gut – bestanden.",
+    gradeFail:    "Nicht bestanden – weiter üben!",
+    topics: {
+      "DSGVO Grundlagen":          "DSGVO Grundlagen",
+      "Betroffenenrechte":         "Betroffenenrechte",
+      "Datenpannen":               "Datenpannen",
+      "Datenschutzpflichten":      "Datenschutzpflichten",
+      "Datenschutz Österreich": "Datenschutz Österreich",
+      "Urheberrecht":              "Urheberrecht",
+      "Softwarelizenzen":          "Softwarelizenzen",
+      "IT-Sicherheit":             "IT-Sicherheit",
+      "DSGVO in der Praxis":       "DSGVO in der Praxis",
+      "E-Commerce & Österreich": "E-Commerce & Österreich",
+      "ePrivacy & Cookies":        "ePrivacy & Cookies"
+    }
+  },
+  hu: {
+    htmlLang:     "hu",
+    moduleTitle:  "DSGVO & Jog",
+    subtitle:     n => `Alkalmazásfejlesztő · Ausztria / EU · ${n} kérdés`,
+    progress:     (cur, tot) => `${cur}. kérdés / ${tot}`,
+    score:        n => `Pontok: ${n}`,
+    nextBtn:      "Következő kérdés →",
+    resultBtn:    "Eredmény megjelenítése",
+    resultHeading: "Az eredményed",
+    ringSub:      "Helyes",
+    scoreLabel:   "kérdés helyes",
+    wrongSection: "Hibásan megválaszolt kérdések",
+    yourAnswer:   "A te válaszod:",
+    correctAnswer: "Helyes:",
+    allCorrect:   "Minden kérdést helyesen válaszoltál meg!",
+    restartBtn:   "Kvíz újraindítása",
+    gradePass:    "Kitűnő – megfelelt!",
+    gradeOk:      "Jó – megfelelt.",
+    gradeFail:    "Nem felelt meg – gyakorolj tovább!",
+    topics: {
+      "DSGVO Grundlagen":          "DSGVO alapok",
+      "Betroffenenrechte":         "Érintetti jogok",
+      "Datenpannen":               "Adatvédelmi incidensek",
+      "Datenschutzpflichten":      "Adatvédelmi kötelezettségek",
+      "Datenschutz Österreich": "Adatvédelem Ausztriában",
+      "Urheberrecht":              "Szerzői jog",
+      "Softwarelizenzen":          "Szoftverlicencek",
+      "IT-Sicherheit":             "IT-biztonság",
+      "DSGVO in der Praxis":       "DSGVO a gyakorlatban",
+      "E-Commerce & Österreich": "E-kereskedelem & Ausztria",
+      "ePrivacy & Cookies":        "ePrivacy & Sütik"
+    }
+  }
+};

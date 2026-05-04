@@ -1,15 +1,17 @@
 // app.js — Quiz-Logik
 
 const state = {
-  questions: [],
-  current: 0,
-  score: 0,
-  answered: false,
-  results: [],
-  shuffledAnswers: [],
+  questions:    [],
+  current:      0,
+  score:        0,
+  answered:     false,
+  results:      [],   // { questionId, correct, correctOriginalIdx, selectedOriginalIdx }
+  shuffledOrder: [],  // permutation of answer indices, rebuilt each question
+  lang:         localStorage.getItem("cq-lang") || "de",
 };
 
 const $ = id => document.getElementById(id);
+const t = key => I18N[state.lang][key];
 
 function shuffle(arr) {
   const a = [...arr];
@@ -20,84 +22,122 @@ function shuffle(arr) {
   return a;
 }
 
+// Returns the language-specific field from a question, falling back to German.
+function getQ(q, key) {
+  return (state.lang !== "de" && q[state.lang]?.[key]) || q[key];
+}
+
+function topicLabel(topic) {
+  return I18N[state.lang].topics[topic] || topic;
+}
+
+function applyStaticI18n() {
+  document.documentElement.lang = t("htmlLang");
+  $("module-title").textContent   = t("moduleTitle");
+  $("quiz-subtitle").textContent  = t("subtitle")(QUESTIONS.length);
+  $("result-heading").textContent = t("resultHeading");
+  $("ring-sub-text").textContent  = t("ringSub");
+  $("score-suffix").textContent   = t("scoreLabel");
+  $("wrong-heading").textContent  = t("wrongSection");
+  $("restart-btn").textContent    = t("restartBtn");
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.lang === state.lang);
+  });
+}
+
+function setLang(lang) {
+  state.lang = lang;
+  localStorage.setItem("cq-lang", lang);
+  applyStaticI18n();
+
+  if (!$("quiz-screen").classList.contains("hidden")) {
+    renderQuestion();
+  } else if (!$("result-screen").classList.contains("hidden")) {
+    showResults();
+  }
+}
+
 function init() {
-  state.questions = shuffle(QUESTIONS);
-  state.current = 0;
-  state.score = 0;
-  state.answered = false;
-  state.results = [];
-  state.shuffledAnswers = [];
-  $("question-count").textContent = QUESTIONS.length;
+  state.questions     = shuffle(QUESTIONS);
+  state.current       = 0;
+  state.score         = 0;
+  state.answered      = false;
+  state.results       = [];
+  state.shuffledOrder = [];
   $("quiz-screen").classList.remove("hidden");
   $("result-screen").classList.add("hidden");
+  applyStaticI18n();
   renderQuestion();
 }
 
 function renderQuestion() {
-  const q = state.questions[state.current];
+  const q     = state.questions[state.current];
   const total = state.questions.length;
 
-  $("progress-bar").style.width = `${(state.current / total) * 100}%`;
-  $("progress-text").textContent = `Frage ${state.current + 1} von ${total}`;
-  $("score-display").textContent = `Punkte: ${state.score}`;
-  $("topic-badge").textContent = q.topic;
-  $("question-text").textContent = q.question;
+  $("progress-bar").style.width   = `${(state.current / total) * 100}%`;
+  $("progress-text").textContent  = t("progress")(state.current + 1, total);
+  $("score-display").textContent  = t("score")(state.score);
+  $("topic-badge").textContent    = topicLabel(q.topic);
+  $("question-text").textContent  = getQ(q, "question");
   $("explanation-box").classList.add("hidden");
   $("next-btn").classList.add("hidden");
 
-  state.shuffledAnswers = shuffle(
-    q.answers.map((text, idx) => ({ text, isCorrect: idx === q.correct }))
-  );
+  // Shuffle a permutation of answer indices so we know which original index
+  // each display slot corresponds to — needed for correct language fallback.
+  state.shuffledOrder = shuffle([0, 1, 2, 3]);
   state.answered = false;
 
-  const list = $("answers-list");
+  const answers = getQ(q, "answers");
+  const list    = $("answers-list");
   list.innerHTML = "";
 
-  state.shuffledAnswers.forEach((answer, idx) => {
+  state.shuffledOrder.forEach((origIdx, displayIdx) => {
     const btn = document.createElement("button");
     btn.className = "answer-btn";
-    btn.setAttribute("data-idx", idx);
+    btn.setAttribute("data-idx", displayIdx);
+
     const label = document.createElement("span");
     label.className = "answer-label";
-    label.textContent = String.fromCharCode(65 + idx);
+    label.textContent = String.fromCharCode(65 + displayIdx);
     btn.appendChild(label);
-    btn.appendChild(document.createTextNode(answer.text));
-    btn.addEventListener("click", () => selectAnswer(idx));
+    btn.appendChild(document.createTextNode(answers[origIdx]));
+    btn.addEventListener("click", () => selectAnswer(displayIdx));
     list.appendChild(btn);
   });
 }
 
-function selectAnswer(selectedIdx) {
+function selectAnswer(selectedDisplayIdx) {
   if (state.answered) return;
   state.answered = true;
 
-  const q = state.questions[state.current];
-  const isCorrect = state.shuffledAnswers[selectedIdx].isCorrect;
+  const q                 = state.questions[state.current];
+  const selectedOrigIdx   = state.shuffledOrder[selectedDisplayIdx];
+  const isCorrect         = selectedOrigIdx === q.correct;
 
   if (isCorrect) state.score++;
 
   state.results.push({
-    question: q.question,
-    correct: isCorrect,
-    correctAnswer: state.shuffledAnswers.find(a => a.isCorrect).text,
-    selectedAnswer: state.shuffledAnswers[selectedIdx].text,
+    questionId:          q.id,
+    correct:             isCorrect,
+    correctOriginalIdx:  q.correct,
+    selectedOriginalIdx: selectedOrigIdx,
   });
 
-  const btns = document.querySelectorAll(".answer-btn");
-  btns.forEach(btn => {
+  document.querySelectorAll(".answer-btn").forEach(btn => {
     btn.disabled = true;
-    const idx = parseInt(btn.getAttribute("data-idx"), 10);
-    if (state.shuffledAnswers[idx].isCorrect) btn.classList.add("correct");
-    else if (idx === selectedIdx) btn.classList.add("wrong");
+    const displayIdx = parseInt(btn.getAttribute("data-idx"), 10);
+    const origIdx    = state.shuffledOrder[displayIdx];
+    if (origIdx === q.correct)          btn.classList.add("correct");
+    else if (displayIdx === selectedDisplayIdx) btn.classList.add("wrong");
   });
 
-  $("explanation-text").textContent = q.explanation;
+  $("explanation-text").textContent = getQ(q, "explanation");
   $("explanation-box").classList.remove("hidden");
 
-  const nextBtn = $("next-btn");
   const isLast = state.current === state.questions.length - 1;
-  nextBtn.textContent = isLast ? "Ergebnis anzeigen" : "Nächste Frage →";
-  nextBtn.classList.remove("hidden");
+  $("next-btn").textContent = isLast ? t("resultBtn") : t("nextBtn");
+  $("next-btn").classList.remove("hidden");
 }
 
 function nextQuestion() {
@@ -112,28 +152,28 @@ function nextQuestion() {
 function showResults() {
   $("quiz-screen").classList.add("hidden");
   $("result-screen").classList.remove("hidden");
+  applyStaticI18n();
 
   const total = state.questions.length;
-  const pct = Math.round((state.score / total) * 100);
+  const pct   = Math.round((state.score / total) * 100);
 
   $("final-score").textContent = `${state.score} / ${total}`;
 
   const grade = $("grade-text");
   if (pct >= 80) {
-    grade.textContent = "Ausgezeichnet - bestanden!";
-    grade.className = "grade pass";
+    grade.textContent = t("gradePass");
+    grade.className   = "grade pass";
   } else if (pct >= 60) {
-    grade.textContent = "Gut - bestanden.";
-    grade.className = "grade ok";
+    grade.textContent = t("gradeOk");
+    grade.className   = "grade ok";
   } else {
-    grade.textContent = "Nicht bestanden - weiter ueben!";
-    grade.className = "grade fail";
+    grade.textContent = t("gradeFail");
+    grade.className   = "grade fail";
   }
 
-  // Scorekreis animieren + SVG-Text setzen
-  const circle = $("score-circle");
+  const circle       = $("score-circle");
   const circumference = 2 * Math.PI * 54;
-  circle.style.strokeDasharray = circumference;
+  circle.style.strokeDasharray  = circumference;
   circle.style.strokeDashoffset = circumference * (1 - pct / 100);
   $("ring-pct").textContent = `${pct} %`;
 
@@ -141,38 +181,45 @@ function showResults() {
 }
 
 function renderWrongAnswers() {
-  const wrong = state.results.filter(r => !r.correct);
+  const wrong     = state.results.filter(r => !r.correct);
   const container = $("wrong-list");
   container.innerHTML = "";
 
   if (wrong.length === 0) {
-    container.innerHTML = "<p class='all-correct'>Alle Fragen richtig beantwortet!</p>";
+    const p = document.createElement("p");
+    p.className   = "all-correct";
+    p.textContent = t("allCorrect");
+    container.appendChild(p);
     return;
   }
 
   wrong.forEach(r => {
+    // Derive text from the current language so switching language re-translates.
+    const q       = QUESTIONS.find(qObj => qObj.id === r.questionId);
+    const answers = getQ(q, "answers");
+
     const div = document.createElement("div");
     div.className = "wrong-item";
 
     const qp = document.createElement("p");
-    qp.className = "wi-question";
-    qp.textContent = r.question;
+    qp.className   = "wi-question";
+    qp.textContent = getQ(q, "question");
 
-    const givenP = document.createElement("p");
+    const givenP    = document.createElement("p");
     givenP.className = "wi-given";
     const givenLabel = document.createElement("span");
-    givenLabel.className = "wi-label wrong-label";
-    givenLabel.textContent = "Deine Antwort:";
+    givenLabel.className   = "wi-label wrong-label";
+    givenLabel.textContent = t("yourAnswer");
     givenP.appendChild(givenLabel);
-    givenP.append(` ${r.selectedAnswer}`);
+    givenP.append(` ${answers[r.selectedOriginalIdx]}`);
 
-    const correctP = document.createElement("p");
+    const correctP    = document.createElement("p");
     correctP.className = "wi-correct";
     const correctLabel = document.createElement("span");
-    correctLabel.className = "wi-label correct-label";
-    correctLabel.textContent = "Richtig:";
+    correctLabel.className   = "wi-label correct-label";
+    correctLabel.textContent = t("correctAnswer");
     correctP.appendChild(correctLabel);
-    correctP.append(` ${r.correctAnswer}`);
+    correctP.append(` ${answers[r.correctOriginalIdx]}`);
 
     div.appendChild(qp);
     div.appendChild(givenP);
@@ -184,5 +231,10 @@ function renderWrongAnswers() {
 document.addEventListener("DOMContentLoaded", () => {
   $("next-btn").addEventListener("click", nextQuestion);
   $("restart-btn").addEventListener("click", init);
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => setLang(btn.dataset.lang));
+  });
+
   init();
 });

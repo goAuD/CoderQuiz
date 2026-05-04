@@ -10,8 +10,12 @@
 <body>
 
   <header>
-    <h1>CoderQuiz – DSGVO &amp; Recht</h1>
-    <p class="subtitle">Applikationsentwickler&shy;-Coding · Österreich / EU · <span id="question-count">...</span> Fragen</p>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="de">DE</button>
+      <button class="lang-btn" data-lang="hu">HU</button>
+    </div>
+    <h1>CoderQuiz – <span id="module-title">DSGVO &amp; Recht</span></h1>
+    <p class="subtitle" id="quiz-subtitle"></p>
   </header>
 
   <!-- ── Quiz-Screen ─────────────────────────────────────────────── -->
@@ -24,11 +28,11 @@
     </div>
 
     <div class="meta-row">
-      <span id="progress-text">Frage 1 von 50</span>
-      <span id="score-display">Punkte: 0</span>
+      <span id="progress-text"></span>
+      <span id="score-display"></span>
     </div>
 
-    <span class="topic-badge" id="topic-badge">Thema</span>
+    <span class="topic-badge" id="topic-badge"></span>
 
     <p id="question-text"></p>
 
@@ -38,7 +42,7 @@
       <span id="explanation-text"></span>
     </div>
 
-    <button id="next-btn" class="hidden">Nächste Frage →</button>
+    <button id="next-btn" class="hidden"></button>
 
   </main>
 
@@ -46,28 +50,28 @@
   <main id="result-screen" class="card hidden">
 
     <div class="result-header">
-      <h2>Dein Ergebnis</h2>
+      <h2 id="result-heading"></h2>
 
       <svg class="score-ring" width="120" height="120" viewBox="0 0 120 120" aria-hidden="true">
         <circle class="ring-bg" cx="60" cy="60" r="54" />
         <circle id="score-circle" cx="60" cy="60" r="54"
                 stroke-dasharray="339.3" stroke-dashoffset="339.3" />
         <text class="ring-text" x="60" y="57" text-anchor="middle" dominant-baseline="middle" id="ring-pct">0 %</text>
-        <text class="ring-sub"  x="60" y="72" text-anchor="middle">Richtig</text>
+        <text class="ring-sub"  x="60" y="72" text-anchor="middle" id="ring-sub-text"></text>
       </svg>
 
       <p class="score-numbers">
-        <strong id="final-score">0 / 50</strong> Fragen richtig
+        <strong id="final-score"></strong> <span id="score-suffix"></span>
       </p>
       <span id="grade-text" class="grade pass"></span>
     </div>
 
     <div class="wrong-section">
-      <h3>Falsch beantwortete Fragen</h3>
+      <h3 id="wrong-heading"></h3>
       <div id="wrong-list"></div>
     </div>
 
-    <button id="restart-btn">Quiz neu starten</button>
+    <button id="restart-btn"></button>
 
   </main>
 
@@ -77,9 +81,9 @@
     Apache-2.0 License
   </footer>
 
+  <script src="i18n.js"></script>
   <script src="questions.js"></script>
   <script src="app.js"></script>
-
 
 </body>
 </html>

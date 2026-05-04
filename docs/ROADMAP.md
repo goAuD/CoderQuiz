@@ -12,9 +12,9 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 ## Short-term Goals
 
 - [ ] Bring question count to 100 for the DSGVO module
-- [ ] Add a Hungarian translation of the DSGVO module
-- [ ] Review and improve answer distribution across A/B/C/D positions
-- [ ] Set up GitHub Actions workflow for basic validation (JSON lint, question count check)
+- [x] Add a language switcher (DE/HU) — i18n architecture in place, HU question content to be filled per question
+- [x] Answer distribution fixed — answers are shuffled at render time, no manual rotation needed
+- [ ] Set up GitHub Actions workflow for basic validation (question count check, JS lint)
 - [ ] Deploy to GitHub Pages at the project repo
 
 ## Medium-term Goals
@@ -28,7 +28,7 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 ## Long-term / Stretch Goals
 
 - [ ] CoderQuiz as a proper multi-topic landing page at coderlap.com
-- [ ] Offline-first PWA (service worker, installable)
+- [ ] Offline-first PWA (service worker, installable) — lower priority if Tauri desktop is the main target
 - [ ] Desktop app wrapper (Tauri or Electron, most likely Tauri for size)
 - [ ] User accounts with progress tracking (would require a backend)
 - [ ] Community contribution flow for new questions (PR template, review checklist)
