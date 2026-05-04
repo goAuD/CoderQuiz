@@ -6,7 +6,7 @@ This file tracks progress, decisions, and context so any conversation thread can
 
 - Working name: CoderQuiz (umbrella)
 - First module: DSGVO and Law for LAP Applikationsentwickler-Coding (Austria)
-- Repo: C:\GitHub\dsgvo-lap-quiz (local), will mirror to GitHub
+- Repo: C:\GitHub\CoderQuiz (local), will mirror to GitHub
 - Domain: coderlap.com (registered, not yet pointed)
 - License: Apache 2.0
 
@@ -83,6 +83,7 @@ This file tracks progress, decisions, and context so any conversation thread can
 ## Future session notes
 
 If you are continuing this project in a new conversation, the key context is:
+
 - questions.js has 66 questions, correct answers at varied positions
 - app.js and index.html are committed and clean
 - The next milestone is reaching 100 questions in the DSGVO module
