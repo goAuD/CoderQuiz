@@ -36,6 +36,30 @@ header {
   margin-bottom: 1.8rem;
   text-align: center;
 }
+.lang-switcher {
+  display: flex;
+  justify-content: flex-end;
+  gap: .4rem;
+  margin-bottom: .5rem;
+}
+.lang-btn {
+  background: var(--surface2);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  padding: .2rem .55rem;
+  cursor: pointer;
+  transition: border-color .15s, color .15s, background .15s;
+}
+.lang-btn:hover { border-color: var(--accent); color: var(--text); }
+.lang-btn.active {
+  border-color: var(--accent);
+  color: var(--accent-h);
+  background: rgba(91,106,240,.12);
+}
 header h1 {
   font-size: clamp(1.3rem, 3.5vw, 1.9rem);
   font-weight: 700;
