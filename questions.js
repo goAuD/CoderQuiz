@@ -54,7 +54,7 @@ const QUESTIONS = [
       "Daten werden nur verschlüsselt gespeichert"
     ],
     correct: 1,
-    explanation: "Datensparsamkeit: personenbezogene Daten müssen auf das notwendige Minimum beschränkt sein. Es darf nur erhoben werden, was wirklich gebraucht wird."
+    explanation: "Datensparsamkeit: Es darf nur erhoben werden, was wirklich gebraucht wird. Für Entwickler bedeutet das: keine unnötigen Felder im Formular, keine unbegrenzten Logs."
   },
   {
     id: 5,
@@ -67,7 +67,7 @@ const QUESTIONS = [
       "Daten dürfen nur innerhalb der EU verwendet werden"
     ],
     correct: 1,
-    explanation: "Zweckbindung: Daten dürfen nur für den konkreten Zweck verwendet werden, für den sie gesammelt wurden. Eine Weitergabe oder Nutzung für andere Zwecke ist ohne neue Rechtsgrundlage unzulässig."
+    explanation: "Zweckbindung: Daten dürfen nur für den konkreten Zweck genutzt werden, für den sie gesammelt wurden. Wer für den Newsletter erhebt, darf die Daten nicht für Werbung anderer Zwecke nutzen."
   },
   {
     id: 6,
@@ -106,7 +106,7 @@ const QUESTIONS = [
       "Nur schriftlich und notariell beglaubigt"
     ],
     correct: 1,
-    explanation: "Eine Einwilligung muss freiwillig (ohne Druck), spezifisch (für einen Zweck), informiert und eindeutig abgegeben werden. Schweigen oder vorangekreuzte Kästchen gelten NICHT als Einwilligung."
+    explanation: "Eine Einwilligung muss freiwillig, spezifisch, informiert und eindeutig abgegeben werden. Vorausgefüllte Checkboxen oder Schweigen gelten NICHT als Einwilligung."
   },
   {
     id: 9,
@@ -119,22 +119,22 @@ const QUESTIONS = [
       "Nur wenn ein Gericht dies anordnet"
     ],
     correct: 1,
-    explanation: "Eine Einwilligung kann jederzeit und ohne Angabe von Gründen widerrufen werden. Die Verarbeitung vor dem Widerruf bleibt rechtmäßig, danach muss sie eingestellt werden."
+    explanation: "Eine Einwilligung kann jederzeit widerrufen werden. Danach muss die Verarbeitung eingestellt werden. Für Entwickler bedeutet das: eine Opt-out-Funktion muss technisch vorhanden sein."
   },
 
   // ── Betroffenenrechte ─────────────────────────────────────────────────────
   {
     id: 10,
     topic: "Betroffenenrechte",
-    question: "Was bedeutet das Recht auf Vergessenwerden?",
+    question: "Was bedeutet das Recht auf Vergessenwerden für eine Anwendung?",
     answers: [
       "Historische Ereignisse werden aus dem Internet gelöscht",
-      "Eine Person kann verlangen, dass ihre gespeicherten Daten gelöscht werden",
+      "Nutzer können verlangen, dass ihre Daten aus dem System gelöscht werden",
       "Unternehmen müssen alle Daten nach 30 Tagen löschen",
-      "Backups werden automatisch überschrieben"
+      "Betrifft nur Suchmaschinen, nicht normale Apps"
     ],
     correct: 1,
-    explanation: "Das Recht auf Löschung erlaubt Betroffenen, die Löschung ihrer Daten zu verlangen - z. B. wenn der Zweck entfallen ist oder die Einwilligung widerrufen wurde."
+    explanation: "Das Recht auf Löschung bedeutet für Entwickler: die App muss eine vollständige Löschung aller personenbezogenen Daten eines Nutzers technisch ermöglichen - inkl. Backups und Logs (soweit keine Aufbewahrungspflicht)."
   },
   {
     id: 11,
@@ -147,7 +147,7 @@ const QUESTIONS = [
       "Das Recht auf Einsicht in interne Unternehmensunterlagen"
     ],
     correct: 1,
-    explanation: "Jede Person darf verlangen zu erfahren, ob und welche Daten über sie gespeichert sind, zu welchem Zweck und wer diese erhalten hat."
+    explanation: "Jede Person darf verlangen zu erfahren, welche Daten über sie gespeichert sind, zu welchem Zweck und wer diese erhalten hat. Entwickler müssen sicherstellen, dass diese Auskunft technisch möglich ist."
   },
   {
     id: 12,
@@ -160,27 +160,27 @@ const QUESTIONS = [
       "Es gibt keine gesetzliche Frist"
     ],
     correct: 1,
-    explanation: "Die Antwort muss innerhalb eines Monats erfolgen. Bei besonders komplexen oder vielen Anfragen kann die Frist auf bis zu drei Monate verlängert werden - die betroffene Person muss aber informiert werden."
+    explanation: "Die Antwort muss innerhalb eines Monats erfolgen. Bei besonders komplexen Anfragen kann die Frist auf bis zu drei Monate verlängert werden - die betroffene Person muss aber informiert werden."
   },
   {
     id: 13,
     topic: "Betroffenenrechte",
-    question: "Was bedeutet das Recht auf Datenübertragbarkeit?",
+    question: "Was bedeutet das Recht auf Datenübertragbarkeit für Entwickler?",
     answers: [
-      "Daten müssen kostenlos per Post zugeschickt werden",
-      "Eigene Daten in einem gängigen, maschinenlesbaren Format erhalten und an einen anderen Anbieter weitergeben können",
-      "Daten müssen auf USB-Stick übergeben werden",
-      "Gilt für alle Arten der Datenverarbeitung"
+      "Nutzer müssen ihre Daten per Post erhalten können",
+      "Nutzer können ihre Daten in einem maschinenlesbaren Format (z. B. JSON, CSV) exportieren und weitergeben",
+      "Entwickler müssen alle Daten auf USB-Stick ausgeben",
+      "Gilt nur für Banken und Gesundheitsdienstleister"
     ],
     correct: 1,
-    explanation: "Betroffene können ihre Daten in einem strukturierten, gängigen Format (z. B. JSON, CSV) erhalten. Das gilt bei Verarbeitung auf Basis von Einwilligung oder Vertrag."
+    explanation: "Anwendungen müssen einen Daten-Export in einem gängigen, maschinenlesbaren Format ermöglichen - z. B. JSON oder CSV. Das gilt bei Verarbeitung auf Basis von Einwilligung oder Vertrag."
   },
 
-  // ── Datenschutzpflichten ──────────────────────────────────────────────────
+  // ── Datenpannen ───────────────────────────────────────────────────────────
   {
     id: 14,
     topic: "Datenpannen",
-    question: "Was muss passieren, wenn in einem Unternehmen Daten gestohlen oder verloren gehen?",
+    question: "Was muss passieren, wenn in einem Unternehmen Nutzerdaten durch einen Angriff oder Fehler nach außen gelangen?",
     answers: [
       "Nichts, das ist eine interne Angelegenheit",
       "Die Datenschutzbehörde muss innerhalb von 72 Stunden informiert werden (wenn ein Risiko besteht)",
@@ -193,16 +193,18 @@ const QUESTIONS = [
   {
     id: 15,
     topic: "Datenpannen",
-    question: "Wann müssen auch die betroffenen Personen direkt über eine Datenpanne informiert werden?",
+    question: "Wann müssen auch die betroffenen Nutzer direkt über eine Datenpanne informiert werden?",
     answers: [
       "Immer, bei jeder Datenpanne",
-      "Wenn ein hohes Risiko besteht, z. B. wenn Identitätsdiebstahl oder finanzielle Schäden möglich sind",
+      "Wenn ein hohes Risiko besteht, z. B. wenn Passwörter oder Gesundheitsdaten betroffen sind",
       "Nie - nur die Behörde wird informiert",
       "Wenn mehr als 100 Personen betroffen sind"
     ],
     correct: 1,
-    explanation: "Die direkte Benachrichtigung der Betroffenen ist nur bei voraussichtlich hohem Risiko erforderlich - z. B. wenn Passwörter, Gesundheitsdaten oder Bankdaten betroffen sind."
+    explanation: "Die direkte Benachrichtigung der Betroffenen ist nur bei voraussichtlich hohem Risiko nötig - z. B. wenn Passwörter, Gesundheitsdaten oder Bankdaten abgeflossen sind."
   },
+
+  // ── Datenschutzpflichten ──────────────────────────────────────────────────
   {
     id: 16,
     topic: "Datenschutzpflichten",
@@ -214,7 +216,7 @@ const QUESTIONS = [
       "Datenschutz gilt nur für fertige, ausgelieferte Produkte"
     ],
     correct: 1,
-    explanation: "Privacy by Design: Datenschutz ist von Anfang an Teil des Designs. Als Entwickler sollte man Datenschutzmaßnahmen nicht als Nachgedanken behandeln, sondern schon bei der Architektur berücksichtigen."
+    explanation: "Privacy by Design: Datenschutz ist von Anfang an Teil des Designs. Entwickler sollen z. B. bei der Datenbankstruktur, den API-Endpunkten und Formularen schon an Datensparsamkeit und Sicherheit denken."
   },
   {
     id: 17,
@@ -222,12 +224,12 @@ const QUESTIONS = [
     question: "Was bedeutet Privacy by Default?",
     answers: [
       "Standardmäßig werden alle Daten mit Dritten geteilt",
-      "Die Standard-Einstellungen eines Systems sind so gesetzt, dass möglichst wenige Daten verarbeitet werden",
+      "Die Standard-Einstellungen einer App sind so gesetzt, dass möglichst wenige Daten verarbeitet werden",
       "Benutzer müssen Datenschutz selbst aktiv einschalten",
       "Alle Daten werden standardmäßig nach einem Monat gelöscht"
     ],
     correct: 1,
-    explanation: "Privacy by Default: die Voreinstellungen müssen datenschutzfreundlich sein. Eine App sollte z. B. nicht standardmäßig den Standort teilen oder alle optionalen Felder vorausfüllen."
+    explanation: "Privacy by Default: Apps sollen standardmäßig datenschutzfreundlich sein. Z. B. soll der Standort nicht automatisch geteilt werden, und optionale Felder sollen nicht vorausgefüllt sein."
   },
   {
     id: 18,
@@ -240,7 +242,7 @@ const QUESTIONS = [
       "Wenn mehr als 10.000 Datensätze verarbeitet werden"
     ],
     correct: 1,
-    explanation: "Eine Datenschutz-Folgenabschätzung ist erforderlich, wenn eine Verarbeitung voraussichtlich ein hohes Risiko bedeutet - z. B. bei Videoüberwachung, Profiling oder Gesundheitsdaten in großem Umfang."
+    explanation: "Eine Datenschutz-Folgenabschätzung ist erforderlich bei hohem Risiko - z. B. bei Videoüberwachung, Profiling, Gesundheitsdaten in großem Umfang oder biometrischen Daten."
   },
   {
     id: 19,
@@ -266,7 +268,7 @@ const QUESTIONS = [
       "Niemals - der Datenschutzbeauftragte ist immer freiwillig"
     ],
     correct: 1,
-    explanation: "Ein Datenschutzbeauftragter ist Pflicht bei Behörden, bei umfangreicher Verarbeitung besonderer Datenkategorien (z. B. Gesundheitsdaten) und bei systematischer Beobachtung von Personen. Er berät, haftet aber nicht persönlich."
+    explanation: "Ein Datenschutzbeauftragter ist Pflicht bei Behörden, bei umfangreicher Verarbeitung besonderer Datenkategorien (z. B. Gesundheitsdaten) und bei systematischer Beobachtung von Personen."
   },
 
   // ── Datenschutz Österreich ────────────────────────────────────────────────
@@ -281,7 +283,7 @@ const QUESTIONS = [
       "Wirtschaftskammer Österreich (WKO)"
     ],
     correct: 1,
-    explanation: "Die österreichische Datenschutzbehörde (DSB) ist die nationale Aufsichtsbehörde. Sie nimmt Beschwerden von Bürgerinnen und Bürgern entgegen und kann Sanktionen verhängen."
+    explanation: "Die österreichische Datenschutzbehörde (DSB) ist die nationale Aufsichtsbehörde. Sie nimmt Beschwerden entgegen und kann Sanktionen verhängen."
   },
   {
     id: 22,
@@ -294,7 +296,7 @@ const QUESTIONS = [
       "Es ist identisch mit dem deutschen Datenschutzgesetz"
     ],
     correct: 1,
-    explanation: "Das DSG 2018 ergänzt die DSGVO in Österreich. Es regelt nationale Öffnungsklauseln, benennt die Datenschutzbehörde und enthält spezifisch österreichische Bestimmungen."
+    explanation: "Das DSG 2018 ergänzt die DSGVO in Österreich. Es regelt nationale Öffnungsklauseln und benennt die Datenschutzbehörde als zuständige Aufsichtsbehörde."
   },
   {
     id: 23,
@@ -307,7 +309,7 @@ const QUESTIONS = [
       "Einkaufshistorie und Surfgewohnheiten"
     ],
     correct: 1,
-    explanation: "Besonders schutzwürdige Daten: Gesundheitsdaten, genetische und biometrische Daten, politische Meinungen, religiöse Überzeugungen, Gewerkschaftszugehörigkeit und Daten zum Sexualleben."
+    explanation: "Besonders schutzwürdige Daten: Gesundheitsdaten, genetische und biometrische Daten, politische Meinungen, religiöse Überzeugungen, Gewerkschaftszugehörigkeit. Sie dürfen nur in Ausnahmefällen verarbeitet werden."
   },
   {
     id: 24,
@@ -320,7 +322,7 @@ const QUESTIONS = [
       "Bis zu 1 Million Euro"
     ],
     correct: 2,
-    explanation: "Bei schwerwiegenden Verstößen (z. B. unzulässige Datenverarbeitung, Verletzung der Betroffenenrechte) drohen Strafen bis zu 20 Mio. Euro oder 4 % des weltweiten Jahresumsatzes - je nachdem, was höher ist."
+    explanation: "Bei schwerwiegenden Verstößen drohen Strafen bis zu 20 Mio. Euro oder 4 % des weltweiten Jahresumsatzes - je nachdem, was höher ist. Das gilt auch für kleine Unternehmen und Start-ups."
   },
   {
     id: 25,
@@ -333,7 +335,7 @@ const QUESTIONS = [
       "Anonymisierung gilt nur bei Gesundheitsdaten"
     ],
     correct: 1,
-    explanation: "Pseudonymisierung: Identifikatoren werden durch Codes ersetzt, aber eine Re-Identifikation ist mit Zusatzdaten möglich - die DSGVO gilt weiter. Anonymisierung: keine Re-Identifikation mehr möglich - die DSGVO gilt nicht mehr."
+    explanation: "Pseudonymisierung: Re-Identifikation mit Zusatzdaten möglich - die DSGVO gilt weiter. Anonymisierung: keine Re-Identifikation mehr möglich - die DSGVO gilt nicht mehr. Für Testdaten sollte echte Anonymisierung angestrebt werden."
   },
 
   // ── Urheberrecht ──────────────────────────────────────────────────────────
@@ -361,7 +363,7 @@ const QUESTIONS = [
       "Nach einer Wartezeit von 6 Monaten"
     ],
     correct: 1,
-    explanation: "Das Urheberrecht entsteht automatisch und formlos mit der Schöpfung des Werkes. Es ist keine Registrierung, kein Copyright-Vermerk und keine Behördenmeldung erforderlich."
+    explanation: "Das Urheberrecht entsteht automatisch mit der Schöpfung. Kein Copyright-Vermerk, keine Registrierung notwendig - das gilt auch für selbstgeschriebenen Code."
   },
   {
     id: 28,
@@ -415,7 +417,7 @@ const QUESTIONS = [
       "Die Software darf nur kostenlos angeboten werden"
     ],
     correct: 1,
-    explanation: "GPL ist eine Copyleft-Lizenz: Wer GPL-Software verändert oder weitergibt, muss den Quellcode unter derselben Lizenz zugänglich machen."
+    explanation: "GPL ist eine Copyleft-Lizenz: Wer GPL-Software in sein Projekt einbindet, muss das gesamte Projekt unter GPL veröffentlichen. Das ist für proprietäre Produkte oft problematisch."
   },
   {
     id: 32,
@@ -428,7 +430,7 @@ const QUESTIONS = [
       "Quellcode muss immer offengelegt werden"
     ],
     correct: 1,
-    explanation: "MIT ist eine permissive Lizenz: Fast alles ist erlaubt, solange der ursprüngliche Copyright-Hinweis erhalten bleibt. Es gibt keine Pflicht, eigene Änderungen zu veröffentlichen."
+    explanation: "MIT ist eine permissive Lizenz: Fast alles ist erlaubt, solange der ursprüngliche Copyright-Hinweis erhalten bleibt. Keine Pflicht, eigene Änderungen zu veröffentlichen."
   },
   {
     id: 33,
@@ -467,7 +469,7 @@ const QUESTIONS = [
       "Ein Softwareentwicklungs-Framework"
     ],
     correct: 1,
-    explanation: "Creative Commons bietet standardisierte Lizenzen für kreative Inhalte (Texte, Bilder, Videos, Musik). Für Software empfiehlt CC selbst, spezialisierte Software-Lizenzen wie MIT oder GPL zu verwenden."
+    explanation: "Creative Commons ist für kreative Inhalte gedacht. Für Software selbst empfiehlt CC, spezialisierte Software-Lizenzen wie MIT oder GPL zu verwenden."
   },
 
   // ── IT-Sicherheit ─────────────────────────────────────────────────────────
@@ -508,7 +510,7 @@ const QUESTIONS = [
       "Eine agile Projektmanagement-Methode"
     ],
     correct: 1,
-    explanation: "Social Engineering nutzt menschliche Schwächen aus - Vertrauen, Hilfsbereitschaft, Angst. Beispiele: sich als IT-Support ausgeben oder einen verseuchten USB-Stick absichtlich 'verlieren'."
+    explanation: "Social Engineering nutzt menschliche Schwächen aus - Vertrauen, Hilfsbereitschaft, Angst. Beispiele: sich am Telefon als IT-Support ausgeben oder einen verseuchten USB-Stick absichtlich 'verlieren'."
   },
   {
     id: 39,
@@ -521,7 +523,7 @@ const QUESTIONS = [
       "Eine Optimierungsmethode für SQL-Abfragen"
     ],
     correct: 1,
-    explanation: "SQL-Injection gehört zu den häufigsten Sicherheitslücken. Wenn Benutzereingaben nicht bereinigt werden, können Angreifer SQL-Code einschleusen und z. B. alle Passwörter auslesen oder Daten löschen."
+    explanation: "SQL-Injection: Wenn Benutzereingaben ungefiltert in SQL-Abfragen einfließen, können Angreifer die Datenbankabfrage manipulieren und z. B. alle Passwörter auslesen."
   },
   {
     id: 40,
@@ -534,7 +536,7 @@ const QUESTIONS = [
       "Ein Authentifizierungsstandard für APIs"
     ],
     correct: 1,
-    explanation: "HTTPS verschlüsselt die Kommunikation mit TLS. So können Passwörter, Formulardaten oder Zahlungsinformationen nicht von Dritten mitgelesen werden."
+    explanation: "HTTPS verschlüsselt die Kommunikation mit TLS. So können Passwörter oder Zahlungsdaten nicht von Dritten mitgelesen werden. Die DSGVO verpflichtet zu angemessenen technischen Schutzmaßnahmen."
   },
   {
     id: 41,
@@ -563,368 +565,271 @@ const QUESTIONS = [
     explanation: "Nicht validierte Eingaben sind ein häufiges Einfallstor. SQL-Injection, XSS und andere Angriffe nutzen aus, wenn Eingaben ungefiltert weiterverarbeitet werden."
   },
 
-  // ── OOP Grundlagen ────────────────────────────────────────────────────────
+  // ── DSGVO in der Entwicklungspraxis ──────────────────────────────────────
   {
     id: 43,
-    topic: "OOP Grundlagen",
-    question: "Was ist objektorientierte Programmierung (OOP)?",
+    topic: "DSGVO in der Praxis",
+    question: "Eine Web-App speichert IP-Adressen in den Server-Logs. Was gilt dabei aus Datenschutzsicht?",
     answers: [
-      "Programmierung ohne Variablen und Schleifen",
-      "Ein Paradigma, bei dem Code in Klassen und Objekten strukturiert wird",
-      "Nur für große Unternehmen geeignet",
-      "Eine Methode zur Datenbankentwicklung"
+      "IP-Adressen sind keine personenbezogenen Daten",
+      "IP-Adressen sind personenbezogene Daten und unterliegen der DSGVO",
+      "Nur statische IP-Adressen sind personenbezogen",
+      "Server-Logs sind grundsätzlich vom Datenschutz ausgenommen"
     ],
     correct: 1,
-    explanation: "OOP organisiert Code in Objekte mit Eigenschaften (Daten) und Methoden (Verhalten). Bekannte OOP-Sprachen: Java, C#, Python, JavaScript."
+    explanation: "IP-Adressen - auch dynamische - gelten als personenbezogene Daten, weil eine Re-Identifikation (z. B. über den Internet-Anbieter) möglich ist. Logs mit IP-Adressen dürfen nur so lange aufbewahrt werden, wie es notwendig ist."
   },
   {
     id: 44,
-    topic: "OOP Grundlagen",
-    question: "Was ist eine Klasse in der OOP?",
+    topic: "DSGVO in der Praxis",
+    question: "Ein Entwickler möchte Google Analytics in eine Website einbinden. Was ist datenschutzrechtlich zu beachten?",
     answers: [
-      "Ein einzelnes Datenelement",
-      "Eine Vorlage (Bauplan) für Objekte, die Eigenschaften und Methoden definiert",
-      "Ein Kommentar im Quellcode",
-      "Ein Datenbankfeld"
+      "Google Analytics darf ohne Weiteres eingebunden werden",
+      "Es braucht eine Einwilligung des Nutzers, da Daten an Google (USA) übertragen werden",
+      "Google Analytics ist in der EU vollständig verboten",
+      "Ein Cookie-Banner ohne Opt-out-Möglichkeit ist ausreichend"
     ],
     correct: 1,
-    explanation: "Eine Klasse ist der Bauplan; ein Objekt ist die konkrete Instanz. Beispiel: Klasse 'Auto' definiert Eigenschaften wie Farbe und Methoden wie fahren(). Jedes konkrete Auto-Objekt ist eine Instanz dieser Klasse."
+    explanation: "Google Analytics überträgt personenbezogene Daten an US-Server. Das erfordert eine aktive Einwilligung (Opt-in) und einen Auftragsverarbeitungsvertrag mit Google. Ablehnen muss genauso einfach wie Zustimmen sein."
   },
   {
     id: 45,
-    topic: "OOP Grundlagen",
-    question: "Was ist Vererbung in der OOP?",
+    topic: "DSGVO in der Praxis",
+    question: "Welche Felder dürfen bei einem Registrierungsformular als Pflichtfelder markiert werden?",
     answers: [
-      "Eine Klasse übernimmt Eigenschaften und Methoden einer anderen Klasse",
-      "Daten werden automatisch aus einer Datenbank geladen",
-      "Eine Funktion ruft eine andere Funktion auf",
-      "Eine Variable wird einer anderen zugewiesen"
+      "Alle Felder, die das Unternehmen interessieren",
+      "Nur Felder, die für den jeweiligen Zweck wirklich notwendig sind (Datensparsamkeit)",
+      "Name, Adresse, Telefon und E-Mail sind immer Pflicht",
+      "Pflichtfelder sind im Datenschutz nicht geregelt"
     ],
-    correct: 0,
-    explanation: "Vererbung ermöglicht Wiederverwendung von Code. Eine Unterklasse erbt alle Eigenschaften und Methoden der Oberklasse und kann sie ergänzen oder überschreiben."
+    correct: 1,
+    explanation: "Datensparsamkeit gilt auch beim Formulardesign: Nur wirklich notwendige Felder dürfen Pflicht sein. Ein Newsletter braucht z. B. keine Adresse oder Telefonnummer als Pflichtfeld."
   },
   {
     id: 46,
-    topic: "OOP Grundlagen",
-    question: "Was bedeutet Kapselung (Encapsulation) in der OOP?",
+    topic: "DSGVO in der Praxis",
+    question: "Wie müssen Passwörter in einer datenschutzkonformen Anwendung gespeichert werden?",
     answers: [
-      "Code wird in eine ZIP-Datei verpackt",
-      "Interne Details einer Klasse werden verborgen; Zugriff nur über definierte Methoden",
-      "Eine Klasse erbt von einer anderen",
-      "Methoden werden wiederholt in einer Schleife aufgerufen"
+      "Verschlüsselt mit AES, damit sie entschlüsselt werden können",
+      "Als sicherer Hash (z. B. bcrypt, Argon2) - niemals im Klartext oder reversibel verschlüsselt",
+      "Im Klartext ist erlaubt, wenn die Datenbank selbst verschlüsselt ist",
+      "Passwörter dürfen gar nicht gespeichert werden"
     ],
     correct: 1,
-    explanation: "Kapselung schützt den internen Zustand eines Objekts. Private Attribute sind von außen nicht direkt zugänglich - nur über Getter- und Setter-Methoden. Das verhindert ungewollte Änderungen."
+    explanation: "Passwörter müssen mit einem sicheren Hashverfahren (bcrypt, Argon2) gespeichert werden - niemals im Klartext. Die DSGVO fordert angemessene technische Schutzmaßnahmen, Klartext-Passwörter wären ein grober Verstoß."
   },
   {
     id: 47,
-    topic: "OOP Grundlagen",
-    question: "Was ist ein Interface (Schnittstelle) in der Programmierung?",
+    topic: "DSGVO in der Praxis",
+    question: "Darf ein Entwickler echte Kundendaten für das Testen und die Entwicklung verwenden?",
     answers: [
-      "Das optische Design einer App",
-      "Ein Vertrag, der vorschreibt, welche Methoden eine Klasse implementieren muss",
-      "Eine Verbindung zwischen zwei Datenbanken",
-      "Ein Kommentar im Quellcode"
+      "Ja, immer - Testumgebungen sind vom Datenschutz ausgenommen",
+      "Nein - für Tests sollten anonymisierte oder synthetische Testdaten verwendet werden",
+      "Ja, wenn der Zugriff auf das Entwicklerteam beschränkt ist",
+      "Nur mit schriftlicher Einwilligung jedes einzelnen Kunden"
     ],
     correct: 1,
-    explanation: "Ein Interface definiert, welche Methoden eine Klasse bereitstellen muss, ohne deren Implementierung festzulegen. Es ermöglicht einheitliche Nutzung unterschiedlicher Klassen."
+    explanation: "Testumgebungen haben oft weniger Sicherheit als Produktionssysteme. Echte Kundendaten dort einzusetzen verstößt gegen Datensparsamkeit und Zweckbindung. Stattdessen: anonymisierte oder synthetisch generierte Testdaten verwenden."
   },
-
-  // ── Softwareentwicklung ───────────────────────────────────────────────────
   {
     id: 48,
-    topic: "Softwareentwicklung",
-    question: "Was ist eine API?",
+    topic: "DSGVO in der Praxis",
+    question: "Ein Nutzer löscht seinen Account. Was muss eine datenschutzkonforme App tun?",
     answers: [
-      "Ein Betriebssystem",
-      "Eine Schnittstelle, über die Programme miteinander kommunizieren und Daten austauschen",
-      "Eine Programmiersprache",
-      "Ein Dateiformat"
+      "Nur das Passwort löschen, der Rest bleibt",
+      "Alle personenbezogenen Daten löschen, soweit keine gesetzliche Aufbewahrungspflicht besteht",
+      "Die Daten für 10 Jahre aufbewahren",
+      "Den Account nur deaktivieren, nicht die Daten löschen"
     ],
     correct: 1,
-    explanation: "API steht für Application Programming Interface. Über eine API können Programme auf Funktionen anderer Programme oder Dienste zugreifen - z. B. eine Wetter-App, die Daten von einem Wetterdienst abruft."
+    explanation: "Das Recht auf Löschung muss technisch vollständig umgesetzt werden: alle personenbezogenen Daten müssen entfernt werden - auch aus Backups, Logs und Drittdiensten - außer es besteht eine gesetzliche Aufbewahrungspflicht."
   },
   {
     id: 49,
-    topic: "Softwareentwicklung",
-    question: "Was ist der Unterschied zwischen Frontend und Backend?",
+    topic: "DSGVO in der Praxis",
+    question: "Was ist beim Newsletter-Versand datenschutzrechtlich erforderlich?",
     answers: [
-      "Kein Unterschied",
-      "Frontend ist die sichtbare Benutzeroberfläche; Backend läuft auf dem Server und verwaltet Logik und Daten",
-      "Frontend ist nur für mobile Apps; Backend für Desktop",
-      "Frontend ist immer schneller als Backend"
+      "Einmalige Eintragung in ein Formular reicht aus",
+      "Double-Opt-In: Der Nutzer bestätigt die Anmeldung durch einen Link in einer Bestätigungs-E-Mail",
+      "Ein Cookie-Banner auf der Website ist ausreichend",
+      "Keine besonderen Anforderungen"
     ],
     correct: 1,
-    explanation: "Frontend (HTML, CSS, JS im Browser): was der Benutzer sieht. Backend (Server): Programmlogik, Datenbankzugriffe - unsichtbar für den Benutzer."
+    explanation: "Double-Opt-In ist der empfohlene Standard: Der Nutzer trägt sich ein und bestätigt dann über eine E-Mail. Das dient als Nachweis der Einwilligung und schützt vor missbräuchlichen Eintragungen."
   },
   {
     id: 50,
-    topic: "Softwareentwicklung",
-    question: "Was ist ein Framework?",
+    topic: "DSGVO in der Praxis",
+    question: "Eine App sendet Nutzerdaten an einen US-amerikanischen Cloud-Anbieter. Was ist erforderlich?",
     answers: [
-      "Ein Fehler im Code",
-      "Eine vorgefertigte Struktur, die die Entwicklung erleichtert (z. B. React, Angular, Django, Spring)",
-      "Ein Testverfahren",
-      "Ein Dateiformat für Konfigurationsdateien"
+      "Nichts Besonderes - die USA haben gleichwertigen Datenschutz",
+      "Eine geeignete Garantie (z. B. Standardvertragsklauseln) oder ein gültiger Angemessenheitsbeschluss",
+      "Es ist vollständig verboten, Daten in die USA zu übertragen",
+      "Ein österreichischer Notar muss zustimmen"
     ],
     correct: 1,
-    explanation: "Ein Framework gibt eine Grundstruktur vor und stellt häufig benötigte Funktionen bereit. Entwickler füllen das Framework mit eigener Logik, statt alles von Grund auf zu schreiben."
+    explanation: "Datenübertragungen in Länder außerhalb der EU brauchen eine Absicherung - z. B. Standardvertragsklauseln (SCC) der EU-Kommission. Das gilt für AWS, Google Cloud, Azure und viele andere US-Dienste."
   },
   {
     id: 51,
-    topic: "Softwareentwicklung",
-    question: "Was ist der Unterschied zwischen einer kompilierten und einer interpretierten Sprache?",
+    topic: "DSGVO in der Praxis",
+    question: "Ein Entwickler bindet ein Drittanbieter-SDK (z. B. Facebook Pixel, Crashlytics) ein. Wer ist für die dadurch entstehende Datenverarbeitung verantwortlich?",
     answers: [
-      "Es gibt keinen Unterschied in der Ausführung",
-      "Kompilierte Sprachen werden vorab in Maschinencode übersetzt; interpretierte werden zur Laufzeit Zeile für Zeile ausgeführt",
-      "Interpretierte Sprachen sind immer schneller",
-      "Kompilierte Sprachen brauchen keine IDE"
+      "Nur der SDK-Anbieter ist verantwortlich",
+      "Der App-Entwickler ist mitverantwortlich und muss Nutzer darüber informieren",
+      "Niemand - SDKs sind vom Datenschutz ausgenommen",
+      "Nur wenn der SDK-Anbieter in der EU sitzt"
     ],
     correct: 1,
-    explanation: "Kompiliert (z. B. C, C++, Java): Code wird vorab übersetzt - meist schneller. Interpretiert (z. B. Python, JavaScript): Code wird zur Laufzeit ausgeführt - flexibler, aber oft langsamer."
+    explanation: "Wer ein SDK einbindet, das Daten sammelt, ist mitverantwortlich. Nutzer müssen in der Datenschutzerklärung darüber informiert werden, und ggf. ist ein AVV mit dem SDK-Anbieter erforderlich."
   },
   {
     id: 52,
-    topic: "Softwareentwicklung",
-    question: "Was ist ein Algorithmus?",
+    topic: "DSGVO in der Praxis",
+    question: "Eine App soll Gesichtserkennung zur Authentifizierung nutzen. Was ist besonders zu beachten?",
     answers: [
-      "Eine Programmiersprache",
-      "Eine endliche, präzise Folge von Schritten zur Lösung eines Problems",
-      "Ein Datenbankformat",
-      "Ein Framework für Web-Entwicklung"
+      "Nichts Besonderes - es reicht eine normale Datenschutzerklärung",
+      "Biometrische Daten sind besonders sensibel - es braucht eine explizite Einwilligung und besondere Sicherheitsmaßnahmen",
+      "Gesichtserkennung ist in der EU vollständig verboten",
+      "Nur wenn die Daten in die Cloud übertragen werden"
     ],
     correct: 1,
-    explanation: "Ein Algorithmus ist eine schrittweise Anleitung zur Lösung eines Problems. Jede Software besteht aus Algorithmen - z. B. Sortieralgorithmen, Suchalgorithmen oder Verschlüsselungsalgorithmen."
+    explanation: "Biometrische Daten gehören zu den besonders schutzwürdigen Datenkategorien. Sie dürfen nur auf Basis einer ausdrücklichen Einwilligung und mit besonders hohen Sicherheitsstandards verarbeitet werden."
   },
   {
     id: 53,
-    topic: "Softwareentwicklung",
-    question: "Was bedeutet \"Refactoring\" in der Softwareentwicklung?",
+    topic: "DSGVO in der Praxis",
+    question: "Eine App sammelt den Standort des Nutzers. Wann ist das erlaubt?",
     answers: [
-      "Eine neue Funktion hinzufügen",
-      "Bestehenden Code umstrukturieren, ohne sein äußeres Verhalten zu ändern",
-      "Software auf neue Hardware portieren",
-      "Fehler beheben (Debugging)"
+      "Immer, wenn es für die App-Funktion praktisch sinnvoll ist",
+      "Nur wenn eine gültige Rechtsgrundlage vorliegt und der Nutzer informiert wurde",
+      "Standortdaten sind keine personenbezogenen Daten",
+      "Nur bei Navigations-Apps"
     ],
     correct: 1,
-    explanation: "Refactoring verbessert die Codequalität, Lesbarkeit und Wartbarkeit - ohne dabei die Funktionalität zu verändern. Danach sollten alle Tests weiterhin bestehen."
+    explanation: "Standortdaten sind personenbezogene Daten. Die Erhebung braucht eine Rechtsgrundlage - meist Einwilligung. Nutzer müssen wissen, wann und wofür der Standort genutzt wird."
   },
-
-  // ── Versionskontrolle & Methoden ──────────────────────────────────────────
   {
     id: 54,
-    topic: "Versionskontrolle",
-    question: "Was ist Git?",
+    topic: "DSGVO in der Praxis",
+    question: "Ein Entwickler entdeckt, dass die eigene Anwendung eine Sicherheitslücke hat, durch die Nutzerdaten abgerufen werden könnten. Was muss getan werden?",
     answers: [
-      "Eine Programmiersprache",
-      "Ein verteiltes Versionskontrollsystem zur Verwaltung und Nachverfolgung von Quellcode-Änderungen",
-      "Eine Datenbank",
-      "Ein Test-Framework"
+      "Die Lücke intern dokumentieren und beim nächsten regulären Update schließen",
+      "Die Lücke sofort schließen; wenn Daten bereits abgeflossen sind, muss eine Datenpanne gemeldet werden",
+      "Nichts - solange noch kein Angriff stattgefunden hat, besteht keine Meldepflicht",
+      "Die Nutzer per Social Media informieren"
     ],
     correct: 1,
-    explanation: "Git ermöglicht es, Änderungen am Code zu verfolgen, frühere Versionen wiederherzustellen und mit mehreren Entwicklern gleichzeitig zu arbeiten. Plattformen wie GitHub oder GitLab bauen auf Git auf."
+    explanation: "Bekannte Sicherheitslücken müssen sofort behoben werden. Wenn bereits Daten abgeflossen sind oder ein hohes Risiko besteht, muss die Datenschutzbehörde innerhalb von 72 Stunden informiert werden."
   },
   {
     id: 55,
-    topic: "Versionskontrolle",
-    question: "Was bedeutet ein Commit in Git?",
+    topic: "DSGVO in der Praxis",
+    question: "Eine App richtet sich an Kinder unter 14 Jahren. Was gilt besonders?",
     answers: [
-      "Einen Branch löschen",
-      "Eine gespeicherte Version des Codes mit einer Beschreibung der Änderungen im Repository ablegen",
-      "Code auf den Server hochladen (push)",
-      "Einen Zusammenführungskonflikt lösen"
+      "Für Kinder gelten die gleichen Regeln wie für Erwachsene",
+      "Elterliche Einwilligung ist erforderlich; manipulative Design-Muster (Dark Patterns) sind besonders problematisch",
+      "Für Kinder braucht man keine Datenschutzerklärung",
+      "Apps für Kinder sind in der EU grundsätzlich verboten"
     ],
     correct: 1,
-    explanation: "Ein Commit ist ein Snapshot des Codes zu einem bestimmten Zeitpunkt. Jeder Commit hat eine eindeutige ID und eine Nachricht, die beschreibt, was geändert wurde."
+    explanation: "Bei Kindern unter 14 Jahren (in Österreich) ist die Einwilligung der Eltern oder des Erziehungsberechtigten erforderlich. Manipulative UI-Muster oder Profiling sind hier besonders kritisch."
   },
   {
     id: 56,
-    topic: "Versionskontrolle",
-    question: "Was ist ein Branch (Zweig) in Git?",
+    topic: "DSGVO in der Praxis",
+    question: "Dürfen personenbezogene Daten (z. B. echte E-Mails oder Kundennamen) in einem Git-Repository gespeichert werden?",
     answers: [
-      "Eine Sicherungskopie des gesamten Projekts auf einem anderen Server",
-      "Eine parallele Entwicklungslinie, auf der unabhängig vom Hauptcode gearbeitet werden kann",
-      "Eine Liste aller bisherigen Commits",
-      "Ein automatischer Test"
+      "Ja, wenn das Repository privat ist",
+      "Nein - Zweckbindung und Datensparsamkeit gelten auch für Repositories; echte Daten haben dort nichts verloren",
+      "Ja, wenn die Commit-Messages keine Namen enthalten",
+      "Nur in öffentlichen Repositories ist es verboten"
     ],
     correct: 1,
-    explanation: "Ein Branch ermöglicht parallele Entwicklung. Neue Features oder Bugfixes werden in einem eigenen Branch entwickelt und erst nach Fertigstellung in den Hauptbranch (main/master) gemergt."
+    explanation: "Konfigurationsdateien mit echten Zugangsdaten, Testdateien mit Kundendaten oder Dumps - all das darf nicht ins Repository. Auch private Repos können kompromittiert werden, und Git-History ist schwer vollständig zu löschen."
   },
   {
     id: 57,
-    topic: "Agile Entwicklung",
-    question: "Was ist agile Softwareentwicklung?",
+    topic: "DSGVO in der Praxis",
+    question: "Wann muss eine mobile App eine Datenschutzerklärung haben?",
     answers: [
-      "Softwareentwicklung ohne jegliche Planung",
-      "Iterative, flexible Entwicklung mit regelmäßigem Kundenfeedback statt einem starren Langzeitplan",
-      "Entwicklung ausschließlich für mobile Geräte",
-      "Entwicklung mit streng fixen Meilensteinen über mehrere Jahre"
+      "Nur wenn sie mehr als 100.000 Downloads hat",
+      "Immer, wenn die App personenbezogene Daten verarbeitet",
+      "Nur bei kostenpflichtigen Apps",
+      "Nur bei Apps für Unternehmen"
     ],
     correct: 1,
-    explanation: "Agile Entwicklung arbeitet in kurzen Zyklen (Iterationen), reagiert flexibel auf Änderungen und bindet Kunden regelmäßig ein. Das Gegenteil ist das Wasserfallmodell mit streng linearen Phasen."
+    explanation: "Sobald eine App personenbezogene Daten verarbeitet - also z. B. einen Account anlegt, Logs führt oder Standort abfragt - ist eine Datenschutzerklärung Pflicht. Das gilt für praktisch jede App."
   },
   {
     id: 58,
-    topic: "Agile Entwicklung",
-    question: "Was ist Scrum?",
+    topic: "DSGVO in der Praxis",
+    question: "Was ist ein 'Dark Pattern' im Datenschutzkontext?",
     answers: [
-      "Eine Programmiersprache für Backend-Entwicklung",
-      "Ein agiles Framework mit festen Rollen, Ereignissen und Artefakten zur Strukturierung der Softwareentwicklung",
-      "Ein Datenbankmanagement-System",
-      "Ein Testverfahren für Sicherheitslücken"
+      "Ein Designstil mit dunklem Farbschema (Dark Mode)",
+      "Eine manipulative UI-Gestaltung, die Nutzer dazu bringt, mehr Daten preiszugeben als gewollt",
+      "Ein Sicherheitsverfahren für Passwörter",
+      "Eine Debugging-Methode"
     ],
     correct: 1,
-    explanation: "Scrum ist ein agiles Framework. Zentrale Rollen: Product Owner, Scrum Master, Entwicklungsteam. Zentrale Ereignisse: Sprint Planning, Daily Scrum, Sprint Review, Retrospektive."
+    explanation: "Dark Patterns sind manipulative Gestaltungen: z. B. ein riesiger 'Alle akzeptieren'-Button, aber ein kaum sichtbares 'Ablehnen', oder eine vorausgefüllte Einwilligungscheckbox. Die DSGVO verbietet solche Praktiken."
   },
   {
     id: 59,
-    topic: "Agile Entwicklung",
-    question: "Was ist ein Sprint in Scrum?",
+    topic: "DSGVO in der Praxis",
+    question: "Was ist bei der Datenbankplanung für eine Nutzer-Anwendung aus Datenschutzsicht wichtig?",
     answers: [
-      "Ein kritischer Fehler im Code",
-      "Ein kurzer, fixer Entwicklungszyklus (meist 1-4 Wochen), in dem ein fertiges Produktinkrement erstellt wird",
-      "Ein automatisierter Test",
-      "Ein Meeting am Ende des Projekts"
+      "Nur die Performance der Datenbank ist relevant",
+      "Zugriffsbeschränkungen, Verschlüsselung sensibler Felder, Löschkonzepte und Minimierung der gespeicherten Daten",
+      "Datenschutz betrifft nur die Benutzeroberfläche, nicht die Datenbankstruktur",
+      "Datenbanken brauchen keine Datenschutzmaßnahmen"
     ],
     correct: 1,
-    explanation: "Ein Sprint ist das Herzstück von Scrum: ein zeitlich begrenzter Zyklus, nach dem ein funktionierendes Ergebnis vorliegen soll."
+    explanation: "DSGVO beginnt beim Datenbankdesign: Welche Felder werden wirklich benötigt? Wer darf zugreifen? Wie lange werden Daten gespeichert? Wie werden sie gelöscht? Das sind Fragen, die Entwickler bereits beim Datenmodell klären müssen."
   },
   {
     id: 60,
-    topic: "Softwarequalität",
-    question: "Was ist ein Unit Test?",
+    topic: "DSGVO in der Praxis",
+    question: "Was versteht man unter einem Löschkonzept in einer Anwendung?",
     answers: [
-      "Ein Test des gesamten Systems durch Endnutzer",
-      "Ein automatisierter Test einer einzelnen Funktion oder Methode in Isolation",
-      "Ein manueller Benutzertest",
-      "Ein Leistungstest für die ganze Anwendung"
+      "Eine Funktion zum Löschen einzelner Dateien",
+      "Eine Regelung, welche Daten wann und wie gelöscht oder anonymisiert werden",
+      "Die Deinstallationsroutine einer App",
+      "Ein Backup-System"
     ],
     correct: 1,
-    explanation: "Unit Tests prüfen einzelne Code-Einheiten automatisch auf korrekte Funktion. Sie laufen schnell, finden Bugs früh und dokumentieren das erwartete Verhalten."
+    explanation: "Ein Löschkonzept legt fest: Welche Daten werden nach welcher Frist gelöscht? Wie werden Löschanfragen von Nutzern verarbeitet? Wie werden Backups und Logs bereinigt? Das ist ein technisches und organisatorisches Pflichtthema."
   },
   {
     id: 61,
-    topic: "Softwarequalität",
-    question: "Was bedeutet Debugging?",
+    topic: "DSGVO in der Praxis",
+    question: "Ein Entwickler möchte Nutzerverhalten auf einer Website analysieren. Was ist ohne Einwilligung erlaubt?",
     answers: [
-      "Neuen Code schreiben",
-      "Fehler (Bugs) im Code systematisch suchen und beheben",
-      "Software veröffentlichen",
-      "Code mit Kommentaren versehen"
+      "Google Analytics mit anonymisierten IPs ist immer einwilligungsfrei",
+      "Server-seitiges Tracking mit wirklich anonymisierten und aggregierten Daten ohne persönliche Identifikatoren",
+      "Alle Analytics-Tools, solange sie im Impressum aufgeführt sind",
+      "Jedes Analytics ist ohne Einwilligung verboten"
     ],
     correct: 1,
-    explanation: "Debugging: Fehler im Code finden. Dazu setzt man Breakpoints, analysiert Fehlermeldungen, überprüft Variablenwerte zur Laufzeit und verfolgt den Programmablauf."
+    explanation: "Nur wirklich anonymisiertes, server-seitiges Tracking ohne Cookies und ohne persönliche Identifikatoren kann einwilligungsfrei sein. Sobald Cookies oder eindeutige IDs im Spiel sind, braucht es eine Einwilligung."
   },
   {
     id: 62,
-    topic: "Softwarequalität",
-    question: "Was ist ein Code-Review?",
+    topic: "DSGVO in der Praxis",
+    question: "Was ist beim Einsatz von Profiling (automatisierter Erstellung von Nutzerprofilen) datenschutzrechtlich zu beachten?",
     answers: [
-      "Ein Test des Systems durch Endnutzer",
-      "Die systematische Überprüfung von Code durch andere Entwickler vor dem Einbau in das Projekt",
-      "Eine automatische Fehlerkorrektur durch die IDE",
-      "Ein Leistungstest"
+      "Profiling ist immer erlaubt, wenn es technisch möglich ist",
+      "Profiling auf Basis persönlicher Daten erfordert eine Rechtsgrundlage und muss in der Datenschutzerklärung transparent gemacht werden",
+      "Profiling betrifft nur Werbung, nicht andere Bereiche",
+      "Profiling ist in der EU generell verboten"
     ],
     correct: 1,
-    explanation: "Code-Reviews verbessern die Qualität: Andere Entwickler prüfen den Code auf Fehler, Sicherheitsprobleme und schlechte Praktiken. Außerdem verteilt sich Wissen im Team."
-  },
-
-  // ── Datenbanken & Web ─────────────────────────────────────────────────────
-  {
-    id: 63,
-    topic: "Datenbanken",
-    question: "Was ist eine relationale Datenbank?",
-    answers: [
-      "Eine Datenbank für Beziehungsstatusangaben",
-      "Eine Datenbank, in der Daten in strukturierten Tabellen mit Beziehungen gespeichert werden (z. B. MySQL, PostgreSQL)",
-      "Eine unstrukturierte Datenbank wie MongoDB",
-      "Eine Datenbank ausschließlich für Bilder und Videos"
-    ],
-    correct: 1,
-    explanation: "Relationale Datenbanken speichern Daten in Tabellen. Tabellen können über Schlüssel verknüpft werden. Abfragen erfolgen mit SQL."
-  },
-  {
-    id: 64,
-    topic: "Datenbanken",
-    question: "Was ist ein Primärschlüssel (PRIMARY KEY) in einer Datenbank?",
-    answers: [
-      "Das wichtigste Passwort der Datenbank",
-      "Ein eindeutiger Bezeichner, der jeden Datensatz in einer Tabelle identifiziert",
-      "Der erste Eintrag in der Tabelle",
-      "Ein Verschlüsselungsschlüssel für die Datenbank"
-    ],
-    correct: 1,
-    explanation: "Der Primärschlüssel ist ein Feld, dessen Wert in der Tabelle eindeutig ist. Er ermöglicht, jeden Datensatz eindeutig zu identifizieren und darf keinen NULL-Wert haben."
-  },
-  {
-    id: 65,
-    topic: "Datenbanken",
-    question: "Wofür steht SQL und wofür wird es verwendet?",
-    answers: [
-      "Software Quality Language - für Qualitätsprüfung",
-      "Structured Query Language - für Abfrage und Verwaltung relationaler Datenbanken",
-      "System Query Layout - für Netzwerkkonfiguration",
-      "Secure Query Logic - für verschlüsselte Datenbankzugriffe"
-    ],
-    correct: 1,
-    explanation: "SQL ist die Standardsprache für relationale Datenbanken. Mit SQL kann man Daten abfragen (SELECT), einfügen (INSERT), ändern (UPDATE) und löschen (DELETE)."
-  },
-  {
-    id: 66,
-    topic: "Web & HTTP",
-    question: "Was bedeutet der HTTP-Statuscode 404?",
-    answers: [
-      "Anfrage erfolgreich verarbeitet",
-      "Die angeforderte Ressource wurde nicht gefunden",
-      "Interner Serverfehler",
-      "Weiterleitung zu einer anderen URL"
-    ],
-    correct: 1,
-    explanation: "HTTP-Statuscodes: 2xx = Erfolg (200 OK), 3xx = Weiterleitung, 4xx = Client-Fehler (404 Not Found, 403 Forbidden), 5xx = Server-Fehler (500 Internal Server Error)."
-  },
-  {
-    id: 67,
-    topic: "Web & HTTP",
-    question: "Was ist der Unterschied zwischen den HTTP-Methoden GET und POST?",
-    answers: [
-      "Kein Unterschied",
-      "GET ruft Daten ab (Parameter in der URL sichtbar); POST sendet Daten (z. B. Formulare, nicht in URL sichtbar)",
-      "POST ist immer schneller als GET",
-      "GET kann nur Text übertragen"
-    ],
-    correct: 1,
-    explanation: "GET: Daten im URL-Query-String - geeignet für Suchen, nicht für Passwörter. POST: Daten im Request-Body - geeignet für Formulare, Uploads und sensible Daten."
-  },
-  {
-    id: 68,
-    topic: "Web & HTTP",
-    question: "Was ist ein Cookie im Web?",
-    answers: [
-      "Eine Datei, die ausschließlich auf dem Server gespeichert wird",
-      "Eine kleine Datei, die der Webserver im Browser des Nutzers speichert (z. B. für Sessions oder Einstellungen)",
-      "Ein Verschlüsselungsverfahren",
-      "Ein Web-Framework"
-    ],
-    correct: 1,
-    explanation: "Cookies speichern kleine Datenmengen im Browser. Typische Einsätze: Session-IDs (Login merken), Spracheinstellungen, Tracking. Cookies können ein Ablaufdatum haben."
-  },
-  {
-    id: 69,
-    topic: "Web & HTTP",
-    question: "Was ist eine REST API?",
-    answers: [
-      "Eine Ruhepause im Entwicklungsprozess",
-      "Eine Schnittstelle, die über HTTP-Methoden (GET, POST, PUT, DELETE) Daten zwischen Systemen austauscht",
-      "Eine Datenbank-Abfragesprache",
-      "Ein Framework für mobile Apps"
-    ],
-    correct: 1,
-    explanation: "REST (Representational State Transfer) ist ein Architekturstil für Web-APIs. REST-APIs verwenden HTTP-Methoden und geben Daten meist im JSON-Format zurück."
+    explanation: "Profiling ist die automatisierte Verarbeitung personenbezogener Daten zur Bewertung bestimmter Aspekte einer Person. Es braucht eine Rechtsgrundlage, muss transparent gemacht werden, und Betroffene haben das Recht auf Widerspruch."
   },
 
   // ── E-Commerce & ePrivacy ─────────────────────────────────────────────────
   {
-    id: 70,
+    id: 63,
     topic: "E-Commerce & Österreich",
     question: "Was regelt das österreichische E-Commerce-Gesetz (ECG)?",
     answers: [
@@ -937,7 +842,7 @@ const QUESTIONS = [
     explanation: "Das ECG setzt die EU-Richtlinie über den elektronischen Geschäftsverkehr um. Es regelt u. a. Impressumspflichten, den Vertragsabschluss per Internet und die Haftung von Hosting-Anbietern."
   },
   {
-    id: 71,
+    id: 64,
     topic: "E-Commerce & Österreich",
     question: "Was muss laut ECG im Impressum einer österreichischen Website stehen?",
     answers: [
@@ -950,7 +855,7 @@ const QUESTIONS = [
     explanation: "Das Impressum muss leicht zugänglich sein und enthält: Firma/Name, Anschrift, E-Mail und je nach Tätigkeit auch Firmenbuchnummer, Gewerbeangaben und Aufsichtsbehörde."
   },
   {
-    id: 72,
+    id: 65,
     topic: "ePrivacy & Cookies",
     question: "Welche Cookies dürfen ohne Einwilligung des Nutzers gesetzt werden?",
     answers: [
@@ -960,10 +865,10 @@ const QUESTIONS = [
       "Kein Cookie darf ohne Einwilligung gesetzt werden"
     ],
     correct: 1,
-    explanation: "Technisch notwendige Cookies benötigen keine Einwilligung - z. B. Session-Cookies für den Warenkorb. Analyse-, Tracking- und Marketing-Cookies erfordern eine aktive Einwilligung."
+    explanation: "Technisch notwendige Cookies brauchen keine Einwilligung - z. B. Session-Cookies für den Warenkorb. Analyse-, Tracking- und Marketing-Cookies erfordern eine aktive Einwilligung."
   },
   {
-    id: 73,
+    id: 66,
     topic: "ePrivacy & Cookies",
     question: "Was muss ein gültiger Cookie-Consent-Banner ermöglichen?",
     answers: [
@@ -973,7 +878,7 @@ const QUESTIONS = [
       "Zustimmung durch Weitersurfen auf der Website"
     ],
     correct: 1,
-    explanation: "Ablehnen muss genauso einfach sein wie Zustimmen. Ein riesiger 'Alle akzeptieren'-Button neben einem winzigen 'Ablehnen'-Link ist nicht DSGVO-konform."
+    explanation: "Ablehnen muss genauso einfach sein wie Zustimmen. Ein riesiger 'Alle akzeptieren'-Button neben einem versteckten 'Ablehnen'-Link ist ein Dark Pattern und nicht DSGVO-konform."
   }
 
 ];
