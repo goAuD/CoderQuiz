@@ -81,24 +81,6 @@
   <script src="questions.js"></script>
   <script src="app.js"></script>
 
-  <script>
-    // Prozent-Anzeige im SVG-Ring synchronisieren
-    const origShowResults = showResults;
-    document.addEventListener('DOMContentLoaded', () => {
-      const origNext = document.getElementById('next-btn');
-      // Patch: nach showResults den Ring-Text setzen
-      const patchResults = () => {
-        const pct = document.getElementById('final-percent').textContent;
-        document.getElementById('ring-pct').textContent = pct;
-      };
-      // MutationObserver auf result-screen
-      const obs = new MutationObserver(() => {
-        const rs = document.getElementById('result-screen');
-        if (!rs.classList.contains('hidden')) patchResults();
-      });
-      obs.observe(document.getElementById('result-screen'), { attributes: true });
-    });
-  </script>
 
 </body>
 </html>
