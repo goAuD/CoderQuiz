@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSGVO LAP Quiz — Applikationsentwickler</title>
+  <meta name="description" content="Lernquiz zur Vorbereitung auf die LAP Applikationsentwickler-Coding: DSGVO, Urheberrecht, IT-Sicherheit, Österreich/EU-Recht." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>DSGVO &amp; Recht — LAP Quiz</h1>
+    <p class="subtitle">Applikationsentwickler&shy;-Coding · Österreich / EU · 50 Fragen</p>
+  </header>
+
+  <!-- ── Quiz-Screen ─────────────────────────────────────────────── -->
+  <main id="quiz-screen" class="card">
+
+    <div class="progress-wrap">
+      <div class="progress-track">
+        <div id="progress-bar" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="meta-row">
+      <span id="progress-text">Frage 1 von 50</span>
+      <span id="score-display">Punkte: 0</span>
+    </div>
+
+    <span class="topic-badge" id="topic-badge">Thema</span>
+
+    <p id="question-text"></p>
+
+    <div id="answers-list" role="list"></div>
+
+    <div id="explanation-box" class="hidden">
+      <span id="explanation-text"></span>
+    </div>
+
+    <button id="next-btn" class="hidden">Nächste Frage →</button>
+
+  </main>
+
+  <!-- ── Ergebnis-Screen ─────────────────────────────────────────── -->
+  <main id="result-screen" class="card hidden">
+
+    <div class="result-header">
+      <h2>Dein Ergebnis</h2>
+
+      <svg class="score-ring" width="120" height="120" viewBox="0 0 120 120" aria-hidden="true">
+        <circle class="ring-bg" cx="60" cy="60" r="54" />
+        <circle id="score-circle" cx="60" cy="60" r="54"
+                stroke-dasharray="339.3" stroke-dashoffset="339.3" />
+        <text class="ring-text" x="60" y="57" text-anchor="middle" dominant-baseline="middle" id="ring-pct">0 %</text>
+        <text class="ring-sub"  x="60" y="72" text-anchor="middle">Richtig</text>
+      </svg>
+
+      <p class="score-numbers">
+        <strong id="final-score">0 / 50</strong> Fragen richtig
+      </p>
+      <p id="final-percent" style="display:none"></p>
+      <span id="grade-text" class="grade pass"></span>
+    </div>
+
+    <div class="wrong-section">
+      <h3>Falsch beantwortete Fragen</h3>
+      <div id="wrong-list"></div>
+    </div>
+
+    <button id="restart-btn">Quiz neu starten</button>
+
+  </main>
+
+  <footer>
+    Quellen: DSGVO (Verordnung (EU) 2016/679) · DSG 2018 · UrhG · ECG · OWASP ·
+    <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">dsb.gv.at</a> ·
+    Apache-2.0 License
+  </footer>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+
+  <script>
+    // Prozent-Anzeige im SVG-Ring synchronisieren
+    const origShowResults = showResults;
+    document.addEventListener('DOMContentLoaded', () => {
+      const origNext = document.getElementById('next-btn');
+      // Patch: nach showResults den Ring-Text setzen
+      const patchResults = () => {
+        const pct = document.getElementById('final-percent').textContent;
+        document.getElementById('ring-pct').textContent = pct;
+      };
+      // MutationObserver auf result-screen
+      const obs = new MutationObserver(() => {
+        const rs = document.getElementById('result-screen');
+        if (!rs.classList.contains('hidden')) patchResults();
+      });
+      obs.observe(document.getElementById('result-screen'), { attributes: true });
+    });
+  </script>
+
+</body>
+</html>

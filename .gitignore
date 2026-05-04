@@ -1,0 +1,14 @@
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+.vscode/
+
+# Keep local notes and agent settings out of Git.
+/docs/*
+!/docs/releases/
+!/docs/assets/
+/.claude/
+/.codex/
+/.sam/
+/AGENTS.md
