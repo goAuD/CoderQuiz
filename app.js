@@ -25,6 +25,7 @@ function init() {
   state.score = 0;
   state.answered = false;
   state.results = [];
+  $("question-count").textContent = QUESTIONS.length;
   $("quiz-screen").classList.remove("hidden");
   $("result-screen").classList.add("hidden");
   renderQuestion();
@@ -110,13 +111,13 @@ function showResults() {
 
   const grade = $("grade-text");
   if (pct >= 80) {
-    grade.textContent = "Ausgezeichnet — bestanden!";
+    grade.textContent = "Ausgezeichnet - bestanden!";
     grade.className = "grade pass";
   } else if (pct >= 60) {
-    grade.textContent = "Gut — knapp bestanden.";
+    grade.textContent = "Gut - bestanden.";
     grade.className = "grade ok";
   } else {
-    grade.textContent = "Nicht bestanden — weiter üben!";
+    grade.textContent = "Nicht bestanden - weiter ueben!";
     grade.className = "grade fail";
   }
 
