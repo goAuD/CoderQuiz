@@ -5,7 +5,7 @@ This file tracks progress, decisions, and context so any conversation thread can
 ## Project identity
 
 - Working name: CoderQuiz (umbrella)
-- First module: DSGVO and Law for LAP Applikationsentwickler-Coding (Austria)
+- First module: DSGVO and Law for LAP Applikationsentwicklung-Coding (Austria)
 - Repo: C:\GitHub\CoderQuiz (local), will mirror to GitHub
 - Domain: coderlap.com (registered, not yet pointed)
 - License: Apache 2.0

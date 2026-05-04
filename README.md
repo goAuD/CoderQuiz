@@ -1,6 +1,6 @@
 # CoderQuiz - DSGVO and Law (LAP Prep)
 
-A browser-based quiz for preparing for the Austrian LAP Applikationsentwickler-Coding exam. The focus is on DSGVO (EU GDPR), Austrian data protection law, copyright, software licensing, and IT security - all framed from a developer's perspective.
+A browser-based quiz for preparing for the Austrian LAP Applikationsentwicklung-Coding exam. The focus is on DSGVO (EU GDPR), Austrian data protection law, copyright, software licensing, and IT security - all framed from a developer's perspective.
 
 No build step, no dependencies, no accounts. Open index.html in a browser and start.
 
@@ -45,7 +45,7 @@ Open questions.js and append to the QUESTIONS array. Each question follows this 
 }
 ```
 
-The `correct` field is a 0-based index into `answers[]` as written in the source. Answers are shuffled at render time, so their position in the source does not affect what the user sees — write them in whatever order is clearest.
+The `correct` field is a 0-based index into `answers[]` as written in the source. Answers are shuffled at render time, so their position in the source does not affect what the user sees - write them in whatever order is clearest.
 
 ## Project plans
 

@@ -4,7 +4,7 @@ const I18N = {
   de: {
     htmlLang:     "de",
     moduleTitle:  "DSGVO & Recht",
-    subtitle:     n => `Applikationsentwickler­Coding · Österreich / EU · ${n} Fragen`,
+    subtitle:     n => `Applikationsentwicklung-­Coding · Österreich / EU · ${n} Fragen`,
     progress:     (cur, tot) => `Frage ${cur} von ${tot}`,
     score:        n => `Punkte: ${n}`,
     nextBtn:      "Nächste Frage →",
