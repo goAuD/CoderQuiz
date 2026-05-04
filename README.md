@@ -7,7 +7,7 @@ No build step, no dependencies, no accounts. Open index.html in a browser and st
 ## Topics covered
 
 | Section | What you will practice |
-|---|---|
+| --- | --- |
 | DSGVO fundamentals | Legal bases, principles, definitions, fines |
 | Data subject rights | Access, deletion, portability, objection |
 | Data breaches | Notification timelines, obligations |
@@ -26,7 +26,7 @@ Open index.html directly in any modern browser. No server needed.
 
 If you prefer a local HTTP server:
 
-```
+```sh
 npx serve .
 ```
 
@@ -45,7 +45,7 @@ Open questions.js and append to the QUESTIONS array. Each question follows this 
 }
 ```
 
-Keep the correct answer position varied. The existing 66 questions follow a C, A, D, B repeating pattern for the correct index. See docs/DEVELOPMENT.md for the full distribution rationale.
+The `correct` field is a 0-based index into `answers[]` as written in the source. Answers are shuffled at render time, so their position in the source does not affect what the user sees — write them in whatever order is clearest.
 
 ## Project plans
 

@@ -1,6 +1,6 @@
 // questions.js
-// To add questions: append an object with id, topic, question, answers[], correct (0-based), explanation.
-// Correct answer distribution: A=17, B=16, C=17, D=16 (pattern C,A,D,B,C,A,D,B,...)
+// To add questions: append an object with id, topic, question, answers[], correct (0-based index), explanation.
+// Answers are shuffled at render time by app.js — correct position in the source array does not matter.
 
 const QUESTIONS = [
 

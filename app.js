@@ -6,6 +6,7 @@ const state = {
   score: 0,
   answered: false,
   results: [],
+  shuffledAnswers: [],
 };
 
 const $ = id => document.getElementById(id);
@@ -25,6 +26,7 @@ function init() {
   state.score = 0;
   state.answered = false;
   state.results = [];
+  state.shuffledAnswers = [];
   $("question-count").textContent = QUESTIONS.length;
   $("quiz-screen").classList.remove("hidden");
   $("result-screen").classList.add("hidden");
@@ -43,11 +45,15 @@ function renderQuestion() {
   $("explanation-box").classList.add("hidden");
   $("next-btn").classList.add("hidden");
 
-  const list = $("answers-list");
-  list.innerHTML = "";
+  state.shuffledAnswers = shuffle(
+    q.answers.map((text, idx) => ({ text, isCorrect: idx === q.correct }))
+  );
   state.answered = false;
 
-  q.answers.forEach((text, idx) => {
+  const list = $("answers-list");
+  list.innerHTML = "";
+
+  state.shuffledAnswers.forEach((answer, idx) => {
     const btn = document.createElement("button");
     btn.className = "answer-btn";
     btn.setAttribute("data-idx", idx);
@@ -55,7 +61,7 @@ function renderQuestion() {
     label.className = "answer-label";
     label.textContent = String.fromCharCode(65 + idx);
     btn.appendChild(label);
-    btn.appendChild(document.createTextNode(text));
+    btn.appendChild(document.createTextNode(answer.text));
     btn.addEventListener("click", () => selectAnswer(idx));
     list.appendChild(btn);
   });
@@ -66,22 +72,22 @@ function selectAnswer(selectedIdx) {
   state.answered = true;
 
   const q = state.questions[state.current];
-  const isCorrect = selectedIdx === q.correct;
+  const isCorrect = state.shuffledAnswers[selectedIdx].isCorrect;
 
   if (isCorrect) state.score++;
 
   state.results.push({
     question: q.question,
     correct: isCorrect,
-    correctAnswer: q.answers[q.correct],
-    selectedAnswer: q.answers[selectedIdx],
+    correctAnswer: state.shuffledAnswers.find(a => a.isCorrect).text,
+    selectedAnswer: state.shuffledAnswers[selectedIdx].text,
   });
 
   const btns = document.querySelectorAll(".answer-btn");
   btns.forEach(btn => {
     btn.disabled = true;
     const idx = parseInt(btn.getAttribute("data-idx"), 10);
-    if (idx === q.correct) btn.classList.add("correct");
+    if (state.shuffledAnswers[idx].isCorrect) btn.classList.add("correct");
     else if (idx === selectedIdx) btn.classList.add("wrong");
   });
 
