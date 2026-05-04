@@ -51,7 +51,11 @@ function renderQuestion() {
     const btn = document.createElement("button");
     btn.className = "answer-btn";
     btn.setAttribute("data-idx", idx);
-    btn.innerHTML = `<span class="answer-label">${String.fromCharCode(65 + idx)}</span>${text}`;
+    const label = document.createElement("span");
+    label.className = "answer-label";
+    label.textContent = String.fromCharCode(65 + idx);
+    btn.appendChild(label);
+    btn.appendChild(document.createTextNode(text));
     btn.addEventListener("click", () => selectAnswer(idx));
     list.appendChild(btn);
   });
@@ -107,7 +111,6 @@ function showResults() {
   const pct = Math.round((state.score / total) * 100);
 
   $("final-score").textContent = `${state.score} / ${total}`;
-  $("final-percent").textContent = `${pct} %`;
 
   const grade = $("grade-text");
   if (pct >= 80) {
@@ -144,11 +147,30 @@ function renderWrongAnswers() {
   wrong.forEach(r => {
     const div = document.createElement("div");
     div.className = "wrong-item";
-    div.innerHTML = `
-      <p class="wi-question">${r.question}</p>
-      <p class="wi-given"><span class="wi-label wrong-label">Deine Antwort:</span> ${r.selectedAnswer}</p>
-      <p class="wi-correct"><span class="wi-label correct-label">Richtig:</span> ${r.correctAnswer}</p>
-    `;
+
+    const qp = document.createElement("p");
+    qp.className = "wi-question";
+    qp.textContent = r.question;
+
+    const givenP = document.createElement("p");
+    givenP.className = "wi-given";
+    const givenLabel = document.createElement("span");
+    givenLabel.className = "wi-label wrong-label";
+    givenLabel.textContent = "Deine Antwort:";
+    givenP.appendChild(givenLabel);
+    givenP.append(` ${r.selectedAnswer}`);
+
+    const correctP = document.createElement("p");
+    correctP.className = "wi-correct";
+    const correctLabel = document.createElement("span");
+    correctLabel.className = "wi-label correct-label";
+    correctLabel.textContent = "Richtig:";
+    correctP.appendChild(correctLabel);
+    correctP.append(` ${r.correctAnswer}`);
+
+    div.appendChild(qp);
+    div.appendChild(givenP);
+    div.appendChild(correctP);
     container.appendChild(div);
   });
 }
