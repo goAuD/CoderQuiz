@@ -55,7 +55,7 @@ const QUESTIONS = [
       "Daten werden nur verschlüsselt gespeichert"
     ],
     correct: 1,
-    explanation: "Datensparsamkeit: Es darf nur erhoben werden, was wirklich gebraucht wird. Fur Entwickler bedeutet das: keine unnötigen Felder im Formular, keine unbegrenzten Logs."
+    explanation: "Datensparsamkeit: Es darf nur erhoben werden, was wirklich gebraucht wird. Für Entwickler bedeutet das: keine unnötigen Felder im Formular, keine unbegrenzten Logs."
   },
   {
     id: 5,
@@ -866,7 +866,7 @@ const QUESTIONS = [
       "Kein Cookie darf ohne Einwilligung gesetzt werden"
     ],
     correct: 2,
-    explanation: "Technisch notwendige Cookies brauchen keine Einwilligung - z. B. Session-Cookies fur den Warenkorb. Analyse-, Tracking- und Marketing-Cookies erfordern eine aktive Einwilligung."
+    explanation: "Technisch notwendige Cookies brauchen keine Einwilligung - z. B. Session-Cookies für den Warenkorb. Analyse-, Tracking- und Marketing-Cookies erfordern eine aktive Einwilligung."
   },
   {
     id: 66,
