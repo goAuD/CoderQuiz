@@ -120,11 +120,12 @@ function showResults() {
     grade.className = "grade fail";
   }
 
-  // Scorekreis animieren
+  // Scorekreis animieren + SVG-Text setzen
   const circle = $("score-circle");
   const circumference = 2 * Math.PI * 54;
   circle.style.strokeDasharray = circumference;
   circle.style.strokeDashoffset = circumference * (1 - pct / 100);
+  $("ring-pct").textContent = `${pct} %`;
 
   renderWrongAnswers();
 }
