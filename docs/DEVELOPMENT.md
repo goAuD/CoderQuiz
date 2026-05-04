@@ -16,7 +16,7 @@ This file tracks progress, decisions, and context so any conversation thread can
 
 **Questions as a plain JS array.** QUESTIONS in questions.js is a global const loaded before app.js. Each entry is an object with id, topic, question, answers[], correct (0-based index), and explanation. This makes questions easy to edit in any text editor without understanding the app code.
 
-**Correct answer distribution.** Early versions had all correct answers at position 1 (B), making the quiz gameable. The fix was to manually assign correct positions following a repeating C, A, D, B pattern so that across 66 questions the distribution is roughly equal: A=17, B=16, C=17, D=16. When adding new questions, continue the pattern or re-run a distribution check.
+**Answer shuffling.** Early versions had all correct answers at position 1 (B), making the quiz gameable. A manual C,A,D,B rotation was added as a workaround, but this was still a predictable pattern a careful student could exploit. The proper fix (2026-05-04) is to shuffle each question's answer array at render time in app.js: answers are mapped to `{text, isCorrect}` objects, shuffled via Fisher-Yates, and the correct answer is identified by the `isCorrect` flag rather than by index. The `correct` field in questions.js remains a 0-based index into the source `answers[]` array and is only used to set `isCorrect` before the shuffle.
 
 **SVG score ring.** The result screen shows a donut/ring chart. The ring animation uses strokeDashoffset on a circle element. The percentage text inside the SVG is a text element updated directly in app.js (showResults function). An earlier version tried a MutationObserver approach from an inline script in index.html, which was fragile and was removed.
 
@@ -44,9 +44,17 @@ This file tracks progress, decisions, and context so any conversation thread can
 - Revised question focus: removed generic software development questions (OOP, Git, Scrum, SQL, debugging)
 - Replaced with DSGVO topics viewed through a developer's lens: password hashing, test data anonymization, SDK responsibility, dark patterns, deletion timelines, biometric data, personal data in Git repos, analytics consent, profiling rules
 - Total questions grew to 66
-- Fixed "always B correct" problem by reshuffling answer arrays so correct positions follow C, A, D, B repeating pattern
+- Fixed "always B correct" problem by reshuffling answer arrays so correct positions follow C, A, D, B repeating pattern (later replaced by runtime shuffle, see 2026-05-04 Session 4)
 - Created docs/ folder with ROADMAP.md and DEVELOPMENT.md (this file)
 - Updated README.md to English
+
+### 2026-05-04 - Session 4
+
+- Renamed project to CoderQuiz across all files (title, h1, CSS comment, LICENSE, DEVELOPMENT.md repo path)
+- Fixed two missing umlauts in Q4 and Q65 explanations ("Fur" / "fur" → "Für" / "für")
+- Removed dead #final-percent HTML element and its corresponding JS setter
+- Replaced innerHTML with safe DOM methods (createElement/textContent) in renderQuestion and renderWrongAnswers
+- Replaced manual C,A,D,B answer rotation with runtime Fisher-Yates shuffle of answers per question; correct answer is now identified by isCorrect flag rather than index position
 
 ## Current question sections
 
@@ -70,13 +78,12 @@ This file tracks progress, decisions, and context so any conversation thread can
 1. Open questions.js
 2. Add a new object to the QUESTIONS array at the end (or in the appropriate section)
 3. Assign the next sequential id
-4. Check what correct position the pattern calls for: the repeating sequence is C(2), A(0), D(3), B(1). Question 67 would be C(2), 68 would be A(0), and so on.
-5. Write 4 answer options and put the correct answer text at the target index position
+4. Write 4 answer options in whatever order is clearest — position does not matter because app.js shuffles them at render time
+5. Set `correct` to the 0-based index of the correct answer as written in the source array
 6. Add an explanation that reinforces the correct answer
 
 ## Known issues / tech debt
 
-- No automated test for answer distribution - a manual count or a small Node script is needed after bulk changes
 - The question id field is not actually used by the quiz logic; it is there for human reference only
 - No linter or formatter configured; code style is informal but consistent
 
@@ -84,7 +91,7 @@ This file tracks progress, decisions, and context so any conversation thread can
 
 If you are continuing this project in a new conversation, the key context is:
 
-- questions.js has 66 questions, correct answers at varied positions
+- questions.js has 66 questions; answers are shuffled at render time so correct position in source does not matter
 - app.js and index.html are committed and clean
 - The next milestone is reaching 100 questions in the DSGVO module
 - Hungarian translation is planned but not started
