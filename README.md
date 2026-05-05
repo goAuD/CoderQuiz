@@ -1,10 +1,31 @@
-# CoderQuiz - DSGVO and Law (LAP Prep)
+<p align="center">
+  <img src="logo.svg" width="72" height="72" alt="CoderQuiz" />
+</p>
 
-A browser-based quiz for preparing for the Austrian LAP Applikationsentwicklung-Coding exam. The focus is on DSGVO (EU GDPR), Austrian data protection law, copyright, software licensing, and IT security - all framed from a developer's perspective.
+<h1 align="center">CoderQuiz</h1>
 
-No build step, no dependencies, no accounts. Open index.html in a browser and start.
+<p align="center">
+  Exam prep quiz for the Austrian LAP Applikationsentwicklung-Coding.<br/>
+  DSGVO · IT law · IT security — through a developer's lens.
+</p>
 
-## Topics covered
+<p align="center">
+  <img src="https://img.shields.io/badge/license-Apache_2.0-5b6af0?style=flat-square" alt="License" />
+  <img src="https://img.shields.io/badge/questions-100-a78bfa?style=flat-square" alt="100 questions" />
+  <img src="https://img.shields.io/badge/languages-DE_%2F_HU-5b6af0?style=flat-square" alt="DE / HU" />
+  <img src="https://img.shields.io/badge/dependencies-none-22c55e?style=flat-square" alt="No dependencies" />
+  <img src="https://github.com/goAuD/CoderQuiz/actions/workflows/ci.yml/badge.svg" alt="CI" />
+</p>
+
+<br/>
+
+<p align="center">
+  <img src="assets/coderquiz.png" width="780" alt="CoderQuiz setup screen" />
+</p>
+
+---
+
+## Topics
 
 | Section | What you will practice |
 | --- | --- |
@@ -12,55 +33,53 @@ No build step, no dependencies, no accounts. Open index.html in a browser and st
 | Data subject rights | Access, deletion, portability, objection |
 | Data breaches | Notification timelines, obligations |
 | Data protection duties | DPO, DPIA, processor contracts |
-| Austrian law | DSG 2018, Datenschutzbehorde, national specifics |
+| Austrian law | DSG 2018, Datenschutzbehörde, national specifics |
 | Copyright | UrhG, protection periods, software as a work |
 | Software licenses | GPL, MIT, Apache 2.0, Creative Commons |
-| IT security | CIA triad, SQL injection, XSS, phishing, social engineering |
-| DSGVO in developer practice | Password hashing, test data, SDK responsibility, dark patterns, analytics consent, profiling |
-| E-Commerce / ECG | Imprint obligations, online contracts |
-| ePrivacy / Cookies | Cookie consent, tracking rules |
+| IT security | XSS, CSRF, 2FA, least privilege, API security |
+| DSGVO in developer practice | Password hashing, test data, SDK responsibility, dark patterns, Art. 22 automated decisions |
+| E-Commerce / ECG | Imprint obligations, distance selling, withdrawal rights |
+| ePrivacy / Cookies | Cookie consent, tracking rules, local storage, Google Fonts |
 
 ## Running locally
 
-Open index.html directly in any modern browser. No server needed.
-
-If you prefer a local HTTP server:
+Open `index.html` directly in any modern browser. No server, no install, no build step.
 
 ```sh
+# optional local HTTP server
 npx serve .
 ```
 
 ## Adding questions
 
-Open questions.js and append to the QUESTIONS array. Each question follows this shape:
+Append to the `QUESTIONS` array in `questions.js`:
 
 ```js
 {
-  id: 67,
+  id: 101,
   topic: "Section name",
   question: "Question text?",
   answers: ["Option A", "Option B", "Option C", "Option D"],
-  correct: 2,        // 0-based index of the correct answer
-  explanation: "Why this answer is correct."
+  correct: 2,          // 0-based index into answers[]
+  explanation: "Why this answer is correct.",
+  hu: {                // optional Hungarian translation
+    question: "...",
+    answers: ["...", "...", "...", "..."],
+    explanation: "..."
+  }
 }
 ```
 
-The `correct` field is a 0-based index into `answers[]` as written in the source. Answers are shuffled at render time, so their position in the source does not affect what the user sees - write them in whatever order is clearest.
-
-## Project plans
-
-This quiz is the first module under the CoderQuiz name. Planned next steps include reaching 100 questions for this module, adding a Hungarian translation, and adding further modules for Applikationsentwicklung-Coding and Informatik topics. The project will eventually be hosted at coderlap.com.
-
-See [docs/ROADMAP.md](docs/ROADMAP.md) for details.
+Answers are shuffled at render time — write them in whatever order is clearest.
 
 ## Tech
 
-- Vanilla HTML, CSS, JavaScript
-- No framework, no build step, no runtime dependencies
-- Dark theme via CSS custom properties
-- Fisher-Yates shuffle for question randomization
-- SVG donut ring for the score display
+- Vanilla HTML / CSS / JavaScript — no framework, no build step, no runtime dependencies
+- Fisher-Yates shuffle on an index permutation (answers never mutate)
+- i18n via `I18N` object in `i18n.js`; active language persisted in `localStorage`
+- Topic filter and quiz progress persisted in `localStorage`
+- SVG donut ring for score display
 
 ## License
 
-Apache License 2.0. See [LICENSE](LICENSE).
+Apache License 2.0 — see [LICENSE](LICENSE).

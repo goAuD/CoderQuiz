@@ -18,7 +18,7 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 - [x] Answer distribution fixed - answers are shuffled at render time, no manual rotation needed
 - [x] Topic filter - setup screen with topic chips; quiz starts with filtered question set
 - [x] Progress persistence - quiz state saved to localStorage; restored after page reload
-- [ ] Set up GitHub Actions workflow for basic validation (question count check, JS lint)
+- [x] Set up GitHub Actions workflow for basic validation (syntax check, question count, duplicate ID check)
 - [ ] Deploy to GitHub Pages at the project repo
 
 ## Medium-term Goals
