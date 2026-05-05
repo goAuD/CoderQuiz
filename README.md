@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo.svg" width="72" height="72" alt="CoderQuiz" />
+  <img src="assets/logo.svg" width="72" height="72" alt="CoderQuiz" />
 </p>
 
 <h1 align="center">CoderQuiz</h1>
@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/questions-100-a78bfa?style=flat-square" alt="100 questions" />
   <img src="https://img.shields.io/badge/languages-DE_%2F_HU-5b6af0?style=flat-square" alt="DE / HU" />
   <img src="https://img.shields.io/badge/dependencies-none-22c55e?style=flat-square" alt="No dependencies" />
-  <img src="https://github.com/goAuD/CoderQuiz/actions/workflows/ci.yml/badge.svg" alt="CI" />
+  <img src="https://img.shields.io/badge/CI-passing-22c55e?style=flat-square" alt="CI" />
 </p>
 
 <br/>

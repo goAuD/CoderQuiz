@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Syntax check JS files
+        run: |
+          node --check app.js
+          node --check i18n.js
+          node --check questions.js
+
+      - name: Question count check
+        run: |
+          node - <<'EOF'
+          const fs = require('fs');
+          const src = fs.readFileSync('questions.js', 'utf8');
+          eval(src.replace(/^const QUESTIONS/m, 'global.QUESTIONS'));
+          const n = global.QUESTIONS.length;
+          console.log(`Questions: ${n}`);
+          if (n < 100) { console.error(`Expected >= 100 questions, got ${n}`); process.exit(1); }
+          console.log('OK');
+          EOF
+
+      - name: Check for duplicate question IDs
+        run: |
+          node - <<'EOF'
+          const fs = require('fs');
+          const src = fs.readFileSync('questions.js', 'utf8');
+          eval(src.replace(/^const QUESTIONS/m, 'global.QUESTIONS'));
+          const ids = global.QUESTIONS.map(q => q.id);
+          const dupes = ids.filter((id, i) => ids.indexOf(id) !== i);
+          if (dupes.length > 0) { console.error(`Duplicate IDs: ${dupes.join(', ')}`); process.exit(1); }
+          console.log(`${ids.length} unique IDs — OK`);
+          EOF
