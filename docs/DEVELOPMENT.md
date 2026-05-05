@@ -7,7 +7,6 @@ This file tracks progress, decisions, and context so any conversation thread can
 - Working name: CoderQuiz (umbrella)
 - First module: DSGVO and Law for LAP Applikationsentwicklung-Coding (Austria)
 - Repo: C:\GitHub\CoderQuiz (local), will mirror to GitHub
-- Domain: coderlap.com (registered, not yet pointed)
 - License: Apache 2.0
 
 ## Architecture decisions
@@ -105,18 +104,35 @@ Answer shuffle uses a permutation index array (`state.shuffledOrder`) rather tha
 5. Set `correct` to the 0-based index of the correct answer as written in the source array
 6. Add an explanation that reinforces the correct answer
 
+## Architecture decisions (continued)
+
+**Setup screen and topic filter.** A setup screen (id="setup-screen") is shown before the quiz starts. It renders topic chips from the unique topics in QUESTIONS. The user can toggle topics on/off; at least one must remain active. Selected topics are persisted in localStorage ("cq-topics") as a JSON array. `filteredQuestions()` returns QUESTIONS filtered by the current selection; `init()` shuffles the result into `state.questions`.
+
+**Progress persistence.** After each answered question and after advancing to the next, `saveProgress()` serializes the current state to localStorage ("cq-progress"): question IDs in their shuffled order, current index, score, results array, topic selection, active screen, and the current question's shuffledOrder + answered flag. On load, `tryRestoreProgress()` reconstructs state from this snapshot and resumes. If the question list has changed (IDs no longer found), the snapshot is discarded. The progress is cleared when the user clicks "restart" (goes to setup screen).
+
+**Language-switch bug fix.** Previously, `setLang()` called `renderQuestion()` which always re-shuffled answer order and reset `state.answered = false`, losing the user's answer. Fixed by adding a `preserveAnswered` parameter to `renderQuestion()`. When called from `setLang()`, the shuffle order and answered state are preserved; the buttons are rebuilt using the same `state.shuffledOrder` and the saved answer from `state.results`.
+
 ## Known issues / tech debt
 
 - The question id field is not actually used by the quiz logic; it is there for human reference only
 - No linter or formatter configured; code style is informal but consistent
+
+### 2026-05-05 - Session 7
+
+- Added topic filter: setup screen with chip toggles before quiz start; topic selection persisted in localStorage
+- Added progress persistence: full quiz state saved to localStorage after each answer and question advance; restored on page reload
+- Fixed language-switch bug: switching language mid-question no longer reshuffles answers or resets answered state
+- Added inset box-shadow to progress track for sunken-display visual effect
 
 ## Future session notes
 
 If you are continuing this project in a new conversation, the key context is:
 
 - questions.js has 100 questions; answers shuffled at render time via index permutation (state.shuffledOrder)
-- i18n.js has full DE + HU UI strings; HU question content added per-question as q.hu = { question, answers, explanation }
+- i18n.js has full DE + HU UI strings including setupHeading, setupSub, startBtn(n); HU question content per q.hu
 - All 100 questions have full HU translations
+- app.js flow: load -> tryRestoreProgress() or showSetupScreen() -> init() on start -> quiz -> showResults()
+- localStorage keys: cq-lang (language), cq-topics (selected topic names array), cq-progress (quiz state JSON)
 - Active branch is dev; main is the stable branch
-- Next milestone: GitHub Pages deployment + GitHub Actions workflow (JS lint, question count check)
+- Next milestone: GitHub Actions workflow (JS lint, question count check), then GitHub Pages deploy
 - Tauri desktop wrapper is the long-term target

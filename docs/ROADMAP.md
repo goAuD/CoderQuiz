@@ -6,6 +6,8 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 
 - Module: DSGVO and Law (DE + HU)
 - Questions: 100, focused on DSGVO through a developer's lens; all with full HU translations
+- Topic filter: setup screen with chips; last selection persisted in localStorage
+- Progress persistence: quiz state saved to localStorage; restored on page reload
 - Tech: Vanilla HTML/CSS/JS, no dependencies, no build step
 - Hosting: local / file:// for now
 
@@ -14,6 +16,8 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 - [x] Bring question count to 100 for the DSGVO module
 - [x] Add a language switcher (DE/HU) - i18n architecture in place, all 100 questions have HU content
 - [x] Answer distribution fixed - answers are shuffled at render time, no manual rotation needed
+- [x] Topic filter - setup screen with topic chips; quiz starts with filtered question set
+- [x] Progress persistence - quiz state saved to localStorage; restored after page reload
 - [ ] Set up GitHub Actions workflow for basic validation (question count check, JS lint)
 - [ ] Deploy to GitHub Pages at the project repo
 
@@ -21,13 +25,11 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 
 - [ ] Add a second module: Applikationsentwicklung-Coding (algorithms, data structures, complexity, basic security coding)
 - [ ] Add a third module: Informatik (general computer science fundamentals)
-- [ ] Introduce a topic filter on the quiz screen so users can drill specific sections
 - [ ] Add a bookmarking / flagging feature for questions the user wants to revisit
 - [ ] Host under coderlap.com domain
 
 ## Long-term / Stretch Goals
 
-- [ ] CoderQuiz as a proper multi-topic landing page at coderlap.com
 - [ ] Offline-first PWA (service worker, installable) — lower priority if Tauri desktop is the main target
 - [ ] Desktop app wrapper (Tauri or Electron, most likely Tauri for size)
 - [ ] User accounts with progress tracking (would require a backend)
@@ -41,4 +43,4 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 
 ## Domain and Hosting Plan
 
-The domain coderlap.com is already registered. The plan is to host CoderQuiz there, with the DSGVO module as the first published quiz. GitHub Pages will serve as the initial deployment target before any custom domain DNS is pointed.
+GitHub Pages will serve as the initial deployment target before any custom domain DNS is pointed.
