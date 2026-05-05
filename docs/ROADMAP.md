@@ -4,16 +4,16 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 
 ## Current State
 
-- Module: DSGVO and Law (German)
-- Questions: 66, focused on DSGVO through a developer's lens
+- Module: DSGVO and Law (DE + HU)
+- Questions: 100, focused on DSGVO through a developer's lens; all with full HU translations
 - Tech: Vanilla HTML/CSS/JS, no dependencies, no build step
 - Hosting: local / file:// for now
 
 ## Short-term Goals
 
-- [ ] Bring question count to 100 for the DSGVO module
-- [x] Add a language switcher (DE/HU) — i18n architecture in place, HU question content to be filled per question
-- [x] Answer distribution fixed — answers are shuffled at render time, no manual rotation needed
+- [x] Bring question count to 100 for the DSGVO module
+- [x] Add a language switcher (DE/HU) - i18n architecture in place, all 100 questions have HU content
+- [x] Answer distribution fixed - answers are shuffled at render time, no manual rotation needed
 - [ ] Set up GitHub Actions workflow for basic validation (question count check, JS lint)
 - [ ] Deploy to GitHub Pages at the project repo
 

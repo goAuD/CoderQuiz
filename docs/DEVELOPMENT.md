@@ -71,22 +71,30 @@ Answer shuffle uses a permutation index array (`state.shuffledOrder`) rather tha
 - Replaced innerHTML with safe DOM methods (createElement/textContent) in renderQuestion and renderWrongAnswers
 - Replaced manual C,A,D,B answer rotation with runtime Fisher-Yates shuffle of answers per question; correct answer is now identified by isCorrect flag rather than index position
 
+### 2026-05-05 - Session 6
+
+- Added HU translations to all 66 existing questions (q.hu = { question, answers, explanation })
+- Fixed exam name to Applikationsentwicklung-Coding across all files
+- Added .claude/ to .gitignore
+- Expanded DSGVO module from 66 to 100 questions (Q67-Q100) with full DE + HU content
+- New topics: Zweckbindung, Rechtsgrundlagen (Art. 6), Transparenzpflicht, Auftragsverarbeiter, Einwilligung-Anforderungen, Datenubertragbarkeit, Einschrankung der Verarbeitung, Berichtigung, Datenpannen-Dokumentation, Bussgeldstufung, Schadensersatz (Art. 82), XSS, CSRF, 2FA, Least Privilege, API-Sicherheit, Fernabsatzvertrag, Widerrufsrecht, KSchG, First/Third-Party Cookies, Local Storage, Tracking-Pixel, Google Fonts, Logging, TOMs, AVV, KI und DSGVO, App-Berechtigungen, Backup-Verschlusselung, API-Design Datenschutz, E2E vs. TLS, automatisierte Entscheidungen (Art. 22), Datenschutz-Audit
+
 ## Current question sections
 
 | Section | IDs | Count |
 | --- | --- | --- |
-| DSGVO Grundlagen | 1-9 | 9 |
-| Betroffenenrechte | 10-13 | 4 |
-| Datenpannen | 14-15 | 2 |
+| DSGVO Grundlagen | 1-9, 67-71 | 14 |
+| Betroffenenrechte | 10-13, 72-74 | 7 |
+| Datenpannen | 14-15, 75-76 | 4 |
 | Datenschutzpflichten | 16-20 | 5 |
-| Datenschutz Osterreich | 21-25 | 5 |
+| Datenschutz Osterreich | 21-25, 77-78 | 7 |
 | Urheberrecht | 26-29 | 4 |
 | Softwarelizenzen | 30-35 | 6 |
-| IT-Sicherheit | 36-42 | 7 |
-| DSGVO in der Praxis (developer focus) | 43-62 | 20 |
-| E-Commerce and Osterreich | 63-64 | 2 |
-| ePrivacy and Cookies | 65-66 | 2 |
-| **Total** | | **66** |
+| IT-Sicherheit | 36-42, 79-83 | 12 |
+| DSGVO in der Praxis (developer focus) | 43-62, 90-100 | 31 |
+| E-Commerce and Osterreich | 63-64, 84-86 | 5 |
+| ePrivacy and Cookies | 65-66, 87-89 | 5 |
+| **Total** | | **100** |
 
 ## How to add questions
 
@@ -106,8 +114,9 @@ Answer shuffle uses a permutation index array (`state.shuffledOrder`) rather tha
 
 If you are continuing this project in a new conversation, the key context is:
 
-- questions.js has 66 questions; answers shuffled at render time via index permutation (state.shuffledOrder)
+- questions.js has 100 questions; answers shuffled at render time via index permutation (state.shuffledOrder)
 - i18n.js has full DE + HU UI strings; HU question content added per-question as q.hu = { question, answers, explanation }
+- All 100 questions have full HU translations
 - Active branch is dev; main is the stable branch
-- Next milestone: 100 questions in the DSGVO module, then HU question translations
-- GitHub Pages + GitHub Actions after question count target is met; Tauri desktop wrapper is the long-term target
+- Next milestone: GitHub Pages deployment + GitHub Actions workflow (JS lint, question count check)
+- Tauri desktop wrapper is the long-term target
