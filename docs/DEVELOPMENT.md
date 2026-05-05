@@ -124,6 +124,15 @@ Answer shuffle uses a permutation index array (`state.shuffledOrder`) rather tha
 - Fixed language-switch bug: switching language mid-question no longer reshuffles answers or resets answered state
 - Added inset box-shadow to progress track for sunken-display visual effect
 
+### 2026-05-05 - Session 8
+
+- Added CQ logo SVG (logo.svg): brand-gradient (#5b6af0 → #a78bfa), rounded rect, bold "CQ" text
+- Embedded inline SVG logo in header inside `.brand` flex row next to h1; click navigates back to setup screen without clearing progress
+- Added SVG favicon via `<link rel="icon" href="logo.svg" type="image/svg+xml">`
+- Added module meta strip to setup screen: exam badge (LAP Applikationsentwicklung-Coding) + stats (question count · topic count · DE/HU), rendered by `updateSetupScreen()`
+- Added `examLabel` and `moduleStats(nQ, nT)` keys to both DE and HU in i18n.js
+- Added `.brand`, `.logo-link`, `.module-meta`, `.module-badge`, `.module-stats-text` CSS rules
+
 ## Future session notes
 
 If you are continuing this project in a new conversation, the key context is:
@@ -135,4 +144,5 @@ If you are continuing this project in a new conversation, the key context is:
 - localStorage keys: cq-lang (language), cq-topics (selected topic names array), cq-progress (quiz state JSON)
 - Active branch is dev; main is the stable branch
 - Next milestone: GitHub Actions workflow (JS lint, question count check), then GitHub Pages deploy
+- Logo inline SVG in header; logo click → showSetupScreen() (no progress clear); logo.svg also used as favicon
 - Tauri desktop wrapper is the long-term target

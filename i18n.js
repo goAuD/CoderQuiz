@@ -23,6 +23,8 @@ const I18N = {
     setupHeading: "Themen auswählen",
     setupSub:     "Wähle die Themen aus, die du üben möchtest.",
     startBtn:     n => `Quiz starten · ${n} Fragen`,
+    examLabel:    "LAP Applikationsentwicklung-Coding",
+    moduleStats:  (nQ, nT) => `${nQ} Fragen · ${nT} Themen · DE / HU`,
     topics: {
       "DSGVO Grundlagen":          "DSGVO Grundlagen",
       "Betroffenenrechte":         "Betroffenenrechte",
@@ -59,6 +61,8 @@ const I18N = {
     setupHeading: "Témák kiválasztása",
     setupSub:     "Válaszd ki a gyakorolni kívánt témaköröket.",
     startBtn:     n => `Kvíz indítása · ${n} kérdés`,
+    examLabel:    "LAP Alkalmazásfejlesztő-Coding",
+    moduleStats:  (nQ, nT) => `${nQ} kérdés · ${nT} téma · DE / HU`,
     topics: {
       "DSGVO Grundlagen":          "DSGVO alapok",
       "Betroffenenrechte":         "Érintetti jogok",

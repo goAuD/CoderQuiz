@@ -60,6 +60,23 @@ header {
   color: var(--accent-h);
   background: rgba(91,106,240,.12);
 }
+/* ── Brand / Logo ────────────────────────────────────────────────────── */
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  margin-bottom: .25rem;
+}
+.logo-link {
+  display: flex;
+  flex-shrink: 0;
+  border-radius: 9px;
+  text-decoration: none;
+  transition: opacity .15s, transform .12s;
+}
+.logo-link:hover { opacity: .85; transform: scale(1.05); }
+
 header h1 {
   font-size: clamp(1.3rem, 3.5vw, 1.9rem);
   font-weight: 700;
@@ -225,6 +242,35 @@ header p.subtitle {
 }
 #next-btn:hover { background: var(--accent-h); transform: translateY(-1px); }
 #next-btn.hidden { display: none; }
+
+/* ── Module meta (setup screen) ──────────────────────────────────────────── */
+.module-meta {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.4rem;
+  padding: .65rem .9rem;
+  background: rgba(91,106,240,.07);
+  border: 1px solid rgba(91,106,240,.2);
+  border-radius: 10px;
+}
+.module-badge {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  color: var(--accent-h);
+  background: rgba(91,106,240,.15);
+  border: 1px solid rgba(91,106,240,.3);
+  border-radius: 99px;
+  padding: .2rem .75rem;
+  white-space: nowrap;
+}
+.module-stats-text {
+  font-size: .82rem;
+  color: var(--muted);
+}
 
 /* ── Setup screen ────────────────────────────────────────────────────────── */
 #setup-screen h2 {
