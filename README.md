@@ -6,7 +6,7 @@
 
 <p align="center">
   Exam prep quiz for the Austrian LAP Applikationsentwicklung-Coding.<br/>
-  DSGVO · IT law · IT security — through a developer's lens.
+  DSGVO · IT law · IT security - through a developer's lens.
 </p>
 
 <p align="center">
@@ -70,11 +70,11 @@ Append to the `QUESTIONS` array in `questions.js`:
 }
 ```
 
-Answers are shuffled at render time — write them in whatever order is clearest.
+Answers are shuffled at render time - write them in whatever order is clearest.
 
 ## Tech
 
-- Vanilla HTML / CSS / JavaScript — no framework, no build step, no runtime dependencies
+- Vanilla HTML / CSS / JavaScript - no framework, no build step, no runtime dependencies
 - Fisher-Yates shuffle on an index permutation (answers never mutate)
 - i18n via `I18N` object in `i18n.js`; active language persisted in `localStorage`
 - Topic filter and quiz progress persisted in `localStorage`
@@ -82,4 +82,4 @@ Answers are shuffled at render time — write them in whatever order is clearest
 
 ## License
 
-Apache License 2.0 — see [LICENSE](LICENSE).
+Apache License 2.0 - see [LICENSE](LICENSE).
