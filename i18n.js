@@ -20,6 +20,9 @@ const I18N = {
     gradePass:    "Ausgezeichnet – bestanden!",
     gradeOk:      "Gut – bestanden.",
     gradeFail:    "Nicht bestanden – weiter üben!",
+    setupHeading: "Themen auswählen",
+    setupSub:     "Wähle die Themen aus, die du üben möchtest.",
+    startBtn:     n => `Quiz starten · ${n} Fragen`,
     topics: {
       "DSGVO Grundlagen":          "DSGVO Grundlagen",
       "Betroffenenrechte":         "Betroffenenrechte",
@@ -53,6 +56,9 @@ const I18N = {
     gradePass:    "Kitűnő – megfelelt!",
     gradeOk:      "Jó – megfelelt.",
     gradeFail:    "Nem felelt meg – gyakorolj tovább!",
+    setupHeading: "Témák kiválasztása",
+    setupSub:     "Válaszd ki a gyakorolni kívánt témaköröket.",
+    startBtn:     n => `Kvíz indítása · ${n} kérdés`,
     topics: {
       "DSGVO Grundlagen":          "DSGVO alapok",
       "Betroffenenrechte":         "Érintetti jogok",
