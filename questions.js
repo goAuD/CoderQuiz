@@ -1541,6 +1541,804 @@ const QUESTIONS = [
       ],
       explanation: "Az elutasításnak ugyanolyan egyszerűnek kell lennie, mint a jóváhagyásnak. Egy hatalmas 'Mindet elfogadom' gomb egy alig látható 'Elutasítás' link mellett dark pattern, és nem felel meg a GDPR-nak."
     }
+  },
+
+  // ── DSGVO Grundlagen (Erweiterung) ────────────────────────────────────────
+  {
+    id: 67,
+    topic: "DSGVO Grundlagen",
+    question: "Was bedeutet der Grundsatz der Zweckbindung?",
+    answers: [
+      "Daten dürfen nach der Erhebung für beliebige andere Zwecke verwendet werden",
+      "Daten dürfen nur für den Zweck verwendet werden, für den sie ursprünglich erhoben wurden",
+      "Der Verarbeitungszweck muss nur auf Nachfrage mitgeteilt werden",
+      "Zweckbindung gilt ausschließlich für besonders sensible Daten"
+    ],
+    correct: 1,
+    explanation: "Zweckbindung: Daten, die z. B. für Rechnungsstellung erhoben wurden, dürfen nicht ohne Weiteres für Werbung verwendet werden. Für jede neue Nutzung braucht es eine eigene Rechtsgrundlage.",
+    hu: {
+      question: "Mit jelent a célhoz kötöttség elve?",
+      answers: [
+        "Az adatokat a gyűjtés után bármely más célra fel lehet használni",
+        "Az adatokat csak arra a célra szabad felhasználni, amelyre eredetileg gyűjtötték",
+        "A kezelési célt csak kérésre kell közölni",
+        "A célhoz kötöttség kizárólag különösen érzékeny adatokra vonatkozik"
+      ],
+      explanation: "Célhoz kötöttség: a számlázáshoz gyűjtött adatokat pl. nem szabad minden további nélkül reklámozásra felhasználni. Minden új felhasználáshoz önálló jogalapra van szükség."
+    }
+  },
+  {
+    id: 68,
+    topic: "DSGVO Grundlagen",
+    question: "Welche Rechtsgrundlagen erlaubt Art. 6 DSGVO für die Datenverarbeitung?",
+    answers: [
+      "Einwilligung, Vertrag, rechtliche Verpflichtung, lebenswichtige Interessen, öffentliche Aufgabe, berechtigtes Interesse",
+      "Nur Einwilligung und Vertrag",
+      "Einwilligung, Vertrag und gesetzliche Pflicht",
+      "Für jede Verarbeitung ist immer eine Einwilligung erforderlich"
+    ],
+    correct: 0,
+    explanation: "Art. 6 DSGVO nennt sechs Rechtsgrundlagen. In der Praxis am häufigsten: Einwilligung (a), Vertrag (b), gesetzliche Pflicht (c) und berechtigtes Interesse (f). Mindestens eine muss immer vorliegen.",
+    hu: {
+      question: "Melyik jogalapokat engedélyezi a GDPR 6. cikke az adatkezeléshez?",
+      answers: [
+        "Hozzájárulás, szerződés, jogi kötelezettség, létfontosságú érdekek, közfeladat, jogos érdek",
+        "Csak hozzájárulás és szerződés",
+        "Hozzájárulás, szerződés és törvényi kötelezettség",
+        "Minden adatkezeléshez mindig hozzájárulás szükséges"
+      ],
+      explanation: "A GDPR 6. cikke hat jogalapot sorol fel. A gyakorlatban a leggyakoribbak: hozzájárulás (a), szerződés (b), jogi kötelezettség (c) és jogos érdek (f). Ezek közül legalább egynek mindig fenn kell állnia."
+    }
+  },
+  {
+    id: 69,
+    topic: "DSGVO Grundlagen",
+    question: "Was umfasst die Informationspflicht (Transparenzpflicht) gegenüber Betroffenen?",
+    answers: [
+      "Nur der Name und die Kontaktdaten des Verantwortlichen",
+      "Nur eine Information im Fall einer Datenpanne",
+      "Aktive und verständliche Information über Verarbeitungszweck, Verantwortlichen, Speicherdauer und Betroffenenrechte",
+      "Transparenz ist nur gegenüber Behörden verpflichtend"
+    ],
+    correct: 2,
+    explanation: "Nach Art. 13/14 DSGVO müssen Betroffene aktiv und klar informiert werden: wer verarbeitet, warum, wie lange, und welche Rechte sie haben. Das erfolgt typischerweise in der Datenschutzerklärung.",
+    hu: {
+      question: "Mit foglal magában a GDPR szerinti tájékoztatási kötelezettség (átláthatóság)?",
+      answers: [
+        "Csak az adatkezelő neve és elérhetőségei",
+        "Csak adatvédelmi incidens esetén szükséges tájékoztatás",
+        "Aktív és érthető tájékoztatás a kezelés céljáról, az adatkezelőről, a tárolás időtartamáról és az érintett jogairól",
+        "Az átláthatóság csak hatóságokkal szemben kötelező"
+      ],
+      explanation: "A GDPR 13/14. cikke szerint az érintetteket aktívan és érthetően kell tájékoztatni: ki kezeli, miért, meddig, és milyen jogaik vannak. Ez jellemzően az adatvédelmi tájékoztatóban történik."
+    }
+  },
+  {
+    id: 70,
+    topic: "DSGVO Grundlagen",
+    question: "Was ist ein Auftragsverarbeiter (Processor) nach der DSGVO?",
+    answers: [
+      "Eine Behörde, die Datenschutzanfragen bearbeitet",
+      "Eine natürliche oder juristische Person, die im Auftrag des Verantwortlichen personenbezogene Daten verarbeitet",
+      "Eine Person, deren Daten verarbeitet werden",
+      "Ein Softwareentwickler, der mit personenbezogenen Daten arbeitet"
+    ],
+    correct: 1,
+    explanation: "Typische Auftragsverarbeiter: Cloud-Dienste, E-Mail-Anbieter, externe IT-Dienstleister. Mit ihnen muss ein Auftragsverarbeitungsvertrag (AVV) geschlossen werden - Art. 28 DSGVO.",
+    hu: {
+      question: "Mi az adatfeldolgozó (Processor) a GDPR szerint?",
+      answers: [
+        "Hatóság, amely adatvédelmi kérelmeket kezel",
+        "Olyan természetes vagy jogi személy, amely az adatkezelő nevében személyes adatokat kezel",
+        "Személy, akinek adatait kezelik",
+        "Szoftverfejlesztő, aki személyes adatokkal dolgozik"
+      ],
+      explanation: "Tipikus adatfeldolgozók: felhőszolgáltatások, e-mail-szolgáltatók, külső IT-szolgáltatók. Velük adatfeldolgozási szerződést (AVV) kell kötni - GDPR 28. cikk."
+    }
+  },
+  {
+    id: 71,
+    topic: "DSGVO Grundlagen",
+    question: "Was muss eine gültige Einwilligung nach der DSGVO erfüllen?",
+    answers: [
+      "Sie kann durch ein vorausgefülltes Häkchen oder Stillschweigen erteilt werden",
+      "Sie ist gültig, wenn sie in den AGB versteckt ist",
+      "Freiwillig, informiert, für einen bestimmten Zweck und durch eine eindeutige Handlung - kein vorausgefülltes Häkchen",
+      "Sie ist nur gültig, wenn sie notariell beglaubigt wurde"
+    ],
+    correct: 2,
+    explanation: "Eine DSGVO-konforme Einwilligung ist: freiwillig (keine Kopplung), spezifisch (je Zweck einzeln), informiert (klar beschrieben) und durch aktive Handlung gegeben. Vorausgefüllte Häkchen und Opt-out-Lösungen sind ungültig.",
+    hu: {
+      question: "Mit kell teljesítenie egy érvényes hozzájárulásnak a GDPR szerint?",
+      answers: [
+        "Előre bepipált jelölőnégyzettel vagy hallgatással is megadható",
+        "Érvényes, ha az ÁSZF-ben el van rejtve",
+        "Önkéntes, tájékozott, meghatározott célra adott és egyértelmű cselekvéssel megerősített - nem előre bepipált jelölőnégyzet",
+        "Csak akkor érvényes, ha közjegyző hitelesítette"
+      ],
+      explanation: "GDPR-konform hozzájárulás: önkéntes (nem köthető szolgáltatáshoz), specifikus (minden célhoz külön), tájékoztatott (érthetően leírva) és aktív cselekvéssel megadott. Az előre bepipált jelölőnégyzet és az opt-out megoldások érvénytelenek."
+    }
+  },
+
+  // ── Betroffenenrechte (Erweiterung) ──────────────────────────────────────
+  {
+    id: 72,
+    topic: "Betroffenenrechte",
+    question: "Was beinhaltet das Recht auf Datenübertragbarkeit (Art. 20 DSGVO)?",
+    answers: [
+      "Das Recht, alle eigenen Daten löschen zu lassen",
+      "Das Recht, die eigenen Daten in einem strukturierten, maschinenlesbaren Format zu erhalten und zu einem anderen Anbieter zu übertragen",
+      "Das Recht, zu bestimmen, in welchem Land Daten gespeichert werden",
+      "Das Recht, anderen Personen den Datenzugang zu verbieten"
+    ],
+    correct: 1,
+    explanation: "Datenportabilität ermöglicht z. B. den Wechsel von einem sozialen Netzwerk zu einem anderen. Die Daten müssen in einem gängigen Format (z. B. JSON, CSV) bereitgestellt werden.",
+    hu: {
+      question: "Mit foglal magában az adathordozhatósághoz való jog (GDPR 20. cikk)?",
+      answers: [
+        "A jog, hogy minden saját adatát töröltesse",
+        "A jog, hogy saját adatait strukturált, géppel olvasható formátumban megkapja és másik szolgáltatóhoz továbbíthassa",
+        "A jog, hogy meghatározza, melyik országban tárolják adatait",
+        "A jog, hogy megtiltsa más személyeknek az adathozzáférést"
+      ],
+      explanation: "Az adathordozhatóság lehetővé teszi pl. az egyik közösségi hálózatról a másikra való váltást. Az adatokat általánosan elfogadott formátumban (pl. JSON, CSV) kell rendelkezésre bocsátani."
+    }
+  },
+  {
+    id: 73,
+    topic: "Betroffenenrechte",
+    question: "Was bedeutet das Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)?",
+    answers: [
+      "Das Recht, alle eigenen Daten sofort löschen zu lassen",
+      "Das Recht auf eine vereinfachte Datenschutzerklärung",
+      "Das Recht, die Verarbeitung der eigenen Daten vorübergehend zu sperren - z. B. während die Richtigkeit der Daten geprüft wird",
+      "Das Recht, die Weitergabe an Dritte dauerhaft zu untersagen"
+    ],
+    correct: 2,
+    explanation: "Einschränkung der Verarbeitung: Die Daten bleiben gespeichert, dürfen aber nur eingeschränkt verwendet werden - z. B. wenn die Richtigkeit bestritten wird oder ein Löschantrag noch geprüft wird.",
+    hu: {
+      question: "Mit jelent az adatkezelés korlátozásához való jog (GDPR 18. cikk)?",
+      answers: [
+        "A jog, hogy minden saját adatát azonnal töröltesse",
+        "A jog egyszerűsített adatvédelmi tájékoztatóhoz",
+        "A jog, hogy saját adatai kezelését ideiglenesen letilthassa - pl. amíg az adatok pontosságát ellenőrzik",
+        "A jog, hogy a harmadik feleknek való továbbítást véglegesen megtiltsa"
+      ],
+      explanation: "Az adatkezelés korlátozása: az adatok tárolva maradnak, de csak korlátozottan használhatók - pl. ha az adatok pontossága vitás, vagy a törlési kérelmet még vizsgálják."
+    }
+  },
+  {
+    id: 74,
+    topic: "Betroffenenrechte",
+    question: "Was beinhaltet das Recht auf Berichtigung (Art. 16 DSGVO)?",
+    answers: [
+      "Das Recht, fehlerhafte oder unvollständige personenbezogene Daten korrigieren zu lassen",
+      "Das Recht, die Verarbeitung der eigenen Daten sofort zu beenden",
+      "Das Recht auf Schadensersatz bei nachweislich fehlerhaften Daten",
+      "Das Recht, eigene Daten nur in anonymisierter Form zu erhalten"
+    ],
+    correct: 0,
+    explanation: "Betroffene können verlangen, dass unrichtige Daten sofort korrigiert werden - z. B. eine falsche Adresse oder ein falsches Geburtsdatum. Unternehmen müssen dem innerhalb eines Monats nachkommen.",
+    hu: {
+      question: "Mit foglal magában a helyesbítéshez való jog (GDPR 16. cikk)?",
+      answers: [
+        "A jog, hogy a hibás vagy hiányos személyes adatait kiigazíttassa",
+        "A jog, hogy saját adatai kezelését azonnal befejezze",
+        "A jog kártérítésre bizonyítottan hibás adatok esetén",
+        "A jog, hogy adatait kizárólag anonimizált formában kapja meg"
+      ],
+      explanation: "Az érintett kérheti, hogy a helytelen adatokat azonnal helyesbítsék - pl. hibás cím vagy születési dátum esetén. A vállalkozásoknak egy hónapon belül eleget kell tenniük a kérésnek."
+    }
+  },
+
+  // ── Datenpannen (Erweiterung) ─────────────────────────────────────────────
+  {
+    id: 75,
+    topic: "Datenpannen",
+    question: "Was muss bei einer Datenpanne intern dokumentiert werden - auch wenn keine Meldepflicht besteht?",
+    answers: [
+      "Nur Datenpannen mit mehr als 1.000 betroffenen Personen müssen dokumentiert werden",
+      "Nur wenn Gesundheitsdaten betroffen sind",
+      "Art des Vorfalls, Ursache, Auswirkungen und ergriffene Abhilfemaßnahmen",
+      "Datenpannen ohne Meldepflicht müssen überhaupt nicht dokumentiert werden"
+    ],
+    correct: 2,
+    explanation: "Alle Datenpannen - auch jene ohne Meldepflicht - sind intern zu dokumentieren (Art. 33 Abs. 5 DSGVO). Das interne Verzeichnis ermöglicht der Aufsichtsbehörde die spätere Prüfung der Entscheidung.",
+    hu: {
+      question: "Mit kell belső dokumentálásban rögzíteni egy adatvédelmi incidens esetén - még akkor is, ha nincs bejelentési kötelezettség?",
+      answers: [
+        "Csak az 1000 főnél több érintettet magában foglaló incidenseket kell dokumentálni",
+        "Csak ha egészségügyi adatok érintettek",
+        "Az incidens jellegét, okát, hatásait és a megtett javítási intézkedéseket",
+        "A bejelentési kötelezettség nélküli incidenseket egyáltalán nem kell dokumentálni"
+      ],
+      explanation: "Minden adatvédelmi incidenst - még a bejelentési kötelezettség alá nem esőket is - belső nyilvántartásba kell venni (GDPR 33. cikk (5) bekezdés). Ez lehetővé teszi a felügyeleti hatóság számára a döntés utólagos ellenőrzését."
+    }
+  },
+  {
+    id: 76,
+    topic: "Datenpannen",
+    question: "Wann müssen bei einer Datenpanne zusätzlich auch die betroffenen Personen direkt informiert werden?",
+    answers: [
+      "Bei jeder Datenpanne, immer und sofort",
+      "Nur wenn die Datenschutzbehörde es ausdrücklich anordnet",
+      "Nur wenn mehr als 1.000 Personen betroffen sind",
+      "Wenn die Datenpanne voraussichtlich ein hohes Risiko für die Rechte und Freiheiten der betroffenen Personen zur Folge hat"
+    ],
+    correct: 3,
+    explanation: "Neben der Behördenmeldung (72 Stunden) müssen Betroffene nur bei voraussichtlich hohem Risiko direkt benachrichtigt werden - z. B. wenn Passwörter, Zahlungsdaten oder Gesundheitsdaten kompromittiert wurden.",
+    hu: {
+      question: "Mikor kell adatvédelmi incidens esetén az érintett személyeket közvetlenül is értesíteni?",
+      answers: [
+        "Minden adatvédelmi incidens esetén, mindig és azonnal",
+        "Csak ha az adatvédelmi hatóság kifejezetten elrendeli",
+        "Csak ha 1000-nél több személy érintett",
+        "Ha az adatvédelmi incidens várhatóan magas kockázattal jár az érintett személyek jogaira és szabadságaira nézve"
+      ],
+      explanation: "A hatósági bejelentés (72 óra) mellett az érintetteket csak várhatóan magas kockázat esetén kell közvetlenül értesíteni - pl. ha jelszavak, fizetési adatok vagy egészségügyi adatok kerültek veszélybe."
+    }
+  },
+
+  // ── Datenschutz Österreich (Erweiterung) ─────────────────────────────────
+  {
+    id: 77,
+    topic: "Datenschutz Österreich",
+    question: "Welches ist die niedrigere Bußgeldstufe der DSGVO für weniger schwerwiegende Verstöße?",
+    answers: [
+      "Bis zu 500.000 Euro oder 1 % des Jahresumsatzes",
+      "Bis zu 10 Millionen Euro oder 2 % des weltweiten Jahresumsatzes",
+      "Bis zu 5 Millionen Euro oder 1 % des Jahresumsatzes",
+      "Bis zu 1 Million Euro als Pauschalbetrag"
+    ],
+    correct: 1,
+    explanation: "Die DSGVO kennt zwei Stufen: bis zu 10 Mio. Euro / 2 % Jahresumsatz (z. B. bei fehlenden TOMs) und bis zu 20 Mio. Euro / 4 % (bei schwerwiegenden Verstößen wie fehlender Rechtsgrundlage).",
+    hu: {
+      question: "Melyik a GDPR alacsonyabb bírságszintje a kevésbé súlyos jogsértésekért?",
+      answers: [
+        "Legfeljebb 500 000 euró vagy az éves árbevétel 1%-a",
+        "Legfeljebb 10 millió euró vagy a globális éves árbevétel 2%-a",
+        "Legfeljebb 5 millió euró vagy az éves árbevétel 1%-a",
+        "Legfeljebb 1 millió euró átalányösszeg"
+      ],
+      explanation: "A GDPR két szintet ismer: legfeljebb 10 millió euró / árbevétel 2%-a (pl. hiányzó TOM-ok esetén) és legfeljebb 20 millió euró / 4% (súlyos jogsértésekért, pl. jogalap hiánya esetén)."
+    }
+  },
+  {
+    id: 78,
+    topic: "Datenschutz Österreich",
+    question: "Welches Recht haben Betroffene, wenn ein DSGVO-Verstoß ihnen einen Schaden verursacht hat?",
+    answers: [
+      "Kein Recht - Schadenersatz ist nur bei vorsätzlichem Handeln möglich",
+      "Nur ein Beschwerderecht bei der Aufsichtsbehörde",
+      "Anspruch auf materiellen und immateriellen Schadenersatz gegenüber dem Verantwortlichen (Art. 82 DSGVO)",
+      "Nur Anspruch auf kostenlose Datenlöschung"
+    ],
+    correct: 2,
+    explanation: "Art. 82 DSGVO: Betroffene haben das Recht auf Schadenersatz - auch für immaterielle Schäden wie psychische Belastung oder Rufschädigung. Das macht DSGVO-Verstöße auch zivilrechtlich riskant.",
+    hu: {
+      question: "Milyen joga van az érintettnek, ha GDPR-jogsértés kárt okozott neki?",
+      answers: [
+        "Nincs joga - kártérítés csak szándékos cselekmény esetén lehetséges",
+        "Csak panasztételi jog a felügyeleti hatóságnál",
+        "Jog anyagi és nem vagyoni kártérítésre az adatkezelővel szemben (GDPR 82. cikk)",
+        "Csak jog az ingyenes adattörlésre"
+      ],
+      explanation: "A GDPR 82. cikke: az érintetteknek kártérítési joguk van - nem vagyoni kárért is (pl. lelki megterhelés, hírnévkárosodás). Ez a GDPR-jogsértéseket polgári jogilag is kockázatossá teszi."
+    }
+  },
+
+  // ── IT-Sicherheit (Erweiterung) ───────────────────────────────────────────
+  {
+    id: 79,
+    topic: "IT-Sicherheit",
+    question: "Was ist Cross-Site Scripting (XSS)?",
+    answers: [
+      "Ein Angriff, bei dem Schadcode (JavaScript) in eine Website eingeschleust wird und im Browser anderer Nutzer ausgeführt wird",
+      "Ein Angriff auf die CSS-Stildateien einer Website",
+      "Eine Methode zur Optimierung von JavaScript-Code",
+      "Eine Technik zur sicheren Skriptübertragung zwischen Servern"
+    ],
+    correct: 0,
+    explanation: "XSS: Ein Angreifer bringt eine Website dazu, schädliches JavaScript an Besucher auszuliefern. Schutz: Benutzereingaben immer kodieren (HTML-Encoding), eine Content Security Policy (CSP) setzen.",
+    hu: {
+      question: "Mi a cross-site scripting (XSS)?",
+      answers: [
+        "Olyan támadás, amelynek során rosszindulatú kódot (JavaScript) ágyaznak be egy weboldalba, amely más felhasználók böngészőjében fut le",
+        "Támadás egy weboldal CSS-stílusfájljai ellen",
+        "JavaScript-kód optimalizálási módszer",
+        "Szkriptek biztonságos kiszolgálók közötti átvitelének technikája"
+      ],
+      explanation: "XSS: a támadó ráveszi a weboldalt, hogy rosszindulatú JavaScriptet szolgáltasson a látogatóknak. Védelem: a felhasználói beviteleket mindig kódolni kell (HTML-kódolás), és Content Security Policy (CSP) alkalmazása ajánlott."
+    }
+  },
+  {
+    id: 80,
+    topic: "IT-Sicherheit",
+    question: "Was ist ein CSRF-Angriff (Cross-Site Request Forgery)?",
+    answers: [
+      "Eine Methode zur Umgehung von HTTPS-Verschlüsselung",
+      "Ein Angriff, der SQL-Befehle in Formulare einschleust",
+      "Ein Angriff, bei dem eine präparierte Seite den Browser eines angemeldeten Nutzers dazu bringt, ungewollte Aktionen auf einer anderen Website auszuführen",
+      "Eine Technik zum Auslesen von Session-Cookies"
+    ],
+    correct: 2,
+    explanation: "CSRF: Das Opfer besucht eine Seite des Angreifers, die im Hintergrund eine Anfrage an eine Site sendet, bei der das Opfer eingeloggt ist. Schutz: CSRF-Token in Formularen, SameSite-Cookie-Attribut.",
+    hu: {
+      question: "Mi a CSRF-támadás (Cross-Site Request Forgery)?",
+      answers: [
+        "A HTTPS-titkosítás megkerülésének módszere",
+        "Olyan támadás, amely SQL-parancsokat illeszt be az űrlapokba",
+        "Olyan támadás, amelynek során egy előkészített oldal ráveszi a bejelentkezett felhasználó böngészőjét, hogy nem kívánt műveleteket hajtson végre egy másik weboldalon",
+        "Munkamenet-sütik kiolvasásának technikája"
+      ],
+      explanation: "CSRF: az áldozat felkeres egy támadói oldalt, amely a háttérben kérést küld egy olyan weboldalra, amelyre az áldozat be van jelentkezve. Védelem: CSRF-token az űrlapokban, SameSite sütiattribútum."
+    }
+  },
+  {
+    id: 81,
+    topic: "IT-Sicherheit",
+    question: "Was ist Zwei-Faktor-Authentifizierung (2FA)?",
+    answers: [
+      "Zweimalige Eingabe desselben Passworts zur Bestätigung",
+      "Zwei separate Browserfenster für den Anmeldevorgang",
+      "Eine Authentifizierung mit zwei unabhängigen Faktoren - z. B. Passwort und einmaliger SMS-Code",
+      "Ein doppelter Passwort-Hash zum Schutz der Datenbank"
+    ],
+    correct: 2,
+    explanation: "2FA kombiniert zwei unterschiedliche Faktoren: Wissen (Passwort), Besitz (Smartphone, Hardware-Token) oder Biometrie. So ist ein Konto auch bei gestohlenem Passwort deutlich besser geschützt.",
+    hu: {
+      question: "Mi a kétfaktoros hitelesítés (2FA)?",
+      answers: [
+        "Ugyanazon jelszó kétszeri bevitele megerősítésként",
+        "Két különálló böngészőablak a bejelentkezési folyamathoz",
+        "Hitelesítés két független tényezővel - pl. jelszó és egyszer használatos SMS-kód",
+        "Kettős jelszó-hash az adatbázis védelmére"
+      ],
+      explanation: "A 2FA két különböző tényezőt kombinál: tudást (jelszó), birtoklást (okostelefon, hardvertoken) vagy biometrikát. Így egy fiók ellopott jelszó esetén is lényegesen jobban védett."
+    }
+  },
+  {
+    id: 82,
+    topic: "IT-Sicherheit",
+    question: "Was bedeutet das 'Principle of Least Privilege' (Prinzip der minimalen Rechtevergabe)?",
+    answers: [
+      "Alle Benutzer erhalten Administratorrechte für maximale Effizienz",
+      "Benutzer und Prozesse erhalten nur die Rechte, die für ihre jeweilige Aufgabe tatsächlich notwendig sind",
+      "Passwörter müssen mindestens 8 Zeichen lang sein",
+      "Nur das Sicherheitsteam darf auf Produktionsdaten zugreifen"
+    ],
+    correct: 1,
+    explanation: "Least Privilege reduziert den Schaden bei einem Angriff oder Fehler: Ein Datenbankbenutzer braucht z. B. kein DROP-Recht, wenn er es nicht braucht. Gilt für Benutzer, APIs, Dienste und Datenbankrollen.",
+    hu: {
+      question: "Mit jelent a 'legkisebb jogosultság elve' (Principle of Least Privilege)?",
+      answers: [
+        "Minden felhasználó rendszergazdai jogokat kap a maximális hatékonyság érdekében",
+        "A felhasználók és folyamatok csak azokat a jogokat kapják meg, amelyekre az adott feladatuk elvégzéséhez valóban szükségük van",
+        "A jelszavaknak legalább 8 karakter hosszúaknak kell lenniük",
+        "Csak a biztonsági csapat férhet hozzá az éles adatokhoz"
+      ],
+      explanation: "A legkisebb jogosultság elve csökkenti a támadás vagy hiba esetén keletkező kárt: egy adatbázis-felhasználónak pl. ne legyen DROP-joga, ha nincs rá szüksége. Vonatkozik a felhasználókra, API-kra, szolgáltatásokra és adatbázis-szerepkörökre."
+    }
+  },
+  {
+    id: 83,
+    topic: "IT-Sicherheit",
+    question: "Welche Maßnahmen sind beim Absichern einer API besonders wichtig?",
+    answers: [
+      "API-Keys direkt im Frontend-Quellcode speichern für einfachen Zugriff",
+      "Keine Authentifizierung, wenn die API nur intern genutzt wird",
+      "Authentifizierung, Autorisierung, Rate Limiting und Validierung aller Eingaben",
+      "GET-Anfragen ohne sensible Daten brauchen keine Absicherung"
+    ],
+    correct: 2,
+    explanation: "Eine sichere API authentifiziert jede Anfrage, prüft Berechtigungen je Endpunkt, begrenzt die Anfrageanzahl (Rate Limiting) und validiert alle Eingaben. API-Keys niemals im Frontend-Code ablegen.",
+    hu: {
+      question: "Melyek a legfontosabb intézkedések egy API biztosításánál?",
+      answers: [
+        "Az API-kulcsok közvetlen tárolása a frontend forráskódjában az egyszerű hozzáférés érdekében",
+        "Nincs szükség hitelesítésre, ha az API-t csak belsőleg használják",
+        "Hitelesítés, engedélyezés, rate limiting és az összes bevitel érvényesítése",
+        "A személyes adatot nem tartalmazó GET-kérések nem igényelnek biztosítást"
+      ],
+      explanation: "Egy biztonságos API: minden kérést hitelesít, végpontonként ellenőrzi a jogosultságokat, korlátozza a kérések számát (rate limiting) és érvényesíti az összes bevitelt. Az API-kulcsokat soha nem szabad a frontend-kódban elhelyezni."
+    }
+  },
+
+  // ── E-Commerce & Österreich (Erweiterung) ────────────────────────────────
+  {
+    id: 84,
+    topic: "E-Commerce & Österreich",
+    question: "Was ist ein Fernabsatzvertrag und wann gilt er?",
+    answers: [
+      "Ein Vertrag zwischen zwei Unternehmen über digitale Dienstleistungen",
+      "Jeder Kaufvertrag über 1.000 Euro Warenwert",
+      "Ein Vertrag zwischen Unternehmer und Verbraucher, der ausschließlich über Fernkommunikationsmittel (Internet, Telefon) geschlossen wird",
+      "Ein Vertrag für Lieferungen außerhalb der EU"
+    ],
+    correct: 2,
+    explanation: "Fernabsatzverträge entstehen bei Online-Bestellungen und Telefonverkäufen. Sie lösen besondere Pflichten aus: Informationspflichten, Widerrufsrecht und Formerfordernisse - geregelt im österreichischen FAGG.",
+    hu: {
+      question: "Mi a távolsági szerződés és mikor érvényes?",
+      answers: [
+        "Két vállalkozás közötti szerződés digitális szolgáltatásokról",
+        "Minden 1000 euró értéket meghaladó adásvételi szerződés",
+        "Vállalkozó és fogyasztó között kizárólag távközlési eszközökön (internet, telefon) keresztül kötött szerződés",
+        "EU-n kívüli szállításokra vonatkozó szerződés"
+      ],
+      explanation: "A távolsági szerződések online rendeléseknél és telefonos értékesítéseknél keletkeznek. Különleges kötelezettségeket váltanak ki: tájékoztatási kötelezettség, elállási jog és alaki előírások - az osztrák FAGG szabályozza."
+    }
+  },
+  {
+    id: 85,
+    topic: "E-Commerce & Österreich",
+    question: "Wie lange gilt das gesetzliche Widerrufsrecht bei Online-Käufen in Österreich?",
+    answers: [
+      "7 Tage ab Bestelldatum",
+      "30 Tage ab Erhalt der Ware",
+      "14 Tage ab Erhalt der Ware bzw. ab Vertragsschluss bei Dienstleistungen",
+      "Das Widerrufsrecht gilt nur bei defekter Ware"
+    ],
+    correct: 2,
+    explanation: "Verbraucher haben 14 Tage Widerrufsrecht ohne Angabe von Gründen. Die Frist beginnt bei Warenlieferungen mit dem Erhalt, bei Dienstleistungen mit dem Vertragsschluss. Fehlt die Widerrufsbelehrung, verlängert sich die Frist auf 12 Monate.",
+    hu: {
+      question: "Mennyi ideig érvényes a törvényes elállási jog online vásárlásoknál Ausztriában?",
+      answers: [
+        "7 nap a rendelés dátumától",
+        "30 nap az áru kézhezvételétől",
+        "14 nap az áru kézhezvételétől, illetve a szerződéskötéstől szolgáltatások esetén",
+        "Az elállási jog csak hibás árura vonatkozik"
+      ],
+      explanation: "A fogyasztóknak 14 napos elállási joguk van indoklás nélkül. A határidő áruküldésnél az átvételkor, szolgáltatásoknál a szerződéskötéskor kezdődik. Ha az elállásról szóló tájékoztatás elmaradt, a határidő 12 hónapra hosszabbodik."
+    }
+  },
+  {
+    id: 86,
+    topic: "E-Commerce & Österreich",
+    question: "Was schützt das österreichische Konsumentenschutzgesetz (KSchG)?",
+    answers: [
+      "Nur Verbraucher in stationären Geschäften, nicht im Online-Handel",
+      "Verbraucher vor unfairen Geschäftspraktiken und unzulässigen Klauseln in Allgemeinen Geschäftsbedingungen im B2C-Bereich",
+      "Unternehmen vor Klagen durch Konsumenten",
+      "Ausschließlich Käufer von Elektro- und Elektronikprodukten"
+    ],
+    correct: 1,
+    explanation: "Das KSchG schützt Verbraucher gegenüber Unternehmern und erklärt viele benachteiligende AGB-Klauseln für ungültig. Es gilt für alle Verbraucherverträge - auch Online-Verträge.",
+    hu: {
+      question: "Mit véd az osztrák fogyasztóvédelmi törvény (KSchG)?",
+      answers: [
+        "Csak a hagyományos boltokban vásárló fogyasztókat, online kereskedésben nem érvényes",
+        "Fogyasztókat a tisztességtelen üzleti gyakorlatokkal és a B2C területen alkalmazott megengedhetetlen ÁSZF-záradékokkal szemben",
+        "Vállalkozásokat fogyasztói perekkel szemben",
+        "Kizárólag elektromos és elektronikus termékek vevőit"
+      ],
+      explanation: "A KSchG védi a fogyasztókat a vállalkozókkal szemben, és számos hátrányos ÁSZF-záradékot érvénytelennek nyilvánít. Minden fogyasztói szerződésre vonatkozik - az online szerződésekre is."
+    }
+  },
+
+  // ── ePrivacy & Cookies (Erweiterung) ──────────────────────────────────────
+  {
+    id: 87,
+    topic: "ePrivacy & Cookies",
+    question: "Was ist der Unterschied zwischen First-Party- und Third-Party-Cookies?",
+    answers: [
+      "First-Party-Cookies sind sicher, Third-Party-Cookies sind grundsätzlich schädlich",
+      "First-Party-Cookies werden von der besuchten Website gesetzt; Third-Party-Cookies stammen von externen Diensten wie Werbenetzen oder Social Plugins",
+      "Es gibt keinen datenschutzrechtlichen Unterschied zwischen beiden",
+      "First-Party-Cookies benötigen immer eine Einwilligung, Third-Party-Cookies nicht"
+    ],
+    correct: 1,
+    explanation: "Third-Party-Cookies ermöglichen webseitenübergreifendes Tracking und erfordern fast immer eine Einwilligung. Viele Browser blockieren sie bereits standardmäßig. First-Party-Cookies können technisch notwendig sein.",
+    hu: {
+      question: "Mi a különbség a first-party és a third-party sütik között?",
+      answers: [
+        "A first-party sütik biztonságosak, a third-party sütik alapvetően károsak",
+        "A first-party sütiket a meglátogatott weboldal helyezi el; a third-party sütik külső szolgáltatásoktól, például reklámmhálózatoktól vagy social pluginoktól érkeznek",
+        "Adatvédelmi szempontból nincs különbség a kettő között",
+        "A first-party sütikhez mindig hozzájárulás szükséges, a third-party sütikhez nem"
+      ],
+      explanation: "A third-party sütik weboldalak közötti nyomkövetést tesznek lehetővé, és szinte mindig hozzájárulást igényelnek. Sok böngésző már alapértelmezés szerint blokkolja őket. A first-party sütik műszakilag szükségesek is lehetnek."
+    }
+  },
+  {
+    id: 88,
+    topic: "ePrivacy & Cookies",
+    question: "Wie unterscheidet sich Local Storage aus Datenschutzsicht von Cookies?",
+    answers: [
+      "Local Storage ist vom Datenschutz vollständig ausgenommen",
+      "Local Storage wird automatisch nach 30 Tagen gelöscht",
+      "Local Storage sendet Daten bei jeder HTTP-Anfrage automatisch an den Server - genau wie Cookies",
+      "Local Storage bleibt länger gespeichert und wird nicht automatisch mit Anfragen gesendet - dieselben Datenschutzanforderungen gelten trotzdem"
+    ],
+    correct: 3,
+    explanation: "Local Storage wird nicht automatisch mit HTTP-Anfragen übermittelt, kann aber trotzdem zur Identifizierung von Nutzern genutzt werden. Die ePrivacy-Anforderungen - einschließlich Einwilligungspflicht - gelten genauso wie für Cookies.",
+    hu: {
+      question: "Miben különbözik a Local Storage adatvédelmi szempontból a sütiektől?",
+      answers: [
+        "A Local Storage teljesen mentes az adatvédelem alól",
+        "A Local Storage-ot 30 nap után automatikusan törlik",
+        "A Local Storage minden HTTP-kérésnél automatikusan elküldi az adatokat a szervernek - ugyanúgy, mint a sütik",
+        "A Local Storage hosszabb ideig tárolódik és nem küldik automatikusan kérésekkel - az adatvédelmi követelmények ennek ellenére ugyanúgy vonatkoznak rá"
+      ],
+      explanation: "A Local Storage-ot HTTP-kérésekkel nem küldik el automatikusan, de még így is felhasználható a felhasználók azonosítására. Az ePrivacy-követelmények - beleértve a hozzájárulási kötelezettséget - ugyanúgy érvényesek, mint a sütikre."
+    }
+  },
+  {
+    id: 89,
+    topic: "ePrivacy & Cookies",
+    question: "Was ist ein Tracking-Pixel und welche datenschutzrechtliche Bedeutung hat er?",
+    answers: [
+      "Ein Designelement, das ausschließlich die Bildschirmauflösung des Nutzers misst",
+      "Ein unsichtbares 1x1-Pixel-Bild, das beim Laden Nutzerdaten (IP-Adresse, Zeitpunkt, Gerät) an einen Server übermittelt und eine Einwilligung erfordert",
+      "Ein technisch notwendiges Element für die Seitenoptimierung",
+      "Tracking-Pixel sind datenschutzrechtlich irrelevant, da sie keine Cookies setzen"
+    ],
+    correct: 1,
+    explanation: "Tracking-Pixel werden in E-Mails oder Webseiten eingebettet und senden beim Laden Daten wie IP-Adresse, Öffnungszeit und Geräteinfos. Sie gelten als personenbezogene Datenverarbeitung und erfordern in der Regel eine Einwilligung.",
+    hu: {
+      question: "Mi a nyomkövetési pixel és milyen adatvédelmi jelentősége van?",
+      answers: [
+        "Egy tervezési elem, amely kizárólag a felhasználó képernyőfelbontását méri",
+        "Egy láthatatlan 1x1 pixeles kép, amely betöltéskor felhasználói adatokat (IP-cím, időpont, eszköz) küld egy szervernek, és hozzájárulást igényel",
+        "Műszakilag szükséges elem az oldal optimalizálásához",
+        "A nyomkövetési pixelek adatvédelmi szempontból lényegtelenek, mivel nem helyeznek el sütiket"
+      ],
+      explanation: "A nyomkövetési pixeleket e-mailekbe vagy weboldalakba ágyazzák, és betöltéskor adatokat küldenek, mint az IP-cím, a megnyitás időpontja és az eszköz adatai. Személyes adatok kezeléseként minősülnek, és általában hozzájárulást igényelnek."
+    }
+  },
+
+  // ── DSGVO in der Praxis (Erweiterung) ─────────────────────────────────────
+  {
+    id: 90,
+    topic: "DSGVO in der Praxis",
+    question: "Warum ist das direkte Einbinden von Google Fonts auf einer Website datenschutzrechtlich problematisch?",
+    answers: [
+      "Weil Google Fonts kostenpflichtig ist",
+      "Weil Schriftarten grundsätzlich urheberrechtlich geschützt sind",
+      "Weil beim Laden die IP-Adresse des Besuchers an Google-Server in den USA übertragen wird - ohne ausreichende Rechtsgrundlage",
+      "Es ist nicht problematisch - Google Fonts ist DSGVO-konform"
+    ],
+    correct: 2,
+    explanation: "Das LG München entschied 2022: Wer Google Fonts direkt einbindet, überträgt beim Seitenaufruf die IP-Adresse des Nutzers an Google - das ist ein Datenschutzverstoß. Die Lösung: Schriften lokal auf dem eigenen Server hosten.",
+    hu: {
+      question: "Miért problematikus adatvédelmi szempontból a Google Fonts közvetlen beágyazása egy weboldalba?",
+      answers: [
+        "Mert a Google Fonts fizetős",
+        "Mert a betűtípusok alapvetően szerzői jogi védelem alatt állnak",
+        "Mert a betöltéskor a látogató IP-címét megfelelő jogalap nélkül továbbítják az USA-beli Google-szerverekre",
+        "Nem problematikus - a Google Fonts GDPR-konform"
+      ],
+      explanation: "A müncheni bíróság 2022-ben kimondta: aki közvetlenül ágyazza be a Google Fonts-ot, az oldal betöltésekor a felhasználó IP-címét továbbítja a Google-nak - ez adatvédelmi jogsértés. A megoldás: a betűtípusokat a saját szerveren kell tárolni."
+    }
+  },
+  {
+    id: 91,
+    topic: "DSGVO in der Praxis",
+    question: "Was ist bei der Protokollierung (Logging) in Anwendungen aus Datenschutzsicht zu beachten?",
+    answers: [
+      "Logs sollten so viele Details wie möglich enthalten - sie erleichtern die Fehlersuche",
+      "Logs sind vom Datenschutz ausgenommen, da sie nur internen Zwecken dienen",
+      "Personenbezogene Daten in Logs müssen auf das Nötigste beschränkt werden und dürfen nur so lange aufbewahrt werden, wie es der Zweck erfordert",
+      "Logging ohne ausdrückliche Einwilligung jedes Nutzers ist grundsätzlich verboten"
+    ],
+    correct: 2,
+    explanation: "Logs enthalten oft IP-Adressen, User-IDs oder andere personenbezogene Daten. Es gelten: minimale Datenmenge, klare Aufbewahrungsfristen, Zugriffsschutz und sichere Speicherung. Passwörter oder Zahlungsdaten dürfen niemals in Logs erscheinen.",
+    hu: {
+      question: "Mit kell figyelembe venni az alkalmazásokban a naplózás (logging) kapcsán adatvédelmi szempontból?",
+      answers: [
+        "A naplóknak a lehető legtöbb részletet kell tartalmazniuk - megkönnyítik a hibakeresést",
+        "A naplók mentesek az adatvédelem alól, mivel csak belső célokat szolgálnak",
+        "A naplókban lévő személyes adatokat a szükséges minimumra kell korlátozni, és csak addig szabad megőrizni, ameddig a cél megkívánja",
+        "A naplózás minden felhasználó kifejezett hozzájárulása nélkül alapvetően tiltott"
+      ],
+      explanation: "A naplók gyakran tartalmaznak IP-címeket, felhasználói azonosítókat vagy más személyes adatokat. Vonatkozó elvek: minimális adatmennyiség, egyértelmű megőrzési határidő, hozzáférési védelem és biztonságos tárolás. Jelszavak vagy fizetési adatok soha nem kerülhetnek naplókba."
+    }
+  },
+  {
+    id: 92,
+    topic: "DSGVO in der Praxis",
+    question: "Was versteht man unter technischen und organisatorischen Maßnahmen (TOMs) nach Art. 32 DSGVO?",
+    answers: [
+      "Ausschließlich technische Maßnahmen wie Firewalls und Verschlüsselung",
+      "Ausschließlich organisatorische Maßnahmen wie Schulungen und interne Richtlinien",
+      "Ein kombiniertes Bündel an Maßnahmen zum Schutz personenbezogener Daten - z. B. Verschlüsselung, Zugriffskontrollen, Pseudonymisierung, Backups und Mitarbeiterschulungen",
+      "Freiwillige Best Practices ohne rechtliche Verbindlichkeit"
+    ],
+    correct: 2,
+    explanation: "TOMs sind nach Art. 32 DSGVO verpflichtend und müssen dem Risiko der Verarbeitung angemessen sein. Beispiele: TLS-Verschlüsselung, Zugriffskontrolle, regelmäßige Sicherheitstests, Löschkonzepte und Datenschutzschulungen.",
+    hu: {
+      question: "Mit értünk a GDPR 32. cikke szerinti műszaki és szervezési intézkedések (TOM) alatt?",
+      answers: [
+        "Kizárólag műszaki intézkedések, mint tűzfalak és titkosítás",
+        "Kizárólag szervezési intézkedések, mint képzések és belső irányelvek",
+        "A személyes adatok védelmét szolgáló kombinált intézkedéscsomag - pl. titkosítás, hozzáférés-ellenőrzés, álnevesítés, biztonsági mentések és munkavállaló-képzések",
+        "Önkéntes best practice-ek jogi kötőerő nélkül"
+      ],
+      explanation: "A TOM-ok kötelezők a GDPR 32. cikke alapján, és arányosnak kell lenniük az adatkezelés kockázatával. Példák: TLS-titkosítás, hozzáférés-ellenőrzés, rendszeres biztonsági tesztek, törlési koncepciók és adatvédelmi képzések."
+    }
+  },
+  {
+    id: 93,
+    topic: "DSGVO in der Praxis",
+    question: "Wann muss ein Auftragsverarbeitungsvertrag (AVV) abgeschlossen werden?",
+    answers: [
+      "Nur wenn personenbezogene Daten in Länder außerhalb der EU übertragen werden",
+      "Immer wenn ein externer Dienstleister im Auftrag des Verantwortlichen personenbezogene Daten verarbeitet - z. B. Cloud-Anbieter, Hosting oder E-Mail-Dienste",
+      "Nur bei der Verarbeitung besonders sensibler Daten",
+      "Nur wenn der Dienstleister mehr als 50 Mitarbeiter beschäftigt"
+    ],
+    correct: 1,
+    explanation: "Art. 28 DSGVO: Wer Dienstleister einsetzt, die Daten im Auftrag verarbeiten, muss einen AVV abschließen. Ohne AVV ist die Verarbeitung nicht rechtmäßig. Das gilt auch für Hosting-Anbieter, SaaS-Tools und E-Mail-Dienste.",
+    hu: {
+      question: "Mikor kell adatfeldolgozási szerződést (AVV) kötni?",
+      answers: [
+        "Csak ha személyes adatokat az EU-n kívüli országokba továbbítanak",
+        "Mindig, ha egy külső szolgáltató az adatkezelő megbízásából személyes adatokat kezel - pl. felhőszolgáltató, tárhelyszolgáltatás vagy e-mail-szolgáltatás",
+        "Csak különösen érzékeny adatok kezelésekor",
+        "Csak ha a szolgáltatónak több mint 50 alkalmazottja van"
+      ],
+      explanation: "GDPR 28. cikk: aki megbízás alapján adatokat kezelő szolgáltatókat vesz igénybe, adatfeldolgozási szerződést kell kötnie. AVV nélkül az adatkezelés nem jogszerű. Ez tárhelyszolgáltatókra, SaaS-eszközökre és e-mail-szolgáltatásokra is vonatkozik."
+    }
+  },
+  {
+    id: 94,
+    topic: "DSGVO in der Praxis",
+    question: "Welche DSGVO-Aspekte sind beim Einsatz von Künstlicher Intelligenz (KI) besonders zu beachten?",
+    answers: [
+      "KI fällt nicht unter die DSGVO - sie verarbeitet keine 'echten' Daten",
+      "Nur wenn die KI auf Fotos oder Gesichtserkennung trainiert wird",
+      "Transparenz über KI-Entscheidungen, Recht auf menschliche Überprüfung bei erheblichen Auswirkungen, Zweckbindung der Trainingsdaten und Datensparsamkeit",
+      "KI-Systeme sind in der EU grundsätzlich verboten"
+    ],
+    correct: 2,
+    explanation: "KI-Systeme, die personenbezogene Daten verarbeiten, unterliegen der DSGVO. Kritisch: automatisierte Entscheidungen mit erheblichen Folgen (Art. 22), Transparenzpflicht (Art. 5), Zweckbindung der Trainingsdaten und Datensparsamkeit.",
+    hu: {
+      question: "Melyek a legfontosabb GDPR-szempontok a mesterséges intelligencia (MI) alkalmazásakor?",
+      answers: [
+        "A MI nem tartozik a GDPR hatálya alá - nem kezel 'valódi' adatokat",
+        "Csak ha a MI-t fényképeken vagy arcfelismerésen tanítják",
+        "Átláthatóság a MI-döntésekről, emberi felülvizsgálathoz való jog jelentős hatású döntéseknél, a tanítóadatok célhoz kötöttsége és az adattakarékosság",
+        "A MI-rendszerek az EU-ban alapvetően tiltottak"
+      ],
+      explanation: "Személyes adatokat kezelő MI-rendszerekre a GDPR vonatkozik. Kritikus szempontok: jelentős hatású automatizált döntések (22. cikk), átláthatóság (5. cikk), a tanítóadatok célhoz kötöttsége és az adattakarékosság."
+    }
+  },
+  {
+    id: 95,
+    topic: "DSGVO in der Praxis",
+    question: "Eine mobile App fordert beim ersten Start Zugriff auf Kamera, Mikrofon und Kontakte an. Was ist dabei aus Datenschutzsicht zu beachten?",
+    answers: [
+      "Apps dürfen alle benötigten Berechtigungen auf einmal anfragen - das ist Standard",
+      "Jede Berechtigung muss durch einen konkreten Funktionszweck begründet sein; unnötige Berechtigungen verstoßen gegen die Datensparsamkeit",
+      "Datenschutzrechtlich relevant ist nur der Kamerazugriff",
+      "Das Betriebssystem regelt Berechtigungen automatisch - Entwickler müssen sich nicht darum kümmern"
+    ],
+    correct: 1,
+    explanation: "Datensparsamkeit gilt auch für App-Berechtigungen. Eine Taschenrechner-App braucht keinen Mikrofonzugriff. Jede Berechtigung muss durch einen konkreten Zweck begründet sein. Unnötige Berechtigungen sind ein klares Warnsignal.",
+    hu: {
+      question: "Egy mobilalkalmazás az első indításkor kamerához, mikrofonhoz és névjegyekhez kér hozzáférést. Mit kell figyelembe venni adatvédelmi szempontból?",
+      answers: [
+        "Az alkalmazások egyszerre kérhetnek minden szükséges engedélyt - ez általános gyakorlat",
+        "Minden engedélynek konkrét funkcionalitási céllal kell rendelkeznie; a szükségtelen engedélyek sértik az adattakarékosság elvét",
+        "Adatvédelmi szempontból csak a kamerahozzáférés releváns",
+        "Az operációs rendszer automatikusan kezeli az engedélyeket - a fejlesztőknek nem kell foglalkozniuk vele"
+      ],
+      explanation: "Az adattakarékosság az alkalmazás-engedélyekre is vonatkozik. Egy számológép-alkalmazásnak nincs szüksége mikrofonhozzáférésre. Minden engedélyt konkrét céllal kell indokolni. A szükségtelen engedélyek egyértelmű figyelmeztető jelek."
+    }
+  },
+  {
+    id: 96,
+    topic: "DSGVO in der Praxis",
+    question: "Warum müssen Backups, die personenbezogene Daten enthalten, verschlüsselt werden?",
+    answers: [
+      "Verschlüsselung von Backups ist optional und verlangsamt nur die Wiederherstellung",
+      "Backups müssen nur verschlüsselt werden, wenn sie in der Cloud gespeichert werden",
+      "Weil unverschlüsselte Backups ein leichtes Ziel bei Datenpannen sind und Art. 32 DSGVO geeignete Schutzmaßnahmen vorschreibt",
+      "Nur wenn die gesicherten Daten besonders sensible Kategorien umfassen"
+    ],
+    correct: 2,
+    explanation: "Ein unverschlüsseltes Backup auf einer externen Festplatte oder einem USB-Stick ist eine häufige Ursache von Datenpannen. Art. 32 DSGVO schreibt geeignete Schutzmaßnahmen vor - Backupverschlüsselung gehört dazu.",
+    hu: {
+      question: "Miért kell titkosítani a személyes adatokat tartalmazó biztonsági mentéseket?",
+      answers: [
+        "A biztonsági mentések titkosítása opcionális és csak lelassítja a visszaállítást",
+        "A biztonsági mentéseket csak akkor kell titkosítani, ha felhőben tárolják",
+        "Mert a titkosítatlan biztonsági mentések könnyen adatvédelmi incidensek célpontjaivá válnak, és a GDPR 32. cikke megfelelő védőintézkedéseket ír elő",
+        "Csak ha a mentett adatok különleges adatkategóriákat tartalmaznak"
+      ],
+      explanation: "Egy titkosítatlan biztonsági mentés külső merevlemezen vagy USB-meghajtón az adatvédelmi incidensek gyakori oka. A GDPR 32. cikke megfelelő biztonsági intézkedéseket követel meg - a biztonsági mentések titkosítása ebbe beletartozik."
+    }
+  },
+  {
+    id: 97,
+    topic: "DSGVO in der Praxis",
+    question: "Was sollte beim Entwurf einer API, die personenbezogene Daten liefert, aus Datenschutzsicht beachtet werden?",
+    answers: [
+      "APIs sind intern und daher vom Datenschutz ausgenommen",
+      "Es reicht, die API hinter einem API-Key abzusichern",
+      "Datensparsamkeit in den Responses, Zugriffsprotokollierung, Authentifizierung und rollenbasierte Zugriffssteuerung",
+      "Alle Datenbankfelder sollten über die API abrufbar sein, damit Clients flexibel bleiben"
+    ],
+    correct: 2,
+    explanation: "Eine datenschutzkonforme API liefert nur die wirklich benötigten Felder, protokolliert Zugriffe, erzwingt Authentifizierung und steuert über Rollen, wer welche Daten sehen darf. Zu breite Endpunkte und Massenabrufe sind häufige Problemquellen.",
+    hu: {
+      question: "Mit kell figyelembe venni adatvédelmi szempontból egy személyes adatokat visszaadó API tervezésekor?",
+      answers: [
+        "Az API-k belső jellegűek, ezért mentesek az adatvédelem alól",
+        "Elegendő az API-t egy API-kulccsal védeni",
+        "Adattakarékosság a válaszokban, hozzáférés-naplózás, hitelesítés és szerepkör-alapú hozzáférés-vezérlés",
+        "Minden adatbázismező lekérdezhetőnek kell lennie az API-n keresztül, hogy az ügyfelek rugalmasak maradhassanak"
+      ],
+      explanation: "Egy adatvédelmi szempontból megfelelő API csak a valóban szükséges mezőket adja vissza, naplózza a hozzáféréseket, kötelezővé teszi a hitelesítést, és szerepkörökön keresztül szabályozza, ki milyen adatokat láthat. A túl széles végpontok és a tömeges lekérdezések gyakori problémaforrások."
+    }
+  },
+  {
+    id: 98,
+    topic: "DSGVO in der Praxis",
+    question: "Was ist der Unterschied zwischen Ende-zu-Ende-Verschlüsselung und Transportverschlüsselung (TLS)?",
+    answers: [
+      "Es gibt keinen relevanten Unterschied - beide schützen Daten auf demselben Niveau",
+      "TLS schützt Daten nur auf dem Server; Ende-zu-Ende-Verschlüsselung schützt sie nur beim Client",
+      "TLS schützt nur den Übertragungsweg (Daten liegen am Server entschlüsselt vor); Ende-zu-Ende-Verschlüsselung schützt Daten auch vor dem Anbieter selbst",
+      "Ende-zu-Ende-Verschlüsselung ist ausschließlich für E-Mails relevant"
+    ],
+    correct: 2,
+    explanation: "TLS verschlüsselt den Transport - am Server liegen Daten im Klartext vor. Ende-zu-Ende-Verschlüsselung (wie bei Signal oder PGP) bedeutet: Nur Sender und Empfänger können die Daten entschlüsseln - nicht einmal der Anbieter.",
+    hu: {
+      question: "Mi a különbség a végponttól végpontig tartó titkosítás és az átviteli titkosítás (TLS) között?",
+      answers: [
+        "Nincs lényeges különbség - mindkettő ugyanolyan szinten védi az adatokat",
+        "A TLS csak a szerveren, a végponttól végpontig tartó titkosítás csak az ügyfélen védi az adatokat",
+        "A TLS csak az átviteli útvonalat védi (az adatok a szerveren visszafejtve tárolódnak); a végponttól végpontig tartó titkosítás a szolgáltatóval szemben is védi az adatokat",
+        "A végponttól végpontig tartó titkosítás kizárólag e-mailek esetén releváns"
+      ],
+      explanation: "A TLS az átvitelt titkosítja - a szerveren az adatok visszafejtett formában tárolódnak. A végponttól végpontig tartó titkosítás (mint a Signal vagy PGP esetén) azt jelenti: csak a küldő és a fogadó tudja visszafejteni - még a szolgáltató sem."
+    }
+  },
+  {
+    id: 99,
+    topic: "DSGVO in der Praxis",
+    question: "Welche Rechte haben Betroffene bei vollautomatisierten Entscheidungen mit erheblichen Auswirkungen (Art. 22 DSGVO)?",
+    answers: [
+      "Keine - vollautomatisierte Entscheidungen sind uneingeschränkt erlaubt und nicht anfechtbar",
+      "Das Recht, eine menschliche Überprüfung der Entscheidung zu verlangen und den eigenen Standpunkt darzulegen",
+      "Nur das Recht, die bei der Entscheidung verwendeten Daten anzufragen",
+      "Das Recht auf automatische Entschädigung, wenn die Entscheidung falsch war"
+    ],
+    correct: 1,
+    explanation: "Art. 22 DSGVO schützt vor rein automatisierten Entscheidungen mit erheblichen Auswirkungen - z. B. Kreditablehnung oder automatisiertes Bewerberscreening. Betroffene können menschliche Überprüfung verlangen. Ausnahmen: Einwilligung oder Vertragserfüllung.",
+    hu: {
+      question: "Milyen jogai vannak az érintetteknek a jelentős hatású, teljesen automatizált döntések esetén (GDPR 22. cikk)?",
+      answers: [
+        "Nincs - a teljesen automatizált döntések korlátozás nélkül megengedettek és nem vitathatók",
+        "A jog, hogy emberi felülvizsgálatot kérjen a döntésről, és kifejtse álláspontját",
+        "Csak a jog, hogy lekérdezze a döntésnél felhasznált adatokat",
+        "A jog az automatikus kártérítésre, ha a döntés téves volt"
+      ],
+      explanation: "A GDPR 22. cikke védelmet nyújt a jelentős hatású, teljesen automatizált döntésekkel szemben - pl. hitelkérelem elutasítása vagy automatizált jelöltkiválasztás esetén. Az érintett emberi felülvizsgálatot kérhet. Kivételek: hozzájárulás vagy szerződés teljesítése."
+    }
+  },
+  {
+    id: 100,
+    topic: "DSGVO in der Praxis",
+    question: "Was wird bei einem internen Datenschutz-Audit typischerweise geprüft?",
+    answers: [
+      "Ausschließlich technische Sicherheitsmaßnahmen wie Firewalls und Backups",
+      "Ob alle Datenschutzdokumente rechtmäßig und aktuell sind - Verarbeitungsverzeichnis, Datenschutzerklärungen, AVVs, TOMs und Löschkonzepte",
+      "Nur ob eine Datenschutzerklärung auf der Website vorhanden ist",
+      "Ausschließlich die durchgeführten Mitarbeiterschulungen"
+    ],
+    correct: 1,
+    explanation: "Ein Datenschutz-Audit prüft die gesamte Datenschutzorganisation: Ist das Verarbeitungsverzeichnis aktuell? Sind alle AVVs vorhanden? Werden Löschfristen eingehalten? Sind TOMs dem Risiko angemessen? Werden Betroffenenrechte korrekt umgesetzt?",
+    hu: {
+      question: "Mi kerül tipikusan ellenőrzésre egy belső adatvédelmi audit során?",
+      answers: [
+        "Kizárólag műszaki biztonsági intézkedések, mint tűzfalak és biztonsági mentések",
+        "Hogy minden adatvédelmi dokumentum jogszerű-e és naprakész-e - adatkezelési nyilvántartás, adatvédelmi tájékoztatók, AVV-k, TOM-ok és törlési koncepciók",
+        "Csak az, hogy megtalálható-e az adatvédelmi tájékoztató a weboldalon",
+        "Kizárólag az elvégzett munkavállaló-képzések"
+      ],
+      explanation: "Az adatvédelmi audit az egész adatvédelmi szervezetet ellenőrzi: naprakész-e az adatkezelési nyilvántartás? Minden AVV megvan? Betartják-e a törlési határidőket? Arányosak-e a TOM-ok a kockázattal? Helyesen érvényesítik-e az érintetti jogokat?"
+    }
   }
 
 ];
