@@ -105,6 +105,16 @@ function filteredQuestions() {
 }
 
 function updateSetupScreen() {
+  const meta = $("module-meta");
+  meta.innerHTML = "";
+  const badge = document.createElement("span");
+  badge.className   = "module-badge";
+  badge.textContent = t("examLabel");
+  const statsEl = document.createElement("span");
+  statsEl.className   = "module-stats-text";
+  statsEl.textContent = t("moduleStats")(QUESTIONS.length, allTopics().length);
+  meta.append(badge, statsEl);
+
   const chips = $("topic-chips");
   chips.innerHTML = "";
   allTopics().forEach(topic => {
@@ -383,6 +393,7 @@ document.addEventListener("DOMContentLoaded", () => {
   $("next-btn").addEventListener("click", nextQuestion);
   $("restart-btn").addEventListener("click", () => { clearProgress(); showSetupScreen(); });
   $("start-btn").addEventListener("click", init);
+  $("logo-link").addEventListener("click", e => { e.preventDefault(); showSetupScreen(); });
 
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.addEventListener("click", () => setLang(btn.dataset.lang));

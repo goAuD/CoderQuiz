@@ -6,6 +6,7 @@
   <title>CoderQuiz – DSGVO LAP Applikationsentwicklung</title>
   <meta name="description" content="Lernquiz zur Vorbereitung auf die LAP Applikationsentwicklung-Coding: DSGVO, Urheberrecht, IT-Sicherheit, Österreich/EU-Recht." />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
 </head>
 <body>
 
@@ -14,7 +15,25 @@
       <button class="lang-btn" data-lang="de">DE</button>
       <button class="lang-btn" data-lang="hu">HU</button>
     </div>
-    <h1>CoderQuiz – <span id="module-title">DSGVO &amp; Recht</span></h1>
+    <div class="brand">
+      <a id="logo-link" class="logo-link" href="#" aria-label="CoderQuiz – Startseite">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true">
+          <defs>
+            <linearGradient id="logo-g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#5b6af0"/>
+              <stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient>
+          </defs>
+          <rect width="40" height="40" rx="9" fill="url(#logo-g)"/>
+          <rect x="1" y="1" width="38" height="38" rx="8" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <text x="20" y="27"
+            font-family="'Segoe UI',system-ui,-apple-system,sans-serif"
+            font-size="16" font-weight="800" fill="white"
+            text-anchor="middle" letter-spacing="-0.5">CQ</text>
+        </svg>
+      </a>
+      <h1>CoderQuiz – <span id="module-title">DSGVO &amp; Recht</span></h1>
+    </div>
     <p class="subtitle" id="quiz-subtitle"></p>
   </header>
 
@@ -22,6 +41,7 @@
   <main id="setup-screen" class="card hidden">
     <h2 id="setup-heading"></h2>
     <p id="setup-sub" class="setup-sub"></p>
+    <div id="module-meta" class="module-meta"></div>
     <div id="topic-chips" class="topic-chips"></div>
     <button id="start-btn"></button>
   </main>
