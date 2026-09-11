@@ -69,11 +69,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--bank", choices=BANK_PORTS, default="lap-pilot")
     parser.add_argument("--port", type=int)
+    parser.add_argument("--bind", default="127.0.0.1", help="Listen address; use your LAN IP for phone preview")
     args = parser.parse_args()
     port = args.port if args.port is not None else BANK_PORTS[args.bank]
-    server = PilotServer(("127.0.0.1", port), PilotHandler)
+    server = PilotServer((args.bind, port), PilotHandler)
     server.bank_path = ROOT / "examples" / f"{args.bank}.json"
-    print(f"CoderLAP {args.bank}: http://127.0.0.1:{port} — Ctrl+C to stop", flush=True)
+    print(f"CoderLAP {args.bank}: http://{args.bind}:{port} — Ctrl+C to stop", flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
