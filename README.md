@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.svg" width="72" height="72" alt="CoderQuiz" />
+  <img src="assets/logo.svg" width="128" height="128" alt="CoderQuiz" />
 </p>
 
 <h1 align="center">CoderQuiz</h1>
