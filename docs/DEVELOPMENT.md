@@ -158,6 +158,8 @@ If you are continuing this project in a new conversation, the key context is:
 - Setup uses a desktop introduction beside the topic selector, stacked on mobile.
   Quiz and result screens retain a narrower reading width. Mobile header rows
   align brand/CoderLAP on the left and GitHub/language controls on the right.
+  Header and footer span the full viewport width with safe-area-aware side gutters;
+  setup and question content keep their own reading-width limits.
 - Header stays in normal document flow, with safe-area spacing and no sticky blur.
   Screen reveal is restrained and respects reduced motion. No artificial loader:
   questions are bundled locally and ready when the app starts.
