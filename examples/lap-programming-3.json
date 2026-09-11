@@ -1,0 +1,1063 @@
+{
+  "sourceRepository": "https://github.com/goAuD/CoderLAP",
+  "sourceCommit": "466a2ee8a5dbd8dc17b67a546e3ac7aacf5115e8",
+  "ui": {
+    "de": {
+      "moduleTitle": "CoderLAP · Programmieren 3",
+      "subtitle": "30 Fragen zu Variablen, Gültigkeitsbereichen, Schleifen, Verzweigungen und OOP.",
+      "practiceNote": "Lies den Code in Ruhe. Die Erklärung erscheint nach deiner Antwort.",
+      "topics": {
+        "Variable und Konstante": "Variable und Konstante",
+        "Gueltigkeitsbereiche von Variablen": "Gültigkeitsbereiche von Variablen",
+        "Schleifen": "Schleifen",
+        "Kopf- und fussgesteuerte Schleifen": "Kopf- und fußgesteuerte Schleifen",
+        "Verzweigungen und Fallunterscheidungen": "Verzweigungen und Fallunterscheidungen",
+        "Objektorientierte Programmierung": "Objektorientierte Programmierung"
+      }
+    },
+    "hu": {
+      "moduleTitle": "CoderLAP · Programozás 3",
+      "subtitle": "30 kérdés változókról, hatókörről, ciklusokról, elágazásokról és OOP-ről.",
+      "practiceNote": "Olvasd végig nyugodtan a kódot. A magyarázat a válaszod után jelenik meg.",
+      "topics": {
+        "Variable und Konstante": "Változó és konstans",
+        "Gueltigkeitsbereiche von Variablen": "A változók hatóköre",
+        "Schleifen": "Ciklusok",
+        "Kopf- und fussgesteuerte Schleifen": "Fej- és lábvezérelt ciklusok",
+        "Verzweigungen und Fallunterscheidungen": "Elágazások és esetválasztás",
+        "Objektorientierte Programmierung": "Objektumorientált programozás"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "lap-LAP-15-15-1",
+      "revision": 1,
+      "topic": "Variable und Konstante",
+      "source": {
+        "topicId": "LAP-15-15",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/15_Variable_und_Konstante/README.md",
+        "slug": "15-15-variable_und_konstante"
+      },
+      "question": "Regex sammelt während eines Spiels Punkte. Warum passt let für score im Beispiel?",
+      "answers": [
+        "Weil let den Anfangswert für den gesamten Programmlauf einfriert.",
+        "Weil score durch let automatisch zu einer Funktion wird.",
+        "Weil score nach der Initialisierung einen neuen Zahlenwert erhalten soll.",
+        "Weil mit let ausschließlich globale Variablen möglich sind."
+      ],
+      "correct": 2,
+      "explanation": "score beginnt mit 10. Die Zuweisung score += 5 liest diesen Wert, addiert 5 und speichert 15 als neuen Wert. let erlaubt diese erneute Zuweisung und macht damit die veränderliche Punktzahl ausdrückbar.",
+      "hu": {
+        "question": "Regex játék közben pontokat gyűjt. Miért illik a let a példában a score változóhoz?",
+        "answers": [
+          "Mert a let a teljes futásra befagyasztja a kezdőértéket.",
+          "Mert a score a let hatására automatikusan függvénnyé válik.",
+          "Mert a score az inicializálás után új számértéket kaphat.",
+          "Mert a let kizárólag globális változókat enged."
+        ],
+        "explanation": "A score 10-ről indul. A score += 5 értékadás kiolvassa ezt, hozzáad 5-öt, majd új értékként 15-öt tárol. A let megengedi az új érték hozzárendelését, így alkalmas a változó pontszám leírására."
+      },
+      "code": "let score = 10;\nscore += 5;\nconsole.log(score);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "15"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-15-2",
+      "revision": 1,
+      "topic": "Variable und Konstante",
+      "source": {
+        "topicId": "LAP-15-15",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/15_Variable_und_Konstante/README.md",
+        "slug": "15-15-variable_und_konstante"
+      },
+      "question": "Welche Aussage beschreibt die Bindung const BONUS = 5 in JavaScript korrekt?",
+      "answers": [
+        "BONUS wird mit 5 initialisiert; derselben Bindung kann später kein anderer Wert zugewiesen werden.",
+        "BONUS lässt sich später nur durch einen anderen Zahlenwert ersetzen.",
+        "Die Großbuchstaben verhindern eine neue Zuweisung, unabhängig von const.",
+        "const verhindert, dass andere Anweisungen den Wert von BONUS lesen."
+      ],
+      "correct": 0,
+      "explanation": "const legt hier eine Bindung mit dem Anfangswert 5 an und erlaubt keine spätere Neuzuweisung an diese Bindung. Die Großschreibung ist nur eine Namenskonvention für Konstanten. Der Wert kann weiterhin gelesen und in Berechnungen verwendet werden.",
+      "hu": {
+        "question": "Melyik állítás írja le helyesen a const BONUS = 5 kötést JavaScriptben?",
+        "answers": [
+          "A BONUS 5-tel inicializálódik; ugyanennek a kötésnek később nem adható másik érték.",
+          "A BONUS később csak egy másik számértékkel helyettesíthető.",
+          "Az új értékadást a nagybetűk akadályozzák meg, a const kulcsszótól függetlenül.",
+          "A const megakadályozza, hogy más utasítások kiolvassák a BONUS értékét."
+        ],
+        "explanation": "A const itt 5-ös kezdőértékű kötést hoz létre, és nem engedi ennek későbbi új értékadását. A nagybetűs írás csak elnevezési szokás a konstansoknál. Az érték továbbra is olvasható és felhasználható számításokban."
+      },
+      "code": "const BONUS = 5;\nconsole.log(10 + BONUS);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "15"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-15-3",
+      "revision": 1,
+      "topic": "Variable und Konstante",
+      "source": {
+        "topicId": "LAP-15-15",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/15_Variable_und_Konstante/README.md",
+        "slug": "15-15-variable_und_konstante"
+      },
+      "question": "Mehrere Stellen verwenden dieselbe fest vereinbarte Zahl von Versuchen. Was bringt eine benannte Konstante MAX_ATTEMPTS gegenüber mehrfach eingetragenen Zahlenliteralen?",
+      "answers": [
+        "Alle davon abhängigen Abläufe werden automatisch fehlerfrei.",
+        "Der Wert muss nach jedem Funktionsaufruf neu zugewiesen werden.",
+        "Der JavaScript-Parser erkennt den Namen automatisch als eingebautes Schlüsselwort.",
+        "Die Bedeutung wird sichtbar, und eine spätere Änderung dieser Vorgabe hat eine gemeinsame Stelle."
+      ],
+      "correct": 3,
+      "explanation": "Ein aussagekräftiger Name erklärt, wofür der feste Wert steht. Wenn die Vorgabe später geändert wird, lässt sie sich an der gemeinsamen Definition anpassen. Die betroffenen Abläufe werden anschließend geprüft; die Konstante unterstützt eine konsistente Umsetzung.",
+      "hu": {
+        "question": "Több hely ugyanazt az előre rögzített próbálkozásszámot használja. Mit ad egy MAX_ATTEMPTS nevű konstans a több helyre beírt számliterálokhoz képest?",
+        "answers": [
+          "Minden rá épülő folyamat automatikusan hibátlanná válik.",
+          "Minden függvényhívás után új értéket kell hozzá rendelni.",
+          "A JavaScript-elemző automatikusan beépített kulcsszóként ismeri fel a nevet.",
+          "Láthatóvá válik a jelentése, és az előírás későbbi módosításának közös helye lesz."
+        ],
+        "explanation": "A beszédes név elmondja, mire szolgál a rögzített érték. Ha később változik az előírás, a közös definíciónál módosítható. Ezután ellenőrizzük az érintett működést; a konstans az egységes megvalósítást támogatja."
+      }
+    },
+    {
+      "id": "lap-LAP-15-15-4",
+      "revision": 1,
+      "topic": "Variable und Konstante",
+      "source": {
+        "topicId": "LAP-15-15",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/15_Variable_und_Konstante/README.md",
+        "slug": "15-15-variable_und_konstante"
+      },
+      "question": "Was gibt dieser Code aus, und warum ist die Änderung trotz const möglich?",
+      "answers": [
+        "0; const verwirft Änderungen an allen Objekteigenschaften.",
+        "1; die Eigenschaft score wird geändert, die Bindung player zeigt weiterhin auf dasselbe Objekt.",
+        "1; player wird durch die Zuweisung automatisch zu einer let-Variable.",
+        "Ein TypeError; const verbietet grundsätzlich jede Änderung eines Objekts."
+      ],
+      "correct": 1,
+      "explanation": "const schützt die Bindung vor Neuzuweisung. player.score += 1 verändert hier den Inhalt des bestehenden Objekts, nicht die Bindung player. Deshalb ist die Ausgabe 1. Bindung und veränderlicher Objektinhalt müssen getrennt betrachtet werden.",
+      "hu": {
+        "question": "Mit ír ki a kód, és miért lehetséges a módosítás a const ellenére?",
+        "answers": [
+          "0-t; a const elveti az összes objektumtulajdonság módosítását.",
+          "1-et; a score tulajdonság változik, a player kötés továbbra is ugyanarra az objektumra mutat.",
+          "1-et; az értékadás automatikusan let változóvá alakítja a playert.",
+          "TypeError hibát; a const alapvetően minden objektummódosítást tilt."
+        ],
+        "explanation": "A const a kötést védi az új értékadástól. A player.score += 1 itt a meglévő objektum tartalmát változtatja, nem a player kötést. Ezért a kiírt eredmény 1. A kötést és a módosítható objektumtartalmat külön kell vizsgálni."
+      },
+      "code": "const player = { name: \"Regex\", score: 0 };\nplayer.score += 1;\nconsole.log(player.score);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "1"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-15-5",
+      "revision": 1,
+      "topic": "Variable und Konstante",
+      "source": {
+        "topicId": "LAP-15-15",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/15_Variable_und_Konstante/README.md",
+        "slug": "15-15-variable_und_konstante"
+      },
+      "question": "Welche Größe passt in diesem Lernprogramm am besten zu einer benannten festen Konfiguration?",
+      "answers": [
+        "Die während eines Durchlaufs wechselnde aktuelle Fragenposition.",
+        "Die Summe der bisher erreichten Punkte.",
+        "Die für den Durchlauf festgelegte maximale Anzahl von Versuchen.",
+        "Die Anzahl der noch offenen Fragen nach jeder Antwort."
+      ],
+      "correct": 2,
+      "explanation": "Die maximale Zahl der Versuche ist hier eine vor dem Durchlauf festgelegte Vorgabe. Eine Konstante kann diese Absicht ausdrücken. Fragenposition, Punktestand und verbleibende Fragen beschreiben dagegen veränderlichen Fortschritt.",
+      "hu": {
+        "question": "Melyik mennyiség illik ebben a tanulóprogramban leginkább névvel ellátott, rögzített beállításhoz?",
+        "answers": [
+          "Az aktuális kérdés menet közben változó helye.",
+          "Az eddig megszerzett pontok összege.",
+          "Az adott körre előre rögzített maximális próbálkozásszám.",
+          "A még nyitott kérdések száma az egyes válaszok után."
+        ],
+        "explanation": "A próbálkozások felső határa itt a kör előtt rögzített előírás. Ezt a szándékot egy konstans jól kifejezheti. A kérdés helye, a pontszám és a hátralévő kérdések száma ezzel szemben változó haladási állapotot ír le."
+      }
+    },
+    {
+      "id": "lap-LAP-15-16-1",
+      "revision": 1,
+      "topic": "Gueltigkeitsbereiche von Variablen",
+      "source": {
+        "topicId": "LAP-15-16",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/16_Gueltigkeitsbereiche_von_Variablen/README.md",
+        "slug": "15-16-gueltigkeitsbereiche_von_variablen"
+      },
+      "question": "Welche Frage beantwortet der Gültigkeitsbereich von subtotal?",
+      "answers": [
+        "In welchen Teilen des Codes der Name subtotal auf diese Variable zugreift.",
+        "Wie viele Bytes die Zahl in jedem JavaScript-System belegt.",
+        "Wie lange die Programmausführung insgesamt dauert.",
+        "Ob subtotal nur ganze Zahlen enthalten kann."
+      ],
+      "correct": 0,
+      "explanation": "Der Scope beschreibt, wo ein Name auf eine bestimmte Variable verweist. subtotal wird hier im Körper von calculateTotal deklariert und dort verwendet. Der Aufrufer erhält das Ergebnis 12 über return; dadurch wird die lokale Variable nicht außerhalb der Funktion sichtbar.",
+      "hu": {
+        "question": "Melyik kérdésre válaszol a subtotal hatóköre?",
+        "answers": [
+          "A kód mely részeiben érhető el ezzel a névvel ez a változó?",
+          "Hány bájtot foglal a szám minden JavaScript-rendszerben?",
+          "Mennyi ideig tart összesen a program futása?",
+          "Csak egész számokat tartalmazhat-e a subtotal?"
+        ],
+        "explanation": "A hatókör azt írja le, hol utal egy név az adott változóra. A subtotal itt a calculateTotal törzsében deklarálódik, és ott használjuk. A hívó a 12-es eredményt a return segítségével kapja meg; ettől a lokális változó még nem válik a függvényen kívül láthatóvá."
+      },
+      "code": "function calculateTotal() {\n  const subtotal = 10;\n  return subtotal + 2;\n}\nconsole.log(calculateTotal());",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "12"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-16-2",
+      "revision": 1,
+      "topic": "Gueltigkeitsbereiche von Variablen",
+      "source": {
+        "topicId": "LAP-15-16",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/16_Gueltigkeitsbereiche_von_Variablen/README.md",
+        "slug": "15-16-gueltigkeitsbereiche_von_variablen"
+      },
+      "question": "Betrachte den Code als eigenständiges klassisches Skript, nicht als Modul oder Funktionswrapper. Welche Zuordnung passt zu limit und used?",
+      "answers": [
+        "Beide Namen sind ausschließlich innerhalb von remaining sichtbar.",
+        "used ist global, weil es im Ergebnis einer Funktion vorkommt.",
+        "limit ist lokal in remaining, used ist global.",
+        "limit ist im globalen Gültigkeitsbereich des Skripts deklariert; used ist lokal in remaining."
+      ],
+      "correct": 3,
+      "explanation": "limit steht außerhalb der Funktion und ist in diesem Skript auch in remaining sichtbar. used wird im Funktionskörper deklariert. Nach außen gibt remaining nur den berechneten Wert 2 zurück. Bei einem JavaScript-Modul wäre eine Deklaration auf oberster Ebene modulbezogen statt global.",
+      "hu": {
+        "question": "A kódot önálló, klasszikus szkriptként vizsgáld, nem modulként vagy függvénybe csomagolva. Melyik besorolás helyes a limit és used nevekre?",
+        "answers": [
+          "Mindkét név kizárólag a remaining belsejében látható.",
+          "A used globális, mert szerepel egy függvény eredményében.",
+          "A limit lokális a remainingben, a used globális.",
+          "A limit a szkript globális hatókörében deklarálódik; a used lokális a remaining függvényben."
+        ],
+        "explanation": "A limit a függvényen kívül áll, és ebben a szkriptben a remainingből is látható. A used a függvénytörzsben deklarálódik. A remaining kifelé csak a kiszámított 2-t adja vissza. JavaScript-modulban egy legfelső szintű deklaráció modulhatókörű lenne, nem globális."
+      },
+      "code": "const limit = 3;\nfunction remaining() {\n  const used = 1;\n  return limit - used;\n}\nconsole.log(remaining());",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "2"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-16-3",
+      "revision": 1,
+      "topic": "Gueltigkeitsbereiche von Variablen",
+      "source": {
+        "topicId": "LAP-15-16",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/16_Gueltigkeitsbereiche_von_Variablen/README.md",
+        "slug": "15-16-gueltigkeitsbereiche_von_variablen"
+      },
+      "question": "Mehrere unabhängige Funktionen schreiben in dieselbe globale Variable total. Welche Änderung macht die Abhängigkeiten leichter nachvollziehbar?",
+      "answers": [
+        "Jede Funktion darf total zusätzlich unter einem anderen globalen Namen überschreiben.",
+        "Eine Berechnungsfunktion erhält benötigte Werte als Parameter und gibt ihr Ergebnis zurück.",
+        "Alle Zwischenwerte werden vorsorglich ebenfalls global gespeichert.",
+        "Die Funktionen werden kürzer benannt, behalten aber dieselben versteckten Schreibzugriffe."
+      ],
+      "correct": 1,
+      "explanation": "Explizite Parameter und Rückgabewerte zeigen, welche Daten eine Berechnung benötigt und was sie liefert. So muss man weniger versteckte gemeinsame Zustandsänderungen verfolgen. Globaler Zustand kann begründet sein; für eine unabhängige Berechnung ist ein lokaler Datenfluss häufig übersichtlicher.",
+      "hu": {
+        "question": "Több egymástól független függvény ugyanazt a globális total változót írja. Melyik módosítás teszi könnyebben követhetővé a függőségeket?",
+        "answers": [
+          "Minden függvény egy másik globális néven is felülírhatja a totalt.",
+          "Egy számolófüggvény paraméterként kapja a szükséges értékeket, és visszaadja az eredményét.",
+          "Elővigyázatosságból minden köztes értéket is globálisan tárolunk.",
+          "Rövidebbre nevezzük a függvényeket, de megtartjuk ugyanazokat a rejtett írásokat."
+        ],
+        "explanation": "A kifejezett paraméterek és visszatérési értékek megmutatják, milyen adatot igényel és mit ad egy számítás. Így kevesebb rejtett, közös állapotváltozást kell követni. Globális állapotnak is lehet indoka; egy önálló számításhoz gyakran áttekinthetőbb a lokális adatáramlás."
+      }
+    },
+    {
+      "id": "lap-LAP-15-16-4",
+      "revision": 1,
+      "topic": "Gueltigkeitsbereiche von Variablen",
+      "source": {
+        "topicId": "LAP-15-16",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/16_Gueltigkeitsbereiche_von_Variablen/README.md",
+        "slug": "15-16-gueltigkeitsbereiche_von_variablen"
+      },
+      "question": "Welche beiden Werte werden ausgegeben, und was zeigt das über Block-Scope?",
+      "answers": [
+        "3 und 3; die innere Deklaration ersetzt auch die äußere Bindung.",
+        "1 und 1; die innere Deklaration wird wegen des gleichen Namens ignoriert.",
+        "3 und 1; der Block besitzt eine eigene score-Bindung.",
+        "Ein SyntaxError; derselbe Name darf niemals in verschachtelten Blöcken vorkommen."
+      ],
+      "correct": 2,
+      "explanation": "Der innere Block deklariert ein eigenes score mit Wert 3. Innerhalb dieses Blocks verdeckt es den äußeren Namen. Nach dem Block wird wieder das äußere score mit Wert 1 gelesen. Zwei getrennte Bindungen erklären die Ausgabe.",
+      "hu": {
+        "question": "Melyik két értéket írja ki a kód, és mit mutat ez a blokkhatókörről?",
+        "answers": [
+          "3 és 3; a belső deklaráció a külső kötést is lecseréli.",
+          "1 és 1; az azonos név miatt a belső deklaráció kimarad.",
+          "3 és 1; a blokknak saját score kötése van.",
+          "SyntaxError hibát; ugyanaz a név soha nem szerepelhet egymásba ágyazott blokkokban."
+        ],
+        "explanation": "A belső blokk saját, 3-as értékű score változót deklarál. A blokkon belül ez elfedi a külső nevet. A blokk után ismét a külső, 1-es értékű score olvasható. A két külön kötés magyarázza a kimenetet."
+      },
+      "code": "let score = 1;\n{\n  let score = 3;\n  console.log(score);\n}\nconsole.log(score);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "3",
+        "1"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-16-5",
+      "revision": 1,
+      "topic": "Gueltigkeitsbereiche von Variablen",
+      "source": {
+        "topicId": "LAP-15-16",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/16_Gueltigkeitsbereiche_von_Variablen/README.md",
+        "slug": "15-16-gueltigkeitsbereiche_von_variablen"
+      },
+      "question": "makeCounter() ist bereits zurückgekehrt, bevor next() zweimal aufgerufen wird. Was zeigt die Ausgabe 1 und 2 über Scope und Lebensdauer?",
+      "answers": [
+        "Die zurückgegebene Funktion behält Zugriff auf count; der lokale Zustand kann den ursprünglichen Aufruf überdauern.",
+        "count wird durch return automatisch als globale Variable veröffentlicht.",
+        "count wird bei jedem next()-Aufruf neu mit 0 initialisiert.",
+        "Der Name count ist nun überall im Skript direkt zugänglich."
+      ],
+      "correct": 0,
+      "explanation": "Scope beschreibt, wo der Name count verwendet werden kann; Lebensdauer beschreibt, wie lange sein Zustand erhalten bleibt. Die zurückgegebene Funktion bewahrt den Zugriff auf ihre umgebende Bindung. Diese Verbindung heißt Closure. Deshalb kann count weiterleben, obwohl makeCounter bereits zurückgekehrt ist.",
+      "hu": {
+        "question": "A makeCounter() már visszatért, amikor a next() kétszer meghívódik. Mit mutat az 1-es és 2-es kimenet a hatókörről és élettartamról?",
+        "answers": [
+          "A visszaadott függvény megőrzi a hozzáférést a counthoz; a lokális állapot túlélheti az eredeti hívást.",
+          "A return automatikusan globális változóként teszi közzé a countot.",
+          "A count minden next() híváskor újra 0-val inicializálódik.",
+          "A count név mostantól a szkriptben mindenhol közvetlenül elérhető."
+        ],
+        "explanation": "A hatókör azt írja le, hol használható a count név; az élettartam azt, meddig marad meg az állapota. A visszaadott függvény megőrzi a hozzáférést a környezetében lévő kötéshez. Ezt a kapcsolatot closure-nek, lezárásnak nevezzük. Ezért a count a makeCounter visszatérése után is megmaradhat."
+      },
+      "code": "function makeCounter() {\n  let count = 0;\n  return function next() {\n    count += 1;\n    return count;\n  };\n}\nconst next = makeCounter();\nconsole.log(next());\nconsole.log(next());",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-17-1",
+      "revision": 1,
+      "topic": "Schleifen",
+      "source": {
+        "topicId": "LAP-15-17",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/17_Schleifen/README.md",
+        "slug": "15-17-schleifen"
+      },
+      "question": "Wie oft läuft der Schleifenkörper, und wie oft wird number <= 3 geprüft?",
+      "answers": [
+        "3 Durchläufe und 3 Bedingungsprüfungen",
+        "4 Durchläufe und 4 Bedingungsprüfungen",
+        "4 Durchläufe und 3 Bedingungsprüfungen",
+        "3 Durchläufe und 4 Bedingungsprüfungen"
+      ],
+      "correct": 3,
+      "explanation": "Für number = 1, 2 und 3 ist die Bedingung wahr; der Körper gibt diese drei Werte aus. Danach erhöht number++ den Wert auf 4. Auch dieser Wert wird geprüft: Die Bedingung ist nun falsch, und die Schleife endet. Die abschließende Prüfung führt zu keinem weiteren Durchlauf.",
+      "hu": {
+        "question": "Hányszor fut le a ciklusmag, és hányszor vizsgáljuk a number <= 3 feltételt?",
+        "answers": [
+          "3 ciklusfutás és 3 feltételvizsgálat",
+          "4 ciklusfutás és 4 feltételvizsgálat",
+          "4 ciklusfutás és 3 feltételvizsgálat",
+          "3 ciklusfutás és 4 feltételvizsgálat"
+        ],
+        "explanation": "A number = 1, 2 és 3 értéknél a feltétel igaz; a ciklusmag ezt a három értéket írja ki. Ezután a number++ 4-re növeli az értéket. Ezt is megvizsgáljuk: a feltétel már hamis, ezért véget ér a ciklus. Az utolsó vizsgálatot nem követi újabb ciklusfutás."
+      },
+      "code": "for (let number = 1; number <= 3; number++) {\n  console.log(number);\n}",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-17-2",
+      "revision": 1,
+      "topic": "Schleifen",
+      "source": {
+        "topicId": "LAP-15-17",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/17_Schleifen/README.md",
+        "slug": "15-17-schleifen"
+      },
+      "question": "Welchen Wert hat remaining bei der Ausgabe nach der Schleife?",
+      "answers": [
+        "1, weil die letzte wahre Bedingung mit remaining = 1 geprüft wird.",
+        "0, weil die letzte Ausführung von remaining-- den Wert auf 0 senkt.",
+        "−1, weil die Schleife erst nach einer zusätzlichen Verringerung stoppt.",
+        "3, weil Änderungen im Schleifenkörper nach der Schleife rückgängig werden."
+      ],
+      "correct": 1,
+      "explanation": "remaining verändert sich von 3 über 2 und 1 zu 0. Danach wird remaining > 0 erneut geprüft und ist falsch. Der letzte Wert bleibt nach dem Ende der Schleife erhalten, deshalb wird 0 ausgegeben.",
+      "hu": {
+        "question": "Mennyi a remaining értéke a ciklus utáni kiírásnál?",
+        "answers": [
+          "1, mert az utolsó igaz feltételvizsgálat remaining = 1 mellett történik.",
+          "0, mert a remaining-- utolsó végrehajtása 0-ra csökkenti az értéket.",
+          "−1, mert a ciklus csak egy további csökkentés után áll meg.",
+          "3, mert a ciklusmag módosításai a ciklus után visszavonódnak."
+        ],
+        "explanation": "A remaining 3-ról 2-n és 1-en át 0-ra változik. Ezután újra megvizsgáljuk a remaining > 0 feltételt, amely hamis. Az utolsó érték a ciklus után is megmarad, ezért 0 íródik ki."
+      },
+      "code": "let remaining = 3;\nwhile (remaining > 0) {\n  remaining--;\n}\nconsole.log(remaining);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "0"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-17-3",
+      "revision": 1,
+      "topic": "Schleifen",
+      "source": {
+        "topicId": "LAP-15-17",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/17_Schleifen/README.md",
+        "slug": "15-17-schleifen"
+      },
+      "question": "Die Liste [0, 2] stellt zwei bereitliegende Eingaben dar. Warum passt do...while zum Lesen bis zum ersten positiven Wert in diesem Beispiel?",
+      "answers": [
+        "Zuerst muss mindestens ein Wert gelesen werden, bevor geprüft werden kann, ob er positiv ist.",
+        "do...while garantiert unabhängig vom Listeninhalt genau zwei Durchläufe.",
+        "do...while sortiert die Eingaben vor dem Lesen automatisch.",
+        "Die Bedingung wird vor dem ersten Zugriff auf inputs geprüft."
+      ],
+      "correct": 0,
+      "explanation": "Die erste Ausführung liest 0; erst danach lässt sich value <= 0 prüfen. Deshalb folgt eine zweite Ausführung mit Wert 2. Jetzt ist die Bedingung falsch. Der Code verarbeitet die beiden fest angegebenen Eingaben und gibt 2 aus; die zusätzliche Indexgrenze begrenzt das Lesen auf die vorhandene Liste.",
+      "hu": {
+        "question": "A [0, 2] lista két előkészített bemenetet jelképez. Miért illik a do...while az első pozitív értékig tartó olvasáshoz ebben a példában?",
+        "answers": [
+          "Először legalább egy értéket be kell olvasni, és csak utána vizsgálható, hogy pozitív-e.",
+          "A do...while a lista tartalmától függetlenül pontosan két menetet garantál.",
+          "A do...while olvasás előtt automatikusan rendezi a bemeneteket.",
+          "A feltételt az inputs első elérése előtt vizsgáljuk."
+        ],
+        "explanation": "Az első végrehajtás 0-t olvas; a value <= 0 feltétel csak utána vizsgálható. Ezért második végrehajtás következik, 2-es értékkel. Ekkor a feltétel hamis. A kód a két rögzített bemenetet dolgozza fel, és 2-t ír ki; a további indexhatár a meglévő listára korlátozza az olvasást."
+      },
+      "code": "const inputs = [0, 2];\nlet index = 0;\nlet value;\ndo {\n  value = inputs[index];\n  index += 1;\n} while (value <= 0 && index < inputs.length);\nconsole.log(value);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "2"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-17-4",
+      "revision": 1,
+      "topic": "Schleifen",
+      "source": {
+        "topicId": "LAP-15-17",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/17_Schleifen/README.md",
+        "slug": "15-17-schleifen"
+      },
+      "question": "Was gibt das Summenbeispiel mit der leeren Liste aus?",
+      "answers": [
+        "undefined, weil total nie in den Schleifenkörper gelangt.",
+        "NaN, weil die Addition ohne erstes Element beginnt.",
+        "0, weil der Anfangswert ohne Durchlauf erhalten bleibt.",
+        "1, weil for...of auch für eine leere Liste einmal läuft."
+      ],
+      "correct": 2,
+      "explanation": "total wird vor der Schleife mit 0 initialisiert. Die leere Liste liefert keine Werte, daher wird total += score kein einziges Mal ausgeführt. Die Ausgabe ist der unveränderte Anfangswert 0.",
+      "hu": {
+        "question": "Mit ír ki az összegző példa az üres listával?",
+        "answers": [
+          "undefined értéket, mert a total nem jut be a ciklusmagba.",
+          "NaN értéket, mert az összeadás első elem nélkül indul.",
+          "0-t, mert menet nélkül is megmarad a kezdőérték.",
+          "1-et, mert a for...of üres listánál is egyszer lefut."
+        ],
+        "explanation": "A total a ciklus előtt 0-val inicializálódik. Az üres lista nem ad feldolgozható értéket, ezért a total += score egyszer sem fut le. A kimenet a változatlan 0-s kezdőérték."
+      },
+      "code": "const scores = [];\nlet total = 0;\nfor (const score of scores) {\n  total += score;\n}\nconsole.log(total);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "0"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-17-5",
+      "revision": 1,
+      "topic": "Schleifen",
+      "source": {
+        "topicId": "LAP-15-17",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/17_Schleifen/README.md",
+        "slug": "15-17-schleifen"
+      },
+      "question": "Welche Operation wiederholt hier die Arbeit, obwohl keine Schleife im Code steht? Die Eingabe ist die kleine nichtnegative ganze Zahl 3.",
+      "answers": [
+        "console.log() startet die Funktion nach jeder Ausgabe automatisch neu.",
+        "Der Selbstaufruf countdown(n - 1) setzt die Arbeit mit einem kleineren Wert fort.",
+        "return wiederholt den gesamten vorherigen Funktionskörper.",
+        "Die Deklaration function erzeugt von selbst drei Ausführungen."
+      ],
+      "correct": 1,
+      "explanation": "Der rekursive Selbstaufruf wiederholt die Aufgabe mit n - 1. Die Aufrufe geben 3, 2 und 1 aus; bei n = 0 beendet der Basisfall die weitere Folge. Bei einer Schleife übernimmt dagegen die Schleifenstruktur die Wiederholung ihres Körpers.",
+      "hu": {
+        "question": "Melyik művelet ismétli itt a munkát, miközben nincs ciklus a kódban? A bemenet a kis, nemnegatív egész 3.",
+        "answers": [
+          "A console.log() minden kiírás után automatikusan újraindítja a függvényt.",
+          "A countdown(n - 1) önhívás kisebb értékkel folytatja a munkát.",
+          "A return megismétli az egész előző függvénytörzset.",
+          "A function deklaráció önmagában három végrehajtást hoz létre."
+        ],
+        "explanation": "A rekurzív önhívás n - 1 értékkel ismétli a feladatot. A hívások kiírják a 3-at, 2-t és 1-et; n = 0-nál az alapeset lezárja a további hívásokat. Ciklusnál ezzel szemben a ciklusszerkezet ismétli a saját törzsét."
+      },
+      "code": "function countdown(n) {\n  if (n === 0) return;\n  console.log(n);\n  countdown(n - 1);\n}\ncountdown(3);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "3",
+        "2",
+        "1"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-18-1",
+      "revision": 1,
+      "topic": "Kopf- und fussgesteuerte Schleifen",
+      "source": {
+        "topicId": "LAP-15-18",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/18_Kopf_und_Fussgesteuerte_Schleifen/README.md",
+        "slug": "15-18-kopf_und_fussgesteuerte_schleifen"
+      },
+      "question": "Welche Reihenfolge beschreibt eine kopfgesteuerte while-Schleife?",
+      "answers": [
+        "Körper ausführen → Bedingung prüfen → bei wahr beenden",
+        "Körper zweimal ausführen → Bedingung einmal prüfen",
+        "Bedingung einmal prüfen → Körper danach unbegrenzt wiederholen",
+        "Bedingung prüfen → bei wahr Körper ausführen → Bedingung erneut prüfen"
+      ],
+      "correct": 3,
+      "explanation": "Bei while steht die Prüfung vor jedem möglichen Durchlauf. Nur wenn die Bedingung wahr ist, wird der Körper ausgeführt. Ist sie bereits beim ersten Prüfen falsch, geht die Ausführung unmittelbar nach der Schleife weiter.",
+      "hu": {
+        "question": "Melyik sorrend ír le egy fejvezérelt while ciklust?",
+        "answers": [
+          "Ciklusmag végrehajtása → feltételvizsgálat → igaz esetén befejezés",
+          "Ciklusmag kétszeri végrehajtása → egyetlen feltételvizsgálat",
+          "Egyszeri feltételvizsgálat → utána a ciklusmag korlátlan ismétlése",
+          "Feltételvizsgálat → igaz esetén ciklusmag → újabb feltételvizsgálat"
+        ],
+        "explanation": "A while minden lehetséges menet előtt vizsgál. A ciklusmag csak igaz feltételnél fut le. Ha már az első vizsgálatkor hamis a feltétel, a végrehajtás közvetlenül a ciklus után folytatódik."
+      }
+    },
+    {
+      "id": "lap-LAP-15-18-2",
+      "revision": 1,
+      "topic": "Kopf- und fussgesteuerte Schleifen",
+      "source": {
+        "topicId": "LAP-15-18",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/18_Kopf_und_Fussgesteuerte_Schleifen/README.md",
+        "slug": "15-18-kopf_und_fussgesteuerte_schleifen"
+      },
+      "question": "Wann wird value < 5 bei dieser fußgesteuerten Schleife zum ersten Mal geprüft?",
+      "answers": [
+        "Nachdem der Körper value erstmals von 0 auf 2 erhöht hat.",
+        "Noch vor der ersten Erhöhung, mit value = 0.",
+        "Erst nach console.log(value).",
+        "Erst wenn value genau den Wert 5 erreicht."
+      ],
+      "correct": 0,
+      "explanation": "do...while führt zuerst seinen Körper aus. Die erste Prüfung sieht daher value = 2. Es folgen 4 und 6; bei 6 ist value < 5 falsch. Die Ausgabe ist 6, denn die Bedingung entscheidet über einen weiteren Durchlauf.",
+      "hu": {
+        "question": "Mikor vizsgáljuk meg először a value < 5 feltételt ebben a lábvezérelt ciklusban?",
+        "answers": [
+          "Miután a ciklusmag először 0-ról 2-re növelte a value értékét.",
+          "Még az első növelés előtt, value = 0 mellett.",
+          "Csak a console.log(value) után.",
+          "Csak amikor a value pontosan eléri az 5-öt."
+        ],
+        "explanation": "A do...while először a ciklusmagot hajtja végre. Az első feltételvizsgálat ezért value = 2-t lát. Ezután 4, majd 6 következik; 6-nál a value < 5 hamis. A kiírás 6, mert a feltétel egy további menet szükségességéről dönt."
+      },
+      "code": "let value = 0;\ndo {\n  value += 2;\n} while (value < 5);\nconsole.log(value);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "6"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-18-3",
+      "revision": 1,
+      "topic": "Kopf- und fussgesteuerte Schleifen",
+      "source": {
+        "topicId": "LAP-15-18",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/18_Kopf_und_Fussgesteuerte_Schleifen/README.md",
+        "slug": "15-18-kopf_und_fussgesteuerte_schleifen"
+      },
+      "question": "Die Arbeitsliste ist leer. Wie oft wird der Körper dieser while-Schleife ausgeführt?",
+      "answers": [
+        "Einmal, um festzustellen, dass kein Element vorhanden ist.",
+        "Zweimal, weil index und tasks.length geprüft werden.",
+        "Nullmal, weil 0 < 0 bereits vor dem ersten Durchlauf falsch ist.",
+        "So oft, bis index den Wert −1 erreicht."
+      ],
+      "correct": 2,
+      "explanation": "index startet bei 0, und die leere Liste hat Länge 0. Der kopfgesteuerte Test index < tasks.length ist sofort falsch. Es wird kein Element gelesen; die abschließende Ausgabe von index ist 0.",
+      "hu": {
+        "question": "A feladatlista üres. Hányszor fut le ennek a while ciklusnak a törzse?",
+        "answers": [
+          "Egyszer, hogy megállapítsa, nincs elem.",
+          "Kétszer, mert az indexet és a tasks.length értékét is megvizsgáljuk.",
+          "Nullaszor, mert a 0 < 0 már az első menet előtt hamis.",
+          "Addig, amíg az index eléri a −1-et."
+        ],
+        "explanation": "Az index 0-ról indul, az üres lista hossza pedig 0. A fejvezérelt index < tasks.length vizsgálat rögtön hamis. Egyetlen elemet sem olvasunk; az index záró kiírása 0."
+      },
+      "code": "const tasks = [];\nlet index = 0;\nwhile (index < tasks.length) {\n  console.log(tasks[index]);\n  index += 1;\n}\nconsole.log(index);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "0"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-18-4",
+      "revision": 1,
+      "topic": "Kopf- und fussgesteuerte Schleifen",
+      "source": {
+        "topicId": "LAP-15-18",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/18_Kopf_und_Fussgesteuerte_Schleifen/README.md",
+        "slug": "15-18-kopf_und_fussgesteuerte_schleifen"
+      },
+      "question": "ready ist von Anfang an true. Wie oft wird checks += 1 ausgeführt?",
+      "answers": [
+        "Nullmal, weil !ready bereits falsch ist.",
+        "Einmal, weil do...while die Bedingung erst nach dem Körper prüft.",
+        "Zweimal, weil eine falsche Bedingung zwei Durchläufe beendet.",
+        "Unbegrenzt, weil ready als const deklariert wurde."
+      ],
+      "correct": 1,
+      "explanation": "Beim Eintritt in do...while wird zuerst checks von 0 auf 1 erhöht. Danach ist !ready falsch, und die Schleife endet. Sobald diese Schleife erreicht wird, beginnt sie also mindestens einen Durchlauf, auch wenn ihre Fortsetzungsbedingung schon anfangs falsch ist.",
+      "hu": {
+        "question": "A ready kezdettől true. Hányszor fut le a checks += 1?",
+        "answers": [
+          "Nullaszor, mert a !ready már hamis.",
+          "Egyszer, mert a do...while csak a ciklusmag után vizsgál.",
+          "Kétszer, mert egy hamis feltétel két menetet zár le.",
+          "Korlátlanul, mert a ready const deklarációval készült."
+        ],
+        "explanation": "A do...while belépéskor először 0-ról 1-re növeli a checks értékét. Ezután a !ready hamis, és a ciklus lezárul. Amikor elérjük ezt a ciklust, legalább egy menet elkezdődik akkor is, ha a folytatási feltétel már kezdetben hamis."
+      },
+      "code": "const ready = true;\nlet checks = 0;\ndo {\n  checks += 1;\n} while (!ready);\nconsole.log(checks);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "1"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-18-5",
+      "revision": 1,
+      "topic": "Kopf- und fussgesteuerte Schleifen",
+      "source": {
+        "topicId": "LAP-15-18",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/18_Kopf_und_Fussgesteuerte_Schleifen/README.md",
+        "slug": "15-18-kopf_und_fussgesteuerte_schleifen"
+      },
+      "question": "Für jeden Auftrag soll genau eine Verarbeitung stattfinden; bei null offenen Aufträgen soll nichts verarbeitet werden. Warum passt eine Prüfung vor dem Schleifenkörper zu dieser Vorgabe?",
+      "answers": [
+        "Weil eine kopfgesteuerte Schleife ihren Körper grundsätzlich genau einmal ausführt.",
+        "Weil die Prüfung am Anfang die Zahl der Aufträge automatisch erhöht.",
+        "Weil die Bedingung bei einer leeren Liste erst nach dem ersten Auftrag ausgewertet werden muss.",
+        "Weil die anfangs leere Arbeitsmenge erkannt wird, bevor irgendeine Verarbeitung beginnt."
+      ],
+      "correct": 3,
+      "explanation": "Der Zeitpunkt der Prüfung beeinflusst das Verhalten beim Start. Eine Prüfung vor dem Körper kann bei leerer Arbeitsmenge jeden Durchlauf auslassen. Soll dagegen erst eine Handlung stattfinden und danach über Wiederholung entschieden werden, kann eine fußgesteuerte Struktur passen.",
+      "hu": {
+        "question": "Minden feladatot pontosan egyszer kell feldolgozni; nulla nyitott feladatnál semmit sem szabad feldolgozni. Miért illik ehhez a ciklusmag előtti vizsgálat?",
+        "answers": [
+          "Mert a fejvezérelt ciklus alapvetően pontosan egyszer futtatja a törzsét.",
+          "Mert az elöl végzett vizsgálat automatikusan növeli a feladatok számát.",
+          "Mert üres listánál csak az első feladat után szabad kiértékelni a feltételt.",
+          "Mert a kezdetben üres munkamennyiséget még bármilyen feldolgozás előtt felismerjük."
+        ],
+        "explanation": "A feltételvizsgálat időpontja befolyásolja az induláskori viselkedést. A ciklusmag előtti vizsgálat üres munkamennyiségnél minden menetet kihagyhat. Ha előbb egy műveletet kell végezni, majd az ismétlésről dönteni, ahhoz lábvezérelt szerkezet illeszkedhet."
+      }
+    },
+    {
+      "id": "lap-LAP-15-19-1",
+      "revision": 1,
+      "topic": "Verzweigungen und Fallunterscheidungen",
+      "source": {
+        "topicId": "LAP-15-19",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/19_Verzweigungen_und_Fallunterscheidungen/README.md",
+        "slug": "15-19-verzweigungen_und_fallunterscheidungen"
+      },
+      "question": "Welche Aufgabe erfüllt die Verzweigung im Beispiel?",
+      "answers": [
+        "Sie wiederholt die Ausgabe so oft, bis points den Wert 50 erreicht.",
+        "Sie sortiert die möglichen Punktzahlen.",
+        "Sie wählt anhand von points einen von zwei Ausgabepfaden.",
+        "Sie deklariert für jede Punktzahl eine neue Klasse."
+      ],
+      "correct": 2,
+      "explanation": "Die Bedingung points >= 50 entscheidet über den Ausgabepfad. Mit points = 70 ist sie wahr, deshalb wird ready ausgegeben. Der else-Zweig gehört zur Alternative bei falscher Bedingung. Eine Verzweigung trifft hier eine Entscheidung innerhalb des Ablaufs.",
+      "hu": {
+        "question": "Milyen feladatot lát el az elágazás a példában?",
+        "answers": [
+          "Addig ismétli a kiírást, amíg a points eléri az 50-et.",
+          "Rendezi a lehetséges pontszámokat.",
+          "A points alapján választ két kiírási út közül.",
+          "Minden pontszámhoz új osztályt deklarál."
+        ],
+        "explanation": "A points >= 50 feltétel dönt a kiírás útjáról. A points = 70 mellett igaz, ezért a ready jelenik meg. Az else ág a hamis feltételhez tartozó alternatíva. Az elágazás itt egy döntést hoz a folyamaton belül."
+      },
+      "code": "const points = 70;\nif (points >= 50) {\n  console.log(\"ready\");\n} else {\n  console.log(\"practice\");\n}",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "ready"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-19-2",
+      "revision": 1,
+      "topic": "Verzweigungen und Fallunterscheidungen",
+      "source": {
+        "topicId": "LAP-15-19",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/19_Verzweigungen_und_Fallunterscheidungen/README.md",
+        "slug": "15-19-verzweigungen_und_fallunterscheidungen"
+      },
+      "question": "Eine Funktion soll je nach online entweder online oder offline zurückgeben. Warum passt if / else zu dieser Aufgabe?",
+      "answers": [
+        "Die Bedingung wählt zwischen zwei sich hier ausschließenden Ergebnissen.",
+        "Beide Zweige müssen für jeden Aufruf nacheinander ausgeführt werden.",
+        "if / else wiederholt die Prüfung automatisch bis zum nächsten Netzwechsel.",
+        "else legt den Wert der Variablen online neu fest."
+      ],
+      "correct": 0,
+      "explanation": "Bei wahrer Bedingung liefert die Funktion online zurück, andernfalls offline. Für status(false) gilt der zweite Fall. if / else beschreibt diese Alternative ausdrücklich; jeder Aufruf liefert genau eines der beiden Ergebnisse.",
+      "hu": {
+        "question": "Egy függvény az online értékétől függően online vagy offline eredményt adjon. Miért illik ehhez az if / else?",
+        "answers": [
+          "A feltétel két, itt egymást kizáró eredmény közül választ.",
+          "Mindkét ágnak minden hívásnál sorban le kell futnia.",
+          "Az if / else a következő hálózati változásig automatikusan ismétli a vizsgálatot.",
+          "Az else új értéket állít be az online változónak."
+        ],
+        "explanation": "Igaz feltételnél a függvény online, egyébként offline értéket ad vissza. A status(false) a második eset. Az if / else kifejezetten leírja ezt az alternatívát; minden hívás pontosan az egyik eredményt adja."
+      },
+      "code": "function status(online) {\n  if (online) {\n    return \"online\";\n  } else {\n    return \"offline\";\n  }\n}\nconsole.log(status(false));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "offline"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-19-3",
+      "revision": 1,
+      "topic": "Verzweigungen und Fallunterscheidungen",
+      "source": {
+        "topicId": "LAP-15-19",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/19_Verzweigungen_und_Fallunterscheidungen/README.md",
+        "slug": "15-19-verzweigungen_und_fallunterscheidungen"
+      },
+      "question": "Eine Sprachkennung soll mit mehreren konkreten Werten verglichen werden. Warum ist switch / case hier eine gut lesbare Möglichkeit?",
+      "answers": [
+        "Weil switch den Wert language automatisch in alle unterstützten Sprachen übersetzt.",
+        "Weil jeder case bei jedem Aufruf unabhängig vom Wert ausgeführt wird.",
+        "Weil switch ausschließlich Zahlen und keine Strings vergleichen kann.",
+        "Weil die möglichen Fälle derselben Kennung gemeinsam und übersichtlich aufgeführt werden."
+      ],
+      "correct": 3,
+      "explanation": "switch vergleicht hier dieselbe Kennung mit den konkreten Fällen de und hu. Für hu wird Magyar zugewiesen; break beendet anschließend den switch. Der default-Zweig behandelt andere Kennungen. Auch eine passende if-Kette wäre möglich; entscheidend ist die verständliche Struktur.",
+      "hu": {
+        "question": "Egy nyelvkódot több konkrét értékkel kell összevetni. Miért jól olvasható lehetőség itt a switch / case?",
+        "answers": [
+          "Mert a switch automatikusan minden támogatott nyelvre fordítja a language értékét.",
+          "Mert minden case minden hívásnál lefut az értéktől függetlenül.",
+          "Mert a switch kizárólag számokat tud összehasonlítani, szövegeket nem.",
+          "Mert ugyanannak a nyelvkódnak a lehetséges esetei együtt, áttekinthetően szerepelnek."
+        ],
+        "explanation": "A switch itt ugyanazt a nyelvkódot hasonlítja a de és hu esethez. A hu értékhez Magyar címkét rendelünk; a break ezután lezárja a switch-et. A default más nyelvkódokat kezel. Megfelelő if-lánc is használható lenne; az érthető szerkezet a lényeg."
+      },
+      "code": "const language = \"hu\";\nlet label;\nswitch (language) {\n  case \"de\":\n    label = \"Deutsch\";\n    break;\n  case \"hu\":\n    label = \"Magyar\";\n    break;\n  default:\n    label = \"Unknown\";\n}\nconsole.log(label);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "Magyar"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-19-4",
+      "revision": 1,
+      "topic": "Verzweigungen und Fallunterscheidungen",
+      "source": {
+        "topicId": "LAP-15-19",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/19_Verzweigungen_und_Fallunterscheidungen/README.md",
+        "slug": "15-19-verzweigungen_und_fallunterscheidungen"
+      },
+      "question": "Was bewirkt der default-Zweig beim gezeigten Aufruf mit \"archive\"?",
+      "answers": [
+        "Er führt automatisch den ersten case aus.",
+        "Er liefert unknown zurück, weil kein aufgeführter case passt.",
+        "Er wiederholt die Suche, bis command irgendwann start wird.",
+        "Er ersetzt command durch stop und startet den switch erneut."
+      ],
+      "correct": 1,
+      "explanation": "archive entspricht weder start noch stop. Daher liefert default das ausdrücklich definierte Ergebnis unknown. Ein solcher Zweig macht das Verhalten für nicht aufgeführte Fälle nachvollziehbar. Er ist kein Ersatz für weitere Eingabeprüfung, wenn die Anwendung zusätzliche Regeln verlangt.",
+      "hu": {
+        "question": "Mit tesz a default ág a bemutatott híváskor, az \"archive\" értékkel?",
+        "answers": [
+          "Automatikusan végrehajtja az első case ágat.",
+          "unknown értéket ad vissza, mert egyik felsorolt case sem illeszkedik.",
+          "Addig ismétli a keresést, amíg a command egyszer start nem lesz.",
+          "stopra cseréli a command értékét, és újraindítja a switch-et."
+        ],
+        "explanation": "Az archive sem a start, sem a stop értékkel nem egyezik. Ezért a default a kifejezetten meghatározott unknown eredményt adja. Egy ilyen ág követhetővé teszi a fel nem sorolt esetek működését. Ha az alkalmazás további szabályokat igényel, azok bemeneti ellenőrzését ez nem helyettesíti."
+      },
+      "code": "function describeCommand(command) {\n  switch (command) {\n    case \"start\":\n      return \"running\";\n    case \"stop\":\n      return \"stopped\";\n    default:\n      return \"unknown\";\n  }\n}\nconsole.log(describeCommand(\"archive\"));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "unknown"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-19-5",
+      "revision": 1,
+      "topic": "Verzweigungen und Fallunterscheidungen",
+      "source": {
+        "topicId": "LAP-15-19",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/19_Verzweigungen_und_Fallunterscheidungen/README.md",
+        "slug": "15-19-verzweigungen_und_fallunterscheidungen"
+      },
+      "question": "Welche Rollen haben for...of und if in diesem Beispiel? % liefert den Divisionsrest.",
+      "answers": [
+        "for...of besucht die drei Werte; if entscheidet bei jedem Wert, ob even erhöht wird.",
+        "if besucht die drei Werte; for...of wählt ausschließlich die geraden Werte aus.",
+        "Beide Strukturen führen den gesamten Körper genau einmal aus.",
+        "for...of erzeugt neue Werte; if sortiert sie aufsteigend."
+      ],
+      "correct": 0,
+      "explanation": "Die Schleife verarbeitet 1, 2 und 3, deshalb wird processed zu 3. Die Verzweigung prüft pro Wert, ob der Rest bei Division durch 2 gleich 0 ist. Nur 2 erfüllt dies; even wird zu 1. Wiederholung und Entscheidung arbeiten zusammen.",
+      "hu": {
+        "question": "Mi a for...of és az if szerepe ebben a példában? A % az osztási maradékot adja.",
+        "answers": [
+          "A for...of sorra veszi a három értéket; az if minden értéknél eldönti, növeljük-e az even számlálót.",
+          "Az if veszi sorra a három értéket; a for...of kizárólag a párosakat választja ki.",
+          "Mindkét szerkezet pontosan egyszer futtatja le az egész törzset.",
+          "A for...of új értékeket hoz létre; az if növekvő sorba rendezi őket."
+        ],
+        "explanation": "A ciklus feldolgozza az 1-et, 2-t és 3-at, ezért a processed 3 lesz. Az elágazás minden értéknél megvizsgálja, 0-e a 2-vel való osztás maradéka. Ezt csak a 2 teljesíti, így az even 1 lesz. Az ismétlés és a döntés együtt dolgozik."
+      },
+      "code": "const values = [1, 2, 3];\nlet processed = 0;\nlet even = 0;\nfor (const value of values) {\n  processed += 1;\n  if (value % 2 === 0) {\n    even += 1;\n  }\n}\nconsole.log(processed);\nconsole.log(even);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "3",
+        "1"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-20-1",
+      "revision": 1,
+      "topic": "Objektorientierte Programmierung",
+      "source": {
+        "topicId": "LAP-15-20",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/20_Objektorientierte_Programmierung/README.md",
+        "slug": "15-20-objektorientierte_programmierung"
+      },
+      "question": "Welche Rolle hat die Klasse Task in diesem klassenbasierten Beispiel?",
+      "answers": [
+        "Sie ist derselbe konkrete Speicherzustand wie first.",
+        "Sie ist der aktuelle Wert der Eigenschaft title.",
+        "Sie ist ausschließlich eine Liste aller bereits erstellten Objekte.",
+        "Sie beschreibt, wie entsprechende Instanzen aufgebaut werden und welches Verhalten sie anbieten."
+      ],
+      "correct": 3,
+      "explanation": "Die Klasse legt hier den Aufbau mit title und die Methode describe fest. new Task(\"Schleife\") erstellt eine konkrete Instanz nach dieser Beschreibung. Deren describe()-Aufruf liest ihren eigenen title-Wert und gibt Schleife zurück.",
+      "hu": {
+        "question": "Mi a Task osztály szerepe ebben az osztályalapú példában?",
+        "answers": [
+          "Ugyanaz a konkrét memóriaállapot, mint a first.",
+          "A title tulajdonság aktuális értéke.",
+          "Kizárólag a már létrehozott objektumok listája.",
+          "Leírja, hogyan épüljenek fel a megfelelő példányok, és milyen viselkedést kínáljanak."
+        ],
+        "explanation": "Az osztály itt a title tulajdonságból álló felépítést és a describe metódust határozza meg. A new Task(\"Schleife\") e leírás alapján konkrét példányt hoz létre. Ennek describe() hívása a saját title értékét olvassa, és Schleife eredményt ad."
+      },
+      "code": "class Task {\n  constructor(title) {\n    this.title = title;\n  }\n  describe() {\n    return this.title;\n  }\n}\nconst first = new Task(\"Schleife\");\nconsole.log(first.describe());",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "Schleife"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-20-2",
+      "revision": 1,
+      "topic": "Objektorientierte Programmierung",
+      "source": {
+        "topicId": "LAP-15-20",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/20_Objektorientierte_Programmierung/README.md",
+        "slug": "15-20-objektorientierte_programmierung"
+      },
+      "question": "Was zeigt die Ausgabe über first und second?",
+      "answers": [
+        "Es gibt nur ein Objekt; beide Variablen sind derselbe Name.",
+        "Die Klasse wird durch first.count += 1 vollständig neu definiert.",
+        "Es sind zwei verschiedene Instanzen mit jeweils eigenem count-Zustand.",
+        "second erbt bei jeder Änderung automatisch den Zustand von first."
+      ],
+      "correct": 2,
+      "explanation": "Jeder new Counter()-Aufruf erstellt hier eine eigene Instanz. Die Erhöhung verändert nur first.count, deshalb werden 1 und 0 ausgegeben. Eine Klassendefinition kann viele Objekte beschreiben, deren konkrete Zustände getrennt bleiben.",
+      "hu": {
+        "question": "Mit mutat a kimenet a first és second változóról?",
+        "answers": [
+          "Csak egy objektum létezik; a két változó ugyanaz a név.",
+          "A first.count += 1 teljesen újradefiniálja az osztályt.",
+          "Két külön példányról van szó, mindkettő saját count állapottal.",
+          "A second minden módosításkor automatikusan örökli a first állapotát."
+        ],
+        "explanation": "Minden new Counter() hívás saját példányt hoz létre. A növelés csak a first.count értékét módosítja, ezért 1 és 0 íródik ki. Egy osztályleírás több objektumot írhat le úgy, hogy azok konkrét állapota külön marad."
+      },
+      "code": "class Counter {\n  constructor() {\n    this.count = 0;\n  }\n}\nconst first = new Counter();\nconst second = new Counter();\nfirst.count += 1;\nconsole.log(first.count);\nconsole.log(second.count);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "1",
+        "0"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-20-3",
+      "revision": 1,
+      "topic": "Objektorientierte Programmierung",
+      "source": {
+        "topicId": "LAP-15-20",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/20_Objektorientierte_Programmierung/README.md",
+        "slug": "15-20-objektorientierte_programmierung"
+      },
+      "question": "Wie wird Encapsulation in dieser Klasse sichtbar? #count ist ein privates JavaScript-Feld.",
+      "answers": [
+        "Jeder Aufrufer muss #count direkt von außen überschreiben, bevor increment() funktioniert.",
+        "Die Klasse hält Zustand und Operationen zusammen; Aufrufer verwenden die angebotenen Methoden statt direkt auf #count zuzugreifen.",
+        "Das private Feld wird nach jedem Methodenaufruf automatisch gelöscht.",
+        "Encapsulation bedeutet hier, dass keine Methode einen Wert zurückgeben darf."
+      ],
+      "correct": 1,
+      "explanation": "Der Zählerzustand #count gehört zur Klasse und ist von außen nicht direkt als privates Feld zugänglich. increment() verändert ihn, getCount() stellt den gewünschten Lesezugriff bereit. So werden Zustand und zugehörige Operationen gemeinsam gekapselt. Nach zwei Erhöhungen ist das Ergebnis 2.",
+      "hu": {
+        "question": "Hogyan jelenik meg a kapszulázás ebben az osztályban? A #count privát JavaScript-mező.",
+        "answers": [
+          "Minden hívónak kívülről közvetlenül felül kell írnia a #countot, mielőtt az increment() működik.",
+          "Az osztály együtt tartja az állapotot és műveleteket; a hívók a kínált metódusokat használják a #count közvetlen elérése helyett.",
+          "A privát mező minden metódushívás után automatikusan törlődik.",
+          "A kapszulázás itt azt jelenti, hogy egyetlen metódus sem adhat vissza értéket."
+        ],
+        "explanation": "A #count számlálóállapot az osztályhoz tartozik, kívülről privát mezőként nem érhető el közvetlenül. Az increment() módosítja, a getCount() pedig a kívánt olvasási lehetőséget adja. Így az állapot és kapcsolódó műveletek közösen vannak kapszulázva. Két növelés után az eredmény 2."
+      },
+      "code": "class Counter {\n  #count = 0;\n  increment() {\n    this.#count += 1;\n  }\n  getCount() {\n    return this.#count;\n  }\n}\nconst counter = new Counter();\ncounter.increment();\ncounter.increment();\nconsole.log(counter.getCount());",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "2"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-20-4",
+      "revision": 1,
+      "topic": "Objektorientierte Programmierung",
+      "source": {
+        "topicId": "LAP-15-20",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/20_Objektorientierte_Programmierung/README.md",
+        "slug": "15-20-objektorientierte_programmierung"
+      },
+      "question": "Was veranschaulicht Polymorphie in diesem Beispiel?",
+      "answers": [
+        "Der gleiche Aufruf task.describe() verwendet je nach Objekt eine andere Implementierung.",
+        "Die beiden Klassen müssen denselben Text zurückgeben, weil ihre Methoden gleich heißen.",
+        "Die Schleife wandelt alle CodeTask-Objekte automatisch in TextTask-Objekte um.",
+        "Polymorphie bedeutet, dass eine Methode zufällig ihren Namen ändert."
+      ],
+      "correct": 0,
+      "explanation": "Beide Objekte bieten describe() an, setzen die Operation aber unterschiedlich um. Der aufrufende Code verwendet dieselbe Form und erhält nacheinander text und code. In diesem JavaScript-Beispiel ist dafür keine gemeinsame Basisklasse erforderlich.",
+      "hu": {
+        "question": "Mi szemlélteti a polimorfizmust ebben a példában?",
+        "answers": [
+          "Ugyanaz a task.describe() hívás az objektumtól függően más megvalósítást használ.",
+          "A két osztálynak ugyanazt a szöveget kell visszaadnia, mert a metódusuk neve azonos.",
+          "A ciklus minden CodeTask objektumot automatikusan TextTask objektummá alakít.",
+          "A polimorfizmus azt jelenti, hogy egy metódus véletlenszerűen megváltoztatja a nevét."
+        ],
+        "explanation": "Mindkét objektum kínál describe() műveletet, de eltérően valósítja meg. A hívó kód ugyanazt az alakot használja, és sorban text, majd code eredményt kap. Ebben a JavaScript-példában ehhez nincs szükség közös ősosztályra."
+      },
+      "code": "class TextTask {\n  describe() {\n    return \"text\";\n  }\n}\nclass CodeTask {\n  describe() {\n    return \"code\";\n  }\n}\nconst tasks = [new TextTask(), new CodeTask()];\nfor (const task of tasks) {\n  console.log(task.describe());\n}",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "text",
+        "code"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-20-5",
+      "revision": 1,
+      "topic": "Objektorientierte Programmierung",
+      "source": {
+        "topicId": "LAP-15-20",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/20_Objektorientierte_Programmierung/README.md",
+        "slug": "15-20-objektorientierte_programmierung"
+      },
+      "question": "Ein Lernprogramm hat mehrere Aufgabentypen mit eigenem Zustand und passendem Verhalten. Welchen Vorteil kann ein sinnvoll geschnittenes Objektmodell bieten?",
+      "answers": [
+        "Die Anzahl der Klassen bestimmt automatisch die Qualität des Programms.",
+        "Eine tiefe Vererbungshierarchie macht jede Änderung einfacher.",
+        "OOP ersetzt die Prüfung der fachlichen Anforderungen vollständig.",
+        "Zusammengehörige Daten und Operationen erhalten klare Zuständigkeiten und lassen sich gezielter warten oder erweitern."
+      ],
+      "correct": 3,
+      "explanation": "Ein passendes Objektmodell ordnet Zustand und Verhalten verständlichen Verantwortlichkeiten zu. Dadurch kann eine Änderung an einem Aufgabentyp gezielter vorgenommen werden. Der Vorteil hängt von einem angemessenen Entwurf ab; einfache Funktionen bleiben für passende Teilaufgaben weiterhin nützlich.",
+      "hu": {
+        "question": "Egy tanulóprogram több feladattípust kezel, saját állapottal és hozzáillő viselkedéssel. Milyen előnyt adhat egy jól felosztott objektummodell?",
+        "answers": [
+          "Az osztályok száma automatikusan meghatározza a program minőségét.",
+          "A mély öröklési hierarchia minden módosítást egyszerűbbé tesz.",
+          "Az OOP teljesen kiváltja a szakmai követelmények ellenőrzését.",
+          "Az összetartozó adatok és műveletek egyértelmű felelősségi körbe kerülnek, és célzottabban karbantarthatók vagy bővíthetők."
+        ],
+        "explanation": "A megfelelő objektummodell érthető felelősségekhez rendeli az állapotot és viselkedést. Így egy feladattípus módosítása célzottabban elvégezhető. Az előny az észszerű tervezéstől függ; a megfelelő részfeladatokhoz az egyszerű függvények továbbra is hasznosak."
+      }
+    }
+  ]
+}

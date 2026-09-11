@@ -273,3 +273,16 @@ body text, including uppercase accents. The README uses a larger shared logo.
 - CoderQuiz still has no configured production target. Hosting, domain and shared
   sign-in remain deferred as described in ROADMAP.md. This integration publishes
   repository changes, not a new production website.
+
+### 2026-09-11 – Final programming curriculum batch
+
+- Added `examples/lap-programming-3.json`: 30 bilingual adaptations for
+  LAP-15-15 through LAP-15-20, with 24 checked JavaScript examples. The three
+  curriculum banks cover all 100 programming self-check positions.
+- Added `--bank lap-programming-3` to the existing preview mapping on port 8773.
+  Generalized the shared schema/full-run tests for the smaller final batch;
+  added independent counter state, countdown and branch edge-case checks.
+- All 31 Node tests pass. Source mapping, full browser run, the narrow-heading
+  correction, HTTP checks and local Semgrep results are recorded in LAP-PILOT.md.
+- The batch awaits user review. No production dependency, rendering change,
+  deployment or content synchronization was needed.

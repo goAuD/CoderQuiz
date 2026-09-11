@@ -3,6 +3,7 @@ const { test } = require('node:test');
 const vm = require('node:vm');
 const bank = require('../examples/lap-programming-1.json');
 const secondBank = require('../examples/lap-programming-2.json');
+const thirdBank = require('../examples/lap-programming-3.json');
 
 function execute(question) {
   const output = [];
@@ -11,11 +12,12 @@ function execute(question) {
   return { output, context };
 }
 
-for (const [batchNumber, currentBank, firstTopic, lastTopic] of [[1, bank, 1, 7], [2, secondBank, 8, 14]]) {
+for (const [batchNumber, currentBank, firstTopic, lastTopic] of [[1, bank, 1, 7], [2, secondBank, 8, 14], [3, thirdBank, 15, 20]]) {
   test(`programming batch ${batchNumber} covers five source positions per subtopic`, () => {
     const bank = currentBank;
-    assert.equal(bank.questions.length, 35);
-    assert.equal(new Set(bank.questions.map(q => q.id)).size, 35);
+    const topicCount = lastTopic - firstTopic + 1;
+    assert.equal(bank.questions.length, topicCount * 5);
+    assert.equal(new Set(bank.questions.map(q => q.id)).size, topicCount * 5);
     assert.equal(bank.sourceRepository, 'https://github.com/goAuD/CoderLAP');
     assert.match(bank.sourceCommit, /^[a-f0-9]{40}$/);
     const sourcePositions = [];
@@ -49,7 +51,7 @@ for (const [batchNumber, currentBank, firstTopic, lastTopic] of [[1, bank, 1, 7]
       for (let question = 1; question <= 5; question++) expected.push(`LAP-15-${String(topic).padStart(2, '0')}:${question}`);
     }
     assert.deepEqual(sourcePositions.sort(), expected.sort());
-    for (const lang of ['de', 'hu']) assert.equal(Object.keys(bank.ui[lang].topics).length, 7);
+    for (const lang of ['de', 'hu']) assert.equal(Object.keys(bank.ui[lang].topics).length, topicCount);
   });
 
   test(`programming batch ${batchNumber} code produces the recorded output`, () => {
@@ -59,10 +61,42 @@ for (const [batchNumber, currentBank, firstTopic, lastTopic] of [[1, bank, 1, 7]
   });
 }
 
-test('the two curriculum batches contain 70 distinct adaptations and source positions', () => {
-  const questions = [...bank.questions, ...secondBank.questions];
-  assert.equal(new Set(questions.map(q => q.id)).size, 70);
-  assert.equal(new Set(questions.map(q => `${q.source.topicId}:${q.source.selfCheckNumber}`)).size, 70);
+test('the three curriculum batches contain 100 distinct adaptations and source positions', () => {
+  const questions = [...bank.questions, ...secondBank.questions, ...thirdBank.questions];
+  assert.equal(new Set(questions.map(q => q.id)).size, 100);
+  assert.equal(new Set(questions.map(q => `${q.source.topicId}:${q.source.selfCheckNumber}`)).size, 100);
+});
+
+test('closure and class counters retain independent state between calls', () => {
+  for (const [id, expression] of [
+    ['lap-LAP-15-16-5', 'const a = makeCounter(); const b = makeCounter(); [a(), a(), b()]'],
+    ['lap-LAP-15-20-3', 'const a = new Counter(); const b = new Counter(); a.increment(); a.increment(); [a.getCount(), b.getCount()]'],
+  ]) {
+    const { context } = execute(thirdBank.questions.find(q => q.id === id));
+    const actual = vm.runInContext(expression, context, { timeout: 1000 });
+    assert.deepEqual([...actual], id.includes('16-5') ? [1, 2, 1] : [2, 0]);
+  }
+});
+
+test('countdown terminates at zero and prints each positive value once', () => {
+  for (const n of [0, 1, 5]) {
+    const { output, context } = execute(thirdBank.questions.find(q => q.id === 'lap-LAP-15-17-5'));
+    output.length = 0;
+    vm.runInContext(`countdown(${n})`, context, { timeout: 1000 });
+    assert.deepEqual(output, Array.from({ length: n }, (_, i) => String(n - i)));
+  }
+});
+
+test('branch examples handle both boolean alternatives and known or unknown commands', () => {
+  const status = execute(thirdBank.questions.find(q => q.id === 'lap-LAP-15-19-2')).context;
+  for (const [input, expected] of [[true, 'online'], [false, 'offline']]) {
+    assert.equal(vm.runInContext(`status(${input})`, status, { timeout: 1000 }), expected);
+  }
+  const command = execute(thirdBank.questions.find(q => q.id === 'lap-LAP-15-19-4')).context;
+  for (const [input, expected] of [['start', 'running'], ['stop', 'stopped'], ['archive', 'unknown'], ['', 'unknown']]) {
+    command.input = input;
+    assert.equal(vm.runInContext('describeCommand(input)', command, { timeout: 1000 }), expected);
+  }
 });
 
 test('recursive and iterative factorial examples agree on the stated small nonnegative domain', () => {

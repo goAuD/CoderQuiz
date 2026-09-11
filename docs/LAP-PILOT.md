@@ -226,4 +226,74 @@ overgeneralizations. Primary references checked on 2026-09-11:
 
 The user has tried and approved this batch. The session recovery work, pilot
 and both programming batches were merged into `dev` through PRs #4–#7 on
-2026-09-11. Next: LAP-15-15 through LAP-15-20.
+2026-09-11. The final programming batch follows below.
+
+## Programming batch 3
+
+`examples/lap-programming-3.json` adds **30 DE/HU questions** from all five
+self-check positions in LAP-15-15 through LAP-15-20. The source remains pinned
+to `466a2ee8a5dbd8dc17b67a546e3ac7aacf5115e8`. The three curriculum banks now
+cover 100 distinct source positions across all 20 programming subtopics.
+This batch awaits user review; the existing banks retain their separate previews.
+
+```sh
+python scripts/preview_lap_pilot.py --bank lap-programming-3
+```
+
+Open <http://127.0.0.1:8773/>. `BANK_PORTS` adds this origin without changing
+ports 8770–8772 or their saved sessions.
+
+| LAP topic | Self-check positions | Adaptation focus |
+| --- | --- | --- |
+| 15-15 · Variables and constants | 1–5 | Changing scores, fixed configuration, named values and const object bindings |
+| 15-16 · Scope | 1–5 | Local/global/block scope, explicit data flow and closure lifetime |
+| 15-17 · Loops | 1–5 | Body/check counts, final state, reading input, empty sums and recursive repetition |
+| 15-18 · Pre/postcondition loops | 1–5 | Check order, initially false conditions and zero versus at least one execution |
+| 15-19 · Branches | 1–5 | Choosing paths, if/else, switch cases, default and combining decisions with repetition |
+| 15-20 · OOP | 1–5 | Classes, separate instances, encapsulation, polymorphism and clear responsibilities |
+
+The **24 JavaScript snippets** retain checked `expectedOutput` metadata. They
+are displayed as text, never executed in the quiz; explanations appear only
+after answering. The two loop topics deliberately approach overlapping source
+objectives through different examples. Positions 15-17:1 and 15-17:4 reuse the
+approved pilot concepts, so the exploratory pilot must not be blindly appended
+to the curriculum banks. Class/instance basics recur from batch 1 because the
+LAP source revisits them before encapsulation and polymorphism.
+
+### Precision and input assumptions
+
+- `const` protects a binding from reassignment, while an object's properties may
+  remain mutable: [MDN const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const).
+- The global/local example explicitly assumes a standalone classic script;
+  top-level module declarations have module scope. The closure example separates
+  name visibility from retained state: [MDN Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures).
+- The input-reading example uses the specified nonempty list `[0, 2]`; it is not
+  a general input-validation routine. Countdown uses small nonnegative integers.
+  Pre/postcondition behavior follows [MDN Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration).
+- Encapsulation uses JavaScript private instance fields and public methods:
+  [MDN Private elements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_elements).
+  The polymorphism example uses two objects offering the same method without
+  requiring a shared base class. OOP benefits depend on an appropriate design.
+
+### Validation
+
+- All 31 Node tests pass, including full runs of all three programming banks,
+  DE/HU explanations, shuffle mapping, mid-run/result restoration and every
+  recorded JavaScript output. Additional checks exercise independent closure
+  and class state, the countdown zero case, and known/unknown branch inputs.
+- All 30 references match the pinned LAP registry. Both languages contain five
+  self-check questions and five answers in each of the six source documents.
+- A browser run completed all 30 questions and 24 code blocks at 390/320px,
+  switched HU to DE and restored question 11 and the final result after reload.
+  One long function call overflowed the question heading at 320px; a shorter
+  heading fixed it while preserving the complete code. All five branching
+  questions were rechecked in both languages at 320px without page overflow.
+  The console reported no errors. Physical iOS remains a device check.
+- HTTP checks passed for all four banks, allowed asset HEAD requests and blocked
+  repository paths, including encoded traversal. Local Semgrep on `scripts`
+  and `tests` returned zero findings and zero errors with the previously recorded
+  rule sets/exclusions, metrics off and version checks disabled.
+
+No runtime rendering change, dependency, automatic synchronization or production
+deployment was introduced. Curriculum navigation and the next main topic remain
+separate work after content review.
