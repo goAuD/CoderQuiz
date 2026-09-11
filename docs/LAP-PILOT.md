@@ -234,7 +234,8 @@ and both programming batches were merged into `dev` through PRs #4–#7 on
 self-check positions in LAP-15-15 through LAP-15-20. The source remains pinned
 to `466a2ee8a5dbd8dc17b67a546e3ac7aacf5115e8`. The three curriculum banks now
 cover 100 distinct source positions across all 20 programming subtopics.
-This batch awaits user review; the existing banks retain their separate previews.
+The user approved this batch, including iPhone testing. PR #9 and the LAN-preview
+fix in PR #10 are merged into `dev`; the banks retain their separate previews.
 
 ```sh
 python scripts/preview_lap_pilot.py --bank lap-programming-3

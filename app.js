@@ -110,6 +110,7 @@ function applyStaticI18n() {
   $("setup-heading").textContent  = t("setupHeading");
   $("setup-sub").textContent      = t("setupSub");
   $("logo-link").setAttribute("aria-label", t("homeLabel"));
+  $("back-to-top").setAttribute("aria-label", t("backToTop"));
   document.querySelectorAll("[data-i18n]").forEach(el => {
     el.textContent = t(el.dataset.i18n);
   });
@@ -521,7 +522,22 @@ function renderWrongAnswers() {
 
 // ── Bootstrap ─────────────────────────────────────────────────────────────
 
+function setupBackToTop() {
+  const button = $("back-to-top");
+  const update = () => { button.hidden = window.scrollY <= 400; };
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+  button.addEventListener("click", () => {
+    const headingId = { setup: "module-title", quiz: "question-text", result: "result-heading" }[activeScreen()];
+    const heading = $(headingId);
+    heading.setAttribute("tabindex", "-1");
+    heading.focus({ preventScroll: true });
+    window.scrollTo({ top: 0, behavior: "instant" });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  setupBackToTop();
   const savedLang = readStorage(STORAGE_LANG);
   state.lang = Object.hasOwn(I18N, savedLang) ? savedLang : 'de';
   $("next-btn").addEventListener("click", nextQuestion);

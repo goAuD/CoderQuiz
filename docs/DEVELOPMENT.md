@@ -293,3 +293,21 @@ body text, including uppercase accents. The README uses a larger shared logo.
   testing. The default stays `127.0.0.1`; an explicit LAN IP exposes only that
   interface. Bank selection, ports and the file-serving allowlist are unchanged.
 - README records the command, separate-origin progress and trusted-LAN use.
+
+### 2026-09-11 – Programming approved; back-to-top navigation
+
+- User approval includes the final programming bank and physical iPhone access.
+  PR #9 merged at `fb83aadb6cfe449d6e1a25794c1ebe5787dff2be`; the LAN fix in
+  PR #10 followed at `f6e8ce89937e79ee68674c0f3320c3036af91d58`.
+- Added the CoderLAP-style circular back-to-top button to the shared quiz UI.
+  It is hidden until 400px of scrolling, uses DE/HU accessible labels, and returns
+  both scroll position and keyboard focus to the active screen's heading.
+  The jump is immediate, avoiding motion for long result pages. Quiz state is
+  unchanged. CSS tokens reserve footer clearance and account for iOS safe areas.
+- All 31 existing Node tests pass. Browser checks cover setup, question and
+  result screens, click/Enter activation, 320/390px and desktop layouts,
+  localized labels, unchanged result score and footer-link clearance at the
+  page bottom. Console errors: zero. Local Semgrep on app.js, i18n.js and tests
+  returned zero findings/errors with the existing exclusions and metrics off.
+- The new FAB itself still needs a physical iPhone check. No dependency or
+  deployment change was required; refresh the running LAN preview to try it.
