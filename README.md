@@ -99,6 +99,8 @@ They do not establish factual accuracy; questions also need source and language 
 - Keyboard focus, text-based answer feedback, reduced-motion support and iOS safe-area spacing
 
 See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for validation and design maintenance.
+The [release review](docs/REVIEW.md) records corrected questions, source references
+and remaining editorial work; this bank is not yet a complete LAP curriculum.
 
 ## License
 

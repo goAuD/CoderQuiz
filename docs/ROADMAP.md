@@ -30,6 +30,34 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 - [ ] Add a bookmarking / flagging feature for questions the user wants to revisit
 - [ ] Host under coderlap.com domain
 
+## Content expansion sequence
+
+First finish the corrections tracked in [REVIEW.md](REVIEW.md). Increasing the
+count does not by itself increase coverage. Then use small, separately reviewed
+DE/HU batches, starting with the main learning focus: programming.
+
+| Batch | Proposed scope | Learning tasks |
+| --- | --- | --- |
+| Programming 1: about 20 questions | JavaScript values/types, branches, loops, functions, arrays and objects | Trace a short snippet, predict its output, explain the next step |
+| Programming 2: about 20 | Linear/binary search, bubble sort, collections, complexity, debugging and tests | Trace an iteration, choose a suitable approach, reason about edge cases |
+| Informatik 1: about 20 | CPU/RAM/storage, processes/threads, files and permissions | Apply concepts to concrete system behavior |
+| Informatik 2: about 20 | IP/DNS/HTTP/TLS, relational data, keys, joins and transactions | Follow a request or a small data example |
+| Security 1: about 12–16 additional questions | Authentication/authorization, sessions, password storage, secrets, XSS/SQLi, least privilege | Select and explain a safe implementation in a short scenario |
+| Security 2: about 12–16 additional questions | Backups/restoration, updates, phishing, incident response and threat assessment | Decide what to verify or do next, with reasons |
+
+These are planning batches, not implemented modules or promised final counts.
+Before adding content, map objectives to the CoderLAP topics and the actual LAP
+curriculum. Keep current IDs and the existing quiz flow; decide the minimal
+module selector only when the first second-module batch is ready. No package or
+backend is needed for static content. Code examples should render as escaped
+`pre`/`code` text; no learner-controlled code execution is needed for tracing.
+
+Acceptance per batch: one clear learning objective per question, one defensible
+correct answer, plausible distinct distractors, aligned DE/HU choices, a positive
+explanation with a worked example where useful, and a primary-source reference
+in the review record. Validate executable example outputs locally. Do not add a
+separate “common exam mistakes” learning section.
+
 ## Long-term / Stretch Goals
 
 - [ ] Offline-first PWA (service worker, installable) — lower priority if Tauri desktop is the main target
@@ -50,3 +78,15 @@ CoderCoaster are planned as related tools, potentially on subdomains of
 coderlap.com, with Basic Auth retained. CoderQuiz links back to CoderLAP now;
 its final hostname and deployment setup are a separate task. Public GitHub Pages
 deployment is no longer the planned first step.
+
+If subdomains are chosen, normally create one DNS record for `quiz` and one for
+`coaster` (CNAME for a hostname target, A/AAAA for the applicable IP targets), then
+configure hosting routes, TLS and access protection. DNS alone does not publish
+the applications. See [Cloudflare subdomains](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-subdomain/).
+
+Shared Basic Auth credentials do not promise a shared browser login across
+different origins; the authentication protection space includes the origin
+([RFC 9110](https://www.rfc-editor.org/rfc/rfc9110.html#name-protection-space-realm)).
+Choose later between one origin with paths and a shared protection space, or
+subdomains with a central sign-in service. Keep that architectural decision
+separate from question work; no auth provider has been selected.
