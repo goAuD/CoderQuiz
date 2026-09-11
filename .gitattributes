@@ -1,0 +1,3 @@
+# Preserve identical frame assets across Windows and Linux checkouts.
+assets/workshop-frame.css text eol=lf
+assets/LICENSE-Lucide.txt text eol=lf
