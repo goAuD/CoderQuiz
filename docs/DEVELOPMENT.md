@@ -286,3 +286,10 @@ body text, including uppercase accents. The README uses a larger shared logo.
   correction, HTTP checks and local Semgrep results are recorded in LAP-PILOT.md.
 - The batch awaits user review. No production dependency, rendering change,
   deployment or content synchronization was needed.
+
+### LAN preview binding
+
+- `scripts/preview_lap_pilot.py` accepts `--bind <address>` for physical phone
+  testing. The default stays `127.0.0.1`; an explicit LAN IP exposes only that
+  interface. Bank selection, ports and the file-serving allowlist are unchanged.
+- README records the command, separate-origin progress and trusted-LAN use.
