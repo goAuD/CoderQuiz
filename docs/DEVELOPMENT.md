@@ -257,3 +257,19 @@ body text, including uppercase accents. The README uses a larger shared logo.
   All 25 tests pass; the source and browser review is recorded in LAP-PILOT.md.
 - Batch 1 has user approval; batch 2 awaits content review. No rendering change,
   runtime dependency, deployment or Coaster integration was needed.
+
+### 2026-09-11 – Approved work integrated into dev
+
+- The user tried and approved both programming batches and authorized merging.
+  PRs #4, #5, #6 and #7 were merged in dependency order into `dev`, the repository's
+  default integration branch. Each dependent PR was retargeted to `dev` after
+  its predecessor merged, preserving the original commits and review history.
+- The resulting tree at `64f33d72886dd7b388cef7f8df36bad547b79d17` matches the
+  tested batch-2 branch. Its GitHub CI passed all 25 Node tests. The local checkout
+  was fast-forwarded without discarding work.
+- The approved banks remain available through the existing preview commands on
+  ports 8770, 8771 and 8772. The original 100-question bank retains its separate
+  role; no automatic bank concatenation was introduced.
+- CoderQuiz still has no configured production target. Hosting, domain and shared
+  sign-in remain deferred as described in ROADMAP.md. This integration publishes
+  repository changes, not a new production website.

@@ -224,4 +224,6 @@ overgeneralizations. Primary references checked on 2026-09-11:
   `tests` returned zero findings and zero errors, using the same rule sets and
   exclusions as batch 1 with metrics and version checks disabled.
 
-The batch awaits user content review. Next: LAP-15-15 through LAP-15-20.
+The user has tried and approved this batch. The session recovery work, pilot
+and both programming batches were merged into `dev` through PRs #4–#7 on
+2026-09-11. Next: LAP-15-15 through LAP-15-20.
