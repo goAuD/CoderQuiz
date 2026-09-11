@@ -39,7 +39,7 @@ class PilotHandler(SimpleHTTPRequestHandler):
         elif path in ("/", "/index.html"):
             text = (ROOT / "index.html").read_text(encoding="utf-8")
             text = text.replace("CoderQuiz – DSGVO LAP Applikationsentwicklung", "CoderQuiz – CoderLAP preview")
-            text = re.sub(r'<p class="sources">.*?</p>', '<p class="sources"><span data-i18n="sourcesLabel"></span> <a href="https://coderlap.com">CoderLAP</a></p>', text)
+            text = re.sub(r'<p class="sources">.*?</p>', '<p class="sources"><a href="LICENSE">Apache 2.0</a> · <span data-i18n="sourcesLabel"></span> <a href="https://coderlap.com">CoderLAP</a></p>', text)
             self.send_text(text, "text/html; charset=utf-8")
         else:
             target = Path(self.translate_path(self.path)).resolve()
