@@ -2,116 +2,111 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f3f6fb" />
   <title>CoderQuiz – DSGVO LAP Applikationsentwicklung</title>
   <meta name="description" content="Lernquiz zur Vorbereitung auf die LAP Applikationsentwicklung-Coding: DSGVO, Urheberrecht, IT-Sicherheit, Österreich/EU-Recht." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
 </head>
 <body>
-
-  <header>
-    <div class="lang-switcher">
-      <button class="lang-btn" data-lang="de">DE</button>
-      <button class="lang-btn" data-lang="hu">HU</button>
-    </div>
-    <div class="brand">
-      <a id="logo-link" class="logo-link" href="#" aria-label="CoderQuiz – Startseite">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true">
-          <defs>
-            <linearGradient id="logo-g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#5b6af0"/>
-              <stop offset="100%" stop-color="#a78bfa"/>
-            </linearGradient>
-          </defs>
-          <rect width="40" height="40" rx="9" fill="url(#logo-g)"/>
-          <rect x="1" y="1" width="38" height="38" rx="8" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <text x="20" y="27"
-            font-family="'Segoe UI',system-ui,-apple-system,sans-serif"
-            font-size="16" font-weight="800" fill="white"
-            text-anchor="middle" letter-spacing="-0.5">CQ</text>
-        </svg>
+  <header class="site-header">
+    <div class="header-inner">
+      <a id="logo-link" class="brand" href="#">
+        <img src="assets/logo.svg" width="40" height="40" alt="" />
+        <span>CoderQuiz</span>
       </a>
-      <h1>CoderQuiz – <span id="module-title">DSGVO &amp; Recht</span></h1>
+      <nav class="header-actions" aria-label="Navigation">
+        <a class="lap-link" data-lap-link href="https://coderlap.com">CoderLAP <span aria-hidden="true">↗</span></a>
+        <a class="github-link" href="https://github.com/goAuD/CoderQuiz" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 .9a11.1 11.1 0 0 0-3.5 21.63c.55.1.76-.24.76-.54v-2.1c-3.1.68-3.75-1.32-3.75-1.32-.5-1.29-1.23-1.64-1.23-1.64-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.48-.28-5.08-1.24-5.08-5.51 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.41.1-2.94 0 0 .94-.3 3.06 1.14a10.6 10.6 0 0 1 5.58 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.66.12 2.94.71.78 1.14 1.77 1.14 2.99 0 4.28-2.61 5.23-5.1 5.5.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.76.54A11.1 11.1 0 0 0 12 .9Z"/></svg>
+        </a>
+        <div class="lang-switcher" role="group" aria-label="Sprache / Nyelv">
+          <button class="lang-btn" data-lang="de" lang="de" aria-label="Deutsch">DE</button>
+          <button class="lang-btn" data-lang="hu" lang="hu" aria-label="Magyar">HU</button>
+        </div>
+      </nav>
     </div>
-    <p class="subtitle" id="quiz-subtitle"></p>
   </header>
-
-  <!-- ── Setup-Screen ────────────────────────────────────────────── -->
-  <main id="setup-screen" class="card hidden">
-    <h2 id="setup-heading"></h2>
-    <p id="setup-sub" class="setup-sub"></p>
-    <div id="module-meta" class="module-meta"></div>
-    <div id="topic-chips" class="topic-chips"></div>
-    <button id="start-btn"></button>
-  </main>
-
-  <!-- ── Quiz-Screen ─────────────────────────────────────────────── -->
-  <main id="quiz-screen" class="card hidden">
-
-    <div class="progress-wrap">
-      <div class="progress-track">
-        <div id="progress-bar" style="width:0%"></div>
+  <main id="setup-screen" class="setup-layout hidden">
+    <section class="setup-intro" aria-labelledby="module-title">
+      <p class="eyebrow" data-i18n="workshopLabel"></p>
+      <h1 id="module-title"></h1>
+      <p class="subtitle" id="quiz-subtitle"></p>
+      <div id="module-meta" class="module-meta"></div>
+      <div class="practice-note">
+        <span class="note-mark" aria-hidden="true">&lt;/&gt;</span>
+        <p data-i18n="practiceNote"></p>
       </div>
-    </div>
-
+    </section>
+    <section class="card setup-card" aria-labelledby="setup-heading">
+      <h2 id="setup-heading" tabindex="-1"></h2>
+      <p id="setup-sub" class="setup-sub"></p>
+      <div id="topic-chips" class="topic-chips" role="group" aria-labelledby="setup-heading"></div>
+      <div class="setup-action">
+        <button id="start-btn" class="primary-btn"></button>
+        <p class="local-note" data-i18n="localNote"></p>
+      </div>
+    </section>
+  </main>
+  <main id="quiz-screen" class="card quiz-card hidden">
     <div class="meta-row">
       <span id="progress-text"></span>
       <span id="score-display"></span>
     </div>
-
-    <span class="topic-badge" id="topic-badge"></span>
-
-    <p id="question-text"></p>
-
-    <div id="answers-list" role="list"></div>
-
-    <div id="explanation-box" class="hidden">
-      <span id="explanation-text"></span>
+    <div class="progress-track" role="progressbar" id="quiz-progress" aria-labelledby="progress-text" aria-valuemin="0">
+      <div id="progress-bar" style="width:0%"></div>
     </div>
-
-    <button id="next-btn" class="hidden"></button>
-
+    <span class="topic-badge" id="topic-badge"></span>
+    <h1 id="question-text" tabindex="-1"></h1>
+    <p class="answer-hint" data-i18n="answerHint"></p>
+    <div id="answers-list" role="group" aria-labelledby="question-text"></div>
+    <div id="explanation-box" class="hidden" role="status" aria-atomic="true">
+      <strong id="feedback-heading"></strong>
+      <p id="explanation-text"></p>
+    </div>
+    <button id="next-btn" class="primary-btn hidden"></button>
   </main>
-
-  <!-- ── Ergebnis-Screen ─────────────────────────────────────────── -->
-  <main id="result-screen" class="card hidden">
-
+  <main id="result-screen" class="card result-card hidden">
     <div class="result-header">
-      <h2 id="result-heading"></h2>
-
-      <svg class="score-ring" width="120" height="120" viewBox="0 0 120 120" aria-hidden="true">
+      <p class="eyebrow" data-i18n="workshopLabel"></p>
+      <h1 id="result-heading" tabindex="-1"></h1>
+      <svg class="score-ring" width="144" height="144" viewBox="0 0 120 120" aria-hidden="true">
         <circle class="ring-bg" cx="60" cy="60" r="54" />
-        <circle id="score-circle" cx="60" cy="60" r="54"
-                stroke-dasharray="339.3" stroke-dashoffset="339.3" />
+        <circle id="score-circle" cx="60" cy="60" r="54" stroke-dasharray="339.3" stroke-dashoffset="339.3" />
         <text class="ring-text" x="60" y="57" text-anchor="middle" dominant-baseline="middle" id="ring-pct">0 %</text>
-        <text class="ring-sub"  x="60" y="72" text-anchor="middle" id="ring-sub-text"></text>
+        <text class="ring-sub" x="60" y="73" text-anchor="middle" id="ring-sub-text"></text>
       </svg>
-
-      <p class="score-numbers">
-        <strong id="final-score"></strong> <span id="score-suffix"></span>
-      </p>
+      <p class="score-numbers"><strong id="final-score"></strong> <span id="score-suffix"></span></p>
       <span id="grade-text" class="grade pass"></span>
     </div>
-
     <div class="wrong-section">
-      <h3 id="wrong-heading"></h3>
+      <h2 id="wrong-heading"></h2>
       <div id="wrong-list"></div>
     </div>
-
-    <button id="restart-btn"></button>
-
+    <button id="restart-btn" class="primary-btn"></button>
   </main>
-
-  <footer>
-    Quellen: DSGVO (Verordnung (EU) 2016/679) · DSG 2018 · UrhG · ECG · OWASP ·
-    <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">dsb.gv.at</a> ·
-    Apache-2.0 License
+  <noscript><p class="noscript-note">Bitte aktiviere JavaScript für das Quiz. / A kvízhez engedélyezd a JavaScriptet.</p></noscript>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-about">
+        <a class="footer-brand" href="https://github.com/goAuD/CoderQuiz">CoderQuiz</a>
+        <p data-i18n="footerNote"></p>
+      </div>
+      <div class="footer-group">
+        <h2 data-i18n="toolsLabel"></h2>
+        <a data-lap-link href="https://coderlap.com">CoderLAP <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="footer-group">
+        <h2 data-i18n="projectLabel"></h2>
+        <a href="https://github.com/goAuD/CoderQuiz">GitHub</a>
+        <a href="LICENSE">Apache 2.0</a>
+      </div>
+      <p class="sources"><span data-i18n="sourcesLabel"></span> DSGVO · DSG 2018 · UrhG · ECG · OWASP · <a href="https://www.dsb.gv.at">dsb.gv.at</a></p>
+    </div>
   </footer>
-
   <script src="i18n.js"></script>
   <script src="questions.js"></script>
   <script src="app.js"></script>
-
 </body>
 </html>
