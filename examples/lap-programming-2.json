@@ -1,0 +1,1162 @@
+{
+  "sourceRepository": "https://github.com/goAuD/CoderLAP",
+  "sourceCommit": "466a2ee8a5dbd8dc17b67a546e3ac7aacf5115e8",
+  "ui": {
+    "de": {
+      "moduleTitle": "CoderLAP · Programmieren 2",
+      "subtitle": "35 Fragen zu Sprachgrundlagen, Übersetzung, Debugging, Rekursion und Daten. Aus den CoderLAP-Unterthemen 08–14.",
+      "practiceNote": "Wähle einzelne Themen oder übe das ganze Paket. Verfolge die Beispiele Schritt für Schritt; die Erklärung folgt nach deiner Antwort.",
+      "topics": {
+        "Aufbau einer Programmiersprache": "Aufbau einer Programmiersprache",
+        "Interpreter und Compiler": "Interpreter und Compiler",
+        "Debugger": "Debugger",
+        "Assembler": "Assembler",
+        "Rekursive Funktionen": "Rekursive Funktionen",
+        "ASCII-Tabellen": "ASCII-Tabellen",
+        "Variablenarten, Datentypen, Definitionen": "Variablenarten, Datentypen, Definitionen"
+      }
+    },
+    "hu": {
+      "moduleTitle": "CoderLAP · Programozás 2",
+      "subtitle": "35 kérdés nyelvi alapokról, fordításról, hibakeresésről, rekurzióról és adatokról. A CoderLAP 08–14. altémájából.",
+      "practiceNote": "Válassz témákat, vagy gyakorold az egész csomagot. Kövesd a példákat lépésről lépésre; a magyarázat a válaszod után következik.",
+      "topics": {
+        "Aufbau einer Programmiersprache": "A programozási nyelv felépítése",
+        "Interpreter und Compiler": "Interpreter és fordító",
+        "Debugger": "Debugger – hibakereső",
+        "Assembler": "Assembly és assembler",
+        "Rekursive Funktionen": "Rekurzív függvények",
+        "ASCII-Tabellen": "ASCII-táblák",
+        "Variablenarten, Datentypen, Definitionen": "Változók, adattípusok és deklarációk"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "lap-LAP-15-08-1",
+      "revision": 1,
+      "topic": "Aufbau einer Programmiersprache",
+      "source": {
+        "topicId": "LAP-15-08",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/08_Aufbau_einer_Programmiersprache/README.md",
+        "slug": "15-08-aufbau_einer_programmiersprache"
+      },
+      "question": "Welche Frage betrifft bei einer if-Anweisung die Syntax einer Programmiersprache?",
+      "answers": [
+        "Ob die gewählte Bedingung die fachliche Anforderung richtig beschreibt.",
+        "An welcher Stelle Bedingung, Klammern und Anweisungsblock stehen müssen.",
+        "Wie oft die Bedingung mit echten Nutzerdaten wahr wird.",
+        "Ob die gewählte Lösung wenig Arbeitsspeicher benötigt."
+      ],
+      "correct": 1,
+      "explanation": "Die Syntax legt die zulässige Form des Codes fest, etwa die Anordnung von Schlüsselwörtern und Klammern. Was eine korrekt geschriebene Anweisung bewirkt, gehört zur Semantik. Ob diese Wirkung zur Aufgabe passt, wird zusätzlich anhand der Anforderungen geprüft.",
+      "hu": {
+        "question": "Egy if utasításnál melyik kérdés tartozik a programozási nyelv szintaxisához?",
+        "answers": [
+          "Helyesen írja-e le a választott feltétel a szakmai elvárást?",
+          "Hol kell állnia a feltételnek, a zárójeleknek és az utasításblokknak?",
+          "Milyen gyakran lesz igaz a feltétel valódi felhasználói adatokkal?",
+          "Kevés memóriát igényel-e a választott megoldás?"
+        ],
+        "explanation": "A szintaxis a kód megengedett alakját rögzíti, például a kulcsszavak és zárójelek elrendezését. A helyesen leírt utasítás hatása a szemantikához tartozik. Azt pedig a követelmények alapján ellenőrizzük, hogy ez a hatás megfelel-e a feladatnak."
+      }
+    },
+    {
+      "id": "lap-LAP-15-08-2",
+      "revision": 1,
+      "topic": "Aufbau einer Programmiersprache",
+      "source": {
+        "topicId": "LAP-15-08",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/08_Aufbau_einer_Programmiersprache/README.md",
+        "slug": "15-08-aufbau_einer_programmiersprache"
+      },
+      "question": "Welche Aussage beschreibt die Semantik der Zeile total += 3 im Beispiel?",
+      "answers": [
+        "total ist ein frei gewählter Bezeichner mit fünf Buchstaben.",
+        "Die Zeile endet hier mit einem Semikolon.",
+        "Die Anweisung enthält einen Operator und ein Zahlenliteral.",
+        "Zum bisherigen Wert von total wird 3 addiert; das Ergebnis wird wieder total zugewiesen."
+      ],
+      "correct": 3,
+      "explanation": "Semantik bedeutet hier die Wirkung der Anweisung: Aus total = 2 wird total = 5. += kombiniert Addition und Zuweisung. Der anschließende console.log()-Aufruf gibt deshalb 5 aus.",
+      "hu": {
+        "question": "Melyik állítás írja le a példa total += 3 sorának szemantikáját?",
+        "answers": [
+          "A total szabadon választott, ötbetűs azonosító.",
+          "A sor itt pontosvesszővel végződik.",
+          "Az utasítás egy operátort és egy számliterált tartalmaz.",
+          "A total eddigi értékéhez hozzáadunk 3-at, majd az eredményt visszaadjuk a total változónak."
+        ],
+        "explanation": "A szemantika itt az utasítás hatását jelenti: a total = 2 értékből total = 5 lesz. A += az összeadást és az értékadást kapcsolja össze. Az utána következő console.log() ezért 5-öt ír ki."
+      },
+      "code": "let total = 2;\ntotal += 3;\nconsole.log(total);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "5"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-08-3",
+      "revision": 1,
+      "topic": "Aufbau einer Programmiersprache",
+      "source": {
+        "topicId": "LAP-15-08",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/08_Aufbau_einer_Programmiersprache/README.md",
+        "slug": "15-08-aufbau_einer_programmiersprache"
+      },
+      "question": "Wie lassen sich die Bestandteile der ersten Zeile einordnen?",
+      "answers": [
+        "const: Schlüsselwort; limit: Bezeichner; 10: Literal; =: Zuweisungszeichen der Initialisierung.",
+        "const: Bezeichner; limit: Schlüsselwort; 10: Operator; =: Literal.",
+        "const: Datentyp; limit: Literal; 10: Bezeichner; =: Vergleich.",
+        "const: Funktion; limit: Operator; 10: Schlüsselwort; =: Schleife."
+      ],
+      "correct": 0,
+      "explanation": "const ist ein reserviertes Sprachelement. limit ist der gewählte Name, 10 ein direkt notierter Wert. Mit = wird hier der Anfangswert festgelegt. Die ganze Zeile ist eine Variablendeklaration mit Initialisierung.",
+      "hu": {
+        "question": "Hogyan sorolhatók be az első sor részei?",
+        "answers": [
+          "const: kulcsszó; limit: azonosító; 10: literál; =: az inicializálás értékadó jele.",
+          "const: azonosító; limit: kulcsszó; 10: operátor; =: literál.",
+          "const: adattípus; limit: literál; 10: azonosító; =: összehasonlítás.",
+          "const: függvény; limit: operátor; 10: kulcsszó; =: ciklus."
+        ],
+        "explanation": "A const foglalt nyelvi elem. A limit a választott név, a 10 közvetlenül leírt érték. Az = itt a kezdőértéket rendeli hozzá. A teljes sor inicializálással együtt végzett változódeklaráció."
+      },
+      "code": "const limit = 10;\nconsole.log(limit);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "10"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-08-4",
+      "revision": 1,
+      "topic": "Aufbau einer Programmiersprache",
+      "source": {
+        "topicId": "LAP-15-08",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/08_Aufbau_einer_Programmiersprache/README.md",
+        "slug": "15-08-aufbau_einer_programmiersprache"
+      },
+      "question": "Du benennst die Variable points im gesamten Gültigkeitsbereich in score um. Warum kannst du das Schlüsselwort return nicht auf dieselbe Weise frei umbenennen?",
+      "answers": [
+        "Weil Bezeichner immer kürzer als Schlüsselwörter sein müssen.",
+        "Weil return die aktuelle Punktzahl als Zahl speichert.",
+        "Weil return durch die Sprache festgelegt ist, während points ein von dir vergebener Name ist.",
+        "Weil Variablennamen nur in Kommentaren vorkommen dürfen."
+      ],
+      "correct": 2,
+      "explanation": "Schlüsselwörter haben eine festgelegte Bedeutung in der Sprache. return beendet beispielsweise einen Funktionsaufruf und kann einen Wert zurückgeben. Eigene Bezeichner lassen sich passend wählen und konsistent umbenennen, sofern die Namensregeln und der Gültigkeitsbereich beachtet werden.",
+      "hu": {
+        "question": "A points változót a teljes hatókörében score névre nevezed át. Miért nem nevezheted át ugyanígy szabadon a return kulcsszót?",
+        "answers": [
+          "Mert az azonosítóknak mindig rövidebbeknek kell lenniük a kulcsszavaknál.",
+          "Mert a return számként tárolja az aktuális pontszámot.",
+          "Mert a return alakját a nyelv rögzíti, a points viszont általad választott név.",
+          "Mert változónevek csak megjegyzésekben szerepelhetnek."
+        ],
+        "explanation": "A kulcsszavak jelentését a nyelv határozza meg. A return például lezár egy függvényhívást, és értéket adhat vissza. A saját azonosítók megfelelően kiválaszthatók és következetesen átnevezhetők, a névadási szabályok és hatókör figyelembevételével."
+      }
+    },
+    {
+      "id": "lap-LAP-15-08-5",
+      "revision": 1,
+      "topic": "Aufbau einer Programmiersprache",
+      "source": {
+        "topicId": "LAP-15-08",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/08_Aufbau_einer_Programmiersprache/README.md",
+        "slug": "15-08-aufbau_einer_programmiersprache"
+      },
+      "question": "Eine Funktion besteht die Syntaxprüfung. Reicht das als Nachweis, dass sie den vereinbarten Gesamtpreis berechnet?",
+      "answers": [
+        "Ja, die Syntaxprüfung kennt automatisch alle Preisregeln des Projekts.",
+        "Zusätzlich müssen Ergebnisse mit den vereinbarten Preisregeln und erwarteten Werten verglichen werden.",
+        "Ja, solange Variablen und Funktionen verständliche Namen tragen.",
+        "Zusätzlich muss nur geprüft werden, ob die Datei die Endung .js hat."
+      ],
+      "correct": 1,
+      "explanation": "Eine Syntaxprüfung bestätigt die zulässige Form des Codes. Ob beispielsweise Menge, Einzelpreis und vereinbarte Zusatzkosten richtig berücksichtigt werden, zeigen passende Tests mit vorher festgelegten Ergebnissen. Form und fachliche Korrektheit ergänzen sich.",
+      "hu": {
+        "question": "Egy függvény átmegy a szintaktikai ellenőrzésen. Ez elegendő bizonyíték arra, hogy a megállapodott végösszeget számolja?",
+        "answers": [
+          "Igen, a szintaktikai ellenőrzés automatikusan ismeri a projekt összes árszabályát.",
+          "Az eredményeket az egyeztetett árszabályokkal és elvárt értékekkel is össze kell vetni.",
+          "Igen, ha a változók és függvények neve érthető.",
+          "Ezenfelül csak azt kell ellenőrizni, hogy a fájl kiterjesztése .js-e."
+        ],
+        "explanation": "A szintaktikai ellenőrzés a kód megengedett alakját igazolja. Azt, hogy például a mennyiség, egységár és megállapodott járulékos költség helyesen szerepel-e, előre rögzített eredményekkel végzett tesztek mutatják meg. A forma és a szakmai helyesség kiegészítik egymást."
+      }
+    },
+    {
+      "id": "lap-LAP-15-09-1",
+      "revision": 1,
+      "topic": "Interpreter und Compiler",
+      "source": {
+        "topicId": "LAP-15-09",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/09_Interpreter_und_Compiler/README.md",
+        "slug": "15-09-interpreter_und_compiler"
+      },
+      "question": "Ein Werkzeug liest Quellcode und erzeugt daraus Bytecode, der später in einer virtuellen Maschine läuft. Welche Hauptaufgabe erfüllt es bei diesem Schritt?",
+      "answers": [
+        "Es protokolliert die späteren Benutzereingaben.",
+        "Es setzt Haltepunkte im laufenden Programm.",
+        "Es verbindet ausschließlich bereits vorhandene Objektdateien.",
+        "Es übersetzt den Quellcode in eine andere Darstellung und arbeitet damit als Compiler."
+      ],
+      "correct": 3,
+      "explanation": "Ein Compiler übersetzt Code in eine Zieldarstellung. Das kann Maschinencode, Bytecode oder eine andere Zwischenform sein. Die Übersetzung allein bedeutet noch nicht, dass das Programm bereits ausgeführt wurde.",
+      "hu": {
+        "question": "Egy eszköz forráskódot olvas, és abból később virtuális gépen futó bájtkódot készít. Milyen fő feladatot végez ebben a lépésben?",
+        "answers": [
+          "Naplózza a későbbi felhasználói beviteleket.",
+          "Megállási pontokat állít be a futó programban.",
+          "Kizárólag már meglévő objektumfájlokat kapcsol össze.",
+          "Más ábrázolásra fordítja a forráskódot, tehát fordítóként működik."
+        ],
+        "explanation": "A fordító egy célábrázolásra alakítja át a kódot. Ez lehet gépi kód, bájtkód vagy más köztes forma. Maga a fordítás még nem jelenti azt, hogy a programot már végre is hajtottuk."
+      }
+    },
+    {
+      "id": "lap-LAP-15-09-2",
+      "revision": 1,
+      "topic": "Interpreter und Compiler",
+      "source": {
+        "topicId": "LAP-15-09",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/09_Interpreter_und_Compiler/README.md",
+        "slug": "15-09-interpreter_und_compiler"
+      },
+      "question": "Was kennzeichnet einen Interpreter am treffendsten?",
+      "answers": [
+        "Er führt eine Programmdarstellung aus, indem er deren Anweisungen zur Laufzeit interpretiert.",
+        "Er verbindet Objektdateien zu einer ausführbaren Datei, ohne Anweisungen auszuführen.",
+        "Er erzeugt ausschließlich vor dem Programmstart nativen Maschinencode.",
+        "Er zeichnet lediglich bereits abgeschlossene Programmläufe auf."
+      ],
+      "correct": 0,
+      "explanation": "Beim Interpretieren werden Anweisungen während der Ausführung ausgewertet. Die verwendete Darstellung kann zum Beispiel vorher erzeugter Bytecode sein. „Interpretiert“ bedeutet deshalb nicht zwangsläufig, dass unveränderter Quelltext ohne Vorverarbeitung Zeile für Zeile abgearbeitet wird.",
+      "hu": {
+        "question": "Mi jellemzi legpontosabban az interpretert?",
+        "answers": [
+          "Egy programábrázolást hajt végre úgy, hogy annak utasításait futás közben értelmezi.",
+          "Objektumfájlokat kapcsol futtatható fájllá, utasítások végrehajtása nélkül.",
+          "Kizárólag a program indulása előtt állít elő natív gépi kódot.",
+          "Csak már lezajlott programfutásokat rögzít."
+        ],
+        "explanation": "Értelmezéskor az utasítások kiértékelése a végrehajtás során történik. A feldolgozott ábrázolás lehet például előzetesen létrehozott bájtkód. Az „interpretált” ezért nem feltétlenül jelent előfeldolgozás nélküli, változatlan forrásszövegen végzett soronkénti futtatást."
+      }
+    },
+    {
+      "id": "lap-LAP-15-09-3",
+      "revision": 1,
+      "topic": "Interpreter und Compiler",
+      "source": {
+        "topicId": "LAP-15-09",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/09_Interpreter_und_Compiler/README.md",
+        "slug": "15-09-interpreter_und_compiler"
+      },
+      "question": "Eine Laufzeitumgebung interpretiert zunächst Bytecode und übersetzt häufig ausgeführte Teile während des Laufs in Maschinencode. Wie lässt sich das einordnen?",
+      "answers": [
+        "Als reines Assemblieren ohne Interpretation.",
+        "Als Beweis, dass Bytecode direkt von jeder CPU verstanden wird.",
+        "Als Kombination aus Interpretation und Just-in-time-Kompilierung.",
+        "Als reine Syntaxprüfung ohne tatsächliche Ausführung."
+      ],
+      "correct": 2,
+      "explanation": "Eine Umgebung kann mehrere Ausführungsverfahren kombinieren. JIT bedeutet, dass Code während der Laufzeit übersetzt wird. Daher ist die Ausführung nicht allein durch die pauschale Einteilung einer Sprache als „kompiliert“ oder „interpretiert“ beschrieben.",
+      "hu": {
+        "question": "Egy futtatókörnyezet először bájtkódot értelmez, majd a gyakran futó részeket futás közben gépi kódra fordítja. Hogyan írható le ez?",
+        "answers": [
+          "Tisztán assemblyfordításként, értelmezés nélkül.",
+          "Annak bizonyítékaként, hogy a bájtkódot minden CPU közvetlenül érti.",
+          "Értelmezés és just-in-time fordítás kombinációjaként.",
+          "Tisztán szintaktikai ellenőrzésként, valódi végrehajtás nélkül."
+        ],
+        "explanation": "Egy környezet több végrehajtási eljárást is kombinálhat. A JIT azt jelenti, hogy futás közben történik fordítás. Ezért a működést nem írja le teljesen egy nyelv általános besorolása „fordítottként” vagy „interpretáltként”."
+      }
+    },
+    {
+      "id": "lap-LAP-15-09-4",
+      "revision": 1,
+      "topic": "Interpreter und Compiler",
+      "source": {
+        "topicId": "LAP-15-09",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/09_Interpreter_und_Compiler/README.md",
+        "slug": "15-09-interpreter_und_compiler"
+      },
+      "question": "Ein C-Programm wird zunächst in Assembly übersetzt; ein weiterer Schritt erzeugt daraus eine Objektdatei. Welche Zuordnung passt zu diesen beiden Schritten?",
+      "answers": [
+        "Assembler: C nach Assembly; Debugger: Assembly nach Objektcode.",
+        "Compiler: C nach Assembly; Assembler: Assembly nach Objektcode.",
+        "Linker: C nach Assembly; Interpreter: Assembly nach Objektcode.",
+        "Debugger: C nach Assembly; Linker: Assembly nach Objektcode."
+      ],
+      "correct": 1,
+      "explanation": "Im beschriebenen Ablauf übersetzt der Compiler die Hochsprache C in Assembly. Der Assembler verarbeitet anschließend die Assembly-Anweisungen zu Objektcode. Ein Linker kann danach Objektdateien und Bibliotheken zum fertigen Programm verbinden.",
+      "hu": {
+        "question": "Egy C-programot először assemblyre fordítunk; egy további lépés ebből objektumfájlt készít. Melyik párosítás illik a két lépéshez?",
+        "answers": [
+          "Assembler: C-ből assembly; debugger: assemblyből objektumkód.",
+          "Compiler: C-ből assembly; assembler: assemblyből objektumkód.",
+          "Linker: C-ből assembly; interpreter: assemblyből objektumkód.",
+          "Debugger: C-ből assembly; linker: assemblyből objektumkód."
+        ],
+        "explanation": "A leírt folyamatban a compiler a magas szintű C nyelvet assemblyre fordítja. Az assembler ezután az assemblyutasításokból objektumkódot készít. A linker később az objektumfájlokat és könyvtárakat kész programmá kapcsolhatja össze."
+      }
+    },
+    {
+      "id": "lap-LAP-15-09-5",
+      "revision": 1,
+      "topic": "Interpreter und Compiler",
+      "source": {
+        "topicId": "LAP-15-09",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/09_Interpreter_und_Compiler/README.md",
+        "slug": "15-09-interpreter_und_compiler"
+      },
+      "question": "Welches Problem kann bereits eine Syntaxprüfung vor der Ausführung zuverlässig erkennen?",
+      "answers": [
+        "Eine nicht geschlossene Klammer in einer Funktionsdeklaration.",
+        "Ein später ausfallendes Netzwerk während einer Datenübertragung.",
+        "Eine fachlich falsche, aber syntaktisch gültige Preisformel.",
+        "Eine bei einem bestimmten Nutzereingang zu lange Antwortzeit."
+      ],
+      "correct": 0,
+      "explanation": "Die zulässige Struktur des Quelltexts lässt sich vor seiner Ausführung prüfen. Eine fehlende schließende Klammer verletzt diese Struktur. Fachliche Erwartungen und konkrete Laufzeitbedingungen erfordern zusätzliche Prüfungen; manche Sprachen erkennen darüber hinaus auch Typfehler bereits beim Übersetzen.",
+      "hu": {
+        "question": "Melyik problémát képes már a futás előtti szintaktikai ellenőrzés megbízhatóan felismerni?",
+        "answers": [
+          "Egy le nem zárt zárójelet a függvénydeklarációban.",
+          "Az adatátvitel közben később kieső hálózatot.",
+          "Egy szakmailag téves, de szintaktikailag érvényes árképletet.",
+          "Egy adott felhasználói bemenetnél túl hosszú válaszidőt."
+        ],
+        "explanation": "A forrásszöveg megengedett szerkezete végrehajtás előtt is ellenőrizhető. A hiányzó záró zárójel ezt a szerkezetet sérti. A szakmai elvárások és konkrét futási körülmények további vizsgálatot igényelnek; egyes nyelvek emellett típushibákat is felismernek már fordításkor."
+      }
+    },
+    {
+      "id": "lap-LAP-15-10-1",
+      "revision": 1,
+      "topic": "Debugger",
+      "source": {
+        "topicId": "LAP-15-10",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/10_Debugger/README.md",
+        "slug": "15-10-debugger"
+      },
+      "question": "Ein Test liefert einen unerwarteten Gesamtpreis. Welche Tätigkeit nutzt einen Debugger gezielt zur Ursachenklärung?",
+      "answers": [
+        "Die erwartete Testausgabe durch den aktuellen Wert ersetzen.",
+        "Den Quelltext allein anhand der Einrückung überprüfen.",
+        "Die Ausführung anhalten und Eingaben, Zwischenwerte sowie den genommenen Kontrollpfad untersuchen.",
+        "Die Datei ohne weitere Beobachtung mehrfach starten."
+      ],
+      "correct": 2,
+      "explanation": "Mit einem Debugger lässt sich der laufende Zustand beobachten und die Ausführung steuern. So kannst du nachvollziehen, an welcher Stelle ein Zwischenwert vom erwarteten Rechenweg abweicht. Das hilft, die Ursache zu finden und anschließend gezielt zu korrigieren.",
+      "hu": {
+        "question": "Egy teszt váratlan végösszeget ad. Melyik tevékenység használja célzottan a debuggert az ok feltárására?",
+        "answers": [
+          "A teszt elvárt kimenetét az aktuális értékre cseréljük.",
+          "Kizárólag a behúzás alapján ellenőrizzük a forrásszöveget.",
+          "Megállítjuk a futást, és megvizsgáljuk a bemeneteket, köztes értékeket és bejárt vezérlési utat.",
+          "További megfigyelés nélkül többször elindítjuk a fájlt."
+        ],
+        "explanation": "A debuggerrel megfigyelhető a futó program állapota, és vezérelhető a végrehajtás. Így követhető, hol tér el egy köztes érték az elvárt számítási menettől. Ez segít az ok megtalálásában, majd a célzott javításban."
+      }
+    },
+    {
+      "id": "lap-LAP-15-10-2",
+      "revision": 1,
+      "topic": "Debugger",
+      "source": {
+        "topicId": "LAP-15-10",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/10_Debugger/README.md",
+        "slug": "15-10-debugger"
+      },
+      "question": "Du setzt einen normalen Zeilen-Breakpoint auf total += shipping. Die Ausführung pausiert unmittelbar vor dieser Anweisung. Welchen Wert hat total zu diesem Zeitpunkt?",
+      "answers": [
+        "7, weil shipping bereits addiert wurde.",
+        "5, weil die markierte Addition noch nicht ausgeführt wurde.",
+        "2, weil der Breakpoint total durch shipping ersetzt.",
+        "undefined, weil Breakpoints Variablen zurücksetzen."
+      ],
+      "correct": 1,
+      "explanation": "Ein Breakpoint hält die Ausführung an einer festgelegten Stelle an. Hier sind total = 5 und shipping = 2 bereits gesetzt, die Addition steht noch bevor. Nach dem Ausführen dieser Anweisung wird total zu 7. Der Breakpoint selbst verändert die Werte nicht.",
+      "hu": {
+        "question": "Egy szokásos sor-breakpointot teszel a total += shipping sorra. A futás közvetlenül az utasítás előtt áll meg. Mennyi ekkor a total?",
+        "answers": [
+          "7, mert a shipping értékét már hozzáadtuk.",
+          "5, mert a megjelölt összeadás még nem futott le.",
+          "2, mert a breakpoint a total értékét shippingre cseréli.",
+          "undefined, mert a breakpointok visszaállítják a változókat."
+        ],
+        "explanation": "A breakpoint egy meghatározott ponton megállítja a végrehajtást. Itt a total = 5 és shipping = 2 már be van állítva, az összeadás viszont még hátravan. Az utasítás végrehajtása után a total 7 lesz. Maga a breakpoint nem változtatja meg az értékeket."
+      },
+      "code": "let total = 5;\nconst shipping = 2;\ntotal += shipping;\nconsole.log(total);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "7"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-10-3",
+      "revision": 1,
+      "topic": "Debugger",
+      "source": {
+        "topicId": "LAP-15-10",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/10_Debugger/README.md",
+        "slug": "15-10-debugger"
+      },
+      "question": "Die Ausführung pausiert vor const result = add(2, 3). Du möchtest beobachten, wie a + b innerhalb von add berechnet wird. Welche Aktion passt dazu?",
+      "answers": [
+        "Continue: ohne weitere Haltepunkte bis zum Programmende laufen lassen.",
+        "Step over: den Aufruf als einen Schritt vollständig ausführen.",
+        "Den aktuellen Variablenwert nur als Text in eine Logdatei schreiben.",
+        "Step into: in den Funktionsaufruf hineingehen und dort weiter schrittweise beobachten."
+      ],
+      "correct": 3,
+      "explanation": "Step into führt in die aufgerufene Funktion hinein. Dort kannst du Parameter und Rechenschritte verfolgen: a = 2 und b = 3 ergeben die Rückgabe 5. Step over führt den Aufruf dagegen als einen Schritt aus, ohne ihn auf diese Weise zu betreten.",
+      "hu": {
+        "question": "A végrehajtás a const result = add(2, 3) előtt áll. Szeretnéd megfigyelni, hogyan számolódik ki az a + b az add függvényen belül. Melyik művelet illik ehhez?",
+        "answers": [
+          "Continue: további megállási pont nélkül a program végéig futtatni.",
+          "Step over: a hívást egyetlen lépésként teljesen végrehajtani.",
+          "Az aktuális változóértéket csak szövegként naplófájlba írni.",
+          "Step into: belépni a függvényhívásba, és ott lépésenként folytatni a megfigyelést."
+        ],
+        "explanation": "A Step into belép a meghívott függvénybe. Ott követhetők a paraméterek és számítási lépések: az a = 2 és b = 3 értékből 5-ös visszatérés adódik. A Step over ezzel szemben egy lépésként hajtja végre a hívást, ilyen belépés nélkül."
+      },
+      "code": "function add(a, b) {\n  return a + b;\n}\nconst result = add(2, 3);\nconsole.log(result);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "5"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-10-4",
+      "revision": 1,
+      "topic": "Debugger",
+      "source": {
+        "topicId": "LAP-15-10",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/10_Debugger/README.md",
+        "slug": "15-10-debugger"
+      },
+      "question": "Der Debugger pausiert innerhalb von add, unmittelbar vor return a + b. Welche aktuell aktive Aufrufkette erklärt, wie das Programm dorthin gelangt ist? Lies von außen nach innen.",
+      "answers": [
+        "Skript → checkout → add",
+        "Skript → add → checkout",
+        "Skript → console.log → add",
+        "Skript → checkout → console.log"
+      ],
+      "correct": 0,
+      "explanation": "Das Skript ruft zuerst checkout auf. Diese Funktion ruft während der Berechnung add auf und wartet auf dessen Rückgabe. Der Call Stack zeigt diese noch aktiven Aufrufe; die spätere console.log()-Anweisung wurde noch nicht erreicht.",
+      "hu": {
+        "question": "A debugger az add belsejében, közvetlenül a return a + b előtt áll. Melyik jelenleg aktív hívási lánc magyarázza, hogyan jutott ide a program? Kívülről befelé olvasd.",
+        "answers": [
+          "Szkript → checkout → add",
+          "Szkript → add → checkout",
+          "Szkript → console.log → add",
+          "Szkript → checkout → console.log"
+        ],
+        "explanation": "A szkript először a checkout függvényt hívja meg. Ez a számítás közben meghívja az add függvényt, és vár annak visszatérésére. A call stack ezeket a még aktív hívásokat mutatja; a későbbi console.log() utasítást még nem értük el."
+      },
+      "code": "function add(a, b) {\n  return a + b;\n}\nfunction checkout() {\n  return add(2, 3);\n}\nconst total = checkout();\nconsole.log(total);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "5"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-10-5",
+      "revision": 1,
+      "topic": "Debugger",
+      "source": {
+        "topicId": "LAP-15-10",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/10_Debugger/README.md",
+        "slug": "15-10-debugger"
+      },
+      "question": "Du möchtest einen Lauf interaktiv untersuchen und einen späteren Lauf anhand aufgezeichneter Ereignisse nachvollziehen. Welche Zuordnung passt?",
+      "answers": [
+        "Debugger für beide Aufgaben; Logging führt den Code schrittweise aus.",
+        "Logging zum Anhalten an Breakpoints; Debugger ausschließlich für gespeicherte Textdateien.",
+        "Debugger für die interaktive Untersuchung; Logging für die spätere Auswertung aufgezeichneter Ereignisse.",
+        "Compiler für die interaktive Untersuchung; Assembler für die Ereignisaufzeichnung."
+      ],
+      "correct": 2,
+      "explanation": "Ein Debugger bietet unter anderem Haltepunkte und Einzelschritte am laufenden Programm. Logging hält ausgewählte Ereignisse oder Zustände als Aufzeichnungen fest. Beide Werkzeuge können sich ergänzen, liefern aber unterschiedliche Möglichkeiten der Beobachtung.",
+      "hu": {
+        "question": "Egy futást interaktívan szeretnél vizsgálni, egy későbbit pedig rögzített eseményekből visszakövetni. Melyik párosítás megfelelő?",
+        "answers": [
+          "Mindkettőre debugger; a naplózás lépésenként hajtja végre a kódot.",
+          "Naplózás a breakpointos megállításhoz; debugger kizárólag a mentett szövegfájlokhoz.",
+          "Debugger az interaktív vizsgálathoz; naplózás a rögzített események későbbi elemzéséhez.",
+          "Compiler az interaktív vizsgálathoz; assembler az események rögzítéséhez."
+        ],
+        "explanation": "A debugger többek között megállási pontokat és egyenkénti léptetést kínál a futó programhoz. A naplózás kiválasztott eseményeket vagy állapotokat őriz meg feljegyzésként. A két eszköz kiegészítheti egymást, de eltérő megfigyelési lehetőséget ad."
+      }
+    },
+    {
+      "id": "lap-LAP-15-11-1",
+      "revision": 1,
+      "topic": "Assembler",
+      "source": {
+        "topicId": "LAP-15-11",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/11_Assembler/README.md",
+        "slug": "15-11-assembler"
+      },
+      "question": "Du siehst einen Programmtext mit Mnemoniken wie MOV, ADD und JMP sowie Registernamen. Welche Beschreibung passt zur Assembly-Sprache?",
+      "answers": [
+        "Eine Sammlung fertiger Betriebssystemdienste ohne Bezug zu CPU-Anweisungen.",
+        "Ein hardwareunabhängiges Datenformat für Webanwendungen.",
+        "Eine direkte Darstellung des Programms als Folge aus 0 und 1 ohne symbolische Namen.",
+        "Eine hardwarenahe Sprache, die Maschinenoperationen mit lesbaren symbolischen Anweisungen beschreibt."
+      ],
+      "correct": 3,
+      "explanation": "Assembly verwendet kurze symbolische Namen für hardwarenahe Operationen und bezieht sich auf eine Zielarchitektur. Der lesbare Quelltext wird vom Assembler verarbeitet. Er ist eine andere Darstellung als der daraus erzeugte binäre Maschinencode.",
+      "hu": {
+        "question": "Olyan programszöveget látsz, amelyben MOV, ADD, JMP jelölések és regiszternevek szerepelnek. Melyik leírás illik az assembly nyelvre?",
+        "answers": [
+          "Kész operációsrendszer-szolgáltatások gyűjteménye, CPU-utasításokhoz való kapcsolat nélkül.",
+          "Hardverfüggetlen adatformátum webalkalmazásokhoz.",
+          "A program közvetlen ábrázolása 0-k és 1-ek sorozataként, szimbolikus nevek nélkül.",
+          "Hardverközeli nyelv, amely olvasható, szimbolikus utasításokkal írja le a gépi műveleteket."
+        ],
+        "explanation": "Az assembly rövid, szimbolikus nevekkel ír le hardverközeli műveleteket, és egy célarchitektúrához kapcsolódik. Az olvasható forrásszöveget az assembler dolgozza fel. Ez más ábrázolás, mint a belőle létrehozott bináris gépi kód."
+      }
+    },
+    {
+      "id": "lap-LAP-15-11-2",
+      "revision": 1,
+      "topic": "Assembler",
+      "source": {
+        "topicId": "LAP-15-11",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/11_Assembler/README.md",
+        "slug": "15-11-assembler"
+      },
+      "question": "Eine Assembly-Quelldatei soll für eine bestimmte Zielarchitektur in eine Objektdatei übersetzt werden. Welches Werkzeug übernimmt diesen Schritt?",
+      "answers": [
+        "Ein Compiler, der C-Quelltext in Assembly übersetzt.",
+        "Ein Assembler, der die Assembly-Anweisungen verarbeitet.",
+        "Ein Linker, der bereits übersetzte Objektdateien zusammenführt.",
+        "Ein Debugger, der den Zustand eines laufenden Programms untersucht."
+      ],
+      "correct": 1,
+      "explanation": "Der Assembler übersetzt den Assembly-Quelltext für die gewählte Architektur in Objektcode. Eine Objektdatei kann bereits Maschinencode enthalten und trotzdem noch weitere Verarbeitung benötigen, etwa das Auflösen externer Verweise durch einen Linker.",
+      "hu": {
+        "question": "Egy assemblyforrásból adott célarchitektúrához tartozó objektumfájlt szeretnénk készíteni. Melyik eszköz végzi ezt a lépést?",
+        "answers": [
+          "A C-forrást assemblyre fordító compiler.",
+          "Az assemblyutasításokat feldolgozó assembler.",
+          "A már lefordított objektumfájlokat összekapcsoló linker.",
+          "A futó program állapotát vizsgáló debugger."
+        ],
+        "explanation": "Az assembler a kiválasztott architektúrához fordítja az assemblyforrást objektumkóddá. Egy objektumfájl már tartalmazhat gépi kódot, miközben további feldolgozásra is szüksége lehet, például külső hivatkozások feloldására a linker segítségével."
+      }
+    },
+    {
+      "id": "lap-LAP-15-11-3",
+      "revision": 1,
+      "topic": "Assembler",
+      "source": {
+        "topicId": "LAP-15-11",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/11_Assembler/README.md",
+        "slug": "15-11-assembler"
+      },
+      "question": "Warum gilt Assembly als niedrige, hardwarenahe Sprache?",
+      "answers": [
+        "Weil Register, Speicherzugriffe und Operationen eng an die Ziel-CPU gebunden sind.",
+        "Weil Assembly-Programme grundsätzlich nur wenige Zeilen lang sein dürfen.",
+        "Weil Assembly keine Bedingungen oder Sprünge ausdrücken kann.",
+        "Weil Assembly-Dateien immer kleiner als jede Binärdatei sind."
+      ],
+      "correct": 0,
+      "explanation": "„Niedrig“ beschreibt hier die Abstraktionsebene. Der Code beschäftigt sich unmittelbar mit CPU-nahen Details wie Registern und dem jeweiligen Befehlssatz. Höhere Sprachen fassen solche Details häufig in bequemeren Sprachkonstrukten zusammen.",
+      "hu": {
+        "question": "Miért számít az assembly alacsony szintű, hardverközeli nyelvnek?",
+        "answers": [
+          "Mert a regiszterek, memóriaelérések és műveletek szorosan a cél-CPU-hoz kötődnek.",
+          "Mert az assemblyprogramok alapvetően csak néhány sor hosszúak lehetnek.",
+          "Mert az assembly nem tud feltételeket vagy ugrásokat leírni.",
+          "Mert az assemblyfájl mindig kisebb minden bináris fájlnál."
+        ],
+        "explanation": "Az „alacsony szint” itt az elvonatkoztatás szintjét jelenti. A kód közvetlenül CPU-közeli részletekkel, például regiszterekkel és az adott utasításkészlettel foglalkozik. A magasabb szintű nyelvek ezeket gyakran kényelmesebb nyelvi szerkezetekbe foglalják."
+      }
+    },
+    {
+      "id": "lap-LAP-15-11-4",
+      "revision": 1,
+      "topic": "Assembler",
+      "source": {
+        "topicId": "LAP-15-11",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/11_Assembler/README.md",
+        "slug": "15-11-assembler"
+      },
+      "question": "Für einen kleinen hardwarenahen Programmteil musst du eine bestimmte CPU-Anweisung gezielt verwenden. Welcher Vorteil von Assembly ist dabei relevant?",
+      "answers": [
+        "Derselbe Quelltext läuft unverändert auf jeder Prozessorarchitektur.",
+        "Die Korrektheit des Algorithmus ist ohne Tests garantiert.",
+        "Du kannst die verwendeten Maschinenoperationen und Register sehr direkt kontrollieren.",
+        "Das Programm wird dadurch unabhängig von Aufrufkonventionen und Speicherlayout."
+      ],
+      "correct": 2,
+      "explanation": "Assembly erlaubt eine sehr unmittelbare Kontrolle über architekturspezifische Operationen. Das kann bei gezielten hardwarenahen Aufgaben nützlich sein. Ob eine Lösung korrekt und leistungsfähig ist, muss weiterhin passend geprüft werden.",
+      "hu": {
+        "question": "Egy kis hardverközeli programrészhez célzottan egy adott CPU-utasítást kell használnod. Az assembly melyik előnye számít itt?",
+        "answers": [
+          "Ugyanaz a forrásszöveg változtatás nélkül fut minden processzorarchitektúrán.",
+          "Az algoritmus helyessége tesztek nélkül garantált.",
+          "Nagyon közvetlenül vezérelheted a használt gépi műveleteket és regisztereket.",
+          "A program ettől függetlenné válik a hívási szabályoktól és a memóriaelrendezéstől."
+        ],
+        "explanation": "Az assembly igen közvetlen vezérlést ad az architektúraspecifikus műveletekhez. Ez célzott hardverközeli feladatoknál hasznos lehet. A megoldás helyességét és teljesítményét továbbra is megfelelően ellenőrizni kell."
+      }
+    },
+    {
+      "id": "lap-LAP-15-11-5",
+      "revision": 1,
+      "topic": "Assembler",
+      "source": {
+        "topicId": "LAP-15-11",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/11_Assembler/README.md",
+        "slug": "15-11-assembler"
+      },
+      "question": "Eine in x86-Assembly geschriebene Routine soll auf einem ARM-Prozessor nativ laufen. Welche zusätzliche Arbeit ist typischerweise zu erwarten?",
+      "answers": [
+        "Nur die Dateiendung ändern; Register und Befehlssatz sind identisch.",
+        "Nur die Kommentare übersetzen; Anweisungen sind architekturunabhängig.",
+        "Nur erneut verlinken; jeder Assembler übersetzt automatisch zwischen allen Befehlssätzen.",
+        "Die Routine an den anderen Befehlssatz und die dortigen Konventionen anpassen."
+      ],
+      "correct": 3,
+      "explanation": "Assembly-Quelltext ist eng mit der Zielarchitektur verbunden. Bei einem Wechsel müssen unter anderem Anweisungen, Register und Aufrufkonventionen berücksichtigt werden. Diese Abhängigkeit erschwert Portierung und Wartung im Vergleich zu stärker abstrahiertem Code.",
+      "hu": {
+        "question": "Egy x86 assemblyben írt rutint ARM processzoron szeretnénk natívan futtatni. Milyen további munkára kell jellemzően számítani?",
+        "answers": [
+          "Csak a fájlkiterjesztést kell megváltoztatni; a regiszterek és az utasításkészlet azonosak.",
+          "Csak a megjegyzéseket kell lefordítani; az utasítások architektúrafüggetlenek.",
+          "Csak újra kell linkelni; minden assembler automatikusan fordít az összes utasításkészlet között.",
+          "A rutint a másik utasításkészlethez és az ottani szabályokhoz kell igazítani."
+        ],
+        "explanation": "Az assemblyforrás szorosan kötődik a célarchitektúrához. Váltáskor többek között az utasításokat, regisztereket és hívási szabályokat is figyelembe kell venni. Ez a függőség nehezíti az átültetést és karbantartást a jobban elvonatkoztatott kódhoz képest."
+      }
+    },
+    {
+      "id": "lap-LAP-15-12-1",
+      "revision": 1,
+      "topic": "Rekursive Funktionen",
+      "source": {
+        "topicId": "LAP-15-12",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/12_Rekursive_Funktionen/README.md",
+        "slug": "15-12-rekursive_funktionen"
+      },
+      "question": "Die Funktion wird hier nur mit kleinen nichtnegativen ganzen Zahlen verwendet. Was macht factorial rekursiv?",
+      "answers": [
+        "Sie ruft innerhalb ihrer eigenen Definition factorial mit n - 1 auf.",
+        "Sie wird einmal von console.log() aufgerufen.",
+        "Sie enthält eine if-Anweisung.",
+        "Sie multipliziert zwei Zahlen miteinander."
+      ],
+      "correct": 0,
+      "explanation": "Der Selbstaufruf factorial(n - 1) ist der rekursive Schritt. Jeder Aufruf bearbeitet eine kleinere Teilaufgabe, bis n = 0 erreicht ist. Für factorial(4) werden die zurückkehrenden Werte zu 4 · 3 · 2 · 1 · 1 = 24 zusammengesetzt.",
+      "hu": {
+        "question": "A függvényt itt csak kis, nemnegatív egész számokkal használjuk. Mitől rekurzív a factorial?",
+        "answers": [
+          "A saját definícióján belül meghívja a factorial függvényt n - 1 értékkel.",
+          "A console.log() egyszer meghívja.",
+          "Tartalmaz egy if utasítást.",
+          "Összeszoroz két számot."
+        ],
+        "explanation": "A factorial(n - 1) önhívás a rekurzív lépés. Minden hívás kisebb részfeladatot dolgoz fel, amíg elérjük az n = 0 értéket. A factorial(4) esetén a visszatérő értékekből 4 · 3 · 2 · 1 · 1 = 24 áll össze."
+      },
+      "code": "function factorial(n) {\n  if (n === 0) return 1;\n  return n * factorial(n - 1);\n}\nconsole.log(factorial(4));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "24"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-12-2",
+      "revision": 1,
+      "topic": "Rekursive Funktionen",
+      "source": {
+        "topicId": "LAP-15-12",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/12_Rekursive_Funktionen/README.md",
+        "slug": "15-12-rekursive_funktionen"
+      },
+      "question": "Welche Rolle spielt der Basisfall beim gezeigten Aufruf factorial(0)?",
+      "answers": [
+        "Er startet einen weiteren Aufruf mit n = −1.",
+        "Er überspringt die Rückgabe und liefert undefined.",
+        "Er liefert unmittelbar 1 zurück und beendet diesen Aufruf ohne weiteren Selbstaufruf.",
+        "Er gibt 0 zurück, weil die Eingabe 0 ist."
+      ],
+      "correct": 2,
+      "explanation": "Der Basisfall legt das Ergebnis für eine direkt lösbare Teilaufgabe fest. Hier gilt 0! = 1. return 1 beendet den Aufruf sofort. Auch beim Start mit einer größeren nichtnegativen ganzen Zahl ist dies der Rückgabewert, von dem aus die wartenden Multiplikationen fortgesetzt werden.",
+      "hu": {
+        "question": "Mi az alapeset szerepe a bemutatott factorial(0) hívásnál?",
+        "answers": [
+          "Újabb hívást indít n = −1 értékkel.",
+          "Kihagyja a visszatérést, és undefined értéket eredményez.",
+          "Közvetlenül 1-et ad vissza, és további önhívás nélkül lezárja ezt a hívást.",
+          "0-t ad vissza, mert a bemenet 0."
+        ],
+        "explanation": "Az alapeset egy közvetlenül megoldható részfeladat eredményét rögzíti. Itt 0! = 1. A return 1 azonnal lezárja a hívást. Nagyobb nemnegatív egész bemenetnél is ez az a visszatérő érték, amelyből a várakozó szorzások folytatódnak."
+      },
+      "code": "function factorial(n) {\n  if (n === 0) return 1;\n  return n * factorial(n - 1);\n}\nconsole.log(factorial(0));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "1"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-12-3",
+      "revision": 1,
+      "topic": "Rekursive Funktionen",
+      "source": {
+        "topicId": "LAP-15-12",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/12_Rekursive_Funktionen/README.md",
+        "slug": "15-12-rekursive_funktionen"
+      },
+      "question": "Für n = 4: Wie zerlegt der rekursive Zweig return n * factorial(n - 1) die Aufgabe?",
+      "answers": [
+        "Er berechnet factorial(4) erneut und verwendet denselben Eingabewert unverändert.",
+        "Er wartet auf factorial(3) und multipliziert dessen Ergebnis mit 4.",
+        "Er gibt unmittelbar 3 zurück und beendet alle noch offenen Aufrufe.",
+        "Er addiert 4 zu factorial(3), ohne einen Rückgabewert abzuwarten."
+      ],
+      "correct": 1,
+      "explanation": "Die Teilaufgabe factorial(3) ist kleiner als factorial(4). Erst nach deren Rückkehr wird mit 4 multipliziert. Die Eingabe sinkt je Selbstaufruf um 1 und erreicht für kleine nichtnegative ganze Zahlen den Basisfall 0. So passen Verkleinerung und Zusammensetzen des Ergebnisses zusammen.",
+      "hu": {
+        "question": "n = 4 esetén hogyan bontja fel a feladatot a return n * factorial(n - 1) rekurzív ág?",
+        "answers": [
+          "Változatlan bemenettel újra kiszámítja a factorial(4) értékét.",
+          "Megvárja a factorial(3) eredményét, majd megszorozza 4-gyel.",
+          "Közvetlenül 3-at ad vissza, és minden még nyitott hívást lezár.",
+          "Hozzáad 4-et a factorial(3)-hoz, visszatérési érték megvárása nélkül."
+        ],
+        "explanation": "A factorial(3) kisebb részfeladat, mint a factorial(4). Csak annak visszatérése után szorzunk 4-gyel. Az önhívások bemenete egyenként 1-gyel csökken, így kis nemnegatív egész számoknál eljut a 0-s alapesethez. A feladat kisebbítését az eredmény összerakása követi."
+      },
+      "code": "function factorial(n) {\n  if (n === 0) return 1;\n  return n * factorial(n - 1);\n}\nconsole.log(factorial(4));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "24"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-12-4",
+      "revision": 1,
+      "topic": "Rekursive Funktionen",
+      "source": {
+        "topicId": "LAP-15-12",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/12_Rekursive_Funktionen/README.md",
+        "slug": "15-12-rekursive_funktionen"
+      },
+      "question": "Beide Funktionen werden hier mit 4 aufgerufen. Welche Aussage beschreibt den Unterschied ihrer Wiederholung?",
+      "answers": [
+        "Nur factorialLoop liefert 24, weil Rekursion keine Multiplikation unterstützt.",
+        "Beide wiederholen durch Selbstaufrufe, weil beide Funktionen heißen.",
+        "factorialRecursive verwendet eine for-Schleife, factorialLoop einen Selbstaufruf.",
+        "factorialRecursive wiederholt durch Selbstaufrufe; factorialLoop wiederholt mit einer Schleife innerhalb eines Aufrufs."
+      ],
+      "correct": 3,
+      "explanation": "Beide Varianten berechnen für 4 denselben Wert 24. Die rekursive Variante baut eine Aufrufkette auf und setzt die Ergebnisse beim Zurückkehren zusammen. Die Schleifenvariante aktualisiert result im selben Aufruf. Auch für 0 liefern beide dank ihres Start- beziehungsweise Basiswerts 1.",
+      "hu": {
+        "question": "Mindkét függvényt 4-gyel hívjuk meg. Melyik állítás írja le az ismétlésük különbségét?",
+        "answers": [
+          "Csak a factorialLoop ad 24-et, mert a rekurzió nem támogat szorzást.",
+          "Mindkettő önhívással ismétel, mert mindkettő függvény.",
+          "A factorialRecursive for ciklust használ, a factorialLoop pedig önhívást.",
+          "A factorialRecursive önhívásokkal ismétel; a factorialLoop egy híváson belüli ciklussal."
+        ],
+        "explanation": "Mindkét változat ugyanazt a 24-et számolja ki 4-re. A rekurzív változat hívási láncot épít, és visszatéréskor rakja össze az eredményeket. A ciklusos változat ugyanazon a híváson belül módosítja a result értékét. 0-ra is mindkettő 1-et ad a kezdőértékének, illetve alapesetének köszönhetően."
+      },
+      "code": "function factorialRecursive(n) {\n  if (n === 0) return 1;\n  return n * factorialRecursive(n - 1);\n}\nfunction factorialLoop(n) {\n  let result = 1;\n  for (let value = 1; value <= n; value++) {\n    result *= value;\n  }\n  return result;\n}\nconsole.log(factorialRecursive(4));\nconsole.log(factorialLoop(4));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "24",
+        "24"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-12-5",
+      "revision": 1,
+      "topic": "Rekursive Funktionen",
+      "source": {
+        "topicId": "LAP-15-12",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/12_Rekursive_Funktionen/README.md",
+        "slug": "15-12-rekursive_funktionen"
+      },
+      "question": "Eine rekursive Funktion erreicht rechnerisch ihren Basisfall, benötigt bei sehr großer Eingabe aber extrem viele gleichzeitig offene Aufrufe. Welches praktische Problem kann trotzdem auftreten?",
+      "answers": [
+        "Die verfügbare Kapazität des Aufrufstapels kann erschöpft werden.",
+        "Ein erreichbarer Basisfall verhindert grundsätzlich jedes Speicherproblem.",
+        "Alle lokalen Variablen werden automatisch zu globalen Variablen.",
+        "Die Laufzeitumgebung ersetzt die Rekursion immer durch eine speichersparende Schleife."
+      ],
+      "correct": 0,
+      "explanation": "Ein mathematisch erreichbarer Basisfall und ausreichende Ressourcen sind zwei verschiedene Voraussetzungen. Viele offene Aufrufe können den verfügbaren Stack überlasten. Für sehr tiefe Verarbeitung kann eine iterative Lösung oder eine ausdrücklich verwaltete Datenstruktur sinnvoll sein; die gezeigten Fakultätsbeispiele sind für kleine Eingaben gedacht.",
+      "hu": {
+        "question": "Egy rekurzív függvény számítás szerint eljut az alapesethez, de nagyon nagy bemenetnél rendkívül sok hívása vár egyszerre visszatérésre. Milyen gyakorlati probléma jelentkezhet mégis?",
+        "answers": [
+          "Elfogyhat a hívási verem rendelkezésre álló kapacitása.",
+          "Az elérhető alapeset alapvetően minden memóriaproblémát megelőz.",
+          "Minden lokális változó automatikusan globálissá válik.",
+          "A futtatókörnyezet mindig memóriatakarékos ciklusra cseréli a rekurziót."
+        ],
+        "explanation": "A matematikailag elérhető alapeset és az elegendő erőforrás két külön feltétel. Sok nyitott hívás túlterhelheti a rendelkezésre álló vermet. Nagyon mély feldolgozáshoz célszerű lehet ciklusos megoldás vagy kifejezetten kezelt adatszerkezet; a bemutatott faktoriálispéldák kis bemenetekre készültek."
+      }
+    },
+    {
+      "id": "lap-LAP-15-13-1",
+      "revision": 1,
+      "topic": "ASCII-Tabellen",
+      "source": {
+        "topicId": "LAP-15-13",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/13_ASCII_Tabellen/README.md",
+        "slug": "15-13-ascii_tabellen"
+      },
+      "question": "ASCII verwendet 7 Bit. Wie viele verschiedene Codes sind damit möglich, wenn Steuerzeichen mitgezählt werden?",
+      "answers": [
+        "127, weil der höchste Code 127 lautet.",
+        "256, weil jedes gespeicherte Byte acht Bit hat.",
+        "128, nämlich die Codewerte 0 bis 127.",
+        "95, weil nur druckbare Zeichen zur Gesamtzahl zählen."
+      ],
+      "correct": 2,
+      "explanation": "Mit 7 Bit gibt es 2⁷ = 128 Kombinationen. Da die Nummerierung bei 0 beginnt, ist 127 der höchste Codewert und nicht die Anzahl. Zum gesamten Bereich gehören sowohl druckbare Zeichen als auch Steuerzeichen.",
+      "hu": {
+        "question": "Az ASCII 7 bitet használ. Hány különböző kód lehetséges, a vezérlőkaraktereket is beleszámítva?",
+        "answers": [
+          "127, mert a legnagyobb kód 127.",
+          "256, mert minden tárolt bájt nyolcbites.",
+          "128, vagyis a 0-tól 127-ig terjedő kódértékek.",
+          "95, mert csak a nyomtatható karakterek tartoznak az összesítésbe."
+        ],
+        "explanation": "7 bittel 2⁷ = 128 kombináció adható meg. Mivel a számozás 0-val kezdődik, a 127 a legnagyobb kódérték, nem a darabszám. A teljes tartományba a nyomtatható karakterek és a vezérlőkarakterek is beletartoznak."
+      }
+    },
+    {
+      "id": "lap-LAP-15-13-2",
+      "revision": 1,
+      "topic": "ASCII-Tabellen",
+      "source": {
+        "topicId": "LAP-15-13",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/13_ASCII_Tabellen/README.md",
+        "slug": "15-13-ascii_tabellen"
+      },
+      "question": "Eine Schnittstellenbeschreibung bezeichnet ein empfangenes Byte ausdrücklich als ASCII-Code 65, dezimal. Wofür hilft dir die ASCII-Tabelle hier?",
+      "answers": [
+        "Sie zeigt, wie groß die Schrift im Browser gerendert wird.",
+        "Sie ordnet dem numerischen Code das Zeichen A zu.",
+        "Sie bestimmt automatisch, welche Programmiersprache die Schnittstelle verwendet.",
+        "Sie erklärt 65 als Länge der gesamten Nachricht."
+      ],
+      "correct": 1,
+      "explanation": "Die Tabelle verbindet Zeichen mit ihren numerischen Codes. Unter der ausdrücklich angegebenen ASCII-Kodierung steht der dezimale Wert 65 für A. Zur Deutung eines beliebigen Bytes gehört deshalb auch die Information, welche Kodierung oder welches Datenformat verwendet wird.",
+      "hu": {
+        "question": "Egy interfész leírása a kapott bájtot kifejezetten decimális 65-ös ASCII-kódként jelöli. Mire használható itt az ASCII-tábla?",
+        "answers": [
+          "Megmutatja, mekkora betűvel rajzolja ki a böngésző.",
+          "A számszerű kódhoz hozzárendeli az A karaktert.",
+          "Automatikusan meghatározza, milyen programozási nyelvet használ az interfész.",
+          "A 65-öt a teljes üzenet hosszaként értelmezi."
+        ],
+        "explanation": "A táblázat karaktereket kapcsol számszerű kódjaikhoz. A kifejezetten megadott ASCII-kódolásban a decimális 65 az A-t jelöli. Egy tetszőleges bájt értelmezéséhez ezért az is hozzátartozik, milyen kódolást vagy adatformátumot használunk."
+      }
+    },
+    {
+      "id": "lap-LAP-15-13-3",
+      "revision": 1,
+      "topic": "ASCII-Tabellen",
+      "source": {
+        "topicId": "LAP-15-13",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/13_ASCII_Tabellen/README.md",
+        "slug": "15-13-ascii_tabellen"
+      },
+      "question": "Welche zwei Zahlen gibt das Beispiel aus? Für diese ASCII-Zeichen stimmt der von charCodeAt(0) gelieferte Wert mit dem ASCII-Code überein.",
+      "answers": [
+        "65 und 0",
+        "97 und 48",
+        "41 und 30",
+        "65 und 48"
+      ],
+      "correct": 3,
+      "explanation": "A hat den dezimalen ASCII-Code 65, das Zeichen 0 den Code 48. Das Ziffernzeichen ist etwas anderes als der Zahlenwert 0. 41 und 30 sind die entsprechenden hexadezimalen Schreibweisen der Codes; console.log() gibt die Zahlen hier dezimal aus.",
+      "hu": {
+        "question": "Melyik két számot írja ki a példa? Ezeknél az ASCII-karaktereknél a charCodeAt(0) eredménye megegyezik az ASCII-kóddal.",
+        "answers": [
+          "65 és 0",
+          "97 és 48",
+          "41 és 30",
+          "65 és 48"
+        ],
+        "explanation": "Az A decimális ASCII-kódja 65, a 0 karakteré 48. A számjegy karaktere más, mint a 0 számérték. A 41 és 30 a kódok megfelelő hexadecimális írásmódja; a console.log() itt decimális alakban írja ki a számokat."
+      },
+      "code": "console.log(\"A\".charCodeAt(0));\nconsole.log(\"0\".charCodeAt(0));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "65",
+        "48"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-13-4",
+      "revision": 1,
+      "topic": "ASCII-Tabellen",
+      "source": {
+        "topicId": "LAP-15-13",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/13_ASCII_Tabellen/README.md",
+        "slug": "15-13-ascii_tabellen"
+      },
+      "question": "Du willst A, ő und ein Emoji als Text darstellen. Warum reicht ASCII allein dafür nicht aus?",
+      "answers": [
+        "ASCII umfasst nur 128 Codes; Unicode kann darüber hinaus unter anderem ungarische Buchstaben und Emojis beschreiben.",
+        "ASCII umfasst alle Unicode-Zeichen, benötigt dafür aber immer zwei Bytes.",
+        "Unicode enthält ausschließlich lateinische Buchstaben ohne Akzente.",
+        "ASCII und Unicode unterscheiden sich nur bei der Schriftgröße."
+      ],
+      "correct": 0,
+      "explanation": "ASCII deckt einen kleinen Bereich einschließlich englischer Buchstaben und Steuerzeichen ab. Unicode erweitert den darstellbaren Zeichenvorrat erheblich. Wie solche Unicode-Zeichen als Bytes gespeichert oder übertragen werden, legt eine Kodierung wie UTF-8 fest.",
+      "hu": {
+        "question": "Az A betűt, az ő betűt és egy emojit szeretnél szövegként megjeleníteni. Miért nem elég ehhez önmagában az ASCII?",
+        "answers": [
+          "Az ASCII csak 128 kódot foglal magában; a Unicode ezen túl például magyar betűket és emojikat is leírhat.",
+          "Az ASCII minden Unicode-karaktert tartalmaz, de ehhez mindig két bájtot használ.",
+          "A Unicode kizárólag ékezet nélküli latin betűket tartalmaz.",
+          "Az ASCII és a Unicode csak a betűméretben különbözik."
+        ],
+        "explanation": "Az ASCII egy kis tartományt fed le, angol betűkkel és vezérlőkarakterekkel együtt. A Unicode jelentősen kibővíti a leírható karakterek körét. Azt, hogy a Unicode-karaktereket milyen bájtokként tároljuk vagy továbbítjuk, egy kódolás, például az UTF-8 határozza meg."
+      }
+    },
+    {
+      "id": "lap-LAP-15-13-5",
+      "revision": 1,
+      "topic": "ASCII-Tabellen",
+      "source": {
+        "topicId": "LAP-15-13",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/13_ASCII_Tabellen/README.md",
+        "slug": "15-13-ascii_tabellen"
+      },
+      "question": "Warum bleibt ASCII-Wissen beim Lesen moderner technischer Formate nützlich?",
+      "answers": [
+        "Weil jeder heutige Text ausschließlich ASCII-Zeichen enthalten darf.",
+        "Weil ASCII-Tabellen die Prüfung des verwendeten Datenformats ersetzen.",
+        "Weil Ziffern, lateinische Buchstaben und Steuerzeichen in vielen Format- und Protokollbeschreibungen weiterhin auf diesen Codes aufbauen.",
+        "Weil jedes Unicode-Zeichen denselben Zahlenwert wie ein ASCII-Zeichen besitzt."
+      ],
+      "correct": 2,
+      "explanation": "Die Zuordnung von Zeichen zu Codes bleibt ein wichtiger Baustein. Eine Formatbeschreibung kann zum Beispiel LF als Zeilenende mit dem Code 10 festlegen. Solche konkreten Regeln lassen sich mit ASCII-Wissen verstehen, auch wenn der übrige Text einen größeren Zeichenvorrat verwendet.",
+      "hu": {
+        "question": "Miért marad hasznos az ASCII ismerete modern technikai formátumok olvasásakor?",
+        "answers": [
+          "Mert minden mai szöveg kizárólag ASCII-karaktereket tartalmazhat.",
+          "Mert az ASCII-tábla kiváltja a használt adatformátum ellenőrzését.",
+          "Mert sok formátum és protokoll leírása továbbra is ezekre a számjegy-, latinbetű- és vezérlőkarakter-kódokra épül.",
+          "Mert minden Unicode-karakternek ugyanaz a számértéke, mint egy ASCII-karakternek."
+        ],
+        "explanation": "A karakterek és kódok megfeleltetése továbbra is fontos építőelem. Egy formátumleírás például 10-es kódú LF karaktert írhat elő sorvégként. Az ilyen konkrét szabályokat az ASCII ismeretével akkor is megérthetjük, ha a többi szöveg nagyobb karakterkészletet használ."
+      }
+    },
+    {
+      "id": "lap-LAP-15-14-1",
+      "revision": 1,
+      "topic": "Variablenarten, Datentypen, Definitionen",
+      "source": {
+        "topicId": "LAP-15-14",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/14_Variablenarten_Datentypen_Definitionen/README.md",
+        "slug": "15-14-variablenarten_datentypen_definitionen"
+      },
+      "question": "Was bezeichnet count im Beispiel?",
+      "answers": [
+        "Den fest eingebauten Namen des Datentyps number.",
+        "Eine benannte Variable, über die das Programm einen Wert lesen und neu zuweisen kann.",
+        "Das Zahlenliteral 2, das automatisch zu einem Schlüsselwort wird.",
+        "Den Namen einer aufgerufenen Funktion."
+      ],
+      "correct": 1,
+      "explanation": "count ist der gewählte Variablenname. Nach der Initialisierung ist sein Wert 2; die nächste Zeile liest diesen Wert und weist count das Ergebnis 3 zu. Name, gespeicherter Wert und Datentyp sind unterschiedliche Aspekte.",
+      "hu": {
+        "question": "Mit jelöl a count a példában?",
+        "answers": [
+          "A number adattípus beépített nevét.",
+          "Egy névvel elérhető változót, amelynek értékét a program olvashatja és újra hozzárendelheti.",
+          "A 2 számliterált, amely automatikusan kulcsszóvá válik.",
+          "Egy meghívott függvény nevét."
+        ],
+        "explanation": "A count a választott változónév. Inicializálás után az értéke 2; a következő sor ezt olvassa ki, majd a 3-as eredményt rendeli a count változóhoz. A név, a tárolt érték és az adattípus külön szempont."
+      },
+      "code": "let count = 2;\ncount = count + 1;\nconsole.log(count);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "3"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-14-2",
+      "revision": 1,
+      "topic": "Variablenarten, Datentypen, Definitionen",
+      "source": {
+        "topicId": "LAP-15-14",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/14_Variablenarten_Datentypen_Definitionen/README.md",
+        "slug": "15-14-variablenarten_datentypen_definitionen"
+      },
+      "question": "Warum unterscheiden sich die beiden ausgegebenen Ergebnisse? JSON.stringify() macht hier die Anführungszeichen eines String-Ergebnisses sichtbar.",
+      "answers": [
+        "Weil + ausschließlich von den Variablennamen abhängt.",
+        "Weil JSON.stringify() jede Zahl mit 10 multipliziert.",
+        "Weil die zweite Zeile eine andere Programmiersprache verwendet.",
+        "Weil + bei zwei Zahlen addiert, mit dem String \"2\" aber eine Zeichenkette bildet."
+      ],
+      "correct": 3,
+      "explanation": "Der Datentyp beeinflusst die Bedeutung einer Operation. 2 + 3 ist die numerische Addition mit Ergebnis 5. Bei \"2\" + 3 wird die 3 in eine Zeichenfolge umgewandelt und angehängt: Das Ergebnis ist der String \"23\". Die Formatierung der Ausgabe macht den Unterschied sichtbar.",
+      "hu": {
+        "question": "Miért különbözik a két kiírt eredmény? A JSON.stringify() itt láthatóvá teszi a szöveges eredmény idézőjeleit.",
+        "answers": [
+          "Mert a + kizárólag a változónevektől függ.",
+          "Mert a JSON.stringify() minden számot megszoroz 10-zel.",
+          "Mert a második sor másik programozási nyelvet használ.",
+          "Mert a + két számnál összead, a \"2\" szöveggel viszont karakterláncot képez."
+        ],
+        "explanation": "Az adattípus befolyásolja egy művelet jelentését. A 2 + 3 számszerű összeadás, eredménye 5. A \"2\" + 3 esetén a 3 szöveggé alakul, és hozzáfűződik: az eredmény a \"23\" karakterlánc. A kiírás formázása láthatóvá teszi a különbséget."
+      },
+      "code": "console.log(JSON.stringify(2 + 3));\nconsole.log(JSON.stringify(\"2\" + 3));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "5",
+        "\"23\""
+      ]
+    },
+    {
+      "id": "lap-LAP-15-14-3",
+      "revision": 1,
+      "topic": "Variablenarten, Datentypen, Definitionen",
+      "source": {
+        "topicId": "LAP-15-14",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/14_Variablenarten_Datentypen_Definitionen/README.md",
+        "slug": "15-14-variablenarten_datentypen_definitionen"
+      },
+      "question": "Du unterscheidest fachlich Ganzzahl, Gleitkommazahl, Wahrheitswert und Text. Welche typeof-Ergebnisse liefert JavaScript für die vier gezeigten Werte in dieser Reihenfolge?",
+      "answers": [
+        "number, number, boolean, string",
+        "integer, float, boolean, string",
+        "number, string, number, character",
+        "integer, decimal, logical, text"
+      ],
+      "correct": 0,
+      "explanation": "Die allgemeinen Kategorien helfen, Daten einzuordnen. In JavaScript gehören sowohl 42 als auch 3.14 zum Typ number. true ist boolean, \"Hallo\" ist string. Konkrete Typnamen und ihre Aufteilung hängen von der Sprache ab.",
+      "hu": {
+        "question": "Fogalmilag egész számot, lebegőpontos számot, logikai értéket és szöveget különböztetsz meg. Milyen typeof eredményeket ad a JavaScript a négy bemutatott értékre, ebben a sorrendben?",
+        "answers": [
+          "number, number, boolean, string",
+          "integer, float, boolean, string",
+          "number, string, number, character",
+          "integer, decimal, logical, text"
+        ],
+        "explanation": "Az általános kategóriák segítenek az adatok besorolásában. JavaScriptben a 42 és a 3.14 egyaránt number típusú. A true boolean, a \"Hallo\" pedig string. A konkrét típusnevek és felosztásuk a nyelvtől függnek."
+      },
+      "code": "console.log(typeof 42);\nconsole.log(typeof 3.14);\nconsole.log(typeof true);\nconsole.log(typeof \"Hallo\");",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "number",
+        "number",
+        "boolean",
+        "string"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-14-4",
+      "revision": 1,
+      "topic": "Variablenarten, Datentypen, Definitionen",
+      "source": {
+        "topicId": "LAP-15-14",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/14_Variablenarten_Datentypen_Definitionen/README.md",
+        "slug": "15-14-variablenarten_datentypen_definitionen"
+      },
+      "question": "Welche Aussage unterscheidet im Beispiel Initialisierung und spätere Zuweisung richtig?",
+      "answers": [
+        "Erst score = 8 initialisiert die Variable; die erste Zeile gibt ihr noch keinen Wert.",
+        "Beide Zeilen erzeugen unabhängig voneinander eine neue Variable namens score.",
+        "let score = 5 deklariert score mit Anfangswert 5; score = 8 weist der bestehenden Variable später einen neuen Wert zu.",
+        "console.log(score) initialisiert score mit dem Wert, der auf dem Bildschirm erscheint."
+      ],
+      "correct": 2,
+      "explanation": "Initialisierung bedeutet, einen Anfangswert zu geben. Hier werden Deklaration und Initialisierung in der ersten Zeile verbunden. Die zweite Zeile verändert den Wert der bereits vorhandenen Variablen. Am Ende wird ihr aktueller Wert 8 ausgegeben.",
+      "hu": {
+        "question": "Melyik állítás különbözteti meg helyesen az inicializálást és a későbbi értékadást a példában?",
+        "answers": [
+          "Csak a score = 8 inicializálja a változót; az első sor még nem ad neki értéket.",
+          "A két sor egymástól függetlenül új score változót hoz létre.",
+          "A let score = 5 5-ös kezdőértékkel deklarálja a score változót; a score = 8 később a már meglévő változónak ad új értéket.",
+          "A console.log(score) a képernyőn megjelenő értékkel inicializálja a score változót."
+        ],
+        "explanation": "Az inicializálás kezdőérték adását jelenti. Itt az első sor együtt végzi a deklarációt és az inicializálást. A második sor a már meglévő változó értékét módosítja. Végül az aktuális, 8-as értéket írjuk ki."
+      },
+      "code": "let score = 5;\nscore = 8;\nconsole.log(score);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "8"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-14-5",
+      "revision": 1,
+      "topic": "Variablenarten, Datentypen, Definitionen",
+      "source": {
+        "topicId": "LAP-15-14",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/14_Variablenarten_Datentypen_Definitionen/README.md",
+        "slug": "15-14-variablenarten_datentypen_definitionen"
+      },
+      "question": "In zwei Sprachreferenzen werden Deklaration, Definition und Initialisierung unterschiedlich abgegrenzt. Wie gehst du mit diesen Begriffen zuverlässig um?",
+      "answers": [
+        "Du überträgst die Begriffe einer Sprache wortgleich auf alle anderen.",
+        "Du behältst die Grundideen im Blick und prüfst die genaue Bedeutung an den Regeln der jeweiligen Sprache.",
+        "Du behandelst jeden der drei Begriffe grundsätzlich als denselben Vorgang.",
+        "Du leitest die Bedeutung ausschließlich aus der Dateiendung ab."
+      ],
+      "correct": 1,
+      "explanation": "Die Grundideen sind Benennen beziehungsweise Bekanntmachen, tatsächliches Definieren und Vergabe eines Anfangswerts. Welche dieser Vorgänge eine Anweisung kombiniert und wie die Fachbegriffe genau verwendet werden, legt die jeweilige Sprache fest. Ein konkretes Beispiel mit benannter Sprache macht die Erklärung überprüfbar.",
+      "hu": {
+        "question": "Két nyelvi referencia eltérően határolja el a deklarációt, definíciót és inicializálást. Hogyan használhatod megbízhatóan ezeket a fogalmakat?",
+        "answers": [
+          "Az egyik nyelv fogalmait szó szerint átviszed minden másikra.",
+          "Szem előtt tartod az alapgondolatokat, a pontos jelentést pedig az adott nyelv szabályai szerint ellenőrzöd.",
+          "Mindhárom fogalmat alapvetően ugyanannak a műveletnek tekinted.",
+          "A jelentést kizárólag a fájlkiterjesztésből vezeted le."
+        ],
+        "explanation": "Az alapgondolatok: név megadása, illetve ismertté tétel, tényleges definiálás és kezdőérték adása. Hogy egy utasítás ezekből mit kapcsol össze, és a szakszavakat pontosan hogyan használjuk, azt az adott nyelv rögzíti. A megnevezett nyelven bemutatott konkrét példa ellenőrizhetővé teszi a magyarázatot."
+      }
+    }
+  ]
+}

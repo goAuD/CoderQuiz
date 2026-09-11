@@ -243,3 +243,17 @@ body text, including uppercase accents. The README uses a larger shared logo.
 - The existing 100-question bank remains available; new content work follows
   LAP topics. No production dependency, synchronization service or Coaster
   integration was introduced.
+
+### 2026-09-11 – Second programming curriculum batch
+
+- Added `examples/lap-programming-2.json`: 35 bilingual adaptations for
+  LAP-15-08 through LAP-15-14, including 14 runnable JavaScript examples with
+  recorded output. Both curriculum banks now cover 70 distinct source positions.
+- `--bank lap-programming-2` starts the same preview on port 8772. `BANK_PORTS`
+  centralizes permitted bank names and default ports; the loopback binding and
+  file-serving allowlist remain in force.
+- Reused the full-run and schema tests for both programming banks. Added
+  cross-bank uniqueness checks and factorial base-case/domain verification.
+  All 25 tests pass; the source and browser review is recorded in LAP-PILOT.md.
+- Batch 1 has user approval; batch 2 awaits content review. No rendering change,
+  runtime dependency, deployment or Coaster integration was needed.

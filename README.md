@@ -73,6 +73,16 @@ python scripts/preview_lap_pilot.py --bank lap-programming-1
 Open <http://127.0.0.1:8771/>. Keep a separate port per bank to preserve each
 practice session. See [the batch notes](docs/LAP-PILOT.md#programming-batch-1).
 
+The second programming batch adds 35 DE/HU questions from LAP-15-08 through
+LAP-15-14, with 14 executable JavaScript examples:
+
+```sh
+python scripts/preview_lap_pilot.py --bank lap-programming-2
+```
+
+Open <http://127.0.0.1:8772/>. The first two curriculum batches cover 70 distinct
+LAP self-checks. See [batch 2 notes](docs/LAP-PILOT.md#programming-batch-2).
+
 ## Adding questions
 
 New curriculum work belongs in the LAP-based banks under `examples/`, following
