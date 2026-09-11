@@ -7,6 +7,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
+BANK_PORTS = {"lap-pilot": 8770, "lap-programming-1": 8771, "lap-programming-2": 8772}
 
 
 class PilotServer(ThreadingHTTPServer):
@@ -61,10 +62,10 @@ class PilotHandler(SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--bank", choices=("lap-pilot", "lap-programming-1"), default="lap-pilot")
+    parser.add_argument("--bank", choices=BANK_PORTS, default="lap-pilot")
     parser.add_argument("--port", type=int)
     args = parser.parse_args()
-    port = args.port if args.port is not None else (8770 if args.bank == "lap-pilot" else 8771)
+    port = args.port if args.port is not None else BANK_PORTS[args.bank]
     server = PilotServer(("127.0.0.1", port), PilotHandler)
     server.bank_path = ROOT / "examples" / f"{args.bank}.json"
     print(f"CoderLAP {args.bank}: http://127.0.0.1:{port} — Ctrl+C to stop", flush=True)
