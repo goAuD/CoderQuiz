@@ -7,7 +7,12 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-BANK_PORTS = {"lap-pilot": 8770, "lap-programming-1": 8771, "lap-programming-2": 8772}
+BANK_PORTS = {
+    "lap-pilot": 8770,
+    "lap-programming-1": 8771,
+    "lap-programming-2": 8772,
+    "lap-programming-3": 8773,
+}
 
 
 class PilotServer(ThreadingHTTPServer):
