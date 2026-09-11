@@ -710,29 +710,31 @@ const QUESTIONS = [
   },
   {
     id: 31,
+    revision: 1,
     topic: "Softwarelizenzen",
     question: "Was ist das typische Merkmal der GPL-Lizenz?",
     answers: [
       "Quellcode muss geheim bleiben",
       "Kommerzielle Nutzung ist verboten",
       "Die Software darf nur kostenlos angeboten werden",
-      "Copyleft: Änderungen und abgeleitete Werke müssen ebenfalls unter der GPL veröffentlicht werden"
+      "Bei Weitergabe eines GPL-pflichtigen abgeleiteten Werks gelten GPL- und Quellcodepflichten"
     ],
     correct: 3,
-    explanation: "GPL ist eine Copyleft-Lizenz: Wer GPL-Software in sein Projekt einbindet, muss das gesamte Projekt unter GPL veröffentlichen. Das ist für proprietäre Produkte oft problematisch.",
+    explanation: "Die GPL erlaubt private Nutzung und Änderungen ohne Veröffentlichung. Wird ein erfasstes abgeleitetes Werk weitergegeben, sind die GPL-Bedingungen und die Bereitstellung des zugehörigen Quellcodes einzuhalten. Bloßes gemeinsames Ausliefern unabhängiger Programme macht nicht automatisch alle zu GPL-Software.",
     hu: {
       question: "Mi a GPL-licence jellegzetes tulajdonsága?",
       answers: [
         "A forráskódnak titkosnak kell maradnia",
         "Kereskedelmi felhasználás tilos",
         "A szoftvert csak ingyenesen szabad kínálni",
-        "Copyleft: a módosításokat és a származékos műveket szintén GPL alatt kell közzétenni"
+        "GPL-köteles származékos mű terjesztésekor a GPL és a forráskód átadásának feltételeit kell követni"
       ],
-      explanation: "A GPL egy copyleft licence: aki GPL-szoftvert épít be projektjébe, az egész projektet GPL alatt kell közzétennie. Ez zárt forráskódú termékek esetén gyakran problémás."
+      explanation: "A GPL megengedi a saját célú használatot és módosítást közzététel nélkül. A hatálya alá tartozó származékos mű terjesztésekor be kell tartani a GPL feltételeit, köztük a kapcsolódó forráskód rendelkezésre bocsátását. Független programok együttes csomagolása önmagában nem teszi mindegyiket GPL-kötelessé."
     }
   },
   {
     id: 32,
+    revision: 1,
     topic: "Softwarelizenzen",
     question: "Was erlaubt die MIT-Lizenz?",
     answers: [
@@ -742,7 +744,7 @@ const QUESTIONS = [
       "Quellcode muss immer offengelegt werden"
     ],
     correct: 1,
-    explanation: "MIT ist eine permissive Lizenz: Fast alles ist erlaubt, solange der ursprüngliche Copyright-Hinweis erhalten bleibt. Keine Pflicht, eigene Änderungen zu veröffentlichen.",
+    explanation: "Die MIT-Lizenz erlaubt Nutzung, Änderung und Weitergabe auch kommerziell. In Kopien oder wesentlichen Teilen der Software müssen der Copyright-Hinweis und der Erlaubnistext der Lizenz erhalten bleiben. Eigene Änderungen müssen nicht veröffentlicht werden.",
     hu: {
       question: "Mit enged meg az MIT-licence?",
       answers: [
@@ -751,53 +753,55 @@ const QUESTIONS = [
         "Felhasználást csak a szerző írásos engedélyével",
         "A forráskódot mindig közzé kell tenni"
       ],
-      explanation: "Az MIT egy megengedő licence: szinte minden megengedett, amíg az eredeti szerzői jogi megjegyzés megmarad. Nem kötelező a módosításokat közzétenni."
+      explanation: "Az MIT-licenc kereskedelmi felhasználást, módosítást és terjesztést is enged. A szoftver másolataiban vagy lényeges részeiben meg kell őrizni a szerzői jogi megjelölést és a licenc engedélyező szövegét. A saját módosításokat nem kötelező közzétenni."
     }
   },
   {
     id: 33,
+    revision: 1,
     topic: "Softwarelizenzen",
     question: "Was bedeutet Copyleft bei Open-Source-Lizenzen?",
     answers: [
       "Die Software ist gratis nutzbar",
       "Der Quellcode gehört der Allgemeinheit ohne jede Einschränkung",
-      "Änderungen und Weiterentwicklungen müssen unter derselben oder einer kompatiblen Lizenz weitergegeben werden",
+      "Bei Weitergabe bleiben die von der Lizenz erfassten Ableitungen unter ihren Copyleft-Bedingungen",
       "Das Urheberrecht ist aufgehoben"
     ],
     correct: 2,
-    explanation: "Copyleft sichert, dass einmal freie Software auch in Ableitungen frei bleibt. GPL ist das bekannteste Beispiel: wer GPL-Code nutzt, muss das eigene Werk auch unter GPL stellen.",
+    explanation: "Copyleft erhält Freiheiten bei der Weitergabe erfasster Ableitungen. Welche Teile betroffen sind, hängt von der Lizenz ab. Die bloße private Nutzung von GPL-Software verpflichtet nicht dazu, ein eigenes Projekt zu veröffentlichen.",
     hu: {
       question: "Mit jelent a copyleft a nyílt forráskódú licencekben?",
       answers: [
         "A szoftver ingyenesen használható",
         "A forráskód minden korlátozás nélkül a köz tulajdona",
-        "A módosításokat és a továbbfejlesztéseket ugyanolyan vagy kompatibilis licence alatt kell terjeszteni",
+        "Terjesztéskor a licenc hatálya alá tartozó származékos művekre is érvényesek a copyleft feltételei",
         "A szerzői jog megszűnik"
       ],
-      explanation: "A copyleft biztosítja, hogy az egyszer szabad szoftver a származékos művekben is szabad maradjon. A GPL a legismertebb példa: aki GPL-kódot használ, saját művét is GPL alatt kell közzétennie."
+      explanation: "A copyleft a hatálya alá tartozó származékos művek továbbadásakor is megőrzi a szoftverhez kapcsolódó szabadságokat. Az érintett részek köre a licenctől függ. A GPL-szoftver puszta saját célú használata nem kötelez saját projekt közzétételére."
     }
   },
   {
     id: 34,
+    revision: 1,
     topic: "Softwarelizenzen",
     question: "Was ist der Unterschied zwischen Freeware und Open Source?",
     answers: [
-      "Freeware ist kostenlos, aber der Quellcode ist nicht zugänglich; bei Open Source ist der Quellcode zugänglich",
+      "Freeware beschreibt meist kostenlose Nutzung; Open Source verlangt Lizenzrechte zum Einsehen, Ändern und Weitergeben des Quellcodes",
       "Kein Unterschied - beide Begriffe bedeuten dasselbe",
       "Freeware ist immer auch Open Source",
       "Open Source ist immer kostenlos"
     ],
     correct: 0,
-    explanation: "Freeware = kostenlos nutzbar, Quellcode oft nicht zugänglich. Open Source = Quellcode zugänglich und veränderbar - muss aber nicht kostenlos sein.",
+    explanation: "Freeware ist kein einheitlicher Lizenzstandard: Der Begriff allein garantiert keine Rechte am Quellcode. Open Source beschreibt Lizenzfreiheiten und ist nicht auf kostenlose Angebote beschränkt. Öffentlich lesbarer Code allein genügt ebenfalls nicht.",
     hu: {
       question: "Mi a különbség a freeware és a nyílt forráskód között?",
       answers: [
-        "A freeware ingyenes, de a forráskód nem elérhető; nyílt forráskód esetén a forráskód elérhető",
+        "A freeware többnyire ingyenes használatot jelöl; a nyílt forráskódhoz a kód megismerését, módosítását és terjesztését engedő licenc tartozik",
         "Nincs különbség - mindkét fogalom ugyanazt jelenti",
         "A freeware mindig nyílt forráskódú is",
         "A nyílt forráskód mindig ingyenes"
       ],
-      explanation: "Freeware = ingyenesen használható, forráskód gyakran nem elérhető. Nyílt forráskód = forráskód elérhető és módosítható - de nem feltétlenül ingyenes."
+      explanation: "A freeware nem egységes licencszabvány: a megnevezés önmagában nem biztosít jogokat a forráskódhoz. A nyílt forráskód a licenc által biztosított szabadságokról szól, és nem kizárólag ingyenes ajánlatokra vonatkozik. A nyilvánosan olvasható kód önmagában még nem elegendő."
     }
   },
   {
@@ -896,6 +900,7 @@ const QUESTIONS = [
   },
   {
     id: 39,
+    revision: 1,
     topic: "IT-Sicherheit",
     question: "Was ist ein SQL-Injection-Angriff?",
     answers: [
@@ -905,7 +910,7 @@ const QUESTIONS = [
       "Einschleusen von SQL-Befehlen über Eingabefelder, um unbefugten Datenbankzugriff zu erlangen"
     ],
     correct: 3,
-    explanation: "SQL-Injection: Wenn Benutzereingaben ungefiltert in SQL-Abfragen einfließen, können Angreifer die Datenbankabfrage manipulieren und z. B. alle Passwörter auslesen.",
+    explanation: "SQL-Injection entsteht, wenn nicht vertrauenswürdige Daten als Teil des SQL-Codes interpretiert werden, etwa durch das Zusammenbauen einer Abfrage aus Zeichenketten. Parametrisierte Abfragen trennen Werte vom SQL-Code. Eingabevalidierung ergänzt diesen Schutz.",
     hu: {
       question: "Mi az SQL-injekciós támadás?",
       answers: [
@@ -914,7 +919,7 @@ const QUESTIONS = [
         "SQL-lekérdezések optimalizálási módszere",
         "SQL-parancsok beviteli mezőkön keresztüli beillesztése jogosulatlan adatbázis-hozzáférés megszerzéséhez"
       ],
-      explanation: "SQL-injekció: ha a felhasználói bevitelek szűretlenül kerülnek be az SQL-lekérdezésekbe, a támadó manipulálhatja az adatbázis-lekérdezést, és pl. az összes jelszót kiolvashatja."
+      explanation: "SQL-injekció akkor keletkezik, amikor nem megbízható adatokat SQL-kódként értelmez a rendszer, például szövegrészekből összefűzött lekérdezésben. A paraméterezett lekérdezés elválasztja az értékeket az SQL-kódtól. A bemenet ellenőrzése ezt a védelmet egészíti ki."
     }
   },
   {
@@ -965,25 +970,26 @@ const QUESTIONS = [
   },
   {
     id: 42,
+    revision: 1,
     topic: "IT-Sicherheit",
     question: "Warum müssen Benutzereingaben in einer Anwendung validiert werden?",
     answers: [
-      "Um Angriffe wie SQL-Injection oder Cross-Site-Scripting (XSS) zu verhindern",
+      "Damit Datentyp, Format, Wertebereich und fachliche Regeln der Eingaben geprüft werden",
       "Nur aus optischen Gründen",
       "Nur aus Performance-Gründen",
       "Das ist bei modernen Frameworks nicht mehr notwendig"
     ],
     correct: 0,
-    explanation: "Nicht validierte Eingaben sind ein häufiges Einfallstor. SQL-Injection, XSS und andere Angriffe nutzen aus, wenn Eingaben ungefiltert weiterverarbeitet werden.",
+    explanation: "Validierung prüft zum Beispiel, ob eine Menge eine zulässige positive Ganzzahl ist. Auf dem Server ist sie unabhängig von Browserprüfungen nötig. Gegen SQL-Injection dienen parametrisierte Abfragen; gegen XSS helfen sichere Ausgabeverfahren und zum Ausgabekontext passende Kodierung.",
     hu: {
       question: "Miért kell érvényesíteni a felhasználói beviteleket egy alkalmazásban?",
       answers: [
-        "Az SQL-injekció vagy a cross-site scripting (XSS) jellegű támadások megelőzéséhez",
+        "A bemenet adattípusának, formátumának, értéktartományának és üzleti szabályainak ellenőrzéséhez",
         "Csak esztétikai okokból",
         "Csak teljesítményi okokból",
         "Modern keretrendszereknél erre már nincs szükség"
       ],
-      explanation: "Az érvényesítés nélküli bevitelek gyakori belépési pont a támadók számára. Az SQL-injekció, az XSS és más támadások azt használják ki, ha a beviteleket szűretlenül dolgozzák fel."
+      explanation: "A validálás például ellenőrzi, hogy a mennyiség megengedett pozitív egész szám-e. A szerveren a böngészős ellenőrzéstől függetlenül szükséges. SQL-injekció ellen paraméterezett lekérdezések, XSS ellen biztonságos megjelenítési módok és a kimeneti környezethez illő kódolás szükséges."
     }
   },
 
@@ -1128,8 +1134,9 @@ const QUESTIONS = [
   },
   {
     id: 49,
+    revision: 1,
     topic: "DSGVO in der Praxis",
-    question: "Was ist beim Newsletter-Versand datenschutzrechtlich erforderlich?",
+    question: "Welches Verfahren hilft, eine Newsletter-Anmeldung per E-Mail zu bestätigen und den Einwilligungsnachweis zu unterstützen?",
     answers: [
       "Einmalige Eintragung in ein Formular reicht aus",
       "Ein Cookie-Banner auf der Website ist ausreichend",
@@ -1137,16 +1144,16 @@ const QUESTIONS = [
       "Keine besonderen Anforderungen"
     ],
     correct: 2,
-    explanation: "Double-Opt-In ist der empfohlene Standard: Der Nutzer trägt sich ein und bestätigt dann über eine E-Mail. Das dient als Nachweis der Einwilligung und schützt vor missbräuchlichen Eintragungen.",
+    explanation: "Beim Double-Opt-In folgt auf das Anmeldeformular eine Bestätigungs-E-Mail. Erst nach der Bestätigung wird die Anmeldung aktiviert. Der Ablauf kann den Nachweis unterstützen; zusätzlich müssen unter anderem Inhalt und Zeitpunkt der Einwilligung dokumentiert werden. Ein Klick ersetzt keine wirksame, informierte Einwilligung.",
     hu: {
-      question: "Mi szükséges adatvédelmi szempontból a hírlevél-küldéshez?",
+      question: "Melyik eljárás segít e-mailben megerősíteni a hírlevél-feliratkozást és alátámasztani a hozzájárulást?",
       answers: [
         "Egyszeri regisztráció egy űrlapon elegendő",
         "Egy cookie-értesítő a weboldalon elegendő",
         "Kettős opt-in: a felhasználó egy megerősítő e-mailben lévő linkre kattintva erősíti meg a feliratkozást",
         "Nincsenek különleges követelmények"
       ],
-      explanation: "A kettős opt-in az ajánlott standard: a felhasználó feliratkozik, majd e-mailben megerősíti azt. Ez bizonyítja a hozzájárulást és véd a visszaéléses feliratkozásoktól."
+      explanation: "Kettős megerősítésnél a feliratkozási űrlapot egy megerősítő e-mail követi. A feliratkozás csak a megerősítés után válik aktívvá. Az eljárás segítheti a bizonyítást; emellett többek között a hozzájárulás tartalmát és időpontját is dokumentálni kell. Egy kattintás nem helyettesíti az érvényes, tájékozott hozzájárulást."
     }
   },
   {
@@ -1174,25 +1181,26 @@ const QUESTIONS = [
   },
   {
     id: 51,
+    revision: 1,
     topic: "DSGVO in der Praxis",
-    question: "Ein Entwickler bindet ein Drittanbieter-SDK (z. B. Facebook Pixel, Crashlytics) ein. Wer ist für die dadurch entstehende Datenverarbeitung verantwortlich?",
+    question: "Ein App-Betreiber entscheidet sich für ein datenverarbeitendes Drittanbieter-SDK. Was muss er vor dem Einsatz klären?",
     answers: [
-      "Nur der SDK-Anbieter ist verantwortlich",
-      "Niemand - SDKs sind vom Datenschutz ausgenommen",
-      "Nur wenn der SDK-Anbieter in der EU sitzt",
-      "Der App-Entwickler ist mitverantwortlich und muss Nutzer darüber informieren"
+      "Nur die technische Kompatibilität; Datenschutz ist allein Sache des SDK-Anbieters",
+      "Keine Datenschutzfragen, weil SDKs ausgenommen sind",
+      "Datenschutzfragen nur bei SDK-Anbietern mit Sitz in der EU",
+      "Zwecke, Datenflüsse, Rechtsgrundlage und Rollen; die Einbindung entbindet ihn nicht von seinen Datenschutzpflichten"
     ],
     correct: 3,
-    explanation: "Wer ein SDK einbindet, das Daten sammelt, ist mitverantwortlich. Nutzer müssen in der Datenschutzerklärung darüber informiert werden, und ggf. ist ein Auftragsverarbeitungsvertrag mit dem SDK-Anbieter erforderlich.",
+    explanation: "Wer Zwecke und Mittel der Verarbeitung bestimmt, ist Verantwortlicher. Ein SDK-Anbieter kann je nach tatsächlicher Verarbeitung Auftragsverarbeiter, eigener oder gemeinsam Verantwortlicher sein. Daraus folgen unterschiedliche Pflichten; die Rolle entsteht nicht automatisch allein durch die Einbindung eines SDKs.",
     hu: {
-      question: "Egy fejlesztő harmadik feles SDK-t (pl. Facebook Pixel, Crashlytics) illeszt be. Ki felelős az ebből eredő adatkezelésért?",
+      question: "Az alkalmazás üzemeltetője adatokat kezelő külső SDK használata mellett dönt. Mit kell a bevezetés előtt tisztáznia?",
       answers: [
-        "Csak az SDK-szolgáltató felelős",
-        "Senki - az SDK-k mentesek az adatvédelem alól",
-        "Csak ha az SDK-szolgáltató az EU-ban van",
-        "Az alkalmazás fejlesztője társ-adatkezelőnek minősül és tájékoztatnia kell a felhasználókat"
+        "Csak a technikai kompatibilitást; az adatvédelem kizárólag az SDK szolgáltatójának dolga",
+        "Semmilyen adatvédelmi kérdést, mert az SDK-k kivételt képeznek",
+        "Adatvédelmi kérdéseket csak EU-s székhelyű SDK-szolgáltatónál",
+        "A célokat, adatfolyamokat, jogalapot és szerepeket; a beépítés nem mentesíti saját adatvédelmi kötelezettségei alól"
       ],
-      explanation: "Aki adatgyűjtő SDK-t épít be, társ-adatkezelőnek minősül. A felhasználókat az adatvédelmi tájékoztatóban erről tájékoztatni kell, és szükség esetén adatfeldolgozási szerződést kell kötni az SDK-szolgáltatóval."
+      explanation: "Aki az adatkezelés céljait és eszközeit meghatározza, adatkezelő. Az SDK szolgáltatója a tényleges adatkezeléstől függően lehet adatfeldolgozó, önálló vagy közös adatkezelő. Ehhez eltérő kötelezettségek tartoznak; a szerepet nem önmagában az SDK beépítése dönti el."
     }
   },
   {
@@ -1243,25 +1251,26 @@ const QUESTIONS = [
   },
   {
     id: 54,
+    revision: 1,
     topic: "DSGVO in der Praxis",
     question: "Ein Entwickler entdeckt eine Sicherheitslücke in der eigenen App, durch die Nutzerdaten abgerufen werden könnten. Was muss getan werden?",
     answers: [
-      "Die Lücke sofort schließen; wenn Daten bereits abgeflossen sind, muss eine Datenpanne gemeldet werden",
+      "Die Lücke eindämmen und beheben; eine mögliche Verletzung personenbezogener Daten untersuchen, dokumentieren und Meldepflichten prüfen",
       "Die Lücke intern dokumentieren und beim nächsten regulären Update schließen",
       "Nichts - solange noch kein Angriff stattgefunden hat, besteht keine Meldepflicht",
       "Die Nutzer per Social Media informieren"
     ],
     correct: 0,
-    explanation: "Bekannte Sicherheitslücken müssen sofort behoben werden. Wenn bereits Daten abgeflossen sind oder ein hohes Risiko besteht, muss die Datenschutzbehörde innerhalb von 72 Stunden informiert werden.",
+    explanation: "Eine Schwachstelle allein ist noch keine nachgewiesene Datenschutzverletzung. Bei einer Verletzung meldet der Verantwortliche sie ohne unangemessene Verzögerung, möglichst binnen 72 Stunden ab Kenntnis, an die Behörde, außer ein Risiko für Betroffene ist unwahrscheinlich. Die Benachrichtigung Betroffener bei hohem Risiko ist eine gesonderte Prüfung.",
     hu: {
       question: "Egy fejlesztő biztonsági rést fedez fel saját alkalmazásában, amelyen keresztül felhasználói adatokhoz lehetne hozzáférni. Mi a teendő?",
       answers: [
-        "A rést azonnal be kell zárni; ha adatok már kiszivárogtak, adatvédelmi incidenst kell bejelenteni",
+        "A rést korlátozni és javítani; kivizsgálni és dokumentálni az esetleges adatvédelmi incidenst, majd ellenőrizni a bejelentési kötelezettségeket",
         "A rést belső dokumentálás után a következő rendszeres frissítésnél kell lezárni",
         "Semmi - amíg nem történt tényleges támadás, nincs bejelentési kötelezettség",
         "A felhasználókat közösségi médián kell tájékoztatni"
       ],
-      explanation: "Az ismert biztonsági réseket azonnal be kell zárni. Ha adatok már kiszivárogtak vagy magas kockázat áll fenn, az adatvédelmi hatóságot 72 órán belül értesíteni kell."
+      explanation: "Egy sérülékenység önmagában még nem bizonyított adatvédelmi incidens. Incidens esetén az adatkezelő indokolatlan késedelem nélkül, lehetőség szerint a tudomásszerzéstől számított 72 órán belül értesíti a hatóságot, kivéve, ha az érintetteket fenyegető kockázat valószínűtlen. Magas kockázatnál külön kell vizsgálni az érintettek tájékoztatását."
     }
   },
   {
@@ -1830,6 +1839,7 @@ const QUESTIONS = [
   // ── IT-Sicherheit (Erweiterung) ───────────────────────────────────────────
   {
     id: 79,
+    revision: 1,
     topic: "IT-Sicherheit",
     question: "Was ist Cross-Site Scripting (XSS)?",
     answers: [
@@ -1839,7 +1849,7 @@ const QUESTIONS = [
       "Eine Technik zur sicheren Skriptübertragung zwischen Servern"
     ],
     correct: 0,
-    explanation: "XSS: Ein Angreifer bringt eine Website dazu, schädliches JavaScript an Besucher auszuliefern. Schutz: Benutzereingaben immer kodieren (HTML-Encoding), eine Content Security Policy (CSP) setzen.",
+    explanation: "Bei XSS wird nicht vertrauenswürdiger Inhalt im Browser als aktiver Code ausgeführt. Für reinen Text ist textContent ein sicherer DOM-Ausgabepunkt. Andere Kontexte benötigen passende Ausgabekodierung; erlaubtes HTML benötigt geeignete Bereinigung. Eine CSP ergänzt diese Maßnahmen.",
     hu: {
       question: "Mi a cross-site scripting (XSS)?",
       answers: [
@@ -1848,7 +1858,7 @@ const QUESTIONS = [
         "JavaScript-kód optimalizálási módszer",
         "Szkriptek biztonságos kiszolgálók közötti átvitelének technikája"
       ],
-      explanation: "XSS: a támadó ráveszi a weboldalt, hogy rosszindulatú JavaScriptet szolgáltasson a látogatóknak. Védelem: a felhasználói beviteleket mindig kódolni kell (HTML-kódolás), és Content Security Policy (CSP) alkalmazása ajánlott."
+      explanation: "XSS esetén a nem megbízható tartalom aktív kódként fut le a böngészőben. Egyszerű szöveg megjelenítésére a textContent biztonságos DOM-megoldás. Más környezethez megfelelő kimeneti kódolás, engedélyezett HTML-hez megfelelő tisztítás szükséges. A CSP ezeket az intézkedéseket egészíti ki."
     }
   },
   {
@@ -1970,8 +1980,9 @@ const QUESTIONS = [
   },
   {
     id: 85,
+    revision: 1,
     topic: "E-Commerce & Österreich",
-    question: "Wie lange gilt das gesetzliche Widerrufsrecht bei Online-Käufen in Österreich?",
+    question: "Wie lang ist die reguläre Rücktrittsfrist bei einem österreichischen Verbrauchervertrag im Onlinehandel, wenn keine gesetzliche Ausnahme greift?",
     answers: [
       "7 Tage ab Bestelldatum",
       "30 Tage ab Erhalt der Ware",
@@ -1979,16 +1990,16 @@ const QUESTIONS = [
       "Das Widerrufsrecht gilt nur bei defekter Ware"
     ],
     correct: 2,
-    explanation: "Verbraucher haben 14 Tage Widerrufsrecht ohne Angabe von Gründen. Die Frist beginnt bei Warenlieferungen mit dem Erhalt, bei Dienstleistungen mit dem Vertragsschluss. Fehlt die Widerrufsbelehrung, verlängert sich die Frist auf 12 Monate.",
+    explanation: "Regulär sind es 14 Tage, bei Waren grundsätzlich ab Erhalt, bei Dienstleistungen ab Vertragsschluss. Fehlt die vorgeschriebene Rücktrittsinformation, verlängert sich die Frist um zwölf Monate. Wird innerhalb dieser zwölf Monate nachinformiert, endet die Frist 14 Tage nach Erhalt der Information (§§ 11–12 FAGG).",
     hu: {
-      question: "Mennyi ideig érvényes a törvényes elállási jog online vásárlásoknál Ausztriában?",
+      question: "Mennyi az általános elállási határidő egy osztrák online fogyasztói szerződésnél, ha nincs alkalmazandó törvényi kivétel?",
       answers: [
         "7 nap a rendelés dátumától",
         "30 nap az áru kézhezvételétől",
         "14 nap az áru kézhezvételétől, illetve a szerződéskötéstől szolgáltatások esetén",
         "Az elállási jog csak hibás árura vonatkozik"
       ],
-      explanation: "A fogyasztóknak 14 napos elállási joguk van indoklás nélkül. A határidő áruküldésnél az átvételkor, szolgáltatásoknál a szerződéskötéskor kezdődik. Ha az elállásról szóló tájékoztatás elmaradt, a határidő 12 hónapra hosszabbodik."
+      explanation: "Az általános határidő 14 nap: árunál főszabály szerint az átvételtől, szolgáltatásnál a szerződéskötéstől. Az előírt elállási tájékoztatás hiányában a határidő tizenkét hónappal meghosszabbodik. Ha ezen tizenkét hónapon belül pótolják a tájékoztatást, az elállási határidő a kézhezvételétől számított 14 nap múlva jár le (FAGG 11–12. §)."
     }
   },
   {
@@ -2041,25 +2052,26 @@ const QUESTIONS = [
   },
   {
     id: 88,
+    revision: 1,
     topic: "ePrivacy & Cookies",
     question: "Wie unterscheidet sich Local Storage aus Datenschutzsicht von Cookies?",
     answers: [
       "Local Storage ist vom Datenschutz vollständig ausgenommen",
       "Local Storage wird automatisch nach 30 Tagen gelöscht",
       "Local Storage sendet Daten bei jeder HTTP-Anfrage automatisch an den Server - genau wie Cookies",
-      "Local Storage bleibt länger gespeichert und wird nicht automatisch mit Anfragen gesendet - dieselben Datenschutzanforderungen gelten trotzdem"
+      "Local Storage hat keine eingebaute Ablaufzeit und wird nicht automatisch mit HTTP-Anfragen gesendet; Datenschutzregeln können trotzdem gelten"
     ],
     correct: 3,
-    explanation: "Local Storage wird nicht automatisch mit HTTP-Anfragen übermittelt, kann aber trotzdem zur Identifizierung von Nutzern genutzt werden. Die ePrivacy-Anforderungen - einschließlich Einwilligungspflicht - gelten genauso wie für Cookies.",
+    explanation: "Auch Cookies können dauerhaft gespeichert werden; Local Storage ist nicht grundsätzlich langlebiger. Der Browser oder Nutzer kann gespeicherte Daten löschen. In Österreich betrifft § 165 Abs. 3 TKG auch andere Endgerätespeicher: Einwilligung ist grundsätzlich nötig, mit Ausnahmen etwa für unbedingt erforderliche Speicherung eines ausdrücklich gewünschten Dienstes.",
     hu: {
       question: "Miben különbözik a Local Storage adatvédelmi szempontból a sütiektől?",
       answers: [
         "A Local Storage teljesen mentes az adatvédelem alól",
         "A Local Storage-ot 30 nap után automatikusan törlik",
         "A Local Storage minden HTTP-kérésnél automatikusan elküldi az adatokat a szervernek - ugyanúgy, mint a sütik",
-        "A Local Storage hosszabb ideig tárolódik és nem küldik automatikusan kérésekkel - az adatvédelmi követelmények ennek ellenére ugyanúgy vonatkoznak rá"
+        "A Local Storage-nak nincs beépített lejárati ideje, és nem küldi el automatikusan az adatokat HTTP-kérésekkel; adatvédelmi szabályok ettől még vonatkozhatnak rá"
       ],
-      explanation: "A Local Storage-ot HTTP-kérésekkel nem küldik el automatikusan, de még így is felhasználható a felhasználók azonosítására. Az ePrivacy-követelmények - beleértve a hozzájárulási kötelezettséget - ugyanúgy érvényesek, mint a sütikre."
+      explanation: "A sütik is lehetnek tartósak; a Local Storage nem feltétlenül őrzi tovább az adatokat. A böngésző vagy a felhasználó törölheti a tárolt adatokat. Ausztriában a TKG 165. § (3) más végberendezéses tárolókra is vonatkozik: főszabály szerint hozzájárulás kell, kivétel például a kifejezetten kért szolgáltatáshoz feltétlenül szükséges tárolás."
     }
   },
   {
@@ -2089,25 +2101,26 @@ const QUESTIONS = [
   // ── DSGVO in der Praxis (Erweiterung) ─────────────────────────────────────
   {
     id: 90,
+    revision: 1,
     topic: "DSGVO in der Praxis",
-    question: "Warum ist das direkte Einbinden von Google Fonts auf einer Website datenschutzrechtlich problematisch?",
+    question: "Welchen Datenschutzvorteil bietet es, Webfonts auf dem eigenen Server statt über einen externen Font-Dienst auszuliefern?",
     answers: [
       "Weil Google Fonts kostenpflichtig ist",
       "Weil Schriftarten grundsätzlich urheberrechtlich geschützt sind",
-      "Weil beim Laden die IP-Adresse des Besuchers an Google-Server in den USA übertragen wird - ohne ausreichende Rechtsgrundlage",
+      "Für das Laden der Schrift entsteht keine zusätzliche Browseranfrage an den externen Font-Anbieter",
       "Es ist nicht problematisch - Google Fonts ist DSGVO-konform"
     ],
     correct: 2,
-    explanation: "Das LG München entschied 2022: Wer Google Fonts direkt einbindet, überträgt beim Seitenaufruf die IP-Adresse des Nutzers an Google - das ist ein Datenschutzverstoß. Die Lösung: Schriften lokal auf dem eigenen Server hosten.",
+    explanation: "Ein externer Font-Dienst erhält beim Abruf technisch die IP-Adresse der anfragenden Verbindung. Lokales Hosting vermeidet diesen zusätzlichen Datenfluss für die Schriftdateien. Daraus folgt weder ein pauschales Verbot externer Fonts noch eine pauschale Rechtmäßigkeit: Der konkrete Einsatz muss geprüft werden.",
     hu: {
-      question: "Miért problematikus adatvédelmi szempontból a Google Fonts közvetlen beágyazása egy weboldalba?",
+      question: "Milyen adatvédelmi előnye van annak, ha a webfontokat saját szerverről szolgáljuk ki külső betűtípus-szolgáltató helyett?",
       answers: [
         "Mert a Google Fonts fizetős",
         "Mert a betűtípusok alapvetően szerzői jogi védelem alatt állnak",
-        "Mert a betöltéskor a látogató IP-címét megfelelő jogalap nélkül továbbítják az USA-beli Google-szerverekre",
+        "A betűtípus betöltése nem indít külön böngészős kérést a külső betűtípus-szolgáltatóhoz",
         "Nem problematikus - a Google Fonts GDPR-konform"
       ],
-      explanation: "A müncheni bíróság 2022-ben kimondta: aki közvetlenül ágyazza be a Google Fonts-ot, az oldal betöltésekor a felhasználó IP-címét továbbítja a Google-nak - ez adatvédelmi jogsértés. A megoldás: a betűtípusokat a saját szerveren kell tárolni."
+      explanation: "A külső betűtípus-szolgáltató a lekéréskor technikailag megkapja a kapcsolódás IP-címét. A helyi kiszolgálás elkerüli ezt a további adatfolyamot a fontfájloknál. Ez sem a külső fontok általános tilalmát, sem általános jogszerűségét nem jelenti: a konkrét használatot kell megvizsgálni."
     }
   },
   {
@@ -2273,25 +2286,26 @@ const QUESTIONS = [
   },
   {
     id: 98,
+    revision: 1,
     topic: "DSGVO in der Praxis",
     question: "Was ist der Unterschied zwischen Ende-zu-Ende-Verschlüsselung und Transportverschlüsselung (TLS)?",
     answers: [
       "Es gibt keinen relevanten Unterschied - beide schützen Daten auf demselben Niveau",
       "TLS schützt Daten nur auf dem Server; Ende-zu-Ende-Verschlüsselung schützt sie nur beim Client",
-      "TLS schützt nur den Übertragungsweg (Daten liegen am Server entschlüsselt vor); Ende-zu-Ende-Verschlüsselung schützt Daten auch vor dem Anbieter selbst",
+      "TLS schützt eine Verbindung; Ende-zu-Ende-Verschlüsselung hält den Inhalt auch für vermittelnde Dienste unlesbar",
       "Ende-zu-Ende-Verschlüsselung ist ausschließlich für E-Mails relevant"
     ],
     correct: 2,
-    explanation: "TLS verschlüsselt den Transport - am Server liegen Daten im Klartext vor. Ende-zu-Ende-Verschlüsselung (wie bei Signal oder PGP) bedeutet: Nur Sender und Empfänger können die Daten entschlüsseln - nicht einmal der Anbieter.",
+    explanation: "TLS schützt den Transport zwischen seinen Endpunkten, etwa Browser und Webserver. Ob der Server Daten verschlüsselt speichert, ist eine eigene Entscheidung. Bei Ende-zu-Ende-Verschlüsselung besitzen die vorgesehenen Endpunkte die Schlüssel zum Inhalt; vermittelnde Server können ihn nicht entschlüsseln.",
     hu: {
       question: "Mi a különbség a végponttól végpontig tartó titkosítás és az átviteli titkosítás (TLS) között?",
       answers: [
         "Nincs lényeges különbség - mindkettő ugyanolyan szinten védi az adatokat",
         "A TLS csak a szerveren, a végponttól végpontig tartó titkosítás csak az ügyfélen védi az adatokat",
-        "A TLS csak az átviteli útvonalat védi (az adatok a szerveren visszafejtve tárolódnak); a végponttól végpontig tartó titkosítás a szolgáltatóval szemben is védi az adatokat",
+        "A TLS egy kapcsolatot véd; a végpontok közötti titkosítás a közvetítő szolgáltatók számára is olvashatatlanná teszi a tartalmat",
         "A végponttól végpontig tartó titkosítás kizárólag e-mailek esetén releváns"
       ],
-      explanation: "A TLS az átvitelt titkosítja - a szerveren az adatok visszafejtett formában tárolódnak. A végponttól végpontig tartó titkosítás (mint a Signal vagy PGP esetén) azt jelenti: csak a küldő és a fogadó tudja visszafejteni - még a szolgáltató sem."
+      explanation: "A TLS a saját végpontjai, például a böngésző és a webszerver közötti átvitelt védi. Külön kérdés, hogy a szerver titkosítva tárolja-e az adatokat. Végpontok közötti titkosításnál a tartalomhoz szükséges kulcsok a kijelölt végpontokon vannak; a közvetítő szerverek nem tudják visszafejteni."
     }
   },
   {
