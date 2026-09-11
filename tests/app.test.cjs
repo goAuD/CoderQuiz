@@ -182,14 +182,15 @@ test('pilot code stays text, explanations appear after answering, and topic link
   assert.equal(review.querySelector('.question-source').href, `https://coderlap.com/hu/topics/${q.source.slug}/`);
 });
 
-for (const bankName of ['lap-programming-1', 'lap-programming-2']) {
+for (const bankName of ['lap-programming-1', 'lap-programming-2', 'lap-programming-3']) {
   test(`${bankName} completes with translated code labels and post-answer explanations`, () => {
     const bank = JSON.parse(fs.readFileSync(path.join(root, `examples/${bankName}.json`), 'utf8'));
     let app = boot({}, '', null, () => .37, bank);
     app.init();
-    assert.equal(app.state.questions.length, 35);
+    const questionCount = bank.questions.length;
+    assert.equal(app.state.questions.length, questionCount);
     const seen = new Set();
-    for (let index = 0; index < 35; index++) {
+    for (let index = 0; index < questionCount; index++) {
       const q = app.state.questions[app.state.current];
       seen.add(q.id);
       assert.equal(app.get('explanation-box').classList.contains('hidden'), true);
@@ -203,7 +204,7 @@ for (const bankName of ['lap-programming-1', 'lap-programming-2']) {
       answer(app, index % 2 === 0);
       assert.equal(app.get('explanation-text').textContent, q.hu.explanation);
       assert.equal(app.get('explanation-source').children[0].href, `https://coderlap.com/hu/topics/${q.source.slug}/`);
-      if (index === 17) app = boot(app.values, '', null, () => .37, bank);
+      if (index === Math.floor(questionCount / 2)) app = boot(app.values, '', null, () => .37, bank);
       app.setLang('de');
       assert.equal(app.get('explanation-text').textContent, q.explanation);
       if (q.codeLanguage === 'pseudocode') {
@@ -211,11 +212,11 @@ for (const bankName of ['lap-programming-1', 'lap-programming-2']) {
       }
       app.nextQuestion();
     }
-    assert.equal(seen.size, 35);
+    assert.equal(seen.size, questionCount);
     assert.equal(app.activeScreen(), 'result');
-    assert.equal(app.state.score, 18);
+    assert.equal(app.state.score, Math.ceil(questionCount / 2));
     app = boot(app.values, '', null, () => .37, bank);
     assert.equal(app.activeScreen(), 'result');
-    assert.equal(app.state.score, 18);
+    assert.equal(app.state.score, Math.ceil(questionCount / 2));
   });
 }
