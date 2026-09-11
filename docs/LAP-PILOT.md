@@ -7,6 +7,13 @@ The original 100-question bank is not part of this pilot.
 The user approved this first sample. Curriculum expansion now proceeds topic by
 topic; see [Programming batch 1](#programming-batch-1) below.
 
+Current handoff (2026-09-11): all three programming batches are approved and
+merged into `dev` (35 + 35 + 30 questions across all 20 programming subtopics).
+The shared header/footer and back-to-top button are also approved and merged
+through PRs #11/#12. These are still separate preview banks; the default root
+app still uses the independent DSGVO bank. Hosting, shared sign-in and the
+production curriculum entry point remain to be decided; see [ROADMAP.md](ROADMAP.md).
+
 “Hint” in this project discussion means the **explanation after answering**.
 There is no separate clue, help button, hint penalty or multi-stage hint system.
 
