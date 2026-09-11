@@ -57,6 +57,28 @@ function topicLabel(topic) {
   return I18N[state.lang].topics[topic] || topic;
 }
 
+function appendQuestionCode(container, question) {
+  if (!question.code) return;
+  const pre = document.createElement("pre");
+  pre.className = "question-code";
+  pre.setAttribute("tabindex", "0");
+  pre.setAttribute("aria-label", "JavaScript");
+  const code = document.createElement("code");
+  code.textContent = question.code;
+  pre.appendChild(code);
+  container.appendChild(pre);
+}
+
+function appendSourceLink(container, question) {
+  if (!question.source) return;
+  const link = document.createElement("a");
+  link.className = "question-source";
+  const prefix = state.lang === "hu" ? "/hu" : "";
+  link.href = `https://coderlap.com${prefix}/topics/${encodeURIComponent(question.source.slug)}/`;
+  link.textContent = `${t("studyTopic")} · ${topicLabel(question.topic)}`;
+  container.appendChild(link);
+}
+
 // ── Screens ────────────────────────────────────────────────────────────────
 
 function showScreen(name) {
@@ -292,6 +314,8 @@ function renderQuestion(preserveAnswered = false) {
   $("score-display").textContent  = t("score")(state.score);
   $("topic-badge").textContent    = topicLabel(q.topic);
   $("question-text").textContent  = getQ(q, "question");
+  $("question-context").innerHTML = "";
+  appendQuestionCode($("question-context"), q);
 
   if (!preserveAnswered) {
     state.shuffledOrder = shuffle([0, 1, 2, 3]);
@@ -357,6 +381,8 @@ function updateProgress() {
 function showFeedback(question, result) {
   $("feedback-heading").textContent = t(result.correct ? "feedbackCorrect" : "feedbackExplanation");
   $("explanation-text").textContent = getQ(question, "explanation");
+  $("explanation-source").innerHTML = "";
+  appendSourceLink($("explanation-source"), question);
   $("explanation-box").classList.remove("hidden");
   const isLast = state.current === state.questions.length - 1;
   $("next-btn").textContent = isLast ? t("resultBtn") : t("nextBtn");
@@ -483,7 +509,10 @@ function renderWrongAnswers() {
     explanation.className = "wi-explanation";
     explanation.textContent = getQ(q, "explanation");
 
-    div.append(qp, givenP, correctP, explanation);
+    div.appendChild(qp);
+    appendQuestionCode(div, q);
+    div.append(givenP, correctP, explanation);
+    appendSourceLink(div, q);
     container.appendChild(div);
   });
 }
