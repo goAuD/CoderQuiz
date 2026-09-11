@@ -94,6 +94,20 @@ Open <http://127.0.0.1:8773/>. All three curriculum batches together cover the
 100 self-check positions across all 20 programming subtopics. Batch 3 awaits
 user review; the banks remain separate previews. See [batch 3 notes](docs/LAP-PILOT.md#programming-batch-3).
 
+For iPhone testing on the same trusted LAN, start an additional listener on
+your computer's LAN address (replace the example IP with your own):
+
+```sh
+python scripts/preview_lap_pilot.py --bank lap-programming-3 --bind 192.168.0.50
+```
+
+Open <http://192.168.0.50:8773/> on the phone. The default remains loopback-only;
+the explicit LAN listener can coexist with it on its separate address. This
+preview has no authentication, so use it only on a trusted LAN and stop it with
+`Ctrl+C` afterwards. If Windows Firewall blocks access, allow this TCP port only
+on the private network from the local subnet. Different host addresses keep
+separate browser progress.
+
 ## Adding questions
 
 New curriculum work belongs in the LAP-based banks under `examples/`, following
