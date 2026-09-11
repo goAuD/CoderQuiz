@@ -181,3 +181,39 @@ test('pilot code stays text, explanations appear after answering, and topic link
   assert.equal(review.querySelector('.question-code').children[0].textContent, q.code);
   assert.equal(review.querySelector('.question-source').href, `https://coderlap.com/hu/topics/${q.source.slug}/`);
 });
+
+test('the programming batch completes with translated code labels and post-answer explanations', () => {
+  const bank = JSON.parse(fs.readFileSync(path.join(root, 'examples/lap-programming-1.json'), 'utf8'));
+  let app = boot({}, '', null, () => .37, bank);
+  app.init();
+  assert.equal(app.state.questions.length, 35);
+  const seen = new Set();
+  for (let index = 0; index < 35; index++) {
+    const q = app.state.questions[app.state.current];
+    seen.add(q.id);
+    assert.equal(app.get('explanation-box').classList.contains('hidden'), true);
+    app.setLang('hu');
+    if (q.code) {
+      const pre = app.get('question-context').children[0];
+      assert.equal(pre.children[0].textContent, q.code);
+      assert.equal(pre.dataset.language, q.codeLanguage === 'pseudocode' ? 'Pszeudokód' : 'JavaScript');
+      assert.equal(pre.getAttribute('aria-label'), pre.dataset.language);
+    }
+    answer(app, index % 2 === 0);
+    assert.equal(app.get('explanation-text').textContent, q.hu.explanation);
+    assert.equal(app.get('explanation-source').children[0].href, `https://coderlap.com/hu/topics/${q.source.slug}/`);
+    if (index === 17) app = boot(app.values, '', null, () => .37, bank);
+    app.setLang('de');
+    assert.equal(app.get('explanation-text').textContent, q.explanation);
+    if (q.codeLanguage === 'pseudocode') {
+      assert.equal(app.get('question-context').children[0].dataset.language, 'Pseudocode');
+    }
+    app.nextQuestion();
+  }
+  assert.equal(seen.size, 35);
+  assert.equal(app.activeScreen(), 'result');
+  assert.equal(app.state.score, 18);
+  app = boot(app.values, '', null, () => .37, bank);
+  assert.equal(app.activeScreen(), 'result');
+  assert.equal(app.state.score, 18);
+});
