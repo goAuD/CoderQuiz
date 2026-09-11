@@ -56,7 +56,7 @@ function activeScreen() {
 function applyStaticI18n() {
   document.documentElement.lang  = t("htmlLang");
   $("module-title").textContent   = t("moduleTitle");
-  $("quiz-subtitle").textContent  = t("subtitle")(QUESTIONS.length);
+  $("quiz-subtitle").textContent  = t("subtitle");
   $("result-heading").textContent = t("resultHeading");
   $("ring-sub-text").textContent  = t("ringSub");
   $("score-suffix").textContent   = t("scoreLabel");
@@ -64,8 +64,16 @@ function applyStaticI18n() {
   $("restart-btn").textContent    = t("restartBtn");
   $("setup-heading").textContent  = t("setupHeading");
   $("setup-sub").textContent      = t("setupSub");
+  $("logo-link").setAttribute("aria-label", t("homeLabel"));
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    el.textContent = t(el.dataset.i18n);
+  });
+  document.querySelectorAll("[data-lap-link]").forEach(link => {
+    link.href = state.lang === "hu" ? "https://coderlap.com/hu/" : "https://coderlap.com/";
+  });
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.lang === state.lang);
+    btn.setAttribute("aria-pressed", btn.dataset.lang === state.lang);
   });
 }
 
@@ -117,10 +125,12 @@ function updateSetupScreen() {
 
   const chips = $("topic-chips");
   chips.innerHTML = "";
-  allTopics().forEach(topic => {
+  allTopics().forEach((topic, index) => {
     const btn = document.createElement("button");
     btn.className = "topic-chip" + (state.selectedTopics.has(topic) ? " active" : "");
     btn.textContent = topicLabel(topic);
+    btn.setAttribute("aria-label", topicLabel(topic));
+    btn.setAttribute("aria-pressed", state.selectedTopics.has(topic));
     btn.addEventListener("click", () => {
       if (state.selectedTopics.has(topic) && state.selectedTopics.size > 1) {
         state.selectedTopics.delete(topic);
@@ -129,6 +139,7 @@ function updateSetupScreen() {
       }
       saveTopics();
       updateSetupScreen();
+      chips.children[index].focus({ preventScroll: true });
     });
     chips.appendChild(btn);
   });
@@ -212,6 +223,7 @@ function init() {
   showScreen("quiz");
   applyStaticI18n();
   renderQuestion();
+  $("question-text").focus();
 }
 
 // preserveAnswered = true: keep shuffledOrder + answered state (language switch or restore)
@@ -219,7 +231,6 @@ function renderQuestion(preserveAnswered = false) {
   const q     = state.questions[state.current];
   const total = state.questions.length;
 
-  $("progress-bar").style.width   = `${(state.current / total) * 100}%`;
   $("progress-text").textContent  = t("progress")(state.current + 1, total);
   $("score-display").textContent  = t("score")(state.score);
   $("topic-badge").textContent    = topicLabel(q.topic);
@@ -231,6 +242,7 @@ function renderQuestion(preserveAnswered = false) {
     $("explanation-box").classList.add("hidden");
     $("next-btn").classList.add("hidden");
   }
+  updateProgress();
 
   const answers    = getQ(q, "answers");
   const list       = $("answers-list");
@@ -246,12 +258,13 @@ function renderQuestion(preserveAnswered = false) {
     label.className   = "answer-label";
     label.textContent = String.fromCharCode(65 + displayIdx);
     btn.appendChild(label);
-    btn.appendChild(document.createTextNode(answers[origIdx]));
+    const content = document.createElement("span");
+    content.className = "answer-content";
+    content.textContent = answers[origIdx];
+    btn.appendChild(content);
 
     if (state.answered) {
-      btn.disabled = true;
-      if (origIdx === q.correct) btn.classList.add("correct");
-      else if (lastResult && origIdx === lastResult.selectedOriginalIdx) btn.classList.add("wrong");
+      markAnswer(btn, origIdx, q, lastResult);
     } else {
       btn.addEventListener("click", () => selectAnswer(displayIdx));
     }
@@ -259,12 +272,38 @@ function renderQuestion(preserveAnswered = false) {
   });
 
   if (state.answered) {
-    $("explanation-text").textContent = getQ(q, "explanation");
-    $("explanation-box").classList.remove("hidden");
-    const isLast = state.current === state.questions.length - 1;
-    $("next-btn").textContent = isLast ? t("resultBtn") : t("nextBtn");
-    $("next-btn").classList.remove("hidden");
+    showFeedback(q, lastResult);
   }
+}
+
+// Answer feedback includes text so colour is never the only signal.
+function markAnswer(btn, originalIdx, question, result) {
+  btn.disabled = true;
+  const correct = originalIdx === question.correct;
+  const selected = originalIdx === result.selectedOriginalIdx;
+  if (!correct && !selected) return;
+  btn.classList.add(correct ? "correct" : "wrong");
+  const status = document.createElement("span");
+  status.className = "answer-status";
+  status.textContent = correct ? t("correctChoice") : t("selectedChoice");
+  btn.querySelector(".answer-content").appendChild(status);
+}
+
+function updateProgress() {
+  const completed = state.current + (state.answered ? 1 : 0);
+  const total = state.questions.length;
+  $("progress-bar").style.width = `${(completed / total) * 100}%`;
+  $("quiz-progress").setAttribute("aria-valuemax", total);
+  $("quiz-progress").setAttribute("aria-valuenow", completed);
+}
+
+function showFeedback(question, result) {
+  $("feedback-heading").textContent = t(result.correct ? "feedbackCorrect" : "feedbackExplanation");
+  $("explanation-text").textContent = getQ(question, "explanation");
+  $("explanation-box").classList.remove("hidden");
+  const isLast = state.current === state.questions.length - 1;
+  $("next-btn").textContent = isLast ? t("resultBtn") : t("nextBtn");
+  $("next-btn").classList.remove("hidden");
 }
 
 function selectAnswer(selectedDisplayIdx) {
@@ -285,18 +324,14 @@ function selectAnswer(selectedDisplayIdx) {
   });
 
   document.querySelectorAll(".answer-btn").forEach(btn => {
-    btn.disabled = true;
     const dIdx = parseInt(btn.getAttribute("data-idx"), 10);
     const oIdx = state.shuffledOrder[dIdx];
-    if (oIdx === q.correct)               btn.classList.add("correct");
-    else if (dIdx === selectedDisplayIdx) btn.classList.add("wrong");
+    markAnswer(btn, oIdx, q, state.results[state.results.length - 1]);
   });
 
-  $("explanation-text").textContent = getQ(q, "explanation");
-  $("explanation-box").classList.remove("hidden");
-  const isLast = state.current === state.questions.length - 1;
-  $("next-btn").textContent = isLast ? t("resultBtn") : t("nextBtn");
-  $("next-btn").classList.remove("hidden");
+  $("score-display").textContent = t("score")(state.score);
+  updateProgress();
+  showFeedback(q, state.results[state.results.length - 1]);
 
   saveProgress();
 }
@@ -307,11 +342,13 @@ function nextQuestion() {
     showResults();
   } else {
     renderQuestion();
+    $("question-text").focus();
     saveProgress();
   }
 }
 
 function showResults() {
+  const entering = activeScreen() !== "result";
   showScreen("result");
   applyStaticI18n();
 
@@ -339,6 +376,7 @@ function showResults() {
   $("ring-pct").textContent = `${pct} %`;
 
   renderWrongAnswers();
+  if (entering) $("result-heading").focus();
   saveProgress();
 }
 
@@ -391,9 +429,17 @@ function renderWrongAnswers() {
 
 document.addEventListener("DOMContentLoaded", () => {
   $("next-btn").addEventListener("click", nextQuestion);
-  $("restart-btn").addEventListener("click", () => { clearProgress(); showSetupScreen(); });
+  $("restart-btn").addEventListener("click", () => {
+    clearProgress();
+    showSetupScreen();
+    $("setup-heading").focus();
+  });
   $("start-btn").addEventListener("click", init);
-  $("logo-link").addEventListener("click", e => { e.preventDefault(); showSetupScreen(); });
+  $("logo-link").addEventListener("click", e => {
+    e.preventDefault();
+    showSetupScreen();
+    $("setup-heading").focus();
+  });
 
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.addEventListener("click", () => setLang(btn.dataset.lang));

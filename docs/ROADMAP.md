@@ -9,6 +9,7 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 - Topic filter: setup screen with chips; last selection persisted in localStorage
 - Progress persistence: quiz state saved to localStorage; restored on page reload
 - Tech: Vanilla HTML/CSS/JS, no dependencies, no build step
+- Interface: CoderLAP Műhely style, local fonts, DE/HU mobile and keyboard support
 - Hosting: local / file:// for now
 
 ## Short-term Goals
@@ -19,7 +20,8 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 - [x] Topic filter - setup screen with topic chips; quiz starts with filtered question set
 - [x] Progress persistence - quiz state saved to localStorage; restored after page reload
 - [x] Set up GitHub Actions workflow for basic validation (syntax check, question count, duplicate ID check)
-- [ ] Deploy to GitHub Pages at the project repo
+- [x] Adapt the CoderLAP Műhely identity to setup, quiz and result screens
+- [ ] Prepare an authenticated deployment under coderlap.com after preview approval
 
 ## Medium-term Goals
 
@@ -43,4 +45,8 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 
 ## Domain and Hosting Plan
 
-GitHub Pages will serve as the initial deployment target before any custom domain DNS is pointed.
+CoderLAP is already used in production behind Caddy Basic Auth. CoderQuiz and
+CoderCoaster are planned as related tools, potentially on subdomains of
+coderlap.com, with Basic Auth retained. CoderQuiz links back to CoderLAP now;
+its final hostname and deployment setup are a separate task. Public GitHub Pages
+deployment is no longer the planned first step.
