@@ -108,7 +108,9 @@ Answer shuffle uses a permutation index array (`state.shuffledOrder`) rather tha
 
 **Setup screen and topic filter.** A setup screen (id="setup-screen") is shown before the quiz starts. It renders topic chips from the unique topics in QUESTIONS. The user can toggle topics on/off; at least one must remain active. Selected topics are persisted in localStorage ("cq-topics") as a JSON array. `filteredQuestions()` returns QUESTIONS filtered by the current selection; `init()` shuffles the result into `state.questions`.
 
-**Progress persistence.** After each answered question and after advancing to the next, `saveProgress()` serializes the current state to localStorage ("cq-progress"): question IDs in their shuffled order, current index, score, results array, topic selection, active screen, and the current question's shuffledOrder + answered flag. On load, `tryRestoreProgress()` reconstructs state from this snapshot and resumes. If the question list has changed (IDs no longer found), the snapshot is discarded. The progress is cleared when the user clicks "restart" (goes to setup screen).
+**Progress persistence.** On starting a run, answering and advancing, `saveProgress()` writes to `cq-progress`: question IDs and revisions, current index, score, selections, topics, screen and the current answer permutation. Restore validates the complete snapshot before changing state, recomputes score from selections, and preserves unanswered choice order too. Missing/revised questions or inconsistent snapshots return to setup with a localized notice. Legacy snapshots without revisions are treated as revision `0`. Storage exceptions leave practice usable in memory with a notice; restart clears the saved run. This is personal practice state, not an authoritative exam record or an anti-cheating mechanism.
+
+**Question revisions.** Keep IDs stable. Increase `revision` (default `0`) whenever an existing question's meaning, choice order, correct answer or explanation changes. Both language versions must retain the same correct source index. All published questions need complete DE/HU text; the runtime's German fallback is only defensive. A revision change invalidates a saved run containing that question, including completed results.
 
 **Language-switch bug fix.** Previously, `setLang()` called `renderQuestion()` which always re-shuffled answer order and reset `state.answered = false`, losing the user's answer. Fixed by adding a `preserveAnswered` parameter to `renderQuestion()`. When called from `setLang()`, the shuffle order and answered state are preserved; the buttons are rebuilt using the same `state.shuffledOrder` and the saved answer from `state.results`.
 
@@ -142,8 +144,8 @@ If you are continuing this project in a new conversation, the key context is:
 - All 100 questions have full HU translations
 - app.js flow: load -> tryRestoreProgress() or showSetupScreen() -> init() on start -> quiz -> showResults()
 - localStorage keys: cq-lang (language), cq-topics (selected topic names array), cq-progress (quiz state JSON)
-- Active branch is dev; main is the stable branch
-- CI checks syntax, question count and unique IDs; authenticated hosting is a separate milestone (see ROADMAP.md).
+- The integration branch is `dev`; verify remote branches before planning a release.
+- CI checks syntax and runs `node --test tests/*.test.cjs` with Node's built-in test runner; authenticated hosting is a separate milestone (see ROADMAP.md).
 - Header image and favicon share assets/logo.svg; logo click → showSetupScreen() (no progress clear).
 - Tauri desktop wrapper is the long-term target
 
@@ -174,7 +176,7 @@ If you are continuing this project in a new conversation, the key context is:
 Validation for interface changes:
 
 1. Run `node --check app.js`, `node --check i18n.js`, `node --check questions.js`
-   and the question-count/unique-ID checks in `.github/workflows/ci.yml`.
+   and `node --test tests/*.test.cjs` (Node.js 20+; no install step).
 2. Preview using the command in README. Check DE/HU at desktop, 320–390px mobile
    and landscape widths; verify long words, focus outlines and touch targets.
 3. Select only Datenpannen (4 questions), verify the last topic cannot be deselected,
@@ -191,3 +193,16 @@ lacked Hungarian `ő/ű`, while Source Sans 3 Latin Extended lacked most basic L
 characters. Both subsets are now declared with ranges matching their character
 maps. When adjusting typography, check `Árvíztűrő tükörfúrógép` in headings and
 body text, including uppercase accents. The README uses a larger shared logo.
+
+### 2026-09-11 – Session recovery and release review
+
+- Guarded storage reads/writes, invalid languages, obsolete filters and malformed
+  saved sessions. Runs now save at the first unanswered question.
+- Added dependency-free behavior and bilingual schema tests, including all 24
+  four-choice shuffle permutations, reloads and simulated storage failures.
+- Replaced invented exam pass/fail wording with practice feedback. Percentages
+  remain a measure of this run, not an official LAP result.
+- Result review includes the explanation as well as the correct answer, and
+  translates both when switching language.
+- Pinned the CI checkout action to its verified v4.2.2 commit. Semgrep stays local;
+  rule downloads are allowed, findings upload/metrics are not enabled.
