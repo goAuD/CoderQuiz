@@ -2,6 +2,7 @@
 
 const I18N = {
   de: {
+    pseudocodeLabel: "Pseudocode",
     studyTopic: "Im CoderLAP nachlesen",
     workshopLabel: "Deine Lernwerkstatt",
     practiceNote: "Themen wählen, Fragen beantworten, Zusammenhänge verstehen. In deinem Tempo.",
@@ -56,6 +57,7 @@ const I18N = {
     }
   },
   hu: {
+    pseudocodeLabel: "Pszeudokód",
     studyTopic: "Kapcsolódó CoderLAP-tananyag",
     workshopLabel: "A tanulóműhelyed",
     practiceNote: "Válassz témákat, válaszolj a kérdésekre, értsd meg az összefüggéseket. A saját tempódban.",

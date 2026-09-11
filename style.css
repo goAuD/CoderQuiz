@@ -529,6 +529,14 @@ main {
 .wi-explanation {
   margin-top: var(--space-3);
 }
+.question-code::before {
+  content: attr(data-language);
+  display: block;
+  margin-bottom: var(--space-2);
+  font: 600 .75rem/1.4 var(--font-body);
+  color: var(--color-text-muted);
+}
+
 .question-code {
   max-width: 100%;
   overflow-x: auto;
