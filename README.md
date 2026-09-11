@@ -157,6 +157,11 @@ They do not establish factual accuracy; questions also need source and language 
 - Keyboard focus, text-based answer feedback, reduced-motion support and iOS safe-area spacing
 - A localized back-to-top button appears after scrolling 400px, with room below footer links
 
+The header/footer use `assets/workshop-frame.css`, an identical local copy of
+CoderLAP's `site/assets/css/workshop-frame.css`. Update all three project copies
+together; app content remains independent. Local Lucide navigation arrows use
+the notices in [LICENSE-Lucide.txt](assets/LICENSE-Lucide.txt).
+
 See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for validation and design maintenance.
 The [release review](docs/REVIEW.md) records corrected questions, source references
 and remaining editorial work; this bank is not yet a complete LAP curriculum.
