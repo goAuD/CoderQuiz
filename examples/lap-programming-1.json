@@ -1,0 +1,1154 @@
+{
+  "sourceRepository": "https://github.com/goAuD/CoderLAP",
+  "sourceCommit": "466a2ee8a5dbd8dc17b67a546e3ac7aacf5115e8",
+  "ui": {
+    "de": {
+      "moduleTitle": "CoderLAP · Programmieren 1",
+      "subtitle": "35 Fragen aus den ersten sieben Programmier-Unterthemen. Mit Beispielen und Erklärungen nach der Antwort.",
+      "practiceNote": "Wähle einzelne Themen oder übe das ganze Paket. Die Erklärungen helfen dir, den Lösungsweg nachzuvollziehen.",
+      "topics": {
+        "Stadien der Softwareentwicklung": "Stadien der Softwareentwicklung",
+        "Prozedurale und objektorientierte Programmierung": "Prozedurale und objektorientierte Programmierung",
+        "Algorithmus": "Algorithmus",
+        "Pseudocode": "Pseudocode",
+        "Sortieralgorithmen: Bubblesort / Quicksort": "Sortieralgorithmen: Bubblesort / Quicksort",
+        "Suchalgorithmen: sequentiell / binaer": "Suchalgorithmen: sequentiell / binaer",
+        "Ablauf der Programmentwicklung": "Ablauf der Programmentwicklung"
+      }
+    },
+    "hu": {
+      "moduleTitle": "CoderLAP · Programozás 1",
+      "subtitle": "35 kérdés az első hét programozási altémából. Példákkal és válasz utáni magyarázatokkal.",
+      "practiceNote": "Válassz témákat, vagy gyakorold az egész csomagot. A magyarázatok segítenek végigkövetni a megoldás menetét.",
+      "topics": {
+        "Stadien der Softwareentwicklung": "A szoftverfejlesztés szakaszai",
+        "Prozedurale und objektorientierte Programmierung": "Procedurális és objektumorientált programozás",
+        "Algorithmus": "Algoritmus",
+        "Pseudocode": "Pszeudokód",
+        "Sortieralgorithmen: Bubblesort / Quicksort": "Rendezés: Bubble Sort / Quick Sort",
+        "Suchalgorithmen: sequentiell / binaer": "Lineáris és bináris keresés",
+        "Ablauf der Programmentwicklung": "A programfejlesztés menete"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "lap-LAP-15-01-1",
+      "revision": 1,
+      "topic": "Stadien der Softwareentwicklung",
+      "source": {
+        "topicId": "LAP-15-01",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/01_Stadien_der_Softwareentwicklung/README.md",
+        "slug": "15-01-stadien_der_softwareentwicklung"
+      },
+      "question": "Ein Team teilt die Entwicklung eines Lernportals in Anforderungen, Entwurf, Umsetzung und weitere Phasen. Welchen Nutzen hat diese Aufteilung?",
+      "answers": [
+        "Jede Phase legt bereits die Programmiersprache aller späteren Projekte fest.",
+        "Aufgaben, Zuständigkeiten und Zwischenergebnisse werden überschaubarer.",
+        "Die Phasen ersetzen die Abstimmung mit den späteren Nutzern.",
+        "Nach der ersten Planung bleiben Aufwand und Anforderungen unverändert."
+      ],
+      "correct": 1,
+      "explanation": "Phasen machen sichtbar, welche Fragen gerade zu klären sind und wer dafür verantwortlich ist. So lassen sich Ergebnisse prüfen und Missverständnisse früh erkennen. Rückmeldungen können auch zu einer früheren Tätigkeit zurückführen.",
+      "hu": {
+        "question": "Egy csapat követelményekre, tervezésre, megvalósításra és további szakaszokra bontja egy tanulási portál fejlesztését. Mi ennek az előnye?",
+        "answers": [
+          "Minden szakasz előre meghatározza az összes későbbi projekt programozási nyelvét.",
+          "Áttekinthetőbbé válnak a feladatok, felelősségek és köztes eredmények.",
+          "A szakaszok kiváltják a későbbi felhasználókkal való egyeztetést.",
+          "Az első tervezés után a ráfordítás és a követelmények változatlanok maradnak."
+        ],
+        "explanation": "A szakaszok láthatóvá teszik, éppen mit kell tisztázni, és ki felel érte. Így ellenőrizhetők a köztes eredmények, és korán kiderülhetnek a félreértések. A visszajelzés egy korábbi tevékenységhez is visszavezethet."
+      }
+    },
+    {
+      "id": "lap-LAP-15-01-2",
+      "revision": 1,
+      "topic": "Stadien der Softwareentwicklung",
+      "source": {
+        "topicId": "LAP-15-01",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/01_Stadien_der_Softwareentwicklung/README.md",
+        "slug": "15-01-stadien_der_softwareentwicklung"
+      },
+      "question": "Die Anforderung lautet zunächst: „Die Themensuche soll schnell sein.“ Welche Ergänzung gehört zur Anforderungsanalyse?",
+      "answers": [
+        "Wir legen einen Index auf die Datenbankspalte title an.",
+        "Wir implementieren die Suchfunktion in JavaScript.",
+        "Bei 10.000 Themen erscheinen unter vereinbarten Testbedingungen 95 % der Suchergebnisse innerhalb einer Sekunde.",
+        "Wir spielen die neue Version auf den Server ein."
+      ],
+      "correct": 2,
+      "explanation": "Die Analyse macht aus „schnell“ eine überprüfbare Erwartung: Datenmenge, Zeitgrenze und Testbedingungen werden vereinbart. Die Entscheidung für einen Datenbankindex gehört dagegen zum technischen Entwurf.",
+      "hu": {
+        "question": "A követelmény először így hangzik: „Legyen gyors a témakereső.” Melyik kiegészítés tartozik a követelményelemzéshez?",
+        "answers": [
+          "Indexet hozunk létre az adatbázis title oszlopán.",
+          "JavaScriptben megírjuk a keresőfüggvényt.",
+          "10 000 témánál, előre egyeztetett tesztkörülmények között a keresések 95%-ában egy másodpercen belül megjelenik az eredmény.",
+          "Feltöltjük az új verziót a szerverre."
+        ],
+        "explanation": "Az elemzés a „gyors” jelzőből ellenőrizhető elvárást készít: rögzítjük az adatmennyiséget, az időhatárt és a tesztkörülményeket. Az adatbázisindex kiválasztása már a technikai megoldás tervezéséhez tartozik."
+      }
+    },
+    {
+      "id": "lap-LAP-15-01-3",
+      "revision": 1,
+      "topic": "Stadien der Softwareentwicklung",
+      "source": {
+        "topicId": "LAP-15-01",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/01_Stadien_der_Softwareentwicklung/README.md",
+        "slug": "15-01-stadien_der_softwareentwicklung"
+      },
+      "question": "Die benötigten Funktionen eines Quiz sind geklärt. Welche Entscheidung ist typisch für die Entwurfsphase?",
+      "answers": [
+        "Wie Fragen, Antworten und Themen im Datenmodell miteinander verbunden werden.",
+        "Ob die Nutzer überhaupt nach Themen üben möchten.",
+        "Ob die fertige Version die vereinbarten Anforderungen erfüllt.",
+        "Zu welchem Termin die Nutzer eine Wartungsmeldung erhalten."
+      ],
+      "correct": 0,
+      "explanation": "Der Entwurf übersetzt die geklärten Anforderungen in eine technische Struktur. Dazu gehören Datenmodell, Komponenten und Schnittstellen. Auf dieser Grundlage kann die Implementierung beginnen.",
+      "hu": {
+        "question": "Már tisztázott, milyen funkciókat tudjon a kvíz. Melyik döntés jellemző a tervezési szakaszra?",
+        "answers": [
+          "Hogyan kapcsolódjanak egymáshoz a kérdések, válaszok és témák az adatmodellben.",
+          "Szeretnének-e egyáltalán témánként gyakorolni a felhasználók.",
+          "Teljesíti-e a kész verzió az egyeztetett követelményeket.",
+          "Mikor kapjanak a felhasználók karbantartási értesítést."
+        ],
+        "explanation": "A tervezés technikai szerkezetté alakítja a tisztázott követelményeket. Ide tartozik az adatmodell, a komponensek és a kapcsolódási felületek megtervezése. Erre épülhet a megvalósítás."
+      }
+    },
+    {
+      "id": "lap-LAP-15-01-4",
+      "revision": 1,
+      "topic": "Stadien der Softwareentwicklung",
+      "source": {
+        "topicId": "LAP-15-01",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/01_Stadien_der_Softwareentwicklung/README.md",
+        "slug": "15-01-stadien_der_softwareentwicklung"
+      },
+      "question": "Das Programm ist implementiert und hat die vereinbarten Tests bestanden. Warum ist sein Lebenszyklus damit noch nicht abgeschlossen?",
+      "answers": [
+        "Weil der Quellcode vor jeder Nutzung neu geschrieben werden muss.",
+        "Weil die Anforderungen erst nach dem ersten Betrieb festgelegt werden können.",
+        "Weil ein bestandenes Testergebnis die technische Planung ersetzt.",
+        "Weil noch Einführung und anschließend Wartung im Betrieb dazugehören."
+      ],
+      "correct": 3,
+      "explanation": "Zur Einführung gehören etwa Konfiguration, Übergabe und gegebenenfalls Datenmigration. Im Betrieb folgen Pflege, Sicherheitsupdates und Weiterentwicklung. Ein funktionierender Stand ist damit ein wichtiger Meilenstein im Lebenszyklus.",
+      "hu": {
+        "question": "A program elkészült, és teljesítette az egyeztetett teszteket. Miért nem zárult le ezzel az életciklusa?",
+        "answers": [
+          "Mert minden használat előtt újra kell írni a forráskódot.",
+          "Mert a követelményeket csak az első éles használat után lehet meghatározni.",
+          "Mert a sikeres teszt kiváltja a technikai tervezést.",
+          "Mert a bevezetés és az azt követő üzemeltetés alatti karbantartás is hozzátartozik."
+        ],
+        "explanation": "A bevezetéshez például konfigurálás, átadás és szükség esetén adatmigráció tartozik. Használat közben karbantartás, biztonsági frissítés és továbbfejlesztés következhet. A működő verzió tehát fontos állomás az életciklusban."
+      }
+    },
+    {
+      "id": "lap-LAP-15-01-5",
+      "revision": 1,
+      "topic": "Stadien der Softwareentwicklung",
+      "source": {
+        "topicId": "LAP-15-01",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/01_Stadien_der_Softwareentwicklung/README.md",
+        "slug": "15-01-stadien_der_softwareentwicklung"
+      },
+      "question": "Welche Übersicht umfasst die typischen Tätigkeiten des gesamten Software-Lebenszyklus?",
+      "answers": [
+        "Entwurf → Codierung → Kompilierung → Fehlersuche → erneute Codierung",
+        "Bedarf klären → Anforderungen analysieren → entwerfen → implementieren → testen → einführen → warten",
+        "Anforderungen analysieren → implementieren → veröffentlichen → archivieren",
+        "Installieren → konfigurieren → Daten übernehmen → Nutzer einweisen"
+      ],
+      "correct": 1,
+      "explanation": "Die vollständige Übersicht reicht vom Bedarf bis zur Wartung. Diese Darstellung ordnet Tätigkeiten; sie schreibt nicht vor, dass jede davon nur einmal vorkommen darf. Tests und Rückmeldungen können weitere Analyse oder Anpassungen auslösen.",
+      "hu": {
+        "question": "Melyik áttekintés fogja össze a teljes szoftver-életciklus jellemző tevékenységeit?",
+        "answers": [
+          "Tervezés → kódolás → fordítás → hibakeresés → újabb kódolás",
+          "Igény tisztázása → követelményelemzés → tervezés → megvalósítás → tesztelés → bevezetés → karbantartás",
+          "Követelményelemzés → megvalósítás → közzététel → archiválás",
+          "Telepítés → konfigurálás → adatok átvétele → felhasználók betanítása"
+        ],
+        "explanation": "A teljes áttekintés az igénytől a karbantartásig tart. Ez a felsorolás rendszerezi a tevékenységeket; nem írja elő, hogy mindegyik csak egyszer történhet meg. A tesztek és visszajelzések újabb elemzéshez vagy módosításhoz vezethetnek."
+      }
+    },
+    {
+      "id": "lap-LAP-15-02-1",
+      "revision": 1,
+      "topic": "Prozedurale und objektorientierte Programmierung",
+      "source": {
+        "topicId": "LAP-15-02",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/02_Prozedurale_und_objektorientierte_Programmierung/README.md",
+        "slug": "15-02-prozedurale_und_objektorientierte_programmierung"
+      },
+      "question": "Ein Abrechnungsskript ruft nacheinander calculateSalary(), printPayslip() und saveToFile() auf. Welche Organisation steht dabei im Vordergrund?",
+      "answers": [
+        "Ein Vererbungsbaum aus Gehaltsklassen.",
+        "Unabhängige Objekte mit eigenem Zustand und Methoden.",
+        "Eine Folge von Verarbeitungsschritten, gegliedert in Funktionen.",
+        "Eine Datenbankstruktur mit Beziehungen zwischen Tabellen."
+      ],
+      "correct": 2,
+      "explanation": "Die Aufgabe wird hier über auszuführende Operationen organisiert: berechnen, ausgeben, speichern. Das ist der prozedurale Blick auf den Ablauf. Funktionen können dabei Daten als Parameter erhalten und Ergebnisse zurückgeben.",
+      "hu": {
+        "question": "Egy bérszámfejtő szkript sorban meghívja a calculateSalary(), printPayslip() és saveToFile() függvényeket. Milyen szervezési elv áll előtérben?",
+        "answers": [
+          "Fizetési osztályokból álló öröklési fa.",
+          "Saját állapottal és metódusokkal rendelkező, önálló objektumok.",
+          "Függvényekre bontott feldolgozási lépéssor.",
+          "Táblák közötti kapcsolatokból álló adatbázis-szerkezet."
+        ],
+        "explanation": "A feladatot itt a végrehajtandó műveletek szerint szervezzük: számítás, kiírás, mentés. Ez a folyamat procedurális megközelítése. A függvények paraméterként kaphatnak adatokat, és eredményt adhatnak vissza."
+      }
+    },
+    {
+      "id": "lap-LAP-15-02-2",
+      "revision": 1,
+      "topic": "Prozedurale und objektorientierte Programmierung",
+      "source": {
+        "topicId": "LAP-15-02",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/02_Prozedurale_und_objektorientierte_Programmierung/README.md",
+        "slug": "15-02-prozedurale_und_objektorientierte_programmierung"
+      },
+      "question": "Was zeigt das Beispiel über den objektorientierten Ansatz?",
+      "answers": [
+        "employee bündelt den Zustand salary und das dazugehörige Verhalten raise().",
+        "raise() beschreibt eine von employee unabhängige Datenbankabfrage.",
+        "salary ist eine Klasse, von der employee erbt.",
+        "Der Aufruf von raise() erzeugt jedes Mal eine neue Klasse."
+      ],
+      "correct": 0,
+      "explanation": "Das Objekt employee besitzt den Zustand salary und eine Methode, die diesen Zustand verändert. Nach raise(100) beträgt salary 2100. Das gemeinsame Modellieren von Daten und zugehörigem Verhalten ist hier die OOP-Idee; eine class-Deklaration ist für dieses JavaScript-Objekt nicht erforderlich.",
+      "hu": {
+        "question": "Mit szemléltet a példa az objektumorientált megközelítésből?",
+        "answers": [
+          "Az employee együtt kezeli a salary állapotot és a hozzá tartozó raise() viselkedést.",
+          "A raise() az employee-tól független adatbázis-lekérdezést ír le.",
+          "A salary egy osztály, amelyből az employee öröklődik.",
+          "A raise() meghívása minden alkalommal új osztályt hoz létre."
+        ],
+        "explanation": "Az employee objektumnak salary állapota van, és egy metódusa, amely ezt módosítja. A raise(100) után a salary értéke 2100. Az OOP gondolata itt az adatok és a kapcsolódó viselkedés közös modellezése; ehhez a JavaScript-objektumhoz nincs szükség class deklarációra."
+      },
+      "code": "const employee = {\n  salary: 2000,\n  raise(amount) {\n    this.salary += amount;\n  }\n};\nemployee.raise(100);\nconsole.log(employee.salary);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "2100"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-02-3",
+      "revision": 1,
+      "topic": "Prozedurale und objektorientierte Programmierung",
+      "source": {
+        "topicId": "LAP-15-02",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/02_Prozedurale_und_objektorientierte_Programmierung/README.md",
+        "slug": "15-02-prozedurale_und_objektorientierte_programmierung"
+      },
+      "question": "Welche Beziehung beschreibt den gezeigten klassenbasierten Code korrekt?",
+      "answers": [
+        "Counter ist eine Instanz von first.",
+        "first und second sind zwei Namen für dasselbe Objekt.",
+        "first ist eine Unterklasse von second.",
+        "first und second sind verschiedene Instanzen der Klasse Counter."
+      ],
+      "correct": 3,
+      "explanation": "new Counter() erzeugt bei jedem Aufruf ein eigenes Objekt. Beide Instanzen folgen derselben Klassendefinition, besitzen hier aber ihren eigenen count-Wert. Deshalb gibt der Code nach der Änderung an first die Werte 1 und 0 aus.",
+      "hu": {
+        "question": "Melyik állítás írja le helyesen a bemutatott, osztályalapú kód kapcsolatát?",
+        "answers": [
+          "A Counter a first egyik példánya.",
+          "A first és a second ugyanannak az objektumnak két neve.",
+          "A first a second alosztálya.",
+          "A first és a second a Counter osztály két külön példánya."
+        ],
+        "explanation": "A new Counter() minden híváskor saját objektumot hoz létre. A két példány ugyanazt az osztályleírást követi, de itt mindkettőnek saját count értéke van. Ezért a first módosítása után a kód 1-et és 0-t ír ki."
+      },
+      "code": "class Counter {\n  constructor() {\n    this.count = 0;\n  }\n}\nconst first = new Counter();\nconst second = new Counter();\nfirst.count += 1;\nconsole.log(first.count);\nconsole.log(second.count);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "1",
+        "0"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-02-4",
+      "revision": 1,
+      "topic": "Prozedurale und objektorientierte Programmierung",
+      "source": {
+        "topicId": "LAP-15-02",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/02_Prozedurale_und_objektorientierte_Programmierung/README.md",
+        "slug": "15-02-prozedurale_und_objektorientierte_programmierung"
+      },
+      "question": "Ein kleines Skript liest einmal eine Datei, berechnet eine Summe und schreibt das Ergebnis. Es gibt keine langlebigen Fachobjekte. Welcher Einstieg passt zu dieser Aufgabe?",
+      "answers": [
+        "Zuerst eine Vererbungshierarchie für jede Rechenoperation anlegen.",
+        "Den Ablauf in wenige Funktionen für Einlesen, Berechnen und Schreiben gliedern.",
+        "Für jede gelesene Zahl eine Klasse mit Unterklassen entwerfen.",
+        "Die drei Schritte unabhängig voneinander ohne Datenübergabe ausführen."
+      ],
+      "correct": 1,
+      "explanation": "Für diesen überschaubaren, geradlinigen Ablauf sind wenige Funktionen ein einfacher Einstieg. Das spart zusätzliche Modellierung und hält den Datenfluss sichtbar. Wachsen die Anforderungen, kann die Struktur später angepasst werden.",
+      "hu": {
+        "question": "Egy kis szkript egyszer beolvas egy fájlt, összeget számol, majd kiírja az eredményt. Nincsenek hosszú életű szakmai objektumai. Milyen induló felépítés illik hozzá?",
+        "answers": [
+          "Először minden számítási művelethez öröklési hierarchiát készítünk.",
+          "Néhány függvényre bontjuk a beolvasást, számítást és kiírást.",
+          "Minden beolvasott számhoz osztályt és alosztályokat tervezünk.",
+          "A három lépést adatátadás nélkül, egymástól függetlenül hajtjuk végre."
+        ],
+        "explanation": "Ehhez az áttekinthető, egyenes feldolgozási folyamathoz egyszerű kiindulás néhány függvény. Így kevés külön modellezésre van szükség, és jól látszik az adatok útja. A szerkezet később az igényekkel együtt alakítható."
+      }
+    },
+    {
+      "id": "lap-LAP-15-02-5",
+      "revision": 1,
+      "topic": "Prozedurale und objektorientierte Programmierung",
+      "source": {
+        "topicId": "LAP-15-02",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/02_Prozedurale_und_objektorientierte_Programmierung/README.md",
+        "slug": "15-02-prozedurale_und_objektorientierte_programmierung"
+      },
+      "question": "Nach dem Dateiskript entwickelt dasselbe Team eine Anwendung mit Bestellungen, Positionen und Zustandswechseln. Wie sollte es über das Programmierparadigma entscheiden?",
+      "answers": [
+        "Für beide Aufgaben die Struktur mit den meisten Klassen wählen.",
+        "Ausschließlich nach dem Alter der verwendeten Programmiersprache entscheiden.",
+        "Die Struktur nach Daten, Verhalten und Komplexität der jeweiligen Aufgabe wählen.",
+        "Das Paradigma wählen, bei dem der Quellcode die wenigsten Zeilen hat."
+      ],
+      "correct": 2,
+      "explanation": "Verschiedene Aufgaben profitieren von unterschiedlichen Strukturen. Ein kurzer Ablauf lässt sich gut über Funktionen ausdrücken; zusammengehöriger Zustand und Verhalten können ein Objektmodell sinnvoll machen. Wartbarkeit und Verständlichkeit zählen mehr als ein pauschaler Sieger.",
+      "hu": {
+        "question": "A fájlfeldolgozó szkript után ugyanaz a csapat rendeléseket, tételeket és állapotváltásokat kezelő alkalmazást készít. Mi alapján döntsön a programozási megközelítésről?",
+        "answers": [
+          "Mindkét feladathoz a legtöbb osztályt tartalmazó szerkezetet válassza.",
+          "Kizárólag a használt programozási nyelv kora alapján döntsön.",
+          "Az adott feladat adataihoz, viselkedéséhez és összetettségéhez igazítsa a szerkezetet.",
+          "Azt válassza, amellyel a legkevesebb sorból áll a forráskód."
+        ],
+        "explanation": "Különböző feladatokhoz különböző szerkezetek lehetnek hasznosak. Egy rövid folyamat jól kifejezhető függvényekkel; az összetartozó állapot és viselkedés indokolhat objektummodellt. A karbantarthatóság és érthetőség fontosabb az általános győztes kijelölésénél."
+      }
+    },
+    {
+      "id": "lap-LAP-15-03-1",
+      "revision": 1,
+      "topic": "Algorithmus",
+      "source": {
+        "topicId": "LAP-15-03",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/03_Algorithmus/README.md",
+        "slug": "15-03-algorithmus"
+      },
+      "question": "Welche Beschreibung ist bereits eine eindeutige Schrittfolge zum Summieren der ganzen Zahlen von 1 bis einschließlich n, wenn n eine nichtnegative ganze Zahl ist?",
+      "answers": [
+        "Mit n beginnen und Zahlen hinzufügen, bis die Summe groß genug ist.",
+        "Die Zahlen geschickt zusammenfassen und das Ergebnis verbessern.",
+        "Die Eingabe sortieren und anschließend eine passende Summe auswählen.",
+        "Mit Summe 0 starten, jede ganze Zahl von 1 bis n addieren und die Summe ausgeben."
+      ],
+      "correct": 3,
+      "explanation": "Die letzte Beschreibung legt Startwert, verarbeitete Zahlen und Ergebnis fest. Bei n = 3 entsteht 0 + 1 + 2 + 3 = 6. Bei n = 0 gibt es nichts zu addieren; das Ergebnis bleibt 0. Damit sind auch die Grenzen der Aufgabe klar.",
+      "hu": {
+        "question": "Melyik leírás ad már egyértelmű lépéssort az 1-től n-ig terjedő egész számok összegzésére, ha n nemnegatív egész szám?",
+        "answers": [
+          "Kezdjünk n-nel, és adjunk hozzá számokat, amíg elég nagy nem lesz az összeg.",
+          "Foglaljuk ügyesen össze a számokat, majd javítsuk az eredményt.",
+          "Rendezzük a bemenetet, utána válasszunk egy megfelelő összeget.",
+          "Induljunk 0 összeggel, adjunk hozzá minden egész számot 1-től n-ig, majd adjuk ki az összeget."
+        ],
+        "explanation": "Az utolsó leírás rögzíti a kezdőértéket, a feldolgozandó számokat és az eredményt. n = 3 esetén 0 + 1 + 2 + 3 = 6 adódik. n = 0 esetén nincs mit hozzáadni, az eredmény 0 marad. Így a feladat határai is világosak."
+      }
+    },
+    {
+      "id": "lap-LAP-15-03-2",
+      "revision": 1,
+      "topic": "Algorithmus",
+      "source": {
+        "topicId": "LAP-15-03",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/03_Algorithmus/README.md",
+        "slug": "15-03-algorithmus"
+      },
+      "question": "Die Idee „Summe mit 0 beginnen, Zahlen von 1 bis n addieren, Summe zurückgeben“ wird in JavaScript und Python umgesetzt. Was bleibt dabei derselbe Algorithmus?",
+      "answers": [
+        "Die Schreibweise der Schleifenköpfe und Funktionsdefinitionen.",
+        "Die Lösungsschritte und ihre logische Reihenfolge.",
+        "Die Dateiendung und der Programmaufruf.",
+        "Die konkreten Schlüsselwörter und Einrückungsregeln."
+      ],
+      "correct": 1,
+      "explanation": "Der Algorithmus beschreibt die Lösungslogik unabhängig von einer konkreten Schreibweise. JavaScript- und Python-Programme können diese gleiche Logik mit unterschiedlicher Syntax umsetzen. Algorithmus und sprachliche Implementierung sind damit zwei Beschreibungsebenen.",
+      "hu": {
+        "question": "A „0-ról induló összeghez adjuk hozzá az 1-től n-ig terjedő számokat, majd adjuk vissza az összeget” ötletet JavaScriptben és Pythonban is megvalósítjuk. Mi marad ugyanaz az algoritmus?",
+        "answers": [
+          "A ciklusfejek és függvénydefiníciók írásmódja.",
+          "A megoldás lépései és azok logikai sorrendje.",
+          "A fájlkiterjesztés és a program indítási parancsa.",
+          "A konkrét kulcsszavak és behúzási szabályok."
+        ],
+        "explanation": "Az algoritmus a megoldás logikáját írja le, egy konkrét írásmódtól függetlenül. A JavaScript- és Python-program eltérő szintaxissal is megvalósíthatja ugyanezt a logikát. Az algoritmus és a nyelvi megvalósítás így két leírási szint."
+      }
+    },
+    {
+      "id": "lap-LAP-15-03-3",
+      "revision": 1,
+      "topic": "Algorithmus",
+      "source": {
+        "topicId": "LAP-15-03",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/03_Algorithmus/README.md",
+        "slug": "15-03-algorithmus"
+      },
+      "question": "In einem Ablauf steht: „Wiederhole die Addition einige Male.“ Welche Präzisierung macht diesen Schritt eindeutig?",
+      "answers": [
+        "Wiederhole die Addition genau einmal für jede ganze Zahl von 1 bis einschließlich n.",
+        "Wiederhole die Addition möglichst effizient.",
+        "Wiederhole die Addition, bis das Ergebnis plausibel aussieht.",
+        "Wiederhole die Addition entsprechend der Geschwindigkeit des Rechners."
+      ],
+      "correct": 0,
+      "explanation": "Eine eindeutige Wiederholungsregel legt fest, welche Werte verarbeitet werden und wann der Schritt endet. Zwei Personen können sie für dieselbe Eingabe auf die gleiche Weise nachvollziehen. „Einige Male“ lässt diese Entscheidung offen.",
+      "hu": {
+        "question": "Egy leírásban ez szerepel: „Ismételd meg az összeadást néhányszor.” Melyik pontosítás teszi egyértelművé a lépést?",
+        "answers": [
+          "Végezd el az összeadást pontosan egyszer minden egész számra 1-től n-ig, n-et is beleértve.",
+          "Ismételd meg az összeadást a lehető leghatékonyabban.",
+          "Ismételd meg az összeadást, amíg hihetőnek látszik az eredmény.",
+          "Ismételd meg az összeadást a számítógép sebességéhez igazodva."
+        ],
+        "explanation": "Az egyértelmű ismétlési szabály megadja, mely értékeket dolgozzuk fel, és mikor ér véget a lépés. Ugyanarra a bemenetre két ember is azonos módon követheti végig. A „néhányszor” ezt a döntést nyitva hagyja."
+      }
+    },
+    {
+      "id": "lap-LAP-15-03-4",
+      "revision": 1,
+      "topic": "Algorithmus",
+      "source": {
+        "topicId": "LAP-15-03",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/03_Algorithmus/README.md",
+        "slug": "15-03-algorithmus"
+      },
+      "question": "Warum endet diese Schleife? Betrachte den gezeigten Startwert.",
+      "answers": [
+        "Weil jede while-Schleife nach höchstens drei Durchläufen endet.",
+        "Weil console.log() den Wert von remaining automatisch verkleinert.",
+        "Weil remaining bei 3 beginnt, in jedem Durchlauf um 1 sinkt und bei 0 die Bedingung falsch wird.",
+        "Weil die Anzahl der Quellcodezeilen die Anzahl der Durchläufe begrenzt."
+      ],
+      "correct": 2,
+      "explanation": "Der Abstand zur Abbruchgrenze wird in jedem Durchlauf kleiner: remaining ist zunächst 3, dann 2, dann 1. Nach der nächsten Verringerung auf 0 endet die Schleife. Entscheidend ist der Fortschritt zur Grenze, nicht die Länge des Quelltexts.",
+      "hu": {
+        "question": "Miért ér véget ez a ciklus? A bemutatott kezdőértéket vizsgáld.",
+        "answers": [
+          "Mert minden while ciklus legfeljebb három ismétlés után véget ér.",
+          "Mert a console.log() automatikusan csökkenti a remaining értékét.",
+          "Mert a remaining 3-ról indul, körönként 1-gyel csökken, és 0-nál hamissá válik a feltétel.",
+          "Mert a forráskód sorainak száma korlátozza az ismétlések számát."
+        ],
+        "explanation": "Minden körben közelebb kerülünk a kilépési határhoz: a remaining először 3, majd 2, végül 1. A következő csökkentés után 0 lesz, ezért véget ér a ciklus. A határ felé történő haladás számít, nem a forrásszöveg hossza."
+      },
+      "code": "let remaining = 3;\nwhile (remaining > 0) {\n  console.log(remaining);\n  remaining -= 1;\n}",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "3",
+        "2",
+        "1"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-03-5",
+      "revision": 1,
+      "topic": "Algorithmus",
+      "source": {
+        "topicId": "LAP-15-03",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/03_Algorithmus/README.md",
+        "slug": "15-03-algorithmus"
+      },
+      "question": "Zwei Algorithmen liefern für dieselben gültigen Eingaben das richtige Ergebnis. Warum lohnt sich trotzdem ein Vergleich?",
+      "answers": [
+        "Der Algorithmus mit weniger Quellcodezeilen benötigt immer weniger Speicher.",
+        "Laufzeit und Speicherbedarf können sich besonders bei großen Eingaben deutlich unterscheiden.",
+        "Das gleiche Ergebnis bedeutet, dass beide gleich viele Arbeitsschritte ausführen.",
+        "Ein Algorithmus in einer neueren Sprache ist grundsätzlich schneller."
+      ],
+      "correct": 1,
+      "explanation": "Korrektheit beantwortet, ob das Ergebnis stimmt. Effizienz beschreibt den Aufwand dafür, etwa Laufzeit und Speicherbedarf. Ein Vergleich mit passenden Eingabegrößen hilft, eine für den Einsatz geeignete Lösung auszuwählen.",
+      "hu": {
+        "question": "Két algoritmus ugyanazokra az érvényes bemenetekre helyes eredményt ad. Miért érdemes mégis összehasonlítani őket?",
+        "answers": [
+          "A kevesebb forráskódsorból álló algoritmus mindig kevesebb memóriát igényel.",
+          "A futási idő és a memóriaigény különösen nagy bemeneteknél jelentősen eltérhet.",
+          "Az azonos eredmény azt jelenti, hogy mindkettő ugyanannyi munkalépést végez.",
+          "Az újabb nyelven megírt algoritmus alapvetően gyorsabb."
+        ],
+        "explanation": "A helyesség azt mondja meg, megfelelő-e az eredmény. A hatékonyság az ehhez szükséges ráfordítást írja le, például a futási időt és a memóriaigényt. A megfelelő bemenetméretekkel végzett összehasonlítás segít az adott használathoz illő megoldást választani."
+      }
+    },
+    {
+      "id": "lap-LAP-15-04-1",
+      "revision": 1,
+      "topic": "Pseudocode",
+      "source": {
+        "topicId": "LAP-15-04",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/04_Pseudocode/README.md",
+        "slug": "15-04-pseudocode"
+      },
+      "question": "Was beschreibt diese Pseudocode-Notiz hauptsächlich? FOR EACH besucht jedes Element einmal, OUTPUT gibt den Wert aus.",
+      "answers": [
+        "Die Schritte zum Summieren der Eingabewerte, unabhängig von einer konkreten Programmiersprache.",
+        "Eine bereits gültige JavaScript-Datei mit Ein- und Ausgabe.",
+        "Das Speicherlayout der Liste values.",
+        "Die Benutzeroberfläche zur Eingabe einer Summe."
+      ],
+      "correct": 0,
+      "explanation": "Die Notiz zeigt die Lösungslogik: mit 0 beginnen, jeden Wert addieren und das Ergebnis ausgeben. Für [2, 4] lässt sie sich von Hand bis 6 verfolgen. Die konkrete Syntax einer ausführbaren Implementierung wird erst bei der Umsetzung festgelegt.",
+      "hu": {
+        "question": "Mit ír le elsősorban ez a pszeudokódos jegyzet? A FOR EACH minden elemet egyszer vesz sorra, az OUTPUT kiadja az értéket.",
+        "answers": [
+          "A bemeneti értékek összegzésének lépéseit, egy konkrét programozási nyelvtől függetlenül.",
+          "Egy már érvényes JavaScript-fájlt be- és kimenettel.",
+          "A values lista memóriabeli elrendezését.",
+          "Az összeg bevitelére szolgáló felhasználói felületet."
+        ],
+        "explanation": "A jegyzet a megoldás logikáját mutatja: 0-ról indulunk, minden értéket hozzáadunk, majd kiadjuk az eredményt. A [2, 4] bemenetet kézzel követve 6-ig jutunk. A futtatható megvalósítás konkrét szintaxisát az átültetéskor választjuk meg."
+      },
+      "code": "values ← [2, 4]\ntotal ← 0\nFOR EACH value IN values\n  total ← total + value\nEND FOR\nOUTPUT total",
+      "codeLanguage": "pseudocode"
+    },
+    {
+      "id": "lap-LAP-15-04-2",
+      "revision": 1,
+      "topic": "Pseudocode",
+      "source": {
+        "topicId": "LAP-15-04",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/04_Pseudocode/README.md",
+        "slug": "15-04-pseudocode"
+      },
+      "question": "Zwei Lernende beschreiben denselben Ablauf einmal mit WENN/SONST und einmal mit IF/ELSE. Wann können beide Beschreibungen guter Pseudocode sein?",
+      "answers": [
+        "Wenn beide von jedem JavaScript-Interpreter ausgeführt werden können.",
+        "Wenn beide exakt dieselben Schlüsselwörter verwenden.",
+        "Wenn beide die Syntax ihrer späteren Zielsprache vollständig einhalten.",
+        "Wenn Bedeutung, Bedingungen und Schrittfolge jeweils klar und konsistent sind."
+      ],
+      "correct": 3,
+      "explanation": "Pseudocode ist an keine einzelne Programmiersyntax gebunden. Unterschiedliche verständliche Notationen sind möglich. Wichtig ist, dass die verwendeten Begriffe und Grenzen der Schritte innerhalb der Beschreibung eindeutig bleiben.",
+      "hu": {
+        "question": "Két tanuló ugyanazt a folyamatot egyszer HA/KÜLÖNBEN, egyszer IF/ELSE jelöléssel írja le. Mikor lehet mindkét leírás jó pszeudokód?",
+        "answers": [
+          "Ha mindkettőt minden JavaScript-értelmező futtatni tudja.",
+          "Ha mindketten pontosan ugyanazokat a kulcsszavakat használják.",
+          "Ha mindkettő teljesen betartja a későbbi célnyelv szintaxisát.",
+          "Ha a jelentés, a feltételek és a lépéssor mindkettőben világos és következetes."
+        ],
+        "explanation": "A pszeudokód nem kötődik egyetlen programozási nyelv szintaxisához. Többféle érthető jelölés is használható. Az a fontos, hogy a fogalmak és a lépések határai a leíráson belül egyértelműek legyenek."
+      }
+    },
+    {
+      "id": "lap-LAP-15-04-3",
+      "revision": 1,
+      "topic": "Pseudocode",
+      "source": {
+        "topicId": "LAP-15-04",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/04_Pseudocode/README.md",
+        "slug": "15-04-pseudocode"
+      },
+      "question": "Ein Team möchte die Logik einer Suche besprechen, bevor es die Programmiersprache auswählt. Wozu eignet sich Pseudocode hier?",
+      "answers": [
+        "Zum Messen der tatsächlichen Laufzeit auf dem Produktionsserver.",
+        "Zum gemeinsamen Entwerfen und schrittweisen Nachvollziehen des Suchablaufs.",
+        "Zum automatischen Bereitstellen der Anwendung im Browser.",
+        "Zum Prüfen, ob die spätere Datei alle Syntaxregeln von JavaScript erfüllt."
+      ],
+      "correct": 1,
+      "explanation": "Mit Pseudocode kann das Team Eingabe, Vergleiche, Wiederholungen und Ergebnis besprechen, ohne zuerst Sprachdetails festzulegen. Es kann einen Beispielwert Schritt für Schritt verfolgen und den Entwurf vor der Implementierung verbessern.",
+      "hu": {
+        "question": "Egy csapat a programozási nyelv kiválasztása előtt szeretné megbeszélni egy keresés logikáját. Mire alkalmas itt a pszeudokód?",
+        "answers": [
+          "A tényleges futási idő mérésére az éles szerveren.",
+          "A keresési folyamat közös megtervezésére és lépésenkénti követésére.",
+          "Az alkalmazás automatikus böngészős közzétételére.",
+          "Annak ellenőrzésére, hogy a későbbi fájl betartja-e a JavaScript összes szintaktikai szabályát."
+        ],
+        "explanation": "A pszeudokóddal a csapat nyelvi részletek előzetes rögzítése nélkül beszélheti meg a bemenetet, összehasonlításokat, ismétléseket és eredményt. Egy példát lépésenként végigkövetve még a megvalósítás előtt javítható a terv."
+      }
+    },
+    {
+      "id": "lap-LAP-15-04-4",
+      "revision": 1,
+      "topic": "Pseudocode",
+      "source": {
+        "topicId": "LAP-15-04",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/04_Pseudocode/README.md",
+        "slug": "15-04-pseudocode"
+      },
+      "question": "Die Notiz „LIES n; AUSGABE n + 1“ liegt als Pseudocode vor. Was ist nötig, um sie als JavaScript-Programm mit echter Eingabe auszuführen?",
+      "answers": [
+        "Die Datei lediglich von .txt in .js umbenennen.",
+        "Die Notiz unverändert in die Browserkonsole kopieren.",
+        "Die Schritte in gültige JavaScript-Syntax übersetzen und eine passende Ein- und Ausgabe festlegen.",
+        "Die Notiz um eine Überschrift mit dem Wort JavaScript ergänzen."
+      ],
+      "correct": 2,
+      "explanation": "Pseudocode beschreibt zunächst die beabsichtigten Schritte. Für ein ausführbares Programm braucht es die Syntax und die Ein-/Ausgabemöglichkeiten der gewählten Umgebung. Beispielsweise unterscheiden sich Eingaben im Browser von Eingaben in einem Terminalprogramm.",
+      "hu": {
+        "question": "A „OLVASD BE n; ÍRD KI n + 1” jegyzet pszeudokód. Mi szükséges ahhoz, hogy valódi bemenettel rendelkező JavaScript-programként futtassuk?",
+        "answers": [
+          "Elég a fájlt .txt-ről .js-re átnevezni.",
+          "Változtatás nélkül a böngésző konzoljába másoljuk a jegyzetet.",
+          "Érvényes JavaScript-szintaxisra ültetjük át a lépéseket, és meghatározzuk a megfelelő be- és kimenetet.",
+          "Kiegészítjük a jegyzetet egy JavaScript szót tartalmazó címmel."
+        ],
+        "explanation": "A pszeudokód először a kívánt lépéseket írja le. Futtatható programhoz a választott környezet szintaxisa és be-/kimeneti lehetőségei kellenek. A böngészős bevitel például eltérhet egy terminálprogram bevitelétől."
+      }
+    },
+    {
+      "id": "lap-LAP-15-04-5",
+      "revision": 1,
+      "topic": "Pseudocode",
+      "source": {
+        "topicId": "LAP-15-04",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/04_Pseudocode/README.md",
+        "slug": "15-04-pseudocode"
+      },
+      "question": "Eine Pseudocode-Beschreibung soll zeigen, ob eine Punktzahl die festgelegte Grenze von 50 erreicht. Welche Formulierung ist am klarsten?",
+      "answers": [
+        "Lies score; wenn score ≥ 50, gib „erreicht“ aus; sonst gib „noch offen“ aus.",
+        "Lies score; bei einer guten Punktzahl gib eine passende Meldung aus.",
+        "Lies score; prüfe die Grenze und erledige die Ausgabe.",
+        "Lies score; gib abhängig vom Ergebnis etwas aus."
+      ],
+      "correct": 0,
+      "explanation": "Die erste Fassung nennt Eingabe, genaue Bedingung und beide Ausgaben. Auch der Grenzfall score = 50 ist festgelegt: Er gehört zu „erreicht“. So lässt sich die Logik nachvollziehen und gezielt in Code übertragen.",
+      "hu": {
+        "question": "Egy pszeudokód azt írja le, eléri-e egy pontszám az előre rögzített 50 pontos határt. Melyik megfogalmazás a legvilágosabb?",
+        "answers": [
+          "Olvasd be a score értékét; ha score ≥ 50, írd ki: „elérve”; különben írd ki: „még hátravan”.",
+          "Olvasd be a score értékét; jó pontszámnál írj ki egy megfelelő üzenetet.",
+          "Olvasd be a score értékét; ellenőrizd a határt, és intézd el a kiírást.",
+          "Olvasd be a score értékét; az eredménytől függően írj ki valamit."
+        ],
+        "explanation": "Az első változat megadja a bemenetet, a pontos feltételt és mindkét kimenetet. A score = 50 határesetet is rögzíti: az „elérve” ághoz tartozik. Így a logika követhető és célzottan kódra fordítható."
+      }
+    },
+    {
+      "id": "lap-LAP-15-05-1",
+      "revision": 1,
+      "topic": "Sortieralgorithmen: Bubblesort / Quicksort",
+      "source": {
+        "topicId": "LAP-15-05",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/05_Sortieralgorithmen_Bubblesort_Quicksort/README.md",
+        "slug": "15-05-sortieralgorithmen_bubblesort_quicksort"
+      },
+      "question": "Der Code zeigt den ersten Durchlauf von Bubble Sort. Warum darf die rechte Grenze end im nächsten Durchlauf von 3 auf 2 sinken?",
+      "answers": [
+        "Weil nach einem Durchlauf alle Zahlen vollständig sortiert sind.",
+        "Weil die kleinste Zahl schon an Index 0 steht.",
+        "Weil doppelte Zahlen bei diesem Verfahren entfernt werden.",
+        "Weil eine größte Zahl des betrachteten Bereichs jetzt an seiner endgültigen rechten Position steht."
+      ],
+      "correct": 3,
+      "explanation": "Beim Gang von links nach rechts wandert jeweils der größere Nachbar nach rechts. Aus [4, 2, 4, 1] wird [2, 4, 1, 4]. Die letzte 4 ist damit richtig platziert; der nächste Durchlauf muss nur noch den Bereich davor bearbeiten.",
+      "hu": {
+        "question": "A kód a Bubble Sort első menetét mutatja. Miért csökkenhet az end jobb oldali határ a következő menetben 3-ról 2-re?",
+        "answers": [
+          "Mert egy menet után már az összes szám rendezett.",
+          "Mert a legkisebb szám már a 0-s indexen áll.",
+          "Mert az eljárás eltávolítja az ismétlődő számokat.",
+          "Mert a vizsgált rész egyik legnagyobb száma már a végleges jobb oldali helyén áll."
+        ],
+        "explanation": "Balról jobbra haladva mindig a nagyobb szomszéd kerül jobbra. A [4, 2, 4, 1] tömbből [2, 4, 1, 4] lesz. Az utolsó 4 így megfelelő helyre került; a következő menetnek már csak az előtte lévő részt kell vizsgálnia."
+      },
+      "code": "const result = [4, 2, 4, 1];\nconst end = result.length - 1;\nfor (let index = 0; index < end; index++) {\n  if (result[index] > result[index + 1]) {\n    const previous = result[index];\n    result[index] = result[index + 1];\n    result[index + 1] = previous;\n  }\n}\nconsole.log(JSON.stringify(result));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "[2,4,1,4]"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-05-2",
+      "revision": 1,
+      "topic": "Sortieralgorithmen: Bubblesort / Quicksort",
+      "source": {
+        "topicId": "LAP-15-05",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/05_Sortieralgorithmen_Bubblesort_Quicksort/README.md",
+        "slug": "15-05-sortieralgorithmen_bubblesort_quicksort"
+      },
+      "question": "Was passiert bei bubbleSort([1, 2, 4, 4]) nach dem ersten vollständigen inneren Durchlauf?",
+      "answers": [
+        "swapped wird true, weil zwei gleiche Zahlen vorkommen.",
+        "swapped bleibt false; break beendet die äußere Schleife, und die sortierte Kopie wird zurückgegeben.",
+        "Die äußere Schleife läuft weiter, bis end den Wert −1 erreicht.",
+        "Die letzte 4 wird entfernt, damit swapped false bleiben kann."
+      ],
+      "correct": 1,
+      "explanation": "Alle betrachteten Nachbarpaare stehen bereits in aufsteigender Reihenfolge. Gleiche Werte lösen bei > ebenfalls keinen Tausch aus. Daher bleibt swapped false und break beendet die äußere Schleife; anschließend wird result zurückgegeben.",
+      "hu": {
+        "question": "Mi történik a bubbleSort([1, 2, 4, 4]) hívásban az első teljes belső menet után?",
+        "answers": [
+          "A swapped true lesz, mert két azonos szám is szerepel.",
+          "A swapped false marad; a break befejezi a külső ciklust, és visszakapjuk a rendezett másolatot.",
+          "A külső ciklus addig fut tovább, amíg az end eléri a −1-et.",
+          "Az utolsó 4 törlődik, hogy a swapped false maradhasson."
+        ],
+        "explanation": "Minden vizsgált szomszédpár már növekvő sorrendben áll. A > feltételnél az egyenlő értékek sem váltanak ki cserét. Ezért a swapped false marad, a break lezárja a külső ciklust, majd a függvény visszaadja a result tömböt."
+      },
+      "code": "function bubbleSort(values) {\n  const result = [...values];\n  for (let end = result.length - 1; end > 0; end--) {\n    let swapped = false;\n    for (let index = 0; index < end; index++) {\n      if (result[index] > result[index + 1]) {\n        const previous = result[index];\n        result[index] = result[index + 1];\n        result[index + 1] = previous;\n        swapped = true;\n      }\n    }\n    if (!swapped) break;\n  }\n  return result;\n}\nconsole.log(JSON.stringify(bubbleSort([1, 2, 4, 4])));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "[1,2,4,4]"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-05-3",
+      "revision": 1,
+      "topic": "Sortieralgorithmen: Bubblesort / Quicksort",
+      "source": {
+        "topicId": "LAP-15-05",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/05_Sortieralgorithmen_Bubblesort_Quicksort/README.md",
+        "slug": "15-05-sortieralgorithmen_bubblesort_quicksort"
+      },
+      "question": "Der Code zeigt die erste Aufteilung dieser Quick-Sort-Variante mit Pivot 4. Wo landen die beiden Vorkommen der Zahl 4?",
+      "answers": [
+        "Beide in equal; dieses Array enthält [4, 4].",
+        "Eine in equal, die andere in larger.",
+        "Beide in smaller, weil sie nicht größer als der Pivot sind.",
+        "Eine in equal; die andere wird als Duplikat ausgelassen."
+      ],
+      "correct": 0,
+      "explanation": "Ein Wert kommt in smaller, wenn er kleiner als 4 ist, und in larger, wenn er größer ist. Beide 4er erfüllen keine dieser Bedingungen und gelangen deshalb in equal. Jede Eingabe wird genau einer Gruppe zugeordnet, sodass beide Vorkommen erhalten bleiben.",
+      "hu": {
+        "question": "A kód ennek a Quick Sort-változatnak az első felosztását mutatja, 4-es pivottal. Hová kerül a két 4-es?",
+        "answers": [
+          "Mindkettő az equal tömbbe; ennek tartalma [4, 4].",
+          "Az egyik az equal, a másik a larger tömbbe.",
+          "Mindkettő a smaller tömbbe, mert nem nagyobbak a pivotnál.",
+          "Az egyik az equal tömbbe; a másik ismétlődésként kimarad."
+        ],
+        "explanation": "A 4-nél kisebb érték a smaller, a nagyobb a larger csoportba kerül. Egyik 4-esre sem teljesül ez a két feltétel, ezért mindkettő az equal tömbbe jut. Minden bemeneti elem pontosan egy csoporthoz kerül, így mindkét előfordulás megmarad."
+      },
+      "code": "const values = [4, 2, 4, 1];\nconst pivot = values[0];\nconst smaller = [];\nconst equal = [];\nconst larger = [];\nfor (const value of values) {\n  if (value < pivot) smaller.push(value);\n  else if (value > pivot) larger.push(value);\n  else equal.push(value);\n}\nconsole.log(JSON.stringify(equal));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "[4,4]"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-05-4",
+      "revision": 1,
+      "topic": "Sortieralgorithmen: Bubblesort / Quicksort",
+      "source": {
+        "topicId": "LAP-15-05",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/05_Sortieralgorithmen_Bubblesort_Quicksort/README.md",
+        "slug": "15-05-sortieralgorithmen_bubblesort_quicksort"
+      },
+      "question": "Für kleine Arrays aus endlichen Zahlen: Was ist der Basisfall dieser Quick-Sort-Variante, und warum werden die rekursiven Teilprobleme kleiner?",
+      "answers": [
+        "Der Pivot muss 0 sein; bei jedem Aufruf wird sein Wert verringert.",
+        "Das Array muss schon sortiert sein; jeder Aufruf entfernt den letzten Index.",
+        "Arrays mit höchstens einem Element kehren direkt zurück; Pivot und gleiche Werte gehen nicht in die rekursiven Teilarrays ein.",
+        "Ein leeres equal beendet die Rekursion; smaller und larger behalten die ursprüngliche Länge."
+      ],
+      "correct": 2,
+      "explanation": "Bei Länge 0 oder 1 liefert die Funktion sofort eine Kopie zurück. Bei längeren Arrays ist mindestens der Pivot in equal. Rekursiv verarbeitet werden nur smaller und larger, die daher jeweils kürzer sind. Beim Beispiel bleibt nach Pivot 4 nur [2, 1] als mehrgliedriger Teil übrig.",
+      "hu": {
+        "question": "Véges számokat tartalmazó kis tömböknél mi ennek a Quick Sort-változatnak az alapesete, és mitől lesznek kisebbek a rekurzív részfeladatok?",
+        "answers": [
+          "A pivotnak 0-nak kell lennie; minden hívás csökkenti az értékét.",
+          "A tömbnek már rendezettnek kell lennie; minden hívás eltávolítja az utolsó indexet.",
+          "A legfeljebb egyelemű tömb közvetlenül visszatér; a pivot és az egyenlő értékek nem kerülnek a rekurzív résztömbökbe.",
+          "Az üres equal zárja le a rekurziót; a smaller és larger megtartja az eredeti hosszt."
+        ],
+        "explanation": "0 vagy 1 hosszúságnál a függvény rögtön másolatot ad vissza. Hosszabb tömbnél legalább a pivot az equal csoportba kerül. Rekurzívan csak a smaller és larger csoportot dolgozzuk fel, ezért mindkettő rövidebb. A példában a 4-es pivot után csak a [2, 1] marad többelemű részként."
+      },
+      "code": "function quickSort(values) {\n  if (values.length <= 1) return [...values];\n  const pivot = values[0];\n  const smaller = [];\n  const equal = [];\n  const larger = [];\n  for (const value of values) {\n    if (value < pivot) smaller.push(value);\n    else if (value > pivot) larger.push(value);\n    else equal.push(value);\n  }\n  return [...quickSort(smaller), ...equal, ...quickSort(larger)];\n}\nconsole.log(JSON.stringify(quickSort([4, 2, 4, 1])));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "[1,2,4,4]"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-05-5",
+      "revision": 1,
+      "topic": "Sortieralgorithmen: Bubblesort / Quicksort",
+      "source": {
+        "topicId": "LAP-15-05",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/05_Sortieralgorithmen_Bubblesort_Quicksort/README.md",
+        "slug": "15-05-sortieralgorithmen_bubblesort_quicksort"
+      },
+      "question": "Welche Werte geben die vier console.log()-Aufrufe aus? === vergleicht bei Arrays, ob es dasselbe Array-Objekt ist.",
+      "answers": [
+        "[], [7], true, true",
+        "[], [], false, false",
+        "[0], [7], false, false",
+        "[], [7], false, false"
+      ],
+      "correct": 3,
+      "explanation": "Für [] und [7] greift sofort der Basisfall. [...values] erstellt jeweils ein neues Array mit denselben Elementen. Deshalb stimmen die Inhalte überein, während die beiden Identitätsvergleiche false ergeben. Auch die Bubble-Sort-Variante im LAP arbeitet auf einer Kopie.",
+      "hu": {
+        "question": "Milyen értékeket ír ki sorban a négy console.log() hívás? Tömböknél a === azt vizsgálja, ugyanarról a tömbobjektumról van-e szó.",
+        "answers": [
+          "[], [7], true, true",
+          "[], [], false, false",
+          "[0], [7], false, false",
+          "[], [7], false, false"
+        ],
+        "explanation": "A [] és [7] bemenetnél rögtön az alapeset fut le. A [...values] azonos elemekkel, de új tömböt hoz létre. A tartalom ezért megegyezik, az azonosságot vizsgáló két összehasonlítás viszont false. A LAP Bubble Sort-változata szintén másolaton dolgozik."
+      },
+      "code": "function quickSort(values) {\n  if (values.length <= 1) return [...values];\n  const pivot = values[0];\n  const smaller = [];\n  const equal = [];\n  const larger = [];\n  for (const value of values) {\n    if (value < pivot) smaller.push(value);\n    else if (value > pivot) larger.push(value);\n    else equal.push(value);\n  }\n  return [...quickSort(smaller), ...equal, ...quickSort(larger)];\n}\nconst empty = [];\nconst single = [7];\nconst sortedEmpty = quickSort(empty);\nconst sortedSingle = quickSort(single);\nconsole.log(JSON.stringify(sortedEmpty));\nconsole.log(JSON.stringify(sortedSingle));\nconsole.log(sortedEmpty === empty);\nconsole.log(sortedSingle === single);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "[]",
+        "[7]",
+        "false",
+        "false"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-06-1",
+      "revision": 1,
+      "topic": "Suchalgorithmen: sequentiell / binaer",
+      "source": {
+        "topicId": "LAP-15-06",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/06_Suchalgorithmen_sequentiell_binaer/README.md",
+        "slug": "15-06-suchalgorithmen_sequentiell_binaer"
+      },
+      "question": "Der gezeigte Aufruf gibt 3 zurück. Was bedeutet dieser Wert?",
+      "answers": [
+        "Der gesuchte Wert kommt dreimal vor.",
+        "42 steht an Index 3, also an der vierten Position.",
+        "Der gesuchte Wert selbst ist 3.",
+        "Vor dem Fund wurden insgesamt drei Elemente geprüft."
+      ],
+      "correct": 1,
+      "explanation": "Die Funktion gibt beim Treffer index zurück. JavaScript-Arrays beginnen bei Index 0: 5 steht an 0, 11 an 1, 19 an 2 und 42 an 3. Bis zum Treffer werden hier vier Elemente geprüft; Rückgabewert und Anzahl der Prüfungen sind unterschiedliche Größen.",
+      "hu": {
+        "question": "A bemutatott hívás 3-at ad vissza. Mit jelent ez az érték?",
+        "answers": [
+          "A keresett érték háromszor fordul elő.",
+          "A 42 a 3-as indexen, tehát a negyedik helyen áll.",
+          "Maga a keresett érték 3.",
+          "A találatig összesen három elemet vizsgáltunk meg."
+        ],
+        "explanation": "A függvény találatkor az indexet adja vissza. A JavaScript-tömbök indexelése 0-tól indul: az 5 a 0-s, a 11 az 1-es, a 19 a 2-es, a 42 pedig a 3-as indexen áll. A találatig itt négy elemet vizsgálunk; a visszatérési érték és a vizsgálatok száma külön mennyiség."
+      },
+      "code": "function linearSearch(values, target) {\n  for (let index = 0; index < values.length; index++) {\n    if (values[index] === target) return index;\n  }\n  return -1;\n}\nconsole.log(linearSearch([5, 11, 19, 42, 70], 42));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "3"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-06-2",
+      "revision": 1,
+      "topic": "Suchalgorithmen: sequentiell / binaer",
+      "source": {
+        "topicId": "LAP-15-06",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/06_Suchalgorithmen_sequentiell_binaer/README.md",
+        "slug": "15-06-suchalgorithmen_sequentiell_binaer"
+      },
+      "question": "Dieser Ausschnitt berechnet die erste Mitte einer binären Suche. Welcher Wert wird zuerst betrachtet und ausgegeben?",
+      "answers": [
+        "19 am Index 2",
+        "11 am Index 1",
+        "42 am Index 3",
+        "2 als Wert des mittleren Elements"
+      ],
+      "correct": 0,
+      "explanation": "Die Grenzen sind left = 0 und right = 4. Daraus folgt middle = 0 + floor(4 / 2) = 2. values[2] ist 19: middle bezeichnet die Position, values[middle] den Wert an dieser Position.",
+      "hu": {
+        "question": "Ez a részlet egy bináris keresés első középső indexét számítja ki. Melyik értéket vizsgáljuk és írjuk ki először?",
+        "answers": [
+          "A 2-es indexen lévő 19-et",
+          "Az 1-es indexen lévő 11-et",
+          "A 3-as indexen lévő 42-t",
+          "A 2-t mint a középső elem értékét"
+        ],
+        "explanation": "A határok left = 0 és right = 4. Ebből middle = 0 + floor(4 / 2) = 2. A values[2] értéke 19: a middle a helyet, a values[middle] pedig az ott lévő értéket jelöli."
+      },
+      "code": "const values = [5, 11, 19, 42, 70];\nconst left = 0;\nconst right = values.length - 1;\nconst middle = left + Math.floor((right - left) / 2);\nconsole.log(values[middle]);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "19"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-06-3",
+      "revision": 1,
+      "topic": "Suchalgorithmen: sequentiell / binaer",
+      "source": {
+        "topicId": "LAP-15-06",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/06_Suchalgorithmen_sequentiell_binaer/README.md",
+        "slug": "15-06-suchalgorithmen_sequentiell_binaer"
+      },
+      "question": "Bei der Suche nach 42 in [5, 11, 19, 42, 70] ist die erste Mitte Index 2 mit Wert 19. Warum setzt die binäre Suche left auf middle + 1, also 3?",
+      "answers": [
+        "Damit im nächsten Schritt erneut 19 geprüft wird.",
+        "Damit die linke Hälfte vor der weiteren Suche sortiert wird.",
+        "Weil in diesem aufsteigend sortierten Array die Mitte und alle Werte links davon kleiner als 42 sind.",
+        "Weil der Zielwert 42 selbst immer an Index 3 stehen muss."
+      ],
+      "correct": 2,
+      "explanation": "Aus der aufsteigenden Ordnung folgt: Links von 19 können keine größeren Werte stehen. Da auch 19 kleiner als 42 ist, scheidet die gesamte linke Hälfte einschließlich Mitte aus. Der nächste mögliche Kandidat beginnt an Index 3; die rechte Grenze bleibt zunächst 4.",
+      "hu": {
+        "question": "A [5, 11, 19, 42, 70] tömbben keressük a 42-t. Az első közép a 2-es indexű 19. Miért lesz a bináris keresésben left = middle + 1, vagyis 3?",
+        "answers": [
+          "Hogy a következő lépésben újra a 19-et vizsgáljuk.",
+          "Hogy a további keresés előtt rendezzük a bal oldali részt.",
+          "Mert ebben a növekvően rendezett tömbben a közép és minden tőle balra lévő érték kisebb 42-nél.",
+          "Mert a 42-es célértéknek mindig a 3-as indexen kell állnia."
+        ],
+        "explanation": "A növekvő sorrendből következik, hogy a 19-től balra nem állhat nagyobb érték. Mivel a 19 is kisebb 42-nél, a bal oldal a középpel együtt kizárható. A következő lehetséges jelölt a 3-as indexnél kezdődik; a jobb határ egyelőre 4 marad."
+      }
+    },
+    {
+      "id": "lap-LAP-15-06-4",
+      "revision": 1,
+      "topic": "Suchalgorithmen: sequentiell / binaer",
+      "source": {
+        "topicId": "LAP-15-06",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/06_Suchalgorithmen_sequentiell_binaer/README.md",
+        "slug": "15-06-suchalgorithmen_sequentiell_binaer"
+      },
+      "question": "Was gibt binarySearch([], 42) in dieser Implementierung zurück? Auch die LAP-Variante der linearen Suche verwendet −1 für „kein Treffer“.",
+      "answers": [
+        "0, weil dort der erste Array-Index beginnt.",
+        "undefined, weil jedes leere Array diesen Wert zurückgibt.",
+        "42, weil target unverändert bleibt.",
+        "−1, weil die Suchspanne schon vor dem ersten Durchlauf leer ist."
+      ],
+      "correct": 3,
+      "explanation": "Bei einem leeren Array wird right = −1, während left = 0 bleibt. Die Bedingung 0 ≤ −1 ist sofort falsch; die Funktion erreicht return −1. Die lineare LAP-Suche prüft bei leerer Eingabe ebenfalls kein Element und endet mit ihrem return −1.",
+      "hu": {
+        "question": "Mit ad vissza ebben a megvalósításban a binarySearch([], 42)? A LAP lineáris keresése is −1-gyel jelzi a találat hiányát.",
+        "answers": [
+          "0-t, mert ott kezdődik a tömb indexelése.",
+          "undefined értéket, mert minden üres tömb ezt adja vissza.",
+          "42-t, mert a target változatlan marad.",
+          "−1-et, mert a keresési tartomány már az első menet előtt üres."
+        ],
+        "explanation": "Üres tömbnél a right = −1, miközben a left = 0 marad. A 0 ≤ −1 feltétel rögtön hamis, ezért a függvény eljut a return −1 utasításhoz. A LAP lineáris keresése üres bemenetnél szintén egyetlen elemet sem vizsgál, és a saját return −1 utasításával zárul."
+      },
+      "code": "function binarySearch(values, target) {\n  let left = 0;\n  let right = values.length - 1;\n  while (left <= right) {\n    const middle = left + Math.floor((right - left) / 2);\n    if (values[middle] === target) return middle;\n    if (values[middle] < target) left = middle + 1;\n    else right = middle - 1;\n  }\n  return -1;\n}\nconsole.log(binarySearch([], 42));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "-1"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-06-5",
+      "revision": 1,
+      "topic": "Suchalgorithmen: sequentiell / binaer",
+      "source": {
+        "topicId": "LAP-15-06",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/06_Suchalgorithmen_sequentiell_binaer/README.md",
+        "slug": "15-06-suchalgorithmen_sequentiell_binaer"
+      },
+      "question": "Du suchst genau einmal einen Wert in einem unsortierten Array und brauchst danach keine Sortierung. Was solltest du beim Vergleich von linearer und binärer Suche berücksichtigen?",
+      "answers": [
+        "Für binäre Suche müsste zuerst sortiert werden; dieser Aufwand gehört zum Gesamtvergleich.",
+        "Die binäre Suche sortiert das Array während ihrer Vergleiche automatisch.",
+        "Die Sortierung kostet für jede Array-Länge gleich viel.",
+        "Die lineare Suche benötigt ebenfalls zwingend eine vorherige Sortierung."
+      ],
+      "correct": 0,
+      "explanation": "Die binäre Suche setzt hier ein bereits sortiertes, indexierbares Array voraus. Muss die Ordnung erst hergestellt werden, zählen Sortieren und Suchen gemeinsam. Für eine einzelne Anfrage kann eine lineare Suche zweckmäßiger sein; bei vielen Anfragen kann sich das Sortieren lohnen.",
+      "hu": {
+        "question": "Pontosan egyszer keresel egy értéket egy rendezetlen tömbben, és utána nincs szükséged rendezett adatokra. Mit érdemes figyelembe venni a lineáris és bináris keresés összevetésekor?",
+        "answers": [
+          "A bináris kereséshez előbb rendezni kellene; ez a ráfordítás is a teljes összehasonlításhoz tartozik.",
+          "A bináris keresés az összehasonlítások közben automatikusan rendezi a tömböt.",
+          "A rendezés minden tömbméretnél ugyanannyi munkát igényel.",
+          "A lineáris kereséshez is kötelező előzetesen rendezni."
+        ],
+        "explanation": "A bináris keresés itt már rendezett, indexelhető tömböt feltételez. Ha a sorrendet előbb létre kell hozni, a rendezés és keresés együtt számít. Egyetlen lekérdezéshez célszerűbb lehet a lineáris keresés; sok lekérdezésnél megtérülhet a rendezés."
+      }
+    },
+    {
+      "id": "lap-LAP-15-07-1",
+      "revision": 1,
+      "topic": "Ablauf der Programmentwicklung",
+      "source": {
+        "topicId": "LAP-15-07",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/07_Ablauf_der_Programmentwicklung/README.md",
+        "slug": "15-07-ablauf_der_programmentwicklung"
+      },
+      "question": "Du sollst eine Funktion zur Berechnung des Durchschnitts schreiben. Das Verhalten bei einer leeren Liste wurde noch nicht vereinbart. Was ist der sinnvollste erste Schritt?",
+      "answers": [
+        "Eine beliebige Rückgabe implementieren und als endgültig dokumentieren.",
+        "Zuerst die kürzeste Schleifenschreibweise auswählen.",
+        "Eingaben, erwartete Ausgaben und das Verhalten bei einer leeren Liste klären.",
+        "Die Funktion direkt in die fertige Anwendung einbauen."
+      ],
+      "correct": 2,
+      "explanation": "Am Anfang steht das Verständnis der Aufgabe. Für eine Durchschnittsfunktion gehört dazu, welche Eingaben erlaubt sind und was bei einer leeren Liste geschehen soll. Eine geklärte Vereinbarung ermöglicht anschließend einen passenden Entwurf und überprüfbare Tests.",
+      "hu": {
+        "question": "Átlagot számító függvényt kell írnod. Az üres lista kezeléséről még nincs megállapodás. Mi a legcélszerűbb első lépés?",
+        "answers": [
+          "Tetszőleges visszatérési értéket megvalósítani, és véglegesként dokumentálni.",
+          "Először kiválasztani a legrövidebb ciklusszintaxist.",
+          "Tisztázni a bemeneteket, elvárt kimeneteket és az üres lista kezelését.",
+          "Közvetlenül beépíteni a függvényt a kész alkalmazásba."
+        ],
+        "explanation": "A kiindulópont a feladat megértése. Egy átlagoló függvénynél ehhez tartozik, milyen bemenetek megengedettek, és mi történjen üres listánál. A tisztázott megállapodásra megfelelő terv és ellenőrizhető tesztek épülhetnek."
+      }
+    },
+    {
+      "id": "lap-LAP-15-07-2",
+      "revision": 1,
+      "topic": "Ablauf der Programmentwicklung",
+      "source": {
+        "topicId": "LAP-15-07",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/07_Ablauf_der_Programmentwicklung/README.md",
+        "slug": "15-07-ablauf_der_programmentwicklung"
+      },
+      "question": "Für eine Summenfunktion ist vereinbart: Zahlenliste hinein, Summe heraus; bei [] kommt 0 zurück. Was bringt ein kurzer Entwurf vor dem Codieren?",
+      "answers": [
+        "Startwert, Wiederholung und Rückgabe lassen sich gemeinsam auf die vereinbarte Aufgabe abstimmen.",
+        "Die Laufzeit ist dadurch bereits auf jedem Rechner exakt bekannt.",
+        "Die spätere Implementierung muss anschließend nicht mehr getestet werden.",
+        "Die konkrete Syntax jeder möglichen Programmiersprache ist damit festgelegt."
+      ],
+      "correct": 0,
+      "explanation": "Ein Entwurf kann hier lauten: total mit 0 beginnen, alle Werte addieren, total zurückgeben. Das verbindet die Anforderung mit einer klaren Struktur. Bei leerer Eingabe läuft keine Addition; der Startwert liefert bereits das vereinbarte Ergebnis 0.",
+      "hu": {
+        "question": "Egy összegző függvény szerződése: számlistát kap, összeget ad vissza; [] esetén az eredmény 0. Mit ad hozzá a kódolás előtti rövid terv?",
+        "answers": [
+          "A kezdőérték, az ismétlés és a visszatérés összehangolható a megállapodott feladattal.",
+          "Ettől már minden számítógépen pontosan ismert a futási idő.",
+          "A későbbi megvalósítást ezután már nem kell tesztelni.",
+          "Ezzel minden lehetséges programozási nyelv konkrét szintaxisa is rögzül."
+        ],
+        "explanation": "A terv itt lehet: induljon a total 0-ról, adjuk hozzá az összes értéket, majd adjuk vissza a total értékét. Ez világos szerkezetet kapcsol a követelményhez. Üres bemenetnél nincs összeadás; a kezdőérték már a megállapodott 0 eredményt adja."
+      }
+    },
+    {
+      "id": "lap-LAP-15-07-3",
+      "revision": 1,
+      "topic": "Ablauf der Programmentwicklung",
+      "source": {
+        "topicId": "LAP-15-07",
+        "selfCheckNumber": 3,
+        "path": "15_Grundkenntnisse_des_Programmierens/07_Ablauf_der_Programmentwicklung/README.md",
+        "slug": "15-07-ablauf_der_programmentwicklung"
+      },
+      "question": "Die Funktion soll endliche Zahlen addieren und für [] den Wert 0 liefern. Der gezeigte Aufruf läuft durch und gibt 5 aus. Welcher nächste Schritt prüft die Funktion gezielt?",
+      "answers": [
+        "Nur prüfen, ob die Datei weiterhin ohne Syntaxfehler startet.",
+        "Zusätzlich Ergebnisse mit Erwartungen vergleichen, etwa [] → 0, [7] → 7 und [−2, 2] → 0.",
+        "Die Ausgabe 5 ausblenden, damit der Testlauf ruhiger aussieht.",
+        "Denselben Aufruf wiederholen und ausschließlich seine Laufzeit messen."
+      ],
+      "correct": 1,
+      "explanation": "Ein gestartetes Programm zeigt zunächst, dass dieser Ablauf ausführbar ist. Ein Test vergleicht tatsächliche und erwartete Ergebnisse. Leere Eingabe, ein Element und Zahlen mit unterschiedlichen Vorzeichen ergänzen hier den bereits gezeigten normalen Fall.",
+      "hu": {
+        "question": "A függvény véges számokat összegezzen, és [] esetén 0-t adjon. A bemutatott hívás lefut, és 5-öt ír ki. Melyik következő lépés ellenőrzi célzottan a működését?",
+        "answers": [
+          "Csak azt vizsgálni, hogy a fájl továbbra is elindul-e szintaktikai hiba nélkül.",
+          "További eredményeket elvárásokkal összevetni, például [] → 0, [7] → 7 és [−2, 2] → 0.",
+          "Elrejteni az 5-ös kimenetet, hogy nyugodtabbnak tűnjön a tesztfutás.",
+          "Ugyanazt a hívást ismételni, és kizárólag a futási időt mérni."
+        ],
+        "explanation": "Egy elinduló program először azt mutatja, hogy az adott folyamat végrehajtható. A teszt a tényleges és az elvárt eredményt hasonlítja össze. Az üres bemenet, az egyetlen elem és az eltérő előjelű számok itt kiegészítik a már bemutatott szokásos esetet."
+      },
+      "code": "function sum(values) {\n  let total = 0;\n  for (const value of values) {\n    total += value;\n  }\n  return total;\n}\nconsole.log(sum([2, 3]));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "5"
+      ]
+    },
+    {
+      "id": "lap-LAP-15-07-4",
+      "revision": 1,
+      "topic": "Ablauf der Programmentwicklung",
+      "source": {
+        "topicId": "LAP-15-07",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/07_Ablauf_der_Programmentwicklung/README.md",
+        "slug": "15-07-ablauf_der_programmentwicklung"
+      },
+      "question": "Du hältst die Ausführung unmittelbar vor total += value an. Im zweiten Durchlauf siehst du total = 2 und value = 3. Wobei hilft dir der Debugger jetzt?",
+      "answers": [
+        "Er entscheidet selbst, welche Summe fachlich verlangt wird.",
+        "Er ersetzt die Eingabewerte dauerhaft durch korrekte Testergebnisse.",
+        "Er beweist mit dieser einen Pause die Korrektheit für alle Eingaben.",
+        "Du kannst die Anweisung schrittweise ausführen und beobachten, wie total zu 5 wird."
+      ],
+      "correct": 3,
+      "explanation": "Ein Debugger macht den aktuellen Zustand und den Ablauf sichtbar. Mit einem Einzelschritt lässt sich prüfen, welche Wirkung eine Anweisung hat. Der Vergleich mit der erwarteten Entwicklung der Variablen hilft, die Ursache einer Abweichung einzugrenzen.",
+      "hu": {
+        "question": "Közvetlenül a total += value előtt megállítod a futást. A második körben total = 2 és value = 3 látszik. Miben segít most a debugger?",
+        "answers": [
+          "Önállóan eldönti, szakmailag milyen összeget kell számolni.",
+          "Tartósan helyes teszteredményekre cseréli a bemeneti értékeket.",
+          "Ezzel az egy megállítással minden bemenetre bizonyítja a helyességet.",
+          "Egy lépéssel végrehajthatod az utasítást, és megfigyelheted, ahogy a total értéke 5 lesz."
+        ],
+        "explanation": "A debugger láthatóvá teszi a pillanatnyi állapotot és a végrehajtás menetét. Egyesével léptetve ellenőrizhető egy utasítás hatása. A változók várt alakulásával összevetve könnyebb behatárolni egy eltérés okát."
+      }
+    },
+    {
+      "id": "lap-LAP-15-07-5",
+      "revision": 1,
+      "topic": "Ablauf der Programmentwicklung",
+      "source": {
+        "topicId": "LAP-15-07",
+        "selfCheckNumber": 5,
+        "path": "15_Grundkenntnisse_des_Programmierens/07_Ablauf_der_Programmentwicklung/README.md",
+        "slug": "15-07-ablauf_der_programmentwicklung"
+      },
+      "question": "Ein Randfalltest zeigt, dass eine Funktion nicht das vereinbarte Ergebnis liefert. Welches Vorgehen beschreibt den iterativen Entwicklungsprozess?",
+      "answers": [
+        "Das erwartete Ergebnis an jede aktuelle Ausgabe anpassen.",
+        "Die Ursache untersuchen, bei Bedarf Entwurf oder Code anpassen und betroffene sowie bisher bestandene Tests erneut ausführen.",
+        "Nach dem ersten Testlauf direkt zur Veröffentlichung übergehen.",
+        "Die gesamte Anwendung unabhängig von der Ursache neu schreiben."
+      ],
+      "correct": 1,
+      "explanation": "Iteration bedeutet, aufgrund neuer Erkenntnisse frühere Arbeitsschritte erneut aufzugreifen. Nach einer gezielten Korrektur zeigt der betroffene Test, ob die Abweichung behoben ist. Erneut ausgeführte bisherige Tests helfen zu prüfen, ob bestehendes Verhalten erhalten bleibt.",
+      "hu": {
+        "question": "Egy határeset tesztje azt mutatja, hogy a függvény nem a megállapodott eredményt adja. Melyik eljárás írja le az iteratív fejlesztést?",
+        "answers": [
+          "Az elvárt eredményt mindig az aktuális kimenethez igazítjuk.",
+          "Megvizsgáljuk az okot, szükség szerint módosítjuk a tervet vagy kódot, majd újrafuttatjuk az érintett és a korábban sikeres teszteket.",
+          "Az első tesztfutás után rögtön közzétesszük a programot.",
+          "Az októl függetlenül újraírjuk az egész alkalmazást."
+        ],
+        "explanation": "Az iteráció azt jelenti, hogy az új felismerések alapján visszatérünk korábbi munkalépésekhez. A célzott javítás után az érintett teszt mutatja meg, megszűnt-e az eltérés. A korábbi tesztek újbóli futtatása segít ellenőrizni, megmaradt-e a már működő viselkedés."
+      }
+    }
+  ]
+}

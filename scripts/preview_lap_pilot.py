@@ -1,4 +1,4 @@
-"""Serve the existing quiz with the small CoderLAP pilot bank, on a separate origin."""
+"""Serve the existing quiz with a reviewed CoderLAP sample bank on a separate origin."""
 import argparse
 import json
 import re
@@ -25,14 +25,14 @@ class PilotHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
         path = urlsplit(self.path).path
         if path == "/questions.js":
-            pilot = json.loads((ROOT / "examples/lap-pilot.json").read_text(encoding="utf-8"))
+            pilot = json.loads(self.server.bank_path.read_text(encoding="utf-8"))
             text = "const QUESTIONS = " + json.dumps(pilot["questions"], ensure_ascii=False) + ";\n"
             for lang, labels in pilot["ui"].items():
                 text += f"Object.assign(I18N.{lang}, " + json.dumps(labels, ensure_ascii=False) + ");\n"
             self.send_text(text, "text/javascript; charset=utf-8")
         elif path in ("/", "/index.html"):
             text = (ROOT / "index.html").read_text(encoding="utf-8")
-            text = text.replace("CoderQuiz – DSGVO LAP Applikationsentwicklung", "CoderQuiz – CoderLAP pilot")
+            text = text.replace("CoderQuiz – DSGVO LAP Applikationsentwicklung", "CoderQuiz – CoderLAP preview")
             text = re.sub(r'<p class="sources">.*?</p>', '<p class="sources"><span data-i18n="sourcesLabel"></span> <a href="https://coderlap.com">CoderLAP</a></p>', text)
             self.send_text(text, "text/html; charset=utf-8")
         else:
@@ -61,10 +61,13 @@ class PilotHandler(SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--port", type=int, default=8770)
+    parser.add_argument("--bank", choices=("lap-pilot", "lap-programming-1"), default="lap-pilot")
+    parser.add_argument("--port", type=int)
     args = parser.parse_args()
-    server = PilotServer(("127.0.0.1", args.port), PilotHandler)
-    print(f"CoderLAP pilot: http://127.0.0.1:{args.port} — Ctrl+C to stop", flush=True)
+    port = args.port if args.port is not None else (8770 if args.bank == "lap-pilot" else 8771)
+    server = PilotServer(("127.0.0.1", port), PilotHandler)
+    server.bank_path = ROOT / "examples" / f"{args.bank}.json"
+    print(f"CoderLAP {args.bank}: http://127.0.0.1:{port} — Ctrl+C to stop", flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

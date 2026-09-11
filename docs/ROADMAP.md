@@ -38,18 +38,20 @@ These include 100 programming, 215 Informatik and 40 IT-security questions.
 The existing CoderQuiz bank was written independently; do not assume its topics
 or questions already map to that curriculum.
 
-1. Review the [eight-question pilot](LAP-PILOT.md) adapted from existing LAP
-   self-checks. Include necessary context/code in each standalone question.
-2. Agree on question and post-answer explanation quality using those samples.
+1. The user tried and approved the [eight-question pilot](LAP-PILOT.md).
+   Continue its standalone questions and positive post-answer explanations.
    There is no separate pre-answer hint feature.
+2. Work by source topic, starting with programming. Its 20 subtopics are split
+   into three reviewable batches: 01–07, 08–14 and 15–20. The first batch has
+   35 DE/HU adaptations, ready for user review on port 8771.
 3. Map existing LAP topics/questions to the quiz and identify adaptations,
    missing context and ambiguous choices. Keep a traceable source snapshot.
 4. Choose a minimal, versioned content handoff after the pilot. The projects
    should remain independently developable and releasable; no shared runtime
    service or automatic synchronization has been introduced.
-5. Review the original 100 questions against the mapping: reuse suitable ones,
-   then decide the role of the remainder. Track their open corrections in
-   [REVIEW.md](REVIEW.md).
+5. Expansion and migration of the original 100 questions are paused. Keep the
+   bank and its [audit notes](REVIEW.md) available for now; its eventual role or
+   removal is a later decision. New content effort goes into the LAP bank.
 
 The earlier independent batches of 20 new questions are superseded by this
 source-first approach. Exact curriculum coverage matters more than a count goal.
@@ -57,6 +59,9 @@ Code examples render as escaped text; no learner-controlled execution is needed.
 Each reviewed adaptation needs aligned DE/HU choices, one defensible correct
 answer, a positive explanation, a stable pilot ID and an explicit LAP reference.
 Do not add a separate “common exam mistakes” learning section.
+Runnable examples retain their expected output and LAP reference for possible
+later reuse in CoderCoaster. This is content preparation, not a shared execution
+engine or an integration between the projects.
 
 ## Long-term / Stretch Goals
 

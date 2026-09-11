@@ -225,3 +225,21 @@ body text, including uppercase accents. The README uses a larger shared logo.
   outputs and source-link/reload behavior. Browser checks completed all eight
   questions at 390px and restored a DE result at 320px without page overflow;
   long code lines scroll inside their blocks. Physical iOS remains a device check.
+
+### 2026-09-11 – First programming curriculum batch
+
+- Added `examples/lap-programming-1.json`: five source-aligned DE/HU adaptations
+  for each subtopic from LAP-15-01 to LAP-15-07, with post-answer explanations.
+- The preview's `--bank lap-programming-1` option selects this bank and defaults
+  to port 8771, keeping the original pilot on 8770 and its saved session separate.
+  `--bank` accepts only explicitly listed banks; the asset allowlist is retained.
+- Code blocks support `codeLanguage` (`javascript` / `pseudocode`) and show a
+  localized, accessible language label. Existing snippets default to JavaScript.
+  `expectedOutput` records checked JavaScript console lines for tests and later
+  content reuse; it is not shown before answering or executed in the browser.
+- Twenty Node tests now cover the two sample banks and existing behavior, with
+  extra sorting/searching/summation edge cases. Full source mapping, adaptation
+  decisions and browser validation are recorded in LAP-PILOT.md.
+- The existing 100-question bank remains available; new content work follows
+  LAP topics. No production dependency, synchronization service or Coaster
+  integration was introduced.
