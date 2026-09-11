@@ -82,6 +82,8 @@ question-count target.
 
 ## Programming batch 1
 
+The user has tried and approved this batch.
+
 `examples/lap-programming-1.json` contains **35 DE/HU questions**, five per
 subtopic, adapted from all self-check positions in LAP-15-01 through LAP-15-07.
 It uses the same pinned CoderLAP commit as the eight-question pilot. The original
@@ -139,13 +141,87 @@ Validation for this batch:
   languages have five self-check positions in each of the seven subtopics.
 - A browser run completed all 35 questions at 390/320px, switching HU to DE and
   reloading mid-run, without page overflow. Code blocks scroll internally.
-  Physical iOS remains a device check; this batch awaits the user's content review.
+  Physical iOS remains a device check; the user's content review is complete.
 - Local Semgrep (`p/javascript`, `p/python`, `p/security-audit`, the same three
   exclusions as above) reports zero findings and zero errors for `app.js`,
   `i18n.js`, `scripts` and `tests`; metrics and version checks are disabled.
   HTTP checks confirm both banks, asset HEAD responses and blocked repository
   paths, including encoded traversal. No browser console errors were recorded.
 
-Next: programming subtopics 08–14, then 15–20. Expansion of the original 100
+The next batch covers 08–14 below, followed by 15–20. Expansion of the original 100
 questions is paused. Coaster reuse, curriculum navigation, publishing and shared
 authentication remain separate work.
+
+## Programming batch 2
+
+`examples/lap-programming-2.json` adds **35 DE/HU questions** from all five
+self-check positions in each subtopic LAP-15-08 through LAP-15-14. References
+still use CoderLAP commit `466a2ee8a5dbd8dc17b67a546e3ac7aacf5115e8`.
+The first two curriculum banks have 70 distinct question IDs and source
+positions; they remain separate previews for review.
+
+```sh
+python scripts/preview_lap_pilot.py --bank lap-programming-2
+```
+
+Open <http://127.0.0.1:8772/>. The preview's single `BANK_PORTS` mapping is the
+allowlist and the source of default ports: pilot 8770, batch 1 8771, batch 2
+8772. Existing preview origins retain their own saved sessions.
+
+| LAP topic | Self-check positions | Adaptation focus |
+| --- | --- | --- |
+| 15-08 · Language structure | 1–5 | Syntax versus meaning, literals and identifiers, checking the task beyond valid syntax |
+| 15-09 · Interpreter / compiler | 1–5 | Translation targets, interpretation, mixed execution, assembler stage and syntax checks |
+| 15-10 · Debugger | 1–5 | Runtime inspection, state before a breakpoint line, step into, active call chain and logging |
+| 15-11 · Assembler | 1–5 | Symbolic machine operations, assembler output, abstraction level, control and architecture dependence |
+| 15-12 · Recursive functions | 1–5 | Self-call, zero base case, smaller subproblem, iterative comparison and stack limits |
+| 15-13 · ASCII tables | 1–5 | 128 codes including control characters, mapping, decimal/hex examples, Unicode and format rules |
+| 15-14 · Variables and types | 1–5 | Named values, operation behavior, actual JavaScript types, initialization and language-specific terminology |
+
+The **14 JavaScript snippets** are complete, display-only examples with checked
+`expectedOutput` metadata. Debugger questions describe precisely where the
+program is paused; ordinary execution tests confirm the final outputs, not a
+particular debugger UI. No debug session runs inside the quiz. Assembly is taught
+through concrete tool/architecture scenarios without labelling JavaScript as
+assembly or introducing an assembler dependency.
+
+The recursion examples deliberately use small nonnegative integer inputs.
+Tests cover 0 through 10 for every displayed factorial implementation, including
+the zero base case and agreement between recursive and iterative versions.
+Their input domain is part of the teaching example, not a production input
+validation API. The stack question explains that a reachable base case alone
+does not guarantee enough runtime resources.
+
+### Precision checks
+
+These editorial clarifications keep the source learning objective while avoiding
+overgeneralizations. Primary references checked on 2026-09-11:
+
+- JavaScript declaration/initialization and the shared `number` type for integer
+  and fractional numeric literals: [MDN Grammar and types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types).
+- Interpretation can use bytecode; modern runtimes can combine execution
+  strategies: [V8 Ignition](https://v8.dev/docs/ignition). The questions describe
+  a concrete mixed-runtime scenario rather than classifying every language.
+- Compiler, assembler and linker are different steps in the described C toolchain:
+  [GCC Overall Options](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html)
+  and [GNU as](https://sourceware.org/binutils/docs/as/Overview.html).
+- `charCodeAt()` returns a UTF-16 code unit, so its use is explicitly restricted
+  to ASCII characters A and 0 in the example: [MDN charCodeAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt).
+
+### Validation
+
+- 25 Node tests pass, covering both full 35-question runs, DE/HU explanations,
+  shuffled answer mapping, mid-run and result restoration, source coverage,
+  all displayed JavaScript outputs and meaningful algorithm edge cases.
+- All 35 new paths, slugs and topic labels match the pinned LAP registry; each
+  source document has five matching question/answer positions in both languages.
+- The browser run completed all 35 questions and all 14 code blocks, switched HU
+  to DE, and restored question 13 after reload. At 390/320px no page overflow was
+  found; longer lines scroll inside code blocks. Result reload also passed and
+  the browser console reported no errors. Real iOS testing remains open.
+- HTTP checks confirmed all three preview banks, allowed assets and blocked
+  repository paths, including encoded traversal. Local Semgrep on `scripts` and
+  `tests` returned zero findings and zero errors, using the same rule sets and
+  exclusions as batch 1 with metrics and version checks disabled.
+
+The batch awaits user content review. Next: LAP-15-15 through LAP-15-20.

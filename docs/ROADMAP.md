@@ -42,8 +42,10 @@ or questions already map to that curriculum.
    Continue its standalone questions and positive post-answer explanations.
    There is no separate pre-answer hint feature.
 2. Work by source topic, starting with programming. Its 20 subtopics are split
-   into three reviewable batches: 01–07, 08–14 and 15–20. The first batch has
-   35 DE/HU adaptations, ready for user review on port 8771.
+   into three reviewable batches: 01–07, 08–14 and 15–20. The user has checked
+   and approved batch 1 (35 questions, port 8771). Batch 2 adds 35 DE/HU
+   adaptations for 08–14, ready for user review on port 8772. Together these
+   cover 70 distinct source positions. The remaining batch is 15–20.
 3. Map existing LAP topics/questions to the quiz and identify adaptations,
    missing context and ambiguous choices. Keep a traceable source snapshot.
 4. Choose a minimal, versioned content handoff after the pilot. The projects
