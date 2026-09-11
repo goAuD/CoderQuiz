@@ -9,10 +9,25 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 - Topic filter: setup screen with chips; last selection persisted in localStorage
 - Progress persistence: quiz state saved to localStorage; restored on page reload
 - Tech: Vanilla HTML/CSS/JS, no dependencies, no build step
-- Interface: CoderLAP Műhely style, local fonts, DE/HU mobile and keyboard support
+- Interface: approved shared Műhely header/footer, local fonts and Lucide icons,
+  DE/HU mobile and keyboard support, back-to-top navigation
 - Hosting: local / file:// for now
 - LAP previews: approved eight-question pilot and three approved programming
   batches covering all 100 programming source self-checks; integrated into `dev`.
+
+## Latest Integration — 2026-09-11
+
+PR #11 (back-to-top) and PR #12 (shared header/footer) are approved and merged
+into `dev` at `e464d1766000e35b963bfe5745ca07cc98653529`. The resulting tree
+matches the reviewed code; CI and CodeQL passed on that merge commit.
+CoderLAP's matching frame is deployed; CoderCoaster's is merged into its `main`.
+The three `workshop-frame.css` copies are byte-identical.
+
+Production hosting, DNS and shared sign-in are deferred to the next session by
+user decision. No Quiz deployment has occurred. Before publishing, choose the
+entry point and curriculum navigation: the root app still opens the independent
+DSGVO bank, while the three approved LAP programming banks remain separate
+previews. Merging those banks did not make them one selectable production module.
 
 ## Short-term Goals
 
