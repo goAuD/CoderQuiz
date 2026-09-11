@@ -2,6 +2,7 @@ const assert = require('node:assert/strict');
 const { test } = require('node:test');
 const vm = require('node:vm');
 const bank = require('../examples/lap-programming-1.json');
+const secondBank = require('../examples/lap-programming-2.json');
 
 function execute(question) {
   const output = [];
@@ -10,48 +11,74 @@ function execute(question) {
   return { output, context };
 }
 
-test('programming batch covers all five source positions in each of the first seven subtopics', () => {
-  assert.equal(bank.questions.length, 35);
-  assert.equal(new Set(bank.questions.map(q => q.id)).size, 35);
-  assert.equal(bank.sourceRepository, 'https://github.com/goAuD/CoderLAP');
-  assert.match(bank.sourceCommit, /^[a-f0-9]{40}$/);
-  const sourcePositions = [];
-  for (const q of bank.questions) {
-    sourcePositions.push(`${q.source.topicId}:${q.source.selfCheckNumber}`);
-    assert.match(q.id, /^lap-LAP-15-0[1-7]-[1-5]$/);
-    assert.ok(Number.isInteger(q.revision) && q.revision > 0);
-    assert.match(q.source.path, /^15_Grundkenntnisse_des_Programmierens\/0[1-7]_[A-Za-z_]+\/README\.md$/);
-    assert.match(q.source.slug, /^15-0[1-7]-[a-z_]+$/);
-    assert.ok(Number.isInteger(q.correct) && q.correct >= 0 && q.correct < 4);
-    for (const [lang, text] of [['de', q], ['hu', q.hu]]) {
-      assert.ok(text.question.trim() && text.explanation.trim());
-      assert.equal(text.answers.length, 4);
-      assert.equal(new Set(text.answers).size, 4);
-      assert.ok(text.answers.every(s => typeof s === 'string' && s.trim()));
-      assert.ok(bank.ui[lang].topics[q.topic]);
-    }
-    assert.equal(q.hint, undefined);
-    if (q.code) {
-      assert.ok(['javascript', 'pseudocode'].includes(q.codeLanguage));
-      if (q.codeLanguage === 'javascript') {
-        assert.ok(Array.isArray(q.expectedOutput) && q.expectedOutput.length > 0);
-        assert.ok(q.expectedOutput.every(line => typeof line === 'string'));
-      } else {
-        assert.equal(q.expectedOutput, undefined); // Pseudocode is a manual trace, not executable JS.
+for (const [batchNumber, currentBank, firstTopic, lastTopic] of [[1, bank, 1, 7], [2, secondBank, 8, 14]]) {
+  test(`programming batch ${batchNumber} covers five source positions per subtopic`, () => {
+    const bank = currentBank;
+    assert.equal(bank.questions.length, 35);
+    assert.equal(new Set(bank.questions.map(q => q.id)).size, 35);
+    assert.equal(bank.sourceRepository, 'https://github.com/goAuD/CoderLAP');
+    assert.match(bank.sourceCommit, /^[a-f0-9]{40}$/);
+    const sourcePositions = [];
+    for (const q of bank.questions) {
+      sourcePositions.push(`${q.source.topicId}:${q.source.selfCheckNumber}`);
+      assert.equal(q.id, `lap-${q.source.topicId}-${q.source.selfCheckNumber}`);
+      assert.ok(Number.isInteger(q.revision) && q.revision > 0);
+      assert.match(q.source.path, /^15_Grundkenntnisse_des_Programmierens\/\d{2}_[A-Za-z_]+\/README\.md$/);
+      assert.match(q.source.slug, /^15-\d{2}-[a-z_]+$/);
+      assert.ok(Number.isInteger(q.correct) && q.correct >= 0 && q.correct < 4);
+      for (const [lang, text] of [['de', q], ['hu', q.hu]]) {
+        assert.ok(text.question.trim() && text.explanation.trim());
+        assert.equal(text.answers.length, 4);
+        assert.equal(new Set(text.answers).size, 4);
+        assert.ok(text.answers.every(s => typeof s === 'string' && s.trim()));
+        assert.ok(bank.ui[lang].topics[q.topic]);
+      }
+      assert.equal(q.hint, undefined);
+      if (q.code) {
+        assert.ok(['javascript', 'pseudocode'].includes(q.codeLanguage));
+        if (q.codeLanguage === 'javascript') {
+          assert.ok(Array.isArray(q.expectedOutput) && q.expectedOutput.length > 0);
+          assert.ok(q.expectedOutput.every(line => typeof line === 'string'));
+        } else {
+          assert.equal(q.expectedOutput, undefined); // Pseudocode is a manual trace, not executable JS.
+        }
       }
     }
-  }
-  const expected = [];
-  for (let topic = 1; topic <= 7; topic++) {
-    for (let question = 1; question <= 5; question++) expected.push(`LAP-15-0${topic}:${question}`);
-  }
-  assert.deepEqual(sourcePositions.sort(), expected.sort());
-  for (const lang of ['de', 'hu']) assert.equal(Object.keys(bank.ui[lang].topics).length, 7);
+    const expected = [];
+    for (let topic = firstTopic; topic <= lastTopic; topic++) {
+      for (let question = 1; question <= 5; question++) expected.push(`LAP-15-${String(topic).padStart(2, '0')}:${question}`);
+    }
+    assert.deepEqual(sourcePositions.sort(), expected.sort());
+    for (const lang of ['de', 'hu']) assert.equal(Object.keys(bank.ui[lang].topics).length, 7);
+  });
+
+  test(`programming batch ${batchNumber} code produces the recorded output`, () => {
+    for (const q of currentBank.questions.filter(q => q.codeLanguage === 'javascript')) {
+      assert.deepEqual(execute(q).output, q.expectedOutput, q.id);
+    }
+  });
+}
+
+test('the two curriculum batches contain 70 distinct adaptations and source positions', () => {
+  const questions = [...bank.questions, ...secondBank.questions];
+  assert.equal(new Set(questions.map(q => q.id)).size, 70);
+  assert.equal(new Set(questions.map(q => `${q.source.topicId}:${q.source.selfCheckNumber}`)).size, 70);
 });
 
-test('every displayed JavaScript example has the checked output retained in the bank', () => {
-  for (const q of bank.questions.filter(q => q.codeLanguage === 'javascript')) {
-    assert.deepEqual(execute(q).output, q.expectedOutput, q.id);
+test('recursive and iterative factorial examples agree on the stated small nonnegative domain', () => {
+  for (const [id, names] of [
+    ['lap-LAP-15-12-1', ['factorial']],
+    ['lap-LAP-15-12-2', ['factorial']],
+    ['lap-LAP-15-12-3', ['factorial']],
+    ['lap-LAP-15-12-4', ['factorialRecursive', 'factorialLoop']],
+  ]) {
+    const { context } = execute(secondBank.questions.find(q => q.id === id));
+    const expected = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800];
+    for (let n = 0; n < expected.length; n++) {
+      for (const name of names) {
+        assert.equal(vm.runInContext(`${name}(${n})`, context, { timeout: 1000 }), expected[n], `${id}: ${n}`);
+      }
+    }
   }
 });
 
