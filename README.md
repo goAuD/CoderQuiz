@@ -83,6 +83,17 @@ python scripts/preview_lap_pilot.py --bank lap-programming-2
 Open <http://127.0.0.1:8772/>. The first two curriculum batches cover 70 distinct
 LAP self-checks. See [batch 2 notes](docs/LAP-PILOT.md#programming-batch-2).
 
+The third programming batch adds 30 DE/HU questions from LAP-15-15 through
+LAP-15-20, with 24 executable JavaScript examples:
+
+```sh
+python scripts/preview_lap_pilot.py --bank lap-programming-3
+```
+
+Open <http://127.0.0.1:8773/>. All three curriculum batches together cover the
+100 self-check positions across all 20 programming subtopics. Batch 3 awaits
+user review; the banks remain separate previews. See [batch 3 notes](docs/LAP-PILOT.md#programming-batch-3).
+
 ## Adding questions
 
 New curriculum work belongs in the LAP-based banks under `examples/`, following

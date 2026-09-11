@@ -13,6 +13,7 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 - Hosting: local / file:// for now
 - LAP previews: approved eight-question pilot and two approved programming
   batches covering 70 distinct source self-checks; integrated into `dev`.
+  A third batch adds the final 30 programming self-checks and awaits user review.
 
 ## Short-term Goals
 
@@ -47,7 +48,9 @@ or questions already map to that curriculum.
    into three reviewable batches: 01–07, 08–14 and 15–20. The user has checked
    and approved both batch 1 (35 questions, port 8771) and batch 2 (35 DE/HU
    adaptations for 08–14, port 8772). Both are merged into `dev` and together
-   cover 70 distinct source positions. The remaining batch is 15–20.
+   cover 70 distinct source positions. Batch 3 (15–20, 30 questions, port 8773)
+   is ready for user review. Together the three banks cover all 100 programming
+   self-check positions; this does not yet combine them into one quiz module.
 3. Map existing LAP topics/questions to the quiz and identify adaptations,
    missing context and ambiguous choices. Keep a traceable source snapshot.
 4. Choose a minimal, versioned content handoff after the pilot. The projects
