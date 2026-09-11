@@ -1,0 +1,277 @@
+{
+  "sourceRepository": "https://github.com/goAuD/CoderLAP",
+  "sourceCommit": "466a2ee8a5dbd8dc17b67a546e3ac7aacf5115e8",
+  "ui": {
+    "de": {
+      "moduleTitle": "CoderLAP · Proberunde",
+      "subtitle": "Acht Fragen aus sechs CoderLAP-Themen. Mit Codebeispielen und Erklärungen nach der Antwort.",
+      "practiceNote": "Probiere die Fragen aus und prüfe, ob Aufgabe und Erklärung verständlich zusammenpassen.",
+      "topics": {
+        "Zeichensatz ASCII": "Zeichensatz ASCII",
+        "Einheiten Bit und Byte": "Einheiten Bit und Byte",
+        "Schleifen": "Schleifen",
+        "Sortieralgorithmen: Bubblesort / Quicksort": "Sortieralgorithmen: Bubblesort / Quicksort",
+        "Suchalgorithmen: sequentiell / binaer": "Suchalgorithmen: sequentiell / binaer",
+        "Backup Prinzipien": "Backup Prinzipien"
+      }
+    },
+    "hu": {
+      "moduleTitle": "CoderLAP · Próbakör",
+      "subtitle": "Nyolc kérdés hat CoderLAP-témából. Kódpéldákkal és válasz utáni magyarázatokkal.",
+      "practiceNote": "Próbáld ki a kérdéseket: érthető-e a feladat, és segít-e a magyarázat a megértésben?",
+      "topics": {
+        "Zeichensatz ASCII": "ASCII karakterkódolás",
+        "Einheiten Bit und Byte": "Bit és bájt",
+        "Schleifen": "Ciklusok",
+        "Sortieralgorithmen: Bubblesort / Quicksort": "Rendezés: Bubble Sort / Quick Sort",
+        "Suchalgorithmen: sequentiell / binaer": "Lineáris és bináris keresés",
+        "Backup Prinzipien": "Mentési alapelvek"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "pilot-LAP-01-01-1",
+      "revision": 1,
+      "topic": "Zeichensatz ASCII",
+      "source": {
+        "topicId": "LAP-01-01",
+        "selfCheckNumber": 1,
+        "path": "01_Grundlagen_in_der_Informationstechnik/01_Zeichensatz_ASCII/README.md",
+        "slug": "01-01-zeichensatz_ascii"
+      },
+      "question": "Wie viele Bits umfasst ein ASCII-Code?",
+      "answers": [
+        "6 Bit",
+        "8 Bit",
+        "7 Bit",
+        "16 Bit"
+      ],
+      "correct": 2,
+      "explanation": "ASCII verwendet 7 Bit. Damit sind 2⁷ = 128 verschiedene Codes möglich. Sie stehen für Steuerzeichen und druckbare Zeichen.",
+      "hu": {
+        "question": "Hány bites egy ASCII-kód?",
+        "answers": [
+          "6 bit",
+          "8 bit",
+          "7 bit",
+          "16 bit"
+        ],
+        "explanation": "Az ASCII 7 bitet használ. Ezzel 2⁷ = 128 különböző kód adható meg; ezek vezérlőkaraktereket és nyomtatható karaktereket jelölnek."
+      }
+    },
+    {
+      "id": "pilot-LAP-01-02-6",
+      "revision": 1,
+      "topic": "Einheiten Bit und Byte",
+      "source": {
+        "topicId": "LAP-01-02",
+        "selfCheckNumber": 6,
+        "path": "01_Grundlagen_in_der_Informationstechnik/02_Einheiten_Bit_und_Byte/README.md",
+        "slug": "01-02-einheiten_bit_und_byte"
+      },
+      "question": "Welcher Datenrate entsprechen 100 Mbit/s rechnerisch in MB/s? Verwende dezimale Einheiten und ignoriere Übertragungsverluste.",
+      "answers": [
+        "800 MB/s",
+        "12,5 MB/s",
+        "100 MB/s",
+        "0,125 MB/s"
+      ],
+      "correct": 1,
+      "explanation": "Ein Byte besteht aus 8 Bit. Für die Umrechnung von Mbit/s in MB/s teilen wir deshalb durch 8: 100 ÷ 8 = 12,5. Die tatsächlich nutzbare Datenrate kann durch Protokollaufwand und andere Begrenzungen geringer sein.",
+      "hu": {
+        "question": "Hány MB/s-nak felel meg számolással a 100 Mbit/s? Tízes alapú egységekkel dolgozz, és hagyd figyelmen kívül az átviteli veszteségeket.",
+        "answers": [
+          "800 MB/s",
+          "12,5 MB/s",
+          "100 MB/s",
+          "0,125 MB/s"
+        ],
+        "explanation": "Egy bájt 8 bitből áll. Mbit/s-ról MB/s-ra ezért 8-cal osztunk: 100 ÷ 8 = 12,5. A ténylegesen használható adatsebesség a protokoll többletadatai és más korlátok miatt kisebb is lehet."
+      }
+    },
+    {
+      "id": "pilot-LAP-15-17-1",
+      "revision": 1,
+      "topic": "Schleifen",
+      "source": {
+        "topicId": "LAP-15-17",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/17_Schleifen/README.md",
+        "slug": "15-17-schleifen"
+      },
+      "question": "Wie oft läuft der Schleifenkörper, und wie oft wird number <= 3 geprüft?",
+      "answers": [
+        "3 Durchläufe, 3 Prüfungen",
+        "4 Durchläufe, 4 Prüfungen",
+        "4 Durchläufe, 3 Prüfungen",
+        "3 Durchläufe, 4 Prüfungen"
+      ],
+      "correct": 3,
+      "explanation": "Bei number = 1, 2 und 3 ist die Bedingung wahr: Der Schleifenkörper läuft dreimal. Nach dem dritten Durchlauf wird number auf 4 erhöht. Die vierte Prüfung ist falsch und beendet die Schleife.",
+      "hu": {
+        "question": "Hányszor fut le a ciklusmag, és hányszor vizsgáljuk a number <= 3 feltételt?",
+        "answers": [
+          "3 végrehajtás, 3 vizsgálat",
+          "4 végrehajtás, 4 vizsgálat",
+          "4 végrehajtás, 3 vizsgálat",
+          "3 végrehajtás, 4 vizsgálat"
+        ],
+        "explanation": "A number = 1, 2 és 3 értéknél igaz a feltétel, így a ciklusmag háromszor fut le. A harmadik végrehajtás után a number értéke 4 lesz. A negyedik feltételvizsgálat hamis eredményt ad, és a ciklus véget ér."
+      },
+      "code": "for (let number = 1; number <= 3; number++) {\n  console.log(number);\n}"
+    },
+    {
+      "id": "pilot-LAP-15-17-4",
+      "revision": 1,
+      "topic": "Schleifen",
+      "source": {
+        "topicId": "LAP-15-17",
+        "selfCheckNumber": 4,
+        "path": "15_Grundkenntnisse_des_Programmierens/17_Schleifen/README.md",
+        "slug": "15-17-schleifen"
+      },
+      "question": "Was gibt dieses Programm bei einem leeren scores-Array aus?",
+      "answers": [
+        "0",
+        "undefined",
+        "NaN",
+        "Das Programm löst einen Fehler aus"
+      ],
+      "correct": 0,
+      "explanation": "Das Array enthält keine Werte, daher führt for...of den Schleifenkörper kein einziges Mal aus. total behält seinen Anfangswert 0. Anschließend gibt console.log diesen Wert aus.",
+      "hu": {
+        "question": "Mit ír ki ez a program, ha a scores tömb üres?",
+        "answers": [
+          "0",
+          "undefined",
+          "NaN",
+          "A program hibát dob"
+        ],
+        "explanation": "A tömb nem tartalmaz értékeket, ezért a for...of ciklusmag egyszer sem fut le. A total megtartja a 0 kezdőértéket. A console.log ezután ezt az értéket írja ki."
+      },
+      "code": "const scores = [];\nlet total = 0;\nfor (const score of scores) {\n  total += score;\n}\nconsole.log(total);"
+    },
+    {
+      "id": "pilot-LAP-15-05-1",
+      "revision": 1,
+      "topic": "Sortieralgorithmen: Bubblesort / Quicksort",
+      "source": {
+        "topicId": "LAP-15-05",
+        "selfCheckNumber": 1,
+        "path": "15_Grundkenntnisse_des_Programmierens/05_Sortieralgorithmen_Bubblesort_Quicksort/README.md",
+        "slug": "15-05-sortieralgorithmen_bubblesort_quicksort"
+      },
+      "question": "Bei aufsteigendem Bubble Sort durchlaufen wir den untersuchten Bereich von links nach rechts und tauschen benachbarte Zahlen, wenn die linke größer ist. Warum kann die rechte Grenze nach einem vollständigen Durchlauf um eins sinken?",
+      "answers": [
+        "Weil danach bereits das ganze Array sortiert ist",
+        "Weil bei jedem Durchlauf das kleinste Element gelöscht wird",
+        "Weil das größte Element dieses Bereichs nun an seiner endgültigen Position rechts steht",
+        "Weil danach nur noch Zahlen mit geradem Index verglichen werden"
+      ],
+      "correct": 2,
+      "explanation": "Jeder Vergleich bewegt den größeren der beiden Nachbarn nach rechts. So erreicht das größte Element des untersuchten Bereichs dessen rechte Grenze. Bei [4, 2, 4, 1] ergibt der erste Durchlauf [2, 4, 1, 4]. Die letzte Position ist fertig; weitere Durchläufe bearbeiten den kürzeren Bereich.",
+      "hu": {
+        "question": "Növekvő Bubble Sortnál balról jobbra járjuk be a vizsgált részt, és felcseréljük a szomszédos számokat, ha a bal oldali nagyobb. Miért csökkenthető eggyel a jobb határ egy teljes menet után?",
+        "answers": [
+          "Mert ekkorra már az egész tömb rendezett",
+          "Mert minden menetben töröljük a legkisebb elemet",
+          "Mert a vizsgált rész legnagyobb eleme a jobb szélen a végleges helyére került",
+          "Mert ezután csak a páros indexű számokat hasonlítjuk össze"
+        ],
+        "explanation": "Minden összehasonlítás a két szomszéd közül a nagyobbat mozgatja jobbra. Így a vizsgált rész legnagyobb eleme eljut a jobb határra. A [4, 2, 4, 1] első menete [2, 4, 1, 4] állapotot ad. Az utolsó hely elkészült; a következő menetek a rövidebb részen dolgoznak."
+      }
+    },
+    {
+      "id": "pilot-LAP-15-06-2",
+      "revision": 1,
+      "topic": "Suchalgorithmen: sequentiell / binaer",
+      "source": {
+        "topicId": "LAP-15-06",
+        "selfCheckNumber": 2,
+        "path": "15_Grundkenntnisse_des_Programmierens/06_Suchalgorithmen_sequentiell_binaer/README.md",
+        "slug": "15-06-suchalgorithmen_sequentiell_binaer"
+      },
+      "question": "Welchen Wert untersucht die binäre Suche mit dieser Berechnung zuerst? Die Indexierung beginnt bei 0.",
+      "answers": [
+        "5",
+        "19",
+        "42",
+        "70"
+      ],
+      "correct": 1,
+      "explanation": "left = 0 und right = 4. Damit ist middle = 0 + Math.floor(4 / 2) = 2. Bei Index 2 steht die 19. Dieser Wert wird anschließend mit dem gesuchten Wert verglichen, um den nächsten Suchbereich festzulegen.",
+      "hu": {
+        "question": "Melyik értéket vizsgálja meg először a bináris keresés ezzel a számítással? Az indexelés 0-tól indul.",
+        "answers": [
+          "5",
+          "19",
+          "42",
+          "70"
+        ],
+        "explanation": "A left = 0, a right = 4. Így middle = 0 + Math.floor(4 / 2) = 2. A 2-es indexen a 19 található. Ezt az értéket hasonlítjuk össze a keresett értékkel a következő keresési tartomány kijelöléséhez."
+      },
+      "code": "const values = [5, 11, 19, 42, 70];\nconst left = 0;\nconst right = values.length - 1;\nconst middle = left + Math.floor((right - left) / 2);\nconsole.log(values[middle]);"
+    },
+    {
+      "id": "pilot-LAP-07-07-2",
+      "revision": 1,
+      "topic": "Backup Prinzipien",
+      "source": {
+        "topicId": "LAP-07-07",
+        "selfCheckNumber": 2,
+        "path": "07_IT_Security_und_Betriebssicherheit/07_Backup_Prinzipien/README.md",
+        "slug": "07-07-backup_prinzipien"
+      },
+      "question": "Am Sonntag entsteht ein Vollbackup, am Montag ein inkrementelles Backup. Welche Änderungen sichert das inkrementelle Backup am Dienstag?",
+      "answers": [
+        "Alle Daten seit dem Vollbackup am Sonntag",
+        "Immer sämtliche Daten, auch unveränderte",
+        "Nur Dateien, die am Sonntag bereits existierten",
+        "Die Änderungen seit dem letzten Backup am Montag"
+      ],
+      "correct": 3,
+      "explanation": "Ein inkrementelles Backup erfasst Änderungen seit der letzten Sicherung. Hier ist das die Montagssicherung. Für eine Wiederherstellung bis Dienstag wird bei dieser Sicherungskette das Vollbackup zusammen mit den folgenden benötigten inkrementellen Sicherungen verwendet.",
+      "hu": {
+        "question": "Vasárnap teljes, hétfőn inkrementális mentés készül. Milyen változásokat ment a keddi inkrementális mentés?",
+        "answers": [
+          "A vasárnapi teljes mentés óta történt összes változást",
+          "Mindig minden adatot, a változatlanokat is",
+          "Csak a már vasárnap is létező fájlokat",
+          "A legutóbbi, hétfői mentés óta történt változásokat"
+        ],
+        "explanation": "Az inkrementális mentés a legutóbbi mentés óta történt változásokat rögzíti. Ez itt a hétfői mentés. A keddi állapot helyreállításához ennél a mentési láncnál a teljes mentést és az utána következő szükséges inkrementális mentéseket együtt használjuk."
+      }
+    },
+    {
+      "id": "pilot-LAP-07-07-5",
+      "revision": 1,
+      "topic": "Backup Prinzipien",
+      "source": {
+        "topicId": "LAP-07-07",
+        "selfCheckNumber": 5,
+        "path": "07_IT_Security_und_Betriebssicherheit/07_Backup_Prinzipien/README.md",
+        "slug": "07-07-backup_prinzipien"
+      },
+      "question": "Ein Ordner wird auf ein zweites Gerät synchronisiert. Löschungen werden sofort übernommen; Papierkorb, Versionierung und weitere Sicherungen sind deaktiviert. Lässt sich eine versehentlich gelöschte Datei allein mit dieser Synchronisation wiederherstellen?",
+      "answers": [
+        "Ja, weil eine zweite Kopie immer einen älteren Stand bewahrt",
+        "Ja, sobald die nächste Synchronisation abgeschlossen ist",
+        "Nein, weil die Löschung auch die zweite Kopie entfernt und kein früherer Stand aufbewahrt wird",
+        "Ja, wenn beide Geräte im selben Netzwerk sind"
+      ],
+      "correct": 2,
+      "explanation": "Synchronisation gleicht den aktuellen Zustand ab. In diesem Szenario übernimmt das zweite Gerät die Löschung; ein früherer Stand fehlt. Für die Wiederherstellung brauchen wir eine aufbewahrte Version oder Sicherung. Manche Dienste kombinieren Synchronisation mit Versionierung; diese Funktion ist hier ausdrücklich deaktiviert.",
+      "hu": {
+        "question": "Egy mappát egy második eszközre szinkronizálunk. A törlések azonnal átkerülnek; a lomtár, a verziómegőrzés és a további mentések ki vannak kapcsolva. Visszaállítható egy véletlenül törölt fájl kizárólag ezzel a szinkronizálással?",
+        "answers": [
+          "Igen, mert a második példány mindig megőriz egy korábbi állapotot",
+          "Igen, amint a következő szinkronizálás befejeződik",
+          "Nem, mert a törlés a második példányt is eltávolítja, és nincs megőrzött korábbi állapot",
+          "Igen, ha mindkét eszköz ugyanazon a hálózaton van"
+        ],
+        "explanation": "A szinkronizálás az aktuális állapotokat egyezteti. Ebben a helyzetben a második eszköz is átveszi a törlést, korábbi állapot pedig nincs megőrizve. A helyreállításhoz egy megőrzött verzió vagy mentés kell. Egyes szolgáltatások a szinkronizálást verziómegőrzéssel kombinálják; ezt a példában kifejezetten kikapcsoltuk."
+      }
+    }
+  ]
+}

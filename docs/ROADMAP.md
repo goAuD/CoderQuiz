@@ -25,38 +25,38 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 
 ## Medium-term Goals
 
-- [ ] Add a second module: Applikationsentwicklung-Coding (algorithms, data structures, complexity, basic security coding)
-- [ ] Add a third module: Informatik (general computer science fundamentals)
+- [ ] Build curriculum navigation around the CoderLAP topic hierarchy after pilot review
+- [ ] Expand reviewed questions from existing CoderLAP self-checks
 - [ ] Add a bookmarking / flagging feature for questions the user wants to revisit
 - [ ] Host under coderlap.com domain
 
-## Content expansion sequence
+## Content direction: CoderLAP first
 
-First finish the corrections tracked in [REVIEW.md](REVIEW.md). Increasing the
-count does not by itself increase coverage. Then use small, separately reviewed
-DE/HU batches, starting with the main learning focus: programming.
+CoderLAP already has 1,143 self-check questions and matching short answers in
+228 registered documents, in both DE and HU (read-only inventory, 2026-09-11).
+These include 100 programming, 215 Informatik and 40 IT-security questions.
+The existing CoderQuiz bank was written independently; do not assume its topics
+or questions already map to that curriculum.
 
-| Batch | Proposed scope | Learning tasks |
-| --- | --- | --- |
-| Programming 1: about 20 questions | JavaScript values/types, branches, loops, functions, arrays and objects | Trace a short snippet, predict its output, explain the next step |
-| Programming 2: about 20 | Linear/binary search, bubble sort, collections, complexity, debugging and tests | Trace an iteration, choose a suitable approach, reason about edge cases |
-| Informatik 1: about 20 | CPU/RAM/storage, processes/threads, files and permissions | Apply concepts to concrete system behavior |
-| Informatik 2: about 20 | IP/DNS/HTTP/TLS, relational data, keys, joins and transactions | Follow a request or a small data example |
-| Security 1: about 12–16 additional questions | Authentication/authorization, sessions, password storage, secrets, XSS/SQLi, least privilege | Select and explain a safe implementation in a short scenario |
-| Security 2: about 12–16 additional questions | Backups/restoration, updates, phishing, incident response and threat assessment | Decide what to verify or do next, with reasons |
+1. Review the [eight-question pilot](LAP-PILOT.md) adapted from existing LAP
+   self-checks. Include necessary context/code in each standalone question.
+2. Agree on question and post-answer explanation quality using those samples.
+   There is no separate pre-answer hint feature.
+3. Map existing LAP topics/questions to the quiz and identify adaptations,
+   missing context and ambiguous choices. Keep a traceable source snapshot.
+4. Choose a minimal, versioned content handoff after the pilot. The projects
+   should remain independently developable and releasable; no shared runtime
+   service or automatic synchronization has been introduced.
+5. Review the original 100 questions against the mapping: reuse suitable ones,
+   then decide the role of the remainder. Track their open corrections in
+   [REVIEW.md](REVIEW.md).
 
-These are planning batches, not implemented modules or promised final counts.
-Before adding content, map objectives to the CoderLAP topics and the actual LAP
-curriculum. Keep current IDs and the existing quiz flow; decide the minimal
-module selector only when the first second-module batch is ready. No package or
-backend is needed for static content. Code examples should render as escaped
-`pre`/`code` text; no learner-controlled code execution is needed for tracing.
-
-Acceptance per batch: one clear learning objective per question, one defensible
-correct answer, plausible distinct distractors, aligned DE/HU choices, a positive
-explanation with a worked example where useful, and a primary-source reference
-in the review record. Validate executable example outputs locally. Do not add a
-separate “common exam mistakes” learning section.
+The earlier independent batches of 20 new questions are superseded by this
+source-first approach. Exact curriculum coverage matters more than a count goal.
+Code examples render as escaped text; no learner-controlled execution is needed.
+Each reviewed adaptation needs aligned DE/HU choices, one defensible correct
+answer, a positive explanation, a stable pilot ID and an explicit LAP reference.
+Do not add a separate “common exam mistakes” learning section.
 
 ## Long-term / Stretch Goals
 

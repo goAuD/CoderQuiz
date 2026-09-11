@@ -53,6 +53,16 @@ For a phone on the same trusted Wi-Fi, use `--bind 0.0.0.0` and open
 the phone itself. This preview server has no authentication; use it only on your
 trusted local network and stop it after previewing.
 
+To try the eight questions adapted from existing CoderLAP self-checks:
+
+```sh
+python scripts/preview_lap_pilot.py
+```
+
+Open <http://127.0.0.1:8770/>. This local pilot uses the same quiz engine with a
+separate sample bank. See [LAP-PILOT.md](docs/LAP-PILOT.md) for source mapping and
+review criteria. Explanations appear after answering; there is no separate hint.
+
 ## Adding questions
 
 Append to the `QUESTIONS` array in `questions.js`:
