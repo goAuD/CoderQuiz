@@ -6,7 +6,7 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 
 // A small DOM stand-in runs the real application; browser layout is checked separately.
-function boot(saved = {}, failure = '', reviseQuestion = null, random = () => .37) {
+function boot(saved = {}, failure = '', reviseQuestion = null, random = () => .37, pilot = null) {
   const values = { ...saved };
   class Element {
     constructor() {
@@ -48,7 +48,13 @@ function boot(saved = {}, failure = '', reviseQuestion = null, random = () => .3
     Math: Object.assign(Object.create(Math), { random }),
   });
   for (const file of ['i18n.js', 'questions.js', 'app.js']) {
-    vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), context, { filename: file });
+    const source = file === 'questions.js' && pilot
+      ? 'const QUESTIONS = ' + JSON.stringify(pilot.questions) + ';'
+      : fs.readFileSync(path.join(root, file), 'utf8');
+    vm.runInContext(source, context, { filename: file });
+    if (file === 'i18n.js' && pilot) {
+      for (const lang of ['de', 'hu']) vm.runInContext(`Object.assign(I18N.${lang}, ${JSON.stringify(pilot.ui[lang])})`, context);
+    }
     if (file === 'questions.js' && reviseQuestion !== null) {
       assert.ok(Number.isInteger(reviseQuestion));
       vm.runInContext(`QUESTIONS.find(q => q.id === ${reviseQuestion}).revision = 1`, context);
@@ -152,4 +158,26 @@ test('legacy saves resume unchanged questions but reset when their content was r
   const restored = boot({ 'cq-progress': JSON.stringify(legacy) }, '', legacy.questionIds[0]);
   assert.equal(restored.activeScreen(), 'setup');
   assert.equal(restored.get('session-notice').hidden, false);
+});
+
+test('pilot code stays text, explanations appear after answering, and topic links follow the language', () => {
+  const pilot = JSON.parse(fs.readFileSync(path.join(root, 'examples/lap-pilot.json'), 'utf8'));
+  let app = boot({}, '', null, () => .37, pilot);
+  app.state.selectedTopics = new Set(['Schleifen']); app.init();
+  const q = app.state.questions[0];
+  assert.equal(app.get('question-context').children[0].children[0].textContent, q.code);
+  assert.equal(app.get('explanation-box').classList.contains('hidden'), true);
+  answer(app, false);
+  assert.equal(app.get('explanation-box').classList.contains('hidden'), false);
+  assert.equal(app.get('explanation-source').children[0].href, `https://coderlap.com/topics/${q.source.slug}/`);
+  app.setLang('hu');
+  assert.equal(app.get('explanation-source').children[0].href, `https://coderlap.com/hu/topics/${q.source.slug}/`);
+  app = boot(app.values, '', null, () => .37, pilot);
+  assert.equal(app.state.answered, true);
+  assert.equal(app.get('question-context').children[0].children[0].textContent, q.code);
+  assert.equal(app.get('explanation-text').textContent, q.hu.explanation);
+  app.nextQuestion(); answer(app); app.nextQuestion();
+  const review = app.get('wrong-list').children[0];
+  assert.equal(review.querySelector('.question-code').children[0].textContent, q.code);
+  assert.equal(review.querySelector('.question-source').href, `https://coderlap.com/hu/topics/${q.source.slug}/`);
 });

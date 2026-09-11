@@ -206,3 +206,22 @@ body text, including uppercase accents. The README uses a larger shared logo.
   translates both when switching language.
 - Pinned the CI checkout action to its verified v4.2.2 commit. Semgrep stays local;
   rule downloads are allowed, findings upload/metrics are not enabled.
+
+### 2026-09-11 – CoderLAP question pilot
+
+- The current 100 questions were developed independently of CoderLAP. The new
+  direction reuses LAP self-checks; see ROADMAP.md and LAP-PILOT.md.
+- Eight adaptations live in `examples/lap-pilot.json`, with DE/HU choices and
+  post-answer explanations, a pinned source commit and per-question references.
+- Optional `code` is a JavaScript string displayed using `textContent` inside
+  a keyboard-scrollable `pre`/`code` block. The quiz never executes that string.
+  Optional `source.slug` links the explanation to the selected language's LAP
+  topic. Code and source links also appear in the result review.
+- `python scripts/preview_lap_pilot.py` serves the sample bank on loopback port
+  8770 without copying or replacing the production bank or quiz implementation.
+  Its server refuses port reuse to avoid competing listeners on Windows.
+  Stop the existing server before restarting after Python changes.
+- Fourteen Node tests cover existing behavior, the pilot data, displayed code
+  outputs and source-link/reload behavior. Browser checks completed all eight
+  questions at 390px and restored a DE result at 320px without page overflow;
+  long code lines scroll inside their blocks. Physical iOS remains a device check.

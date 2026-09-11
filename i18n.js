@@ -2,6 +2,7 @@
 
 const I18N = {
   de: {
+    studyTopic: "Im CoderLAP nachlesen",
     workshopLabel: "Deine Lernwerkstatt",
     practiceNote: "Themen wählen, Fragen beantworten, Zusammenhänge verstehen. In deinem Tempo.",
     localNote: "Dein Fortschritt bleibt in diesem Browser.",
@@ -55,6 +56,7 @@ const I18N = {
     }
   },
   hu: {
+    studyTopic: "Kapcsolódó CoderLAP-tananyag",
     workshopLabel: "A tanulóműhelyed",
     practiceNote: "Válassz témákat, válaszolj a kérdésekre, értsd meg az összefüggéseket. A saját tempódban.",
     localNote: "A haladásod ebben a böngészőben marad.",
