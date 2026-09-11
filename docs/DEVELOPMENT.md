@@ -311,3 +311,23 @@ body text, including uppercase accents. The README uses a larger shared logo.
   returned zero findings/errors with the existing exclusions and metrics off.
 - The new FAB itself still needs a physical iPhone check. No dependency or
   deployment change was required; refresh the running LAN preview to try it.
+
+### 2026-09-11 – Header/footer parity across the three apps
+
+- Added `assets/workshop-frame.css`, identical to CoderLAP/site/assets/css and
+  CoderCoaster/assets. It owns frame styling after app styles: full width,
+  safe-area-aware 1rem gutters, matching brand/control sizes, sticky header,
+  mobile rows, footer title/link alignment and bottom strip. Keep copies identical.
+- Wrapped the header page link separately from GitHub/language controls and
+  adopted the same GitHub brand SVG. Local Lucide `arrow-up` and `arrow-up-right`
+  replace font/emoji arrows; upstream commit:
+  `a79b2d131dab2bf20cb224bd0937b439a9c4fa99`, notices in LICENSE-Lucide.txt.
+  No icon runtime or CDN was added. Product/GitHub logos remain brand marks.
+- Apache 2.0 now lives in the footer license/source strip, including LAP previews.
+  Heading scroll margins keep focused question text clear of the sticky header.
+- All 31 Node tests pass. Cross-app layout checks at 320/390/844/1920px found no
+  page overflow or logo/control collision; 390px headers/language controls align.
+  A question/answer round works with the sticky header. Local Semgrep on scripts
+  returned zero findings/errors with existing exclusions and metrics/version checks off.
+- Separate LAP/Coaster branches carry their matching copies. Physical iPhone
+  frame review remains pending; compare previews against the fresh LAP build.
