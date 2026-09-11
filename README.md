@@ -63,9 +63,21 @@ Open <http://127.0.0.1:8770/>. This local pilot uses the same quiz engine with a
 separate sample bank. See [LAP-PILOT.md](docs/LAP-PILOT.md) for source mapping and
 review criteria. Explanations appear after answering; there is no separate hint.
 
+The first programming batch covers all five self-checks in LAP-15-01 through
+LAP-15-07: 35 DE/HU questions. Start its separate preview with:
+
+```sh
+python scripts/preview_lap_pilot.py --bank lap-programming-1
+```
+
+Open <http://127.0.0.1:8771/>. Keep a separate port per bank to preserve each
+practice session. See [the batch notes](docs/LAP-PILOT.md#programming-batch-1).
+
 ## Adding questions
 
-Append to the `QUESTIONS` array in `questions.js`:
+New curriculum work belongs in the LAP-based banks under `examples/`, following
+the pinned source mapping in [LAP-PILOT.md](docs/LAP-PILOT.md). Expansion of the
+original 100-question bank is paused. Its existing `QUESTIONS` format remains:
 
 ```js
 {

@@ -4,6 +4,9 @@ Eight DE/HU multiple-choice adaptations from six existing CoderLAP subtopics.
 The canonical pilot data is [examples/lap-pilot.json](../examples/lap-pilot.json).
 The original 100-question bank is not part of this pilot.
 
+The user approved this first sample. Curriculum expansion now proceeds topic by
+topic; see [Programming batch 1](#programming-batch-1) below.
+
 “Hint” in this project discussion means the **explanation after answering**.
 There is no separate clue, help button, hint penalty or multi-stage hint system.
 
@@ -76,3 +79,73 @@ automatic content synchronization, hosting or shared authentication. Those
 decisions follow the content review. The next batch should reuse LAP questions,
 with reviewed adaptations where needed, instead of setting an arbitrary new
 question-count target.
+
+## Programming batch 1
+
+`examples/lap-programming-1.json` contains **35 DE/HU questions**, five per
+subtopic, adapted from all self-check positions in LAP-15-01 through LAP-15-07.
+It uses the same pinned CoderLAP commit as the eight-question pilot. The original
+pilot remains a separate sample; its sorting and search topics overlap this
+batch, so do not concatenate both banks as though every source were unique.
+
+```sh
+python scripts/preview_lap_pilot.py --bank lap-programming-1
+```
+
+Open <http://127.0.0.1:8771/>. The default bank still uses 8770; the programming
+bank defaults to 8771. An explicit `--port` can override the default, but use a
+different origin per bank because browser storage is scoped to the origin.
+Both previews bind to loopback only. Restart after changing the Python server;
+JSON, CSS and JavaScript changes are read on subsequent requests.
+
+| LAP topic | Self-check positions | Adaptation focus |
+| --- | --- | --- |
+| 15-01 · Development lifecycle | 1–5 | Concrete requirements versus design; introduction and maintenance; phases allow feedback |
+| 15-02 · Procedural and object-oriented programming | 1–5 | Function-oriented workflow; object state and behavior; separate class instances; task-appropriate structure |
+| 15-03 · Algorithm | 1–5 | Precise summation steps, language-independent logic, finite countdown and efficiency |
+| 15-04 · Pseudocode | 1–5 | Traceable notation, language independence, design use, implementation and an explicit boundary |
+| 15-05 · Bubble Sort / Quick Sort | 1–5 | First pass, early exit, duplicate preservation, recursion and empty/singleton copies |
+| 15-06 · Linear / binary search | 1–5 | Index versus value, midpoint, excluded search range, empty input and presorting cost |
+| 15-07 · Program development workflow | 1–5 | Clarify input/output, plan, test examples and edges, debugger steps and iterative correction |
+
+Source questions are adapted editorially, rather than mechanically converted.
+The 15-05/5 question displays Quick Sort's empty/singleton behavior and explains
+the corresponding Bubble Sort copy behavior; tests verify both functions. The
+15-06/4 question displays binary search and explains the linear empty case;
+tests again verify both. Newly added illustrative examples stay within the
+source concept and are not claimed to be verbatim LAP snippets.
+
+Question IDs `lap-LAP-15-01-1` etc. identify these adaptations; keep them stable
+and increment `revision` for semantic changes. Source positions refer to the
+pinned snapshot, not to a future reordered document. No automatic import or
+cross-bank progress migration is implemented.
+
+There are **12 complete JavaScript snippets and one pseudocode example**.
+Optional `codeLanguage` is `javascript` or `pseudocode`; omitted means JavaScript
+for compatibility with the pilot. A visible, accessible label distinguishes the
+notations, including Hungarian “Pszeudokód”. The browser still displays code as
+text only. `expectedOutput` holds checked console lines for JavaScript examples;
+it is test/reuse metadata and is not rendered as an extra pre-answer clue.
+Pseudocode is traced by hand and has no executable-output claim.
+
+Validation for this batch:
+
+- All 20 Node tests pass, including all 35 questions through the real quiz code,
+  DE/HU feedback, language labels, mid-run restoration and final score reload.
+- All 12 JavaScript snippets produce their recorded outputs. Sorting preserves
+  inputs and duplicates; empty/singleton, search hit/miss and summation edge
+  cases pass. The pseudocode trace produces 6 for [2, 4].
+- All 35 paths, slugs and topic labels match the pinned LAP registry. Both source
+  languages have five self-check positions in each of the seven subtopics.
+- A browser run completed all 35 questions at 390/320px, switching HU to DE and
+  reloading mid-run, without page overflow. Code blocks scroll internally.
+  Physical iOS remains a device check; this batch awaits the user's content review.
+- Local Semgrep (`p/javascript`, `p/python`, `p/security-audit`, the same three
+  exclusions as above) reports zero findings and zero errors for `app.js`,
+  `i18n.js`, `scripts` and `tests`; metrics and version checks are disabled.
+  HTTP checks confirm both banks, asset HEAD responses and blocked repository
+  paths, including encoded traversal. No browser console errors were recorded.
+
+Next: programming subtopics 08–14, then 15–20. Expansion of the original 100
+questions is paused. Coaster reuse, curriculum navigation, publishing and shared
+authentication remain separate work.
