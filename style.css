@@ -526,6 +526,9 @@ main {
 .wi-correct {
   color: var(--color-correct);
 }
+.wi-explanation {
+  margin-top: var(--space-3);
+}
 .wi-label {
   font-weight: 650;
 }
@@ -579,6 +582,12 @@ main {
 .noscript-note {
   margin: var(--space-7) auto;
   padding-inline: var(--page-left) var(--page-right);
+}
+.session-notice {
+  margin: var(--space-5) auto 0;
+  padding-inline: var(--page-left) var(--page-right);
+  max-width: 70rem;
+  color: var(--color-text-muted);
 }
 @media (hover: hover) {
   .primary-btn:hover {

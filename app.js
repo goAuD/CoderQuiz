@@ -3,6 +3,21 @@
 const STORAGE_LANG     = "cq-lang";
 const STORAGE_TOPICS   = "cq-topics";
 const STORAGE_PROGRESS = "cq-progress";
+let storageFailed = false;
+let restoreDiscarded = false;
+
+// Browsers may block storage or run out of space. Practice still works in memory.
+function readStorage(key) {
+  try { return localStorage.getItem(key); }
+  catch { storageFailed = true; return null; }
+}
+function writeStorage(key, value) {
+  try {
+    if (value === null) localStorage.removeItem(key);
+    else localStorage.setItem(key, value);
+  } catch { storageFailed = true; }
+  updateSessionNotice();
+}
 
 const state = {
   questions:     [],
@@ -12,11 +27,17 @@ const state = {
   results:       [],  // { questionId, correct, correctOriginalIdx, selectedOriginalIdx }
   shuffledOrder: [],  // permutation of answer indices for the current question
   selectedTopics: new Set(),
-  lang:          localStorage.getItem(STORAGE_LANG) || "de",
+  lang:          "de",
 };
 
 const $ = id => document.getElementById(id);
 const t = key => I18N[state.lang][key];
+
+function updateSessionNotice() {
+  const notice = $("session-notice");
+  notice.hidden = !storageFailed && !restoreDiscarded;
+  notice.textContent = storageFailed ? t("storageUnavailable") : restoreDiscarded ? t("sessionReset") : "";
+}
 
 function shuffle(arr) {
   const a = [...arr];
@@ -75,11 +96,13 @@ function applyStaticI18n() {
     btn.classList.toggle("active", btn.dataset.lang === state.lang);
     btn.setAttribute("aria-pressed", btn.dataset.lang === state.lang);
   });
+  updateSessionNotice();
 }
 
 function setLang(lang) {
+  if (!Object.hasOwn(I18N, lang)) return;
   state.lang = lang;
-  localStorage.setItem(STORAGE_LANG, lang);
+  writeStorage(STORAGE_LANG, lang);
   applyStaticI18n();
   const screen = activeScreen();
   if (screen === "setup")  updateSetupScreen();
@@ -95,17 +118,18 @@ function allTopics() {
 
 function loadTopics() {
   try {
-    const saved = localStorage.getItem(STORAGE_TOPICS);
+    const saved = readStorage(STORAGE_TOPICS);
     if (saved) {
       const arr = JSON.parse(saved);
-      if (Array.isArray(arr) && arr.length > 0) return new Set(arr);
+      const valid = Array.isArray(arr) ? arr.filter(topic => allTopics().includes(topic)) : [];
+      if (valid.length > 0) return new Set(valid);
     }
   } catch {}
   return new Set(allTopics());
 }
 
 function saveTopics() {
-  localStorage.setItem(STORAGE_TOPICS, JSON.stringify([...state.selectedTopics]));
+  writeStorage(STORAGE_TOPICS, JSON.stringify([...state.selectedTopics]));
 }
 
 function filteredQuestions() {
@@ -156,8 +180,9 @@ function showSetupScreen() {
 // ── Progress persistence ──────────────────────────────────────────────────
 
 function saveProgress() {
-  localStorage.setItem(STORAGE_PROGRESS, JSON.stringify({
+  writeStorage(STORAGE_PROGRESS, JSON.stringify({
     questionIds:   state.questions.map(q => q.id),
+    questionRevisions: state.questions.map(q => q.revision || 0),
     current:       state.current,
     score:         state.score,
     results:       state.results,
@@ -169,31 +194,59 @@ function saveProgress() {
 }
 
 function clearProgress() {
-  localStorage.removeItem(STORAGE_PROGRESS);
+  writeStorage(STORAGE_PROGRESS, null);
+}
+
+function validateProgress(snap) {
+  if (!snap || !Array.isArray(snap.questionIds) || !snap.questionIds.length
+      || new Set(snap.questionIds).size !== snap.questionIds.length) return null;
+  const questions = snap.questionIds.map(id => QUESTIONS.find(q => q.id === id));
+  if (questions.some(q => !q)) return null;
+  const revisions = snap.questionRevisions ?? questions.map(() => 0);
+  if (!Array.isArray(revisions) || revisions.length !== questions.length
+      || questions.some((q, i) => revisions[i] !== (q.revision || 0))) return null;
+  if (!['quiz', 'result'].includes(snap.screen) || !Number.isInteger(snap.current)
+      || typeof snap.answered !== 'boolean' || !Array.isArray(snap.results)) return null;
+  const finished = snap.screen === 'result';
+  if (finished ? snap.current !== questions.length || !snap.answered
+    : snap.current < 0 || snap.current >= questions.length) return null;
+  if (snap.results.length !== (finished ? questions.length : snap.current + Number(snap.answered))) return null;
+  if (!Array.isArray(snap.topics) || !snap.topics.length
+      || snap.topics.some(topic => !allTopics().includes(topic))
+      || questions.some(q => !snap.topics.includes(q.topic))) return null;
+  const order = snap.shuffledOrder;
+  if (!Array.isArray(order) || order.length !== 4 || new Set(order).size !== 4
+      || order.some(i => !Number.isInteger(i) || i < 0 || i >= 4)) return null;
+  if (snap.results.some((result, i) => !result || result.questionId !== questions[i].id
+      || !Number.isInteger(result.selectedOriginalIdx)
+      || result.selectedOriginalIdx < 0 || result.selectedOriginalIdx >= 4)) return null;
+  // Stored totals and correctness flags are derived data, not the source of truth.
+  const results = snap.results.map((result, i) => ({
+    questionId: questions[i].id,
+    selectedOriginalIdx: result.selectedOriginalIdx,
+    correctOriginalIdx: questions[i].correct,
+    correct: result.selectedOriginalIdx === questions[i].correct,
+  }));
+  return { questions, results, score: results.filter(result => result.correct).length };
 }
 
 function tryRestoreProgress() {
   try {
-    const raw = localStorage.getItem(STORAGE_PROGRESS);
+    const raw = readStorage(STORAGE_PROGRESS);
     if (!raw) return false;
     const snap = JSON.parse(raw);
 
-    const questions = snap.questionIds
-      .map(id => QUESTIONS.find(q => q.id === id))
-      .filter(Boolean);
-    if (questions.length !== snap.questionIds.length) { clearProgress(); return false; }
+    const restored = validateProgress(snap);
+    if (!restored) { restoreDiscarded = true; clearProgress(); return false; }
 
-    state.questions      = questions;
+    state.questions      = restored.questions;
     state.current        = snap.current;
-    state.score          = snap.score;
-    state.results        = snap.results;
+    state.score          = restored.score;
+    state.results        = restored.results;
     state.selectedTopics = new Set(snap.topics);
 
-    const restoreAnswered = snap.answered === true
-      && Array.isArray(snap.shuffledOrder)
-      && snap.shuffledOrder.length === 4;
-    state.answered      = restoreAnswered;
-    state.shuffledOrder = restoreAnswered ? snap.shuffledOrder : [];
+    state.answered      = snap.answered;
+    state.shuffledOrder = snap.shuffledOrder;
 
     applyStaticI18n();
     if (snap.screen === "result") {
@@ -201,10 +254,11 @@ function tryRestoreProgress() {
       showResults();
     } else {
       showScreen("quiz");
-      renderQuestion(restoreAnswered);
+      renderQuestion(true);
     }
     return true;
   } catch {
+    restoreDiscarded = true;
     clearProgress();
     return false;
   }
@@ -213,6 +267,8 @@ function tryRestoreProgress() {
 // ── Quiz ──────────────────────────────────────────────────────────────────
 
 function init() {
+  if (!filteredQuestions().length) state.selectedTopics = new Set(allTopics());
+  restoreDiscarded = false;
   clearProgress();
   state.questions     = shuffle(filteredQuestions());
   state.current       = 0;
@@ -223,6 +279,7 @@ function init() {
   showScreen("quiz");
   applyStaticI18n();
   renderQuestion();
+  saveProgress();
   $("question-text").focus();
 }
 
@@ -307,7 +364,8 @@ function showFeedback(question, result) {
 }
 
 function selectAnswer(selectedDisplayIdx) {
-  if (state.answered) return;
+  if (state.answered || !Number.isInteger(selectedDisplayIdx)
+      || selectedDisplayIdx < 0 || selectedDisplayIdx >= state.shuffledOrder.length) return;
   state.answered = true;
 
   const q               = state.questions[state.current];
@@ -337,6 +395,7 @@ function selectAnswer(selectedDisplayIdx) {
 }
 
 function nextQuestion() {
+  if (!state.answered || state.current >= state.questions.length) return;
   state.current++;
   if (state.current >= state.questions.length) {
     showResults();
@@ -420,7 +479,11 @@ function renderWrongAnswers() {
     correctP.appendChild(correctLabel);
     correctP.append(` ${answers[r.correctOriginalIdx]}`);
 
-    div.append(qp, givenP, correctP);
+    const explanation = document.createElement("p");
+    explanation.className = "wi-explanation";
+    explanation.textContent = getQ(q, "explanation");
+
+    div.append(qp, givenP, correctP, explanation);
     container.appendChild(div);
   });
 }
@@ -428,6 +491,8 @@ function renderWrongAnswers() {
 // ── Bootstrap ─────────────────────────────────────────────────────────────
 
 document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = readStorage(STORAGE_LANG);
+  state.lang = Object.hasOwn(I18N, savedLang) ? savedLang : 'de';
   $("next-btn").addEventListener("click", nextQuestion);
   $("restart-btn").addEventListener("click", () => {
     clearProgress();

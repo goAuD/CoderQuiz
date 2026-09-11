@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/questions-100-a78bfa?style=flat-square" alt="100 questions" />
   <img src="https://img.shields.io/badge/languages-DE_%2F_HU-5b6af0?style=flat-square" alt="DE / HU" />
   <img src="https://img.shields.io/badge/dependencies-none-22c55e?style=flat-square" alt="No dependencies" />
-  <img src="https://img.shields.io/badge/CI-passing-22c55e?style=flat-square" alt="CI" />
+  <img src="https://github.com/goAuD/CoderQuiz/actions/workflows/ci.yml/badge.svg?branch=dev" alt="CI on dev" />
 </p>
 
 The Műhely interface follows CoderLAP: light surfaces, blue accents, locally served
@@ -65,7 +65,7 @@ Append to the `QUESTIONS` array in `questions.js`:
   answers: ["Option A", "Option B", "Option C", "Option D"],
   correct: 2,          // 0-based index into answers[]
   explanation: "Why this answer is correct.",
-  hu: {                // optional Hungarian translation
+  hu: {                // required for published questions; keep answer indices aligned
     question: "...",
     answers: ["...", "...", "...", "..."],
     explanation: "..."
@@ -74,6 +74,18 @@ Append to the `QUESTIONS` array in `questions.js`:
 ```
 
 Answers are shuffled at render time - write them in whatever order is clearest.
+Keep IDs stable. When changing an existing question's meaning, choices, correct
+answer or explanation, increase its `revision` integer (omitted means `0`). This
+prevents an older saved answer being interpreted against revised content.
+
+Run validation with Node.js 20 or newer; no package installation is needed:
+
+```sh
+node --test tests/*.test.cjs
+```
+
+The tests cover saved sessions, shuffle/score behavior and bilingual data structure.
+They do not establish factual accuracy; questions also need source and language review.
 
 ## Tech
 
@@ -87,6 +99,8 @@ Answers are shuffled at render time - write them in whatever order is clearest.
 - Keyboard focus, text-based answer feedback, reduced-motion support and iOS safe-area spacing
 
 See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for validation and design maintenance.
+The [release review](docs/REVIEW.md) records corrected questions, source references
+and remaining editorial work; this bank is not yet a complete LAP curriculum.
 
 ## License
 
