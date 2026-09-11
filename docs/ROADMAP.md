@@ -11,6 +11,8 @@ CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship 
 - Tech: Vanilla HTML/CSS/JS, no dependencies, no build step
 - Interface: CoderLAP Műhely style, local fonts, DE/HU mobile and keyboard support
 - Hosting: local / file:// for now
+- LAP previews: approved eight-question pilot and two approved programming
+  batches covering 70 distinct source self-checks; integrated into `dev`.
 
 ## Short-term Goals
 
@@ -43,8 +45,8 @@ or questions already map to that curriculum.
    There is no separate pre-answer hint feature.
 2. Work by source topic, starting with programming. Its 20 subtopics are split
    into three reviewable batches: 01–07, 08–14 and 15–20. The user has checked
-   and approved batch 1 (35 questions, port 8771). Batch 2 adds 35 DE/HU
-   adaptations for 08–14, ready for user review on port 8772. Together these
+   and approved both batch 1 (35 questions, port 8771) and batch 2 (35 DE/HU
+   adaptations for 08–14, port 8772). Both are merged into `dev` and together
    cover 70 distinct source positions. The remaining batch is 15–20.
 3. Map existing LAP topics/questions to the quiz and identify adaptations,
    missing context and ambiguous choices. Keep a traceable source snapshot.
