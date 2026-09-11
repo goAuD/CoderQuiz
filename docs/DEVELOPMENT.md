@@ -152,7 +152,8 @@ If you are continuing this project in a new conversation, the key context is:
 - Reused CoderLAP's palette, typefaces, code-bracket icon and corner radii.
   Design tokens live in `style.css`; keep shared values aligned with CoderLAP's
   `site/assets/css/base.css`. There is no shared package or build dependency.
-- Copied the two runtime WOFF2 fonts and their OFL licenses from CoderLAP.
+- Copied Manrope and Source Sans 3, each with Latin and Latin Extended WOFF2
+  subsets and their OFL licenses from CoderLAP.
   All runtime assets load locally. Keep each font's license when redistributing.
 - Setup uses a desktop introduction beside the topic selector, stacked on mobile.
   Quiz and result screens retain a narrower reading width. Mobile header rows
@@ -180,5 +181,11 @@ Validation for interface changes:
 4. Switch language and reload after an answer and at the result screen. Check the
    answer order, saved selection, score and translated feedback. Restart and check
    that the saved result clears. Use keyboard navigation and reduced motion too.
-5. Verify all runtime asset URLs are local and the two font files return successfully.
+5. Verify all runtime asset URLs are local and the four font files return successfully.
    Physical iOS scrolling/safe areas remain a device check before deployment.
+
+The initial font binding mixed system glyphs with local fonts: Manrope Latin
+lacked Hungarian `ő/ű`, while Source Sans 3 Latin Extended lacked most basic Latin
+characters. Both subsets are now declared with ranges matching their character
+maps. When adjusting typography, check `Árvíztűrő tükörfúrógép` in headings and
+body text, including uppercase accents. The README uses a larger shared logo.
