@@ -91,8 +91,9 @@ python scripts/preview_lap_pilot.py --bank lap-programming-3
 ```
 
 Open <http://127.0.0.1:8773/>. All three curriculum batches together cover the
-100 self-check positions across all 20 programming subtopics. Batch 3 awaits
-user review; the banks remain separate previews. See [batch 3 notes](docs/LAP-PILOT.md#programming-batch-3).
+100 self-check positions across all 20 programming subtopics. All three batches
+are approved and merged into `dev`; they remain separate previews.
+See [batch 3 notes](docs/LAP-PILOT.md#programming-batch-3).
 
 For iPhone testing on the same trusted LAN, start an additional listener on
 your computer's LAN address (replace the example IP with your own):
@@ -154,6 +155,7 @@ They do not establish factual accuracy; questions also need source and language 
 - Műhely design tokens in `style.css`; shared visual identity with CoderLAP
 - Local fonts and assets; no analytics, advertising, CDN requests or runtime packages
 - Keyboard focus, text-based answer feedback, reduced-motion support and iOS safe-area spacing
+- A localized back-to-top button appears after scrolling 400px, with room below footer links
 
 See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for validation and design maintenance.
 The [release review](docs/REVIEW.md) records corrected questions, source references
