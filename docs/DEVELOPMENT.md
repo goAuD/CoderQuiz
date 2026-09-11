@@ -6,20 +6,20 @@ This file tracks progress, decisions, and context so any conversation thread can
 
 - Working name: CoderQuiz (umbrella)
 - First module: DSGVO and Law for LAP Applikationsentwicklung-Coding (Austria)
-- Repo: C:\GitHub\CoderQuiz (local), will mirror to GitHub
+- Repo: D:\GitHub\CoderQuiz (local), https://github.com/goAuD/CoderQuiz
 - License: Apache 2.0
 
 ## Architecture decisions
 
-**No build step.** The quiz is three files: index.html, style.css, questions.js, app.js. Open index.html in a browser and it works. This was a deliberate choice to keep the contribution barrier low and avoid toolchain rot.
+**No build step.** The quiz uses index.html, style.css, i18n.js, questions.js and app.js, plus local assets. Open index.html in a browser and it works. This was a deliberate choice to keep the contribution barrier low and avoid toolchain rot.
 
 **Questions as a plain JS array.** QUESTIONS in questions.js is a global const loaded before app.js. Each entry is an object with id, topic, question, answers[], correct (0-based index), and explanation. This makes questions easy to edit in any text editor without understanding the app code.
 
-**Answer shuffling.** Early versions had all correct answers at position 1 (B), making the quiz gameable. A manual C,A,D,B rotation was added as a workaround, but this was still a predictable pattern a careful student could exploit. The proper fix (2026-05-04) is to shuffle each question's answer array at render time in app.js: answers are mapped to `{text, isCorrect}` objects, shuffled via Fisher-Yates, and the correct answer is identified by the `isCorrect` flag rather than by index. The `correct` field in questions.js remains a 0-based index into the source `answers[]` array and is only used to set `isCorrect` before the shuffle.
+**Answer shuffling.** Early versions used predictable correct-answer positions. The current app uses Fisher-Yates to shuffle an array of source indices (`state.shuffledOrder`). The displayed answer maps back to its original index for scoring; `correct` in questions.js remains the 0-based index in the source `answers[]` array. Language switches preserve this permutation.
 
 **SVG score ring.** The result screen shows a donut/ring chart. The ring animation uses strokeDashoffset on a circle element. The percentage text inside the SVG is a text element updated directly in app.js (showResults function). An earlier version tried a MutationObserver approach from an inline script in index.html, which was fragile and was removed.
 
-**Dynamic question count in subtitle.** The subtitle is rendered entirely by `applyStaticI18n()` using the `subtitle(n)` function from i18n.js, which receives `QUESTIONS.length`. No HTML change is needed when questions are added or removed.
+**Dynamic question count.** The module stats and start button derive their counts from `QUESTIONS` and the selected topics. The subtitle is localized introductory copy. No HTML change is needed when questions are added or removed.
 
 **Internationalisation (i18n).** All UI strings live in `i18n.js` as an `I18N` object keyed by language code (`de`, `hu`). The active language is stored in `state.lang` and persisted via `localStorage` (`cq-lang`). The helper `t(key)` reads from the active language. The `html[lang]` attribute is updated on language change for accessibility.
 
@@ -114,7 +114,7 @@ Answer shuffle uses a permutation index array (`state.shuffledOrder`) rather tha
 
 ## Known issues / tech debt
 
-- The question id field is not actually used by the quiz logic; it is there for human reference only
+- Question IDs identify saved progress and review entries; keep them stable and unique.
 - No linter or formatter configured; code style is informal but consistent
 
 ### 2026-05-05 - Session 7
@@ -143,6 +143,42 @@ If you are continuing this project in a new conversation, the key context is:
 - app.js flow: load -> tryRestoreProgress() or showSetupScreen() -> init() on start -> quiz -> showResults()
 - localStorage keys: cq-lang (language), cq-topics (selected topic names array), cq-progress (quiz state JSON)
 - Active branch is dev; main is the stable branch
-- Next milestone: GitHub Actions workflow (JS lint, question count check), then GitHub Pages deploy
-- Logo inline SVG in header; logo click → showSetupScreen() (no progress clear); logo.svg also used as favicon
+- CI checks syntax, question count and unique IDs; authenticated hosting is a separate milestone (see ROADMAP.md).
+- Header image and favicon share assets/logo.svg; logo click → showSetupScreen() (no progress clear).
 - Tauri desktop wrapper is the long-term target
+
+### 2026-09-11 – Műhely interface
+
+- Reused CoderLAP's palette, typefaces, code-bracket icon and corner radii.
+  Design tokens live in `style.css`; keep shared values aligned with CoderLAP's
+  `site/assets/css/base.css`. There is no shared package or build dependency.
+- Copied the two runtime WOFF2 fonts and their OFL licenses from CoderLAP.
+  All runtime assets load locally. Keep each font's license when redistributing.
+- Setup uses a desktop introduction beside the topic selector, stacked on mobile.
+  Quiz and result screens retain a narrower reading width. Mobile header rows
+  align brand/CoderLAP on the left and GitHub/language controls on the right.
+- Header stays in normal document flow, with safe-area spacing and no sticky blur.
+  Screen reveal is restrained and respects reduced motion. No artificial loader:
+  questions are bundled locally and ready when the app starts.
+- Topic and language buttons expose `aria-pressed`; topic selection retains focus.
+  Question/result transitions focus the new heading. Answer feedback includes
+  localized text and a status region, alongside the green/red visual state.
+- Score and completed-question progress update immediately after answering.
+  The progress bar reaches 100% after the last answer. Scoring thresholds,
+  question data, answer shuffling and localStorage keys remain unchanged.
+- CoderLAP links follow the selected DE/HU language. New footer copy is localized.
+
+Validation for interface changes:
+
+1. Run `node --check app.js`, `node --check i18n.js`, `node --check questions.js`
+   and the question-count/unique-ID checks in `.github/workflows/ci.yml`.
+2. Preview using the command in README. Check DE/HU at desktop, 320–390px mobile
+   and landscape widths; verify long words, focus outlines and touch targets.
+3. Select only Datenpannen (4 questions), verify the last topic cannot be deselected,
+   then complete a run with both correct and incorrect answers. Check immediate
+   score, text feedback, 100% completion and the result review.
+4. Switch language and reload after an answer and at the result screen. Check the
+   answer order, saved selection, score and translated feedback. Restart and check
+   that the saved result clears. Use keyboard navigation and reduced motion too.
+5. Verify all runtime asset URLs are local and the two font files return successfully.
+   Physical iOS scrolling/safe areas remain a device check before deployment.
