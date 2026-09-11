@@ -35,6 +35,7 @@ function boot(saved = {}, failure = '', reviseQuestion = null, random = () => .3
   };
   let start;
   const context = vm.createContext({
+    window: { scrollY: 0, addEventListener() {} },
     document: {
       documentElement: {}, getElementById: get, createElement: () => new Element(),
       querySelectorAll: selector => selector === '.answer-btn' ? get('answers-list').children : [],

@@ -2,6 +2,7 @@
 
 const I18N = {
   de: {
+    backToTop: "Zurück nach oben",
     pseudocodeLabel: "Pseudocode",
     studyTopic: "Im CoderLAP nachlesen",
     workshopLabel: "Deine Lernwerkstatt",
@@ -57,6 +58,7 @@ const I18N = {
     }
   },
   hu: {
+    backToTop: "Vissza a tetejére",
     pseudocodeLabel: "Pszeudokód",
     studyTopic: "Kapcsolódó CoderLAP-tananyag",
     workshopLabel: "A tanulóműhelyed",

@@ -72,6 +72,8 @@
   --content-width: 70rem;
   --page-left: max(1.25rem, env(safe-area-inset-left, 0px));
   --page-right: max(1.25rem, env(safe-area-inset-right, 0px));
+  --floating-button-bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+  --floating-button-clearance: calc(var(--touch-target) + var(--floating-button-bottom) + var(--space-4));
 }
 *, *::before, *::after {
   box-sizing: border-box;
@@ -563,9 +565,30 @@ main {
 .site-footer {
   margin-top: auto;
   border-top: 1px solid var(--color-border);
-  padding-block: var(--space-6) max(var(--space-6), env(safe-area-inset-bottom, 0px));
+  padding-block: var(--space-6) var(--floating-button-clearance);
   color: var(--color-text-muted);
   font-size: .95rem;
+}
+.back-to-top {
+  position: fixed;
+  right: var(--page-right);
+  bottom: var(--floating-button-bottom);
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-surface-raised);
+  color: var(--color-text-muted);
+  box-shadow: 0 2px 8px rgb(30 48 71 / 8%);
+  cursor: pointer;
+}
+.back-to-top[hidden] { display: none; }
+.back-to-top:hover, .back-to-top:focus-visible {
+  color: var(--color-text);
+  border-color: var(--color-accent-border);
 }
 .footer-inner {
   display: grid;
