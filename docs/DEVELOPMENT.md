@@ -309,8 +309,8 @@ body text, including uppercase accents. The README uses a larger shared logo.
   localized labels, unchanged result score and footer-link clearance at the
   page bottom. Console errors: zero. Local Semgrep on app.js, i18n.js and tests
   returned zero findings/errors with the existing exclusions and metrics off.
-- The new FAB itself still needs a physical iPhone check. No dependency or
-  deployment change was required; refresh the running LAN preview to try it.
+- The user subsequently approved the Quiz UI and authorized the merge. PR #11
+  is merged; no dependency or deployment configuration change was required.
 
 ### 2026-09-11 – Header/footer parity across the three apps
 
@@ -329,5 +329,7 @@ body text, including uppercase accents. The README uses a larger shared logo.
   page overflow or logo/control collision; 390px headers/language controls align.
   A question/answer round works with the sticky header. Local Semgrep on scripts
   returned zero findings/errors with existing exclusions and metrics/version checks off.
-- Separate LAP/Coaster branches carry their matching copies. Physical iPhone
-  frame review remains pending; compare previews against the fresh LAP build.
+- The user approved the shared frame. PR #12 is merged into `dev`; the resulting
+  commit is `e464d1766000e35b963bfe5745ca07cc98653529`. CI and CodeQL passed.
+  Coaster PR #3 and LAP PRs #34/#35 are also merged; LAP alone is deployed.
+  Hosting/DNS/shared sign-in for Quiz and Coaster are the next session's task.
