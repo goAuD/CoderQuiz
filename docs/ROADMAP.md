@@ -1,5 +1,18 @@
 # CoderQuiz - Roadmap
 
+## Cross-project order — 2026-09-30
+
+The shared execution order is maintained in the CoderLAP
+[learning-platform roadmap](https://github.com/goAuD/CoderLAP/blob/dev/docs/plans/2026-09-30-learning-platform-roadmap.md).
+Documentation PR #13 is merged into `dev` (`ed0c41c`). Before deployment, make
+the approved LAP programming banks available from a normal static entry point;
+the preview server's bank substitution is not a production delivery mechanism.
+Then verify hosting, DNS, TLS and access protection before enabling LAP links.
+Progress/search work and the SkillDisplay pilot have separate scopes in that
+plan. Its new document is being introduced in the companion LAP documentation PR.
+
+The sections below retain the Quiz-specific content and implementation detail.
+
 CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship exams (LAP) and related IT certifications. The current module covers DSGVO and legal topics for the Applikationsentwicklung-Coding exam.
 
 ## Current State
