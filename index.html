@@ -37,6 +37,43 @@
     </div>
   </header>
   <!-- page content -->
+  <section id="quiz-loading" class="loading-panel" aria-label="Quiz" hidden>
+    <p id="quiz-loading-status" role="status">
+      <span lang="de">Das Quiz wird geladen.</span>
+      <span lang="hu" hidden>A kvíz betöltése folyamatban.</span>
+    </p>
+    <div id="quiz-loading-content" aria-busy="true">
+      <div id="quiz-skeleton" class="loading-layout" aria-hidden="true">
+        <div class="skeleton-intro">
+          <div class="skeleton-bar skeleton-short"></div>
+          <div class="skeleton-bar skeleton-title"></div>
+          <div class="skeleton-bar"></div>
+          <div class="skeleton-bar skeleton-short"></div>
+        </div>
+        <div class="card skeleton-card">
+          <div class="skeleton-bar skeleton-title"></div>
+          <div class="skeleton-bar skeleton-short"></div>
+          <div class="topic-chips">
+            <div class="skeleton-bar skeleton-control"></div>
+            <div class="skeleton-bar skeleton-control"></div>
+            <div class="skeleton-bar skeleton-control"></div>
+            <div class="skeleton-bar skeleton-control"></div>
+          </div>
+          <div class="skeleton-bar skeleton-control"></div>
+        </div>
+      </div>
+      <div id="quiz-load-error" class="card" hidden>
+        <p role="alert">
+          <span lang="de">Das Quiz konnte nicht geladen werden. Prüfe deine Verbindung und versuche es erneut.</span>
+          <span lang="hu" hidden>Nem sikerült betölteni a kvízt. Ellenőrizd a kapcsolatot, majd próbáld újra.</span>
+        </p>
+        <button id="quiz-reload" class="primary-btn" type="button">
+          <span lang="de">Erneut laden</span>
+          <span lang="hu" hidden>Újratöltés</span>
+        </button>
+      </div>
+    </div>
+  </section>
   <p id="session-notice" class="session-notice" role="status" hidden></p>
   <main id="setup-screen" class="setup-layout hidden">
     <section class="setup-intro" aria-labelledby="module-title">
@@ -123,8 +160,9 @@
   <button id="back-to-top" class="back-to-top" type="button" hidden aria-label="Zurück nach oben">
     <svg class="frame-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7M12 19V5"/></svg>
   </button>
-  <script src="i18n.js"></script>
-  <script src="questions.js"></script>
-  <script src="app.js"></script>
+  <script src="assets/page-effects.js"></script>
+  <script src="i18n.js" defer data-quiz-resource></script>
+  <script src="questions.js" defer data-quiz-resource></script>
+  <script src="app.js" defer data-quiz-resource></script>
 </body>
 </html>
