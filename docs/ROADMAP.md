@@ -7,9 +7,14 @@ invitation-based sign-in stays a separate later task. Four normal static package
 URLs now expose 135 reviewed LAP questions: all 100 programming self-checks and
 35 Informatik questions. Only `dist/` is deployable. The legacy bank remains local.
 
-Order: verify content and package navigation, pass CI, promote its immutable
-artifact, validate the protected Caddy host, add proxied DNS, check real HTTPS
-access, then enable the CoderLAP entry links. See [DEPLOYMENT.md](DEPLOYMENT.md).
+The [v0.1.0 release](https://github.com/goAuD/CoderQuiz/releases/tag/v0.1.0)
+is deployed at `https://quiz.coderlap.com/`. Its main CI artifact matches all
+27 deployed files. Proxied DNS, valid HTTPS, Basic Auth rejection of missing or
+incorrect credentials, and private/no-store responses are verified.
+Authenticated production UI verification is still pending: automated Vivaldi
+navigation returned `ERR_BLOCKED_BY_CLIENT`, and the operator has been asked to
+open the site and sign in manually. CoderLAP entry links remain disabled until
+that check passes. See [DEPLOYMENT.md](DEPLOYMENT.md).
 SkillDisplay remains pending the teacher's reply; this rollout does not add it.
 
 ## Earlier cross-project plan: 2026-09-30
@@ -25,7 +30,9 @@ plan. Its new document is being introduced in the companion LAP documentation PR
 
 The sections below retain the Quiz-specific content and implementation detail.
 
-CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship exams (LAP) and related IT certifications. The current module covers DSGVO and legal topics for the Applikationsentwicklung-Coding exam.
+CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship
+exams (LAP). Published packages follow the CoderLAP curriculum; the independent
+DSGVO and law bank is retained in the repository for editorial reference.
 
 ## Historical state before curriculum launch
 
@@ -49,10 +56,9 @@ CoderLAP's matching frame is deployed; CoderCoaster's is merged into its `main`.
 The three `workshop-frame.css` copies are byte-identical.
 
 At that point, production hosting, DNS and shared sign-in were deferred by
-user decision. The 2026-10-14 decision above supersedes the Quiz hosting/DNS pause. No Quiz deployment has occurred. Before publishing, choose the
-entry point and curriculum navigation: the root app still opens the independent
-DSGVO bank, while the three approved LAP programming banks remain separate
-previews. Merging those banks did not make them one selectable production module.
+user decision. The 2026-10-14 release above supersedes that hosting/DNS pause.
+The root source `index.html` still opens the independent DSGVO bank locally;
+the production build generates the curriculum catalogue in `dist/index.html`.
 
 ## Short-term Goals
 
@@ -63,14 +69,15 @@ previews. Merging those banks did not make them one selectable production module
 - [x] Progress persistence - quiz state saved to localStorage; restored after page reload
 - [x] Set up GitHub Actions workflow for basic validation (syntax check, question count, duplicate ID check)
 - [x] Adapt the CoderLAP Műhely identity to setup, quiz and result screens
-- [ ] Prepare an authenticated deployment under coderlap.com after preview approval
+- [x] Deploy the reviewed static packages behind temporary Basic Auth
+- [ ] Complete authenticated production browser verification and enable LAP links
 
 ## Medium-term Goals
 
 - [x] Build a static package catalogue for the reviewed CoderLAP banks
 - [ ] Expand reviewed questions from existing CoderLAP self-checks
 - [ ] Add a bookmarking / flagging feature for questions the user wants to revisit
-- [ ] Host under coderlap.com domain
+- [x] Host at quiz.coderlap.com
 
 ## Content direction: CoderLAP first
 
@@ -124,16 +131,11 @@ engine or an integration between the projects.
 
 ## Domain and Hosting Plan
 
-CoderLAP is already used in production behind Caddy Basic Auth. CoderQuiz and
-CoderCoaster are planned as related tools, potentially on subdomains of
-coderlap.com, with Basic Auth retained. CoderQuiz links back to CoderLAP now;
-its final hostname and deployment setup are a separate task. Public GitHub Pages
-deployment is no longer the planned first step.
-
-If subdomains are chosen, normally create one DNS record for `quiz` and one for
-`coaster` (CNAME for a hostname target, A/AAAA for the applicable IP targets), then
-configure hosting routes, TLS and access protection. DNS alone does not publish
-the applications. See [Cloudflare subdomains](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-subdomain/).
+CoderLAP and CoderQuiz run behind Caddy Basic Auth on the existing Debian
+origin. Cloudflare has a proxied `quiz` CNAME pointing to `coderlap.com`;
+Full (strict) TLS remains enabled. CoderQuiz links back to CoderLAP, including
+the shared privacy and imprint pages. CoderCoaster hosting remains a separate
+task; no Coaster or shared-auth DNS record was added in this rollout.
 
 Shared Basic Auth credentials do not promise a shared browser login across
 different origins; the authentication protection space includes the origin
