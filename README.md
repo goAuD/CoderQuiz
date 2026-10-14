@@ -43,8 +43,9 @@ Open <http://127.0.0.1:8775/>. The homepage lists the four packages. Each has it
 own URL and saved session, so changing packages does not discard another run.
 Language preference is shared within the Quiz origin.
 
-Starting a run or advancing to the next question brings its heading into view
-below the sticky header. Finishing a run does the same for the result heading.
+Starting a run, advancing to the next question or finishing a run scrolls to the
+top of the page, keeping the navigation and progress indicator visible. Focus
+moves to the question or result heading for keyboard and screen-reader users.
 These jumps are immediate; answering, switching language or restoring a saved
 session does not trigger extra scrolling. The existing back-to-top button remains
 available for manual navigation.
