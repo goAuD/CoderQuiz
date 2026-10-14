@@ -4,3 +4,6 @@ Thumbs.db
 node_modules/
 .vscode/
 .claude/
+docs/_local/
+dist/
+__pycache__/

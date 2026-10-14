@@ -1,8 +1,11 @@
 // app.js
 
 const STORAGE_LANG     = "cq-lang";
-const STORAGE_TOPICS   = "cq-topics";
-const STORAGE_PROGRESS = "cq-progress";
+// The original standalone bank keeps its keys. Published LAP banks own a session each.
+const BANK_ID = typeof QUIZ_BANK === "undefined" ? "legacy-dsgvo" : QUIZ_BANK.id;
+const STORAGE_PREFIX = BANK_ID === "legacy-dsgvo" ? "cq" : `cq-${BANK_ID}`;
+const STORAGE_TOPICS   = `${STORAGE_PREFIX}-topics`;
+const STORAGE_PROGRESS = `${STORAGE_PREFIX}-progress`;
 let storageFailed = false;
 let restoreDiscarded = false;
 
@@ -62,7 +65,8 @@ function appendQuestionCode(container, question) {
   const pre = document.createElement("pre");
   pre.className = "question-code";
   pre.setAttribute("tabindex", "0");
-  const language = question.codeLanguage === "pseudocode" ? t("pseudocodeLabel") : "JavaScript";
+  const language = question.codeLanguage === "pseudocode" ? t("pseudocodeLabel")
+    : ({ html: "HTML", xml: "XML", javascript: "JavaScript" })[question.codeLanguage] || "JavaScript";
   pre.setAttribute("aria-label", language);
   pre.dataset.language = language;
   const code = document.createElement("code");
@@ -109,13 +113,16 @@ function applyStaticI18n() {
   $("restart-btn").textContent    = t("restartBtn");
   $("setup-heading").textContent  = t("setupHeading");
   $("setup-sub").textContent      = t("setupSub");
-  $("logo-link").setAttribute("aria-label", t("homeLabel"));
+  $("logo-link").setAttribute("aria-label", typeof QUIZ_BANK === "undefined" ? t("homeLabel") : t("catalogHome"));
   $("back-to-top").setAttribute("aria-label", t("backToTop"));
   document.querySelectorAll("[data-i18n]").forEach(el => {
     el.textContent = t(el.dataset.i18n);
   });
   document.querySelectorAll("[data-lap-link]").forEach(link => {
     link.href = state.lang === "hu" ? "https://coderlap.com/hu/" : "https://coderlap.com/";
+  });
+  document.querySelectorAll("[data-legal-link]").forEach(link => {
+    link.href = `https://coderlap.com${state.lang === "hu" ? "/hu" : ""}/${link.dataset.legalLink}/`;
   });
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.lang === state.lang);
@@ -547,7 +554,13 @@ document.addEventListener("DOMContentLoaded", () => {
     $("setup-heading").focus();
   });
   $("start-btn").addEventListener("click", init);
+  $("change-topics-btn").addEventListener("click", () => {
+    clearProgress();
+    showSetupScreen();
+    $("setup-heading").focus();
+  });
   $("logo-link").addEventListener("click", e => {
+    if (typeof QUIZ_BANK !== "undefined") return;
     e.preventDefault();
     showSetupScreen();
     $("setup-heading").focus();

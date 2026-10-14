@@ -1,6 +1,6 @@
 {
   "sourceRepository": "https://github.com/goAuD/CoderLAP",
-  "sourceCommit": "466a2ee8a5dbd8dc17b67a546e3ac7aacf5115e8",
+  "sourceCommit": "7b14ceebc8bb1c44ad11afcfecc2d5f5ec7867bf",
   "ui": {
     "de": {
       "moduleTitle": "CoderLAP · Programmieren 1",
@@ -64,7 +64,7 @@
     },
     {
       "id": "lap-LAP-15-01-2",
-      "revision": 1,
+      "revision": 2,
       "topic": "Stadien der Softwareentwicklung",
       "source": {
         "topicId": "LAP-15-01",
@@ -76,7 +76,7 @@
       "answers": [
         "Wir legen einen Index auf die Datenbankspalte title an.",
         "Wir implementieren die Suchfunktion in JavaScript.",
-        "Bei 10.000 Themen erscheinen unter vereinbarten Testbedingungen 95 % der Suchergebnisse innerhalb einer Sekunde.",
+        "Bei 10.000 Themen liegt unter vereinbarten Testbedingungen in mindestens 95 % der Suchvorgänge das Ergebnis innerhalb einer Sekunde vor.",
         "Wir spielen die neue Version auf den Server ein."
       ],
       "correct": 2,
@@ -86,7 +86,7 @@
         "answers": [
           "Indexet hozunk létre az adatbázis title oszlopán.",
           "JavaScriptben megírjuk a keresőfüggvényt.",
-          "10 000 témánál, előre egyeztetett tesztkörülmények között a keresések 95%-ában egy másodpercen belül megjelenik az eredmény.",
+          "10 000 témánál, előre egyeztetett tesztkörülmények között a keresések legalább 95%-ában egy másodpercen belül megjelenik az eredmény.",
           "Feltöltjük az új verziót a szerverre."
         ],
         "explanation": "Az elemzés a „gyors” jelzőből ellenőrizhető elvárást készít: rögzítjük az adatmennyiséget, az időhatárt és a tesztkörülményeket. Az adatbázisindex kiválasztása már a technikai megoldás tervezéséhez tartozik."
@@ -345,7 +345,7 @@
     },
     {
       "id": "lap-LAP-15-03-1",
-      "revision": 1,
+      "revision": 2,
       "topic": "Algorithmus",
       "source": {
         "topicId": "LAP-15-03",
@@ -361,7 +361,7 @@
         "Mit Summe 0 starten, jede ganze Zahl von 1 bis n addieren und die Summe ausgeben."
       ],
       "correct": 3,
-      "explanation": "Die letzte Beschreibung legt Startwert, verarbeitete Zahlen und Ergebnis fest. Bei n = 3 entsteht 0 + 1 + 2 + 3 = 6. Bei n = 0 gibt es nichts zu addieren; das Ergebnis bleibt 0. Damit sind auch die Grenzen der Aufgabe klar.",
+      "explanation": "Mit Summe 0 zu starten und jede ganze Zahl von 1 bis n zu addieren, legt Startwert, verarbeitete Zahlen und Ergebnis fest. Bei n = 3 entsteht 0 + 1 + 2 + 3 = 6. Bei n = 0 gibt es nichts zu addieren; das Ergebnis bleibt 0. Damit sind auch die Grenzen der Aufgabe klar.",
       "hu": {
         "question": "Melyik leírás ad már egyértelmű lépéssort az 1-től n-ig terjedő egész számok összegzésére, ha n nemnegatív egész szám?",
         "answers": [
@@ -370,7 +370,7 @@
           "Rendezzük a bemenetet, utána válasszunk egy megfelelő összeget.",
           "Induljunk 0 összeggel, adjunk hozzá minden egész számot 1-től n-ig, majd adjuk ki az összeget."
         ],
-        "explanation": "Az utolsó leírás rögzíti a kezdőértéket, a feldolgozandó számokat és az eredményt. n = 3 esetén 0 + 1 + 2 + 3 = 6 adódik. n = 0 esetén nincs mit hozzáadni, az eredmény 0 marad. Így a feladat határai is világosak."
+        "explanation": "A 0 kezdőösszeg és az 1-től n-ig terjedő egész számok hozzáadása rögzíti a kezdőértéket, a feldolgozandó számokat és az eredményt. n = 3 esetén 0 + 1 + 2 + 3 = 6 adódik. n = 0 esetén nincs mit hozzáadni, az eredmény 0 marad. Így a feladat határai is világosak."
       }
     },
     {
@@ -624,7 +624,7 @@
     },
     {
       "id": "lap-LAP-15-04-5",
-      "revision": 1,
+      "revision": 2,
       "topic": "Pseudocode",
       "source": {
         "topicId": "LAP-15-04",
@@ -640,7 +640,7 @@
         "Lies score; gib abhängig vom Ergebnis etwas aus."
       ],
       "correct": 0,
-      "explanation": "Die erste Fassung nennt Eingabe, genaue Bedingung und beide Ausgaben. Auch der Grenzfall score = 50 ist festgelegt: Er gehört zu „erreicht“. So lässt sich die Logik nachvollziehen und gezielt in Code übertragen.",
+      "explanation": "Die Formulierung mit score ≥ 50 nennt die Eingabe, die genaue Bedingung und beide Ausgaben. Auch der Grenzfall score = 50 ist festgelegt: Er gehört zu „erreicht“. So lässt sich die Logik nachvollziehen und gezielt in Code übertragen.",
       "hu": {
         "question": "Egy pszeudokód azt írja le, eléri-e egy pontszám az előre rögzített 50 pontos határt. Melyik megfogalmazás a legvilágosabb?",
         "answers": [
@@ -649,7 +649,7 @@
           "Olvasd be a score értékét; ellenőrizd a határt, és intézd el a kiírást.",
           "Olvasd be a score értékét; az eredménytől függően írj ki valamit."
         ],
-        "explanation": "Az első változat megadja a bemenetet, a pontos feltételt és mindkét kimenetet. A score = 50 határesetet is rögzíti: az „elérve” ághoz tartozik. Így a logika követhető és célzottan kódra fordítható."
+        "explanation": "A score ≥ 50 feltételt tartalmazó megfogalmazás megadja a bemenetet, a pontos feltételt és mindkét kimenetet. A score = 50 határesetet is rögzíti: az „elérve” ághoz tartozik. Így a logika követhető és célzottan kódra fordítható."
       }
     },
     {
@@ -832,7 +832,7 @@
     },
     {
       "id": "lap-LAP-15-06-1",
-      "revision": 1,
+      "revision": 2,
       "topic": "Suchalgorithmen: sequentiell / binaer",
       "source": {
         "topicId": "LAP-15-06",
@@ -845,7 +845,7 @@
         "Der gesuchte Wert kommt dreimal vor.",
         "42 steht an Index 3, also an der vierten Position.",
         "Der gesuchte Wert selbst ist 3.",
-        "Vor dem Fund wurden insgesamt drei Elemente geprüft."
+        "Einschließlich des Treffers wurden insgesamt drei Elemente geprüft."
       ],
       "correct": 1,
       "explanation": "Die Funktion gibt beim Treffer index zurück. JavaScript-Arrays beginnen bei Index 0: 5 steht an 0, 11 an 1, 19 an 2 und 42 an 3. Bis zum Treffer werden hier vier Elemente geprüft; Rückgabewert und Anzahl der Prüfungen sind unterschiedliche Größen.",
@@ -855,7 +855,7 @@
           "A keresett érték háromszor fordul elő.",
           "A 42 a 3-as indexen, tehát a negyedik helyen áll.",
           "Maga a keresett érték 3.",
-          "A találatig összesen három elemet vizsgáltunk meg."
+          "A találatot is beleértve összesen három elemet vizsgáltunk meg."
         ],
         "explanation": "A függvény találatkor az indexet adja vissza. A JavaScript-tömbök indexelése 0-tól indul: az 5 a 0-s, a 11 az 1-es, a 19 a 2-es, a 42 pedig a 3-as indexen áll. A találatig itt négy elemet vizsgálunk; a visszatérési érték és a vizsgálatok száma külön mennyiség."
       },

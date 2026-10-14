@@ -1,0 +1,6 @@
+[
+  { "id": "lap-programming-1", "path": "examples/lap-programming-1.json" },
+  { "id": "lap-programming-2", "path": "examples/lap-programming-2.json" },
+  { "id": "lap-programming-3", "path": "examples/lap-programming-3.json" },
+  { "id": "lap-informatik-1", "path": "examples/lap-informatik-1.json" }
+]
