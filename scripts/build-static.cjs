@@ -45,11 +45,15 @@ function build(output) {
       else write(file, fs.readFileSync(path.join(root, file)));
     }
   };
-  for (const file of ['app.js', 'i18n.js', 'style.css', 'catalog.js', 'LICENSE']) write(file, read(file));
+  for (const file of ['app.js', 'i18n.js', 'style.css', 'catalog.js', 'LICENSE', 'favicon.ico', 'apple-touch-icon.png']) {
+    write(file, fs.readFileSync(path.join(root, file)));
+  }
   copyAssets('assets');
   write('robots.txt', 'User-agent: *\nDisallow: /\n');
   const banks = loadBanks();
   const template = read('index.html');
+  const errorPageIcons = [...template.matchAll(/<link rel="(?:icon|apple-touch-icon)"[^>]*>/g)]
+    .map(([link]) => link.replace('href="', 'href="/')).join('');
   const navigation = '<a class="site-nav-link" href="./" data-i18n="catalogLink">Pakete</a>';
   const sourceFooter = '<p class="sources"><a href="LICENSE">Apache 2.0</a> · <span data-i18n="sourcesLabel">Quellen:</span> <a data-lap-link href="https://coderlap.com/">CoderLAP</a></p>';
   const frame = template.replace('href="#"', 'href="./"').replace('<!-- catalog navigation -->', navigation);
@@ -84,7 +88,7 @@ function build(output) {
     .replace('src="questions.js"', 'src="catalog-data.js"').replace('src="app.js"', 'src="catalog.js"');
   write('index.html', home);
   write('catalog-data.js', `const CATALOG = ${JSON.stringify(banks.map(bank => bank.metadata))};\n`);
-  write('404.html', '<!doctype html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Seite nicht gefunden · CoderQuiz</title><link rel="stylesheet" href="/style.css"><main class="catalog"><h1>Seite nicht gefunden</h1><p>Diese Seite gibt es nicht. / Ez az oldal nem található.</p><p><a href="/">Quizpakete / Kvízcsomagok</a></p></main></html>\n');
+  write('404.html', `<!doctype html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Seite nicht gefunden · CoderQuiz</title>${errorPageIcons}<link rel="stylesheet" href="/style.css"><main class="catalog"><h1>Seite nicht gefunden</h1><p>Diese Seite gibt es nicht. / Ez az oldal nem található.</p><p><a href="/">Quizpakete / Kvízcsomagok</a></p></main></html>\n`);
   return banks.map(bank => bank.metadata);
 }
 
