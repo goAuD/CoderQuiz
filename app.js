@@ -93,12 +93,12 @@ function showScreen(name) {
   });
 }
 
-function revealHeading(id) {
+function focusHeadingAtPageTop(id) {
   const heading = $(id);
   // Touch navigation can leave this heading focused, making focus() alone a no-op.
   heading.focus({ preventScroll: true });
-  // The shared scroll margin keeps the heading below the sticky header.
-  heading.scrollIntoView({ behavior: "instant", block: "start" });
+  // Keep the navigation and progress indicator visible above the question.
+  window.scrollTo({ top: 0, behavior: "instant" });
 }
 
 function activeScreen() {
@@ -320,7 +320,7 @@ function init() {
   applyStaticI18n();
   renderQuestion();
   saveProgress();
-  revealHeading("question-text");
+  focusHeadingAtPageTop("question-text");
 }
 
 // preserveAnswered = true: keep shuffledOrder + answered state (language switch or restore)
@@ -445,7 +445,7 @@ function nextQuestion() {
     showResults();
   } else {
     renderQuestion();
-    revealHeading("question-text");
+    focusHeadingAtPageTop("question-text");
     saveProgress();
   }
 }
@@ -479,7 +479,7 @@ function showResults() {
   $("ring-pct").textContent = `${pct} %`;
 
   renderWrongAnswers();
-  if (entering) revealHeading("result-heading");
+  if (entering) focusHeadingAtPageTop("result-heading");
   saveProgress();
 }
 
