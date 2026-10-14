@@ -19,6 +19,7 @@ jobs:
           node --check i18n.js
           node --check questions.js
           node --check catalog.js
+          node --check assets/page-effects.js
           node --check scripts/build-static.cjs
 
       - name: Quiz behavior and bilingual question validation

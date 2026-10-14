@@ -35,7 +35,8 @@ function boot(saved = {}, failure = '', reviseQuestion = null, random = () => .3
   };
   let start;
   const context = vm.createContext({
-    window: { scrollY: 0, addEventListener() {} },
+    Event,
+    window: { scrollY: 0, addEventListener() {}, dispatchEvent(event) { assert.equal(event.type, 'quiz:ready'); } },
     document: {
       documentElement: {}, getElementById: get, createElement: () => new Element(),
       querySelectorAll: selector => selector === '.answer-btn' ? get('answers-list').children : [],
