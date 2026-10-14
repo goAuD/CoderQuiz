@@ -6,7 +6,7 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 
 // A small DOM stand-in runs the real application; browser layout is checked separately.
-function boot(saved = {}, failure = '', reviseQuestion = null, random = () => .37, pilot = null) {
+function boot(saved = {}, failure = '', reviseQuestion = null, random = () => .37, pilot = null, bankId = null) {
   const values = { ...saved };
   class Element {
     constructor() {
@@ -48,6 +48,7 @@ function boot(saved = {}, failure = '', reviseQuestion = null, random = () => .3
     },
     Math: Object.assign(Object.create(Math), { random }),
   });
+  if (bankId) vm.runInContext(`const QUIZ_BANK = ${JSON.stringify({ id: bankId })}`, context);
   for (const file of ['i18n.js', 'questions.js', 'app.js']) {
     const source = file === 'questions.js' && pilot
       ? 'const QUESTIONS = ' + JSON.stringify(pilot.questions) + ';'
@@ -183,7 +184,7 @@ test('pilot code stays text, explanations appear after answering, and topic link
   assert.equal(review.querySelector('.question-source').href, `https://coderlap.com/hu/topics/${q.source.slug}/`);
 });
 
-for (const bankName of ['lap-programming-1', 'lap-programming-2', 'lap-programming-3']) {
+for (const bankName of ['lap-programming-1', 'lap-programming-2', 'lap-programming-3', 'lap-informatik-1']) {
   test(`${bankName} completes with translated code labels and post-answer explanations`, () => {
     const bank = JSON.parse(fs.readFileSync(path.join(root, `examples/${bankName}.json`), 'utf8'));
     let app = boot({}, '', null, () => .37, bank);
@@ -199,7 +200,8 @@ for (const bankName of ['lap-programming-1', 'lap-programming-2', 'lap-programmi
       if (q.code) {
         const pre = app.get('question-context').children[0];
         assert.equal(pre.children[0].textContent, q.code);
-        assert.equal(pre.dataset.language, q.codeLanguage === 'pseudocode' ? 'Pszeudokód' : 'JavaScript');
+        assert.equal(pre.dataset.language, q.codeLanguage === 'pseudocode' ? 'Pszeudokód'
+          : ({ html: 'HTML', xml: 'XML', javascript: 'JavaScript' })[q.codeLanguage] || 'JavaScript');
         assert.equal(pre.getAttribute('aria-label'), pre.dataset.language);
       }
       answer(app, index % 2 === 0);
@@ -221,3 +223,34 @@ for (const bankName of ['lap-programming-1', 'lap-programming-2', 'lap-programmi
     assert.equal(app.state.score, Math.ceil(questionCount / 2));
   });
 }
+
+test('package sessions and topic filters coexist while language is shared', () => {
+  const bankA = JSON.parse(fs.readFileSync(path.join(root, 'examples/lap-programming-1.json'), 'utf8'));
+  const bankB = JSON.parse(fs.readFileSync(path.join(root, 'examples/lap-programming-2.json'), 'utf8'));
+  const original = shortRun(); answer(original);
+  const a = boot(original.values, '', null, () => .37, bankA, 'lap-programming-1');
+  a.state.selectedTopics = new Set([bankA.questions[0].topic]); a.init(); answer(a); a.nextQuestion();
+  const savedA = a.values['cq-lap-programming-1-progress'];
+  const b = boot(a.values, '', null, () => .37, bankB, 'lap-programming-2');
+  assert.equal(b.activeScreen(), 'setup'); b.init(); answer(b, false); b.setLang('hu');
+  const restoredA = boot(b.values, '', null, () => .37, bankA, 'lap-programming-1');
+  assert.equal(restoredA.state.lang, 'hu');
+  assert.equal(restoredA.state.current, 1); assert.equal(restoredA.state.score, 1);
+  assert.deepEqual([...restoredA.state.selectedTopics], [bankA.questions[0].topic]);
+  assert.equal(restoredA.values['cq-lap-programming-1-progress'], savedA);
+  const restoredB = boot(restoredA.values, '', null, () => .37, bankB, 'lap-programming-2');
+  assert.equal(restoredB.state.current, 0); assert.equal(restoredB.state.answered, true);
+  assert.equal(restoredB.state.score, 0);
+  const restoredLegacy = boot(restoredB.values);
+  assert.equal(restoredLegacy.state.answered, true); assert.equal(restoredLegacy.state.score, 1);
+
+  const revised = structuredClone(bankA); revised.questions[0].revision += 1;
+  const resetA = boot(restoredB.values, '', null, () => .37, revised, 'lap-programming-1');
+  assert.equal(resetA.activeScreen(), 'setup'); assert.equal(resetA.get('session-notice').hidden, false);
+  assert.equal(boot(resetA.values, '', null, () => .37, bankB, 'lap-programming-2').activeScreen(), 'quiz');
+  restoredB.get('change-topics-btn').events.click();
+  assert.equal(restoredB.activeScreen(), 'setup');
+  assert.equal(restoredB.values['cq-lap-programming-2-progress'], undefined);
+  assert.equal(restoredB.values['cq-lap-programming-1-progress'], savedA);
+  assert.equal(boot(restoredB.values, '', null, () => .37, bankB, 'lap-programming-2').activeScreen(), 'setup');
+});

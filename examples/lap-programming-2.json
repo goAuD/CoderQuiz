@@ -1,6 +1,6 @@
 {
   "sourceRepository": "https://github.com/goAuD/CoderLAP",
-  "sourceCommit": "e0adfd8a46c75366a1aa80a43ceefd168c89e991",
+  "sourceCommit": "cefce00affa0f357e7cc3e752abf082cad0ae1d0",
   "ui": {
     "de": {
       "moduleTitle": "CoderLAP · Programmieren 2",
@@ -694,7 +694,7 @@
     },
     {
       "id": "lap-LAP-15-12-2",
-      "revision": 1,
+      "revision": 2,
       "topic": "Rekursive Funktionen",
       "source": {
         "topicId": "LAP-15-12",
@@ -710,7 +710,7 @@
         "Er gibt 0 zurück, weil die Eingabe 0 ist."
       ],
       "correct": 2,
-      "explanation": "Der Basisfall legt das Ergebnis für eine direkt lösbare Teilaufgabe fest. Hier gilt 0! = 1. return 1 beendet den Aufruf sofort. Auch beim Start mit einer größeren nichtnegativen ganzen Zahl ist dies der Rückgabewert, von dem aus die wartenden Multiplikationen fortgesetzt werden.",
+      "explanation": "Der Basisfall legt das Ergebnis für eine direkt lösbare Teilaufgabe fest. Hier gilt 0! = 1. return 1 beendet den Aufruf sofort. Beim Start mit der kleinen Eingabe 4 liefert dieser Basisfall ebenfalls 1; danach werden die wartenden Multiplikationen bis zum Ergebnis 24 fortgesetzt. Das Beispiel setzt kleine nichtnegative ganze Eingaben voraus.",
       "hu": {
         "question": "Mi az alapeset szerepe a bemutatott factorial(0) hívásnál?",
         "answers": [
@@ -719,7 +719,7 @@
           "Közvetlenül 1-et ad vissza, és további önhívás nélkül lezárja ezt a hívást.",
           "0-t ad vissza, mert a bemenet 0."
         ],
-        "explanation": "Az alapeset egy közvetlenül megoldható részfeladat eredményét rögzíti. Itt 0! = 1. A return 1 azonnal lezárja a hívást. Nagyobb nemnegatív egész bemenetnél is ez az a visszatérő érték, amelyből a várakozó szorzások folytatódnak."
+        "explanation": "Az alapeset egy közvetlenül megoldható részfeladat eredményét rögzíti. Itt 0! = 1. A return 1 azonnal lezárja a hívást. A kis, 4-es bemenetről indulva az alapeset szintén 1-et ad; utána a várakozó szorzásokkal jutunk el a 24-es eredményig. A példa kis, nemnegatív egész bemeneteket feltételez."
       },
       "code": "function factorial(n) {\n  if (n === 0) return 1;\n  return n * factorial(n - 1);\n}\nconsole.log(factorial(0));",
       "codeLanguage": "javascript",

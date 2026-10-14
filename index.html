@@ -19,6 +19,7 @@
       </a>
       <nav class="header-actions" aria-label="Navigation">
         <div class="frame-page-links">
+          <!-- catalog navigation -->
           <a class="lap-link" data-lap-link href="https://coderlap.com">CoderLAP <svg class="frame-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10M7 17 17 7"/></svg></a>
         </div>
         <a class="github-link" href="https://github.com/goAuD/CoderQuiz" aria-label="GitHub">
@@ -33,6 +34,7 @@
       </nav>
     </div>
   </header>
+  <!-- page content -->
   <p id="session-notice" class="session-notice" role="status" hidden></p>
   <main id="setup-screen" class="setup-layout hidden">
     <section class="setup-intro" aria-labelledby="module-title">
@@ -74,6 +76,7 @@
       <div id="explanation-source"></div>
     </div>
     <button id="next-btn" class="primary-btn hidden"></button>
+    <button id="change-topics-btn" class="change-topics-btn" type="button" data-i18n="newRun"></button>
   </main>
   <main id="result-screen" class="card result-card hidden">
     <div class="result-header">
@@ -95,6 +98,7 @@
     <button id="restart-btn" class="primary-btn"></button>
   </main>
   <noscript><p class="noscript-note">Bitte aktiviere JavaScript für das Quiz. / A kvízhez engedélyezd a JavaScriptet.</p></noscript>
+  <!-- /page content -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-about">
@@ -108,6 +112,8 @@
       <div class="footer-group">
         <h2 data-i18n="projectLabel"></h2>
         <a href="https://github.com/goAuD/CoderQuiz">GitHub</a>
+        <a data-legal-link="imprint" data-i18n="imprint" href="https://coderlap.com/imprint/">Impressum</a>
+        <a data-legal-link="privacy" data-i18n="privacy" href="https://coderlap.com/privacy/">Datenschutz</a>
       </div>
       <p class="sources"><a href="LICENSE">Apache 2.0</a> · <span data-i18n="sourcesLabel"></span> DSGVO · DSG 2018 · UrhG · ECG · OWASP · <a href="https://www.dsb.gv.at">dsb.gv.at</a></p>
     </div>

@@ -1,6 +1,6 @@
 {
   "sourceRepository": "https://github.com/goAuD/CoderLAP",
-  "sourceCommit": "e0adfd8a46c75366a1aa80a43ceefd168c89e991",
+  "sourceCommit": "cefce00affa0f357e7cc3e752abf082cad0ae1d0",
   "ui": {
     "de": {
       "moduleTitle": "CoderLAP · Programmieren 3",
@@ -960,7 +960,7 @@
     },
     {
       "id": "lap-LAP-15-20-3",
-      "revision": 1,
+      "revision": 2,
       "topic": "Objektorientierte Programmierung",
       "source": {
         "topicId": "LAP-15-20",
@@ -976,7 +976,7 @@
         "Encapsulation bedeutet hier, dass keine Methode einen Wert zurückgeben darf."
       ],
       "correct": 1,
-      "explanation": "Der Zählerzustand #count gehört zur Klasse und ist von außen nicht direkt als privates Feld zugänglich. increment() verändert ihn, getCount() stellt den gewünschten Lesezugriff bereit. So werden Zustand und zugehörige Operationen gemeinsam gekapselt. Nach zwei Erhöhungen ist das Ergebnis 2.",
+      "explanation": "Jede Counter-Instanz besitzt ihren eigenen Zählerzustand im privaten Feld #count. Aufrufer greifen über increment() und getCount() darauf zu, statt das Feld direkt zu lesen oder zu ändern. So werden Zustand und zugehörige Operationen gemeinsam gekapselt. Nach zwei Erhöhungen liefert dieses Objekt 2; eine neue Instanz beginnt weiterhin bei 0.",
       "hu": {
         "question": "Hogyan jelenik meg a kapszulázás ebben az osztályban? A #count privát JavaScript-mező.",
         "answers": [
@@ -985,7 +985,7 @@
           "A privát mező minden metódushívás után automatikusan törlődik.",
           "A kapszulázás itt azt jelenti, hogy egyetlen metódus sem adhat vissza értéket."
         ],
-        "explanation": "A #count számlálóállapot az osztályhoz tartozik, kívülről privát mezőként nem érhető el közvetlenül. Az increment() módosítja, a getCount() pedig a kívánt olvasási lehetőséget adja. Így az állapot és kapcsolódó műveletek közösen vannak kapszulázva. Két növelés után az eredmény 2."
+        "explanation": "Minden Counter-példány a saját privát #count mezőjében tárolja a számlálóállapotát. A hívók az increment() és getCount() metódusokon keresztül férnek hozzá, a mező közvetlen olvasása vagy módosítása helyett. Így az állapot és kapcsolódó műveletek közösen vannak kapszulázva. Két növelés után ez az objektum 2-t ad; egy új példány továbbra is 0-ról indul."
       },
       "code": "class Counter {\n  #count = 0;\n  increment() {\n    this.#count += 1;\n  }\n  getCount() {\n    return this.#count;\n  }\n}\nconst counter = new Counter();\ncounter.increment();\ncounter.increment();\nconsole.log(counter.getCount());",
       "codeLanguage": "javascript",
