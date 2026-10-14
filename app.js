@@ -93,6 +93,14 @@ function showScreen(name) {
   });
 }
 
+function revealHeading(id) {
+  const heading = $(id);
+  // Touch navigation can leave this heading focused, making focus() alone a no-op.
+  heading.focus({ preventScroll: true });
+  // The shared scroll margin keeps the heading below the sticky header.
+  heading.scrollIntoView({ behavior: "instant", block: "start" });
+}
+
 function activeScreen() {
   for (const name of ["setup", "quiz", "result"]) {
     if (!$(name + "-screen").classList.contains("hidden")) return name;
@@ -312,7 +320,7 @@ function init() {
   applyStaticI18n();
   renderQuestion();
   saveProgress();
-  $("question-text").focus();
+  revealHeading("question-text");
 }
 
 // preserveAnswered = true: keep shuffledOrder + answered state (language switch or restore)
@@ -437,7 +445,7 @@ function nextQuestion() {
     showResults();
   } else {
     renderQuestion();
-    $("question-text").focus();
+    revealHeading("question-text");
     saveProgress();
   }
 }
@@ -471,7 +479,7 @@ function showResults() {
   $("ring-pct").textContent = `${pct} %`;
 
   renderWrongAnswers();
-  if (entering) $("result-heading").focus();
+  if (entering) revealHeading("result-heading");
   saveProgress();
 }
 

@@ -8,6 +8,7 @@ const root = path.join(__dirname, '..');
 // A small DOM stand-in runs the real application; browser layout is checked separately.
 function boot(saved = {}, failure = '', reviseQuestion = null, random = () => .37, pilot = null, bankId = null) {
   const values = { ...saved };
+  const navigation = [];
   class Element {
     constructor() {
       this.children = []; this.dataset = {}; this.style = {}; this.attrs = {};
@@ -25,7 +26,8 @@ function boot(saved = {}, failure = '', reviseQuestion = null, random = () => .3
     append(...children) { this.children.push(...children); }
     appendChild(child) { this.append(child); }
     addEventListener(name, fn) { this.events[name] = fn; }
-    focus() {}
+    focus(options) { navigation.push({ type: 'focus', element: this, options: options && { ...options } }); }
+    scrollIntoView(options) { navigation.push({ type: 'scroll', element: this, options: { ...options } }); }
     querySelector(selector) { return this.children.find(c => c.className === selector.slice(1)); }
   }
   const elements = new Map();
@@ -65,7 +67,7 @@ function boot(saved = {}, failure = '', reviseQuestion = null, random = () => .3
   }
   const api = vm.runInContext('({state, init, setLang, selectAnswer, nextQuestion, activeScreen, QUESTIONS, shuffle})', context);
   start();
-  return { ...api, values, get };
+  return { ...api, values, get, navigation };
 }
 function answer(app, correct = true) {
   const q = app.state.questions[app.state.current];
@@ -74,6 +76,45 @@ function answer(app, correct = true) {
 function shortRun() {
   const app = boot(); app.state.selectedTopics = new Set(['Datenpannen']); app.init(); return app;
 }
+
+test('starting and advancing explicitly reveal the question, even when focus does not scroll', () => {
+  const app = shortRun();
+  const heading = app.get('question-text');
+  const expected = [
+    { type: 'focus', element: heading, options: { preventScroll: true } },
+    { type: 'scroll', element: heading, options: { behavior: 'instant', block: 'start' } },
+  ];
+  assert.deepEqual(app.navigation, expected);
+
+  app.navigation.length = 0;
+  answer(app); app.nextQuestion();
+  assert.equal(app.state.current, 1);
+  assert.deepEqual(app.navigation, expected);
+});
+
+test('results reveal their heading once; answers, translations and restored reading do not jump', () => {
+  let app = shortRun();
+  app.navigation.length = 0;
+  answer(app); app.setLang('hu');
+  assert.deepEqual(app.navigation, []);
+  app = boot(app.values);
+  assert.deepEqual(app.navigation, []);
+
+  app.nextQuestion();
+  for (let i = 1; i < 3; i++) { answer(app); app.nextQuestion(); }
+  answer(app);
+  app.navigation.length = 0;
+  app.nextQuestion();
+  assert.equal(app.activeScreen(), 'result');
+  assert.deepEqual(app.navigation, [
+    { type: 'focus', element: app.get('result-heading'), options: { preventScroll: true } },
+    { type: 'scroll', element: app.get('result-heading'), options: { behavior: 'instant', block: 'start' } },
+  ]);
+  app.navigation.length = 0;
+  app.setLang('de');
+  assert.deepEqual(app.navigation, []);
+  assert.deepEqual(boot(app.values).navigation, []);
+});
 
 test('blocked reads and writes leave the quiz usable, with a localized notice', () => {
   for (const failure of ['read', 'write']) {

@@ -43,6 +43,12 @@ Open <http://127.0.0.1:8775/>. The homepage lists the four packages. Each has it
 own URL and saved session, so changing packages does not discard another run.
 Language preference is shared within the Quiz origin.
 
+Starting a run or advancing to the next question brings its heading into view
+below the sticky header. Finishing a run does the same for the result heading.
+These jumps are immediate; answering, switching language or restoring a saved
+session does not trigger extra scrolling. The existing back-to-top button remains
+available for manual navigation.
+
 For a phone on the same trusted network, replace `127.0.0.1` with your computer's
 LAN address and use that address on the phone. The local preview is not
 password-protected. Stop it with `Ctrl+C` after testing. Do not serve the Git
