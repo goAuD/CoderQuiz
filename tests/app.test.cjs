@@ -27,7 +27,6 @@ function boot(saved = {}, failure = '', reviseQuestion = null, random = () => .3
     appendChild(child) { this.append(child); }
     addEventListener(name, fn) { this.events[name] = fn; }
     focus(options) { navigation.push({ type: 'focus', element: this, options: options && { ...options } }); }
-    scrollIntoView(options) { navigation.push({ type: 'scroll', element: this, options: { ...options } }); }
     querySelector(selector) { return this.children.find(c => c.className === selector.slice(1)); }
   }
   const elements = new Map();
@@ -38,7 +37,12 @@ function boot(saved = {}, failure = '', reviseQuestion = null, random = () => .3
   let start;
   const context = vm.createContext({
     Event,
-    window: { scrollY: 0, addEventListener() {}, dispatchEvent(event) { assert.equal(event.type, 'quiz:ready'); } },
+    window: {
+      scrollY: 0,
+      scrollTo(options) { navigation.push({ type: 'scroll', options: { ...options } }); },
+      addEventListener() {},
+      dispatchEvent(event) { assert.equal(event.type, 'quiz:ready'); },
+    },
     document: {
       documentElement: {}, getElementById: get, createElement: () => new Element(),
       querySelectorAll: selector => selector === '.answer-btn' ? get('answers-list').children : [],
@@ -77,12 +81,12 @@ function shortRun() {
   const app = boot(); app.state.selectedTopics = new Set(['Datenpannen']); app.init(); return app;
 }
 
-test('starting and advancing explicitly reveal the question, even when focus does not scroll', () => {
+test('starting and advancing focus the question and scroll to the page top', () => {
   const app = shortRun();
   const heading = app.get('question-text');
   const expected = [
     { type: 'focus', element: heading, options: { preventScroll: true } },
-    { type: 'scroll', element: heading, options: { behavior: 'instant', block: 'start' } },
+    { type: 'scroll', options: { top: 0, behavior: 'instant' } },
   ];
   assert.deepEqual(app.navigation, expected);
 
@@ -92,7 +96,7 @@ test('starting and advancing explicitly reveal the question, even when focus doe
   assert.deepEqual(app.navigation, expected);
 });
 
-test('results reveal their heading once; answers, translations and restored reading do not jump', () => {
+test('results focus their heading and scroll to the top once; answers, translations and restored reading do not jump', () => {
   let app = shortRun();
   app.navigation.length = 0;
   answer(app); app.setLang('hu');
@@ -108,7 +112,7 @@ test('results reveal their heading once; answers, translations and restored read
   assert.equal(app.activeScreen(), 'result');
   assert.deepEqual(app.navigation, [
     { type: 'focus', element: app.get('result-heading'), options: { preventScroll: true } },
-    { type: 'scroll', element: app.get('result-heading'), options: { behavior: 'instant', block: 'start' } },
+    { type: 'scroll', options: { top: 0, behavior: 'instant' } },
   ]);
   app.navigation.length = 0;
   app.setLang('de');
