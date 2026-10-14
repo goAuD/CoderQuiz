@@ -2,84 +2,127 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoderQuiz – DSGVO LAP Applikationsentwickler</title>
-  <meta name="description" content="Lernquiz zur Vorbereitung auf die LAP Applikationsentwickler-Coding: DSGVO, Urheberrecht, IT-Sicherheit, Österreich/EU-Recht." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f3f6fb" />
+  <title>CoderQuiz – DSGVO LAP Applikationsentwicklung</title>
+  <meta name="description" content="Lernquiz zur Vorbereitung auf die LAP Applikationsentwicklung-Coding: DSGVO, Urheberrecht, IT-Sicherheit, Österreich/EU-Recht." />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/workshop-frame.css" />
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
 </head>
 <body>
-
-  <header>
-    <h1>CoderQuiz – DSGVO &amp; Recht</h1>
-    <p class="subtitle">Applikationsentwickler&shy;-Coding · Österreich / EU · <span id="question-count">...</span> Fragen</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <a id="logo-link" class="brand" href="#">
+        <img src="assets/logo.svg" width="40" height="40" alt="" />
+        <span>CoderQuiz</span>
+      </a>
+      <nav class="header-actions" aria-label="Navigation">
+        <div class="frame-page-links">
+          <!-- catalog navigation -->
+          <a class="lap-link" data-lap-link href="https://coderlap.com">CoderLAP <svg class="frame-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10M7 17 17 7"/></svg></a>
+        </div>
+        <a class="github-link" href="https://github.com/goAuD/CoderQuiz" aria-label="GitHub">
+          <svg class="site-github-icon" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+        </a>
+        <div class="lang-switcher" role="group" aria-label="Sprache / Nyelv">
+          <button class="lang-btn" data-lang="de" lang="de" aria-label="Deutsch">DE</button>
+          <button class="lang-btn" data-lang="hu" lang="hu" aria-label="Magyar">HU</button>
+        </div>
+      </nav>
+    </div>
   </header>
-
-  <!-- ── Quiz-Screen ─────────────────────────────────────────────── -->
-  <main id="quiz-screen" class="card">
-
-    <div class="progress-wrap">
-      <div class="progress-track">
-        <div id="progress-bar" style="width:0%"></div>
+  <!-- page content -->
+  <p id="session-notice" class="session-notice" role="status" hidden></p>
+  <main id="setup-screen" class="setup-layout hidden">
+    <section class="setup-intro" aria-labelledby="module-title">
+      <p class="eyebrow" data-i18n="workshopLabel"></p>
+      <h1 id="module-title"></h1>
+      <p class="subtitle" id="quiz-subtitle"></p>
+      <div id="module-meta" class="module-meta"></div>
+      <div class="practice-note">
+        <span class="note-mark" aria-hidden="true">&lt;/&gt;</span>
+        <p data-i18n="practiceNote"></p>
       </div>
-    </div>
-
-    <div class="meta-row">
-      <span id="progress-text">Frage 1 von 50</span>
-      <span id="score-display">Punkte: 0</span>
-    </div>
-
-    <span class="topic-badge" id="topic-badge">Thema</span>
-
-    <p id="question-text"></p>
-
-    <div id="answers-list" role="list"></div>
-
-    <div id="explanation-box" class="hidden">
-      <span id="explanation-text"></span>
-    </div>
-
-    <button id="next-btn" class="hidden">Nächste Frage →</button>
-
+    </section>
+    <section class="card setup-card" aria-labelledby="setup-heading">
+      <h2 id="setup-heading" tabindex="-1"></h2>
+      <p id="setup-sub" class="setup-sub"></p>
+      <div id="topic-chips" class="topic-chips" role="group" aria-labelledby="setup-heading"></div>
+      <div class="setup-action">
+        <button id="start-btn" class="primary-btn"></button>
+        <p class="local-note" data-i18n="localNote"></p>
+      </div>
+    </section>
   </main>
-
-  <!-- ── Ergebnis-Screen ─────────────────────────────────────────── -->
-  <main id="result-screen" class="card hidden">
-
+  <main id="quiz-screen" class="card quiz-card hidden">
+    <div class="meta-row">
+      <span id="progress-text"></span>
+      <span id="score-display"></span>
+    </div>
+    <div class="progress-track" role="progressbar" id="quiz-progress" aria-labelledby="progress-text" aria-valuemin="0">
+      <div id="progress-bar" style="width:0%"></div>
+    </div>
+    <span class="topic-badge" id="topic-badge"></span>
+    <h1 id="question-text" tabindex="-1"></h1>
+    <div id="question-context"></div>
+    <p class="answer-hint" data-i18n="answerHint"></p>
+    <div id="answers-list" role="group" aria-labelledby="question-text"></div>
+    <div id="explanation-box" class="hidden" role="status" aria-atomic="true">
+      <strong id="feedback-heading"></strong>
+      <p id="explanation-text"></p>
+      <div id="explanation-source"></div>
+    </div>
+    <button id="next-btn" class="primary-btn hidden"></button>
+    <button id="change-topics-btn" class="change-topics-btn" type="button" data-i18n="newRun"></button>
+  </main>
+  <main id="result-screen" class="card result-card hidden">
     <div class="result-header">
-      <h2>Dein Ergebnis</h2>
-
-      <svg class="score-ring" width="120" height="120" viewBox="0 0 120 120" aria-hidden="true">
+      <p class="eyebrow" data-i18n="workshopLabel"></p>
+      <h1 id="result-heading" tabindex="-1"></h1>
+      <svg class="score-ring" width="144" height="144" viewBox="0 0 120 120" aria-hidden="true">
         <circle class="ring-bg" cx="60" cy="60" r="54" />
-        <circle id="score-circle" cx="60" cy="60" r="54"
-                stroke-dasharray="339.3" stroke-dashoffset="339.3" />
+        <circle id="score-circle" cx="60" cy="60" r="54" stroke-dasharray="339.3" stroke-dashoffset="339.3" />
         <text class="ring-text" x="60" y="57" text-anchor="middle" dominant-baseline="middle" id="ring-pct">0 %</text>
-        <text class="ring-sub"  x="60" y="72" text-anchor="middle">Richtig</text>
+        <text class="ring-sub" x="60" y="73" text-anchor="middle" id="ring-sub-text"></text>
       </svg>
-
-      <p class="score-numbers">
-        <strong id="final-score">0 / 50</strong> Fragen richtig
-      </p>
+      <p class="score-numbers"><strong id="final-score"></strong> <span id="score-suffix"></span></p>
       <span id="grade-text" class="grade pass"></span>
     </div>
-
     <div class="wrong-section">
-      <h3>Falsch beantwortete Fragen</h3>
+      <h2 id="wrong-heading"></h2>
       <div id="wrong-list"></div>
     </div>
-
-    <button id="restart-btn">Quiz neu starten</button>
-
+    <button id="restart-btn" class="primary-btn"></button>
   </main>
-
-  <footer>
-    Quellen: DSGVO (Verordnung (EU) 2016/679) · DSG 2018 · UrhG · ECG · OWASP ·
-    <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">dsb.gv.at</a> ·
-    Apache-2.0 License
+  <noscript><p class="noscript-note">Bitte aktiviere JavaScript für das Quiz. / A kvízhez engedélyezd a JavaScriptet.</p></noscript>
+  <!-- /page content -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-about">
+        <a class="footer-brand" href="https://github.com/goAuD/CoderQuiz">CoderQuiz</a>
+        <p data-i18n="footerNote"></p>
+      </div>
+      <div class="footer-group">
+        <h2 data-i18n="toolsLabel"></h2>
+        <a data-lap-link href="https://coderlap.com">CoderLAP <svg class="frame-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10M7 17 17 7"/></svg></a>
+      </div>
+      <div class="footer-group">
+        <h2 data-i18n="projectLabel"></h2>
+        <a href="https://github.com/goAuD/CoderQuiz">GitHub</a>
+        <a data-legal-link="imprint" data-i18n="imprint" href="https://coderlap.com/imprint/">Impressum</a>
+        <a data-legal-link="privacy" data-i18n="privacy" href="https://coderlap.com/privacy/">Datenschutz</a>
+      </div>
+      <p class="sources"><a href="LICENSE">Apache 2.0</a> · <span data-i18n="sourcesLabel"></span> DSGVO · DSG 2018 · UrhG · ECG · OWASP · <a href="https://www.dsb.gv.at">dsb.gv.at</a></p>
+    </div>
   </footer>
-
+  <button id="back-to-top" class="back-to-top" type="button" hidden aria-label="Zurück nach oben">
+    <svg class="frame-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7M12 19V5"/></svg>
+  </button>
+  <script src="i18n.js"></script>
   <script src="questions.js"></script>
   <script src="app.js"></script>
-
-
 </body>
 </html>
