@@ -1,5 +1,22 @@
 # CoderLAP question pilot
 
+## Curriculum release update: 2026-10-14
+
+The three programming banks are now selectable packages in the static catalogue.
+All 100 DE/HU questions were reviewed against CoderLAP
+`7b14ceebc8bb1c44ad11afcfecc2d5f5ec7867bf`; all 200 language/source positions exist.
+Six questions were clarified with revision increments: `LAP-15-01-2`, `03-1`,
+`04-5`, `06-1`, `12-2`, `20-3` (each uses the existing `lap-LAP-15-` ID prefix).
+The changes remove shuffled-choice position references, align a performance
+requirement, distinguish search index from comparisons, bound a recursion claim
+and clarify per-instance private state. All 50 executable JS examples pass.
+
+Build and run the [normal catalogue](../README.md#build-and-preview); separate
+ports are no longer required for independent sessions on the published site.
+The old eight-question pilot keeps its original source snapshot and remains a
+local development sample. The dated batch review details below are retained.
+
+
 Eight DE/HU multiple-choice adaptations from six existing CoderLAP subtopics.
 The canonical pilot data is [examples/lap-pilot.json](../examples/lap-pilot.json).
 The original 100-question bank is not part of this pilot.

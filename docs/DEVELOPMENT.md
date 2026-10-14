@@ -2,6 +2,25 @@
 
 This file tracks progress, decisions, and context so any conversation thread can pick up where another left off.
 
+## Current release: 2026-10-14
+
+Four curriculum packages provide 135 DE/HU questions across 27 topics. The three
+programming banks were reviewed against LAP `7b14cee`; six semantic fixes bump
+their revisions. Informatik 1 adds the first seven Informatik topics.
+
+Production navigation lists only these reviewed packages. The independent law
+bank and the overlapping pilot stay in the repository for local development.
+Each package loads its own generated `questions.js`, with a `QUIZ_BANK.id`.
+`cq-lang` is shared; `cq-<bank-id>-topics` and `cq-<bank-id>-progress` isolate runs.
+The standalone legacy app preserves `cq-topics` / `cq-progress` compatibility.
+The stored values are local practice state, not a server-verified achievement.
+HTML/XML examples are text with explicit language labels, like JavaScript.
+
+Basic Auth is the approved temporary access boundary for quiz.coderlap.com.
+No database, account system or shared-login implementation is part of this release.
+The existing entries below are a dated development history, not the current
+production configuration.
+
 ## Project identity
 
 - Working name: CoderQuiz (umbrella)
@@ -11,7 +30,12 @@ This file tracks progress, decisions, and context so any conversation thread can
 
 ## Architecture decisions
 
-**No build step.** The quiz uses index.html, style.css, i18n.js, questions.js and app.js, plus local assets. Open index.html in a browser and it works. This was a deliberate choice to keep the contribution barrier low and avoid toolchain rot.
+**Static delivery, no runtime dependencies.** The source `index.html` remains the
+standalone quiz template. `node scripts/build-static.cjs` assembles the shared
+frame, `catalog.html`, `quiz-banks.json` and the reviewed JSON banks into `dist/`.
+This small built-in Node script publishes an allowlist; it does not bundle a
+framework or require package installation. CI tests and archives the same output
+that is promoted on Debian. See [DEPLOYMENT.md](DEPLOYMENT.md).
 
 **Questions as a plain JS array.** QUESTIONS in questions.js is a global const loaded before app.js. Each entry is an object with id, topic, question, answers[], correct (0-based index), and explanation. This makes questions easy to edit in any text editor without understanding the app code.
 

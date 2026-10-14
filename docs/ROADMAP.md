@@ -1,6 +1,18 @@
 # CoderQuiz - Roadmap
 
-## Cross-project order — 2026-09-30
+## Current rollout decision: 2026-10-14
+
+The user approved the Quiz subdomain launch with temporary Basic Auth. Shared
+invitation-based sign-in stays a separate later task. Four normal static package
+URLs now expose 135 reviewed LAP questions: all 100 programming self-checks and
+35 Informatik questions. Only `dist/` is deployable. The legacy bank remains local.
+
+Order: verify content and package navigation, pass CI, promote its immutable
+artifact, validate the protected Caddy host, add proxied DNS, check real HTTPS
+access, then enable the CoderLAP entry links. See [DEPLOYMENT.md](DEPLOYMENT.md).
+SkillDisplay remains pending the teacher's reply; this rollout does not add it.
+
+## Earlier cross-project plan: 2026-09-30
 
 The shared execution order is maintained in the CoderLAP
 [learning-platform roadmap](https://github.com/goAuD/CoderLAP/blob/dev/docs/plans/2026-09-30-learning-platform-roadmap.md).
@@ -15,7 +27,7 @@ The sections below retain the Quiz-specific content and implementation detail.
 
 CoderQuiz is a collection of exam prep quizzes aimed at Austrian apprenticeship exams (LAP) and related IT certifications. The current module covers DSGVO and legal topics for the Applikationsentwicklung-Coding exam.
 
-## Current State
+## Historical state before curriculum launch
 
 - Module: DSGVO and Law (DE + HU)
 - Questions: 100, focused on DSGVO through a developer's lens; all with full HU translations
@@ -36,8 +48,8 @@ matches the reviewed code; CI and CodeQL passed on that merge commit.
 CoderLAP's matching frame is deployed; CoderCoaster's is merged into its `main`.
 The three `workshop-frame.css` copies are byte-identical.
 
-Production hosting, DNS and shared sign-in are deferred to the next session by
-user decision. No Quiz deployment has occurred. Before publishing, choose the
+At that point, production hosting, DNS and shared sign-in were deferred by
+user decision. The 2026-10-14 decision above supersedes the Quiz hosting/DNS pause. No Quiz deployment has occurred. Before publishing, choose the
 entry point and curriculum navigation: the root app still opens the independent
 DSGVO bank, while the three approved LAP programming banks remain separate
 previews. Merging those banks did not make them one selectable production module.
@@ -55,15 +67,15 @@ previews. Merging those banks did not make them one selectable production module
 
 ## Medium-term Goals
 
-- [ ] Build curriculum navigation around the CoderLAP topic hierarchy after pilot review
+- [x] Build a static package catalogue for the reviewed CoderLAP banks
 - [ ] Expand reviewed questions from existing CoderLAP self-checks
 - [ ] Add a bookmarking / flagging feature for questions the user wants to revisit
 - [ ] Host under coderlap.com domain
 
 ## Content direction: CoderLAP first
 
-CoderLAP already has 1,143 self-check questions and matching short answers in
-228 registered documents, in both DE and HU (read-only inventory, 2026-09-11).
+CoderLAP now has 1,164 self-check questions and matching short answers in
+235 registered documents, in both DE and HU (reviewed release, 2026-10-14).
 These include 100 programming, 215 Informatik and 40 IT-security questions.
 The existing CoderQuiz bank was written independently; do not assume its topics
 or questions already map to that curriculum.
