@@ -11,10 +11,12 @@ The [v0.1.0 release](https://github.com/goAuD/CoderQuiz/releases/tag/v0.1.0)
 is deployed at `https://quiz.coderlap.com/`. Its main CI artifact matches all
 27 deployed files. Proxied DNS, valid HTTPS, Basic Auth rejection of missing or
 incorrect credentials, and private/no-store responses are verified.
-Authenticated production UI verification is still pending: automated Vivaldi
-navigation returned `ERR_BLOCKED_BY_CLIENT`, and the operator has been asked to
-open the site and sign in manually. CoderLAP entry links remain disabled until
-that check passes. See [DEPLOYMENT.md](DEPLOYMENT.md).
+After the operator signed in manually, authenticated production checks passed:
+all four package paths, DE/HU switching, answer explanations and saved-answer
+restoration after reload/package switching. The 390 px browser viewport had no
+horizontal overflow; a fresh physical iPhone check remains a follow-up.
+CoderLAP entry-link activation is tracked in the shared roadmap below.
+See [DEPLOYMENT.md](DEPLOYMENT.md).
 SkillDisplay remains pending the teacher's reply; this rollout does not add it.
 
 ## Earlier cross-project plan: 2026-09-30
@@ -70,7 +72,7 @@ the production build generates the curriculum catalogue in `dist/index.html`.
 - [x] Set up GitHub Actions workflow for basic validation (syntax check, question count, duplicate ID check)
 - [x] Adapt the CoderLAP Műhely identity to setup, quiz and result screens
 - [x] Deploy the reviewed static packages behind temporary Basic Auth
-- [ ] Complete authenticated production browser verification and enable LAP links
+- [x] Complete authenticated production browser verification
 
 ## Medium-term Goals
 
