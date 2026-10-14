@@ -571,4 +571,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   if (!tryRestoreProgress()) showSetupScreen();
+  window.dispatchEvent(new Event("quiz:ready"));
 });
