@@ -21,6 +21,27 @@ No database, account system or shared-login implementation is part of this relea
 The existing entries below are a dated development history, not the current
 production configuration.
 
+### Platform icons
+
+`assets/logo.svg` uses the same artwork as CoderLAP's `site/assets/favicon.svg`.
+The root `favicon.ico` contains 16, 32 and 48 px variants; `apple-touch-icon.png`
+is 180 px. Both are derived assets committed to Git, so CI and production need
+no image-processing dependency. The build copies their binary bytes and uses
+the template's icon links on the catalogue, package pages and 404 page.
+
+To regenerate after an approved brand change, use local ImageMagick:
+
+```sh
+magick -background none -density 576 assets/logo.svg -define icon:auto-resize=48,32,16 favicon.ico
+magick -background '#345ee8' -density 576 assets/logo.svg -resize 180x180 -alpha remove -alpha off -depth 8 -strip apple-touch-icon.png
+```
+
+The PNG is opaque and uses the brand background. The existing
+[SVG favicon](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link)
+remains available; the [Apple touch icon](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
+supports saved home-screen shortcuts. No web-app manifest or service worker is
+needed for these icons.
+
 ## Project identity
 
 - Working name: CoderQuiz (umbrella)
