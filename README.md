@@ -26,7 +26,7 @@ Programming covers all 100 self-check positions in its 20 subtopics; it does not
 claim a separate quiz question for every detail in the expanded learning text.
 
 The original independent 100-question law/privacy bank remains in `questions.js`
-for local use and history. Its [open content review](docs/REVIEW.md) is unfinished,
+for local use and history. Its content review is unfinished,
 so it is **not included in the published site**. The eight-question pilot is also
 kept as a development sample rather than counted twice.
 
@@ -83,9 +83,10 @@ These checks complement editorial source review and browser/mobile checks.
   JavaScript output is tested during development; HTML/XML fragments are labelled.
 - Keep DE/HU choices in the same source order; the app shuffles their display.
 
-See [programming notes](docs/LAP-PILOT.md),
-[Informatik notes](docs/LAP-INFORMATIK.md),
-[development](docs/DEVELOPMENT.md) and the [roadmap](docs/ROADMAP.md).
+Question banks keep a pinned CoderLAP source commit and per-question references.
+Keep German and Hungarian choices and explanations aligned, and run the tests
+after editing a bank. General programming examples use JavaScript; technology
+topics use their own language. Explanations appear after an answer.
 
 ## Hosting and privacy
 
@@ -98,9 +99,14 @@ browser. Answers and scores are not sent to an application server. Clearing
 site data removes these local saves. The homepage and packages link to the
 operator's CoderLAP imprint and privacy notice.
 
-[Deployment instructions](docs/DEPLOYMENT.md) describe the verified CI artifact,
-checksum, immutable releases, atomic promotion, Caddy setup and rollback.
+CI packages only the generated `dist/` directory, with a SHA-256 checksum.
+Deploy the successful `main` build using `scripts/deploy_static.py`; its `--help`
+lists the archive, commit and checksum arguments. Keep credentials and
+machine-specific deployment notes outside Git.
 [Release notes](docs/releases/v0.1.0.md) record the first curriculum release.
+
+Only `docs/releases/` and optional public `docs/assets/` are tracked under
+`docs/`. Planning notes and local agent settings stay ignored.
 
 ## Shared design and license
 
