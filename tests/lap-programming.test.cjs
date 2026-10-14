@@ -144,6 +144,20 @@ test('displayed searches return indices or minus one and preserve their input', 
   }
 });
 
+test('linear search distinguishes the returned index from the number of examined elements', () => {
+  const { context } = execute(bank.questions.find(q => q.id === 'lap-LAP-15-06-1'));
+  const examined = [];
+  context.values = new Proxy([5, 11, 19, 42, 70], {
+    get(target, property, receiver) {
+      if (/^\d+$/.test(String(property))) examined.push(target[property]);
+      return Reflect.get(target, property, receiver);
+    },
+  });
+  assert.equal(vm.runInContext('linearSearch(values, 42)', context, { timeout: 1000 }), 3);
+  assert.deepEqual(examined, [5, 11, 19, 42]);
+  assert.equal(examined.length, 4); // Include the matching element itself.
+});
+
 test('the sum example meets the extra test cases taught in its explanation', () => {
   const { context } = execute(bank.questions.find(q => q.id === 'lap-LAP-15-07-3'));
   for (const [input, expected] of [[[], 0], [[7], 7], [[-2, 2], 0]]) {
