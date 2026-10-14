@@ -2,6 +2,11 @@
 
 const I18N = {
   de: {
+    catalogHome: "CoderQuiz – Quizpakete",
+    catalogLink: "Pakete",
+    newRun: "Neuen Durchlauf zusammenstellen",
+    imprint: "Impressum",
+    privacy: "Datenschutz",
     backToTop: "Zurück nach oben",
     pseudocodeLabel: "Pseudocode",
     studyTopic: "Im CoderLAP nachlesen",
@@ -12,7 +17,7 @@ const I18N = {
     sessionReset: "Der gespeicherte Durchlauf passt nicht mehr zu den aktuellen Fragen oder ist unvollständig. Wähle Themen für einen neuen Durchlauf.",
     footerNote: "Zum Üben und Nachschlagen. Ohne Werbung und ohne Tracking.",
     toolsLabel: "Werkzeuge",
-    projectLabel: "Projekt",
+    projectLabel: "Projekt & Recht",
     sourcesLabel: "Quellen:",
     answerHint: "Wähle eine Antwort. Danach folgt die Erklärung.",
     correctChoice: "Richtige Antwort",
@@ -58,6 +63,11 @@ const I18N = {
     }
   },
   hu: {
+    catalogHome: "CoderQuiz – Kvízcsomagok",
+    catalogLink: "Csomagok",
+    newRun: "Új kör összeállítása",
+    imprint: "Impresszum",
+    privacy: "Adatvédelem",
     backToTop: "Vissza a tetejére",
     pseudocodeLabel: "Pszeudokód",
     studyTopic: "Kapcsolódó CoderLAP-tananyag",
@@ -68,7 +78,7 @@ const I18N = {
     sessionReset: "A mentett kör már nem illik az aktuális kérdésekhez, vagy hiányos. Válassz témákat egy új gyakorláshoz.",
     footerNote: "Gyakorláshoz és ismétléshez. Reklám és nyomkövetés nélkül.",
     toolsLabel: "Eszközök",
-    projectLabel: "Projekt",
+    projectLabel: "Projekt és jog",
     sourcesLabel: "Források:",
     answerHint: "Válassz egy választ. Utána következik a magyarázat.",
     correctChoice: "Helyes válasz",

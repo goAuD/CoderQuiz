@@ -4,6 +4,9 @@ Thumbs.db
 node_modules/
 .vscode/
 .claude/
+docs/_local/
+dist/
+__pycache__/
 
 # Keep local notes and agent settings out of Git.
 /docs/*
