@@ -70,6 +70,10 @@
   --space-7: 3rem;
   --touch-target: 2.75rem;
   --content-width: 70rem;
+  --motion-reveal-duration: 360ms;
+  --motion-reveal-offset: .375rem;
+  --motion-ease: cubic-bezier(.2, .7, .3, 1);
+  --motion-skeleton-duration: 1400ms;
   --page-left: max(1.25rem, env(safe-area-inset-left, 0px));
   --page-right: max(1.25rem, env(safe-area-inset-right, 0px));
   --floating-button-bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
@@ -131,7 +135,7 @@ h2 {
   font-weight: 750;
   letter-spacing: -.025em;
 }
-.hidden {
+.hidden, [hidden] {
   display: none !important;
 }
 .site-header {
@@ -205,9 +209,6 @@ h2 {
 .lang-btn.active {
   color: var(--color-accent);
   background: var(--color-accent-soft);
-}
-main {
-  animation: reveal 320ms ease-out;
 }
 .setup-layout {
   display: grid;
@@ -728,15 +729,21 @@ main {
     grid-column: 1 / -1;
   }
 }
-@keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(5px);
+/* Same motion tokens as CoderLAP. Nothing is hidden while waiting for JavaScript. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .workshop-reveal {
+    animation: workshop-reveal var(--motion-reveal-duration) var(--motion-ease);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .skeleton-bar {
+    animation: workshop-skeleton var(--motion-skeleton-duration) ease-in-out infinite;
   }
+}
+@keyframes workshop-reveal {
+  from { opacity: .65; transform: translateY(var(--motion-reveal-offset)); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes workshop-skeleton {
+  50% { opacity: .45; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -744,6 +751,31 @@ main {
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+.loading-panel {
+  width: min(var(--content-width), calc(100% - var(--page-left) - var(--page-right)));
+  margin: 3rem auto 4.5rem;
+}
+#quiz-loading-status { color: var(--color-text-muted); margin-bottom: var(--space-5); }
+.loading-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.4fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+.skeleton-intro, .skeleton-card { display: grid; gap: var(--space-5); }
+.skeleton-intro { padding-top: var(--space-6); }
+.skeleton-bar { height: 1rem; border-radius: var(--radius-md); background: var(--color-surface-raised); }
+.skeleton-short { width: 65%; }
+.skeleton-title { height: 2.5rem; }
+.skeleton-control { height: var(--touch-target); }
+#quiz-load-error { max-width: 40rem; }
+#quiz-reload { margin-top: var(--space-5); }
+@media (max-width: 900px) {
+  .loading-layout { grid-template-columns: 1fr; gap: var(--space-6); }
+  .skeleton-intro { padding-top: 0; }
+  .loading-panel { margin-block: var(--space-6); }
 }
 
 /* The catalogue uses the same local tokens and shared frame as the quiz. */

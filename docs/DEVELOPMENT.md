@@ -42,6 +42,34 @@ remains available; the [Apple touch icon](https://developer.apple.com/library/ar
 supports saved home-screen shortcuts. No web-app manifest or service worker is
 needed for these icons.
 
+### Loading and motion
+
+`assets/page-effects.js` applies the same 360 ms reveal and 1400 ms skeleton
+pulse tokens as CoderLAP. Catalogue sections and cards reveal once as they enter
+the viewport; quiz and result panels retain a short entrance when shown.
+Content is visible before the observer runs and without the effects script.
+`prefers-reduced-motion` disables both effects, including changes made while
+the page is open.
+
+Only a package's initial script loading has a skeleton. The deferred scripts
+keep their existing order, and `app.js` emits `quiz:ready` after restoring or
+rendering the first screen. The placeholder appears after 150 ms of real waiting
+and disappears immediately on readiness. It adds no minimum loading time, no
+delay between questions and no extra data request. The static catalogue needs
+no skeleton. A resource error or failed startup shows a retry button.
+
+The small pre-startup loading/error messages are in the HTML in DE/HU because
+they must also work when `i18n.js` fails. They use the saved language where
+available. Decorative bars are hidden from assistive technology; status text,
+busy state and the retry button remain accessible. No storage keys changed.
+
+For UI verification, delay or block a package's `questions.js` in DevTools,
+then check loading, retry and successful restoration. Also check a fast reload,
+reduced motion, keyboard focus, and 390 px mobile width. JavaScript-disabled
+catalogues must keep their package links; package pages show the existing
+JavaScript requirement message. `node --test tests/*.test.cjs` covers readiness,
+resource/startup failures and the existing saved-run behavior.
+
 ## Project identity
 
 - Working name: CoderQuiz (umbrella)
