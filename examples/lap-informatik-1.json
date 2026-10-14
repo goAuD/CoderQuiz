@@ -1,0 +1,1110 @@
+{
+  "sourceRepository": "https://github.com/goAuD/CoderLAP",
+  "sourceCommit": "7b14ceebc8bb1c44ad11afcfecc2d5f5ec7867bf",
+  "ui": {
+    "de": {
+      "moduleTitle": "CoderLAP · Informatik 1",
+      "subtitle": "35 Fragen zu Web-Grundlagen, HTML, XML, Metadaten und SEO. Mit Erklärungen nach der Antwort.",
+      "practiceNote": "Entscheide anhand konkreter Situationen und kleiner Codebeispiele. Wähle einzelne Themen oder das ganze Paket.",
+      "topics": {
+        "Begriff Informatik": "Begriff Informatik",
+        "Statische und dynamische Webseiten": "Statische und dynamische Webseiten",
+        "Weblog Webshop Webplattform": "Weblog, Webshop und Webplattform",
+        "HTML und XML": "HTML und XML",
+        "HTML5 Grundgeruest": "HTML-Grundgerüst",
+        "Meta Elemente und Metadaten": "Meta-Elemente und Metadaten",
+        "SEO und Massnahmen": "SEO und Maßnahmen"
+      }
+    },
+    "hu": {
+      "moduleTitle": "CoderLAP · Informatika 1",
+      "subtitle": "35 kérdés webes alapokról, HTML-ről, XML-ről, metaadatokról és SEO-ról. Válasz utáni magyarázatokkal.",
+      "practiceNote": "Konkrét helyzetek és rövid kódpéldák alapján dönts. Válassz témákat, vagy gyakorold az egész csomagot.",
+      "topics": {
+        "Begriff Informatik": "Az informatika fogalma",
+        "Statische und dynamische Webseiten": "Statikus és dinamikus weboldalak",
+        "Weblog Webshop Webplattform": "Blog, webshop és webplatform",
+        "HTML und XML": "HTML és XML",
+        "HTML5 Grundgeruest": "A HTML alapváza",
+        "Meta Elemente und Metadaten": "Metaelemek és metaadatok",
+        "SEO und Massnahmen": "SEO és keresőoptimalizálás"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "lap-LAP-11-01-1",
+      "revision": 1,
+      "topic": "Begriff Informatik",
+      "source": {
+        "topicId": "LAP-11-01",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/01_Begriff_Informatik/README.md",
+        "slug": "11-01-begriff_informatik"
+      },
+      "question": "Drei Temperaturmessungen in Grad Celsius werden als 20, 22 und 24 gespeichert. Welche Ergänzung macht den berechneten Mittelwert als Information nachvollziehbar?",
+      "answers": [
+        "Die Summe 66 als Mittelwert ausgeben und den Messort ergänzen.",
+        "Den letzten Messwert 24 als Mittelwert ausgeben und den Zeitraum ergänzen.",
+        "Den Mittelwert 22 °C zusammen mit Messort und Messzeitraum angeben.",
+        "Den Mittelwert 22 ohne Einheit und Herkunft in einer unbeschrifteten Spalte speichern."
+      ],
+      "correct": 2,
+      "explanation": "Die Summe 66 geteilt durch drei Messungen ergibt 22. Einheit, Ort und Zeitraum geben dem Ergebnis Bedeutung. Informatik umfasst sowohl die Verarbeitung als auch ein geeignetes Modell für die Daten.",
+      "hu": {
+        "question": "Három, Celsius-fokban mért hőmérsékletet 20, 22 és 24 számként tárolunk. Melyik kiegészítés teszi a kiszámított átlagot értelmezhető információvá?",
+        "answers": [
+          "A 66-os összeget átlagként írjuk ki, és mellé tesszük a mérés helyét.",
+          "A legutolsó, 24-es értéket átlagként írjuk ki, és mellé tesszük az időszakot.",
+          "A 22 °C-os átlag mellé megadjuk a mérés helyét és időszakát.",
+          "A 22-es átlagot egység és eredet nélkül, címkézetlen oszlopba mentjük."
+        ],
+        "explanation": "A 66-os összeget három méréssel osztva 22-t kapunk. A mértékegység, hely és időszak ad jelentést az eredménynek. Az informatika a feldolgozás mellett az adatok megfelelő modellezésével is foglalkozik."
+      }
+    },
+    {
+      "id": "lap-LAP-11-01-2",
+      "revision": 1,
+      "topic": "Begriff Informatik",
+      "source": {
+        "topicId": "LAP-11-01",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/01_Begriff_Informatik/README.md",
+        "slug": "11-01-begriff_informatik"
+      },
+      "question": "Ein Programm berechnet Mittelwerte korrekt. Später stellt sich heraus: Ein Sensor liefert Celsius, ein anderer Fahrenheit. Welche Aufgabe gehört hier zusätzlich zum Programmieren zur Informatik?",
+      "answers": [
+        "Einheiten und Datenmodell klären und festlegen, wie vergleichbare Werte entstehen.",
+        "Die gleiche Berechnung in eine andere Programmiersprache übertragen.",
+        "Die Variablennamen kürzen, ohne die Eingangsdaten zu ändern.",
+        "Die vorhandene Ausgabe mit mehr Nachkommastellen anzeigen."
+      ],
+      "correct": 0,
+      "explanation": "Vor dem Rechnen muss klar sein, was die Werte bedeuten. Die Vereinheitlichung der Einheiten gehört zur Modellierung und Datenaufbereitung. Erst auf dieser Grundlage setzt der Code ein fachlich geeignetes Verfahren um.",
+      "hu": {
+        "question": "Egy program helyesen számol átlagot. Később kiderül, hogy az egyik érzékelő Celsius-, a másik Fahrenheit-értékeket küld. Milyen, a kódíráson túlmutató informatikai feladat adódik?",
+        "answers": [
+          "Tisztázni kell a mértékegységeket és az adatmodellt, majd összehasonlíthatóvá tenni az értékeket.",
+          "Ugyanazt a számítást át kell írni egy másik programozási nyelvre.",
+          "Az adatok változtatása nélkül rövidebb változóneveket kell használni.",
+          "Több tizedesjeggyel kell megjeleníteni a meglévő eredményt."
+        ],
+        "explanation": "Számolás előtt tudnunk kell, mit jelentenek az értékek. Az egységek összehangolása modellezési és adat-előkészítési feladat. Erre épülhet a tartalmilag is megfelelő eljárást megvalósító kód."
+      }
+    },
+    {
+      "id": "lap-LAP-11-01-3",
+      "revision": 1,
+      "topic": "Begriff Informatik",
+      "source": {
+        "topicId": "LAP-11-01",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/01_Begriff_Informatik/README.md",
+        "slug": "11-01-begriff_informatik"
+      },
+      "question": "Ein Lernportal braucht Datenübertragung, gespeicherte Ergebnisse, eine bedienbare Oberfläche und Zugriffsschutz. Welche Zuordnung passt zu diesen vier Aufgaben?",
+      "answers": [
+        "Datenbanken, Netzwerke, Sicherheit, Benutzeroberfläche.",
+        "Netzwerke, Benutzeroberfläche, Datenbanken, Sicherheit.",
+        "Sicherheit, Datenbanken, Netzwerke, Benutzeroberfläche.",
+        "Netzwerke, Datenbanken, Benutzeroberfläche, Sicherheit."
+      ],
+      "correct": 3,
+      "explanation": "Das Netzwerk transportiert Daten, die Datenbank speichert Ergebnisse, die Oberfläche ermöglicht die Bedienung und Sicherheitsmaßnahmen schützen den Zugriff. Die Aufgaben greifen ineinander und zeigen die Breite der Informatik.",
+      "hu": {
+        "question": "Egy tanulási portálhoz adatátvitel, tárolt eredmények, kezelhető felület és hozzáférés-védelem kell. Melyik területsorrend illik ehhez a négy feladathoz?",
+        "answers": [
+          "Adatbázisok, hálózatok, biztonság, felhasználói felület.",
+          "Hálózatok, felhasználói felület, adatbázisok, biztonság.",
+          "Biztonság, adatbázisok, hálózatok, felhasználói felület.",
+          "Hálózatok, adatbázisok, felhasználói felület, biztonság."
+        ],
+        "explanation": "A hálózat továbbítja az adatot, az adatbázis tárolja az eredményeket, a felület biztosítja a kezelést, a biztonsági megoldások pedig védik a hozzáférést. Az összekapcsolódó feladatok mutatják az informatika sokféle területét."
+      }
+    },
+    {
+      "id": "lap-LAP-11-01-4",
+      "revision": 1,
+      "topic": "Begriff Informatik",
+      "source": {
+        "topicId": "LAP-11-01",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/01_Begriff_Informatik/README.md",
+        "slug": "11-01-begriff_informatik"
+      },
+      "question": "Das Verfahren soll den Mittelwert liefern und eine leere Messreihe gesondert behandeln. Welche zwei Zeilen gibt der vollständige JavaScript-Code aus?",
+      "answers": [
+        "66, danach 0.",
+        "22, danach null.",
+        "22, danach 0.",
+        "66, danach null."
+      ],
+      "correct": 1,
+      "explanation": "Das Verfahren addiert 20 + 22 + 24 und teilt 66 durch 3. Bei einer leeren Liste endet es bereits mit null, dem hier vereinbarten Wert für fehlende Messdaten. Der Algorithmus legt also auch das Verhalten an dieser Grenze fest.",
+      "hu": {
+        "question": "Az eljárás átlagot számol, az üres mérési sorozatot pedig külön kezeli. Melyik két sort írja ki a teljes JavaScript-kód?",
+        "answers": [
+          "66, majd 0.",
+          "22, majd null.",
+          "22, majd 0.",
+          "66, majd null."
+        ],
+        "explanation": "Az eljárás összeadja a 20 + 22 + 24 értékeket, majd a 66-ot elosztja hárommal. Üres listánál már az elején null értékkel tér vissza, ami itt a hiányzó mérést jelöli. Az algoritmus ennek a határesetnek a kezelését is meghatározza."
+      },
+      "code": "function mean(values) {\n  if (values.length === 0) return null;\n  let total = 0;\n  for (const value of values) total += value;\n  return total / values.length;\n}\n\nconsole.log(mean([20, 22, 24]));\nconsole.log(mean([]));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "22",
+        "null"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-01-5",
+      "revision": 1,
+      "topic": "Begriff Informatik",
+      "source": {
+        "topicId": "LAP-11-01",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/01_Begriff_Informatik/README.md",
+        "slug": "11-01-begriff_informatik"
+      },
+      "question": "Eine Werkstatt plant Termine, Materialbestand und Rechnungen digital. Warum ist Informatik für diesen Betrieb auch außerhalb der eigentlichen Softwareentwicklung wichtig?",
+      "answers": [
+        "Verlässliche Daten und abgestimmte Systeme sind Teil der täglichen Arbeitsabläufe.",
+        "Nach dem Kauf einer Software sind Datenpflege und Zugriffsregeln erledigt.",
+        "Die verwendete Programmiersprache bestimmt bereits die fachliche Richtigkeit der Termine.",
+        "Die Digitalisierung ersetzt die Abstimmung darüber, wie Material gebucht wird."
+      ],
+      "correct": 0,
+      "explanation": "Informationen verbinden hier Planung, Lager und Abrechnung. Geeignete Datenstrukturen, nachvollziehbare Abläufe und sichere Systeme helfen den Menschen bei ihrer Arbeit. Diese Aufgaben bestehen auch während des laufenden Betriebs.",
+      "hu": {
+        "question": "Egy műhely digitálisan kezeli az időpontokat, az anyagkészletet és a számlákat. Miért fontos számára az informatika a szoftverfejlesztésen kívül is?",
+        "answers": [
+          "A megbízható adatok és az összehangolt rendszerek a napi munkafolyamat részei.",
+          "A szoftver megvásárlásával az adatkarbantartás és a hozzáférési szabályok is rendeződnek.",
+          "A programozási nyelv már meghatározza az időpontok tartalmi helyességét.",
+          "A digitalizálás kiváltja az anyagkönyvelés szabályainak egyeztetését."
+        ],
+        "explanation": "Az információ kapcsolja össze a tervezést, raktárt és számlázást. A megfelelő adatszerkezetek, követhető folyamatok és biztonságos rendszerek segítik a munkát. Ezekkel az üzemeltetés során is foglalkozni kell."
+      }
+    },
+    {
+      "id": "lap-LAP-11-02-1",
+      "revision": 1,
+      "topic": "Statische und dynamische Webseiten",
+      "source": {
+        "topicId": "LAP-11-02",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/02_Statische_und_dynamische_Webseiten/README.md",
+        "slug": "11-02-statische_und_dynamische_webseiten"
+      },
+      "question": "Ein Build erzeugt die HTML-Dateien eines Lernportals. Der Server liefert diese Dateien aus; JavaScript filtert bereits geladene Themen im Browser. Wie beschreibst du das präzise?",
+      "answers": [
+        "Serverseitiges Rendering, weil eine Suchfunktion vorhanden ist.",
+        "Clientseitiges Rendering mit einer erforderlichen Benutzerdatenbank.",
+        "Dynamische HTML-Erzeugung auf dem Server bei jeder Filteränderung.",
+        "Statische Auslieferung mit zusätzlicher Interaktion im Browser."
+      ],
+      "correct": 3,
+      "explanation": "Das HTML entsteht vor dem Aufruf im Build. Das Filtern verändert anschließend die Oberfläche im Browser. Auslieferungsverfahren und Interaktion sind getrennte Eigenschaften; die Filterfunktion benötigt hier keinen neuen Serverabruf.",
+      "hu": {
+        "question": "Egy build elkészíti a tanulási portál HTML-fájljait. A szerver ezeket küldi ki, a JavaScript pedig a már betöltött témákat szűri a böngészőben. Mi a pontos leírás?",
+        "answers": [
+          "Szerveroldali renderelés, mert keresőfunkció is van.",
+          "Kliensoldali renderelés, amelyhez felhasználói adatbázis szükséges.",
+          "Minden szűrésváltozáskor dinamikusan készül új HTML a szerveren.",
+          "Statikus kiszolgálás, kiegészítve böngészőbeli interakcióval."
+        ],
+        "explanation": "A HTML még a megnyitás előtt, a build során készül el. A szűrés ezután a böngésző felületét módosítja. A kiszolgálás módja és az interakció külön tulajdonság; ehhez a szűréshez nem kell új szerverkérés."
+      }
+    },
+    {
+      "id": "lap-LAP-11-02-2",
+      "revision": 1,
+      "topic": "Statische und dynamische Webseiten",
+      "source": {
+        "topicId": "LAP-11-02",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/02_Statische_und_dynamische_Webseiten/README.md",
+        "slug": "11-02-statische_und_dynamische_webseiten"
+      },
+      "question": "Ein Server liest bei einer Anfrage die Bestellungen des angemeldeten Kontos aus der Datenbank und erzeugt daraus HTML. Woran erkennst du hier die dynamische Erzeugung?",
+      "answers": [
+        "Die fertige Seite enthält eine CSS-Datei.",
+        "Daten und Kontokontext bestimmen das HTML während der Anfrage.",
+        "Die Adresse beginnt mit HTTPS.",
+        "Die Seite kann mit der Maus bedient werden."
+      ],
+      "correct": 1,
+      "explanation": "Der Server erstellt die Antwort anhand der zur Anfrage passenden Daten. Das ist serverseitiges Rendering. Ob die Seite animiert ist oder HTTPS nutzt, beschreibt andere Eigenschaften.",
+      "hu": {
+        "question": "Egy szerver a kéréskor lekéri a belépett fiók rendeléseit az adatbázisból, és ezekből készít HTML-t. Miből látszik itt a dinamikus előállítás?",
+        "answers": [
+          "Az elkészült oldalhoz CSS-fájl tartozik.",
+          "A kérés közben az adatok és a fiók határozzák meg a HTML-t.",
+          "A cím HTTPS-sel kezdődik.",
+          "Az oldal egérrel kezelhető."
+        ],
+        "explanation": "A szerver a kéréshez tartozó adatokból állítja össze a választ. Ez szerveroldali renderelés. Az animáció vagy a HTTPS használata az oldal más tulajdonságát írja le."
+      }
+    },
+    {
+      "id": "lap-LAP-11-02-3",
+      "revision": 1,
+      "topic": "Statische und dynamische Webseiten",
+      "source": {
+        "topicId": "LAP-11-02",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/02_Statische_und_dynamische_Webseiten/README.md",
+        "slug": "11-02-statische_und_dynamische_webseiten"
+      },
+      "question": "Welche beiden beschriebenen Umsetzungen liefern ihre Inhalte als vorab erstellte statische Seiten aus?",
+      "answers": [
+        "Ein pro Anfrage erzeugtes Konto-Dashboard und ein Forum mit serverseitiger Beitragsabfrage.",
+        "Ein im Browser aus einer Live-API aufgebauter Kalender und eine pro Anfrage berechnete Preisseite.",
+        "Ein als HTML exportiertes Portfolio und eine beim Build erzeugte Dokumentation.",
+        "Eine serverseitig gefilterte Bestellübersicht und eine bei jeder Anfrage neu gerenderte Produktliste."
+      ],
+      "correct": 2,
+      "explanation": "Bei Portfolio und Dokumentation liegt das HTML bereits vor der Anfrage vor. Entscheidend ist die beschriebene Umsetzung: Auch ein Portfolio könnte anders entwickelt werden. Eine Änderung an diesen exportierten Seiten erfordert hier einen neuen Export oder Build und die Veröffentlichung.",
+      "hu": {
+        "question": "Melyik két leírt megvalósítás szolgálja ki a tartalmát előre elkészült statikus oldalakként?",
+        "answers": [
+          "Kérésenként előállított fiókáttekintő és szerveroldali bejegyzéslekérést használó fórum.",
+          "Élő API-ból a böngészőben összeállított naptár és kérésenként számolt ároldal.",
+          "HTML-ként exportált portfólió és build során előállított dokumentáció.",
+          "Szerveroldalon szűrt rendeléslista és minden kéréskor újrarenderelt terméklista."
+        ],
+        "explanation": "A portfólió és a dokumentáció HTML-je már a kérés előtt rendelkezésre áll. A leírt megvalósítás dönt: portfóliót másképpen is lehet készíteni. Ezek módosításához itt új export vagy build, majd közzététel szükséges."
+      }
+    },
+    {
+      "id": "lap-LAP-11-02-4",
+      "revision": 1,
+      "topic": "Statische und dynamische Webseiten",
+      "source": {
+        "topicId": "LAP-11-02",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/02_Statische_und_dynamische_Webseiten/README.md",
+        "slug": "11-02-statische_und_dynamische_webseiten"
+      },
+      "question": "Welche zwei Anforderungen verlangen in der beschriebenen Lösung dynamische Datenverarbeitung zur Anfragezeit auf dem Server?",
+      "answers": [
+        "Freie Termine aus dem aktuellen Buchungsbestand ermitteln und nur die Bestellungen des angemeldeten Kontos anzeigen.",
+        "Eine exportierte Kontaktseite ausliefern und ein bereits geladenes Inhaltsverzeichnis einblenden.",
+        "Eine fertige PDF-Datei bereitstellen und die Farbe einer Schaltfläche bei Mausberührung ändern.",
+        "Ein vorab erzeugtes Handbuch senden und dessen geladene Überschriften im Browser filtern."
+      ],
+      "correct": 0,
+      "explanation": "Die freien Termine hängen von den gespeicherten Buchungen ab; die Bestellliste zusätzlich vom angemeldeten Konto. Die beschriebenen Antworten werden dafür serverseitig aus passenden Daten erzeugt. Reine Anzeigeeffekte benötigen diese Verarbeitung nicht.",
+      "hu": {
+        "question": "A leírt megoldásban melyik két igényhez kell kéréskor dinamikusan feldolgozni az adatokat a szerveren?",
+        "answers": [
+          "Az aktuális foglalásokból szabad időpontokat számolni, és csak a belépett fiók rendeléseit megjeleníteni.",
+          "Exportált kapcsolati oldalt kiküldeni, és egy már betöltött tartalomjegyzéket megjeleníteni.",
+          "Kész PDF-fájlt kiszolgálni, és egérmutatóra megváltoztatni egy gomb színét.",
+          "Előre elkészült kézikönyvet kiküldeni, és a betöltött címsorait a böngészőben szűrni."
+        ],
+        "explanation": "A szabad időpontok a tárolt foglalásoktól, a rendeléslista pedig a belépett fióktól is függ. A leírt válaszok ezért a szerveren készülnek a megfelelő adatokból. Pusztán megjelenítési hatásokhoz nincs szükség erre."
+      }
+    },
+    {
+      "id": "lap-LAP-11-02-5",
+      "revision": 1,
+      "topic": "Statische und dynamische Webseiten",
+      "source": {
+        "topicId": "LAP-11-02",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/02_Statische_und_dynamische_Webseiten/README.md",
+        "slug": "11-02-statische_und_dynamische_webseiten"
+      },
+      "question": "Eine Produktbeschreibung wird als fertige HTML-Datei ausgeliefert. Danach fragt JavaScript den aktuellen Lagerbestand über eine API ab. Welche Aussage passt?",
+      "answers": [
+        "Der API-Aufruf macht auch die ausgelieferte CSS-Datei zu serverseitig erzeugtem HTML.",
+        "Ein solches System benötigt entweder statische Dateien oder eine API; beides lässt sich nicht verbinden.",
+        "Statische Grundinhalte und dynamisch geladene Bestandsdaten werden kombiniert.",
+        "Der Bestand ist der Wert vom letzten Build, auch wenn die API neuere Daten liefert."
+      ],
+      "correct": 2,
+      "explanation": "Die Beschreibung ist schon vorbereitet, während der Bestand nachgeladen wird. Die Oberfläche kombiniert damit verschiedene Verfahren. Für die API-Abfrage müssen außerdem Lade- und Fehlerzustände sinnvoll dargestellt werden.",
+      "hu": {
+        "question": "Egy termékleírás kész HTML-fájlként érkezik. Ezután a JavaScript egy API-ból lekéri az aktuális készletet. Melyik állítás illik ehhez?",
+        "answers": [
+          "Az API-kérés miatt a kiküldött CSS-fájl is szerveroldalon előállított HTML lesz.",
+          "A rendszer vagy statikus fájlokat, vagy API-t használhat; a kettő nem kapcsolható össze.",
+          "Statikus alaptartalom és dinamikusan betöltött készletadat működik együtt.",
+          "A készlet az utolsó build értéke marad akkor is, ha az API frissebb adatot ad."
+        ],
+        "explanation": "A leírás előre elkészült, a készlet később töltődik be. A felület tehát többféle megoldást kombinál. Az API-kéréshez a betöltési és hibaállapotot is érthetően meg kell jeleníteni."
+      }
+    },
+    {
+      "id": "lap-LAP-11-03-1",
+      "revision": 1,
+      "topic": "Weblog Webshop Webplattform",
+      "source": {
+        "topicId": "LAP-11-03",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/03_Weblog_Webshop_Webplattform/README.md",
+        "slug": "11-03-weblog_webshop_webplattform"
+      },
+      "question": "Eine Firma veröffentlicht regelmäßig Erfahrungen aus Entwicklungsprojekten. Welcher Ablauf unterstützt den Hauptzweck dieses Weblogs am direktesten?",
+      "answers": [
+        "Artikel in den Warenkorb legen, bezahlen und den Versand auslösen.",
+        "Beiträge entwerfen, redaktionell freigeben, veröffentlichen und später aktualisieren.",
+        "Angebote verschiedener Verkäufer vergleichen und deren Bestände reservieren.",
+        "Freie Termine berechnen und sie einem angemeldeten Konto fest zuordnen."
+      ],
+      "correct": 1,
+      "explanation": "Beim Weblog steht die Veröffentlichung von Beiträgen im Mittelpunkt. Ein nachvollziehbarer Weg vom Entwurf zur freigegebenen Fassung unterstützt diesen Zweck. Kommentare oder andere Zusatzfunktionen können dazukommen.",
+      "hu": {
+        "question": "Egy cég rendszeresen közöl beszámolókat a fejlesztési projektjeiről. Melyik folyamat támogatja legközvetlenebbül ennek a blognak a fő célját?",
+        "answers": [
+          "A cikkeket kosárba tenni, kifizetni, majd elindítani a szállítást.",
+          "Bejegyzést készíteni, szerkesztőileg jóváhagyni, közzétenni és később frissíteni.",
+          "Több eladó ajánlatát összehasonlítani és készletüket lefoglalni.",
+          "Szabad időpontokat számolni és egy belépett fiókhoz rendelni."
+        ],
+        "explanation": "A blog középpontjában a bejegyzések közzététele áll. Ezt segíti a piszkozattól a jóváhagyott változatig vezető követhető folyamat. Ehhez hozzászólások vagy más kiegészítő funkciók is társulhatnak."
+      }
+    },
+    {
+      "id": "lap-LAP-11-03-2",
+      "revision": 1,
+      "topic": "Weblog Webshop Webplattform",
+      "source": {
+        "topicId": "LAP-11-03",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/03_Weblog_Webshop_Webplattform/README.md",
+        "slug": "11-03-weblog_webshop_webplattform"
+      },
+      "question": "Ein Buch-Webshop soll aus einem Warenkorb eine Bestellung machen. Der Browser sendet Produkt-ID, Menge und einen angezeigten Preis. Wie entsteht ein verlässlicher Bestellbetrag?",
+      "answers": [
+        "Der Server übernimmt den gesendeten Preis, wenn die Menge eine ganze Zahl ist.",
+        "Der Server behandelt jeden gespeicherten Warenkorb bereits als bezahlte Bestellung.",
+        "Der Browser bestätigt den Preis durch ein ausgeblendetes Formularfeld.",
+        "Der Server prüft anhand von Produkt-ID und Menge den maßgeblichen Preis und Bestand."
+      ],
+      "correct": 3,
+      "explanation": "Ein Webshop unterstützt den Verkaufsablauf bis zur Bestellung. Der Server verwendet dafür seine maßgeblichen Produktdaten und prüft die Menge und Verfügbarkeit. Der Warenkorb ist eine Auswahl; Bestellung und Zahlung haben eigene Zustände.",
+      "hu": {
+        "question": "Egy könyves webshop a kosárból rendelést készít. A böngésző termékazonosítót, darabszámot és egy megjelenített árat küld. Hogyan lesz megbízható a rendelés összege?",
+        "answers": [
+          "A szerver elfogadja a küldött árat, ha a darabszám egész szám.",
+          "A szerver minden tárolt kosarat már kifizetett rendelésként kezel.",
+          "A böngésző egy rejtett űrlapmezővel igazolja az árat.",
+          "A szerver a termékazonosító és mennyiség alapján ellenőrzi a mérvadó árat és készletet."
+        ],
+        "explanation": "A webshop az értékesítés folyamatát támogatja a rendelésig. Ehhez a szerver a mérvadó termékadatokat használja, és ellenőrzi a mennyiséget, illetve elérhetőséget. A kosár egy kiválasztás; a rendelésnek és fizetésnek külön állapotai vannak."
+      }
+    },
+    {
+      "id": "lap-LAP-11-03-3",
+      "revision": 1,
+      "topic": "Weblog Webshop Webplattform",
+      "source": {
+        "topicId": "LAP-11-03",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/03_Weblog_Webshop_Webplattform/README.md",
+        "slug": "11-03-weblog_webshop_webplattform"
+      },
+      "question": "Ein eigener Online-Buchladen wird zu einem Marktplatz mit mehreren unabhängigen Verkäufern erweitert. Welche zusätzliche Aufgabe zeigt besonders den Plattformcharakter?",
+      "answers": [
+        "Angebote den richtigen Verkäufern zuordnen und deren Bearbeitungsrechte voneinander trennen.",
+        "Alle Angebote mit derselben Schriftart darstellen.",
+        "Die Startseite als HTML an den Browser senden.",
+        "Bilder verkleinern, damit die Produktseiten schneller laden."
+      ],
+      "correct": 0,
+      "explanation": "Ein Marktplatz organisiert die Zusammenarbeit mehrerer Akteure. Dafür muss feststehen, wem ein Angebot gehört und wer es ändern darf. „Webplattform“ ist hier der allgemeine technische Begriff, keine automatische rechtliche Einstufung.",
+      "hu": {
+        "question": "Egy saját online könyvesbolt több független eladót összekötő piactérré bővül. Melyik további feladat mutatja leginkább a platformjellegét?",
+        "answers": [
+          "Az ajánlatokat a megfelelő eladóhoz rendelni, és elválasztani a szerkesztési jogosultságaikat.",
+          "Az összes ajánlatot ugyanazzal a betűtípussal megjeleníteni.",
+          "A kezdőoldalt HTML-ként elküldeni a böngészőnek.",
+          "A képeket kisebbre venni, hogy gyorsabban töltsenek be a termékoldalak."
+        ],
+        "explanation": "A piactér több szereplő együttműködését szervezi. Rögzíteni kell, kihez tartozik egy ajánlat, és ki módosíthatja. A webplatform itt általános technikai fogalom, önmagában nem ad jogi besorolást."
+      }
+    },
+    {
+      "id": "lap-LAP-11-03-4",
+      "revision": 1,
+      "topic": "Weblog Webshop Webplattform",
+      "source": {
+        "topicId": "LAP-11-03",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/03_Weblog_Webshop_Webplattform/README.md",
+        "slug": "11-03-weblog_webshop_webplattform"
+      },
+      "question": "Welche geplante Lernlösung ist ein konkretes Beispiel für eine Webplattform, die verschiedene Rollen und Abläufe verbindet?",
+      "answers": [
+        "Eine öffentlich herunterladbare PDF-Datei mit einem Inhaltsverzeichnis.",
+        "Eine Seite mit Adresse und Öffnungszeiten eines Schulungsraums.",
+        "Ein System, in dem Lehrende Kurse betreuen und Lernende Aufgaben abgeben und Rückmeldungen erhalten.",
+        "Ein exportierter Artikel über die Geschichte der Schule."
+      ],
+      "correct": 2,
+      "explanation": "Hier arbeiten Lehrende und Lernende mit unterschiedlichen Aufgaben im selben System. Kurse, Abgaben und Rückmeldungen bilden zusammenhängende Abläufe. Genau diese Verbindung von Akteuren und Funktionen kennzeichnet das beschriebene Plattformbeispiel.",
+      "hu": {
+        "question": "Melyik tervezett tanulási megoldás konkrét példa különböző szerepeket és folyamatokat összekapcsoló webplatformra?",
+        "answers": [
+          "Egy nyilvánosan letölthető PDF, benne tartalomjegyzékkel.",
+          "Egy oktatóterem címét és nyitvatartását bemutató oldal.",
+          "Egy rendszer, ahol az oktatók kurzusokat kezelnek, a tanulók feladatot adnak be és visszajelzést kapnak.",
+          "Az iskola történetéről szóló exportált cikk."
+        ],
+        "explanation": "Az oktatók és tanulók különböző feladatokkal dolgoznak ugyanabban a rendszerben. A kurzusok, beadások és visszajelzések összefüggő folyamatokat alkotnak. Ez a szereplők és funkciók közti kapcsolat jellemzi a bemutatott platformot."
+      }
+    },
+    {
+      "id": "lap-LAP-11-03-5",
+      "revision": 1,
+      "topic": "Weblog Webshop Webplattform",
+      "source": {
+        "topicId": "LAP-11-03",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/03_Weblog_Webshop_Webplattform/README.md",
+        "slug": "11-03-weblog_webshop_webplattform"
+      },
+      "question": "Eine Website enthält Buchbesprechungen und einen Bereich zum Bestellen von Büchern. Wie grenzt du Blog und Webshop in diesem Beispiel sinnvoll ab?",
+      "answers": [
+        "Am Aktualisierungsverfahren: Ein Blog entsteht immer beim Aufruf, ein Shop immer beim Build.",
+        "Am Hauptablauf: Beiträge informieren, der Shop unterstützt Auswahl und Bestellung.",
+        "An der Anmeldung: Jeder Shop verlangt ein Konto, während ein Blog niemals Konten haben kann.",
+        "Am Speicher: Ein Blog verwendet ausschließlich Dateien, ein Shop ausschließlich eine Datenbank."
+      ],
+      "correct": 1,
+      "explanation": "Der Zweck und die Abläufe unterscheiden die Bereiche. Eine Buchbesprechung veröffentlicht Inhalte, während der Shop eine Bestellung ermöglicht. Beide Funktionen können technisch in einer Website verbunden sein.",
+      "hu": {
+        "question": "Egy webhely könyvismertetőket és könyvrendelési felületet is tartalmaz. Hogyan különíted el itt értelmesen a blogot a webshoptól?",
+        "answers": [
+          "A frissítés módja alapján: a blog mindig megnyitáskor, a webshop mindig buildkor készül.",
+          "A fő folyamat alapján: a bejegyzések tájékoztatnak, a webshop kiválasztást és rendelést támogat.",
+          "A belépés alapján: minden webshophoz fiók kell, blogban pedig sosem lehetnek fiókok.",
+          "A tárolás alapján: a blog kizárólag fájlokat, a webshop kizárólag adatbázist használ."
+        ],
+        "explanation": "A cél és a folyamat különbözteti meg a két részt. A könyvismertető tartalmat közöl, a webshop rendelést tesz lehetővé. A két funkció technikailag egy webhelyen is összekapcsolható."
+      }
+    },
+    {
+      "id": "lap-LAP-11-04-1",
+      "revision": 1,
+      "topic": "HTML und XML",
+      "source": {
+        "topicId": "LAP-11-04",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/04_HTML_und_XML/README.md",
+        "slug": "11-04-html_und_xml"
+      },
+      "question": "Die beiden Themen im HTML-Ausschnitt sollen semantisch eine ungeordnete Liste bilden. Welche Änderung drückt diese Struktur aus?",
+      "answers": [
+        "Den beiden Absätzen mit CSS eine größere Schrift geben.",
+        "Die Absätze in ein einziges title-Element verschieben.",
+        "Vor jeden Absatz einen Punkt als normalen Text setzen.",
+        "Die beiden Themen in li-Elemente innerhalb eines ul-Elements setzen."
+      ],
+      "correct": 3,
+      "explanation": "HTML beschreibt die Bedeutung und Struktur des Inhalts. ul kennzeichnet eine ungeordnete Liste, ihre li-Elemente die einzelnen Einträge. Die Darstellung kann anschließend mit CSS angepasst werden.",
+      "hu": {
+        "question": "A HTML-részlet két témájából szemantikailag felsorolást szeretnénk készíteni. Melyik változtatás fejezi ki ezt a szerkezetet?",
+        "answers": [
+          "CSS-sel nagyobb betűméretet adunk a két bekezdésnek.",
+          "A bekezdéseket egyetlen title elembe helyezzük.",
+          "Mindkét bekezdés elé egy pontot írunk egyszerű szövegként.",
+          "A két témát egy ul elemben található li elemekbe tesszük."
+        ],
+        "explanation": "A HTML a tartalom jelentését és szerkezetét írja le. Az ul felsorolást, a benne lévő li elemek a felsorolás tételeit jelölik. A megjelenés ezután CSS-sel alakítható."
+      },
+      "code": "<h1>Themen</h1>\n<p>Schleifen</p>\n<p>Funktionen</p>",
+      "codeLanguage": "html"
+    },
+    {
+      "id": "lap-LAP-11-04-2",
+      "revision": 1,
+      "topic": "HTML und XML",
+      "source": {
+        "topicId": "LAP-11-04",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/04_HTML_und_XML/README.md",
+        "slug": "11-04-html_und_xml"
+      },
+      "question": "Du liest das vollständige XML-Dokument ein. Welche Aussage beschreibt seine Daten korrekt?",
+      "answers": [
+        "course ist das Wurzelelement; der Titeltext lautet Code & Practice.",
+        "title ist das Wurzelelement; course ist nur ein Attribut.",
+        "Der Titeltext enthält nach dem XML-Einlesen weiterhin die Zeichenfolge &amp; als Text.",
+        "Das Element lessons garantiert schon ohne Schema, dass sein Inhalt eine geprüfte ganze Zahl ist."
+      ],
+      "correct": 0,
+      "explanation": "XML ordnet die Angaben unter dem Wurzelelement course. Die Entitätsreferenz &amp; wird als & gelesen. Der Inhalt von lessons ist zunächst Text; weitergehende Typregeln gehören beispielsweise in ein Schema.",
+      "hu": {
+        "question": "Beolvasod a teljes XML-dokumentumot. Melyik állítás írja le helyesen az adatait?",
+        "answers": [
+          "A gyökérelem a course, a cím szövege pedig Code & Practice.",
+          "A gyökérelem a title, a course csupán attribútum.",
+          "XML-beolvasás után a cím szövegében továbbra is az &amp; karaktersorozat szerepel.",
+          "A lessons elem már séma nélkül is garantálja, hogy a tartalma ellenőrzött egész szám."
+        ],
+        "explanation": "Az XML a course gyökérelem alatt rendezi el az adatokat. Az &amp; entitáshivatkozás & jelként olvasható. A lessons tartalma először szöveg; a további típuskövetelményeket például séma írhatja elő."
+      },
+      "code": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<course id=\"15\">\n  <title>Code &amp; Practice</title>\n  <lessons>20</lessons>\n</course>",
+      "codeLanguage": "xml"
+    },
+    {
+      "id": "lap-LAP-11-04-3",
+      "revision": 1,
+      "topic": "HTML und XML",
+      "source": {
+        "topicId": "LAP-11-04",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/04_HTML_und_XML/README.md",
+        "slug": "11-04-html_und_xml"
+      },
+      "question": "Eine Anwendung tauscht dieses XML-Dokument aus. Wer legt fest, was der Wert high im Element priority fachlich bedeutet?",
+      "answers": [
+        "Der XML-Standard gibt für jedes Element mit dem Namen priority eine feste Bearbeitungsfrist vor.",
+        "Ein XML-Parser leitet die fachliche Dringlichkeit bereits aus der wohlgeformten Schreibweise ab.",
+        "Die beteiligten Anwendungen beziehungsweise das vereinbarte XML-Format.",
+        "Die Position als erstes Kindelement legt allein fest, wie dringend das Ticket ist."
+      ],
+      "correct": 2,
+      "explanation": "XML liefert Regeln für die Struktur. Die Bedeutung eigener Elementnamen und Werte vereinbaren die Anwendungen oder das Format. HTML bringt dagegen für seine bekannten Elemente, etwa h1 oder p, bereits definierte Dokumentbedeutungen mit.",
+      "hu": {
+        "question": "Egy alkalmazás ezt az XML-dokumentumot továbbítja. Mi határozza meg, hogy a priority elem high értéke tartalmilag mit jelent?",
+        "answers": [
+          "Az XML szabvány minden priority nevű elemhez rögzített feldolgozási határidőt ír elő.",
+          "Az XML-értelmező a jól formált írásmódból már megállapítja a tartalmi sürgősséget.",
+          "Az együttműködő alkalmazások, illetve az egyeztetett XML-formátum.",
+          "Az első gyermekelemként elfoglalt hely önmagában meghatározza a jegy sürgősségét."
+        ],
+        "explanation": "Az XML szerkezeti szabályokat ad. A saját elemnevek és értékek jelentését az alkalmazások vagy a formátum határozza meg. A HTML ismert elemeihez, például a h1-hez és p-hez már rögzített dokumentumbeli jelentés tartozik."
+      },
+      "code": "<ticket>\n  <priority>high</priority>\n</ticket>",
+      "codeLanguage": "xml"
+    },
+    {
+      "id": "lap-LAP-11-04-4",
+      "revision": 1,
+      "topic": "HTML und XML",
+      "source": {
+        "topicId": "LAP-11-04",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/04_HTML_und_XML/README.md",
+        "slug": "11-04-html_und_xml"
+      },
+      "question": "Der Ausschnitt wird als HTML in einer Seite verwendet. Welche Aufgabe übernehmen seine Elemente?",
+      "answers": [
+        "Sie berechnen automatisch, wie oft eine Schleife ausgeführt wird.",
+        "Sie kennzeichnen eine Überschrift, einen Absatz und einen Link zu einer anderen Seite.",
+        "Sie definieren ein XML-Schema für die möglichen Werte einer Schleife.",
+        "Sie legen die Schriftart und die genaue Breite der gesamten Seite fest."
+      ],
+      "correct": 1,
+      "explanation": "Die HTML-Elemente geben dem Dokument eine verständliche Struktur: h1 ist eine Hauptüberschrift, p ein Absatz und a mit href ein Link. Diese Struktur ist von einer Berechnung und von der konkreten CSS-Gestaltung getrennt.",
+      "hu": {
+        "question": "A részletet HTML-ként használjuk egy oldalon. Mi az elemeinek feladata?",
+        "answers": [
+          "Automatikusan kiszámítják, hányszor fut le egy ciklus.",
+          "Címsort, bekezdést és egy másik oldalra mutató hivatkozást jelölnek.",
+          "XML-sémát határoznak meg a ciklus lehetséges értékeihez.",
+          "Rögzítik az egész oldal betűtípusát és pontos szélességét."
+        ],
+        "explanation": "A HTML-elemek érthető szerkezetet adnak a dokumentumnak: a h1 főcím, a p bekezdés, a href attribútumos a elem hivatkozás. Ez a szerkezet elkülönül a számítástól és a konkrét CSS-megjelenéstől."
+      },
+      "code": "<h1>Schleifen</h1>\n<p>Eine Schleife wiederholt Anweisungen.</p>\n<a href=\"/topics/loops/\">Beispiele</a>",
+      "codeLanguage": "html"
+    },
+    {
+      "id": "lap-LAP-11-04-5",
+      "revision": 1,
+      "topic": "HTML und XML",
+      "source": {
+        "topicId": "LAP-11-04",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/04_HTML_und_XML/README.md",
+        "slug": "11-04-html_und_xml"
+      },
+      "question": "Die vereinbarte Datenregel verlangt in lessons eine nichtnegative ganze Zahl. Was lässt sich über dieses XML-Dokument sagen?",
+      "answers": [
+        "Es ist wegen des Worts twenty nicht wohlgeformt, obwohl alle Elemente korrekt verschachtelt sind.",
+        "Es erfüllt die Zahlenregel, weil der XML-Parser englische Zahlwörter automatisch in Zahlen umwandelt.",
+        "Es erfüllt die Zahlenregel, weil der Elementname lessons seinen Inhalt bereits als ganze Zahl typisiert.",
+        "Es ist wohlgeformt, erfüllt aber die vorgegebene Zahlenregel nicht."
+      ],
+      "correct": 3,
+      "explanation": "Die Elemente sind korrekt geschlossen und verschachtelt, es gibt ein Wurzelelement. Daher ist das Dokument wohlgeformt. Die zusätzliche Regel für lessons prüft dagegen den Inhalt: twenty ist keine Darstellung einer nichtnegativen ganzen Zahl.",
+      "hu": {
+        "question": "Az egyeztetett adatszabály a lessons elemben nemnegatív egész számot ír elő. Mit állíthatunk erről az XML-dokumentumról?",
+        "answers": [
+          "A twenty szó miatt nem jól formált, bár minden elem megfelelően van egymásba ágyazva.",
+          "Teljesíti a számszabályt, mert az XML-értelmező automatikusan számmá alakítja az angol számneveket.",
+          "Teljesíti a számszabályt, mert a lessons elemnév már egész számként típusozza a tartalmát.",
+          "Jól formált, de az előírt számszabályt nem teljesíti."
+        ],
+        "explanation": "Az elemek lezárása és egymásba ágyazása megfelelő, egyetlen gyökérelem van. Ezért a dokumentum jól formált. A lessons elemre vonatkozó további szabály már a tartalmat ellenőrzi: a twenty nem egy nemnegatív egész szám leírása."
+      },
+      "code": "<course>\n  <title>Web Basics</title>\n  <lessons>twenty</lessons>\n</course>",
+      "codeLanguage": "xml"
+    },
+    {
+      "id": "lap-LAP-11-05-1",
+      "revision": 1,
+      "topic": "HTML5 Grundgeruest",
+      "source": {
+        "topicId": "LAP-11-05",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/05_HTML5_Grundgeruest/README.md",
+        "slug": "11-05-html5_grundgeruest"
+      },
+      "question": "Eine HTML-Seite soll im Standards-Modus verarbeitet werden. Welche Ergänzung gehört dafür vor das html-Element?",
+      "answers": [
+        "Eine h1-Überschrift mit dem Text HTML5.",
+        "Ein meta-Element mit dem Seitentitel.",
+        "Die Deklaration <!doctype html>.",
+        "Ein lang-Attribut am body-Element."
+      ],
+      "correct": 2,
+      "explanation": "Der kurze HTML-Doctype am Dokumentanfang verhindert bei einem normalen HTML-Dokument den Quirks-Modus. Er ist eine Deklaration für die Verarbeitung und kein sichtbarer Seiteninhalt.",
+      "hu": {
+        "question": "Egy HTML-oldalt szabványos módban szeretnénk feldolgoztatni. Melyik kiegészítés kerül ehhez a html elem elé?",
+        "answers": [
+          "Egy h1 címsor HTML5 szöveggel.",
+          "Egy meta elem az oldal címével.",
+          "A <!doctype html> deklaráció.",
+          "Egy lang attribútum a body elemen."
+        ],
+        "explanation": "A dokumentum eleji rövid HTML-doctype egy szokásos HTML-dokumentumnál elkerüli a quirks módot. A feldolgozást meghatározó deklaráció, nem az oldal látható tartalma."
+      }
+    },
+    {
+      "id": "lap-LAP-11-05-2",
+      "revision": 1,
+      "topic": "HTML5 Grundgeruest",
+      "source": {
+        "topicId": "LAP-11-05",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/05_HTML5_Grundgeruest/README.md",
+        "slug": "11-05-html5_grundgeruest"
+      },
+      "question": "Du öffnest dieses vollständige HTML-Dokument. Welcher Titel steht im Browsertab, und welche Hauptüberschrift erscheint im Seiteninhalt?",
+      "answers": [
+        "Browsertab: Lernwerkstatt; Hauptüberschrift: Schleifen.",
+        "Browsertab: Schleifen; Hauptüberschrift: Lernwerkstatt.",
+        "Browsertab und Hauptüberschrift: Lernwerkstatt.",
+        "Browsertab und Hauptüberschrift: Schleifen."
+      ],
+      "correct": 0,
+      "explanation": "Der head enthält mit title den Dokumenttitel für den Browsertab. Die sichtbare Hauptüberschrift steht als h1 im body. Beide Texte können unabhängig voneinander geändert werden.",
+      "hu": {
+        "question": "Megnyitod ezt a teljes HTML-dokumentumot. Mi lesz a böngészőfül címe és az oldalon látható főcím?",
+        "answers": [
+          "Böngészőfül: Lernwerkstatt; főcím: Schleifen.",
+          "Böngészőfül: Schleifen; főcím: Lernwerkstatt.",
+          "A böngészőfül és a főcím is: Lernwerkstatt.",
+          "A böngészőfül és a főcím is: Schleifen."
+        ],
+        "explanation": "A head rész title eleme adja a böngészőfülön látható dokumentumcímet. A látható főcím a body rész h1 eleme. A két szöveg egymástól függetlenül módosítható."
+      },
+      "code": "<!doctype html>\n<html lang=\"de\">\n  <head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>Lernwerkstatt</title>\n  </head>\n  <body>\n    <main><h1>Schleifen</h1></main>\n  </body>\n</html>",
+      "codeLanguage": "html"
+    },
+    {
+      "id": "lap-LAP-11-05-3",
+      "revision": 1,
+      "topic": "HTML5 Grundgeruest",
+      "source": {
+        "topicId": "LAP-11-05",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/05_HTML5_Grundgeruest/README.md",
+        "slug": "11-05-html5_grundgeruest"
+      },
+      "question": "Ein Grundgerüst hat bereits head und body. Du ergänzt eine sichtbare Kursüberschrift, einen Erklärungstext und einen Start-Link. Wohin gehören diese Inhalte?",
+      "answers": [
+        "Zusammen in das content-Attribut eines meta-Elements.",
+        "Als Text zwischen Doctype und html-Element.",
+        "Zusammen in den Dokumenttitel innerhalb von head.",
+        "In den body, beispielsweise gegliedert innerhalb von main."
+      ],
+      "correct": 3,
+      "explanation": "Der body nimmt den Seiteninhalt auf. Ein main-Element kann dessen Hauptbereich kennzeichnen; Überschrift, Absatz und Link gliedern ihn weiter. Der head behält seine Aufgabe für Metadaten und technische Verweise.",
+      "hu": {
+        "question": "Egy alapvázban már van head és body. Látható kurzuscímet, magyarázó szöveget és indító hivatkozást adsz hozzá. Hová kerüljenek ezek?",
+        "answers": [
+          "Együtt egy meta elem content attribútumába.",
+          "Szövegként a doctype és a html elem közé.",
+          "Együtt a head rész dokumentumcímébe.",
+          "A body részbe, például egy main elemen belül tagolva."
+        ],
+        "explanation": "A body fogadja az oldal tartalmát. A fő tartalmi részt main jelölheti, ezen belül a címsor, bekezdés és hivatkozás tagolja az oldalt. A head továbbra is a metaadatok és technikai hivatkozások helye."
+      }
+    },
+    {
+      "id": "lap-LAP-11-05-4",
+      "revision": 1,
+      "topic": "HTML5 Grundgeruest",
+      "source": {
+        "topicId": "LAP-11-05",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/05_HTML5_Grundgeruest/README.md",
+        "slug": "11-05-html5_grundgeruest"
+      },
+      "question": "Eine lokal geöffnete HTML-Datei ist tatsächlich als UTF-8 gespeichert. Was teilt das gezeigte Element dem Browser mit?",
+      "answers": [
+        "Dass der gesamte Text in die Sprache Ungarisch übersetzt werden soll.",
+        "Mit welcher Zeichenkodierung die Dateibytes als Text zu interpretieren sind.",
+        "Welche Schriftart für ungarische Buchstaben heruntergeladen werden muss.",
+        "Dass der body nur ASCII-Zeichen enthalten darf."
+      ],
+      "correct": 1,
+      "explanation": "charset beschreibt die Zeichenkodierung. Es muss zur tatsächlichen Kodierung der Datei passen. Die Inhaltssprache wird etwa mit lang angegeben, während die Schriftgestaltung eine andere Aufgabe ist.",
+      "hu": {
+        "question": "Egy helyben megnyitott HTML-fájlt ténylegesen UTF-8-ként mentettünk. Mit közöl a bemutatott elem a böngészővel?",
+        "answers": [
+          "Hogy az egész szöveget magyarra kell fordítani.",
+          "Hogy milyen karakterkódolással értelmezze szövegként a fájl bájtjait.",
+          "Hogy milyen betűtípust kell letölteni a magyar betűkhöz.",
+          "Hogy a body kizárólag ASCII-karaktereket tartalmazhat."
+        ],
+        "explanation": "A charset a karakterkódolást adja meg, amelynek egyeznie kell a fájl tényleges kódolásával. A tartalom nyelvét például a lang jelöli, a betűk megjelenése pedig külön feladat."
+      },
+      "code": "<meta charset=\"utf-8\">",
+      "codeLanguage": "html"
+    },
+    {
+      "id": "lap-LAP-11-05-5",
+      "revision": 1,
+      "topic": "HTML5 Grundgeruest",
+      "source": {
+        "topicId": "LAP-11-05",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/05_HTML5_Grundgeruest/README.md",
+        "slug": "11-05-html5_grundgeruest"
+      },
+      "question": "Das gezeigte Meta-Element ist im head vorhanden. Trotzdem ist der Inhaltsbereich per CSS fest 1.000 px breit und läuft auf dem Telefon aus dem Bildschirm. Was ist der passende nächste Schritt?",
+      "answers": [
+        "Die Zeichenkodierung ändern, damit weniger Platz gebraucht wird.",
+        "Den Seitentitel kürzen; dadurch passt sich der Inhaltsbereich automatisch an.",
+        "Das CSS-Layout flexibel gestalten und die Darstellung auf kleinen Breiten prüfen.",
+        "Die Überschriften aus dem body in den head verschieben."
+      ],
+      "correct": 2,
+      "explanation": "Die Viewport-Angabe schafft geeignete mobile Größenverhältnisse. Ein fest zu breites CSS-Layout passt sie nicht automatisch an. Flexible Breiten und passende Umbrüche lösen das beschriebene Layoutproblem; manuelles Zoomen bleibt verfügbar.",
+      "hu": {
+        "question": "A bemutatott meta elem már szerepel a head részben. A tartalom mégis kilóg a telefon képernyőjéről, mert CSS-ben rögzített 1000 px szélességet kapott. Mi a megfelelő következő lépés?",
+        "answers": [
+          "Megváltoztatni a karakterkódolást, hogy kevesebb hely kelljen.",
+          "Lerövidíteni az oldalcímet, mert ettől automatikusan igazodik a tartalom szélessége.",
+          "Rugalmassá tenni a CSS-elrendezést, és kis szélességen is ellenőrizni.",
+          "A címsorokat áthelyezni a body részből a head részbe."
+        ],
+        "explanation": "A viewport-beállítás a mobilos méretezés alapját adja. A túl szélesre rögzített CSS-elrendezést nem igazítja át automatikusan. Rugalmas szélesség és megfelelő tördelés oldja meg a leírt problémát; a kézi nagyítás elérhető marad."
+      },
+      "code": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+      "codeLanguage": "html"
+    },
+    {
+      "id": "lap-LAP-11-06-1",
+      "revision": 1,
+      "topic": "Meta Elemente und Metadaten",
+      "source": {
+        "topicId": "LAP-11-06",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/06_Meta_Elemente_und_Metadaten/README.md",
+        "slug": "11-06-meta_elemente_und_metadaten"
+      },
+      "question": "Eine Seite hat eine Dokumentsprache in html lang, einen title und eine meta description. Welche dieser Angaben sind Metadaten?",
+      "answers": [
+        "Nur die description, weil nur sie in einem meta-Element steht.",
+        "Alle drei beschreiben das Dokument; Metadaten sind nicht auf meta-Elemente beschränkt.",
+        "Nur title und description; eine Sprache kann kein Dokument beschreiben.",
+        "Keine davon, solange die Angaben nicht im body sichtbar sind."
+      ],
+      "correct": 1,
+      "explanation": "Metadaten sind beschreibende Angaben über eine Ressource. Die Sprache, der Dokumenttitel und die Zusammenfassung erfüllen diese Aufgabe, obwohl sie in verschiedenen HTML-Konstruktionen angegeben werden.",
+      "hu": {
+        "question": "Egy oldalnak van html lang nyelvjelölése, title címe és meta description leírása. Ezek közül melyik metaadat?",
+        "answers": [
+          "Csak a description, mert kizárólag az szerepel meta elemben.",
+          "Mindhárom a dokumentumot írja le; a metaadat nem korlátozódik a meta elemekre.",
+          "Csak a title és a description; a nyelv nem írhatja le a dokumentumot.",
+          "Egyik sem, amíg nem látszanak a body tartalmában."
+        ],
+        "explanation": "A metaadat az erőforrást leíró információ. A nyelv, a dokumentumcím és az összefoglaló egyaránt ilyen szerepet tölt be, bár különböző HTML-szerkezetek adják meg őket."
+      }
+    },
+    {
+      "id": "lap-LAP-11-06-2",
+      "revision": 1,
+      "topic": "Meta Elemente und Metadaten",
+      "source": {
+        "topicId": "LAP-11-06",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/06_Meta_Elemente_und_Metadaten/README.md",
+        "slug": "11-06-meta_elemente_und_metadaten"
+      },
+      "question": "Die charset-Deklaration steht im head, aber erst nach einem 2.000 Byte langen Kommentar. Welche Anordnung passt zur HTML-Vorgabe?",
+      "answers": [
+        "Die Deklaration nach den sichtbaren Inhalt ans Ende des body setzen.",
+        "Den Kommentar unverändert lassen und nur den Titel vor die Deklaration ziehen.",
+        "Die Deklaration vollständig entfernen, weil ihr Platz innerhalb von head keine Rolle spielt.",
+        "Die Deklaration an den Anfang von head setzen, vollständig innerhalb der ersten 1.024 Bytes."
+      ],
+      "correct": 3,
+      "explanation": "Die Kodierungsdeklaration soll früh verfügbar sein. Bei einer solchen HTML-Deklaration müssen alle ihre Bytes innerhalb der ersten 1.024 Bytes des Dokuments liegen. Die Position direkt am Anfang von head erfüllt diese Anforderung bei einem normalen kurzen Dokumentanfang.",
+      "hu": {
+        "question": "A charset deklaráció a head részben van, de csak egy 2000 bájtos megjegyzés után. Melyik elrendezés felel meg a HTML előírásának?",
+        "answers": [
+          "A deklarációt a látható tartalom után, a body végére tesszük.",
+          "A megjegyzést változatlanul hagyjuk, és csak a címet helyezzük a deklaráció elé.",
+          "Eltávolítjuk a deklarációt, mert a head részen belüli helye nem számít.",
+          "A head elejére tesszük, teljes egészében a dokumentum első 1024 bájtján belülre."
+        ],
+        "explanation": "A kódolási deklarációnak korán elérhetőnek kell lennie. Ilyen HTML-deklarációnál minden bájtjának az első 1024 bájton belül kell állnia. Szokásos, rövid dokumentumkezdetnél ezt a head legelejére helyezés biztosítja."
+      }
+    },
+    {
+      "id": "lap-LAP-11-06-3",
+      "revision": 1,
+      "topic": "Meta Elemente und Metadaten",
+      "source": {
+        "topicId": "LAP-11-06",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/06_Meta_Elemente_und_Metadaten/README.md",
+        "slug": "11-06-meta_elemente_und_metadaten"
+      },
+      "question": "Eine lokal geöffnete Datei enthält UTF-8-Bytes, deklariert aber windows-1252. Akzente werden falsch angezeigt. Welche Änderung behebt die beschriebene Abweichung?",
+      "answers": [
+        "Die charset-Deklaration an die tatsächlich verwendete UTF-8-Kodierung anpassen.",
+        "Nur lang von de auf hu ändern und die Deklaration beibehalten.",
+        "Die Akzente mit einer fetteren Schrift darstellen.",
+        "Den Text der description durch die betroffenen Buchstaben ersetzen."
+      ],
+      "correct": 0,
+      "explanation": "Bytes und deklarierte Zeichenkodierung müssen zusammenpassen. Hier liegt die Datei bereits in UTF-8 vor, daher wird auch UTF-8 deklariert. lang bezeichnet die natürliche Sprache und bestimmt nicht, wie die gespeicherten Bytes dekodiert werden.",
+      "hu": {
+        "question": "Egy helyben megnyitott fájl UTF-8-bájtokat tartalmaz, de windows-1252-t deklarál. Az ékezetek hibásan jelennek meg. Melyik módosítás rendezi a leírt eltérést?",
+        "answers": [
+          "A charset deklarációt a ténylegesen használt UTF-8-kódoláshoz igazítjuk.",
+          "Csak a lang értékét állítjuk de-ről hu-ra, a deklarációt megtartjuk.",
+          "Az ékezeteket vastagabb betűtípussal jelenítjük meg.",
+          "A description szövegét az érintett betűkre cseréljük."
+        ],
+        "explanation": "A bájtoknak és a megadott karakterkódolásnak egyezniük kell. Itt a fájl már UTF-8, ezért a deklarációban is UTF-8-at adunk meg. A lang a természetes nyelvet jelöli, nem a tárolt bájtok dekódolását."
+      }
+    },
+    {
+      "id": "lap-LAP-11-06-4",
+      "revision": 1,
+      "topic": "Meta Elemente und Metadaten",
+      "source": {
+        "topicId": "LAP-11-06",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/06_Meta_Elemente_und_Metadaten/README.md",
+        "slug": "11-06-meta_elemente_und_metadaten"
+      },
+      "question": "Eine mobile Seite wirkt wie eine stark verkleinerte Desktopseite. Welche Angabe im head richtet die Layoutbreite am Gerät aus und setzt die anfängliche Skalierung auf 1?",
+      "answers": [
+        "<meta name=\"description\" content=\"Mobile Ansicht\">",
+        "<meta charset=\"utf-8\">",
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+        "<meta name=\"robots\" content=\"index,follow\">"
+      ],
+      "correct": 2,
+      "explanation": "Die viewport-Angabe steuert die mobile Layoutbreite und die anfängliche Skalierung. Flexible CSS-Regeln bauen darauf auf. Diese Einstellung lässt manuelles Zoomen zu und übernimmt keine Zeichendekodierung oder Indexierungsregel.",
+      "hu": {
+        "question": "Egy mobilos oldal erősen lekicsinyített asztali oldalnak látszik. Melyik head-beállítás igazítja az elrendezés szélességét az eszközhöz, és állítja 1-re a kezdeti skálát?",
+        "answers": [
+          "<meta name=\"description\" content=\"Mobilnézet\">",
+          "<meta charset=\"utf-8\">",
+          "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+          "<meta name=\"robots\" content=\"index,follow\">"
+        ],
+        "explanation": "A viewport adja meg a mobilos elrendezés szélességét és kezdeti skáláját. Erre épülnek a rugalmas CSS-szabályok. Ez a beállítás engedi a kézi nagyítást, és nem karakterdekódolást vagy indexelési szabályt végez."
+      }
+    },
+    {
+      "id": "lap-LAP-11-06-5",
+      "revision": 1,
+      "topic": "Meta Elemente und Metadaten",
+      "source": {
+        "topicId": "LAP-11-06",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/06_Meta_Elemente_und_Metadaten/README.md",
+        "slug": "11-06-meta_elemente_und_metadaten"
+      },
+      "question": "Eine öffentliche Lernseite hat eine passende meta description. Google zeigt bei einer Suchanfrage trotzdem einen anderen Textausschnitt der Seite. Welche Erklärung trifft zu?",
+      "answers": [
+        "Die description muss dafür in den body verschoben werden.",
+        "Die Beschreibung ist eine mögliche Quelle; Google kann je nach Suchanfrage einen anderen passenden Seitenausschnitt wählen.",
+        "Der abweichende Ausschnitt beweist, dass die Seite als XML statt als HTML verarbeitet wurde.",
+        "Die description muss denselben Text wie alle anderen Seiten enthalten, damit sie übernommen wird."
+      ],
+      "correct": 1,
+      "explanation": "Eine Suchbeschreibung wird für die konkrete Anfrage zusammengestellt. Gute Metadaten ergänzen daher hilfreichen, verständlich gegliederten Seiteninhalt. Sie ersetzen diesen Inhalt nicht und legen den angezeigten Ausschnitt nicht verbindlich fest.",
+      "hu": {
+        "question": "Egy nyilvános tananyagoldalnak megfelelő meta description leírása van. A Google egy keresésnél mégis másik részletet mutat az oldalról. Mi erre a helyes magyarázat?",
+        "answers": [
+          "A description elemet ehhez át kell helyezni a body részbe.",
+          "A leírás egy lehetséges forrás; a Google a kereséstől függően más megfelelő oldalszöveget is választhat.",
+          "Az eltérő részlet bizonyítja, hogy az oldalt XML-ként dolgozta fel HTML helyett.",
+          "A description szövegének meg kell egyeznie az összes többi oldaléval, hogy átvegye."
+        ],
+        "explanation": "A keresési kivonat az adott kérdéshez készül. A jó metaadat ezért hasznos, érthetően tagolt oldaltartalmat egészít ki. Nem helyettesíti azt, és nem rögzíti kötelezően a megjelenő szövegrészletet."
+      }
+    },
+    {
+      "id": "lap-LAP-11-07-1",
+      "revision": 1,
+      "topic": "SEO und Massnahmen",
+      "source": {
+        "topicId": "LAP-11-07",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/07_SEO_und_Massnahmen/README.md",
+        "slug": "11-07-seo_und_massnahmen"
+      },
+      "question": "Eine öffentliche Lernseite erklärt Schleifen. Das Team möchte SEO verbessern. Welches Ziel beschreibt den gewünschten Nutzen am genauesten?",
+      "answers": [
+        "Menschen sollen die hilfreiche Seite bei passenden Suchanfragen über organische Ergebnisse leichter finden.",
+        "Das Team soll für jede organische Platzierung einen Anzeigenplatz kaufen.",
+        "Die Seite soll durch eine Sitemap bei jeder Suchanfrage an erster Stelle stehen.",
+        "Alle internen Übungsseiten sollen unabhängig von ihrer Zugriffspolitik öffentlich indexiert werden."
+      ],
+      "correct": 0,
+      "explanation": "SEO verbindet verständlichen, nützlichen Inhalt mit technisch zugänglichen Seiten. Es verbessert die Voraussetzungen für passende organische Sichtbarkeit, garantiert aber keine bestimmte Platzierung. Welche Inhalte öffentlich sein dürfen, bleibt eine eigene Entscheidung.",
+      "hu": {
+        "question": "Egy nyilvános tananyagoldal ciklusokat magyaráz. A csapat javítani szeretné a SEO-t. Melyik cél írja le legpontosabban a kívánt eredményt?",
+        "answers": [
+          "Az érdeklődők a megfelelő kereséseknél könnyebben találják meg a hasznos oldalt az organikus találatok között.",
+          "A csapat minden organikus helyezéshez vásároljon hirdetési helyet.",
+          "Egy oldaltérkép révén az oldal minden keresésnél az első helyre kerüljön.",
+          "Minden belső gyakorlóoldal nyilvánosan indexelhető legyen, függetlenül a hozzáférési szabályaitól."
+        ],
+        "explanation": "A SEO az érthető, hasznos tartalmat technikailag elérhető oldalakkal kapcsolja össze. Javítja a megfelelő organikus láthatóság feltételeit, de konkrét helyezést nem garantál. A tartalom nyilvánossága külön döntés marad."
+      }
+    },
+    {
+      "id": "lap-LAP-11-07-2",
+      "revision": 1,
+      "topic": "SEO und Massnahmen",
+      "source": {
+        "topicId": "LAP-11-07",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/07_SEO_und_Massnahmen/README.md",
+        "slug": "11-07-seo_und_massnahmen"
+      },
+      "question": "Bei einer öffentlichen Website führen interne Links ins Leere, übergroße Bilder verzögern das Laden und wirklich fehlende Seiten antworten mit HTTP 200. Welche drei Maßnahmen passen zu diesen Befunden?",
+      "answers": [
+        "Die description verlängern, mehr keywords eintragen und dieselben Titel auf allen Seiten verwenden.",
+        "Alle Links auf die Startseite umleiten, Bilder durch Hintergrundbilder ersetzen und die 200-Antwort behalten.",
+        "Eine Sitemap anlegen, den Seitentitel kürzen und alle Unterseiten für Suchroboter sperren.",
+        "Interne Links korrigieren, Bilder passend verkleinern und für tatsächlich fehlende Seiten HTTP 404 liefern."
+      ],
+      "correct": 3,
+      "explanation": "Die Maßnahmen beheben die drei beobachteten Ursachen: Navigation, Ladevolumen und falschen HTTP-Status. Eine hilfreiche Fehlerseite kann zusammen mit 404 ausgeliefert werden. Metadaten und eine Sitemap ergänzen eine funktionierende Website, ersetzen diese Grundlagen aber nicht.",
+      "hu": {
+        "question": "Egy nyilvános webhely belső linkjei nem létező címekre vezetnek, túlméretes képei lassítják a betöltést, és a valóban hiányzó oldalak HTTP 200 választ adnak. Melyik három intézkedés illik ezekhez a megállapításokhoz?",
+        "answers": [
+          "A description meghosszabbítása, több keywords megadása és ugyanazon cím használata minden oldalon.",
+          "Minden link átirányítása a kezdőlapra, a képek háttérképpé alakítása és a 200 válasz megtartása.",
+          "Oldaltérkép készítése, az oldalcím rövidítése és az összes aloldal tiltása a keresőrobotok elől.",
+          "A belső linkek javítása, a képek megfelelő méretezése és HTTP 404 küldése a valóban hiányzó oldalakhoz."
+        ],
+        "explanation": "Az intézkedések a három megfigyelt okot kezelik: a navigációt, a letöltendő adatmennyiséget és a hibás HTTP-állapotot. A 404 mellett hasznos hibaoldal is megjelenhet. A metaadat és az oldaltérkép kiegészíti a működő webhelyet, de ezeket az alapokat nem helyettesíti."
+      }
+    },
+    {
+      "id": "lap-LAP-11-07-3",
+      "revision": 1,
+      "topic": "SEO und Massnahmen",
+      "source": {
+        "topicId": "LAP-11-07",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/07_SEO_und_Massnahmen/README.md",
+        "slug": "11-07-seo_und_massnahmen"
+      },
+      "question": "Ein Lernartikel ist am Desktop gut lesbar. Am Smartphone sind die Navigationslinks kaum antippbar und Absätze nur mit ständigem seitlichem Scrollen lesbar. Warum gehört die mobile Überarbeitung zur SEO-Arbeit?",
+      "answers": [
+        "Ein kürzerer mobiler Seitentitel beseitigt automatisch alle Bedienprobleme.",
+        "Passende Suchergebnisse sollen auch auf dem verwendeten Gerät gut lesbar und bedienbar sein.",
+        "Das Einblenden einer Mobilversion garantiert eine feste Position in den Suchergebnissen.",
+        "Mobile Geräte können ausschließlich Seiten ohne Bilder und JavaScript indexieren."
+      ],
+      "correct": 1,
+      "explanation": "Mobilfreundliche Gestaltung hilft den Menschen, den gefundenen Inhalt tatsächlich zu nutzen. Dazu gehören flexible Inhaltsbreiten, lesbare Schrift und bedienbare Links. Man prüft die Seite auf kleinen Bildschirmen; eine bestimmte Suchposition lässt sich daraus nicht versprechen.",
+      "hu": {
+        "question": "Egy tananyag asztali gépen jól olvasható. Telefonon a navigáció alig érinthető, és a bekezdésekhez állandóan oldalra kell görgetni. Miért része a mobilos javítás a SEO-munkának?",
+        "answers": [
+          "Egy rövidebb mobilos oldalcím automatikusan minden kezelési problémát megszüntet.",
+          "A megfelelő találatként megjelenő tartalomnak a használt eszközön is jól olvashatónak és kezelhetőnek kell lennie.",
+          "A mobilváltozat megjelenítése rögzített helyezést garantál a keresőben.",
+          "A mobileszközök kizárólag képek és JavaScript nélküli oldalakat képesek indexelni."
+        ],
+        "explanation": "A mobilbarát kialakítás segít, hogy az ember ténylegesen használni tudja a megtalált tartalmat. Ehhez rugalmas tartalomszélesség, olvasható betűk és kezelhető linkek kellenek. Kis képernyőn is ellenőrizzük az oldalt, de ebből konkrét keresőbeli helyezés nem ígérhető."
+      }
+    },
+    {
+      "id": "lap-LAP-11-07-4",
+      "revision": 1,
+      "topic": "SEO und Massnahmen",
+      "source": {
+        "topicId": "LAP-11-07",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/07_SEO_und_Massnahmen/README.md",
+        "slug": "11-07-seo_und_massnahmen"
+      },
+      "question": "Ein Team verbessert die erklärenden Texte und internen Links seiner Website. Zusätzlich bezahlt es eine Suchanzeigenkampagne. Wie werden diese beiden Arbeiten eingeordnet?",
+      "answers": [
+        "Text- und Linkverbesserung: SEA; bezahlte Suchanzeigen: SEO.",
+        "Beide Arbeiten sind SEA, weil Arbeitszeit Geld kostet.",
+        "Text- und Linkverbesserung für organische Ergebnisse: SEO; bezahlte Suchanzeigen: SEA.",
+        "Beide Arbeiten sind SEO, sobald sie dieselbe Zielseite verwenden."
+      ],
+      "correct": 2,
+      "explanation": "Der Unterschied liegt im Weg zur Sichtbarkeit: SEO betrifft organische Ergebnisse, SEA bezahlte Suchanzeigen. SEO kann ebenfalls Zeit und Geld kosten. Eine gemeinsame Zielseite macht die beiden Maßnahmen nicht identisch.",
+      "hu": {
+        "question": "Egy csapat javítja a webhely magyarázó szövegeit és belső linkjeit. Emellett keresőhirdetési kampányt fizet. Hogyan soroljuk be ezt a két munkát?",
+        "answers": [
+          "Szöveg- és linkjavítás: SEA; fizetett keresőhirdetés: SEO.",
+          "Mindkettő SEA, mert a munkaidő pénzbe kerül.",
+          "Szöveg- és linkjavítás az organikus találatokhoz: SEO; fizetett keresőhirdetés: SEA.",
+          "Mindkettő SEO, ha ugyanarra a céloldalra mutat."
+        ],
+        "explanation": "A különbség a láthatóság megszerzésének módja: a SEO az organikus találatokkal, a SEA a fizetett keresőhirdetésekkel foglalkozik. A SEO-nak is lehet idő- és pénzigénye. A közös céloldal nem teszi azonossá a két módszert."
+      }
+    },
+    {
+      "id": "lap-LAP-11-07-5",
+      "revision": 1,
+      "topic": "SEO und Massnahmen",
+      "source": {
+        "topicId": "LAP-11-07",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/07_SEO_und_Massnahmen/README.md",
+        "slug": "11-07-seo_und_massnahmen"
+      },
+      "question": "Eine Seite enthält dieses Metaelement, erklärt Schleifen aber nur mit einem einzigen unklaren Satz. Welche Verbesserung ist für hilfreiche organische Google-Ergebnisse sinnvoll?",
+      "answers": [
+        "Eine nachvollziehbare Erklärung mit Beispiel ergänzen und die Seite technisch gut nutzbar machen.",
+        "Die keywords-Liste verlängern, weil Google die Anzahl der Einträge als Rankingsignal verwendet.",
+        "Den einzigen Satz unverändert lassen und die keywords zusätzlich unsichtbar im body wiederholen.",
+        "Alle Überschriften durch dieselbe keywords-Liste ersetzen, damit die Begriffe häufiger vorkommen."
+      ],
+      "correct": 0,
+      "explanation": "Google verwendet das keywords-Metaelement nicht für Indexierung oder Ranking. Eine verständliche Erklärung mit passendem Beispiel beantwortet dagegen eine echte Frage. Präzise Titel, sinnvolle Links und eine gut nutzbare Seite unterstützen diesen Inhalt.",
+      "hu": {
+        "question": "Egy oldal tartalmazza ezt a metaelemet, de a ciklusokat csak egyetlen zavaros mondattal magyarázza. Melyik javítás segíti az értelmes, organikus Google-találatok kialakulását?",
+        "answers": [
+          "Követhető magyarázatot és példát adunk hozzá, és az oldalt technikailag jól használhatóvá tesszük.",
+          "Meghosszabbítjuk a keywords listát, mert a Google a felsorolt elemek számát rangsorolási jelként használja.",
+          "Az egyetlen mondatot változatlanul hagyjuk, és a keywords szavait a body részben láthatatlanul is megismételjük.",
+          "Minden címsort ugyanarra a keywords listára cserélünk, hogy a szavak többször szerepeljenek."
+        ],
+        "explanation": "A Google nem használja a keywords metaelemet indexeléshez vagy rangsoroláshoz. Egy érthető, példával kiegészített magyarázat viszont valódi kérdésre válaszol. A pontos címek, értelmes linkek és a jól kezelhető oldal támogatják ezt a tartalmat."
+      },
+      "code": "<meta name=\"keywords\" content=\"JavaScript, Schleifen, Programmieren\">",
+      "codeLanguage": "html"
+    }
+  ]
+}
