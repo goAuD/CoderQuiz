@@ -2,7 +2,7 @@
   <img src="assets/logo.svg" width="128" height="128" alt="CoderQuiz" />
 </p>
 <h1 align="center">CoderQuiz</h1>
-<p align="center">Practice what you learn in CoderLAP. German and Hungarian, with explanations after every answer.</p>
+<p>Practice what you learn in CoderLAP. German and Hungarian, with explanations after every answer.</p>
 
 CoderQuiz is a static practice app for the Austrian LAP
 Applikationsentwicklung-Coding. It uses the shared Műhely interface, local fonts
