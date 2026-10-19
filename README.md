@@ -138,7 +138,7 @@ CI packages only the generated `dist/` directory, with a SHA-256 checksum.
 Deploy the successful `main` build using `scripts/deploy_static.py`; its `--help`
 lists the archive, commit and checksum arguments. Keep credentials and
 machine-specific deployment notes outside Git.
-[Release notes](docs/releases/v0.1.0.md) record the first curriculum release.
+[Release notes](docs/releases/v0.2.0.md) describe the complete Informatik rollout.
 
 Only `docs/releases/` and optional public `docs/assets/` are tracked under
 `docs/`. Planning notes and local agent settings stay ignored.
