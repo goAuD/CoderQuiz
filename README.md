@@ -21,21 +21,25 @@ accounts or server-side learning records.
 | Informatik 3 | LAP-11-15 to LAP-11-21 | 35 |
 | Informatik 4 | LAP-11-22 to LAP-11-28 | 35 |
 | Informatik 5 | LAP-11-29 to LAP-11-35 | 35 |
-| **Total** | **55 distinct CoderLAP topics** | **275** |
+| Informatik 6 | LAP-11-36 to LAP-11-43 | 40 |
+| **Total** | **63 distinct CoderLAP topics** | **315** |
 
 Every question has four choices, one correct answer, aligned DE/HU explanations,
-a stable ID and a link to its source topic. The eight packages were checked
+a stable ID and a link to its source topic. The nine packages were checked
 against [CoderLAP commit `cefce00`](https://github.com/goAuD/CoderLAP/tree/cefce00affa0f357e7cc3e752abf082cad0ae1d0).
 Programming covers all 100 self-check positions in its 20 subtopics; it does not
 claim a separate quiz question for every detail in the expanded learning text.
-Informatik covers the first 35 of 43 subtopics with 175 questions. Package 2
+Informatik covers all 215 self-check positions in its 43 subtopics, also without
+claiming a separate question for every detail in the expanded lessons. Package 2
 practises CSS, client/server responsibilities, development tools, CMS, stacks,
 queues and interfaces. Package 3 covers encoding, standards, embedded documents,
 webservices, SOAP/WSDL, REST and JSON. Package 4 adds agile and reactive
 development, frameworks, AngularJS maintenance, Bootstrap, jQuery and PHP/MySQL.
 Package 5 covers multitasking, mobile and responsive websites, Mobile First,
-language selection and Java web technologies. Eight Informatik topics remain,
-starting at LAP-11-36.
+language selection and Java web technologies. Package 6 completes the module
+with .NET, metadata, KISS/DRY, coding conventions, cross-platform development
+and CI/CD. Development scenarios distinguish current app behavior from
+hypothetical extensions.
 
 The original independent 100-question law/privacy bank remains in `questions.js`
 for local use and history. Its content review is unfinished,
@@ -51,7 +55,7 @@ node scripts/build-static.cjs
 python -m http.server 8775 --bind 127.0.0.1 --directory dist
 ```
 
-Open <http://127.0.0.1:8775/>. The homepage lists the eight packages. Each has its
+Open <http://127.0.0.1:8775/>. The homepage lists the nine packages. Each has its
 own URL and saved session, so changing packages does not discard another run.
 Language preference is shared within the Quiz origin.
 
@@ -77,6 +81,7 @@ python scripts/preview_lap_pilot.py --bank lap-informatik-1
 Its default port is 8774. Use `--bank lap-informatik-2` or
 `--bank lap-informatik-3` for ports 8776 and 8777, or Informatik 4 and 5 for
 ports 8778 and 8779 (`--bank lap-informatik-4` / `--bank lap-informatik-5`).
+Informatik 6 uses port 8780 (`--bank lap-informatik-6`).
 Port 8775 remains available for the complete catalogue. Programming previews
 use 8771, 8772 and 8773.
 
@@ -89,7 +94,7 @@ node scripts/build-static.cjs
 ```
 
 Tests cover shuffle permutations, restored/revised sessions, language changes,
-package isolation, all eight complete quiz runs, executable code examples,
+package isolation, all nine complete quiz runs, executable code examples,
 bilingual question structure, generated links and the static artifact boundary.
 Deployment tests use temporary directories; symlink promotion runs on Linux in CI.
 These checks complement editorial source review and browser/mobile checks.
@@ -107,8 +112,9 @@ skipped. It does not validate a live MySQL deployment.
   resets with a clear notice rather than reinterpreting an old answer.
 - Explanations appear after answering. There is no separate hint or mistakes chapter.
 - Code is displayed as escaped text, never executed in the learner's browser.
-  JavaScript output is tested during development. PHP, CSS, Java, markup, JSON
-  and pseudocode have their own labels. Contextual framework fragments state
+  JavaScript output is tested during development, including boundary cases for
+  the practice scoring rule. PHP, CSS, Java, C#, INI, YAML, markup, JSON and
+  pseudocode have their own labels. Contextual framework fragments state
   their prerequisites; they are reading examples, not standalone applications.
 - Keep DE/HU choices in the same source order; the app shuffles their display.
 
