@@ -24,10 +24,11 @@ accounts or server-side learning records.
 | Informatik 6 | LAP-11-36 to LAP-11-43 | 40 |
 | Databases 1 | LAP-16-01 to LAP-16-07 | 35 |
 | Databases 2 | LAP-16-08 to LAP-16-14 | 35 |
-| **Total** | **77 distinct CoderLAP topics** | **385** |
+| Databases 3 | LAP-16-15 to LAP-16-19 | 25 |
+| **Total** | **82 distinct CoderLAP topics** | **410** |
 
 Every question has four choices, one correct answer, aligned DE/HU explanations,
-a stable ID and a link to its source topic. The eleven packages were checked
+a stable ID and a link to its source topic. The twelve packages were checked
 against [CoderLAP commit `cefce00`](https://github.com/goAuD/CoderLAP/tree/cefce00affa0f357e7cc3e752abf082cad0ae1d0).
 Programming covers all 100 self-check positions in its 20 subtopics; it does not
 claim a separate quiz question for every detail in the expanded learning text.
@@ -54,6 +55,13 @@ SQLite examples cover updates, rollback, composite keys, foreign-key actions,
 relationships and indexes. Locking scenarios explicitly name MySQL 8.0/InnoDB;
 the deadlock trace is pseudocode for reading, not an executable concurrency test.
 
+Databases 3 completes all 95 self-check positions across the 19 database
+subtopics with business information systems, ERP, BI/data warehouses, schema
+implementation and transactions. Seven SQLite examples and a PHP/PDO-SQLite
+fragment cover aggregation grain, schema constraints, bound parameters and
+commit/rollback. As with the other modules, this is subtopic/self-check coverage,
+not a separate question for every detail in the expanded lessons.
+
 The original independent 100-question law/privacy bank remains in `questions.js`
 for local use and history. Its content review is unfinished,
 so it is **not included in the published site**. The eight-question pilot is also
@@ -68,7 +76,7 @@ node scripts/build-static.cjs
 python -m http.server 8775 --bind 127.0.0.1 --directory dist
 ```
 
-Open <http://127.0.0.1:8775/>. The homepage lists the eleven packages. Each has its
+Open <http://127.0.0.1:8775/>. The homepage lists the twelve packages. Each has its
 own URL and saved session, so changing packages does not discard another run.
 Language preference is shared within the Quiz origin.
 
@@ -97,6 +105,7 @@ ports 8778 and 8779 (`--bank lap-informatik-4` / `--bank lap-informatik-5`).
 Informatik 6 uses port 8780 (`--bank lap-informatik-6`).
 Databases 1 uses port 8781 (`--bank lap-databases-1`).
 Databases 2 uses port 8783 (`--bank lap-databases-2`).
+Databases 3 uses port 8784 (`--bank lap-databases-3`).
 Port 8775 remains available for the complete catalogue. Programming previews
 use 8771, 8772 and 8773.
 
@@ -109,19 +118,21 @@ node scripts/build-static.cjs
 ```
 
 Tests cover shuffle permutations, restored/revised sessions, language changes,
-package isolation, all eleven complete quiz runs, executable code examples,
+package isolation, all twelve complete quiz runs, executable code examples,
 bilingual question structure, generated links and the static artifact boundary.
 Deployment tests use temporary directories; symlink promotion runs on Linux in CI.
 These checks complement editorial source review and browser/mobile checks.
 Python's standard-library SQLite module executes all database snippets in fresh
 in-memory databases. It also checks constraint boundaries, nullable foreign
-keys, rollback and key/index behavior. No database server or additional Python
-package is required. InnoDB concurrency and recovery scenarios are checked
-against primary documentation; these tests do not start a MySQL server.
+keys, aggregation grain, rollback and key/index behavior. No database server
+or additional Python package is required. InnoDB concurrency and recovery
+scenarios are checked against primary documentation; these tests do not start
+a MySQL server.
 With PHP CLI and PDO SQLite available, the suite also runs the HTML-escaping
-example and checks the portable SELECT/bind/fetch fragment in an isolated
-in-memory database. If PHP is absent, this one optional test is reported as
-skipped. It does not validate a live MySQL deployment.
+example and the Informatik/Databases SELECT/bind/fetch fragments in isolated
+in-memory databases, including missing rows and parameter binding. If PHP is
+absent, the two optional PHP tests are reported as skipped. They do not validate
+a live MySQL deployment.
 
 ## Content maintenance
 

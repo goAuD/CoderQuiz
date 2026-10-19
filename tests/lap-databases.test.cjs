@@ -1,8 +1,10 @@
 const assert = require('node:assert/strict');
 const { test } = require('node:test');
+const { spawnSync } = require('node:child_process');
 const banks = [
   require('../examples/lap-databases-1.json'),
   require('../examples/lap-databases-2.json'),
+  require('../examples/lap-databases-3.json'),
 ];
 
 const topicGroups = [[
@@ -21,17 +23,24 @@ const topicGroups = [[
   ['12', 'Freeware Datenbanken Vor und Nachteile', 'Freeware_Datenbanken_Vor_und_Nachteile'],
   ['13', 'Sicherungsmethoden', 'Sicherungsmethoden'],
   ['14', 'Sperrtabelle und Sperrverhalten', 'Sperrtabelle_und_Sperrverhalten'],
+], [
+  ['15', 'Betriebliches Informationssystem BIS', 'Betriebliches_Informationssystem_BIS'],
+  ['16', 'ERP Systeme', 'ERP_Systeme'],
+  ['17', 'BI und BW Systeme', 'BI_und_BW_Systeme'],
+  ['18', 'Umsetzung von Datenmodellen in Datenbanken', 'Umsetzung_von_Datenmodellen_in_Datenbanken'],
+  ['19', 'Zugriffsschnittstelle und Transaktionskonzept', 'Zugriffsschnittstelle_und_Transaktionskonzept'],
 ]];
 
 for (const [index, bank] of banks.entries()) {
   const topics = topicGroups[index];
   const label = `Databases ${index + 1}`;
+  const questionCount = topics.length * 5;
 
-  test(`${label} covers its 35 source positions with stable topic links`, () => {
+  test(`${label} covers its ${questionCount} source positions with stable topic links`, () => {
     assert.equal(bank.sourceRepository, 'https://github.com/goAuD/CoderLAP');
     assert.equal(bank.sourceCommit, 'cefce00affa0f357e7cc3e752abf082cad0ae1d0');
-    assert.equal(bank.questions.length, 35);
-    assert.equal(new Set(bank.questions.map(q => q.id)).size, 35);
+    assert.equal(bank.questions.length, questionCount);
+    assert.equal(new Set(bank.questions.map(q => q.id)).size, questionCount);
     const positions = [];
     for (const [number, topic, directory] of topics) {
       for (let position = 1; position <= 5; position++) {
@@ -73,8 +82,8 @@ for (const [index, bank] of banks.entries()) {
   });
 
   test(`${label} declares SQL result rows and distinguishes reading examples`, () => {
-    const readingLanguage = index === 0 ? 'xml' : 'pseudocode';
-    assert.equal(bank.questions.filter(q => q.codeLanguage === 'sql').length, 9);
+    const readingLanguage = ['xml', 'pseudocode', 'php'][index];
+    assert.equal(bank.questions.filter(q => q.codeLanguage === 'sql').length, [9, 9, 7][index]);
     assert.equal(bank.questions.filter(q => q.codeLanguage === readingLanguage).length, 1);
     for (const q of bank.questions) {
       if (q.code === undefined) {
@@ -94,9 +103,33 @@ for (const [index, bank] of banks.entries()) {
   });
 }
 
-test('Database packages have distinct question IDs and source positions', () => {
+test('Database packages cover all 95 self-check positions across 19 topics without duplicate IDs', () => {
   const questions = banks.flatMap(bank => bank.questions);
-  assert.equal(questions.length, 70);
+  assert.equal(questions.length, 95);
+  assert.equal(new Set(questions.map(q => q.source.topicId)).size, 19);
   assert.equal(new Set(questions.map(q => q.id)).size, questions.length);
   assert.equal(new Set(questions.map(q => `${q.source.topicId}:${q.source.selfCheckNumber}`)).size, questions.length);
+});
+
+test('the database PDO example binds values and returns only the requested course', t => {
+  const probe = spawnSync('php', ['-v'], { encoding: 'utf8', timeout: 5000 });
+  if (probe.error?.code === 'ENOENT') return t.skip('Optional PHP CLI is not installed');
+  assert.equal(probe.status, 0, probe.error?.message || probe.stderr);
+  const question = banks[2].questions.find(q => q.id === 'lap-LAP-16-19-1');
+  const result = spawnSync('php', [], {
+    input: `<?php
+      $pdo = new PDO('sqlite::memory:');
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $pdo->exec('CREATE TABLE courses (id INTEGER PRIMARY KEY, title TEXT NOT NULL)');
+      $pdo->exec("INSERT INTO courses VALUES (7, 'SQL'), (8, 'Testing')");
+      foreach ([7, 8, 999, '7 OR 1=1'] as $courseId) {
+        ${question.code}
+        echo json_encode($course), "\\n";
+      }
+    `,
+    encoding: 'utf8', timeout: 5000,
+  });
+  assert.equal(result.status, 0, result.error?.message || result.stderr);
+  assert.equal(result.stderr, '');
+  assert.equal(result.stdout, '{"title":"SQL"}\n{"title":"Testing"}\nfalse\nfalse\n');
 });

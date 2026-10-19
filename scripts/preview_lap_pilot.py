@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BANK_PORTS = {
     "lap-databases-1": 8781,
     "lap-databases-2": 8783,
+    "lap-databases-3": 8784,
     "lap-pilot": 8770,
     "lap-programming-1": 8771,
     "lap-programming-2": 8772,
