@@ -2,7 +2,8 @@ const assert = require('node:assert/strict');
 const { test } = require('node:test');
 const vm = require('node:vm');
 const { format } = require('node:util');
-const banks = [1, 2, 3].map(batch => require(`../examples/lap-informatik-${batch}.json`));
+const { spawnSync } = require('node:child_process');
+const banks = [1, 2, 3, 4, 5].map(batch => require(`../examples/lap-informatik-${batch}.json`));
 
 const sourceTopics = [
   ['01', 'Begriff Informatik', 'Begriff_Informatik'],
@@ -26,6 +27,20 @@ const sourceTopics = [
   ['19', 'SOAP und WSDL', 'SOAP_und_WSDL'],
   ['20', 'REST API', 'REST_API'],
   ['21', 'JSON', 'JSON'],
+  ['22', 'Agile Softwareentwicklung', 'Agile_Softwareentwicklung'],
+  ['23', 'Reaktive Programmierung', 'Reaktive_Programmierung'],
+  ['24', 'Frameworks', 'Frameworks'],
+  ['25', 'Einsatzgebiet AngularJS', 'Einsatzgebiet_AngularJS'],
+  ['26', 'Einsatzgebiet Bootstrap', 'Einsatzgebiet_Bootstrap'],
+  ['27', 'Einsatzgebiet jQuery', 'Einsatzgebiet_jQuery'],
+  ['28', 'PHP Zugriff auf MySQL', 'PHP_Zugriff_auf_MySQL'],
+  ['29', 'Multitasking', 'Multitasking'],
+  ['30', 'Mobile Webseiten', 'Mobile_Webseiten'],
+  ['31', 'Responsive Webdesign', 'Responsive_Webdesign'],
+  ['32', 'Mobile First', 'Mobile_First'],
+  ['33', 'Aktuelle Programmiersprachen', 'Aktuelle_Programmiersprachen'],
+  ['34', 'Programmiersprachen fuer mobile Apps und Internet', 'Programmiersprachen_fuer_mobile_Apps_und_Internet'],
+  ['35', 'Java Technologien im Web', 'Java_Technologien_im_Web'],
 ];
 
 function execute(question) {
@@ -94,6 +109,8 @@ for (const [index, bank] of banks.entries()) {
       { html: 6, xml: 3, javascript: 1, json: 0 },
       { html: 3, xml: 0, javascript: 7, json: 0 },
       { html: 1, xml: 1, javascript: 4, json: 2 },
+      { html: 4, php: 2, pseudocode: 1 },
+      { javascript: 3, css: 3, java: 1 },
     ][index];
     for (const [language, count] of Object.entries(expectedCounts)) {
       assert.equal(snippets.filter(q => q.codeLanguage === language).length, count, language);
@@ -105,12 +122,12 @@ for (const [index, bank] of banks.entries()) {
         continue;
       }
       assert.ok(typeof q.code === 'string' && q.code.trim(), q.id);
-      assert.ok(['javascript', 'html', 'xml', 'json'].includes(q.codeLanguage), q.id);
-      if (q.codeLanguage === 'javascript') {
+      assert.ok(['javascript', 'html', 'xml', 'json', 'css', 'php', 'java', 'pseudocode'].includes(q.codeLanguage), q.id);
+      if (q.codeLanguage === 'javascript' || q.id === 'lap-LAP-11-28-5') {
         assert.ok(Array.isArray(q.expectedOutput) && q.expectedOutput.length > 0, q.id);
         assert.ok(q.expectedOutput.every(line => typeof line === 'string'), q.id);
       } else {
-        assert.equal(q.expectedOutput, undefined, `${q.id}: markup is a display example, not executable JavaScript`);
+        assert.equal(q.expectedOutput, undefined, `${q.id}: contextual reading examples do not declare standalone output`);
       }
     }
   });
@@ -120,6 +137,32 @@ test('every displayed Informatik JavaScript example produces its documented outp
   for (const q of banks.flatMap(bank => bank.questions).filter(q => q.codeLanguage === 'javascript')) {
     assert.deepEqual(execute(q).output, q.expectedOutput, q.id);
   }
+});
+
+test('the PHP output example encodes HTML text and PDO reads the requested row in an isolated SQLite fixture', t => {
+  const probe = spawnSync('php', ['-v'], { encoding: 'utf8', timeout: 5000 });
+  if (probe.error?.code === 'ENOENT') return t.skip('Optional PHP CLI is not installed');
+  assert.equal(probe.status, 0, probe.error?.message || probe.stderr);
+  const run = code => {
+    const result = spawnSync('php', [], { input: `<?php\n${code}`, encoding: 'utf8', timeout: 5000 });
+    assert.equal(result.status, 0, result.error?.message || result.stderr);
+    assert.equal(result.stderr, '');
+    return result.stdout;
+  };
+  const escape = banks[3].questions.find(q => q.id === 'lap-LAP-11-28-5');
+  assert.equal(run(escape.code), escape.expectedOutput.join('\n'));
+  const query = banks[3].questions.find(q => q.id === 'lap-LAP-11-28-2');
+  // Tests this portable SELECT/bind/fetch fragment, not a MySQL deployment.
+  assert.equal(run(`
+    $pdo = new PDO('sqlite::memory:');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->exec('CREATE TABLE courses (id INTEGER PRIMARY KEY, title TEXT)');
+    $pdo->exec("INSERT INTO courses VALUES (15, 'Schleifen'), (16, 'Arrays')");
+    foreach ([15, 999] as $id) {
+      ${query.code}
+      echo json_encode($course), "\\n";
+    }
+  `), '{"title":"Schleifen"}\nfalse\n');
 });
 
 test('the average algorithm handles empty, singleton, zero and mixed-sign input without mutation', () => {

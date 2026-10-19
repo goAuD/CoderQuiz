@@ -4,5 +4,7 @@
   { "id": "lap-programming-3", "path": "examples/lap-programming-3.json" },
   { "id": "lap-informatik-1", "path": "examples/lap-informatik-1.json" },
   { "id": "lap-informatik-2", "path": "examples/lap-informatik-2.json" },
-  { "id": "lap-informatik-3", "path": "examples/lap-informatik-3.json" }
+  { "id": "lap-informatik-3", "path": "examples/lap-informatik-3.json" },
+  { "id": "lap-informatik-4", "path": "examples/lap-informatik-4.json" },
+  { "id": "lap-informatik-5", "path": "examples/lap-informatik-5.json" }
 ]

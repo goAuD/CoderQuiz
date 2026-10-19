@@ -1,0 +1,1111 @@
+{
+  "sourceRepository": "https://github.com/goAuD/CoderLAP",
+  "sourceCommit": "cefce00affa0f357e7cc3e752abf082cad0ae1d0",
+  "ui": {
+    "de": {
+      "moduleTitle": "CoderLAP · Informatik 5",
+      "subtitle": "35 Fragen zu Multitasking, mobilen und responsiven Webseiten, Mobile First und der Wahl von Web- und App-Technologien.",
+      "practiceNote": "Lies die Situation und die Voraussetzungen beim Code. Die Erklärung erscheint nach deiner Antwort.",
+      "topics": {
+        "Multitasking": "Multitasking",
+        "Mobile Webseiten": "Mobile Webseiten",
+        "Responsive Webdesign": "Responsive Webdesign",
+        "Mobile First": "Mobile First",
+        "Aktuelle Programmiersprachen": "Aktuelle Programmiersprachen",
+        "Programmiersprachen fuer mobile Apps und Internet": "Sprachen für Apps und Web",
+        "Java Technologien im Web": "Java im Web"
+      }
+    },
+    "hu": {
+      "moduleTitle": "CoderLAP · Informatika 5",
+      "subtitle": "35 kérdés multitaskingról, mobilos és reszponzív weboldalakról, Mobile Firstről, valamint webes és apptechnológiák választásáról.",
+      "practiceNote": "Olvasd el a helyzetet és a kódhoz megadott feltételeket. A magyarázat a válaszod után jelenik meg.",
+      "topics": {
+        "Multitasking": "Multitasking",
+        "Mobile Webseiten": "Mobilos weboldalak",
+        "Responsive Webdesign": "Reszponzív webdesign",
+        "Mobile First": "Mobile First",
+        "Aktuelle Programmiersprachen": "Mai programozási nyelvek",
+        "Programmiersprachen fuer mobile Apps und Internet": "Appok és webes rendszerek nyelvei",
+        "Java Technologien im Web": "Java a weben"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "lap-LAP-11-29-1",
+      "revision": 1,
+      "topic": "Multitasking",
+      "source": {
+        "topicId": "LAP-11-29",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/29_Multitasking/README.md",
+        "slug": "11-29-multitasking"
+      },
+      "question": "Auf einem einzelnen CPU-Kern wechseln sich zwei rechenbereite Programme in kurzen Zeitabschnitten ab. Welche Beschreibung ist richtig?",
+      "answers": [
+        "Kein Multitasking, weil dafür zwingend zwei physische Prozessoren nötig sind.",
+        "Asynchrones Dateispeichern, unabhängig davon, was die Programme tatsächlich tun.",
+        "Nebenläufige Ausführung durch Zeitaufteilung; in diesem Modell rechnet der Kern jeweils für eines der Programme.",
+        "Echte parallele Ausführung beider Programme auf diesem einen Kern zur gleichen Zeit."
+      ],
+      "correct": 2,
+      "explanation": "Multitasking lässt mehrere Aufgaben Fortschritt machen. Bei Zeitaufteilung wechselt die CPU zwischen ihnen; für tatsächlich gleichzeitige Rechenarbeit sind mehrere Ausführungseinheiten nötig. Nebenläufigkeit beschreibt überlappende Abläufe, Parallelität deren gleichzeitige Ausführung.",
+      "hu": {
+        "question": "Egyetlen CPU-magon két számításra kész program rövid időszeletekben váltja egymást. Melyik leírás helyes?",
+        "answers": [
+          "Ez nem multitasking, mert ahhoz kötelező két fizikai processzor.",
+          "Aszinkron fájlmentés, függetlenül attól, mit végeznek a programok.",
+          "Időosztással megvalósított konkurens működés; ebben a modellben a mag egyszerre az egyik programon dolgozik.",
+          "Mindkét program valódi párhuzamos futása ugyanazon az egy magon, ugyanabban az időben."
+        ],
+        "explanation": "A multitasking több feladat előrehaladását teszi lehetővé. Időosztásnál a CPU vált közöttük; ténylegesen egyidejű számításokhoz több végrehajtóegység kell. A konkurencia az átfedő folyamatokat, a párhuzamosság azok egyidejű végrehajtását írja le."
+      }
+    },
+    {
+      "id": "lap-LAP-11-29-2",
+      "revision": 1,
+      "topic": "Multitasking",
+      "source": {
+        "topicId": "LAP-11-29",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/29_Multitasking/README.md",
+        "slug": "11-29-multitasking"
+      },
+      "question": "Programm A wartet auf eine Netzwerkantwort, Programm B könnte rechnen. Was kann ein Betriebssystem mit Multitasking tun?",
+      "answers": [
+        "B Rechenzeit geben, während A auf das Ereignis wartet.",
+        "Den gesamten Rechner bis zur Antwort für A anhalten.",
+        "A zwangsläufig weiterrechnen lassen, obwohl die benötigten Daten fehlen.",
+        "Beide Programme dauerhaft beenden, weil Warten und Rechnen nicht kombinierbar sind."
+      ],
+      "correct": 0,
+      "explanation": "Warten auf Ein- und Ausgabe muss die CPU nicht ungenutzt lassen. Der Scheduler kann eine andere ausführbare Aufgabe auswählen. Das verbessert die Auslastung, bedeutet aber nicht, dass beliebig viele Aufgaben ohne Verwaltungsaufwand schneller werden.",
+      "hu": {
+        "question": "Az A program hálózati válaszra vár, a B számolhatna. Mit tehet egy multitasking operációs rendszer?",
+        "answers": [
+          "CPU-időt adhat B-nek, amíg A az eseményre vár.",
+          "Leállíthatja az egész gépet A válaszának megérkezéséig, mert más feladat nem futhat.",
+          "Kötelezően tovább számoltathatja A-t, bár hiányoznak a szükséges adatok.",
+          "Végleg bezárhatja mindkettőt, mert várakozás és számítás nem kombinálható."
+        ],
+        "explanation": "A be- és kimenetre várakozás nem feltétlenül hagyja kihasználatlanul a CPU-t. Az ütemező kiválaszthat másik futtatható feladatot. Ez javíthatja a kihasználtságot, de nem jelenti, hogy tetszőleges számú feladat kezelési költség nélkül gyorsul."
+      }
+    },
+    {
+      "id": "lap-LAP-11-29-3",
+      "revision": 1,
+      "topic": "Multitasking",
+      "source": {
+        "topicId": "LAP-11-29",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/29_Multitasking/README.md",
+        "slug": "11-29-multitasking"
+      },
+      "question": "Diese kurze JavaScript-Simulation stellt zwei unterbrochene Lesen-Ändern-Schreiben-Abläufe dar; sie startet keine echten Threads. Was wird ausgegeben?",
+      "answers": [
+        "2, weil zwei Zuweisungen automatisch zwei Erhöhungen garantieren.",
+        "0, weil lokale Kopien eine Änderung von counter grundsätzlich verhindern.",
+        "Ein zufälliger Wert, weil schon zwei Variablennamen echte Threads erzeugen.",
+        "1, weil beide Abläufe denselben alten Wert lesen und einer die Änderung des anderen überschreibt."
+      ],
+      "correct": 3,
+      "explanation": "Beide gespeicherten Lesewerte sind 0. Daher schreiben beide Abläufe 1 zurück. Das veranschaulicht einen verlorenen Update-Schritt. Bei tatsächlich gemeinsam genutztem Zustand helfen zur Umgebung passende Synchronisation oder atomare Operationen.",
+      "hu": {
+        "question": "Ez a rövid JavaScript-szimuláció két megszakított olvasás-módosítás-írás folyamatot ábrázol; nem indít valódi szálakat. Mit ír ki?",
+        "answers": [
+          "2-t, mert két értékadás automatikusan két növelést garantál.",
+          "0-t, mert a helyi másolatok alapvetően megakadályozzák a counter módosítását.",
+          "Véletlen értéket, mert már két változónév valódi szálakat hoz létre.",
+          "1-et, mert mindkét folyamat ugyanazt a régi értéket olvassa, és az egyik felülírja a másik módosítását."
+        ],
+        "explanation": "Mindkét eltárolt olvasási érték 0. Emiatt mindkét folyamat 1-et ír vissza. Ez egy elveszett módosítást szemléltet. Valóban közösen használt állapotnál a környezethez illő szinkronizálás vagy atomi művelet segíthet."
+      },
+      "code": "let counter = 0;\nconst readByA = counter;\nconst readByB = counter;\ncounter = readByA + 1;\ncounter = readByB + 1;\nconsole.log(counter);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "1"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-29-4",
+      "revision": 1,
+      "topic": "Multitasking",
+      "source": {
+        "topicId": "LAP-11-29",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/29_Multitasking/README.md",
+        "slug": "11-29-multitasking"
+      },
+      "question": "Ein Programm gibt freiwillig lange keine CPU-Zeit ab. Das Betriebssystem kann es trotzdem nach Ablauf seiner Zeitscheibe unterbrechen. Welche Art der Steuerung ist das?",
+      "answers": [
+        "Eine automatische Aufteilung jeder Funktion auf mehrere CPU-Kerne.",
+        "Präemptives Scheduling.",
+        "Ausschließlich kooperatives Scheduling.",
+        "Eine Garantie, dass Kontextwechsel keine Zeit kosten."
+      ],
+      "correct": 1,
+      "explanation": "Präemptiv bedeutet, dass der Scheduler einer laufenden Aufgabe die CPU entziehen kann. Bei kooperativer Steuerung muss die Aufgabe an geeigneten Stellen selbst abgeben. Kontextwechsel sichern und laden Ausführungszustand und verursachen dabei Aufwand.",
+      "hu": {
+        "question": "Egy program sokáig nem adja át önként a CPU-t. Az operációs rendszer az időszelete végén mégis megszakíthatja. Milyen vezérlés ez?",
+        "answers": [
+          "Minden függvény automatikus szétosztása több CPU-magra.",
+          "Preemptív ütemezés.",
+          "Kizárólag kooperatív ütemezés.",
+          "Garancia arra, hogy a kontextusváltás nem kerül időbe."
+        ],
+        "explanation": "A preemptív működés azt jelenti, hogy az ütemező elveheti a CPU-t a futó feladattól. Kooperatív vezérlésnél a feladatnak magának kell megfelelő pontokon átadnia. A kontextusváltás végrehajtási állapotot ment és tölt vissza, ezért költsége van."
+      }
+    },
+    {
+      "id": "lap-LAP-11-29-5",
+      "revision": 1,
+      "topic": "Multitasking",
+      "source": {
+        "topicId": "LAP-11-29",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/29_Multitasking/README.md",
+        "slug": "11-29-multitasking"
+      },
+      "question": "Welche Reihenfolge entsteht hier? Die async-Funktion enthält kein await.",
+      "answers": [
+        "work, start, end.",
+        "start und end; der Funktionsrumpf läuft ohne await nie.",
+        "start, work, end.",
+        "start, end, work."
+      ],
+      "correct": 2,
+      "explanation": "Beim Aufruf läuft der Funktionsrumpf hier synchron; async sorgt für einen Promise-Rückgabewert, nicht automatisch für einen Hintergrundthread. Eine lange CPU-Berechnung an dieser Stelle würde den aufrufenden JavaScript-Thread weiterhin beschäftigen. Für geeignete schwere Browserarbeit kommt etwa ein Web Worker infrage.",
+      "hu": {
+        "question": "Milyen sorrend keletkezik? Az async függvényben nincs await.",
+        "answers": [
+          "work, start, end.",
+          "start és end; await nélkül a függvénytörzs sosem fut.",
+          "start, work, end.",
+          "start, end, work."
+        ],
+        "explanation": "A híváskor itt szinkron fut a függvénytörzs; az async Promise-visszatérést ad, nem automatikus háttérszálat. Egy hosszú CPU-számítás ezen a helyen továbbra is foglalná a hívó JavaScript-szálat. Megfelelő nehéz böngészős munkához például Web Worker használható."
+      },
+      "code": "async function work() {\n  console.log(\"work\");\n}\nconsole.log(\"start\");\nwork();\nconsole.log(\"end\");",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "start",
+        "work",
+        "end"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-30-1",
+      "revision": 1,
+      "topic": "Mobile Webseiten",
+      "source": {
+        "topicId": "LAP-11-30",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/30_Mobile_Webseiten/README.md",
+        "slug": "11-30-mobile_webseiten"
+      },
+      "question": "Ein mobiles Formular passt bei geschlossener Tastatur auf den Bildschirm. Beim Schreiben sind Fehlermeldung und Absenden nicht mehr erreichbar. Welche Verbesserung hat Vorrang?",
+      "answers": [
+        "Die nutzbare Fläche mit geöffneter Tastatur prüfen und Inhalte sowie Aktionen erreichbar halten.",
+        "Das Zoomen im Browser sperren, damit die Seite immer gleich groß bleibt.",
+        "Die Schrift so stark verkleinern, bis alles auf einen Screenshot passt.",
+        "Nur die Hochformatansicht ohne Eingaben testen."
+      ],
+      "correct": 0,
+      "explanation": "Mobile Bedienung umfasst Eingaben, geöffnete Tastatur, Ausrichtung und vergrößerten Text. Ein passender Screenshot allein belegt die Nutzbarkeit nicht. Layout und Scrollverhalten müssen wichtige Inhalte und Aktionen auch während der tatsächlichen Aufgabe erreichbar halten.",
+      "hu": {
+        "question": "Egy mobilos űrlap csukott billentyűzettel elfér. Gépeléskor a hibaüzenet és küldés gomb már nem érhető el. Melyik javítás az elsődleges?",
+        "answers": [
+          "Nyitott billentyűzettel vizsgálni a használható területet, és elérhetően tartani a tartalmat és műveleteket.",
+          "Letiltani a böngészős nagyítást, hogy az oldal mindig ugyanolyan méretű maradjon.",
+          "Annyira lekicsinyíteni a betűt, hogy minden egy képernyőképre férjen.",
+          "Csak álló nézetben, bevitel nélkül tesztelni."
+        ],
+        "explanation": "A mobilhasználathoz a bevitel, nyitott billentyűzet, tájolás és nagyított szöveg is hozzátartozik. Egy megfelelő képernyőkép önmagában nem igazolja a használhatóságot. A szerkezet és görgetés a tényleges feladat közben is tartsa elérhetően a fontos tartalmat és műveleteket."
+      }
+    },
+    {
+      "id": "lap-LAP-11-30-2",
+      "revision": 1,
+      "topic": "Mobile Webseiten",
+      "source": {
+        "topicId": "LAP-11-30",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/30_Mobile_Webseiten/README.md",
+        "slug": "11-30-mobile_webseiten"
+      },
+      "question": "Die gleiche große Bilddatei wird auf Mobilgeräten nur per CSS kleiner angezeigt. Die Seite lädt über ein langsames Netz weiterhin lange. Was hilft direkt bei der übertragenen Bildmenge?",
+      "answers": [
+        "Nur die CSS-Breite weiter verringern; dadurch wird dieselbe Datei automatisch kleiner übertragen.",
+        "Alle Bilder zusätzlich unsichtbar vorladen, unabhängig davon, ob sie benötigt werden.",
+        "Die Bilddatei umbenennen, ohne Inhalt oder Auslieferung zu ändern.",
+        "Passend dimensionierte und komprimierte Bildvarianten ausliefern, beispielsweise mit srcset und sizes."
+      ],
+      "correct": 3,
+      "explanation": "CSS-Abmessungen verändern die Darstellung, nicht automatisch die Dateigröße im Netz. Geeignete Varianten und ein passendes Format können weniger Daten übertragen. Reservierte Bildabmessungen helfen zusätzlich gegen Layoutsprünge, lösen aber allein das Datenmengenproblem nicht.",
+      "hu": {
+        "question": "Ugyanazt a nagy képfájlt mobilon csak CSS-sel jelenítjük meg kisebben. Lassú hálózaton továbbra is sokáig tölt. Mi csökkenti közvetlenül az átvitt képadatot?",
+        "answers": [
+          "Csak tovább csökkenteni a CSS-szélességet; ettől ugyanaz a fájl automatikusan kisebb adatként érkezik.",
+          "Minden képet még láthatatlanul is előtölteni, függetlenül attól, szükséges-e.",
+          "Átnevezni a képfájlt a tartalom és kiszolgálás módosítása nélkül.",
+          "Megfelelő méretű és tömörített képváltozatokat kiszolgálni, például srcset és sizes segítségével."
+        ],
+        "explanation": "A CSS-méretek a megjelenést változtatják, nem automatikusan a hálózati fájlméretet. Megfelelő változatokkal és formátummal kevesebb adat vihető át. A kép helyének előzetes lefoglalása a tartalom ugrálásán segít, de önmagában nem oldja meg az adatmennyiség gondját."
+      }
+    },
+    {
+      "id": "lap-LAP-11-30-3",
+      "revision": 1,
+      "topic": "Mobile Webseiten",
+      "source": {
+        "topicId": "LAP-11-30",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/30_Mobile_Webseiten/README.md",
+        "slug": "11-30-mobile_webseiten"
+      },
+      "question": "Ein Review bezieht sich auf WCAG 2.2, Erfolgskriterium 2.5.8 auf Stufe AA. Welche Aussage über Zeigerziele ist präzise?",
+      "answers": [
+        "Zielgrößen spielen keine Rolle, sobald das Layout responsiv ist.",
+        "Grundsätzlich sind mindestens 24 × 24 CSS-Pixel vorgesehen; das Kriterium enthält definierte Ausnahmen, etwa ausreichenden Abstand.",
+        "Jedes Ziel muss ausnahmslos 44 × 44 physische Displaypixel groß sein.",
+        "Ein sichtbares 24-Pixel-Symbol genügt immer, unabhängig von seiner tatsächlichen Klickfläche."
+      ],
+      "correct": 1,
+      "explanation": "Das Mindestkriterium verwendet CSS-Pixel und berücksichtigt unter anderem Abstands- und Inline-Ausnahmen. Größere Ziele können die Bedienung weiter verbessern; 44 × 44 CSS-Pixel gehören zum erweiterten Zielgrößenkriterium. Sichtbare Symbolgröße und tatsächliche Trefferfläche sind nicht zwingend identisch.",
+      "hu": {
+        "question": "Egy ellenőrzés a WCAG 2.2 AA szintű 2.5.8 sikerkritériumára hivatkozik. Melyik állítás pontos a mutatóval elérhető célterületekről?",
+        "answers": [
+          "A célméret nem számít, amint a felület reszponzív.",
+          "Alapesetben legalább 24 × 24 CSS-pixel az elvárás; a kritérium meghatározott kivételeket is tartalmaz, például megfelelő térközt.",
+          "Minden cél kivétel nélkül 44 × 44 fizikai kijelzőpixel kell legyen.",
+          "Egy látható 24 pixeles ikon mindig elég, a tényleges kattintási területétől függetlenül."
+        ],
+        "explanation": "A minimumkritérium CSS-pixeleket használ, és többek között térközi és szövegközi kivételeket is figyelembe vesz. A nagyobb cél tovább javíthatja a használatot; a 44 × 44 CSS-pixel az emelt célméret-kritériumhoz tartozik. A látható ikonméret és tényleges találati terület nem feltétlenül azonos."
+      }
+    },
+    {
+      "id": "lap-LAP-11-30-4",
+      "revision": 1,
+      "topic": "Mobile Webseiten",
+      "source": {
+        "topicId": "LAP-11-30",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/30_Mobile_Webseiten/README.md",
+        "slug": "11-30-mobile_webseiten"
+      },
+      "question": "In diesem Beispiel entspricht 1rem genau 16 CSS-Pixeln. Der Browser liefert safe-area-inset-bottom = 34px. Welchen unteren Innenabstand ergibt die Regel?",
+      "answers": [
+        "16px padding; env wird bei vorhandener rem-Angabe ignoriert.",
+        "0px padding; der Fallback überschreibt einen vorhandenen Inset-Wert.",
+        "34px padding; max wählt den größeren Wert.",
+        "50px padding; max addiert beide Werte."
+      ],
+      "correct": 2,
+      "explanation": "max nimmt hier den größeren Wert aus Grundabstand und sicherem unteren Bereich. Ohne einen größeren Inset bleiben mindestens 16px. Safe-Area-Abstand hilft bei Bildschirmrändern; ein darüber schwebender eigener Button benötigt zusätzlich ausreichend Platz im Layout.",
+      "hu": {
+        "question": "Ebben a példában 1rem pontosan 16 CSS-pixel. A böngésző safe-area-inset-bottom értéke 34px. Mekkora alsó belső térközt ad a szabály?",
+        "answers": [
+          "16px-et; az env figyelmen kívül marad, ha rem érték is van.",
+          "0px-et; a tartalékérték felülírja a meglévő inset értéket.",
+          "34px-et; a max a nagyobb értéket választja.",
+          "50px-et; a max összeadja a két értéket."
+        ],
+        "explanation": "A max itt az alaptérköz és a biztonságos alsó terület közül a nagyobbat veszi. Nagyobb inset nélkül legalább 16px marad. A safe-area térköz a képernyő szélein segít; egy saját lebegő gombhoz emellett is elegendő hely kell a szerkezetben."
+      },
+      "code": ".footer {\n  padding-bottom: max(\n    1rem, env(safe-area-inset-bottom, 0px)\n  );\n}",
+      "codeLanguage": "css"
+    },
+    {
+      "id": "lap-LAP-11-30-5",
+      "revision": 1,
+      "topic": "Mobile Webseiten",
+      "source": {
+        "topicId": "LAP-11-30",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/30_Mobile_Webseiten/README.md",
+        "slug": "11-30-mobile_webseiten"
+      },
+      "question": "Eine Lernseite lässt sich als PWA installieren. Welche Aussage folgt daraus?",
+      "answers": [
+        "Sie bleibt eine Webanwendung; Installation allein garantiert weder Offline-Funktion noch alle nativen Gerätefunktionen.",
+        "Sie wurde dadurch automatisch in eine native Swift- und Kotlin-App übersetzt.",
+        "Jede Funktion arbeitet jetzt ohne Netz, ohne weitere Speicherung oder Implementierung.",
+        "Sie braucht nach der Installation keine Prüfung auf unterschiedlichen Plattformen mehr."
+      ],
+      "correct": 0,
+      "explanation": "Eine Progressive Web App nutzt Webtechnik und kann zusätzliche Fähigkeiten wie Installation oder Offline-Nutzung erhalten. Diese Fähigkeiten hängen von Implementierung und Plattform ab. Ein Installationssymbol allein belegt noch keinen vollständigen Offline-Ablauf.",
+      "hu": {
+        "question": "Egy tanulóoldal PWA-ként telepíthető. Mi következik ebből?",
+        "answers": [
+          "Webalkalmazás marad; a telepítés önmagában nem garantál offline működést vagy minden natív eszközfunkciót.",
+          "Ettől automatikusan natív Swift- és Kotlin-alkalmazássá fordult.",
+          "Minden funkció hálózat nélkül működik további tárolás vagy megvalósítás nélkül.",
+          "Telepítés után már nem szükséges különböző platformokon ellenőrizni."
+        ],
+        "explanation": "A Progressive Web App webes technológiát használ, és további képességeket kaphat, például telepítést vagy offline használatot. Ezek a megvalósítástól és platformtól függnek. Egy telepítési ikon még nem igazol teljes offline folyamatot."
+      }
+    },
+    {
+      "id": "lap-LAP-11-31-1",
+      "revision": 1,
+      "topic": "Responsive Webdesign",
+      "source": {
+        "topicId": "LAP-11-31",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/31_Responsive_Webdesign/README.md",
+        "slug": "11-31-responsive_webdesign"
+      },
+      "question": "Was ist das Ziel einer responsiven Lernseite?",
+      "answers": [
+        "Für jedes Handymodell eine eigene vollständige Website zu pflegen.",
+        "Die Desktopseite als starres Bild proportional zu verkleinern.",
+        "Auf schmalen Ansichten alle längeren Inhalte grundsätzlich zu entfernen.",
+        "Denselben Inhalt und dieselben Aufgaben an den verfügbaren Platz und die Nutzungssituation anzupassen."
+      ],
+      "correct": 3,
+      "explanation": "Responsive Gestaltung passt Anordnung, Größen und Darstellung an, damit Inhalte bedienbar bleiben. Eine gemeinsame Inhaltsbasis erleichtert Wartung und Konsistenz. Unterschiedliche Anordnungen dürfen wichtige Aufgaben nicht unzugänglich machen.",
+      "hu": {
+        "question": "Mi a célja egy reszponzív tanulóoldalnak?",
+        "answers": [
+          "Minden telefonmodellhez külön teljes weboldalt karbantartani.",
+          "Az asztali oldalt merev képként arányosan lekicsinyíteni.",
+          "Keskeny nézetben alapvetően eltávolítani minden hosszabb tartalmat.",
+          "Ugyanazt a tartalmat és feladatokat a rendelkezésre álló helyhez és használati helyzethez igazítani."
+        ],
+        "explanation": "A reszponzív megjelenés az elrendezést, méreteket és megjelenítést úgy igazítja, hogy a tartalom kezelhető maradjon. A közös tartalmi alap könnyíti a karbantartást és egységességet. Az eltérő elrendezések ne tegyék elérhetetlenné a fontos feladatokat."
+      }
+    },
+    {
+      "id": "lap-LAP-11-31-2",
+      "revision": 1,
+      "topic": "Responsive Webdesign",
+      "source": {
+        "topicId": "LAP-11-31",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/31_Responsive_Webdesign/README.md",
+        "slug": "11-31-responsive_webdesign"
+      },
+      "question": "Die innere Breite dieses Grids beträgt 600px, 1rem = 16px. Es gibt drei Karten ohne zusätzliche Mindestbreiten. Wie viele Spalten entstehen?",
+      "answers": [
+        "Vier; die Zahl der Spalten wird nur vom Abstand bestimmt.",
+        "Zwei; zwei Mindestbreiten plus ein Abstand passen hinein, drei nicht.",
+        "Drei; auto-fit verteilt grundsätzlich jedes Element in eine eigene Spalte.",
+        "Eine; minmax verhindert mehrere Spalten ohne Media Query."
+      ],
+      "correct": 1,
+      "explanation": "16rem sind 256px. Zwei Mindestbreiten plus 16px Abstand benötigen 528px. Drei würden 800px benötigen. Der übrige Platz verteilt sich auf die zwei 1fr-Spalten; die dritte Karte folgt in der nächsten Zeile. min(100%, 16rem) erlaubt auch Container unter 256px.",
+      "hu": {
+        "question": "A rács belső szélessége 600px, 1rem = 16px. Három kártya van, további minimális szélesség nélkül. Hány oszlop keletkezik?",
+        "answers": [
+          "Négy; az oszlopok számát csak a térköz határozza meg.",
+          "Kettő; két minimális szélesség és egy térköz elfér, három már nem.",
+          "Három; az auto-fit minden elemet kötelezően saját oszlopba oszt.",
+          "Egy; a minmax media query nélkül kizár több oszlopot."
+        ],
+        "explanation": "16rem = 256px. Két minimális szélesség és 16px térköz 528px-et igényel. Háromhoz 800px kellene. A fennmaradó hely a két 1fr oszlop között oszlik meg; a harmadik kártya a következő sorba kerül. A min(100%, 16rem) 256px-nél keskenyebb tárolót is megenged."
+      },
+      "code": ".cards {\n  display: grid;\n  grid-template-columns:\n    repeat(auto-fit, minmax(min(100%, 16rem), 1fr));\n  gap: 1rem;\n}",
+      "codeLanguage": "css"
+    },
+    {
+      "id": "lap-LAP-11-31-3",
+      "revision": 1,
+      "topic": "Responsive Webdesign",
+      "source": {
+        "topicId": "LAP-11-31",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/31_Responsive_Webdesign/README.md",
+        "slug": "11-31-responsive_webdesign"
+      },
+      "question": "Eine lange Codezeile verbreitert auf dem Handy die ganze Seite. Welcher Ansatz hält Code und Umgebung nutzbar?",
+      "answers": [
+        "Die gesamte Seite dauerhaft auf 1200px Breite setzen.",
+        "Das Zoomen deaktivieren, damit die Codezeile scheinbar kleiner bleibt.",
+        "Das umgebende Grid- oder Flex-Element bei Bedarf mit min-width: 0 schrumpfen lassen und den Codebereich horizontal scrollbar machen.",
+        "Den überstehenden Code mit overflow: hidden abschneiden, auch wenn Zeichen verloren gehen."
+      ],
+      "correct": 2,
+      "explanation": "Grid- und Flex-Kinder können durch ihre automatische Mindestbreite schrumpfende Layouts verhindern. min-width: 0 erlaubt das Schrumpfen. Ein begrenzter Codebereich mit overflow-x: auto hält lange Zeilen erreichbar, ohne die gesamte Seite unnötig zu verbreitern.",
+      "hu": {
+        "question": "Egy hosszú kódsor mobilon kiszélesíti az egész oldalt. Melyik megoldás tartja használhatónak a kódot és környezetét?",
+        "answers": [
+          "Az egész oldalt végleg 1200px szélesre állítani.",
+          "Letiltani a nagyítást, hogy a kódsor látszólag kisebb maradjon.",
+          "Szükség esetén min-width: 0-val engedni a környező grid- vagy flex-elem zsugorodását, és vízszintesen görgethetővé tenni a kódmezőt.",
+          "overflow: hiddennel levágni a kilógó kódot akkor is, ha karakterek vesznek el."
+        ],
+        "explanation": "A grid- és flex-gyerekek automatikus minimális szélessége akadályozhatja az elrendezés zsugorodását. A min-width: 0 megengedi a zsugorodást. A korlátozott, overflow-x: auto kódmező elérhetően tartja a hosszú sorokat az egész oldal szükségtelen szélesítése nélkül."
+      }
+    },
+    {
+      "id": "lap-LAP-11-31-4",
+      "revision": 1,
+      "topic": "Responsive Webdesign",
+      "source": {
+        "topicId": "LAP-11-31",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/31_Responsive_Webdesign/README.md",
+        "slug": "11-31-responsive_webdesign"
+      },
+      "question": "Die Navigation passt auf einem Testtelefon, bricht aber bei langen deutschen Bezeichnungen und Textvergrößerung. Wie sollten Breakpoints geprüft werden?",
+      "answers": [
+        "Anhand der tatsächlichen Inhalte und Platzgrenzen, auch mit langen Übersetzungen und vergrößertem Text.",
+        "Ausschließlich anhand der Produktnamen aktueller Telefone.",
+        "Nur mit den kürzesten Beschriftungen, damit alle Ansichten gleich aussehen.",
+        "Einmal bei voller Desktopbreite; kleinere Breiten ergeben sich automatisch fehlerfrei."
+      ],
+      "correct": 0,
+      "explanation": "Ein Breakpoint reagiert auf verfügbare Bedingungen, nicht auf einen bestimmten Gerätenamen. Unterschiedliche Inhalte und Schriftgrößen verändern den Platzbedarf. Deshalb sollte der Wechsel des Layouts dort liegen, wo die konkrete Gestaltung ihn benötigt.",
+      "hu": {
+        "question": "A navigáció elfér egy teszttelefonon, de hosszú német feliratokkal és nagyított szöveggel szétesik. Hogyan vizsgáljuk a töréspontokat?",
+        "answers": [
+          "A tényleges tartalom és helyigény alapján, hosszú fordításokkal és nagyított szöveggel is.",
+          "Kizárólag az aktuális telefonok termékneve alapján.",
+          "Csak a legrövidebb feliratokkal, hogy minden nézet egyformának látszódjon.",
+          "Egyszer teljes asztali szélességen; a kisebb méretek automatikusan hibátlanok lesznek."
+        ],
+        "explanation": "A töréspont az elérhető feltételekre reagál, nem egy készüléknévre. Az eltérő tartalom és betűméret megváltoztatja a helyigényt. Ezért ott érdemes elrendezést váltani, ahol azt a konkrét megjelenés igényli."
+      }
+    },
+    {
+      "id": "lap-LAP-11-31-5",
+      "revision": 1,
+      "topic": "Responsive Webdesign",
+      "source": {
+        "topicId": "LAP-11-31",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/31_Responsive_Webdesign/README.md",
+        "slug": "11-31-responsive_webdesign"
+      },
+      "question": "Eine breite Datentabelle enthält wichtige Spalten. Auf Mobilgeräten reicht der Platz nicht. Welche Lösung erhält die Informationen am besten?",
+      "answers": [
+        "Alle rechten Spalten kommentarlos entfernen.",
+        "Die ganze Seite einschließlich Navigation horizontal scrollen lassen.",
+        "Die Schrift unbegrenzt verkleinern, bis sämtliche Werte in eine Zeile passen.",
+        "Die Tabelle in einem gekennzeichneten horizontal scrollbaren Bereich halten oder sinnvoll umstrukturieren, ohne wichtige Werte zu verlieren."
+      ],
+      "correct": 3,
+      "explanation": "Tabellarische Beziehungen können einen eigenen horizontalen Scrollbereich rechtfertigen. Eine gut beschriftete alternative Darstellung ist ebenfalls möglich. Wichtig sind erreichbare Inhalte, verständliche Zuordnung und eine Bedienung auch ohne Maus.",
+      "hu": {
+        "question": "Egy széles adattáblázat fontos oszlopokat tartalmaz. Mobilon nincs elég hely. Melyik megoldás őrzi meg legjobban az információt?",
+        "answers": [
+          "Minden jobb oldali oszlopot megjegyzés nélkül eltávolítani.",
+          "Az egész oldalt a navigációval együtt vízszintesen görgetni.",
+          "Korlátlanul csökkenteni a betűméretet, amíg minden érték egy sorba fér.",
+          "Jelölt, vízszintesen görgethető területbe tenni a táblázatot, vagy értelmesen átszervezni fontos értékek elvesztése nélkül."
+        ],
+        "explanation": "A táblázatos összefüggések indokolhatnak saját vízszintes görgetési területet. Jól feliratozott alternatív megjelenítés is lehetséges. A lényeg az elérhető tartalom, érthető összetartozás és egér nélküli kezelhetőség."
+      }
+    },
+    {
+      "id": "lap-LAP-11-32-1",
+      "revision": 1,
+      "topic": "Mobile First",
+      "source": {
+        "topicId": "LAP-11-32",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/32_Mobile_First/README.md",
+        "slug": "11-32-mobile_first"
+      },
+      "question": "Ein Team gestaltet Mobile First. Was legt es sinnvollerweise zuerst fest?",
+      "answers": [
+        "Eine separate Inhaltsdatenbank für jedes Gerät.",
+        "Die wichtigsten Aufgaben und Inhalte für wenig Platz, bevor zusätzliche Anordnungen für mehr Platz folgen.",
+        "Eine vollständige Desktopseite, deren Funktionen später möglichst zufällig versteckt werden.",
+        "Alle verfügbaren Animationen, bevor der Lernablauf geklärt ist."
+      ],
+      "correct": 1,
+      "explanation": "Mobile First beginnt mit den wesentlichen Aufgaben unter engen Platzbedingungen. Größere Ansichten erweitern die Anordnung, ohne den Kernablauf zu verändern. Es geht um Prioritäten und schrittweise Gestaltung, nicht um eine möglichst funktionsarme Mobilseite.",
+      "hu": {
+        "question": "Egy csapat Mobile First szemlélettel tervez. Mit érdemes először rögzíteni?",
+        "answers": [
+          "Minden készülékhez külön tartalmi adatbázist.",
+          "A legfontosabb feladatokat és tartalmakat kevés helyre, majd erre építeni a tágasabb elrendezéseket.",
+          "Egy teljes asztali oldalt, amelynek funkcióit később minél véletlenszerűbben elrejtik.",
+          "Minden elérhető animációt, mielőtt tisztáznák a tanulási folyamatot."
+        ],
+        "explanation": "A Mobile First a lényegi feladatokkal indul szűk helyen. A nagyobb nézetek az elrendezést bővítik az alapfolyamat megváltoztatása nélkül. Prioritásokról és fokozatos tervezésről szól, nem a lehető legkevesebb funkciójú mobiloldalról."
+      }
+    },
+    {
+      "id": "lap-LAP-11-32-2",
+      "revision": 1,
+      "topic": "Mobile First",
+      "source": {
+        "topicId": "LAP-11-32",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/32_Mobile_First/README.md",
+        "slug": "11-32-mobile_first"
+      },
+      "question": "Wie ist die Richtung dieser Flex-Navigation bei 700 und genau 768 CSS-Pixeln Viewportbreite?",
+      "answers": [
+        "Bei 700 row, bei 768 column.",
+        "Bei beiden row, weil die spätere Regel unabhängig von ihrer Bedingung gewinnt.",
+        "Bei 700 column, bei 768 row.",
+        "Bei beiden column, weil min-width erst oberhalb von 768 gilt."
+      ],
+      "correct": 2,
+      "explanation": "Die Grundregel gilt zunächst für alle Breiten. Die min-width-Bedingung ist ab einschließlich 768px erfüllt. Dann überschreibt die spätere gleich spezifische Regel nur flex-direction; display: flex bleibt aus der Grundregel erhalten.",
+      "hu": {
+        "question": "Milyen irányú ez a flex-navigáció 700 és pontosan 768 CSS-pixel nézetszélességnél?",
+        "answers": [
+          "700-nál row, 768-nál column.",
+          "Mindkettőnél row, mert a későbbi szabály a feltételétől függetlenül nyer.",
+          "700-nál column, 768-nál row.",
+          "Mindkettőnél column, mert a min-width csak 768 fölött érvényes."
+        ],
+        "explanation": "Az alapszabály először minden szélességre érvényes. A min-width feltétel 768px-től, azt is beleértve teljesül. Ekkor a későbbi, azonos specifikusságú szabály csak a flex-directiont írja felül; a display: flex megmarad az alapszabályból."
+      },
+      "code": ".navigation {\n  display: flex;\n  flex-direction: column;\n}\n@media (min-width: 768px) {\n  .navigation { flex-direction: row; }\n}",
+      "codeLanguage": "css"
+    },
+    {
+      "id": "lap-LAP-11-32-3",
+      "revision": 1,
+      "topic": "Mobile First",
+      "source": {
+        "topicId": "LAP-11-32",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/32_Mobile_First/README.md",
+        "slug": "11-32-mobile_first"
+      },
+      "question": "Was unterscheidet Mobile First von „responsiv“?",
+      "answers": [
+        "Mobile First beschreibt einen Ausgangspunkt der Gestaltung; responsiv beschreibt die Anpassungsfähigkeit des Ergebnisses.",
+        "Beide Begriffe verlangen zwingend dieselbe CSS-Dateistruktur.",
+        "Eine responsive Seite darf nur für Mobilgeräte gestaltet werden.",
+        "Mobile First bedeutet, dass Desktopansichten grundsätzlich unverändert schmal bleiben."
+      ],
+      "correct": 0,
+      "explanation": "Eine Seite kann responsiv sein, auch wenn das Team beim Desktop begonnen hat. Mobile First ist eine Strategie, um von den wesentlichen Inhalten und kleineren Ansichten auszugehen. Media Queries, flexible Layouts und geeignete Inhalte helfen bei der Umsetzung.",
+      "hu": {
+        "question": "Mi különbözteti meg a Mobile First szemléletet a reszponzívtól?",
+        "answers": [
+          "A Mobile First a tervezés kiindulópontját jelöli; a reszponzív az eredmény alkalmazkodóképességét.",
+          "Mindkettő kötelezően ugyanazt a CSS-fájlstruktúrát írja elő.",
+          "Reszponzív oldal kizárólag mobileszközökre tervezhető.",
+          "A Mobile First azt jelenti, hogy az asztali nézet alapvetően változatlanul keskeny marad."
+        ],
+        "explanation": "Egy oldal akkor is lehet reszponzív, ha a csapat az asztali nézettel kezdett. A Mobile First a lényegi tartalomból és kisebb nézetekből induló stratégia. A megvalósításban media query-k, rugalmas elrendezések és megfelelő tartalom segít."
+      }
+    },
+    {
+      "id": "lap-LAP-11-32-4",
+      "revision": 1,
+      "topic": "Mobile First",
+      "source": {
+        "topicId": "LAP-11-32",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/32_Mobile_First/README.md",
+        "slug": "11-32-mobile_first"
+      },
+      "question": "Auf dem Desktop gibt es eine Themen-Seitenleiste. Was ist für eine Mobile-First-Variante entscheidend?",
+      "answers": [
+        "Die Themenauswahl auf Mobilgeräten vollständig entfernen.",
+        "Die Seitenleiste unverändert über den Lerntext legen.",
+        "Nur Nutzenden mit großer Bildschirmbreite die Rückkehr zur Übersicht erlauben.",
+        "Themen weiterhin erreichbar halten, etwa über eine gut bedienbare kompakte Navigation."
+      ],
+      "correct": 3,
+      "explanation": "Die Form der Navigation kann sich ändern, die Kernaufgabe bleibt. Eine kompakte Navigation benötigt verständliche Beschriftung, erreichbare Bedienelemente und passende Tastatursteuerung. Einfaches Verstecken spart Platz, kann aber den eigentlichen Lernweg unterbrechen.",
+      "hu": {
+        "question": "Asztalon oldalsávos témalista van. Mi a döntő egy Mobile First változatnál?",
+        "answers": [
+          "Mobilon teljesen eltávolítani a témaválasztást.",
+          "Változatlanul a tananyag fölé helyezni az oldalsávot.",
+          "Csak nagy képernyőn engedni visszatérni az áttekintéshez.",
+          "A témákat továbbra is elérhetően tartani, például jól kezelhető kompakt navigációval."
+        ],
+        "explanation": "A navigáció formája változhat, az alapfeladat megmarad. A kompakt navigációhoz érthető felirat, elérhető kezelőelemek és megfelelő billentyűzetes működés kell. A puszta elrejtés helyet spórol, de megszakíthatja a tanulási útvonalat."
+      }
+    },
+    {
+      "id": "lap-LAP-11-32-5",
+      "revision": 1,
+      "topic": "Mobile First",
+      "source": {
+        "topicId": "LAP-11-32",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/32_Mobile_First/README.md",
+        "slug": "11-32-mobile_first"
+      },
+      "question": "Eine Mobile-First-Seite sieht schmal gut aus, lädt aber große ungenutzte Scripts. Welche Aussage trifft zu?",
+      "answers": [
+        "Nur die Bildschirmbreite bestimmt die Ladezeit.",
+        "Die Gestaltungsstrategie garantiert noch keine gute Ladeleistung; übertragene und ausgeführte Ressourcen müssen separat geprüft werden.",
+        "Mobile First komprimiert automatisch jedes Script beim Herunterladen.",
+        "Ungenutzte Scripts kosten keine Zeit, solange ihre Funktionen nicht sichtbar sind."
+      ],
+      "correct": 1,
+      "explanation": "Layoutstrategie und Performance beeinflussen sich, sind aber nicht identisch. Datenmenge, Netzwerk, Parsing und Ausführung tragen zur Lade- und Reaktionszeit bei. Weniger unnötige Ressourcen und Tests unter realistischen Bedingungen verbessern das Ergebnis.",
+      "hu": {
+        "question": "Egy Mobile First oldal keskenyen jól néz ki, de nagy, nem használt scripteket tölt. Melyik állítás igaz?",
+        "answers": [
+          "A betöltési időt csak a képernyőszélesség határozza meg.",
+          "A tervezési stratégia még nem garantál jó betöltést; az átvitt és végrehajtott erőforrásokat külön kell vizsgálni.",
+          "A Mobile First letöltéskor automatikusan tömörít minden scriptet.",
+          "A nem használt scriptek nem kerülnek időbe, amíg a funkcióik nem láthatók."
+        ],
+        "explanation": "Az elrendezési stratégia és teljesítmény hat egymásra, de nem azonos. Az adatmennyiség, hálózat, feldolgozás és végrehajtás is hozzájárul a betöltési és reakcióidőhöz. A felesleges erőforrások csökkentése és valószerű tesztek javítják az eredményt."
+      }
+    },
+    {
+      "id": "lap-LAP-11-33-1",
+      "revision": 1,
+      "topic": "Aktuelle Programmiersprachen",
+      "source": {
+        "topicId": "LAP-11-33",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/33_Aktuelle_Programmiersprachen/README.md",
+        "slug": "11-33-aktuelle_programmiersprachen"
+      },
+      "question": "Was bedeutet „aktuelle Programmiersprache“ bei einer begründeten Technologieauswahl am ehesten?",
+      "answers": [
+        "Die Sprache mit dem höchsten Rang in einer einzigen Popularitätsliste, unabhängig von der Aufgabe.",
+        "Jede Sprache, solange ihre letzte installierte Laufzeit unverändert bleibt.",
+        "Eine für die Aufgabe geeignete Sprache mit nutzbarer, gepflegter Umgebung; nicht zwingend eine erst kürzlich erfundene Sprache.",
+        "Ausschließlich eine Sprache, die im laufenden Jahr erfunden wurde."
+      ],
+      "correct": 2,
+      "explanation": "Auch lange etablierte Sprachen können aktiv gepflegt und für neue Projekte geeignet sein. Entscheidend sind unter anderem Plattform, Bibliotheken, Werkzeugunterstützung, Wartung und Teamkenntnisse. Sprache, Laufzeit und konkret verwendete Version sollten dabei getrennt betrachtet werden.",
+      "hu": {
+        "question": "Mit jelent leginkább az „aktuális programozási nyelv” egy indokolt technológiaválasztásnál?",
+        "answers": [
+          "Egyetlen népszerűségi lista első nyelvét, a feladattól függetlenül.",
+          "Bármely nyelvet, amíg az utoljára telepített futtatókörnyezete változatlan marad.",
+          "A feladathoz illő nyelvet használható, karbantartott környezettel; nem feltétlenül nemrég feltalált nyelvet.",
+          "Kizárólag olyan nyelvet, amelyet az adott évben találtak fel."
+        ],
+        "explanation": "Régóta létező nyelveket is fejleszthetnek aktívan, és új projektekhez is alkalmasak lehetnek. Számít többek között a platform, könyvtárak, eszköztámogatás, karbantartás és csapattudás. A nyelvet, futtatókörnyezetet és konkrét verziót érdemes külön vizsgálni."
+      }
+    },
+    {
+      "id": "lap-LAP-11-33-2",
+      "revision": 1,
+      "topic": "Aktuelle Programmiersprachen",
+      "source": {
+        "topicId": "LAP-11-33",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/33_Aktuelle_Programmiersprachen/README.md",
+        "slug": "11-33-aktuelle_programmiersprachen"
+      },
+      "question": "Welche Zuordnung von JavaScript, Node.js, TypeScript und React ist passend?",
+      "answers": [
+        "JavaScript ist eine Sprache, Node.js eine Laufzeit, TypeScript ergänzt statische Typprüfung, React ist eine UI-Bibliothek.",
+        "Node.js ist die Sprache, JavaScript die Datenbank, React der Compiler und TypeScript das Betriebssystem.",
+        "React und Node.js sind lediglich alternative Schreibweisen für dieselbe Programmiersprache.",
+        "TypeScript ist das native Datenformat, das jeder Browser direkt anstelle von HTML darstellt."
+      ],
+      "correct": 0,
+      "explanation": "Die Begriffe beschreiben verschiedene Ebenen. TypeScript-Code wird üblicherweise zu JavaScript verarbeitet; Typangaben unterstützen die Entwicklung. Node.js führt JavaScript außerhalb des Browsers aus, während React beim Aufbau von Oberflächen hilft.",
+      "hu": {
+        "question": "Melyik besorolás megfelelő a JavaScript, Node.js, TypeScript és React esetén?",
+        "answers": [
+          "A JavaScript nyelv, a Node.js futtatókörnyezet, a TypeScript statikus típusellenőrzést ad, a React UI-könyvtár.",
+          "A Node.js a nyelv, a JavaScript az adatbázis, a React a fordító, a TypeScript az operációs rendszer.",
+          "A React és Node.js ugyanannak a programozási nyelvnek más írásmódja.",
+          "A TypeScript az a natív adatformátum, amelyet minden böngésző HTML helyett közvetlenül megjelenít."
+        ],
+        "explanation": "A fogalmak különböző rétegeket írnak le. A TypeScript-kódból általában JavaScript készül; a típusjelölések fejlesztéskor segítenek. A Node.js böngészőn kívül futtat JavaScriptet, a React pedig felületek felépítését támogatja."
+      }
+    },
+    {
+      "id": "lap-LAP-11-33-3",
+      "revision": 1,
+      "topic": "Aktuelle Programmiersprachen",
+      "source": {
+        "topicId": "LAP-11-33",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/33_Aktuelle_Programmiersprachen/README.md",
+        "slug": "11-33-aktuelle_programmiersprachen"
+      },
+      "question": "Eine externe Antwort enthält score als String. Welchen Wert gibt dieser JavaScript-Code aus, und würde eine bloße TypeScript-Typbehauptung „score ist number“ die empfangenen Daten umwandeln?",
+      "answers": [
+        "5 als Zahl; eine Typbehauptung führt automatisch Number aus.",
+        "5 als Zahl; JSON.parse erkennt numerische Strings grundsätzlich als Zahlen.",
+        "Einen Fehler; JavaScript verbietet jede Addition zwischen String und Zahl.",
+        "41 als String; eine Typbehauptung allein wandelt die Daten nicht um."
+      ],
+      "correct": 3,
+      "explanation": "JSON.parse erhält den String \"4\". Bei der Addition mit 1 entsteht hier die Verkettung \"41\". TypeScript-Typbehauptungen werden bei der Verarbeitung entfernt und prüfen oder konvertieren keine externen Daten. Der Anwendungsvertrag muss zur Laufzeit geprüft und eine gewollte Konvertierung ausdrücklich vorgenommen werden.",
+      "hu": {
+        "question": "Egy külső válaszban a score sztring. Mit ír ki ez a JavaScript-kód, és átalakítaná-e a kapott adatot egy puszta TypeScript-típusállítás, hogy „score number”?",
+        "answers": [
+          "5-öt számként; a típusállítás automatikusan Numbert futtat.",
+          "5-öt számként; a JSON.parse alapvetően számként ismeri fel a numerikus sztringet.",
+          "Hibát; a JavaScript minden sztring és szám közötti összeadást tilt.",
+          "41-et sztringként; a típusállítás önmagában nem alakítja át az adatot."
+        ],
+        "explanation": "A JSON.parse megőrzi a \"4\" sztringet. Az 1 hozzáadásakor itt \"41\" összefűzés keletkezik. A TypeScript-típusállítások a feldolgozáskor eltűnnek, és nem ellenőrzik vagy alakítják át a külső adatot. Az alkalmazás szerződését futásidőben kell vizsgálni, a kívánt konverziót pedig kifejezetten elvégezni."
+      },
+      "code": "const data = JSON.parse('{\"score\":\"4\"}');\nconsole.log(data.score + 1);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "41"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-33-4",
+      "revision": 1,
+      "topic": "Aktuelle Programmiersprachen",
+      "source": {
+        "topicId": "LAP-11-33",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/33_Aktuelle_Programmiersprachen/README.md",
+        "slug": "11-33-aktuelle_programmiersprachen"
+      },
+      "question": "Eine kleine gepflegte PHP-Anwendung braucht eine zusätzliche Formularfunktion. Das Team beherrscht PHP. Was ist eine sachliche Ausgangsentscheidung?",
+      "answers": [
+        "Auf Tests verzichten, weil eine bekannte Sprache alle Fehler ausschließt.",
+        "Die Funktion zunächst im vorhandenen unterstützten Stack planen und einen Technologiewechsel nur mit konkretem Nutzen begründen.",
+        "Die gesamte Anwendung neu schreiben, weil eine andere Sprache gerade mehr Aufmerksamkeit bekommt.",
+        "Die Aufgabe auf drei neue Sprachen verteilen, auch wenn keine technische Grenze das verlangt."
+      ],
+      "correct": 1,
+      "explanation": "Ein bestehender passender Stack kann die verständlichste und günstigste Lösung sein. Ein Wechsel kann sinnvoll sein, wenn konkrete Anforderungen ihn rechtfertigen. Lernaufwand, Betrieb, Migration und langfristige Wartung gehören zur Entscheidung dazu.",
+      "hu": {
+        "question": "Egy kis, karbantartott PHP-alkalmazásba új űrlapfunkció kell. A csapat tud PHP-t. Mi a tárgyilagos kiinduló döntés?",
+        "answers": [
+          "Elhagyni a teszteket, mert az ismert nyelv minden hibát kizár.",
+          "Először a meglévő támogatott környezetben tervezni, és csak konkrét előnnyel indokolni a technológiaváltást.",
+          "Újraírni az egészet, mert egy másik nyelv most több figyelmet kap.",
+          "Három új nyelvre szétosztani a feladatot akkor is, ha ezt nem indokolja műszaki határ."
+        ],
+        "explanation": "A meglévő, megfelelő környezet lehet a legérthetőbb és leggazdaságosabb megoldás. Váltás akkor indokolt, ha konkrét követelmény támogatja. A tanulási ráfordítás, üzemeltetés, migráció és hosszú távú karbantartás is része a döntésnek."
+      }
+    },
+    {
+      "id": "lap-LAP-11-33-5",
+      "revision": 1,
+      "topic": "Aktuelle Programmiersprachen",
+      "source": {
+        "topicId": "LAP-11-33",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/33_Aktuelle_Programmiersprachen/README.md",
+        "slug": "11-33-aktuelle_programmiersprachen"
+      },
+      "question": "Eine Sprache wird aktiv weiterentwickelt, aber das Projekt nutzt eine alte, nicht mehr unterstützte Laufzeit. Welche Schlussfolgerung ist richtig?",
+      "answers": [
+        "Eine aktive Sprache macht Updates ihrer Bibliotheken unnötig.",
+        "Nur die Dateiendung entscheidet, ob eine Installation unterstützt wird.",
+        "Die konkrete Laufzeit und Abhängigkeiten müssen geprüft werden; die Aktivität der Sprache allein hält die Installation nicht aktuell.",
+        "Alle alten Laufzeiten erhalten automatisch jede Korrektur der neuen Version."
+      ],
+      "correct": 2,
+      "explanation": "Support gilt für konkrete Produkte und Versionen. Ein Updateplan betrachtet Laufzeit, Bibliotheken, Kompatibilität und Tests gemeinsam. Aktive Sprachentwicklung ist hilfreich, ersetzt aber keine Pflege der tatsächlich betriebenen Anwendung.",
+      "hu": {
+        "question": "Egy nyelvet aktívan fejlesztenek, de a projekt régi, már nem támogatott futtatókörnyezetet használ. Melyik következtetés helyes?",
+        "answers": [
+          "Aktív nyelvnél szükségtelenek a könyvtárfrissítések.",
+          "Csak a fájlkiterjesztés dönti el, hogy a telepítés támogatott-e.",
+          "A konkrét futtatókörnyezetet és függőségeket vizsgálni kell; a nyelv aktivitása önmagában nem tartja naprakészen a telepítést.",
+          "Minden régi futtatókörnyezet automatikusan megkapja az új verzió összes javítását."
+        ],
+        "explanation": "A támogatás konkrét termékekre és verziókra vonatkozik. A frissítési terv együtt vizsgálja a futtatókörnyezetet, könyvtárakat, kompatibilitást és teszteket. Az aktív nyelvfejlesztés hasznos, de nem helyettesíti a ténylegesen működő alkalmazás karbantartását."
+      }
+    },
+    {
+      "id": "lap-LAP-11-34-1",
+      "revision": 1,
+      "topic": "Programmiersprachen fuer mobile Apps und Internet",
+      "source": {
+        "topicId": "LAP-11-34",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/34_Programmiersprachen_fuer_mobile_Apps_und_Internet/README.md",
+        "slug": "11-34-programmiersprachen_fuer_mobile_apps_und_internet"
+      },
+      "question": "Für eine neue native Android-Oberfläche möchte ein Team eng an den empfohlenen Android-Werkzeugen arbeiten. Welche Wahl ist naheliegend?",
+      "answers": [
+        "Kotlin mit den passenden Android-Werkzeugen.",
+        "Swift mit SwiftUI als reguläres Android-Oberflächenwerkzeug.",
+        "PHP direkt als Sprache der Android-Ansichten, ohne zusätzliche Laufzeit oder Brücke.",
+        "SQL als vollständiger Ersatz für Anwendungs- und Oberflächenlogik."
+      ],
+      "correct": 0,
+      "explanation": "Android verfolgt für neue Werkzeuge und Lernmaterialien einen Kotlin-first-Ansatz. Java bleibt im Android-Umfeld relevant und wird unterstützt. Native Entwicklung bedeutet außerdem den Umgang mit Plattform-APIs, Lebenszyklus und Berechtigungen, nicht nur die Wahl einer Syntax.",
+      "hu": {
+        "question": "Egy új natív Android-felületnél a csapat az ajánlott Android-eszközökhöz igazodna. Melyik választás kézenfekvő?",
+        "answers": [
+          "Kotlin a megfelelő Android-eszközökkel.",
+          "Swift és SwiftUI mint szokásos Android-felületkészítő eszköz.",
+          "PHP közvetlenül az Android-nézetek nyelveként, további futtatókörnyezet vagy híd nélkül.",
+          "SQL az alkalmazás- és felületlogika teljes helyettesítésére."
+        ],
+        "explanation": "Az Android az új eszközöknél és oktatóanyagoknál Kotlin-first megközelítést követ. A Java továbbra is releváns és támogatott az Android világában. A natív fejlesztés platform-API-k, életciklus és jogosultságok kezelését is jelenti, nem csupán szintaxisválasztást."
+      }
+    },
+    {
+      "id": "lap-LAP-11-34-2",
+      "revision": 1,
+      "topic": "Programmiersprachen fuer mobile Apps und Internet",
+      "source": {
+        "topicId": "LAP-11-34",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/34_Programmiersprachen_fuer_mobile_Apps_und_Internet/README.md",
+        "slug": "11-34-programmiersprachen_fuer_mobile_apps_und_internet"
+      },
+      "question": "Ein Team plant eine native iOS-App mit Apples SwiftUI. Welche Sprache gehört unmittelbar zu diesem Ansatz?",
+      "answers": [
+        "Dart.",
+        "Kotlin.",
+        "PHP.",
+        "Swift."
+      ],
+      "correct": 3,
+      "explanation": "SwiftUI verwendet Swift für die deklarative Beschreibung von Oberflächen auf Apple-Plattformen. Dart gehört etwa zu Flutter, Kotlin ist besonders im Android-Umfeld verbreitet. Die Wahl eines Frameworks und seiner Zielplattform grenzt die passende Sprache ein.",
+      "hu": {
+        "question": "Egy csapat natív iOS-appot tervez az Apple SwiftUI eszközével. Melyik nyelv tartozik közvetlenül ehhez?",
+        "answers": [
+          "Dart.",
+          "Kotlin.",
+          "PHP.",
+          "Swift."
+        ],
+        "explanation": "A SwiftUI Swiftet használ Apple-platformok felületeinek deklaratív leírásához. A Dart például a Flutterhez tartozik, a Kotlin különösen az Android világában elterjedt. A keretrendszer és célplatform megválasztása szűkíti a megfelelő nyelvet."
+      }
+    },
+    {
+      "id": "lap-LAP-11-34-3",
+      "revision": 1,
+      "topic": "Programmiersprachen fuer mobile Apps und Internet",
+      "source": {
+        "topicId": "LAP-11-34",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/34_Programmiersprachen_fuer_mobile_Apps_und_Internet/README.md",
+        "slug": "11-34-programmiersprachen_fuer_mobile_apps_und_internet"
+      },
+      "question": "Flutter oder React Native sollen Code zwischen Android und iOS teilen. Welche Erwartung ist realistisch?",
+      "answers": [
+        "Die Anwendungen dürfen keine plattformspezifischen Ergänzungen enthalten.",
+        "Viel Code kann gemeinsam sein; Plattformberechtigungen, Navigation und Gerätefunktionen brauchen weiterhin gezielte Prüfung.",
+        "Jeder Plattformunterschied verschwindet automatisch durch eine gemeinsame Sprache.",
+        "Tests auf einem Android-Gerät beweisen immer identisches Verhalten auf iOS."
+      ],
+      "correct": 1,
+      "explanation": "Flutter nutzt Dart; React Native verwendet JavaScript beziehungsweise TypeScript. Gemeinsamer Code spart Aufwand, beseitigt aber nicht alle Unterschiede der Betriebssysteme. Kamera, Tastatur, Lebenszyklus und Berechtigungen können angepasste Umsetzung und echte Gerätetests erfordern.",
+      "hu": {
+        "question": "Flutterrel vagy React Native-val osztanának meg kódot Android és iOS között. Melyik elvárás reális?",
+        "answers": [
+          "Az alkalmazások nem tartalmazhatnak platformspecifikus kiegészítést.",
+          "Sok kód közös lehet; a platformjogosultságokat, navigációt és eszközfunkciókat továbbra is célzottan kell ellenőrizni.",
+          "A közös nyelvtől minden platformkülönbség automatikusan eltűnik.",
+          "Egy Android-eszköz tesztje mindig bizonyítja az azonos iOS-működést."
+        ],
+        "explanation": "A Flutter Dartot, a React Native JavaScriptet vagy TypeScriptet használ. A közös kód munkát takarít meg, de nem szünteti meg az operációs rendszerek minden különbségét. Kamera, billentyűzet, életciklus és jogosultság igényelhet külön megoldást és valódi eszköztesztet."
+      }
+    },
+    {
+      "id": "lap-LAP-11-34-4",
+      "revision": 1,
+      "topic": "Programmiersprachen fuer mobile Apps und Internet",
+      "source": {
+        "topicId": "LAP-11-34",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/34_Programmiersprachen_fuer_mobile_Apps_und_Internet/README.md",
+        "slug": "11-34-programmiersprachen_fuer_mobile_apps_und_internet"
+      },
+      "question": "Eine Kotlin-App und eine Weboberfläche sollen dieselben persönlichen Lerndaten verwenden. Welche Architektur hält Datenbankzugriffe sinnvoll zusammen?",
+      "answers": [
+        "Die App sendet eine frei gewählte Benutzer-ID, die der Server ohne Prüfung als Identität übernimmt.",
+        "Jede Oberfläche benötigt zwingend eine völlig getrennte Datenbank ohne gemeinsame Schnittstelle.",
+        "Beide sprechen eine geschützte HTTPS-Schnittstelle an; der Server prüft Identität und Zugriff und greift auf die Datenbank zu.",
+        "Beide erhalten das Datenbankpasswort im ausgelieferten Clientcode."
+      ],
+      "correct": 2,
+      "explanation": "Verschiedene Clients können denselben API-Vertrag nutzen, auch wenn sie in unterschiedlichen Sprachen geschrieben sind. Die Serveranwendung setzt die Zugriffsregeln durch und hält Datenbankzugangsdaten zurück. Eine vom Client gesendete ID allein beweist keine Berechtigung.",
+      "hu": {
+        "question": "Egy Kotlin-app és egy webfelület ugyanazokat a személyes tanulási adatokat használná. Melyik felépítés fogja össze észszerűen az adatbázis-hozzáférést?",
+        "answers": [
+          "Az app szabadon választott felhasználóazonosítót küld, amelyet a szerver ellenőrzés nélkül identitásnak fogad el.",
+          "Minden felülethez kötelező teljesen külön adatbázis közös interfész nélkül.",
+          "Mindkettő védett HTTPS-interfészt hív; a szerver ellenőrzi az identitást és hozzáférést, majd kezeli az adatbázist.",
+          "Mindkettő megkapja az adatbázis jelszavát a kiküldött klienskódban."
+        ],
+        "explanation": "Különböző nyelveken írt kliensek használhatják ugyanazt az API-szerződést. A szerveralkalmazás érvényesíti a hozzáférési szabályokat és megtartja az adatbázis-belépési adatokat. A kliens által küldött azonosító önmagában nem bizonyít jogosultságot."
+      }
+    },
+    {
+      "id": "lap-LAP-11-34-5",
+      "revision": 1,
+      "topic": "Programmiersprachen fuer mobile Apps und Internet",
+      "source": {
+        "topicId": "LAP-11-34",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/34_Programmiersprachen_fuer_mobile_Apps_und_Internet/README.md",
+        "slug": "11-34-programmiersprachen_fuer_mobile_apps_und_internet"
+      },
+      "question": "Das Browser-Frontend ist in TypeScript geschrieben, das Backend in Java. Können beide zusammenarbeiten?",
+      "answers": [
+        "Ja. Nach der üblichen Verarbeitung läuft das Frontend als JavaScript; beide Seiten tauschen Daten nach einem gemeinsamen HTTP-API-Vertrag aus.",
+        "Nein. Client und Server müssen dieselbe Programmiersprache verwenden.",
+        "Nur wenn der Browser eine Java-Laufzeit installiert hat und den Backendcode selbst ausführt.",
+        "Nur wenn TypeScript die Java-Datenbankdateien direkt öffnet."
+      ],
+      "correct": 0,
+      "explanation": "Ein Protokoll und ein vereinbartes Datenformat verbinden unterschiedliche technische Umgebungen. Das Backend kann beispielsweise Java, PHP oder eine andere passende Sprache verwenden. Wichtig sind Vertrag, Validierung, Fehlerbehandlung und Zugriffsschutz, nicht dieselbe Sprache auf beiden Seiten.",
+      "hu": {
+        "question": "A böngészős frontend TypeScriptben, a backend Javában készült. Együtt tudnak működni?",
+        "answers": [
+          "Igen. A szokásos feldolgozás után a frontend JavaScriptként fut; a két oldal közös HTTP-API-szerződés szerint cserél adatot.",
+          "Nem. A kliensnek és szervernek ugyanazt a programozási nyelvet kell használnia.",
+          "Csak ha a böngésző Java-futtatókörnyezetet telepít, és maga futtatja a backendkódot.",
+          "Csak ha a TypeScript közvetlenül megnyitja a Java adatbázisfájljait."
+        ],
+        "explanation": "A protokoll és megállapodott adatformátum különböző technikai környezeteket kapcsol össze. A backend lehet például Java, PHP vagy más megfelelő nyelv. A szerződés, validálás, hibakezelés és hozzáférésvédelem fontos, nem az azonos nyelv a két oldalon."
+      }
+    },
+    {
+      "id": "lap-LAP-11-35-1",
+      "revision": 1,
+      "topic": "Java Technologien im Web",
+      "source": {
+        "topicId": "LAP-11-35",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/35_Java_Technologien_im_Web/README.md",
+        "slug": "11-35-java_technologien_im_web"
+      },
+      "question": "Eine Website verwendet Java für Geschäftslogik und Datenbankzugriffe. Wo läuft dieser Teil in einer üblichen serverseitigen Webarchitektur?",
+      "answers": [
+        "Automatisch als Java-Applet in jedem aktuellen Browser, ohne zusätzliche Umgebung.",
+        "In der CSS-Engine, weil Java und JavaScript dieselbe Sprache sind.",
+        "Ausschließlich in der Datenbank, ohne ausführbare Serveranwendung.",
+        "In der Serveranwendung auf einer passenden Java-Laufzeit; der Browser erhält etwa HTML oder JSON."
+      ],
+      "correct": 3,
+      "explanation": "Java wird häufig für serverseitige Anwendungen und APIs eingesetzt. Der Browser benötigt keine Java-Laufzeit, um deren HTTP-Antworten anzuzeigen oder zu verarbeiten. Welche Logik im Client läuft, wird unabhängig davon durch das Frontend bestimmt.",
+      "hu": {
+        "question": "Egy weboldal Java segítségével kezeli az üzleti logikát és adatbázist. Hol fut ez a rész szokásos szerveroldali webarchitektúrában?",
+        "answers": [
+          "Automatikusan Java-appletként minden aktuális böngészőben, további környezet nélkül.",
+          "A CSS-motorban, mert a Java és JavaScript ugyanaz a nyelv.",
+          "Kizárólag az adatbázisban, futó szerveralkalmazás nélkül.",
+          "A szerveralkalmazásban megfelelő Java-futtatókörnyezeten; a böngésző például HTML-t vagy JSON-t kap."
+        ],
+        "explanation": "A Javát gyakran szerveralkalmazásokhoz és API-khoz használják. A böngészőnek nem kell Java-futtatókörnyezet ahhoz, hogy HTTP-válaszaikat megjelenítse vagy feldolgozza. A kliensben futó logikát ettől függetlenül a frontend határozza meg."
+      }
+    },
+    {
+      "id": "lap-LAP-11-35-2",
+      "revision": 1,
+      "topic": "Java Technologien im Web",
+      "source": {
+        "topicId": "LAP-11-35",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/35_Java_Technologien_im_Web/README.md",
+        "slug": "11-35-java_technologien_im_web"
+      },
+      "question": "Wie hängen Jakarta Servlet und Jakarta Pages, früher JSP genannt, zusammen?",
+      "answers": [
+        "Pages-Dateien werden grundsätzlich unverarbeitet mit allen serverseitigen Anweisungen an den Browser geschickt.",
+        "Servlets bearbeiten serverseitige Anfragen; Pages-Vorlagen werden vom Container zu Servlets verarbeitet, um Inhalte zu erzeugen.",
+        "Pages ersetzt die Browser-CSS-Engine; Servlets sind ausschließlich Datenbanktabellen.",
+        "Beide laufen zwingend als JavaScript im Browser."
+      ],
+      "correct": 1,
+      "explanation": "Die Servlet-API beschreibt unter anderem die Bearbeitung von HTTP-Anfragen und Antworten in einem passenden Container. Jakarta Pages ist eine serverseitige Vorlagentechnik, deren Verarbeitung auf Servlets beruht. Die Technologie existiert weiterhin; moderne Projekte können je nach Bedarf auch andere Vorlagen oder getrennte Frontends verwenden.",
+      "hu": {
+        "question": "Hogyan kapcsolódik a Jakarta Servlet és a korábban JSP-nek nevezett Jakarta Pages?",
+        "answers": [
+          "A Pages-fájlok alapvetően feldolgozatlanul, minden szerveroldali utasítással kerülnek a böngészőbe.",
+          "A servletek szerveroldali kéréseket kezelnek; a Pages-sablonokat a konténer servletekké dolgozza fel tartalom előállításához.",
+          "A Pages a böngésző CSS-motorját helyettesíti; a servletek kizárólag adatbázistáblák.",
+          "Mindkettő kötelezően JavaScriptként fut a böngészőben."
+        ],
+        "explanation": "A Servlet API többek között HTTP-kérések és válaszok kezelését írja le megfelelő konténerben. A Jakarta Pages szerveroldali sablontechnológia, amelynek feldolgozása servletekre épül. Továbbra is létező technológia; mai projektek igény szerint más sablont vagy külön frontendet is használhatnak."
+      }
+    },
+    {
+      "id": "lap-LAP-11-35-3",
+      "revision": 1,
+      "topic": "Java Technologien im Web",
+      "source": {
+        "topicId": "LAP-11-35",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/35_Java_Technologien_im_Web/README.md",
+        "slug": "11-35-java_technologien_im_web"
+      },
+      "question": "Lesebeispiel: Die nötigen Imports, eine laufende Spring-Boot-MVC-Anwendung, Controller-Erkennung und JSON-Serialisierung sind eingerichtet. Was liefert GET /api/course durch diesen Controller?",
+      "answers": [
+        "Automatisch eine HTML-Seite namens Course, weil jeder Rückgabewert ein Vorlagenname ist.",
+        "Einen Schreibzugriff auf die Datenbank, weil GetMapping grundsätzlich Datensätze anlegt.",
+        "Eine JSON-Darstellung mit id 15 und title Schleifen.",
+        "Die Java-Quelldatei, damit der Browser sie kompiliert."
+      ],
+      "correct": 2,
+      "explanation": "GetMapping ordnet die Methode der GET-Route zu. Bei RestController wird der Rückgabewert in den Antwortkörper geschrieben; hier serialisiert die eingerichtete Umgebung den Record als JSON. Das Beispiel liefert feste öffentliche Beispieldaten und enthält weder Datenbankzugriff noch eine Anmeldung.",
+      "hu": {
+        "question": "Olvasási példa: a szükséges importok, a futó Spring Boot MVC-alkalmazás, a controller felismerése és JSON-szerializálás adott. Mit ad a GET /api/course ezen a controlleren?",
+        "answers": [
+          "Automatikusan Course nevű HTML-oldalt, mert minden visszatérés sablonnévvé válik.",
+          "Adatbázis-írást, mert a GetMapping alapvetően rekordot hoz létre.",
+          "JSON-reprezentációt id 15 és title Schleifen értékkel.",
+          "A Java-forrásfájlt, hogy a böngésző lefordítsa."
+        ],
+        "explanation": "A GetMapping a metódust a GET-útvonalhoz rendeli. RestControllernél a visszatérés a válasz törzsébe kerül; a beállított környezet itt JSON-ként szerializálja a recordot. A példa rögzített, nyilvános mintaadatot ad, nem tartalmaz adatbázis-hozzáférést vagy belépést."
+      },
+      "code": "@RestController\npublic class CourseController {\n    public record Course(int id, String title) {}\n\n    @GetMapping(\"/api/course\")\n    public Course course() {\n        return new Course(15, \"Schleifen\");\n    }\n}",
+      "codeLanguage": "java"
+    },
+    {
+      "id": "lap-LAP-11-35-4",
+      "revision": 1,
+      "topic": "Java Technologien im Web",
+      "source": {
+        "topicId": "LAP-11-35",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/35_Java_Technologien_im_Web/README.md",
+        "slug": "11-35-java_technologien_im_web"
+      },
+      "question": "Bei einer Migration auf Jakarta EE 9 oder neuer tauchen Änderungen von javax.* zu jakarta.* auf. Was ist dabei die richtige Abgrenzung?",
+      "answers": [
+        "Die betroffenen Jakarta-EE-APIs und kompatiblen Abhängigkeiten gezielt migrieren; nicht pauschal jedes javax-Paket der Java-Welt ersetzen.",
+        "Jeden Text javax in allen Dateien blind ersetzen, auch bei unveränderten Java-SE-APIs.",
+        "Nur Kommentare ändern, weil der Paketname für den Compiler bedeutungslos ist.",
+        "Die Anwendung in JavaScript umschreiben, weil Jakarta EE kein Java mehr verwendet."
+      ],
+      "correct": 0,
+      "explanation": "Jakarta EE 9 führte den jakarta-Namensraum für seine Spezifikationen ein. Davon sind nicht automatisch alle javax-Pakete aus Java SE betroffen. Quellcode, Bibliotheken und Container müssen zusammenpassen; eine globale Textänderung allein ist keine vollständige Migration.",
+      "hu": {
+        "question": "Jakarta EE 9-re vagy újabbra váltáskor javax.* → jakarta.* módosítások jelennek meg. Mi a helyes határ?",
+        "answers": [
+          "Célzottan migrálni az érintett Jakarta EE API-kat és kompatibilis függőségeket; nem általánosan lecserélni a Java-világ minden javax csomagját.",
+          "Minden fájlban vakon lecserélni a javax szöveget, a változatlan Java SE API-knál is.",
+          "Csak megjegyzéseket módosítani, mert a csomagnév a fordító számára lényegtelen.",
+          "JavaScriptre átírni az alkalmazást, mert a Jakarta EE már nem Javát használ."
+        ],
+        "explanation": "A Jakarta EE 9 a saját specifikációihoz vezette be a jakarta névteret. Ez nem érinti automatikusan a Java SE minden javax csomagját. A forráskódnak, könyvtáraknak és konténernek össze kell illenie; egy globális szövegcsere még nem teljes migráció."
+      }
+    },
+    {
+      "id": "lap-LAP-11-35-5",
+      "revision": 1,
+      "topic": "Java Technologien im Web",
+      "source": {
+        "topicId": "LAP-11-35",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/35_Java_Technologien_im_Web/README.md",
+        "slug": "11-35-java_technologien_im_web"
+      },
+      "question": "Ein Team sagt: „Weil unser Backend Java nutzt, muss die Browseroberfläche ebenfalls Java verwenden.“ Welche Antwort ist richtig?",
+      "answers": [
+        "Richtig, denn JavaScript ist nur die Browser-Schreibweise von Java.",
+        "Richtig, weil JSON ausschließlich zwischen identischen Programmiersprachen übertragen werden kann.",
+        "Falsch, aber nur weil ein Java-Backend grundsätzlich keine Browseranfragen annehmen darf.",
+        "Java und JavaScript sind verschiedene Sprachen; eine JavaScript-Oberfläche kann die Java-API über HTTP nutzen."
+      ],
+      "correct": 3,
+      "explanation": "Ähnliche Namen machen Java und JavaScript nicht zur selben Sprache. HTTP und vereinbarte Datenformate verbinden Client und Server unabhängig von deren Implementierungssprache. Eine gemeinsame Sprache ist weder Voraussetzung für eine API noch ein Ersatz für einen klaren Vertrag.",
+      "hu": {
+        "question": "Egy csapat szerint: „Mivel a backendünk Java, a böngészős felületnek is Javát kell használnia.” Melyik válasz helyes?",
+        "answers": [
+          "Igaz, mert a JavaScript csupán a Java böngészős írásmódja.",
+          "Igaz, mert JSON kizárólag azonos programozási nyelvek között küldhető.",
+          "Hamis, de csak azért, mert Java-backend alapvetően nem fogadhat böngészőkérést.",
+          "A Java és JavaScript külön nyelv; JavaScript-felület HTTP-n használhat Java-API-t."
+        ],
+        "explanation": "A hasonló név nem teszi azonos nyelvvé a Javát és JavaScriptet. HTTP és megállapodott adatformátum köti össze a klienst és szervert, a megvalósítási nyelvüktől függetlenül. A közös nyelv nem feltétele egy API-nak, és nem helyettesíti a világos szerződést."
+      }
+    }
+  ]
+}
