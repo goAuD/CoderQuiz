@@ -9,5 +9,6 @@
   { "id": "lap-informatik-5", "path": "examples/lap-informatik-5.json" },
   { "id": "lap-informatik-6", "path": "examples/lap-informatik-6.json" },
   { "id": "lap-databases-1", "path": "examples/lap-databases-1.json" },
-  { "id": "lap-databases-2", "path": "examples/lap-databases-2.json" }
+  { "id": "lap-databases-2", "path": "examples/lap-databases-2.json" },
+  { "id": "lap-databases-3", "path": "examples/lap-databases-3.json" }
 ]

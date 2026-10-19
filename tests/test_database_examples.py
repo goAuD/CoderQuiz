@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET
 
 
 EXAMPLES = Path(__file__).resolve().parents[1] / 'examples'
-BANKS = [json.loads((EXAMPLES / f'lap-databases-{number}.json').read_text(encoding='utf-8')) for number in (1, 2)]
+BANKS = [json.loads((EXAMPLES / f'lap-databases-{number}.json').read_text(encoding='utf-8')) for number in (1, 2, 3)]
 QUESTIONS = {q['id']: q for bank in BANKS for q in bank['questions']}
 
 
@@ -32,7 +32,7 @@ class DatabaseExamplesTest(unittest.TestCase):
     def test_every_displayed_sql_example_has_the_documented_result(self):
         self.assertGreaterEqual(sqlite3.sqlite_version_info, (3, 16, 0))
         examples = [q for q in QUESTIONS.values() if q.get('codeLanguage') == 'sql']
-        self.assertEqual(len(examples), 18)
+        self.assertEqual(len(examples), 25)
         for question in examples:
             with self.subTest(question=question['id']):
                 with closing(sqlite3.connect(':memory:', isolation_level=None)) as database:
@@ -117,6 +117,49 @@ class DatabaseExamplesTest(unittest.TestCase):
             with self.assertRaises(sqlite3.IntegrityError):
                 database.execute("INSERT INTO contacts VALUES (3, 'team@example.test')")
             database.execute("INSERT INTO contacts VALUES (4, 'other@example.test')")
+
+    def test_order_grain_avoids_join_multiplication_without_dropping_equal_amounts(self):
+        with closing(sqlite3.connect(':memory:', isolation_level=None)) as database:
+            self.assertEqual(execute_example(database, QUESTIONS['lap-LAP-16-17-4']['code']), [[9000]])
+            self.assertEqual(database.execute('SELECT SUM(total_cents) FROM orders').fetchone(), (6000,))
+            self.assertEqual(database.execute('SELECT SUM(DISTINCT total_cents) FROM orders').fetchone(), (3000,))
+            database.execute('INSERT INTO orders VALUES (3, 3000)')
+            self.assertEqual(database.execute('SELECT SUM(total_cents) FROM orders').fetchone(), (9000,))
+
+    def test_complete_booking_schema_rejects_duplicates_orphans_and_referenced_parent_deletion(self):
+        with closing(sqlite3.connect(':memory:', isolation_level=None)) as database:
+            execute_example(database, QUESTIONS['lap-LAP-16-18-3']['code'])
+            for pair in [(1, 10), (99, 10), (1, 99), (None, 10), (1, None)]:
+                with self.subTest(pair=pair), self.assertRaises(sqlite3.IntegrityError):
+                    database.execute('INSERT INTO bookings VALUES (?, ?)', pair)
+            with self.assertRaises(sqlite3.IntegrityError):
+                database.execute('DELETE FROM workshops WHERE id = 10')
+            database.execute("INSERT INTO people VALUES (2, 'Noel')")
+            database.execute('INSERT INTO bookings VALUES (2, 10)')
+            self.assertEqual(database.execute('SELECT COUNT(*) FROM bookings').fetchone(), (3,))
+
+    def test_reservation_constraints_accept_range_edges_and_reject_missing_or_out_of_range_values(self):
+        with closing(sqlite3.connect(':memory:', isolation_level=None)) as database:
+            execute_example(database, QUESTIONS['lap-LAP-16-18-4']['code'])
+            database.execute('INSERT INTO reservations VALUES (2, 1), (3, 4)')
+            for seats in [None, 0, 5]:
+                with self.subTest(seats=seats), self.assertRaises(sqlite3.IntegrityError):
+                    database.execute('INSERT INTO reservations VALUES (4, ?)', (seats,))
+            with self.assertRaises(sqlite3.IntegrityError):
+                database.execute('INSERT INTO reservations VALUES (1, 3)')
+
+    def test_rollback_preserves_prior_commit_but_reverts_the_current_incomplete_transfer(self):
+        with closing(sqlite3.connect(':memory:', isolation_level=None)) as database:
+            execute_example(database, QUESTIONS['lap-LAP-16-19-3']['code'])
+            self.assertFalse(database.in_transaction)
+            database.execute('BEGIN')
+            database.execute('UPDATE accounts SET balance_cents = balance_cents - 200 WHERE id = 1')
+            database.execute('UPDATE accounts SET balance_cents = balance_cents + 200 WHERE id = 99')
+            self.assertEqual(database.execute('SELECT changes()').fetchone(), (0,))
+            self.assertTrue(database.in_transaction)
+            self.assertEqual(database.execute('SELECT SUM(balance_cents) FROM accounts').fetchone(), (1300,))
+            database.execute('ROLLBACK')
+            self.assertEqual(database.execute('SELECT id, balance_cents FROM accounts ORDER BY id').fetchall(), [(1, 1000), (2, 500)])
 
     def test_xml_reading_sample_is_a_document_with_two_topic_elements(self):
         xml = QUESTIONS['lap-LAP-16-02-4']['code']
