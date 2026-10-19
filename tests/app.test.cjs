@@ -247,7 +247,7 @@ for (const { id: bankName } of require('../quiz-banks.json')) {
         const pre = app.get('question-context').children[0];
         assert.equal(pre.children[0].textContent, q.code);
         assert.equal(pre.dataset.language, q.codeLanguage === 'pseudocode' ? 'Pszeudokód'
-          : ({ html: 'HTML', xml: 'XML', json: 'JSON', css: 'CSS', php: 'PHP', java: 'Java', javascript: 'JavaScript' })[q.codeLanguage] || 'JavaScript');
+          : ({ html: 'HTML', xml: 'XML', json: 'JSON', css: 'CSS', php: 'PHP', java: 'Java', csharp: 'C#', ini: 'INI', yaml: 'YAML', javascript: 'JavaScript' })[q.codeLanguage] || 'JavaScript');
         assert.equal(pre.getAttribute('aria-label'), pre.dataset.language);
       }
       answer(app, index % 2 === 0);

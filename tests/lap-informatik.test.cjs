@@ -3,7 +3,7 @@ const { test } = require('node:test');
 const vm = require('node:vm');
 const { format } = require('node:util');
 const { spawnSync } = require('node:child_process');
-const banks = [1, 2, 3, 4, 5].map(batch => require(`../examples/lap-informatik-${batch}.json`));
+const banks = [1, 2, 3, 4, 5, 6].map(batch => require(`../examples/lap-informatik-${batch}.json`));
 
 const sourceTopics = [
   ['01', 'Begriff Informatik', 'Begriff_Informatik'],
@@ -41,12 +41,20 @@ const sourceTopics = [
   ['33', 'Aktuelle Programmiersprachen', 'Aktuelle_Programmiersprachen'],
   ['34', 'Programmiersprachen fuer mobile Apps und Internet', 'Programmiersprachen_fuer_mobile_Apps_und_Internet'],
   ['35', 'Java Technologien im Web', 'Java_Technologien_im_Web'],
+  ['36', 'DotNet Technologien im Web', 'DotNet_Technologien_im_Web'],
+  ['37', 'Metadaten', 'Metadaten'],
+  ['38', 'KISS und DRY', 'KISS_und_DRY'],
+  ['39', 'Coding Standards und Code Konventionen', 'Coding_Standards_und_Code_Konventionen'],
+  ['40', 'Cross Plattform Entwicklung', 'Cross_Plattform_Entwicklung'],
+  ['41', 'Continuous Integration', 'Continuous_Integration'],
+  ['42', 'Continuous Delivery und Deployment', 'Continuous_Delivery_und_Deployment'],
+  ['43', 'CI CD Vorgaben', 'CI_CD_Vorgaben'],
 ];
 
 function execute(question) {
   const output = [];
   const context = vm.createContext({
-    TextEncoder, TextDecoder,
+    TextEncoder, TextDecoder, URL,
     console: { log: (...values) => output.push(format(...values)) },
   });
   vm.runInContext(question.code, context, { timeout: 1000 });
@@ -55,13 +63,14 @@ function execute(question) {
 
 for (const [index, bank] of banks.entries()) {
   const batch = index + 1;
-  const topics = sourceTopics.slice(index * 7, (index + 1) * 7);
+  const topics = sourceTopics.slice(index * 7, batch === 6 ? sourceTopics.length : (index + 1) * 7);
+  const expectedCount = topics.length * 5;
 
-  test(`Informatik ${batch} covers all 35 positions in the reviewed source snapshot`, () => {
+  test(`Informatik ${batch} covers all ${expectedCount} positions in the reviewed source snapshot`, () => {
     assert.equal(bank.sourceRepository, 'https://github.com/goAuD/CoderLAP');
     assert.equal(bank.sourceCommit, 'cefce00affa0f357e7cc3e752abf082cad0ae1d0');
-    assert.equal(bank.questions.length, 35);
-    assert.equal(new Set(bank.questions.map(q => q.id)).size, 35);
+    assert.equal(bank.questions.length, expectedCount);
+    assert.equal(new Set(bank.questions.map(q => q.id)).size, expectedCount);
     const expectedPositions = [];
     for (const [number, topic, directory] of topics) {
       for (let position = 1; position <= 5; position++) {
@@ -111,6 +120,7 @@ for (const [index, bank] of banks.entries()) {
       { html: 1, xml: 1, javascript: 4, json: 2 },
       { html: 4, php: 2, pseudocode: 1 },
       { javascript: 3, css: 3, java: 1 },
+      { csharp: 1, json: 1, javascript: 3, ini: 1, yaml: 1 },
     ][index];
     for (const [language, count] of Object.entries(expectedCounts)) {
       assert.equal(snippets.filter(q => q.codeLanguage === language).length, count, language);
@@ -122,7 +132,7 @@ for (const [index, bank] of banks.entries()) {
         continue;
       }
       assert.ok(typeof q.code === 'string' && q.code.trim(), q.id);
-      assert.ok(['javascript', 'html', 'xml', 'json', 'css', 'php', 'java', 'pseudocode'].includes(q.codeLanguage), q.id);
+      assert.ok(['javascript', 'html', 'xml', 'json', 'css', 'php', 'java', 'csharp', 'ini', 'yaml', 'pseudocode'].includes(q.codeLanguage), q.id);
       if (q.codeLanguage === 'javascript' || q.id === 'lap-LAP-11-28-5') {
         assert.ok(Array.isArray(q.expectedOutput) && q.expectedOutput.length > 0, q.id);
         assert.ok(q.expectedOutput.every(line => typeof line === 'string'), q.id);
@@ -206,12 +216,25 @@ test('progress parsing distinguishes JSON syntax from the stated record contract
 });
 
 test('JSON snippets are data and preserve ordered arrays and ordinary underscore keys', () => {
-  const samples = banks[2].questions.filter(q => q.codeLanguage === 'json');
+  const samples = banks.flatMap(bank => bank.questions).filter(q => q.codeLanguage === 'json');
   const parsed = Object.fromEntries(samples.map(q => [q.id, JSON.parse(q.code)]));
   assert.deepEqual(parsed['lap-LAP-11-21-2'], { id: 15, topics: ['loops', 'arrays'] });
   assert.deepEqual(parsed['lap-LAP-11-21-4'], { score: 4, _note: 'Practice data' });
   const original = '{"id":"9007199254740993"}';
   assert.equal(JSON.stringify(JSON.parse(original)), original);
+});
+
+test('the practice passing rule accepts only whole scores in 0..10 and includes the threshold', () => {
+  const { context } = execute(banks[5].questions.find(q => q.id === 'lap-LAP-11-38-2'));
+  for (const [input, expected] of [[0, false], [5, false], [6, true], [7, true], [10, true]]) {
+    context.input = input;
+    assert.equal(vm.runInContext('isPassingScore(input)', context, { timeout: 1000 }), expected);
+  }
+  for (const invalid of [-1, 11, 5.5, '6', null, undefined, true, NaN, Infinity, [], {}]) {
+    context.input = invalid;
+    assert.throws(() => vm.runInContext('isPassingScore(input)', context, { timeout: 1000 }),
+      error => error.name === 'RangeError' && /integer from 0 to 10/.test(error.message));
+  }
 });
 
 test('curriculum packages have no overlapping question IDs or source positions', () => {

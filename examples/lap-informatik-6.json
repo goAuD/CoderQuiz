@@ -1,0 +1,1263 @@
+{
+  "sourceRepository": "https://github.com/goAuD/CoderLAP",
+  "sourceCommit": "cefce00affa0f357e7cc3e752abf082cad0ae1d0",
+  "ui": {
+    "de": {
+      "moduleTitle": "CoderLAP · Informatik 6",
+      "subtitle": "40 Fragen zu .NET, Metadaten, verständlichem Code, plattformübergreifender Entwicklung und CI/CD.",
+      "practiceNote": "Verbinde die Begriffe mit den Beispielen aus dem Entwicklungsalltag. Die Erklärung erscheint nach deiner Antwort.",
+      "topics": {
+        "DotNet Technologien im Web": ".NET im Web",
+        "Metadaten": "Metadaten",
+        "KISS und DRY": "KISS und DRY",
+        "Coding Standards und Code Konventionen": "Coding Standards und Konventionen",
+        "Cross Plattform Entwicklung": "Plattformübergreifende Entwicklung",
+        "Continuous Integration": "Continuous Integration",
+        "Continuous Delivery und Deployment": "Continuous Delivery und Deployment",
+        "CI CD Vorgaben": "Vorgaben für CI/CD"
+      }
+    },
+    "hu": {
+      "moduleTitle": "CoderLAP · Informatika 6",
+      "subtitle": "40 kérdés .NET-ről, metaadatokról, érthető kódról, többplatformos fejlesztésről és CI/CD-ről.",
+      "practiceNote": "Kapcsold össze a fogalmakat a fejlesztésből vett példákkal. A magyarázat a válaszod után jelenik meg.",
+      "topics": {
+        "DotNet Technologien im Web": ".NET a weben",
+        "Metadaten": "Metaadatok",
+        "KISS und DRY": "KISS és DRY",
+        "Coding Standards und Code Konventionen": "Kódolási szabványok és konvenciók",
+        "Cross Plattform Entwicklung": "Többplatformos fejlesztés",
+        "Continuous Integration": "Folyamatos integráció",
+        "Continuous Delivery und Deployment": "Folyamatos szállítás és telepítés",
+        "CI CD Vorgaben": "CI/CD előírások"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "lap-LAP-11-36-1",
+      "revision": 1,
+      "topic": "DotNet Technologien im Web",
+      "source": {
+        "topicId": "LAP-11-36",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/36_DotNet_Technologien_im_Web/README.md",
+        "slug": "11-36-dotnet_technologien_im_web"
+      },
+      "question": "Für eine neue C#-Web-API soll ein Linux-Server genutzt werden. Welche Einordnung hilft bei der Technologiewahl?",
+      "answers": [
+        "Jede bestehende ASP.NET-Anwendung läuft allein durch Umbenennen des Projekts unverändert unter Linux.",
+        "Für eine Web-API mit .NET muss der Browser zuerst eine passende .NET-Laufzeit installieren.",
+        "Modernes .NET mit ASP.NET Core ist dafür geeignet; das ältere .NET Framework ist Windows-spezifisch.",
+        "ASP.NET Core benötigt auch auf Linux zwingend einen Windows-Server mit IIS als Laufzeit."
+      ],
+      "correct": 2,
+      "explanation": "ASP.NET Core ist die Webplattform des modernen, plattformübergreifenden .NET. Das ältere .NET Framework ist davon zu unterscheiden. Vorhandene Anwendungen können Windows-APIs oder ältere Frameworks verwenden, weshalb eine Migration geprüft werden muss. Eine HTTP-API kann auch von einem gewöhnlichen Browserclient genutzt werden.",
+      "hu": {
+        "question": "Egy új C#-os webes API-t Linux-szerveren szeretnénk futtatni. Melyik besorolás segít a technológiaválasztásban?",
+        "answers": [
+          "Minden meglévő ASP.NET-alkalmazás változatlanul fut Linuxon, ha átnevezzük a projektet.",
+          "Egy .NET-es webes API használatához a böngészőbe először megfelelő .NET-futtatókörnyezetet kell telepíteni.",
+          "A modern .NET és ASP.NET Core alkalmas erre; a régebbi .NET Framework Windows-specifikus.",
+          "Az ASP.NET Core Linuxon is feltétlenül Windows-szervert és IIS-t igényel futtatókörnyezetként."
+        ],
+        "explanation": "Az ASP.NET Core a modern, többplatformos .NET webes platformja. Ettől meg kell különböztetni a régebbi .NET Frameworköt. Meglévő alkalmazások Windows-API-kra vagy régebbi keretrendszerekre támaszkodhatnak, ezért a migrációt meg kell vizsgálni. HTTP-API-t egy szokásos böngészős kliens is használhat."
+      }
+    },
+    {
+      "id": "lap-LAP-11-36-2",
+      "revision": 1,
+      "topic": "DotNet Technologien im Web",
+      "source": {
+        "topicId": "LAP-11-36",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/36_DotNet_Technologien_im_Web/README.md",
+        "slug": "11-36-dotnet_technologien_im_web"
+      },
+      "question": "Das ist die vollständige Program.cs eines leeren ASP.NET-Core-10-Webprojekts mit .NET-10-SDK und aktivierten impliziten using-Anweisungen. Die App läuft. Was liefert GET /api/course ohne zusätzliche Middleware?",
+      "answers": [
+        "HTTP 200 mit einem JSON-Objekt, das id 15 und title \"Schleifen\" enthält.",
+        "HTTP 200 mit einer automatisch erzeugten HTML-Seite für den Kurs.",
+        "HTTP 201 mit einem neu gespeicherten Datenbankdatensatz.",
+        "HTTP 404, weil für jede Route zwingend eine eigene Controllerklasse benötigt wird."
+      ],
+      "correct": 0,
+      "explanation": "MapGet ordnet dem Pfad eine Behandlung für GET zu. Das zurückgegebene anonyme Objekt wird als JSON serialisiert; der Standardstatus dieser erfolgreichen Antwort ist 200. Das feste Beispiel liest oder schreibt keine Datenbank. Minimal APIs benötigen für solche Endpunkte keine separate Controllerklasse.",
+      "hu": {
+        "question": "Ez egy üres ASP.NET Core 10 webprojekt teljes Program.cs fájlja, .NET 10 SDK-val és bekapcsolt implicit using beállítással. Az alkalmazás fut. Mit ad a GET /api/course további middleware nélkül?",
+        "answers": [
+          "HTTP 200 választ egy JSON-objektummal, amelyben id: 15 és title: \"Schleifen\" szerepel.",
+          "HTTP 200 választ a kurzus automatikusan létrehozott HTML-oldalával.",
+          "HTTP 201 választ egy újonnan elmentett adatbázisrekorddal.",
+          "HTTP 404 választ, mert minden útvonalhoz kötelező külön vezérlőosztály."
+        ],
+        "explanation": "A MapGet a megadott útvonalhoz GET-kezelőt rendel. A visszaadott névtelen objektum JSON-ként kerül a válaszba; ennek a sikeres válasznak az alapértelmezett státusza 200. A rögzített példa nem olvas és nem ír adatbázist. Az ilyen Minimal API végpontokhoz nem kell külön vezérlőosztály."
+      },
+      "code": "var builder = WebApplication.CreateBuilder(args);\nvar app = builder.Build();\n\napp.MapGet(\"/api/course\", () => new {\n    id = 15,\n    title = \"Schleifen\"\n});\n\napp.Run();",
+      "codeLanguage": "csharp"
+    },
+    {
+      "id": "lap-LAP-11-36-3",
+      "revision": 1,
+      "topic": "DotNet Technologien im Web",
+      "source": {
+        "topicId": "LAP-11-36",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/36_DotNet_Technologien_im_Web/README.md",
+        "slug": "11-36-dotnet_technologien_im_web"
+      },
+      "question": "Für ein mögliches Live-Quiz sollen verbundene Browser neue Rundenergebnisse sofort vom Server erhalten. Welche Aussage über SignalR passt dazu?",
+      "answers": [
+        "SignalR speichert automatisch alle Ergebnisse dauerhaft und stellt sie nach jeder Unterbrechung vollständig wieder her.",
+        "SignalR ersetzt die serverseitige Berechtigungsprüfung, weil nur angemeldete Personen eine Verbindung öffnen können.",
+        "SignalR versendet ohne weitere Einrichtung Betriebssystem-Benachrichtigungen, auch wenn der Browser geschlossen ist.",
+        "SignalR unterstützt die Echtzeitkommunikation; Speicherung und Nachholen verpasster Ergebnisse müssen zusätzlich geplant werden."
+      ],
+      "correct": 3,
+      "explanation": "SignalR eignet sich für laufende Verbindungen und serverseitig angestoßene Aktualisierungen. Daraus folgen weder dauerhafte Speicherung noch eine Berechtigung für bestimmte Daten. Wiederverbindung, Nachladen und gegebenenfalls Web Push sind eigene Anforderungen. Ein Live-Quiz wäre hier eine mögliche Erweiterung, keine bestehende CoderQuiz-Funktion.",
+      "hu": {
+        "question": "Egy lehetséges élő kvízben a kapcsolódó böngészők azonnal megkapnák a szervertől az új köreredményt. Melyik állítás illik ehhez a SignalR-ről?",
+        "answers": [
+          "A SignalR automatikusan tartósan tárol minden eredményt, és megszakadás után mindent hiánytalanul visszaállít.",
+          "A SignalR kiváltja a szerveroldali jogosultságvizsgálatot, mert csak bejelentkezett személy nyithat kapcsolatot.",
+          "A SignalR további beállítás nélkül operációs rendszerbeli értesítést küld bezárt böngésző mellett is.",
+          "A SignalR segíti a valós idejű kommunikációt; a tárolást és a kimaradt eredmények pótlását külön meg kell tervezni."
+        ],
+        "explanation": "A SignalR folyamatos kapcsolatokhoz és szerverről indított frissítésekhez használható. Ebből sem tartós tárolás, sem bizonyos adatok elérésére szóló jogosultság nem következik. Az újrakapcsolódás, pótlólagos lekérés és adott esetben Web Push külön követelmény. Az élő kvíz itt lehetséges bővítés, nem meglévő CoderQuiz-funkció."
+      }
+    },
+    {
+      "id": "lap-LAP-11-36-4",
+      "revision": 1,
+      "topic": "DotNet Technologien im Web",
+      "source": {
+        "topicId": "LAP-11-36",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/36_DotNet_Technologien_im_Web/README.md",
+        "slug": "11-36-dotnet_technologien_im_web"
+      },
+      "question": "Eine Blazor-Komponente verwendet Interactive WebAssembly. Wo gehört ein geheimer Datenbankzugang hin, wenn die Komponente geschützte Daten benötigt?",
+      "answers": [
+        "In den kompilierten WebAssembly-Code, weil dieser grundsätzlich nicht untersucht werden kann.",
+        "Auf den Server; der Browser ruft eine API auf, die Anmeldung und Zugriffsrechte selbst prüft.",
+        "In eine private C#-Konstante der Browserkomponente, weil private auch vor Nutzenden schützt.",
+        "In eine mitgelieferte Konfigurationsdatei, sofern die Oberfläche deren Inhalt nicht anzeigt."
+      ],
+      "correct": 1,
+      "explanation": "Bei Interactive WebAssembly läuft die interaktive Komponente im Browser. Heruntergeladener Code und Konfiguration sind kein sicherer Ort für Geheimnisse. C#-Zugriffsmodifikatoren regeln Zugriffe im Programm, nicht den Schutz vor der Person, die den Client kontrolliert. Geschützte Daten brauchen eine serverseitig durchgesetzte Zugriffskontrolle.",
+      "hu": {
+        "question": "Egy Blazor-komponens Interactive WebAssembly módot használ. Hová kerüljön a titkos adatbázis-hozzáférés, ha a komponens védett adatokat igényel?",
+        "answers": [
+          "A lefordított WebAssembly-kódba, mert azt alapvetően nem lehet megvizsgálni.",
+          "A szerverre; a böngésző olyan API-t hívjon, amely maga ellenőrzi a bejelentkezést és jogosultságokat.",
+          "A böngészős komponens privát C#-konstansába, mert a private a felhasználó elől is véd.",
+          "Egy letöltött konfigurációs fájlba, ha a felület nem mutatja annak tartalmát."
+        ],
+        "explanation": "Interactive WebAssembly módban az interaktív komponens a böngészőben fut. A letöltött kód és konfiguráció nem biztonságos hely titkok számára. A C# hozzáférési módosítói a programon belüli elérést szabályozzák, nem a klienst irányító személytől védenek. Védett adatokhoz szerveroldalon kikényszerített hozzáférés-ellenőrzés kell."
+      }
+    },
+    {
+      "id": "lap-LAP-11-36-5",
+      "revision": 1,
+      "topic": "DotNet Technologien im Web",
+      "source": {
+        "topicId": "LAP-11-36",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/36_DotNet_Technologien_im_Web/README.md",
+        "slug": "11-36-dotnet_technologien_im_web"
+      },
+      "question": "Zwei Blazor-Seiten sehen gleich aus. Eine nutzt Interactive Server, die andere Interactive WebAssembly. Wo laufen die Ereignisbehandlungen ihrer interaktiven Komponenten?",
+      "answers": [
+        "In beiden Fällen ausschließlich auf dem Server, weil beide in C# geschrieben sind.",
+        "Bei Interactive Server im Browser, bei Interactive WebAssembly auf dem Server.",
+        "Bei Interactive Server auf dem Server, bei Interactive WebAssembly im Browser.",
+        "In beiden Fällen ausschließlich im Browser, weil die Schaltflächen dort angezeigt werden."
+      ],
+      "correct": 2,
+      "explanation": "Der Rendermodus bestimmt, wo die interaktive Komponentenlogik ausgeführt wird. Interactive Server benötigt dafür eine Verbindung zum Server. Interactive WebAssembly führt diese Logik clientseitig aus. Vorab erzeugtes HTML kann den ersten Seitenaufbau unterstützen, ändert aber diese Unterscheidung der interaktiven Ausführung nicht.",
+      "hu": {
+        "question": "Két Blazor-oldal egyformán néz ki. Az egyik Interactive Server, a másik Interactive WebAssembly módot használ. Hol fut interaktív komponenseik eseménykezelése?",
+        "answers": [
+          "Mindkét esetben kizárólag a szerveren, mert mindkettő C#-ban készült.",
+          "Interactive Server esetén a böngészőben, Interactive WebAssembly esetén a szerveren.",
+          "Interactive Server esetén a szerveren, Interactive WebAssembly esetén a böngészőben.",
+          "Mindkét esetben kizárólag a böngészőben, mert a gombok ott jelennek meg."
+        ],
+        "explanation": "A renderelési mód határozza meg, hol hajtódik végre az interaktív komponenslogika. Az Interactive Server ehhez szerverkapcsolatot igényel. Az Interactive WebAssembly ezt a logikát a kliensoldalon futtatja. Előre előállított HTML segítheti a kezdeti oldalbetöltést, de ettől az interaktív végrehajtás helye közötti különbség megmarad."
+      }
+    },
+    {
+      "id": "lap-LAP-11-37-1",
+      "revision": 1,
+      "topic": "Metadaten",
+      "source": {
+        "topicId": "LAP-11-37",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/37_Metadaten/README.md",
+        "slug": "11-37-metadaten"
+      },
+      "question": "Der JSON-Ausschnitt ist ein vereinfachter Katalogeintrag zu einem Lerndokument, nicht dessen Inhalt. Welche Einordnung passt?",
+      "answers": [
+        "Titel und Sprache beschreiben das Dokument; format nennt sein Medienformat. Das sind Metadaten.",
+        "Nur das Feld id ist ein Metadatum; alle anderen Felder enthalten bereits den vollständigen Lernstoff.",
+        "Metadaten gibt es ausschließlich als meta-Elemente innerhalb eines HTML-head.",
+        "JSON macht den Eintrag automatisch zum eigentlichen Dokumentinhalt statt zu einer Beschreibung."
+      ],
+      "correct": 0,
+      "explanation": "Metadaten beschreiben andere Daten. Titel und Sprache helfen beim Finden und Einordnen, ein Medienformat beim technischen Umgang. Sie können in Katalogen, Dateien oder HTTP-Headern stehen. HTML-meta-Elemente sind nur eine mögliche Form. Der Eintrag enthält noch keine Erklärung zu Schleifen.",
+      "hu": {
+        "question": "A JSON-részlet egy tananyag egyszerűsített katalógusbejegyzése, nem maga a dokumentum tartalma. Melyik besorolás helyes?",
+        "answers": [
+          "A cím és nyelv leírja a dokumentumot; a format a médiaformátumát jelöli. Ezek metaadatok.",
+          "Csak az id mező metaadat; a többi mező már a teljes tananyagot tartalmazza.",
+          "Metaadat kizárólag a HTML head részében lévő meta elemként létezik.",
+          "A JSON formátum automatikusan tényleges dokumentumtartalommá teszi a bejegyzést, leírás helyett."
+        ],
+        "explanation": "A metaadat más adatokat ír le. A cím és nyelv a megtalálást és besorolást, a médiaformátum a technikai kezelést segíti. Katalógusban, fájlban vagy HTTP-fejlécben is szerepelhet. A HTML meta eleme csak az egyik lehetséges forma. A bejegyzés még nem magyarázza el a ciklusokat."
+      },
+      "code": "{\n  \"id\": \"LAP-15-17\",\n  \"title\": \"Schleifen\",\n  \"language\": \"de\",\n  \"modified\": \"2026-10-14\",\n  \"format\": \"text/markdown\"\n}",
+      "codeLanguage": "json"
+    },
+    {
+      "id": "lap-LAP-11-37-2",
+      "revision": 1,
+      "topic": "Metadaten",
+      "source": {
+        "topicId": "LAP-11-37",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/37_Metadaten/README.md",
+        "slug": "11-37-metadaten"
+      },
+      "question": "Ein Thema heißt künftig „Schleifen mit Beispielen“ statt „Schleifen“. Es bleibt fachlich dasselbe Thema. Wie bleiben Verweise zwischen Lernseite und Quiz möglichst stabil?",
+      "answers": [
+        "Die Themen-ID bei jeder Titeländerung neu vergeben und alte Verweise unverändert lassen.",
+        "Den sichtbaren Titel als einzige Identität verwenden und alle bisherigen Titel als neue Themen zählen.",
+        "Die Sprachkennung als Themen-ID nutzen, weil mehrere deutsche Themen dieselbe Sprache haben.",
+        "Die dauerhafte Themen-ID beibehalten und Titel sowie betroffene Anzeige- oder Pfadangaben gezielt aktualisieren."
+      ],
+      "correct": 3,
+      "explanation": "Eine stabile ID trennt die Identität vom veränderlichen Namen oder Speicherort. Eine Titelkorrektur erzeugt dadurch kein neues Thema. Eine Inhaltsrevision kann zusätzlich festgehalten werden, ohne die Identität aufzugeben. Verweise auf konkrete Dateipfade müssen bei einer Verschiebung dennoch angepasst oder weitergeleitet werden.",
+      "hu": {
+        "question": "Egy téma neve „Schleifen” helyett „Schleifen mit Beispielen” lesz, szakmailag ugyanaz a téma marad. Hogyan maradnak stabilak a tananyag és kvíz közötti hivatkozások?",
+        "answers": [
+          "Minden címváltozáskor új témaazonosítót adunk, a régi hivatkozásokat pedig változatlanul hagyjuk.",
+          "Kizárólag a látható címet használjuk azonosítóként, és minden korábbi címet külön témaként számolunk.",
+          "A nyelvkódot használjuk témaazonosítóként, mert több német témának is ugyanaz a nyelve.",
+          "Megtartjuk az állandó témaazonosítót, és célzottan frissítjük a címet, valamint az érintett megjelenítési vagy útvonaladatokat."
+        ],
+        "explanation": "A stabil azonosító elválasztja az azonosságot a változó névtől vagy tárolási helytől. Így a cím javítása nem hoz létre új témát. A tartalmi verzió külön is rögzíthető az azonosság megtartásával. Konkrét fájlútvonalra mutató hivatkozásokat költöztetéskor ettől még frissíteni vagy átirányítani kell."
+      }
+    },
+    {
+      "id": "lap-LAP-11-37-3",
+      "revision": 1,
+      "topic": "Metadaten",
+      "source": {
+        "topicId": "LAP-11-37",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/37_Metadaten/README.md",
+        "slug": "11-37-metadaten"
+      },
+      "question": "Zwei Bearbeitungen wurden beide mit modified: \"2026-10-14\" gespeichert. Was lässt sich daraus über ihre zeitliche Reihenfolge ableiten?",
+      "answers": [
+        "Die Angabe belegt automatisch Mitternacht UTC als exakten Änderungszeitpunkt.",
+        "Der gespeicherte Kalendertag ist gleich; eine Reihenfolge innerhalb dieses Tages ist damit nicht belegt.",
+        "Die Bearbeitungen fanden nachweislich in derselben Sekunde statt.",
+        "Der Datensatz, der im JSON zuerst steht, wurde auch zeitlich zuerst bearbeitet."
+      ],
+      "correct": 1,
+      "explanation": "Ein Datum ohne Uhrzeit nennt einen Tag, keinen exakten Zeitpunkt. Für die Reihenfolge innerhalb eines Tages braucht man genauere Angaben, beispielsweise Zeitstempel mit UTC oder eindeutigem Offset. Auch dann muss die Anwendung definieren, was modified bedeutet, etwa letzte Inhaltsänderung statt letzter Export.",
+      "hu": {
+        "question": "Két szerkesztésnél is modified: \"2026-10-14\" szerepel. Mit állapíthatunk meg ebből az időbeli sorrendjükről?",
+        "answers": [
+          "Az adat automatikusan éjfél UTC-t jelöl pontos módosítási időpontként.",
+          "A tárolt naptári nap azonos; az ezen belüli sorrendet ez nem bizonyítja.",
+          "A szerkesztések bizonyíthatóan ugyanabban a másodpercben történtek.",
+          "A JSON-ban előbb álló rekordot időben is előbb szerkesztették."
+        ],
+        "explanation": "Egy idő nélküli dátum napot jelöl, nem pontos időpontot. Napon belüli sorrendhez részletesebb adat kell, például UTC-vel vagy egyértelmű időeltolással megadott időbélyeg. Emellett azt is rögzíteni kell, mit jelent a modified: például az utolsó tartalmi módosítást, nem az utolsó exportot."
+      }
+    },
+    {
+      "id": "lap-LAP-11-37-4",
+      "revision": 1,
+      "topic": "Metadaten",
+      "source": {
+        "topicId": "LAP-11-37",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/37_Metadaten/README.md",
+        "slug": "11-37-metadaten"
+      },
+      "question": "Eine Antwort trägt Content-Type: application/json. Der Client erwartet ein Objekt mit ganzzahligem score zwischen 0 und 5. Was muss er bei der Verarbeitung unterscheiden?",
+      "answers": [
+        "Nur die Dateiendung der URL; sie beweist die Struktur zuverlässiger als das Parsen des Inhalts.",
+        "Nur erfolgreiches JSON-Parsen; jeder gültige JSON-Wert erfüllt damit den Objektvertrag.",
+        "Angegebenen Medientyp, gültige JSON-Syntax und die zusätzlich vereinbarte Struktur samt Wertebereich.",
+        "Nur den Header; application/json bestätigt bereits alle erwarteten Felder und deren Wertebereiche."
+      ],
+      "correct": 2,
+      "explanation": "Content-Type beschreibt den angegebenen Medientyp der Repräsentation. Ob der Inhalt tatsächlich gültiges JSON ist, zeigt das Parsen. Ob dieses JSON den erwarteten Vertrag erfüllt, braucht weitere Prüfung: Auch eine Zahl oder ein Objekt mit score 99 kann syntaktisch gültiges JSON sein. Metadaten ersetzen keine Inhaltsvalidierung.",
+      "hu": {
+        "question": "Egy válasz Content-Type: application/json fejlécet kapott. A kliens olyan objektumot vár, amelyben a score 0 és 5 közötti egész szám. Mit kell megkülönböztetnie feldolgozáskor?",
+        "answers": [
+          "Csak az URL fájlkiterjesztését; az a tartalom feldolgozásánál megbízhatóbban bizonyítja a szerkezetet.",
+          "Csak a sikeres JSON-feldolgozást; minden érvényes JSON-érték teljesíti az objektumra vonatkozó szerződést.",
+          "A megadott médiatípust, az érvényes JSON-szintaxist és a külön megállapodott szerkezetet, értéktartománnyal együtt.",
+          "Csak a fejlécet; az application/json már minden várt mezőt és értéktartományt igazol."
+        ],
+        "explanation": "A Content-Type az ábrázolás megadott médiatípusát írja le. A feldolgozás mutatja meg, valóban érvényes JSON-e a tartalom. A várt szerződés teljesüléséhez további ellenőrzés kell: egy szám vagy score: 99 értéket tartalmazó objektum is lehet szintaktikailag érvényes JSON. A metaadat nem helyettesíti a tartalom ellenőrzését."
+      }
+    },
+    {
+      "id": "lap-LAP-11-37-5",
+      "revision": 1,
+      "topic": "Metadaten",
+      "source": {
+        "topicId": "LAP-11-37",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/37_Metadaten/README.md",
+        "slug": "11-37-metadaten"
+      },
+      "question": "Für eine öffentliche Projektdokumentation wird ein Foto exportiert. Die GPS-EXIF-Daten wurden entfernt, auf dem Bild ist aber noch ein Namensschild lesbar. Wie bewertest du das?",
+      "answers": [
+        "Die Standort-Metadaten wurden reduziert; der sichtbare Inhalt muss zusätzlich geprüft und gegebenenfalls anonymisiert werden.",
+        "Das Bild ist damit vollständig anonym, weil personenbezogene Daten ausschließlich in EXIF stehen.",
+        "Ein neues Dateiformat entfernt automatisch auch lesbare Namen aus den Bildpunkten.",
+        "Ein neutraler Dateiname genügt, um das sichtbare Namensschild nicht mehr zuordnen zu können."
+      ],
+      "correct": 0,
+      "explanation": "Metadaten können beispielsweise Standort oder Autor verraten. Sichtbare Gesichter, Namen und Adressen liegen dagegen im eigentlichen Bildinhalt. Eine sorgfältige Veröffentlichung prüft beides. Entfernte GPS-Daten sind ein sinnvoller Schritt, aber kein Beweis vollständiger Anonymität.",
+      "hu": {
+        "question": "Nyilvános projektdokumentációhoz exportálunk egy fényképet. A GPS-t tartalmazó EXIF-adatok eltűntek, de a képen még olvasható egy névtábla. Hogyan értékeled ezt?",
+        "answers": [
+          "Csökkentettük a helyadatokat tartalmazó metaadatokat; a látható tartalmat is ellenőrizni és szükség esetén anonimizálni kell.",
+          "A kép ezzel teljesen anonim, mert személyes adat kizárólag EXIF-ben szerepelhet.",
+          "Az új fájlformátum automatikusan eltávolítja a képpontokból az olvasható neveket is.",
+          "Egy semleges fájlnév elegendő ahhoz, hogy a látható névtábla többé ne legyen beazonosítható."
+        ],
+        "explanation": "A metaadat például helyet vagy szerzőt árulhat el. A látható arcok, nevek és címek viszont magában a képtartalomban szerepelnek. Gondos közzétételkor mindkettőt megvizsgáljuk. A GPS-adat eltávolítása hasznos lépés, de nem bizonyít teljes anonimitást."
+      }
+    },
+    {
+      "id": "lap-LAP-11-38-1",
+      "revision": 1,
+      "topic": "KISS und DRY",
+      "source": {
+        "topicId": "LAP-11-38",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/38_KISS_und_DRY/README.md",
+        "slug": "11-38-kiss_und_dry"
+      },
+      "question": "Ein fest vereinbarter Export soll nur Themen-ID und Titel als CSV liefern. Welche Lösung erfüllt diesen Bedarf am ehesten nach KISS?",
+      "answers": [
+        "Ein allgemeines Plugin-System für beliebige spätere Formate, bevor der erste CSV-Export fertig wird.",
+        "Die Variante mit den wenigsten Zeichen, auch wenn dadurch Namen und Kontrollfluss schwer verständlich sind.",
+        "Eine vollständig konfigurierbare Regelmaschine, damit keine zukünftige Anforderung mehr Codeänderungen braucht.",
+        "Eine kleine, verständliche Exportfunktion mit korrekter CSV-Behandlung und passenden Tests."
+      ],
+      "correct": 3,
+      "explanation": "KISS bevorzugt eine möglichst einfache, nachvollziehbare Lösung für die tatsächlichen Anforderungen. Einfach bedeutet nicht, notwendige Behandlung von Trennzeichen, Anführungszeichen oder Fehlern wegzulassen. Erweiterungen lohnen sich, wenn ein konkreter Bedarf ihren zusätzlichen Aufwand rechtfertigt.",
+      "hu": {
+        "question": "Egy rögzített igényű exportnak csak témaazonosítót és címet kell CSV-ként kiadnia. Melyik megoldás teljesíti ezt az igényt leginkább a KISS elv szerint?",
+        "answers": [
+          "Általános bővítményrendszer tetszőleges későbbi formátumokhoz, még az első CSV-export elkészülte előtt.",
+          "A legkevesebb karakterből álló változat, akkor is, ha emiatt nehezen érthetők a nevek és a vezérlés.",
+          "Teljesen konfigurálható szabálymotor, hogy semmilyen jövőbeli igényhez ne kelljen kódot módosítani.",
+          "Egy kicsi, érthető exportfüggvény helyes CSV-kezeléssel és megfelelő tesztekkel."
+        ],
+        "explanation": "A KISS a tényleges követelményekhez lehető legegyszerűbb, követhető megoldást részesíti előnyben. Az egyszerűség nem jelenti az elválasztójelek, idézőjelek vagy hibák szükséges kezelésének elhagyását. Bővítés akkor indokolt, ha konkrét igény igazolja a többletmunkát."
+      }
+    },
+    {
+      "id": "lap-LAP-11-38-2",
+      "revision": 1,
+      "topic": "KISS und DRY",
+      "source": {
+        "topicId": "LAP-11-38",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/38_KISS_und_DRY/README.md",
+        "slug": "11-38-kiss_und_dry"
+      },
+      "question": "In einer Übungsaufgabe gilt: maximal 10 Punkte, bestanden ab 6. Das ist keine offizielle LAP-Bewertung und keine bestehende CoderQuiz-Notenregel. Was gibt die gemeinsame Funktion aus?",
+      "answers": [
+        "Die Funktion wirft bereits beim Aufruf mit 5 einen RangeError.",
+        "false, true, true, jeweils in einer eigenen Zeile.",
+        "false, false, true, jeweils in einer eigenen Zeile.",
+        "true, true, false, jeweils in einer eigenen Zeile."
+      ],
+      "correct": 1,
+      "explanation": "5 ist gültig, liegt aber unter der Grenze. 6 erreicht sie genau, 10 liegt darüber. Die Funktion bündelt die fachliche Entscheidung und prüft den zulässigen Eingabebereich. Ergebnisansicht und Zusammenfassung können dieselbe Regel nutzen, statt ihre eigenen abweichenden Kopien zu pflegen.",
+      "hu": {
+        "question": "Egy gyakorlófeladat szabálya: legfeljebb 10 pont szerezhető, 6-tól sikeres. Ez nem hivatalos LAP-értékelés és nem meglévő CoderQuiz-osztályozás. Mit ír ki a közös függvény?",
+        "answers": [
+          "A függvény már az 5-tel történő híváskor RangeError hibát dob.",
+          "false, true, true, külön-külön sorban.",
+          "false, false, true, külön-külön sorban.",
+          "true, true, false, külön-külön sorban."
+        ],
+        "explanation": "Az 5 érvényes érték, de a határ alatt van. A 6 pontosan eléri, a 10 fölötte van. A függvény egy helyen tartja a szakmai döntést, és ellenőrzi az érvényes bemeneti tartományt. Az eredménynézet és összesítés ugyanazt a szabályt használhatja, eltérő saját másolatok helyett."
+      },
+      "code": "function isPassingScore(score) {\n  if (!Number.isInteger(score) || score < 0 || score > 10) {\n    throw new RangeError(\"score must be an integer from 0 to 10\");\n  }\n  return score >= 6;\n}\n\nconsole.log(isPassingScore(5));\nconsole.log(isPassingScore(6));\nconsole.log(isPassingScore(10));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "false",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-38-3",
+      "revision": 1,
+      "topic": "KISS und DRY",
+      "source": {
+        "topicId": "LAP-11-38",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/38_KISS_und_DRY/README.md",
+        "slug": "11-38-kiss_und_dry"
+      },
+      "question": "Eine Bewertungsregel wurde an zwei Stellen kopiert. Nach einer Änderung bewertet die Ergebnisansicht dieselbe Punktzahl anders als die Zusammenfassung. Was adressiert die Ursache im Sinne von DRY?",
+      "answers": [
+        "Die Abweichung allein durch gleiche Farben verdecken, damit beide Ansichten einheitlich aussehen.",
+        "Eine dritte Kopie ergänzen und bei Abweichungen das häufigste Ergebnis auswählen.",
+        "Die gemeinsame fachliche Regel an einer maßgeblichen Stelle pflegen und beide Ausgaben daraus ableiten.",
+        "Nur beide Variablen gleich benennen, aber die beiden Berechnungen weiterhin unabhängig pflegen."
+      ],
+      "correct": 2,
+      "explanation": "DRY betrifft mehrfach gepflegtes Wissen. Zwei unabhängige Kopien derselben Regel können bei einer Änderung auseinanderlaufen. Eine gemeinsame Funktion oder geeignete zentrale Definition schafft eine klare Zuständigkeit. Tests sichern zusätzlich, dass ihre Aufrufer sie richtig nutzen.",
+      "hu": {
+        "question": "Egy értékelési szabály két helyre lett bemásolva. Módosítás után az eredménynézet és az összesítés másként értékeli ugyanazt a pontszámot. Mi kezeli az okot a DRY elv szerint?",
+        "answers": [
+          "Kizárólag azonos színekkel fedjük el az eltérést, hogy egységesnek tűnjön a két nézet.",
+          "Készítünk egy harmadik másolatot, és eltéréskor a leggyakoribb eredményt választjuk.",
+          "Egy mérvadó helyen tartjuk a közös szakmai szabályt, és mindkét kimenetet abból származtatjuk.",
+          "Csak a változókat nevezzük el egyformán, a két számítást továbbra is külön gondozzuk."
+        ],
+        "explanation": "A DRY a több helyen gondozott tudásról szól. Ugyanannak a szabálynak két független másolata változtatáskor eltérhet. Közös függvény vagy megfelelő központi meghatározás egyértelmű helyet ad a szabálynak. Tesztek biztosíthatják azt is, hogy a hívói megfelelően használják."
+      }
+    },
+    {
+      "id": "lap-LAP-11-38-4",
+      "revision": 1,
+      "topic": "KISS und DRY",
+      "source": {
+        "topicId": "LAP-11-38",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/38_KISS_und_DRY/README.md",
+        "slug": "11-38-kiss_und_dry"
+      },
+      "question": "Eine Übung gilt ab 6 Punkten als bestanden. Auf einer Katalogseite werden zufällig ebenfalls 6 Karten angezeigt. Sollen beide Werte dieselbe Konstante verwenden?",
+      "answers": [
+        "Nein, solange sie unabhängige Regeln beschreiben; gleiche Zahlen allein begründen keine gemeinsame Zuständigkeit.",
+        "Ja, jede mehrfach vorkommende Zahl muss unabhängig von ihrer Bedeutung zentral zusammengelegt werden.",
+        "Ja, damit eine Änderung der Seitengröße automatisch auch die Bewertung verändert.",
+        "Nein, weil DRY grundsätzlich verbietet, Konstanten oder Funktionen gemeinsam zu nutzen."
+      ],
+      "correct": 0,
+      "explanation": "Eine Bestehensgrenze und eine Seitengröße haben unterschiedliche Gründe, sich zu ändern. Ihr zufällig gleicher Wert ist noch kein dupliziertes Fachwissen. Sinnvolle Namen wie passingScore und cardsPerPage machen diese Unabhängigkeit sichtbar. Eine falsche Abstraktion würde Änderungen unnötig miteinander koppeln.",
+      "hu": {
+        "question": "Egy gyakorlat 6 ponttól sikeres. Egy katalógusoldalon véletlenül szintén 6 kártya jelenik meg. Ugyanazt a konstanst használja a két érték?",
+        "answers": [
+          "Nem, amíg független szabályokat írnak le; azonos számérték önmagában nem indokol közös meghatározást.",
+          "Igen, minden ismétlődő számot össze kell vonni központilag, a jelentésétől függetlenül.",
+          "Igen, hogy az oldalméret változtatása automatikusan az értékelést is módosítsa.",
+          "Nem, mert a DRY alapvetően tiltja a konstansok vagy függvények közös használatát."
+        ],
+        "explanation": "A sikerességi határ és az oldalméret különböző okokból változhat. A véletlenül azonos érték még nem ismétlődő szakmai tudás. A passingScore és cardsPerPage nevek láthatóvá teszik a függetlenséget. Egy rossz absztrakció szükségtelenül összekapcsolná a változtatásokat."
+      }
+    },
+    {
+      "id": "lap-LAP-11-38-5",
+      "revision": 1,
+      "topic": "KISS und DRY",
+      "source": {
+        "topicId": "LAP-11-38",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/38_KISS_und_DRY/README.md",
+        "slug": "11-38-kiss_und_dry"
+      },
+      "question": "Für eine geplante Anwendung prüft das Formular Eingaben sofort. Jemand möchte im Namen von KISS und DRY die serverseitige Prüfung entfernen. Welche Lösung ist angemessen?",
+      "answers": [
+        "Nur im Browser prüfen, weil eine doppelte Ausführung derselben Regel immer ein DRY-Verstoß ist.",
+        "Nur prüfen, ob die Anfrage von der vorgesehenen Seitenadresse kommt, und dann alle Werte übernehmen.",
+        "Die Serverprüfung durch ein ausgeblendetes Formularfeld mit dem Wert validated ersetzen.",
+        "Die Prüfung am Server beibehalten; gemeinsame Regeln gegebenenfalls wiederverwenden und die Browserprüfung für frühes Feedback nutzen."
+      ],
+      "correct": 3,
+      "explanation": "Der Browser kann umgangen oder verändert werden. Der Server muss Daten an seiner Vertrauensgrenze selbst prüfen. Regeln können geeignet geteilt werden, ohne die notwendige Prüfung an beiden Stellen abzuschaffen. KISS und DRY sollen Verständlichkeit und Konsistenz verbessern, nicht erforderliche Schutzmaßnahmen entfernen.",
+      "hu": {
+        "question": "Egy tervezett alkalmazás űrlapja azonnal ellenőrzi a bevitelt. Valaki KISS-re és DRY-ra hivatkozva elhagyná a szerveroldali ellenőrzést. Mi a megfelelő megoldás?",
+        "answers": [
+          "Csak a böngészőben ellenőrzünk, mert ugyanannak a szabálynak kétszeri végrehajtása mindig DRY-sértés.",
+          "Csak azt nézzük, a tervezett oldalcímről jött-e a kérés, majd minden értéket elfogadunk.",
+          "A szerverellenőrzést egy validated értékű rejtett űrlapmezővel helyettesítjük.",
+          "Megtartjuk a szerverellenőrzést; ahol indokolt, közösen használjuk a szabályokat, a böngészős ellenőrzés pedig korai visszajelzést ad."
+        ],
+        "explanation": "A böngésző megkerülhető vagy módosítható. A szervernek a bizalmi határán önállóan kell ellenőriznie az adatokat. A szabályok megfelelően megoszthatók úgy is, hogy mindkét helyen megmarad a szükséges ellenőrzés. A KISS és DRY az érthetőséget és következetességet szolgálja, nem az indokolt védelem eltávolítását."
+      }
+    },
+    {
+      "id": "lap-LAP-11-39-1",
+      "revision": 1,
+      "topic": "Coding Standards und Code Konventionen",
+      "source": {
+        "topicId": "LAP-11-39",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/39_Coding_Standards_und_Code_Konventionen/README.md",
+        "slug": "11-39-coding_standards_und_code_konventionen"
+      },
+      "question": "Ein Editor unterstützt EditorConfig. Für quiz.js gilt nur die gezeigte .editorconfig; es gibt keine näher gelegene Konfiguration. Welche Einstellungen ergeben sich daraus?",
+      "answers": [
+        "Die Einstellungen führen beim Speichern automatisch alle Tests des Projekts aus.",
+        "UTF-8, LF-Zeilenenden und eine abschließende neue Zeile; JavaScript wird mit zwei Leerzeichen eingerückt.",
+        "Nur zwei Leerzeichen; der Abschnitt für *.js hebt alle Einstellungen aus [*] vollständig auf.",
+        "UTF-8 und LF gelten nur für die .editorconfig selbst, nicht für quiz.js."
+      ],
+      "correct": 1,
+      "explanation": "Die passenden Abschnitte werden ausgewertet: [*] liefert allgemeine Einstellungen, [*.js] ergänzt die JavaScript-Einrückung. root = true beendet die Suche nach weiter oben liegenden EditorConfig-Dateien. Die Datei vereinheitlicht unterstützte Editorregeln, startet aber von sich aus weder Tests noch eine CI-Pipeline.",
+      "hu": {
+        "question": "Egy szerkesztő támogatja az EditorConfigot. A quiz.js fájlra csak a bemutatott .editorconfig érvényes, nincs közelebbi konfiguráció. Milyen beállítások következnek ebből?",
+        "answers": [
+          "A beállítások mentéskor automatikusan lefuttatják a projekt összes tesztjét.",
+          "UTF-8, LF sorvégek és lezáró újsor; JavaScriptben két szóközös behúzás.",
+          "Csak két szóköz; a *.js szakasz teljes egészében felülírja a [*] összes beállítását.",
+          "Az UTF-8 és LF csak magára a .editorconfig fájlra vonatkozik, a quiz.js-re nem."
+        ],
+        "explanation": "A megfelelő szakaszok együtt érvényesülnek: a [*] általános beállításokat ad, a [*.js] pedig kiegészíti őket a JavaScript behúzásával. A root = true leállítja a feljebb található EditorConfig-fájlok keresését. A fájl egységesíti a támogatott szerkesztőszabályokat, de önmagában sem tesztet, sem CI-folyamatot nem indít."
+      },
+      "code": "root = true\n\n[*]\ncharset = utf-8\nend_of_line = lf\ninsert_final_newline = true\n\n[*.js]\nindent_style = space\nindent_size = 2",
+      "codeLanguage": "ini"
+    },
+    {
+      "id": "lap-LAP-11-39-2",
+      "revision": 1,
+      "topic": "Coding Standards und Code Konventionen",
+      "source": {
+        "topicId": "LAP-11-39",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/39_Coding_Standards_und_Code_Konventionen/README.md",
+        "slug": "11-39-coding_standards_und_code_konventionen"
+      },
+      "question": "Ein Team möchte Einrückung und Zeilenumbrüche automatisch vereinheitlichen. Welches Werkzeug hat genau diesen Schwerpunkt?",
+      "answers": [
+        "Ein Lasttest für die Antwortzeiten des Servers.",
+        "Ein manueller Test der Tastaturbedienung.",
+        "Ein Formatter mit gemeinsam vereinbarter Konfiguration.",
+        "Ein Unit-Test für die fachliche Punkteberechnung."
+      ],
+      "correct": 2,
+      "explanation": "Ein Formatter erzeugt einheitliches Layout für Quelltext. Ein Linter prüft konfigurierte Code-Regeln und kann je nach Regel auch verdächtige Stellen erkennen. Tests untersuchen bestimmtes Verhalten. Diese Aufgaben ergänzen sich; korrekt formatierter Code ist noch kein Nachweis fachlicher Richtigkeit.",
+      "hu": {
+        "question": "Egy csapat automatikusan egységesítené a behúzást és sortöréseket. Melyik eszköznek pontosan ez a fő feladata?",
+        "answers": [
+          "A szerver válaszidejét mérő terheléses tesztnek.",
+          "A billentyűzetes kezelést vizsgáló kézi tesztnek.",
+          "Közösen elfogadott konfigurációjú formázónak.",
+          "A szakmai pontszámítást ellenőrző egységtesztnek."
+        ],
+        "explanation": "A formázó egységes elrendezést készít a forráskódhoz. A linter beállított kódszabályokat vizsgál, és a szabálytól függően gyanús megoldásokat is felismerhet. A teszt meghatározott viselkedést ellenőriz. Ezek kiegészítik egymást; a helyes formázás még nem bizonyít szakmai helyességet."
+      }
+    },
+    {
+      "id": "lap-LAP-11-39-3",
+      "revision": 1,
+      "topic": "Coding Standards und Code Konventionen",
+      "source": {
+        "topicId": "LAP-11-39",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/39_Coding_Standards_und_Code_Konventionen/README.md",
+        "slug": "11-39-coding_standards_und_code_konventionen"
+      },
+      "question": "Die Funktion verarbeitet eine Dauer in Minuten. Welche Aussage verbindet Ausgabe und verständliche Namensgebung richtig?",
+      "answers": [
+        "Sie gibt 150 aus; minutes und durationSeconds machen die unterschiedlichen Einheiten sichtbar.",
+        "Sie gibt 2.5 aus; aussagekräftige Variablennamen verhindern jede Umrechnung.",
+        "Sie gibt 250 aus; Dezimalstellen werden bei Zeitangaben automatisch als Hundertstel verarbeitet.",
+        "Sie gibt 150 aus; der Name durationSeconds erzwingt in JavaScript automatisch die Einheit Sekunden."
+      ],
+      "correct": 0,
+      "explanation": "2.5 Minuten werden durch Multiplikation mit 60 zu 150 Sekunden. Die Namen erklären den Vertrag für Menschen, erzwingen zur Laufzeit aber weder einen Datentyp noch eine Einheit. Tests für bekannte Eingaben und passende Eingabeprüfungen bleiben wichtig. Im Beispiel ist eine gültige numerische Minutenzahl vorgegeben.",
+      "hu": {
+        "question": "A függvény percekben megadott időtartamot dolgoz fel. Melyik állítás kapcsolja össze helyesen a kimenetet és az érthető elnevezést?",
+        "answers": [
+          "150-et ír ki; a minutes és durationSeconds láthatóvá teszi az eltérő mértékegységeket.",
+          "2.5-et ír ki; a beszédes változónevek megakadályoznak minden átváltást.",
+          "250-et ír ki; időadatoknál a tizedesjegyeket automatikusan századrészként dolgozza fel.",
+          "150-et ír ki; a durationSeconds név JavaScriptben automatikusan kikényszeríti a másodperc mértékegységet."
+        ],
+        "explanation": "2.5 perc 60-nal szorozva 150 másodperc. A nevek az ember számára magyarázzák a szerződést, futás közben azonban nem kényszerítenek ki típust vagy mértékegységet. Ismert bemenetek tesztje és megfelelő bemenetellenőrzés továbbra is fontos. A példában érvényes, számszerű percérték adott."
+      },
+      "code": "function toSeconds(minutes) {\n  return minutes * 60;\n}\n\nconst durationSeconds = toSeconds(2.5);\nconsole.log(durationSeconds);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "150"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-39-4",
+      "revision": 1,
+      "topic": "Coding Standards und Code Konventionen",
+      "source": {
+        "topicId": "LAP-11-39",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/39_Coding_Standards_und_Code_Konventionen/README.md",
+        "slug": "11-39-coding_standards_und_code_konventionen"
+      },
+      "question": "Ein Quiz speichert nach jeder Antwort lokal. Welcher Kommentar ergänzt verständlichen Code am sinnvollsten?",
+      "answers": [
+        "\"Die Funktion saveSession wird jetzt mit dem Argument session aufgerufen.\"",
+        "\"Diese Zeile folgt auf die vorherige Zeile und steht vor der nächsten.\"",
+        "\"Hier wird Code ausgeführt; die genaue Absicht ergibt sich irgendwann aus der Historie.\"",
+        "\"Nach jeder Antwort speichern, damit ein Neuladen nicht die gesamte laufende Runde verwirft.\""
+      ],
+      "correct": 3,
+      "explanation": "Ein hilfreicher Kommentar erklärt eine Absicht, Einschränkung oder ungewöhnliche Entscheidung. Er wiederholt nicht bloß die ohnehin sichtbare Syntax. Hier begründet er den Speicherzeitpunkt. Klare Namen, kurze Funktionen und aktuelle Kommentare unterstützen das gemeinsame Verständnis.",
+      "hu": {
+        "question": "Egy kvíz minden válasz után helyben ment. Melyik megjegyzés egészíti ki legjobban az érthető kódot?",
+        "answers": [
+          "\"Most meghívjuk a saveSession függvényt a session argumentummal.\"",
+          "\"Ez a sor az előző sor után és a következő sor előtt áll.\"",
+          "\"Itt kód hajtódik végre; a pontos szándék egyszer majd kiderül az előzményekből.\"",
+          "\"Minden válasz után mentünk, hogy az újratöltés ne dobja el a teljes folyamatban lévő kört.\""
+        ],
+        "explanation": "A hasznos megjegyzés szándékot, korlátot vagy szokatlan döntést magyaráz. Nem pusztán a már látható szintaxist ismétli. Itt a mentés időpontját indokolja. Világos nevek, rövid függvények és naprakész megjegyzések segítik a közös megértést."
+      }
+    },
+    {
+      "id": "lap-LAP-11-39-5",
+      "revision": 1,
+      "topic": "Coding Standards und Code Konventionen",
+      "source": {
+        "topicId": "LAP-11-39",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/39_Coding_Standards_und_Code_Konventionen/README.md",
+        "slug": "11-39-coding_standards_und_code_konventionen"
+      },
+      "question": "Ein PR korrigiert eine kleine Berechnung und formatiert gleichzeitig 80 unbeteiligte Dateien neu. Wie wird die fachliche Prüfung leichter?",
+      "answers": [
+        "Die Formatierungsregeln nur mündlich weitergeben und auf eine gemeinsame Konfiguration verzichten.",
+        "Sachliche Korrektur und großflächige Formatierung trennen und die gemeinsame Formatregel anschließend automatisch prüfen.",
+        "Alle Unterschiede ungeprüft übernehmen, sobald der Formatter erfolgreich endet.",
+        "Den Berechnungstest entfernen, damit die Änderung weniger Dateien umfasst."
+      ],
+      "correct": 1,
+      "explanation": "Ein fokussierter Unterschied zwischen Versionen lässt die eigentliche Verhaltensänderung leichter erkennen. Eine getrennte Formatierung kann sinnvoll sein, ohne jede fachliche Änderung darin zu verstecken. Gemeinsame Konfiguration und automatische Prüfungen reduzieren spätere Stilkonflikte. Ein Review bleibt für Anforderungen und Verständlichkeit wichtig.",
+      "hu": {
+        "question": "Egy PR kis számítási javítást tartalmaz, közben 80 nem érintett fájlt is újraformáz. Hogyan lesz könnyebb a szakmai átnézés?",
+        "answers": [
+          "Csak szóban adjuk tovább a formázási szabályokat, közös konfiguráció nélkül.",
+          "Különválasztjuk a szakmai javítást és a tömeges formázást, majd automatikusan ellenőrizzük a közös formázási szabályt.",
+          "Átnézés nélkül elfogadunk minden eltérést, ha a formázó sikeresen lefutott.",
+          "Eltávolítjuk a számítás tesztjét, hogy kevesebb fájlt érintsen a változtatás."
+        ],
+        "explanation": "A célzott verziókülönbségben könnyebb felismerni a tényleges működésváltozást. A külön formázás indokolt lehet úgy is, hogy nem rejti el a szakmai javítást. Közös konfiguráció és automatikus ellenőrzés csökkenti a későbbi stílusvitákat. A követelmények és érthetőség vizsgálatához az emberi átnézés is fontos."
+      }
+    },
+    {
+      "id": "lap-LAP-11-40-1",
+      "revision": 1,
+      "topic": "Cross Plattform Entwicklung",
+      "source": {
+        "topicId": "LAP-11-40",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/40_Cross_Plattform_Entwicklung/README.md",
+        "slug": "11-40-cross_plattform_entwicklung"
+      },
+      "question": "Angenommen, aus dem Browserquiz soll zusätzlich eine mobile App entstehen. Fragen und Bewertungsregeln sind gleich, die Speicherung verwendet unterschiedliche Plattform-APIs. Welche Aufteilung ist zweckmäßig?",
+      "answers": [
+        "Die Browser-Speicher-API überall direkt aufrufen und ihre Verfügbarkeit auf jeder Plattform voraussetzen.",
+        "Plattformspezifische Unterschiede in jeder Bewertungsfunktion erneut mit Betriebssystemabfragen behandeln.",
+        "Gemeinsame Daten und Regeln wiederverwenden; Speicherung hinter einer klaren Schnittstelle je Plattform umsetzen.",
+        "Alle Fragen und Regeln getrennt kopieren, damit selbst fachlich identische Änderungen doppelt gepflegt werden."
+      ],
+      "correct": 2,
+      "explanation": "Mehrplattform-Entwicklung teilt geeignete Teile, nicht zwingend jede Zeile. Ein kleiner Adapter kann eine gemeinsame Speicherschnittstelle mit der jeweiligen Plattform-API verbinden. Fachliche Regeln bleiben dadurch unabhängig von Browser-, Android- oder iOS-Details. Die mobile App ist hier eine Planungsaufgabe, kein bereits veröffentlichtes Produkt.",
+      "hu": {
+        "question": "Tegyük fel, hogy a böngészős kvízből mobilalkalmazás is készülne. A kérdések és értékelési szabályok azonosak, a tárolás eltérő platform-API-kat használ. Milyen felosztás célszerű?",
+        "answers": [
+          "Mindenhol közvetlenül a böngésző tároló-API-ját hívjuk, és minden platformon feltételezzük az elérhetőségét.",
+          "Minden értékelőfüggvényben újra operációsrendszer-vizsgálatokkal kezeljük a platformkülönbségeket.",
+          "Közösen használjuk az adatokat és szabályokat; a tárolást világos interfész mögött platformonként valósítjuk meg.",
+          "Külön másoljuk az összes kérdést és szabályt, hogy a szakmailag azonos változtatásokat is kétszer kelljen gondozni."
+        ],
+        "explanation": "A többplatformos fejlesztés a megfelelő részeket osztja meg, nem feltétlenül minden sort. Egy kis adapter közös tárolási interfészt kapcsolhat az adott platform API-jához. A szakmai szabály így független marad a böngésző, Android vagy iOS részleteitől. A mobilapp itt tervezési feladat, nem már kiadott termék."
+      }
+    },
+    {
+      "id": "lap-LAP-11-40-2",
+      "revision": 1,
+      "topic": "Cross Plattform Entwicklung",
+      "source": {
+        "topicId": "LAP-11-40",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/40_Cross_Plattform_Entwicklung/README.md",
+        "slug": "11-40-cross_plattform_entwicklung"
+      },
+      "question": "Für eine App werden Flutter, React Native und eine native Umsetzung verglichen. Offline-Nutzung und eine bestimmte Gerätefunktion sind wichtig. Was trägt die Entscheidung am besten?",
+      "answers": [
+        "Ein kleiner Prototyp der kritischen Funktionen auf den Zielgeräten, ergänzt um Wartungsaufwand und Teamkenntnisse.",
+        "Die Annahme, dass plattformübergreifend grundsätzlich langsam und nativ grundsätzlich fehlerfrei bedeutet.",
+        "Nur die Anzahl der Programmiersprachen; Gerätefunktionen werden von allen Ansätzen automatisch gleich unterstützt.",
+        "Ausschließlich ein Desktop-Browser-Test, weil geteilte Quelltexte identisches Geräteverhalten garantieren."
+      ],
+      "correct": 0,
+      "explanation": "Frameworks können Entwicklungsaufwand sparen, bringen aber eigene Laufzeiten, Bibliotheken und Plattformgrenzen mit. Entscheidend sind die konkreten Anforderungen: verfügbare Geräte-APIs, Offline-Verhalten, Bedienung und gemessene Leistung. Eine pauschale Rangfolge ersetzt keinen passenden Vergleich auf den Zielgeräten.",
+      "hu": {
+        "question": "Egy apphoz Fluttert, React Native-ot és natív megoldást hasonlítanak össze. Fontos az offline használat és egy meghatározott eszközfunkció. Mi alapozza meg legjobban a döntést?",
+        "answers": [
+          "A kritikus funkciók kis prototípusa a céleszközökön, a karbantartási igény és csapattudás figyelembevételével.",
+          "Az a feltételezés, hogy a többplatformos eleve lassú, a natív pedig eleve hibamentes.",
+          "Csak a programozási nyelvek száma; az eszközfunkciókat minden megközelítés automatikusan ugyanúgy támogatja.",
+          "Kizárólag egy asztali böngészőteszt, mert a közös forráskód azonos eszközviselkedést garantál."
+        ],
+        "explanation": "A keretrendszerek fejlesztési munkát takaríthatnak meg, de saját futtatókörnyezetet, könyvtárakat és platformkorlátokat hoznak. A konkrét követelmény dönt: elérhető eszköz-API-k, offline viselkedés, kezelés és mért teljesítmény. Általános rangsor nem helyettesíti a céleszközökön végzett megfelelő összehasonlítást."
+      }
+    },
+    {
+      "id": "lap-LAP-11-40-3",
+      "revision": 1,
+      "topic": "Cross Plattform Entwicklung",
+      "source": {
+        "topicId": "LAP-11-40",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/40_Cross_Plattform_Entwicklung/README.md",
+        "slug": "11-40-cross_plattform_entwicklung"
+      },
+      "question": "Ein HTML-Dokument verweist auf assets/Logo.svg, die Datei heißt aber logo.svg. Auf dem lokalen Windows-Dateisystem funktioniert der Zugriff, auf dem Linux-Server nicht. Was ist die passende Korrektur?",
+      "answers": [
+        "Nur den Browsercache leeren; die unterschiedliche Schreibweise im Quelltext kann unverändert bleiben.",
+        "Nur den MIME-Typ auf image/svg+xml setzen; dadurch werden die beiden Dateinamen gleichgesetzt.",
+        "Nur Leserechte ergänzen; ein abweichender Großbuchstabe spielt bei Linux-Dateipfaden keine Rolle.",
+        "Dateiname und Verweis exakt angleichen und den gebauten Stand in der Zielumgebung prüfen."
+      ],
+      "correct": 3,
+      "explanation": "Viele Windows-Dateisystemkonfigurationen behandeln Groß- und Kleinschreibung bei Dateinamen anders als typische Linux-Dateisysteme. Portable Verweise stimmen exakt mit dem gespeicherten Namen überein. Auch ein sauberer Build oder frischer Checkout hilft, lokal vorhandene, aber nicht versionierte Dateien aufzudecken.",
+      "hu": {
+        "question": "Egy HTML-dokumentum az assets/Logo.svg fájlra hivatkozik, de a fájl neve logo.svg. A helyi Windows-fájlrendszeren működik, a Linux-szerveren nem. Mi a megfelelő javítás?",
+        "answers": [
+          "Csak a böngésző gyorsítótárát ürítjük; a forrás eltérő írásmódja változatlan maradhat.",
+          "Csak image/svg+xml MIME-típust állítunk be; ez egyenértékűvé teszi a két fájlnevet.",
+          "Csak olvasási jogot adunk; az eltérő nagybetűnek Linux-fájlútvonalnál nincs szerepe.",
+          "Pontosan egyeztetjük a fájlnevet és hivatkozást, majd ellenőrizzük a kész buildet a célkörnyezetben."
+        ],
+        "explanation": "Sok Windows-fájlrendszer-beállítás a fájlnevek kis- és nagybetűit másként kezeli, mint a tipikus Linux-fájlrendszerek. Hordozható hivatkozásnál a tárolt név pontosan egyezik. Tiszta build vagy friss checkout a helyben létező, de nem verziókezelt fájlokat is segít észrevenni."
+      }
+    },
+    {
+      "id": "lap-LAP-11-40-4",
+      "revision": 1,
+      "topic": "Cross Plattform Entwicklung",
+      "source": {
+        "topicId": "LAP-11-40",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/40_Cross_Plattform_Entwicklung/README.md",
+        "slug": "11-40-cross_plattform_entwicklung"
+      },
+      "question": "Der Code verwendet die standardisierte URL-API, verfügbar in aktuellen Browsern und Node.js. Was wird ausgegeben, unabhängig vom Dateipfad-Trennzeichen des Betriebssystems?",
+      "answers": [
+        "https://example.test/api/../topics?page=2",
+        "https://example.test/api/topics?page=2",
+        "https://example.test/api/v1/topics?page=2",
+        "https://example.test/topics?page=2"
+      ],
+      "correct": 1,
+      "explanation": "Die Basis endet auf /api/v1/. Der relative Pfad ../topics geht eine Ebene zurück und wird zu /api/topics. searchParams ergänzt den Query-Parameter. Webadressen folgen URL-Regeln; Betriebssystem-Dateipfadhelfer sind dafür kein Ersatz. Die reservierte Beispieldomain wird hier nicht aufgerufen.",
+      "hu": {
+        "question": "A kód a szabványos URL API-t használja, amely mai böngészőkben és Node.js-ben elérhető. Mit ír ki, az operációs rendszer fájlútvonal-elválasztójától függetlenül?",
+        "answers": [
+          "https://example.test/api/../topics?page=2",
+          "https://example.test/api/topics?page=2",
+          "https://example.test/api/v1/topics?page=2",
+          "https://example.test/topics?page=2"
+        ],
+        "explanation": "Az alap /api/v1/ végű. A ../topics relatív útvonal egy szinttel visszalép, így /api/topics lesz belőle. A searchParams hozzáadja a lekérdezési paramétert. A webcímek URL-szabályokat követnek; az operációs rendszer fájlútvonal-kezelője nem helyettesíti ezt. A fenntartott példadomaint a kód nem hívja meg."
+      },
+      "code": "const endpoint = new URL(\"../topics\", \"https://example.test/api/v1/\");\nendpoint.searchParams.set(\"page\", \"2\");\nconsole.log(endpoint.href);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "https://example.test/api/topics?page=2"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-40-5",
+      "revision": 1,
+      "topic": "Cross Plattform Entwicklung",
+      "source": {
+        "topicId": "LAP-11-40",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/40_Cross_Plattform_Entwicklung/README.md",
+        "slug": "11-40-cross_plattform_entwicklung"
+      },
+      "question": "Eine Seite passt sich im Desktop-DevTools-Modus gut an 390 Pixel Breite an. Was ist damit für die geplante Nutzung auf iOS und Android belegt?",
+      "answers": [
+        "Die native Installation als Android- und iOS-App ohne weitere technische Voraussetzungen.",
+        "Die garantierte Offline-Verfügbarkeit, weil Media Queries den Inhalt automatisch lokal speichern.",
+        "Die untersuchte Layout-Anpassung; echte Geräte, Eingaben, Berechtigungen und Plattform-APIs brauchen weitere passende Prüfungen.",
+        "Die vollständige Gleichheit von Dateizugriff, Bildschirmtastatur und Berechtigungsdialogen auf allen Geräten."
+      ],
+      "correct": 2,
+      "explanation": "Responsive Design betrifft die Anpassung der Darstellung. Mehrplattform-Tauglichkeit umfasst zusätzlich Verhalten und verfügbare Funktionen. Ein schmaler Desktop-Viewport simuliert weder vollständig Safari auf iOS noch eine echte Bildschirmtastatur. Deshalb ergänzen gezielte Gerätetests die Layout-Prüfung.",
+      "hu": {
+        "question": "Egy oldal az asztali DevTools 390 pixeles nézetében jól alkalmazkodik. Mit bizonyít ez a tervezett iOS- és Android-használathoz?",
+        "answers": [
+          "A natív Android- és iOS-appként telepíthetőséget további technikai feltételek nélkül.",
+          "A garantált offline elérhetőséget, mert a médiakérdések automatikusan helyben tárolják a tartalmat.",
+          "A vizsgált elrendezési alkalmazkodást; valódi eszközök, bevitelek, engedélyek és platform-API-k további megfelelő ellenőrzést igényelnek.",
+          "A fájlelérés, képernyő-billentyűzet és engedélykérő ablakok teljes azonosságát minden eszközön."
+        ],
+        "explanation": "A reszponzív design a megjelenés alkalmazkodásával foglalkozik. A többplatformos használhatósághoz a viselkedés és elérhető funkciók is hozzátartoznak. Egy keskeny asztali nézet nem szimulálja teljesen az iOS Safarit vagy a valódi képernyő-billentyűzetet. Ezért célzott eszköztesztek egészítik ki az elrendezés ellenőrzését."
+      }
+    },
+    {
+      "id": "lap-LAP-11-41-1",
+      "revision": 1,
+      "topic": "Continuous Integration",
+      "source": {
+        "topicId": "LAP-11-41",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/41_Continuous_Integration/README.md",
+        "slug": "11-41-continuous_integration"
+      },
+      "question": "Zwei Quiz-Branches bestehen ihre eigenen Tests. Einer ändert score zu correctAnswers, der andere liest weiterhin score. Welche CI-Praxis hilft, den Integrationskonflikt früh zu erkennen?",
+      "answers": [
+        "Kleine Änderungen regelmäßig zusammenführen und auch den gemeinsam verwendeten Datenvertrag im integrierten Stand testen.",
+        "Beide Branches wochenlang getrennt halten und nur ihre unveränderten Einzeltests erneut starten.",
+        "Nur prüfen, ob beide Branch-Namen derselben Namenskonvention entsprechen.",
+        "Erst nach dem Produktionsdeploy testen, ob die beiden Oberflächen dieselben Felder erwarten."
+      ],
+      "correct": 0,
+      "explanation": "Continuous Integration verbindet häufige Integration mit automatischer Rückmeldung. Isoliert grüne Tests beweisen nicht, dass zwei Änderungen zusammenpassen. Ein Test zwischen Erzeuger und Verbraucher der Daten kann die abweichenden Feldnamen aufdecken. Kleine Änderungen erleichtern außerdem die Ursachenfindung.",
+      "hu": {
+        "question": "Két Quiz-ág saját tesztjei sikeresek. Az egyik score helyett correctAnswers mezőt használ, a másik továbbra is score-t olvas. Melyik CI-gyakorlat segít korán felismerni az integrációs ütközést?",
+        "answers": [
+          "Kis változtatásokat rendszeresen összevezetünk, és az integrált állapotban a közösen használt adatszerződést is teszteljük.",
+          "Hetekig külön tartjuk a két ágat, és csak a változatlan saját tesztjeiket indítjuk újra.",
+          "Kizárólag azt ellenőrizzük, hogy mindkét ág neve megfelel-e ugyanannak az elnevezési szabálynak.",
+          "Csak az éles deploy után teszteljük, hogy a két felület ugyanazokat a mezőket várja-e."
+        ],
+        "explanation": "A folyamatos integráció a gyakori összevezetést automatikus visszajelzéssel kapcsolja össze. A külön-külön zöld teszt nem bizonyítja, hogy két változtatás együtt is működik. Az adat előállítója és felhasználója közötti teszt felfedheti az eltérő mezőneveket. Kis változtatásoknál az okot is könnyebb megtalálni."
+      }
+    },
+    {
+      "id": "lap-LAP-11-41-2",
+      "revision": 1,
+      "topic": "Continuous Integration",
+      "source": {
+        "topicId": "LAP-11-41",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/41_Continuous_Integration/README.md",
+        "slug": "11-41-continuous_integration"
+      },
+      "question": "Dieser Ausschnitt gehört zu einem GitHub-Actions-Job. Checkout und Node-Einrichtung sind bereits erfolgreich. Es gibt keine zusätzlichen if- oder continue-on-error-Einstellungen. Der Testschritt endet mit Exitcode 1. Was geschieht mit Build?",
+      "answers": [
+        "Build läuft unverändert weiter, weil die Reihenfolge unter steps keine Bedeutung hat.",
+        "Build wird automatisch mit einem älteren erfolgreichen Quelltextstand ausgeführt.",
+        "Build gilt als bestanden, weil jeder nicht ausgeführte Build ein getestetes Artefakt erzeugt.",
+        "Build wird übersprungen, weil der vorausgehende Schritt fehlgeschlagen ist."
+      ],
+      "correct": 3,
+      "explanation": "Schritte werden in Reihenfolge ausgeführt. Ohne abweichende Bedingung gilt die Erfolgsbedingung success(); nach einem fehlgeschlagenen Schritt läuft der folgende normale Schritt nicht. Ein Exitcode ungleich null signalisiert hier den Fehler. Ein übersprungener Build liefert kein geprüftes neues Auslieferungspaket.",
+      "hu": {
+        "question": "Ez a részlet egy GitHub Actions job része. A checkout és Node-beállítás már sikerült. Nincs további if vagy continue-on-error beállítás. A tesztlépés 1-es kilépési kóddal zárul. Mi történik a Build lépéssel?",
+        "answers": [
+          "A Build változatlanul lefut, mert a steps alatti sorrendnek nincs jelentősége.",
+          "A Build automatikusan egy régebbi, sikeres forráskódállapottal fut le.",
+          "A Build sikeresnek számít, mert minden kihagyott build tesztelt csomagot hoz létre.",
+          "A Build kimarad, mert az előző lépés sikertelen volt."
+        ],
+        "explanation": "A lépések sorrendben futnak. Eltérő feltétel nélkül a success() sikerfeltétel érvényesül; sikertelen lépés után a következő szokásos lépés nem fut. A nullától eltérő kilépési kód itt hibát jelez. Egy kihagyott build nem ad ellenőrzött új kiadási csomagot."
+      },
+      "code": "steps:\n  - name: Tests\n    run: node --test tests/*.test.cjs\n  - name: Build\n    run: node scripts/build-static.cjs",
+      "codeLanguage": "yaml"
+    },
+    {
+      "id": "lap-LAP-11-41-3",
+      "revision": 1,
+      "topic": "Continuous Integration",
+      "source": {
+        "topicId": "LAP-11-41",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/41_Continuous_Integration/README.md",
+        "slug": "11-41-continuous_integration"
+      },
+      "question": "In einem Node-Projekt mit npm-Abhängigkeiten widersprechen sich package.json und package-lock.json. Was tut npm ci?",
+      "answers": [
+        "Es ersetzt die Versionsangaben durch die neuesten verfügbaren Hauptversionen.",
+        "Es bricht mit einem Fehler ab, statt die Lockdatei still an package.json anzupassen.",
+        "Es aktualisiert die Lockdatei automatisch und committet sie direkt in den Hauptbranch.",
+        "Es ignoriert package.json vollständig und erklärt jede vorhandene Lockdatei für passend."
+      ],
+      "correct": 1,
+      "explanation": "npm ci ist für eine saubere Installation anhand einer vorhandenen passenden Lockdatei gedacht. Nicht zusammenpassende Angaben führen zu einem Fehler. Die beabsichtigte Abhängigkeitsänderung wird bewusst vorbereitet, geprüft und zusammen mit der Lockdatei versioniert. CoderQuiz selbst benötigt derzeit keine npm-Paketinstallation; dies ist ein allgemeines Node-Projektbeispiel.",
+      "hu": {
+        "question": "Egy npm-függőségeket használó Node-projektben ellentmond egymásnak a package.json és package-lock.json. Mit tesz az npm ci?",
+        "answers": [
+          "A verziómegadásokat lecseréli a legújabb elérhető főverziókra.",
+          "Hibával leáll, ahelyett hogy csendben a package.json-hoz igazítaná a lockfájlt.",
+          "Automatikusan frissíti a lockfájlt, és közvetlenül a főágra commitolja.",
+          "Teljesen figyelmen kívül hagyja a package.json-t, és minden meglévő lockfájlt megfelelőnek tekint."
+        ],
+        "explanation": "Az npm ci meglévő, megfelelő lockfájl alapján végzett tiszta telepítésre való. Az össze nem illő adatok hibát eredményeznek. A szándékos függőségmódosítást tudatosan előkészítjük, ellenőrizzük és a lockfájllal együtt verziókezeljük. Magához a CoderQuizhez jelenleg nem kell npm-csomagtelepítés; ez általános Node-projektpélda."
+      }
+    },
+    {
+      "id": "lap-LAP-11-41-4",
+      "revision": 1,
+      "topic": "Continuous Integration",
+      "source": {
+        "topicId": "LAP-11-41",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/41_Continuous_Integration/README.md",
+        "slug": "11-41-continuous_integration"
+      },
+      "question": "Ein PR hatte grüne Tests. Danach wurde noch eine Berechnung geändert; die Tests zum neuen Commit laufen noch. Worauf darf sich eine Freigabe dieses neuen Stands stützen?",
+      "answers": [
+        "Nur auf die Aussage, dass sich lediglich wenige Zeichen geändert haben.",
+        "Auf irgendeinen erfolgreichen Lauf desselben Workflows aus der letzten Woche.",
+        "Auf passende erfolgreiche Prüfungen des aktuellen Stands, einschließlich relevanter Integration mit dem Zielbranch.",
+        "Auf den grünen Status des vorherigen Commits, weil beide dieselbe PR-Nummer haben."
+      ],
+      "correct": 2,
+      "explanation": "Ein Prüfergebnis gehört zum tatsächlich geprüften Quelltextstand. Eine spätere Änderung kann das Verhalten verändern, auch wenn sie klein ist. Ebenso kann ein veränderter Zielbranch neue Integrationsprobleme verursachen. Deshalb müssen die erforderlichen Prüfungen zur freizugebenden Version passen.",
+      "hu": {
+        "question": "Egy PR tesztjei zöldek voltak. Ezután még változott egy számítás; az új commit tesztjei futnak. Mire támaszkodhat ennek az új állapotnak a jóváhagyása?",
+        "answers": [
+          "Kizárólag arra, hogy csak néhány karakter változott.",
+          "Ugyanennek a workflow-nak bármelyik sikeres futására a múlt hétről.",
+          "Az aktuális állapot megfelelő, sikeres ellenőrzéseire, a célággal való releváns integrációt is beleértve.",
+          "Az előző commit zöld állapotára, mert ugyanaz a PR-számuk."
+        ],
+        "explanation": "Az ellenőrzés eredménye a ténylegesen vizsgált forráskódállapothoz tartozik. Későbbi módosítás kis méret mellett is változtathat a működésen. A célág változása szintén új integrációs problémát okozhat. Ezért a szükséges ellenőrzéseknek a jóváhagyandó verzióhoz kell tartozniuk."
+      }
+    },
+    {
+      "id": "lap-LAP-11-41-5",
+      "revision": 1,
+      "topic": "Continuous Integration",
+      "source": {
+        "topicId": "LAP-11-41",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/41_Continuous_Integration/README.md",
+        "slug": "11-41-continuous_integration"
+      },
+      "question": "Ein Test scheitert gelegentlich kurz vor Mitternacht, beim erneuten Start ist er grün. Wie wird die CI-Rückmeldung wieder verlässlich?",
+      "answers": [
+        "Zeitabhängigkeit untersuchen, die Uhr im Test kontrollierbar machen und relevante Tages- sowie Zeitzonengrenzen gezielt prüfen.",
+        "Den Test so lange neu starten, bis er grün ist, und diesen Lauf als Beweis einer behobenen Ursache betrachten.",
+        "Alle Datumsprüfungen dauerhaft entfernen, ohne ihr erwartetes Verhalten anderweitig abzusichern.",
+        "Den Testfehler immer in einen Erfolg umwandeln, damit die Pipeline stabil grün aussieht."
+      ],
+      "correct": 0,
+      "explanation": "Ein sporadischer Fehler ist eine Information über einen instabilen Test oder instabiles Verhalten. Eine kontrollierte Zeitquelle macht die erwarteten Fälle reproduzierbar. Tageswechsel und Zeitzonen können dann bewusst getestet werden. Ein erfolgreicher Wiederholungslauf allein erklärt oder behebt die Ursache noch nicht.",
+      "hu": {
+        "question": "Egy teszt időnként éjfél előtt megbukik, újraindítva zöld. Hogyan lesz ismét megbízható a CI visszajelzése?",
+        "answers": [
+          "Megvizsgáljuk az időfüggést, vezérelhetővé tesszük az órát a tesztben, és célzottan ellenőrizzük a fontos nap- és időzónahatárokat.",
+          "Addig indítjuk újra, amíg zöld lesz, és ezt a futást a kiváltó ok javításának bizonyítékaként kezeljük.",
+          "Végleg eltávolítunk minden dátumellenőrzést, az elvárt viselkedés másfajta biztosítása nélkül.",
+          "A teszthibát mindig sikerre alakítjuk, hogy a folyamat stabilan zöldnek látszódjon."
+        ],
+        "explanation": "Az időszakos hiba instabil tesztről vagy viselkedésről ad információt. Vezérelhető időforrással az elvárt esetek megismételhetők. A napváltás és időzónák így tudatosan tesztelhetők. Egy sikeres újrafuttatás önmagában még nem magyarázza meg és nem javítja a kiváltó okot."
+      }
+    },
+    {
+      "id": "lap-LAP-11-42-1",
+      "revision": 1,
+      "topic": "Continuous Delivery und Deployment",
+      "source": {
+        "topicId": "LAP-11-42",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/42_Continuous_Delivery_und_Deployment/README.md",
+        "slug": "11-42-continuous_delivery_und_deployment"
+      },
+      "question": "Ein Team baut und testet jede geeignete Änderung automatisch und stellt sie in einer Testumgebung bereit. Für Produktion entscheidet eine berechtigte Person über die Freigabe; die anschließenden technischen Schritte laufen automatisch. Wie heißt dieses Vorgehen?",
+      "answers": [
+        "Continuous Deployment: Schon die automatische Bereitstellung in der Testumgebung macht jede Änderung automatisch produktiv.",
+        "Ausschließlich Continuous Integration: Ein manuelles Freigabesignal schließt jede Form von Delivery aus.",
+        "Manuelle Bereitstellung: Ein einziger menschlicher Entscheidungspunkt bedeutet, dass auch alle technischen Schritte händisch erfolgen.",
+        "Continuous Delivery: Der Stand ist auslieferbar, die Produktionsfreigabe bleibt eine bewusste Entscheidung."
+      ],
+      "correct": 3,
+      "explanation": "Continuous Delivery hält überprüfte Änderungen auslieferbar. Die Entscheidung über den Produktionseinsatz kann dabei manuell bleiben, während die Ausführung automatisiert ist. Continuous Deployment geht weiter und bringt geeignete Änderungen nach bestandenen Prüfungen automatisch in Produktion. Eine Testumgebung allein ist noch keine Produktion.",
+      "hu": {
+        "question": "Egy csapat minden megfelelő változtatást automatikusan buildel, tesztel és tesztkörnyezetbe tesz. Az éles kiadásról jogosult személy dönt; utána a technikai lépések automatikusak. Mi ennek a neve?",
+        "answers": [
+          "Continuous Deployment: már a tesztkörnyezet automatikus frissítése minden változtatást élessé tesz.",
+          "Kizárólag Continuous Integration: a kézi jóváhagyó jel kizárja a Delivery minden formáját.",
+          "Kézi telepítés: egyetlen emberi döntési pont azt jelenti, hogy minden technikai lépés is kézzel történik.",
+          "Continuous Delivery: az állapot kiadható, az éles jóváhagyás tudatos döntés marad."
+        ],
+        "explanation": "A Continuous Delivery kiadható állapotban tartja az ellenőrzött változtatásokat. Az éles használatról szóló döntés maradhat kézi, miközben a végrehajtás automatizált. A Continuous Deployment ennél tovább megy: a megfelelő változtatás a sikeres ellenőrzések után automatikusan élesbe kerül. A tesztkörnyezet önmagában még nem éles környezet."
+      }
+    },
+    {
+      "id": "lap-LAP-11-42-2",
+      "revision": 1,
+      "topic": "Continuous Delivery und Deployment",
+      "source": {
+        "topicId": "LAP-11-42",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/42_Continuous_Delivery_und_Deployment/README.md",
+        "slug": "11-42-continuous_delivery_und_deployment"
+      },
+      "question": "Was unterscheidet Continuous Deployment von Continuous Delivery mit manueller Produktionsfreigabe?",
+      "answers": [
+        "Die Tests laufen automatisch; jede Installation in Produktion wird anschließend weiterhin von Hand ausgeführt.",
+        "Geeignete Änderungen gelangen nach bestandenen automatischen Prüfungen ohne einzelne manuelle Freigabe in Produktion.",
+        "Nur das Erstellen des Build-Pakets läuft automatisch; die Produktionsentscheidung bleibt bei jeder Änderung manuell.",
+        "Die Testumgebung wird automatisch aktualisiert, während jede Produktionsfreigabe weiterhin einzeln genehmigt werden muss."
+      ],
+      "correct": 1,
+      "explanation": "Continuous Deployment automatisiert auch die Entscheidung im definierten Freigabeweg für geeignete Änderungen. Das setzt verlässliche Prüfungen, kontrollierte Berechtigungen und Rückmeldung aus dem Betrieb voraus. Ein automatischer Build oder eine automatische Testumgebung allein genügt dafür nicht. Tests und kontrollierte Freigaberegeln bleiben wichtig.",
+      "hu": {
+        "question": "Mi különbözteti meg a Continuous Deploymentet a kézi éles jóváhagyást használó Continuous Deliverytől?",
+        "answers": [
+          "A tesztek automatikusak; az éles telepítést ezután minden alkalommal továbbra is kézzel végzik.",
+          "A megfelelő változtatás sikeres automatikus ellenőrzések után, egyedi kézi jóváhagyás nélkül élesbe kerül.",
+          "Csak a buildcsomag készítése automatikus; az éles döntés minden változtatásnál kézi marad.",
+          "A tesztkörnyezet automatikusan frissül, de minden éles kiadást továbbra is külön jóvá kell hagyni."
+        ],
+        "explanation": "A Continuous Deployment a megfelelő változtatások meghatározott kiadási útján a döntést is automatizálja. Ehhez megbízható ellenőrzések, szabályozott jogosultságok és működés közbeni visszajelzés szükséges. Automatikus build vagy tesztkörnyezet önmagában nem elegendő ehhez. A tesztek és szabályozott kiadási feltételek továbbra is fontosak."
+      }
+    },
+    {
+      "id": "lap-LAP-11-42-3",
+      "revision": 1,
+      "topic": "Continuous Delivery und Deployment",
+      "source": {
+        "topicId": "LAP-11-42",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/42_Continuous_Delivery_und_Deployment/README.md",
+        "slug": "11-42-continuous_delivery_und_deployment"
+      },
+      "question": "Eine statische Quiz-Ausgabe wurde gebaut und geprüft. Welcher Weg verbindet diese Prüfung am klarsten mit der späteren Produktionsversion?",
+      "answers": [
+        "Den gesamten lokalen Arbeitsordner kopieren, einschließlich Änderungen, die noch nicht im geprüften Commit stehen.",
+        "Ein ähnlich benanntes Archiv verwenden, ohne Herkunft oder Inhalt mit dem geprüften Paket zu vergleichen.",
+        "Dasselbe unveränderte, identifizierbare Build-Artefakt aus dem vertrauenswürdigen Lauf freigeben und nach der Bereitstellung gezielt prüfen.",
+        "Nach der Freigabe auf dem Server neu aus aktuellen Abhängigkeiten bauen und die bisherigen Ergebnisse ungeprüft übertragen."
+      ],
+      "correct": 2,
+      "explanation": "Ein Artefakt ist das erzeugte Auslieferungspaket. Wird genau dieses geprüfte Paket weitergegeben, entfällt ein neuer Build als zusätzliche Veränderungsquelle. Commit-Zuordnung, vertrauenswürdige Herkunft und Prüfsumme helfen bei der Zuordnung. Eine Prüfsumme allein bestätigt keine vertrauenswürdige Herkunft; die Zielumgebung braucht weiterhin passende Funktionsprüfungen.",
+      "hu": {
+        "question": "Egy statikus Quiz-kiadás elkészült és átment az ellenőrzéseken. Melyik út kapcsolja ezt a vizsgálatot a legegyértelműbben a későbbi éles verzióhoz?",
+        "answers": [
+          "Átmásoljuk a teljes helyi munkamappát, az ellenőrzött commitban még nem szereplő módosításokkal együtt.",
+          "Hasonló nevű archívumot használunk anélkül, hogy eredetét vagy tartalmát összevetnénk az ellenőrzött csomagéval.",
+          "Ugyanazt a változatlan, azonosítható buildcsomagot adjuk ki a megbízható futásból, majd telepítés után célzottan ellenőrizzük.",
+          "Jóváhagyás után a szerveren újrabuildelünk aktuális függőségekből, és ellenőrzés nélkül átvesszük a korábbi eredményeket."
+        ],
+        "explanation": "Az artifact az előállított kiadási csomag. Ha pontosan ezt az ellenőrzött csomagot visszük tovább, az új build nem hoz további változási lehetőséget. Commit-hozzárendelés, megbízható eredet és ellenőrzőösszeg segíti az azonosítást. Az ellenőrzőösszeg önmagában nem igazol megbízható eredetet; a célkörnyezetben továbbra is kellenek megfelelő működéspróbák."
+      }
+    },
+    {
+      "id": "lap-LAP-11-42-4",
+      "revision": 1,
+      "topic": "Continuous Delivery und Deployment",
+      "source": {
+        "topicId": "LAP-11-42",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/42_Continuous_Delivery_und_Deployment/README.md",
+        "slug": "11-42-continuous_delivery_und_deployment"
+      },
+      "question": "Eine neue Suchfunktion liegt bereits auf dem Server, bleibt aber durch einen Feature-Schalter für Nutzende ausgeschaltet. Welche Aussage trifft zu?",
+      "answers": [
+        "Der Code wurde bereitgestellt; die sichtbare Freigabe der Funktion kann getrennt und später erfolgen.",
+        "Bereitstellung und sichtbare Freigabe müssen immer gleichzeitig stattfinden; der beschriebene Zustand ist unmöglich.",
+        "Ein ausgeschalteter Schalter beweist, dass der neue Code keine Sicherheitsprüfung benötigt.",
+        "Ein Feature-Schalter ersetzt die Berechtigungsprüfung für geschützte serverseitige Endpunkte."
+      ],
+      "correct": 0,
+      "explanation": "Deployment beschreibt die technische Bereitstellung. Release kann die Freigabe einer Funktion für Nutzende meinen. Ein Feature-Schalter kann beides entkoppeln, etwa für eine schrittweise Einführung. Der bereits vorhandene Code und erreichbare Endpunkte müssen trotzdem sicher sein; ein Schalter ist nicht automatisch eine Zugriffskontrolle.",
+      "hu": {
+        "question": "Egy új keresőfunkció már a szerveren van, de egy funkciókapcsolóval még kikapcsolták a felhasználók számára. Melyik állítás igaz?",
+        "answers": [
+          "A kód telepítve van; a funkció látható kiadása ettől elkülönülve, később is történhet.",
+          "A telepítés és látható kiadás mindig egyszerre történik; a leírt állapot lehetetlen.",
+          "A kikapcsolt kapcsoló bizonyítja, hogy az új kódhoz nem kell biztonsági ellenőrzés.",
+          "A funkciókapcsoló kiváltja a védett szerveroldali végpontok jogosultságvizsgálatát."
+        ],
+        "explanation": "A deployment technikai telepítést jelent. A release a funkció felhasználók számára történő megnyitását is jelentheti. Funkciókapcsolóval a kettő elválasztható, például fokozatos bevezetéshez. A már jelen lévő kódnak és elérhető végpontoknak ettől még biztonságosnak kell lenniük; a kapcsoló nem automatikusan hozzáférés-ellenőrzés."
+      }
+    },
+    {
+      "id": "lap-LAP-11-42-5",
+      "revision": 1,
+      "topic": "Continuous Delivery und Deployment",
+      "source": {
+        "topicId": "LAP-11-42",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/42_Continuous_Delivery_und_Deployment/README.md",
+        "slug": "11-42-continuous_delivery_und_deployment"
+      },
+      "question": "In einer hypothetischen Anwendung mit SQL-Datenbank entfernt eine Migration eine bisher benötigte Spalte samt Inhalt. Bei Problemen wird nur der ältere Anwendungscode zurückgespielt. Was muss der Rückfallplan berücksichtigen?",
+      "answers": [
+        "Die Spalte und alle Werte erscheinen automatisch wieder, sobald der alte Programmcode gestartet wird.",
+        "Ein Git-Tag des Anwendungscodes enthält automatisch auch den vollständigen damaligen Datenbankinhalt.",
+        "Ein erfolgreicher HTTP-Aufruf der Startseite beweist bereits, dass alle betroffenen Daten unverändert erhalten sind.",
+        "Der ältere Code stellt gelöschte Daten nicht wieder her; Datenkompatibilität, Wiederherstellung oder eine vorwärts gerichtete Korrektur müssen geplant und geprüft sein."
+      ],
+      "correct": 3,
+      "explanation": "Code und Daten haben unterschiedliche Lebenszyklen. Rücknahme des Codes kann scheitern, wenn das Datenmodell nicht mehr dazu passt. Verträgliche Migrationen, geeignete Sicherungen und geprobte Wiederherstellungswege begrenzen das Risiko. Nach einer Bereitstellung werden wichtige Funktionen gezielt geprüft. CoderQuiz selbst speichert derzeit keine Lernstände in einer SQL-Datenbank.",
+      "hu": {
+        "question": "Egy elképzelt, SQL-adatbázist használó alkalmazás migrációja eltávolít egy korábban szükséges oszlopot a tartalmával együtt. Probléma esetén csak a régebbi alkalmazáskódot állítják vissza. Mire kell kitérnie a visszaállítási tervnek?",
+        "answers": [
+          "Az oszlop és minden értéke automatikusan visszatér, amint elindul a régi programkód.",
+          "Az alkalmazáskód Git-tagje automatikusan az akkori teljes adatbázistartalmat is tartalmazza.",
+          "A kezdőoldal sikeres HTTP-lekérése már bizonyítja, hogy minden érintett adat változatlanul megmaradt.",
+          "A régi kód nem hozza vissza a törölt adatokat; meg kell tervezni és próbálni az adatkompatibilitást, helyreállítást vagy előrefelé javítást."
+        ],
+        "explanation": "A kód és az adat életciklusa különbözik. A kód visszaállítása meghiúsulhat, ha az adatmodell már nem illik hozzá. Kompatibilis migráció, megfelelő mentés és kipróbált helyreállítás csökkenti a kockázatot. Telepítés után célzottan ellenőrizzük a fontos funkciókat. Maga a CoderQuiz jelenleg nem tárol tanulási állapotot SQL-adatbázisban."
+      }
+    },
+    {
+      "id": "lap-LAP-11-43-1",
+      "revision": 1,
+      "topic": "CI CD Vorgaben",
+      "source": {
+        "topicId": "LAP-11-43",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/43_CI_CD_Vorgaben/README.md",
+        "slug": "11-43-ci_cd_vorgaben"
+      },
+      "question": "Ein Team beschließt: Änderungen dürfen erst nach Review und erfolgreichen Pflichtprüfungen in den geschützten Zielbranch. Wie wird daraus eine wirksame technische Vorgabe?",
+      "answers": [
+        "Einmal erfolgreich testen und diesen Status für alle späteren Commits desselben Branches weiterverwenden.",
+        "Passende Branch-Regeln einrichten und prüfen, ob die geforderten Ergebnisse tatsächlich zur aktuellen Änderung gehören.",
+        "Die Regel nur in die README schreiben und annehmen, dass Git direkte Änderungen dadurch automatisch verhindert.",
+        "Einen Workflow beliebig \"required\" nennen; der Name allein verhindert bereits jedes Umgehen."
+      ],
+      "correct": 1,
+      "explanation": "Dokumentation beschreibt die Vereinbarung, passende Repository-Regeln können sie technisch durchsetzen. Erforderliche Reviews, Prüfnamen, Aktualität und mögliche Ausnahmen müssen zusammenpassen. Zusätzlich ist zu prüfen, ob die Tests wirklich liefen oder etwa übersprungen wurden. Dies ist ein Regelbeispiel, keine Aussage über die aktuellen Repository-Einstellungen.",
+      "hu": {
+        "question": "Egy csapat szabálya: csak átnézés és sikeres kötelező ellenőrzések után kerülhet módosítás a védett célágra. Hogyan lesz ebből működő technikai előírás?",
+        "answers": [
+          "Egyszer sikeresen tesztelünk, majd ezt az állapotot az ág minden későbbi commitjára tovább használjuk.",
+          "Beállítjuk a megfelelő ágszabályokat, és ellenőrizzük, hogy a megkövetelt eredmények valóban az aktuális módosításhoz tartoznak-e.",
+          "Csak a README-be írjuk a szabályt, és feltételezzük, hogy a Git ettől automatikusan tilt minden közvetlen módosítást.",
+          "Tetszőleges workflow-t required névre nevezünk; a név már önmagában megakadályoz minden megkerülést."
+        ],
+        "explanation": "A dokumentáció leírja a megállapodást, a megfelelő repository-szabályok technikailag kikényszeríthetik. A szükséges átnézéseknek, ellenőrzésneveknek, aktualitásnak és esetleges kivételeknek össze kell illeniük. Azt is megvizsgáljuk, valóban lefutottak-e a tesztek, vagy például kimaradtak. Ez szabálypélda, nem a repositoryk aktuális beállításainak leírása."
+      }
+    },
+    {
+      "id": "lap-LAP-11-43-2",
+      "revision": 1,
+      "topic": "CI CD Vorgaben",
+      "source": {
+        "topicId": "LAP-11-43",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/43_CI_CD_Vorgaben/README.md",
+        "slug": "11-43-ci_cd_vorgaben"
+      },
+      "question": "Ein öffentlicher PR führt während der Tests auch vom Beitragenden geänderte Skripte aus. Welche Trennung schützt den Produktionszugang?",
+      "answers": [
+        "Den Schlüssel nur base64-kodiert übergeben, weil fremder Testcode ihn dann nicht verwenden kann.",
+        "Den Schlüssel im Log maskieren und deshalb uneingeschränkt an beliebigen PR-Code übergeben.",
+        "PR-Tests ohne Produktionsgeheimnisse und mit minimalen Rechten ausführen; Deployment separat aus freigegebenem, vertrauenswürdigem Stand erlauben.",
+        "Allen PR-Tests den Produktionsschlüssel geben, damit jede Änderung möglichst realistisch getestet wird."
+      ],
+      "correct": 2,
+      "explanation": "Ausgeführter PR-Code kann auf die ihm zugängliche Umgebung zugreifen. Log-Maskierung verhindert weder die Verwendung noch jeden möglichen Abfluss eines Geheimnisses. Eine getrennte Vertrauensgrenze und minimale Berechtigungen begrenzen den Schaden. Für Tests verwendet man kontrollierte Testdaten und geeignete isolierte Ressourcen.",
+      "hu": {
+        "question": "Nyilvános PR tesztelésekor a beküldő által módosított szkriptek is futnak. Milyen szétválasztás védi az éles hozzáférést?",
+        "answers": [
+          "A kulcsot csak base64-kódolva adjuk át, mert így idegen tesztkód nem tudja használni.",
+          "A kulcsot kitakarjuk a naplóban, ezért korlátozás nélkül átadjuk tetszőleges PR-kódnak.",
+          "A PR-tesztek éles titkok nélkül, minimális joggal futnak; a deploy külön, jóváhagyott és megbízható állapotból engedélyezett.",
+          "Minden PR-teszt megkapja az éles kulcsot, hogy minden változtatás a lehető legvalóságosabban tesztelhető legyen."
+        ],
+        "explanation": "A végrehajtott PR-kód hozzáférhet a számára elérhető környezethez. A naplókitakarás nem akadályozza meg sem a titok használatát, sem minden lehetséges kiszivárogtatását. Elkülönített bizalmi határ és minimális jogosultság korlátozza a kárt. Teszthez ellenőrzött tesztadatot és megfelelően izolált erőforrást használunk."
+      }
+    },
+    {
+      "id": "lap-LAP-11-43-3",
+      "revision": 1,
+      "topic": "CI CD Vorgaben",
+      "source": {
+        "topicId": "LAP-11-43",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/43_CI_CD_Vorgaben/README.md",
+        "slug": "11-43-ci_cd_vorgaben"
+      },
+      "question": "Eine externe GitHub Action wird auf einen geprüften vollständigen Commit-SHA festgelegt statt nur auf ein verschiebbares Tag. Welche Aussage ist richtig?",
+      "answers": [
+        "Die Referenz bezeichnet einen bestimmten Stand; dessen Sicherheit und spätere Aktualisierungen müssen weiterhin geprüft werden.",
+        "Damit ist jeder Inhalt der Action automatisch sicher, unabhängig davon, was der Code ausführt.",
+        "Damit wird die Action bei jeder neuen Hauptversion automatisch auf den neuesten Stand aktualisiert.",
+        "Damit erhalten alle Schritte automatisch genau die minimal nötigen Berechtigungen."
+      ],
+      "correct": 0,
+      "explanation": "Ein vollständiger Commit-SHA bindet die Referenz an einen bestimmten Commit. Ein Tag kann dagegen auf einen anderen Stand verschoben werden. Die feste Referenz ersetzt weder das Prüfen der Herkunft und des Codes noch gepflegte Updates und eingeschränkte Rechte. Auch nachgeladene Abhängigkeiten verdienen Beachtung.",
+      "hu": {
+        "question": "Egy külső GitHub Actiont ellenőrzött, teljes commit-SHA-ra rögzítünk mozgatható tag helyett. Melyik állítás igaz?",
+        "answers": [
+          "A hivatkozás meghatározott állapotot jelöl; annak biztonságát és későbbi frissítéseit továbbra is ellenőrizni kell.",
+          "Ezzel az Action minden tartalma automatikusan biztonságos, függetlenül a kód működésétől.",
+          "Ezzel az Action minden új főverziónál automatikusan a legfrissebb állapotra frissül.",
+          "Ezzel minden lépés automatikusan pontosan a minimálisan szükséges jogosultságokat kapja."
+        ],
+        "explanation": "A teljes commit-SHA konkrét commithoz rögzíti a hivatkozást. Egy tag ezzel szemben átmozgatható másik állapotra. A rögzítés nem helyettesíti az eredet és kód vizsgálatát, a gondozott frissítéseket vagy a korlátozott jogokat. Az utólag letöltött függőségekre is figyelni kell."
+      }
+    },
+    {
+      "id": "lap-LAP-11-43-4",
+      "revision": 1,
+      "topic": "CI CD Vorgaben",
+      "source": {
+        "topicId": "LAP-11-43",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/43_CI_CD_Vorgaben/README.md",
+        "slug": "11-43-ci_cd_vorgaben"
+      },
+      "question": "Nach einer Bereitstellung soll nachvollziehbar bleiben, was freigegeben wurde und ob es funktioniert. Welche Aufzeichnung ist dafür zweckmäßig?",
+      "answers": [
+        "Nur die Nachricht \"Deploy fertig\", ohne Bezug zu Version, Paket oder Zielumgebung.",
+        "Der komplette Inhalt aller Umgebungsvariablen einschließlich Zugangsdaten, damit später alles rekonstruierbar ist.",
+        "Nur ein Screenshot der unveränderten Startseite, ohne Bezug zum tatsächlich ausgelieferten Paket.",
+        "Commit, Artefaktkennung oder Prüfsumme, Zielumgebung, Zeitpunkt, Freigabe und Ergebnis gezielter Funktionsprüfungen."
+      ],
+      "correct": 3,
+      "explanation": "Eine knappe technische Spur verbindet geprüften Stand, freigegebenes Paket und Zielumgebung. Nach der Bereitstellung zeigen gezielte Smoke-Tests, ob wichtige Einstiege funktionieren; bei Problemen helfen Überwachung und ein geplanter Rückfallweg. Zugangsdaten gehören nicht in diese Aufzeichnung. Es werden nur die dafür erforderlichen Informationen festgehalten.",
+      "hu": {
+        "question": "Telepítés után követhető maradjon, mit adtak ki, és működik-e. Milyen feljegyzés célszerű ehhez?",
+        "answers": [
+          "Csak a „Deploy kész” üzenet, verzióhoz, csomaghoz vagy célkörnyezethez kapcsolás nélkül.",
+          "Minden környezeti változó teljes tartalma, hozzáférési adatokkal együtt, hogy később minden rekonstruálható legyen.",
+          "Csak képernyőkép a változatlan kezdőoldalról, a ténylegesen kiadott csomaghoz kapcsolás nélkül.",
+          "Commit, csomagazonosító vagy ellenőrzőösszeg, célkörnyezet, időpont, jóváhagyás és célzott működéspróbák eredménye."
+        ],
+        "explanation": "Rövid technikai nyilvántartás köti össze az ellenőrzött állapotot, jóváhagyott csomagot és célkörnyezetet. Telepítés után célzott smoke tesztek, vagyis alapvető működéspróbák mutatják meg, hogy a fontos belépési pontok működnek-e; gond esetén megfigyelés és tervezett visszaállítás segít. Hozzáférési adatok nem kerülnek ebbe a feljegyzésbe. Csak a szükséges információkat rögzítjük."
+      }
+    },
+    {
+      "id": "lap-LAP-11-43-5",
+      "revision": 1,
+      "topic": "CI CD Vorgaben",
+      "source": {
+        "topicId": "LAP-11-43",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/43_CI_CD_Vorgaben/README.md",
+        "slug": "11-43-ci_cd_vorgaben"
+      },
+      "question": "Für eine hypothetische neue Serverfunktion liegt ein API-Schlüssel sicher im CI-Geheimnisspeicher. Beim Build wird er jedoch in eine öffentlich ausgelieferte JavaScript-Datei geschrieben. Wie ist das zu bewerten?",
+      "answers": [
+        "Ein privates Quelltext-Repository schützt automatisch auch alle öffentlich herunterladbaren Build-Dateien.",
+        "Der ausgelieferte Schlüssel ist für Clients einsehbar; der geheime Zugriff gehört hinter eine passende serverseitige Schnittstelle.",
+        "Der Schlüssel bleibt geheim, weil seine ursprüngliche Quelle ein CI-Geheimnisspeicher war.",
+        "Minifizierung macht den Schlüssel dauerhaft unlesbar und genügt deshalb als Geheimnisschutz."
+      ],
+      "correct": 1,
+      "explanation": "Der Geheimnisspeicher schützt einen Wert nur bis zu dem Punkt, an dem ein Prozess ihn offenlegt. Browserdateien können heruntergeladen und untersucht werden, auch wenn sie minifiziert sind. Geheimnisse werden für berechtigte serverseitige Aufgaben verwendet und nicht in Clientpakete eingebaut. Ein bereits offengelegter Schlüssel muss gegebenenfalls widerrufen und ersetzt werden.",
+      "hu": {
+        "question": "Egy elképzelt új szerverfunkció API-kulcsa biztonságosan a CI titoktárolójában van. A build azonban beleírja egy nyilvánosan kiadott JavaScript-fájlba. Hogyan értékeled ezt?",
+        "answers": [
+          "Privát forráskód-repository automatikusan védi az összes nyilvánosan letölthető buildfájlt is.",
+          "A kiadott kulcs a kliensek számára megtekinthető; a titkos hozzáférés megfelelő szerveroldali interfész mögé tartozik.",
+          "A kulcs titkos marad, mert eredetileg CI-titoktárolóból származott.",
+          "A minifikálás végleg olvashatatlanná teszi a kulcsot, ezért elegendő titokvédelem."
+        ],
+        "explanation": "A titoktároló addig védi az értéket, amíg egy folyamat fel nem fedi. Böngészős fájlok minifikálva is letölthetők és megvizsgálhatók. Titkot jogosult szerveroldali feladathoz használunk, nem klienscsomagba építünk. A már felfedett kulcsot szükség esetén vissza kell vonni és cserélni."
+      }
+    }
+  ]
+}
