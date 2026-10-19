@@ -1,0 +1,1117 @@
+{
+  "sourceRepository": "https://github.com/goAuD/CoderLAP",
+  "sourceCommit": "cefce00affa0f357e7cc3e752abf082cad0ae1d0",
+  "ui": {
+    "de": {
+      "moduleTitle": "CoderLAP · Informatik 3",
+      "subtitle": "35 Fragen zu Zeichenkodierung, Standards, Frames, Webservices, SOAP, REST und JSON.",
+      "practiceNote": "Entscheide anhand konkreter Situationen und kleiner Codebeispiele. Die Erklärung erscheint nach deiner Antwort.",
+      "topics": {
+        "Zeichencodierung": "Zeichenkodierung",
+        "Standards ANSI ISO IEEE": "Standards: ANSI, ISO und IEEE",
+        "Frame": "Frames und Einbettungen",
+        "Webservices": "Webservices",
+        "SOAP und WSDL": "SOAP und WSDL",
+        "REST API": "REST API",
+        "JSON": "JSON"
+      }
+    },
+    "hu": {
+      "moduleTitle": "CoderLAP · Informatika 3",
+      "subtitle": "35 kérdés karakterkódolásról, szabványokról, frame-ekről, webszolgáltatásokról, SOAP-ról, REST-ről és JSON-ról.",
+      "practiceNote": "Konkrét helyzetek és rövid kódpéldák alapján dönts. A magyarázat a válaszod után jelenik meg.",
+      "topics": {
+        "Zeichencodierung": "Karakterkódolás",
+        "Standards ANSI ISO IEEE": "Szabványok: ANSI, ISO és IEEE",
+        "Frame": "Frame-ek és beágyazás",
+        "Webservices": "Webszolgáltatások",
+        "SOAP und WSDL": "SOAP és WSDL",
+        "REST API": "REST API",
+        "JSON": "JSON"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "lap-LAP-11-15-1",
+      "revision": 1,
+      "topic": "Zeichencodierung",
+      "source": {
+        "topicId": "LAP-11-15",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/15_Zeichencodierung/README.md",
+        "slug": "11-15-zeichencodierung"
+      },
+      "question": "Der Text enthält A, ő und das einzelne Emoji 🙂. Welche drei Längen gibt JavaScript in dieser Reihenfolge aus: UTF-16-Codeeinheiten, Unicode-Codepunkte, UTF-8-Bytes?",
+      "answers": [
+        "3 3 3",
+        "3 4 7",
+        "7 3 4",
+        "4 3 7"
+      ],
+      "correct": 3,
+      "explanation": "length zählt UTF-16-Codeeinheiten; das Emoji benötigt dort zwei. Die Iteration mit ...text zählt hier drei Codepunkte. UTF-8 benötigt für A ein Byte, für ő zwei und für 🙂 vier, insgesamt sieben. Sichtbare Zeichen können bei anderen Texten aus mehreren Codepunkten bestehen.",
+      "hu": {
+        "question": "A szöveg A-t, ő-t és az egyetlen 🙂 emojit tartalmazza. Melyik három hosszt írja ki a JavaScript ebben a sorrendben: UTF-16-kódegység, Unicode-kódpont, UTF-8-bájt?",
+        "answers": [
+          "3 3 3",
+          "3 4 7",
+          "7 3 4",
+          "4 3 7"
+        ],
+        "explanation": "A length UTF-16-kódegységeket számol, az emoji ott kettőt igényel. A ...text bejárása itt három kódpontot ad. UTF-8-ban A egy, ő kettő, 🙂 négy bájt, összesen hét. Más szövegekben egy látható jel több kódpontból is állhat."
+      },
+      "code": "const text = \"Aő🙂\";\nconst bytes = new TextEncoder().encode(text);\nconsole.log(text.length, [...text].length, bytes.length);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "4 3 7"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-15-2",
+      "revision": 1,
+      "topic": "Zeichencodierung",
+      "source": {
+        "topicId": "LAP-11-15",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/15_Zeichencodierung/README.md",
+        "slug": "11-15-zeichencodierung"
+      },
+      "question": "Ein Lernportal überträgt deutsche und ungarische Texte mit demselben Textformat. Warum eignet sich UTF-8 dafür?",
+      "answers": [
+        "Es übersetzt deutsche Texte beim Speichern automatisch ins Ungarische.",
+        "Es kodiert Unicode-Zeichen und übernimmt die ASCII-Zeichen mit denselben Bytewerten.",
+        "Es speichert jedes Unicode-Zeichen immer in genau einem Byte.",
+        "Es wählt automatisch für jeden Leser eine andere Schriftart aus."
+      ],
+      "correct": 1,
+      "explanation": "UTF-8 kann Unicode-Zeichen aus verschiedenen Sprachen darstellen. ASCII-Zeichen bleiben ein Byte, andere Unicode-Skalarwerte benötigen zwei bis vier Bytes. Die gespeicherten Bytes und die beim Lesen verwendete Kodierung müssen zusammenpassen.",
+      "hu": {
+        "question": "Egy tanulási portál ugyanazzal a szövegformátummal továbbít német és magyar szövegeket. Miért alkalmas erre az UTF-8?",
+        "answers": [
+          "Mentéskor automatikusan magyarra fordítja a német szövegeket.",
+          "Unicode-karaktereket kódol, és az ASCII-jeleknél megőrzi az eredeti bájtértékeket.",
+          "Minden Unicode-karaktert mindig pontosan egy bájtban tárol.",
+          "Minden olvasónak automatikusan másik betűtípust választ."
+        ],
+        "explanation": "Az UTF-8 több nyelv Unicode-karaktereit is ábrázolja. Az ASCII-jelek egybájtosak maradnak, más Unicode-skalárértékek két-négy bájtot igényelnek. A tárolt bájtoknak és az olvasáskor használt kódolásnak egyeznie kell."
+      }
+    },
+    {
+      "id": "lap-LAP-11-15-3",
+      "revision": 1,
+      "topic": "Zeichencodierung",
+      "source": {
+        "topicId": "LAP-11-15",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/15_Zeichencodierung/README.md",
+        "slug": "11-15-zeichencodierung"
+      },
+      "question": "Eine Datei enthält UTF-8-Bytes, der Empfänger liest sie aber als Windows-1252. Umlaute erscheinen verstümmelt. Welche Maßnahme setzt an der Ursache an?",
+      "answers": [
+        "Den Dateinamen ändern, ohne Bytes oder Deklarationen zu prüfen.",
+        "Die Textlänge kürzen, bis alle nicht-ASCII-Zeichen verschwunden sind.",
+        "Die tatsächliche Kodierung und die Deklaration beim Speichern, Übertragen und Lesen aufeinander abstimmen.",
+        "Die beschädigt angezeigten Zeichen nur mit CSS fett formatieren."
+      ],
+      "correct": 2,
+      "explanation": "Eine Kodierung legt fest, wie Bytes als Text gelesen werden. Dieselben Bytes können unter einer anderen Zuordnung andere Zeichen ergeben. Wir stimmen die gesamte Verarbeitungskette ab; eine Schriftänderung verändert die dekodierten Zeichen nicht.",
+      "hu": {
+        "question": "Egy fájl UTF-8-bájtokat tartalmaz, a fogadó mégis Windows-1252-ként olvassa. Az ékezetes betűk eltorzulnak. Melyik lépés kezeli az okot?",
+        "answers": [
+          "Átnevezzük a fájlt, a bájtok és kódolásjelölések vizsgálata nélkül.",
+          "Addig rövidítjük a szöveget, amíg eltűnik minden nem ASCII-karakter.",
+          "Összehangoljuk a tényleges kódolást és jelölését a mentés, átvitel és beolvasás során.",
+          "A hibásan megjelenő jeleket CSS-sel félkövérre állítjuk."
+        ],
+        "explanation": "A kódolás mondja meg, hogyan olvassuk szövegként a bájtokat. Ugyanaz a bájtsorozat más megfeleltetéssel más jeleket adhat. Az egész feldolgozási láncot összehangoljuk; a betűtípus módosítása nem változtatja meg a dekódolt karaktereket."
+      }
+    },
+    {
+      "id": "lap-LAP-11-15-4",
+      "revision": 1,
+      "topic": "Zeichencodierung",
+      "source": {
+        "topicId": "LAP-11-15",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/15_Zeichencodierung/README.md",
+        "slug": "11-15-zeichencodierung"
+      },
+      "question": "Für ő ist der Unicode-Codepunkt U+0151 festgelegt. UTF-8 stellt ihn mit den Bytes C5 91 dar. Welche Aussage unterscheidet diese Ebenen richtig?",
+      "answers": [
+        "Der Codepunkt identifiziert den abstrakten Wert; UTF-8 legt seine Bytefolge fest.",
+        "U+0151 ist der Name einer Schriftdatei, C5 91 die Schriftgröße.",
+        "Unicode schreibt für jeden Codepunkt genau dieselben Bytes wie UTF-8 vor.",
+        "Die zwei Bytes bedeuten, dass ő immer zwei sichtbare Zeichen sind."
+      ],
+      "correct": 0,
+      "explanation": "Unicode ordnet Zeichen Codepunkte zu. Eine Kodierung wie UTF-8 bildet diese Werte auf Bytes ab. Die Anzahl der Bytes ist deshalb nicht automatisch die Anzahl sichtbarer Zeichen oder der JavaScript-Codeeinheiten.",
+      "hu": {
+        "question": "Az ő Unicode-kódpontja U+0151, az UTF-8 pedig C5 91 bájtokkal ábrázolja. Melyik állítás különíti el helyesen a két szintet?",
+        "answers": [
+          "A kódpont az elvont értéket azonosítja, az UTF-8 ennek bájtsorozatát határozza meg.",
+          "Az U+0151 egy betűfájl neve, a C5 91 a betűmérete.",
+          "A Unicode minden kódpontra pontosan az UTF-8 bájtjait írja elő.",
+          "A két bájt azt jelenti, hogy az ő mindig két látható jel."
+        ],
+        "explanation": "A Unicode kódpontokat rendel a karakterekhez. Az UTF-8-hoz hasonló kódolás ezeket az értékeket képezi le bájtokra. Ezért a bájtok száma nem automatikusan a látható jelek vagy a JavaScript-kódegységek száma."
+      }
+    },
+    {
+      "id": "lap-LAP-11-15-5",
+      "revision": 1,
+      "topic": "Zeichencodierung",
+      "source": {
+        "topicId": "LAP-11-15",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/15_Zeichencodierung/README.md",
+        "slug": "11-15-zeichencodierung"
+      },
+      "question": "Ein neues HTML-Dokument wird tatsächlich als UTF-8 gespeichert und ohne widersprechenden HTTP-Charset ausgeliefert. Welche frühe Angabe im head passt dazu?",
+      "answers": [
+        "<meta name=\"language\" content=\"utf-8\">",
+        "<html lang=\"utf-8\">",
+        "<meta charset=\"font-family\">",
+        "<meta charset=\"utf-8\">"
+      ],
+      "correct": 3,
+      "explanation": "meta charset benennt die Zeichenkodierung. Die Angabe gehört vollständig in die ersten 1024 Bytes des Dokuments. lang beschreibt dagegen die menschliche Sprache, etwa de oder hu. Die Deklaration konvertiert eine anders kodierte Datei nicht von selbst.",
+      "hu": {
+        "question": "Egy új HTML-dokumentumot valóban UTF-8-ként mentünk, és nem küldünk vele ellentmondó HTTP-charsetet. Melyik korai head-bejegyzés illik hozzá?",
+        "answers": [
+          "<meta name=\"language\" content=\"utf-8\">",
+          "<html lang=\"utf-8\">",
+          "<meta charset=\"font-family\">",
+          "<meta charset=\"utf-8\">"
+        ],
+        "explanation": "A meta charset a karakterkódolást nevezi meg. A teljes bejegyzésnek a dokumentum első 1024 bájtjába kell férnie. A lang az emberi nyelvet adja meg, például de vagy hu. A jelölés önmagában nem alakítja át egy másként kódolt fájl bájtjait."
+      }
+    },
+    {
+      "id": "lap-LAP-11-16-1",
+      "revision": 1,
+      "topic": "Standards ANSI ISO IEEE",
+      "source": {
+        "topicId": "LAP-11-16",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/16_Standards_ANSI_ISO_IEEE/README.md",
+        "slug": "11-16-standards_ansi_iso_ieee"
+      },
+      "question": "Zwei Teams bauen unabhängig voneinander Sender und Empfänger für denselben Datenaustausch. Was erleichtert ihre Zusammenarbeit am stärksten?",
+      "answers": [
+        "Beide Oberflächen verwenden dasselbe Logo.",
+        "Jedes Team interpretiert die Felder ausschließlich nach den eigenen Annahmen.",
+        "Eine gemeinsame Spezifikation für Format und Bedeutung sowie Tests der vereinbarten Anforderungen.",
+        "Beide Teams nennen ihre Produkte kompatibel, ohne das Datenformat festzulegen."
+      ],
+      "correct": 2,
+      "explanation": "Ein gemeinsamer Standard schafft überprüfbare Erwartungen an beide Seiten. Dazu gehören die Bedeutung der Daten und das erwartete Verhalten. Die tatsächliche Umsetzung wird getestet; der Name eines Standards allein beweist noch keine Interoperabilität.",
+      "hu": {
+        "question": "Két csapat egymástól függetlenül készít küldőt és fogadót ugyanahhoz az adatcseréhez. Mi segíti leginkább az együttműködésüket?",
+        "answers": [
+          "Mindkét felület ugyanazt a logót használja.",
+          "Mindkét csapat kizárólag saját feltételezései szerint értelmezi a mezőket.",
+          "Közös specifikáció a formátumról és jelentésről, valamint az egyeztetett követelmények tesztelése.",
+          "Mindkét csapat kompatibilisnek nevezi a termékét, az adatformátum rögzítése nélkül."
+        ],
+        "explanation": "A közös szabvány ellenőrizhető elvárásokat ad mindkét oldalnak. Ide tartozik az adatok jelentése és az elvárt működés is. A megvalósítást teszteljük; egy szabvány neve önmagában még nem bizonyít együttműködést."
+      }
+    },
+    {
+      "id": "lap-LAP-11-16-2",
+      "revision": 1,
+      "topic": "Standards ANSI ISO IEEE",
+      "source": {
+        "topicId": "LAP-11-16",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/16_Standards_ANSI_ISO_IEEE/README.md",
+        "slug": "11-16-standards_ansi_iso_ieee"
+      },
+      "question": "Ein Dokument ist als American National Standard anerkannt. Welche Beschreibung der ANSI-Rolle ist zutreffend?",
+      "answers": [
+        "ANSI koordiniert das System und genehmigt Standards anderer anerkannter Entwickler nach Verfahrensanforderungen.",
+        "ANSI schreibt jeden anerkannten Standard vollständig selbst.",
+        "ANSI zertifiziert automatisch jede Anwendung, die das Dokument erwähnt.",
+        "ANSI ist der Name eines einzelnen Netzwerkprotokolls."
+      ],
+      "correct": 0,
+      "explanation": "ANSI ist ein koordinierender und genehmigender Akteur. Die Entwicklung übernehmen unterschiedliche Standards Development Organizations. Die Anerkennung eines Standards ist von der Prüfung eines konkreten Produkts zu unterscheiden.",
+      "hu": {
+        "question": "Egy dokumentumot American National Standardként ismernek el. Melyik leírás pontos az ANSI szerepéről?",
+        "answers": [
+          "Az ANSI koordinálja a rendszert, és eljárási követelmények alapján jóváhagyja más elismert fejlesztők szabványait.",
+          "Az ANSI minden elismert szabvány teljes szövegét maga írja.",
+          "Az ANSI automatikusan tanúsít minden alkalmazást, amely megemlíti a dokumentumot.",
+          "Az ANSI egyetlen hálózati protokoll neve."
+        ],
+        "explanation": "Az ANSI koordináló és jóváhagyó szereplő. A szabványfejlesztést különböző szabványfejlesztő szervezetek végzik. A szabvány elismerése és egy konkrét termék vizsgálata két külön feladat."
+      }
+    },
+    {
+      "id": "lap-LAP-11-16-3",
+      "revision": 1,
+      "topic": "Standards ANSI ISO IEEE",
+      "source": {
+        "topicId": "LAP-11-16",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/16_Standards_ANSI_ISO_IEEE/README.md",
+        "slug": "11-16-standards_ansi_iso_ieee"
+      },
+      "question": "Ein Betrieb möchte sein Managementsystem nach einer ISO-Norm zertifizieren lassen. Welche Aufgabenteilung beschreibt ISO richtig?",
+      "answers": [
+        "ISO stellt jedem Käufer des Normdokuments automatisch ein Betriebszertifikat aus.",
+        "Die Veröffentlichung einer ISO-Norm ist bereits die Prüfung aller Betriebe.",
+        "Ein Betrieb wird allein durch Verwendung des ISO-Logos zertifiziert.",
+        "ISO entwickelt und veröffentlicht Normen; die Zertifizierung übernehmen externe Zertifizierungsstellen."
+      ],
+      "correct": 3,
+      "explanation": "Normen enthalten Anforderungen. Eine Zertifizierungsstelle bewertet die betreffende Organisation gegen solche Anforderungen. ISO selbst führt diese Zertifizierung nicht durch und stellt dafür keine Zertifikate aus.",
+      "hu": {
+        "question": "Egy vállalkozás ISO-szabvány alapján tanúsíttatná az irányítási rendszerét. Melyik feladatmegosztás írja le helyesen az ISO-t?",
+        "answers": [
+          "Az ISO a szabvány minden vásárlójának automatikusan vállalati tanúsítványt ad.",
+          "Egy ISO-szabvány kiadása már az összes vállalkozás vizsgálatát is jelenti.",
+          "Az ISO-logó használata önmagában tanúsítja a vállalkozást.",
+          "Az ISO szabványokat fejleszt és ad ki; a tanúsítást külső tanúsító szervezetek végzik."
+        ],
+        "explanation": "A szabvány követelményeket tartalmaz. A tanúsító szervezet ezek alapján értékeli az adott szervezetet. Ezt a tanúsítást nem maga az ISO végzi, és nem ő állítja ki a tanúsítványt."
+      }
+    },
+    {
+      "id": "lap-LAP-11-16-4",
+      "revision": 1,
+      "topic": "Standards ANSI ISO IEEE",
+      "source": {
+        "topicId": "LAP-11-16",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/16_Standards_ANSI_ISO_IEEE/README.md",
+        "slug": "11-16-standards_ansi_iso_ieee"
+      },
+      "question": "JavaScript Number verwendet die binäre Gleitkommadarstellung nach IEEE 754. Was erklärt die erste Ausgabe dieses Programms?",
+      "answers": [
+        "Der Vergleich ändert beide Operanden vor dem Addieren in null.",
+        "0.1 und 0.2 sind in dieser Darstellung nicht exakt; die gerundete Summe ist nicht exakt derselbe Wert wie 0.3.",
+        "Der Plusoperator verbindet hier grundsätzlich zwei Zeichenketten.",
+        "IEEE 754 erlaubt ausschließlich ganze Zahlen."
+      ],
+      "correct": 1,
+      "explanation": "Die erste Zeile ergibt false, weil die binären Näherungen zu 0.30000000000000004 addiert werden. Die kleinen ganzen Zahlen der zweiten Zeile sind exakt darstellbar, daher folgt true. IEEE-Standards betreffen also neben Netzwerken auch die Zahlendarstellung.",
+      "hu": {
+        "question": "A JavaScript Number az IEEE 754 szerinti bináris lebegőpontos ábrázolást használja. Mi magyarázza a program első kimenetét?",
+        "answers": [
+          "Az összehasonlítás összeadás előtt null értékre állítja mindkét operandust.",
+          "A 0.1 és 0.2 ebben az ábrázolásban nem pontos; kerekített összegük nem pontosan ugyanaz az érték, mint a 0.3.",
+          "A plusz operátor itt alapvetően két sztringet fűz össze.",
+          "Az IEEE 754 kizárólag egész számokat enged meg."
+        ],
+        "explanation": "Az első sor false, mert a bináris közelítések összege 0.30000000000000004. A második sor kis egész számai pontosan ábrázolhatók, ezért true következik. Az IEEE-szabványok tehát a hálózatok mellett a számábrázolást is érintik."
+      },
+      "code": "console.log(0.1 + 0.2 === 0.3);\nconsole.log(10 + 20 === 30);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-16-5",
+      "revision": 1,
+      "topic": "Standards ANSI ISO IEEE",
+      "source": {
+        "topicId": "LAP-11-16",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/16_Standards_ANSI_ISO_IEEE/README.md",
+        "slug": "11-16-standards_ansi_iso_ieee"
+      },
+      "question": "Eine Anforderung lautet nur: „Die Schnittstelle soll IEEE-konform sein.“ Welche Präzisierung macht daraus ein prüfbares Kriterium?",
+      "answers": [
+        "Nur den Namen des Geräteherstellers ergänzen.",
+        "Die Schriftgröße der Anforderung vergrößern.",
+        "Den konkreten Standard, seine Ausgabe und die relevanten Anforderungen mit Prüfkriterien nennen.",
+        "IEEE im Text durch „modern“ ersetzen."
+      ],
+      "correct": 2,
+      "explanation": "IEEE ist eine Organisation und betreut viele Standards. Ein bestimmtes Dokument mit Ausgabe und konkreten Anforderungen grenzt ein, was umgesetzt und geprüft werden soll. Eine Organisation und eine einzelne Spezifikation sind verschiedene Dinge.",
+      "hu": {
+        "question": "Egy követelmény csak ennyi: „Az interfész legyen IEEE-kompatibilis.” Milyen pontosítás teszi ellenőrizhetővé?",
+        "answers": [
+          "Csak az eszköz gyártójának nevét adjuk hozzá.",
+          "Megnöveljük a követelmény betűméretét.",
+          "Megnevezzük a konkrét szabványt, kiadását és az érintett követelményeket ellenőrzési feltételekkel.",
+          "Az IEEE szót „modern”-re cseréljük."
+        ],
+        "explanation": "Az IEEE szervezet, amely sok szabvánnyal foglalkozik. A konkrét dokumentum, kiadás és követelmények jelölik ki, mit kell megvalósítani és ellenőrizni. A szervezet és egyetlen specifikáció külön fogalom."
+      }
+    },
+    {
+      "id": "lap-LAP-11-17-1",
+      "revision": 1,
+      "topic": "Frame",
+      "source": {
+        "topicId": "LAP-11-17",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/17_Frame/README.md",
+        "slug": "11-17-frame"
+      },
+      "question": "Eine Seite braucht ein normales zweispaltiges Layout und innerhalb eines Artikels die Vorschau eines separaten Dokuments. Welche Zuordnung passt heute?",
+      "answers": [
+        "CSS Grid/Flexbox für das Layout; bei Bedarf iframe für das separate Dokument.",
+        "frameset für jede neue Seite; iframe ist grundsätzlich ebenso veraltet.",
+        "iframe für jeden Absatz; CSS darf keine Spalten erzeugen.",
+        "frame ersetzt semantisches HTML und benötigt keine eigene Navigation."
+      ],
+      "correct": 0,
+      "explanation": "Die alten Elemente frame und frameset gehören nicht in neue Seitenlayouts. iframe ist weiterhin ein Element zum Einbetten eines eigenen Dokuments. Das normale Seitenlayout lässt sich mit HTML und CSS gestalten.",
+      "hu": {
+        "question": "Egy oldal szokásos kétoszlopos elrendezést, egy cikken belül pedig külön dokumentum-előnézetet igényel. Melyik mai feladatmegosztás helyes?",
+        "answers": [
+          "CSS Grid/Flexbox az elrendezéshez; szükség esetén iframe a külön dokumentumhoz.",
+          "Minden új oldalhoz frameset; az iframe alapvetően ugyanúgy elavult.",
+          "Minden bekezdéshez iframe; CSS-sel nem szabad oszlopokat készíteni.",
+          "A frame kiváltja a szemantikus HTML-t, és nem igényel saját navigációt."
+        ],
+        "explanation": "A régi frame és frameset elemek nem új oldalelrendezésekhez valók. Az iframe továbbra is használható külön dokumentum beágyazására. A szokásos oldalelrendezést HTML-lel és CSS-sel készíthetjük el."
+      }
+    },
+    {
+      "id": "lap-LAP-11-17-2",
+      "revision": 1,
+      "topic": "Frame",
+      "source": {
+        "topicId": "LAP-11-17",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/17_Frame/README.md",
+        "slug": "11-17-frame"
+      },
+      "question": "Ein altes frameset lädt Navigation und Artikel getrennt. Die sichtbare Artikelwahl lässt sich mit der äußeren Adresse nicht eindeutig als Lesezeichen speichern. Welche Modernisierung hilft dem beschriebenen Problem?",
+      "answers": [
+        "Alle Artikeladressen durch denselben leeren Link ersetzen.",
+        "Den Navigationstext vollständig in Bilder umwandeln.",
+        "Die Zahl der Frames erhöhen, ohne die Adressen zu ändern.",
+        "Normale verlinkbare Artikeladressen und eine gemeinsame HTML/CSS-Navigation verwenden."
+      ],
+      "correct": 3,
+      "explanation": "Ein Artikel mit eigener Adresse kann gezielt geöffnet, geteilt und als Lesezeichen gespeichert werden. Gemeinsame Navigation benötigt dafür kein altes Frameset. Bei einer Migration werden auch Fokusführung und Zugänglichkeit der Navigation geprüft.",
+      "hu": {
+        "question": "Egy régi frameset külön tölti a navigációt és a cikket. A külső címből nem készíthető egyértelmű könyvjelző az éppen választott cikkre. Melyik korszerűsítés segít ezen?",
+        "answers": [
+          "Minden cikk címét ugyanarra az üres linkre cseréljük.",
+          "A navigáció szövegét teljes egészében képpé alakítjuk.",
+          "Növeljük a frame-ek számát, a címek változtatása nélkül.",
+          "Szokásos, közvetlenül linkelhető cikkcímeket és közös HTML/CSS-navigációt használunk."
+        ],
+        "explanation": "A saját címmel rendelkező cikk közvetlenül megnyitható, megosztható és könyvjelzőzhető. A közös navigációhoz ehhez nem kell régi frameset. Migráláskor a fókuszkezelést és a navigáció hozzáférhetőségét is ellenőrizzük."
+      }
+    },
+    {
+      "id": "lap-LAP-11-17-3",
+      "revision": 1,
+      "topic": "Frame",
+      "source": {
+        "topicId": "LAP-11-17",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/17_Frame/README.md",
+        "slug": "11-17-frame"
+      },
+      "question": "Der Ausschnitt enthält nur fest vorgegebenen Text. Was bewirkt das leere sandbox-Attribut beim eingebetteten Dokument?",
+      "answers": [
+        "Es ersetzt den Inhalt des äußeren Dokuments durch den iframe-Inhalt.",
+        "Es aktiviert Einschränkungen, unter anderem für Skriptausführung und Formularübermittlung.",
+        "Es hebt alle Einschränkungen auf, weil keine Werte angegeben sind.",
+        "Es verschlüsselt den Inhalt automatisch."
+      ],
+      "correct": 1,
+      "explanation": "Ein vorhandenes leeres sandbox schaltet die Einschränkungen ein. Einzelne Fähigkeiten können gezielt mit erlaubten Werten freigegeben werden. srcdoc liefert hier den festen Dokumentinhalt; title beschreibt den Zweck des Rahmens.",
+      "hu": {
+        "question": "A részlet csak előre rögzített szöveget tartalmaz. Mit tesz az üres sandbox attribútum a beágyazott dokumentummal?",
+        "answers": [
+          "A külső dokumentum tartalmát lecseréli az iframe tartalmára.",
+          "Bekapcsolja a korlátozásokat, többek között a szkriptfuttatásra és űrlapküldésre.",
+          "Minden korlátozást felold, mert nincs megadva érték.",
+          "Automatikusan titkosítja a tartalmat."
+        ],
+        "explanation": "A jelen lévő, üres sandbox bekapcsolja a korlátozásokat. Megfelelő értékekkel egyes képességek külön engedélyezhetők. A srcdoc itt rögzített dokumentumtartalmat ad, a title a keret célját írja le."
+      },
+      "code": "<iframe\n  title=\"Isolierte Textvorschau\"\n  sandbox\n  srcdoc=\"<p>Nur lesen</p>\">\n</iframe>",
+      "codeLanguage": "html"
+    },
+    {
+      "id": "lap-LAP-11-17-4",
+      "revision": 1,
+      "topic": "Frame",
+      "source": {
+        "topicId": "LAP-11-17",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/17_Frame/README.md",
+        "slug": "11-17-frame"
+      },
+      "question": "Ein iframe derselben Herkunft erhält sandbox=\"allow-scripts allow-same-origin\". Warum ist diese Kombination für die gewünschte Isolation problematisch?",
+      "answers": [
+        "Sie macht HTTP automatisch zu einer Ende-zu-Ende-Verschlüsselung.",
+        "Sie verbietet sämtliche Skripte trotz allow-scripts.",
+        "Der eingebettete Code kann bei dieser Herkunftskonstellation die Sandbox entfernen und sich neu laden.",
+        "Sie zwingt den Browser, alle Bilder in Text umzuwandeln."
+      ],
+      "correct": 2,
+      "explanation": "Skriptausführung und erhaltene gleiche Herkunft ermöglichen hier den Zugriff auf das einbettende Element. Die Einschränkung kann dadurch nach Entfernen des Attributs und Neuladen entfallen. Fähigkeiten werden nach tatsächlichem Bedarf und Herkunftsmodell gewählt.",
+      "hu": {
+        "question": "Az iframe a befogadó oldallal azonos eredetű, és sandbox=\"allow-scripts allow-same-origin\" beállítást kap. Miért problémás ez az elkülönítéshez?",
+        "answers": [
+          "A HTTP-t automatikusan végpontok közötti titkosítássá alakítja.",
+          "Az allow-scripts ellenére minden szkriptet megtilt.",
+          "Ebben az eredetviszonyban a beágyazott kód eltávolíthatja a sandboxot, majd újratöltheti magát.",
+          "A böngészőt minden kép szöveggé alakítására kényszeríti."
+        ],
+        "explanation": "Az engedett szkriptfuttatás és megőrzött azonos eredet itt hozzáférést adhat a beágyazó elemhez. Az attribútum eltávolítása és újratöltés után megszűnhet a korlátozás. A képességeket a valós igény és az eredetviszony alapján választjuk."
+      }
+    },
+    {
+      "id": "lap-LAP-11-17-5",
+      "revision": 1,
+      "topic": "Frame",
+      "source": {
+        "topicId": "LAP-11-17",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/17_Frame/README.md",
+        "slug": "11-17-frame"
+      },
+      "question": "Ein Artikel soll einen externen Videoplayer und eine interaktive Karte einbetten. Welche Prüfung gehört vor der Einbindung dazu?",
+      "answers": [
+        "Einbettungserlaubnis, benötigte Fähigkeiten, Datenübertragung, Ladekosten und verständliche Rahmentitel prüfen.",
+        "Nur prüfen, ob beide Anbieter dasselbe Logo verwenden.",
+        "Beide Rahmen grundsätzlich ohne Titel und mit allen Freigaben laden.",
+        "Annehmen, dass ein iframe keinerlei Verbindung zum Anbieter herstellt."
+      ],
+      "correct": 0,
+      "explanation": "Video und Karte sind typische Einbettungen, können aber Ressourcen laden und Daten an Anbieter übertragen. Auch der Anbieter kann das Einbetten etwa durch die CSP-Direktive frame-ancestors begrenzen. Funktion, Zugänglichkeit und nötige Berechtigungen werden gemeinsam geprüft.",
+      "hu": {
+        "question": "Egy cikk külső videólejátszót és interaktív térképet ágyazna be. Milyen ellenőrzés tartozik a beillesztés elé?",
+        "answers": [
+          "A beágyazás engedélyezése, szükséges képességek, adatátvitel, betöltési költség és érthető keretcímek vizsgálata.",
+          "Csak annak vizsgálata, hogy a két szolgáltató ugyanazt a logót használja-e.",
+          "Mindkét keret cím nélküli betöltése minden engedéllyel.",
+          "Annak feltételezése, hogy az iframe semmilyen kapcsolatot nem létesít a szolgáltatóval."
+        ],
+        "explanation": "A videó és térkép tipikus beágyazás, de erőforrásokat tölthet és adatot küldhet a szolgáltatónak. A szolgáltató is korlátozhatja a beágyazást, például a Content-Security-Policy fejléc frame-ancestors direktívájával. A működést, hozzáférhetőséget és szükséges engedélyeket együtt ellenőrizzük."
+      }
+    },
+    {
+      "id": "lap-LAP-11-18-1",
+      "revision": 1,
+      "topic": "Webservices",
+      "source": {
+        "topicId": "LAP-11-18",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/18_Webservices/README.md",
+        "slug": "11-18-webservices"
+      },
+      "question": "Eine Lernapp soll Kursdaten eines getrennten Verwaltungssystems abrufen. Welchen Zweck erfüllt dessen Webservice?",
+      "answers": [
+        "Er macht aus jeder Kursbeschreibung automatisch eine Benutzeroberfläche.",
+        "Er ersetzt die fachliche Bedeutung der Kursfelder durch CSS-Regeln.",
+        "Er verlangt, dass beide Programme im selben Prozess laufen.",
+        "Er bietet eine vereinbarte, über das Netzwerk aufrufbare Schnittstelle für den Datenaustausch."
+      ],
+      "correct": 3,
+      "explanation": "Ein Webservice verbindet Programme über einen definierten Aufruf und ein vereinbartes Nachrichtenformat. Die beteiligten Systeme können getrennt entwickelt werden. Der Vertrag beschreibt dabei mehr als die bloße Adresse.",
+      "hu": {
+        "question": "Egy tanulási alkalmazás egy külön nyilvántartó rendszerből kérne le kurzusadatokat. Mi a nyilvántartó webszolgáltatásának feladata?",
+        "answers": [
+          "Minden kurzusleírásból automatikusan felhasználói felületet készít.",
+          "A kurzusmezők tartalmi jelentését CSS-szabályokkal helyettesíti.",
+          "Megköveteli, hogy mindkét program ugyanabban a folyamatban fusson.",
+          "Egyeztetett, hálózaton hívható interfészt ad az adatcseréhez."
+        ],
+        "explanation": "A webszolgáltatás meghatározott hívással és üzenetformátummal kapcsol össze programokat. A rendszerek külön is fejleszthetők. Az interfészszerződés ezért többet ír le egy puszta címnél."
+      }
+    },
+    {
+      "id": "lap-LAP-11-18-2",
+      "revision": 1,
+      "topic": "Webservices",
+      "source": {
+        "topicId": "LAP-11-18",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/18_Webservices/README.md",
+        "slug": "11-18-webservices"
+      },
+      "question": "Ein Python-Dienst liefert Kursdaten als JSON über HTTPS. Eine JavaScript-Webapp soll sie nutzen. Was ist für die Zusammenarbeit entscheidend?",
+      "answers": [
+        "Die JSON-Antwort führt automatisch den gesamten Servercode im Browser aus.",
+        "Die Webapp beachtet Aufruf, Berechtigungen, Datenstruktur und Fehlerfälle des Dienstvertrags.",
+        "Die Webapp muss zuerst vollständig in Python umgeschrieben werden.",
+        "Beide Programme müssen dieselben internen Variablennamen verwenden."
+      ],
+      "correct": 1,
+      "explanation": "Webservices werden von anderen Programmen genutzt. Das gemeinsame Nachrichtenformat und der Vertrag verbinden hier unterschiedliche Laufzeitumgebungen. Die internen Implementierungsdetails müssen dafür nicht gleich sein.",
+      "hu": {
+        "question": "Egy Python-szolgáltatás HTTPS-en JSON-kurzusadatokat küld. Egy JavaScriptes webapp használná ezeket. Mi a döntő az együttműködéshez?",
+        "answers": [
+          "A JSON-válasz automatikusan lefuttatja a szerver teljes kódját a böngészőben.",
+          "A webapp követi a szolgáltatásszerződés hívási módját, jogosultságait, adatszerkezetét és hibaeseteit.",
+          "A webappot először teljesen át kell írni Pythonra.",
+          "A két programban ugyanazokat a belső változóneveket kell használni."
+        ],
+        "explanation": "A webszolgáltatásokat más programok használják. A közös üzenetformátum és szerződés itt különböző futtatókörnyezeteket köt össze. Ehhez nem kell megegyeznie a belső megvalósításuknak."
+      }
+    },
+    {
+      "id": "lap-LAP-11-18-3",
+      "revision": 1,
+      "topic": "Webservices",
+      "source": {
+        "topicId": "LAP-11-18",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/18_Webservices/README.md",
+        "slug": "11-18-webservices"
+      },
+      "question": "Ein Dienst legt bei jeder POST-Anfrage eine neue Bestellung an. Nach dem Senden tritt beim Client ein Timeout auf. Eine Duplikatprüfung ist nicht vereinbart. Was ist daraus sicher ableitbar?",
+      "answers": [
+        "Ein erneutes POST kann grundsätzlich keine zweite Bestellung erzeugen.",
+        "Der Timeout bestätigt, dass die Bestellung bezahlt wurde.",
+        "Der Ausgang ist unklar; vor einem erneuten Anlegen braucht es eine Statusklärung oder vereinbarten Duplikationsschutz.",
+        "Der Server hat sicher keine Bestellung angelegt."
+      ],
+      "correct": 2,
+      "explanation": "Die Antwort kann verloren gehen, obwohl die Bestellung angelegt wurde. Ein Timeout beschreibt zunächst die Sicht des Clients. Ein abgestimmter Wiederholungsmechanismus mit eindeutiger Kennung oder eine Statusabfrage kann den unklaren Ausgang behandeln.",
+      "hu": {
+        "question": "Egy szolgáltatás minden POST-kérésre új rendelést hoz létre. Küldés után a kliensnél időtúllépés történik. Nincs egyeztetett duplikációellenőrzés. Mi következik ebből biztosan?",
+        "answers": [
+          "Újabb POST alapvetően nem hozhat létre második rendelést.",
+          "Az időtúllépés igazolja a rendelés kifizetését.",
+          "A kimenetel bizonytalan; újabb létrehozás előtt állapottisztázás vagy egyeztetett duplikációvédelem kell.",
+          "A szerver biztosan nem hozott létre rendelést."
+        ],
+        "explanation": "A válasz elveszhet akkor is, ha a rendelés már létrejött. Az időtúllépés először a kliens nézőpontját írja le. Egyedi azonosítóra épülő, egyeztetett ismétlési megoldás vagy állapotlekérdezés kezelheti a bizonytalan eredményt."
+      }
+    },
+    {
+      "id": "lap-LAP-11-18-4",
+      "revision": 1,
+      "topic": "Webservices",
+      "source": {
+        "topicId": "LAP-11-18",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/18_Webservices/README.md",
+        "slug": "11-18-webservices"
+      },
+      "question": "Eine Bibliothek bietet eine lokale Funktion zum Runden. Ein zweites System bietet GET /api/courses/15 über HTTPS an. Welche Einordnung ist richtig?",
+      "answers": [
+        "Beide haben eine API; nur der beschriebene Netzwerkdienst ist ein Webservice.",
+        "Nur die lokale Funktion kann eine API sein.",
+        "Jede API muss über HTTPS erreichbar sein.",
+        "Eine API wird erst durch eine grafische Oberfläche zur Schnittstelle."
+      ],
+      "correct": 0,
+      "explanation": "API ist der allgemeine Begriff für eine Programmierschnittstelle. Auch eine lokale Bibliothek hat eine API. Ein Webservice stellt Funktionen oder Daten über das Netzwerk mit Webtechnologien bereit.",
+      "hu": {
+        "question": "Egy könyvtár helyi kerekítőfüggvényt ad. Egy másik rendszer HTTPS-en biztosít GET /api/courses/15 hívást. Melyik besorolás helyes?",
+        "answers": [
+          "Mindkettőnek van API-ja; a leírtak közül csak a hálózati szolgáltatás webszolgáltatás.",
+          "Csak a helyi függvény lehet API.",
+          "Minden API-nak HTTPS-en elérhetőnek kell lennie.",
+          "Egy API csak grafikus felülettel válik interfésszé."
+        ],
+        "explanation": "Az API a programozási interfész általános fogalma. Egy helyi könyvtárnak is van API-ja. A webszolgáltatás hálózaton, webes technológiákkal tesz elérhetővé funkciókat vagy adatokat."
+      }
+    },
+    {
+      "id": "lap-LAP-11-18-5",
+      "revision": 1,
+      "topic": "Webservices",
+      "source": {
+        "topicId": "LAP-11-18",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/18_Webservices/README.md",
+        "slug": "11-18-webservices"
+      },
+      "question": "Integration A verwendet SOAP-Nachrichten und eine WSDL-Beschreibung. Integration B modelliert Ressourcen mit HTTP-Methoden nach REST-Prinzipien. Welche Einordnung passt?",
+      "answers": [
+        "Nur A kann zwischen zwei Programmen kommunizieren.",
+        "Nur B kann eine dokumentierte Schnittstelle haben.",
+        "Beide verwenden damit automatisch dieselben Nachrichten und dieselben Sicherheitsregeln.",
+        "Beide sind mögliche Ansätze zur Kommunikation zwischen Programmen; ihre konkreten Verträge unterscheiden sich."
+      ],
+      "correct": 3,
+      "explanation": "SOAP-basierte Dienste und REST-orientierte HTTP-APIs können Integrationsaufgaben erfüllen. Die Wahl bestimmt nicht allein die Qualität oder Sicherheit. Aufrufregeln, Daten, Fehlerfälle und Berechtigungen müssen jeweils abgestimmt sein.",
+      "hu": {
+        "question": "Az A integráció SOAP-üzeneteket és WSDL-leírást használ. A B REST-elvek szerint, HTTP-metódusokkal modellez erőforrásokat. Melyik értékelés illik hozzájuk?",
+        "answers": [
+          "Csak A tud két program között kommunikálni.",
+          "Csak B rendelkezhet dokumentált interfésszel.",
+          "Ezzel automatikusan azonos üzeneteket és biztonsági szabályokat használnak.",
+          "Mindkettő alkalmas megközelítés lehet programok kommunikációjához; a konkrét interfészszerződésük eltér."
+        ],
+        "explanation": "A SOAP-alapú szolgáltatások és REST-elvű HTTP-API-k is elláthatnak integrációs feladatot. A választás önmagában nem dönti el a minőséget vagy biztonságot. Mindkettőnél egyeztetni kell a hívási szabályokat, adatokat, hibaágakat és jogosultságokat."
+      }
+    },
+    {
+      "id": "lap-LAP-11-19-1",
+      "revision": 1,
+      "topic": "SOAP und WSDL",
+      "source": {
+        "topicId": "LAP-11-19",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/19_SOAP_und_WSDL/README.md",
+        "slug": "11-19-soap_und_wsdl"
+      },
+      "question": "Welche Aussage beschreibt den Aufbau dieser SOAP-1.2-Nachricht korrekt?",
+      "answers": [
+        "Die Namespace-Adresse führt beim Lesen automatisch einen HTTP-Aufruf aus.",
+        "Envelope umschließt die Nachricht, Body enthält die Anwendungsdaten; Header ist hier optional und fehlt.",
+        "Die Nachricht braucht zwingend einen leeren Header, sonst ist SOAP 1.2 ausgeschlossen.",
+        "GetCourse ist eine von SOAP standardisierte Operation für jede Kursdatenbank."
+      ],
+      "correct": 1,
+      "explanation": "SOAP definiert Envelope, den optionalen Header und den verpflichtenden Body. GetCourse und id gehören zum eigenen Anwendungsnamensraum. Ein Namespace identifiziert die Bedeutung der Elemente; er ist keine automatisch ausgeführte Anfrage.",
+      "hu": {
+        "question": "Melyik állítás írja le helyesen ennek a SOAP 1.2-üzenetnek a felépítését?",
+        "answers": [
+          "A névtér címe olvasáskor automatikusan HTTP-hívást indít.",
+          "Az Envelope fogja össze az üzenetet, a Body tartalmazza az alkalmazás adatait; a Header opcionális, itt hiányzik.",
+          "Kötelező egy üres Header, különben nem lehet SOAP 1.2.",
+          "A GetCourse a SOAP által minden kurzusadatbázisra szabványosított művelet."
+        ],
+        "explanation": "A SOAP definiálja az Envelope elemet, az opcionális Headert és a kötelező Bodyt. A GetCourse és id a saját alkalmazásnévtérhez tartozik. A névtér az elemek jelentését azonosítja, nem automatikusan végrehajtandó kérés."
+      },
+      "code": "<env:Envelope xmlns:env=\"http://www.w3.org/2003/05/soap-envelope\"\n              xmlns:c=\"urn:example:courses\">\n  <env:Body>\n    <c:GetCourse>\n      <c:id>15</c:id>\n    </c:GetCourse>\n  </env:Body>\n</env:Envelope>",
+      "codeLanguage": "xml"
+    },
+    {
+      "id": "lap-LAP-11-19-2",
+      "revision": 1,
+      "topic": "SOAP und WSDL",
+      "source": {
+        "topicId": "LAP-11-19",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/19_SOAP_und_WSDL/README.md",
+        "slug": "11-19-soap_und_wsdl"
+      },
+      "question": "Du kennst die Adresse eines SOAP-Dienstes, aber noch nicht die Operationen, Eingabetypen oder Antworten. Welche Rolle kann seine WSDL-Beschreibung übernehmen?",
+      "answers": [
+        "Sie ist die Antwort auf genau eine bereits ausgeführte Kursabfrage.",
+        "Sie ersetzt automatisch sämtliche Daten des Servers durch Beispieldaten.",
+        "Sie beschreibt die Schnittstelle, Nachrichten beziehungsweise Typen, Bindungen und Endpunkte maschinenlesbar.",
+        "Sie enthält ausschließlich die Farben der späteren Benutzeroberfläche."
+      ],
+      "correct": 2,
+      "explanation": "WSDL beschreibt den Dienstvertrag. Daraus können geeignete Werkzeuge Teile eines Clients erzeugen. Die genaue Struktur hängt von der WSDL-Version ab; die Beschreibung und die konkreten Laufzeitnachrichten erfüllen unterschiedliche Aufgaben.",
+      "hu": {
+        "question": "Ismered egy SOAP-szolgáltatás címét, de a műveleteit, bemeneti típusait és válaszait még nem. Mit adhat a WSDL-leírása?",
+        "answers": [
+          "Egyetlen, már lefutott kurzuslekérdezés válaszát jelenti.",
+          "Automatikusan példaadatokra cseréli a szerver minden adatát.",
+          "Géppel olvashatóan leírja az interfészt, üzeneteket vagy típusokat, kötéseket és végpontokat.",
+          "Kizárólag a majdani felhasználói felület színeit tartalmazza."
+        ],
+        "explanation": "A WSDL a szolgáltatás szerződését írja le. Megfelelő eszköz ebből a kliens egyes részeit előállíthatja. A pontos szerkezet a WSDL-verziótól függ; a leírásnak és a tényleges futásidejű üzeneteknek más a feladata."
+      }
+    },
+    {
+      "id": "lap-LAP-11-19-3",
+      "revision": 1,
+      "topic": "SOAP und WSDL",
+      "source": {
+        "topicId": "LAP-11-19",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/19_SOAP_und_WSDL/README.md",
+        "slug": "11-19-soap_und_wsdl"
+      },
+      "question": "Ein SOAP-Aufruf erhält statt Kursdaten eine strukturierte Fault-Nachricht. Wie passt das zur Beziehung zwischen SOAP und WSDL?",
+      "answers": [
+        "SOAP transportiert die strukturierte Fehlermeldung; der Dienstvertrag kann die vorgesehenen Fehler beschreiben, die der Client behandeln muss.",
+        "Die Fault-Nachricht ersetzt dauerhaft die WSDL-Datei.",
+        "WSDL führt den fehlgeschlagenen Aufruf automatisch erneut aus.",
+        "Eine SOAP-Nachricht kann nur Erfolg enthalten, deshalb ist jeder Fault unlesbarer Text."
+      ],
+      "correct": 0,
+      "explanation": "SOAP hat eine definierte Fault-Struktur für Fehler. WSDL kann Fehler in der Schnittstelle beschreiben. Der Client wertet den tatsächlichen Aufruf aus und behandelt Erfolg und Fehler passend; eine Vertragsbeschreibung führt selbst keine Wiederholung aus.",
+      "hu": {
+        "question": "Egy SOAP-hívás kurzusadatok helyett strukturált Fault-üzenetet kap. Hogyan illik ez a SOAP és WSDL kapcsolatához?",
+        "answers": [
+          "A SOAP továbbítja a strukturált hibát; a szolgáltatásszerződés leírhatja a várható hibákat, amelyeket a kliensnek kezelnie kell.",
+          "A Fault-üzenet végleg lecseréli a WSDL-fájlt.",
+          "A WSDL automatikusan újrafuttatja a sikertelen hívást.",
+          "SOAP-üzenet csak sikert tartalmazhat, ezért minden Fault olvashatatlan szöveg."
+        ],
+        "explanation": "A SOAP meghatározott Fault-szerkezetet ad a hibákhoz. A WSDL az interfész hibáit is leírhatja. A kliens a tényleges hívást értékeli, és kezeli a sikert vagy hibát; a szerződésleírás önmagában nem ismétel meg hívást."
+      }
+    },
+    {
+      "id": "lap-LAP-11-19-4",
+      "revision": 1,
+      "topic": "SOAP und WSDL",
+      "source": {
+        "topicId": "LAP-11-19",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/19_SOAP_und_WSDL/README.md",
+        "slug": "11-19-soap_und_wsdl"
+      },
+      "question": "Ein Unternehmen erzeugt aus der WSDL einen Client. Welcher Nutzen und welche verbleibende Aufgabe sind sinnvoll beschrieben?",
+      "answers": [
+        "Generierter Code garantiert, dass jedes Geschäftsergebnis korrekt ist.",
+        "Nach der Generierung werden keine Netzwerkverbindungen mehr benötigt.",
+        "Die WSDL-Generierung verschlüsselt ohne weitere Konfiguration jede Übertragung.",
+        "Der Client kann Vertragsstrukturen übernehmen; Authentifizierung, Fehlerbehandlung und reale Integration müssen weiter geprüft werden."
+      ],
+      "correct": 3,
+      "explanation": "Ein formaler Vertrag unterstützt Werkzeuge und reduziert manuelle Schnittstellenarbeit. Die konkrete Einbindung bleibt eine Entwicklungsaufgabe. Dazu gehören passende Zugangsdaten, Berechtigungen, Fehlerfälle und Tests mit dem vereinbarten Dienst.",
+      "hu": {
+        "question": "Egy vállalat WSDL-ből generál klienst. Melyik leírás pontos az előnyről és a fennmaradó feladatról?",
+        "answers": [
+          "A generált kód garantálja minden üzleti eredmény helyességét.",
+          "Generálás után nincs többé szükség hálózati kapcsolatra.",
+          "A WSDL-generálás külön beállítás nélkül minden átvitelt titkosít.",
+          "A kliens átveheti a szerződés adatszerkezeteit; a hitelesítést, hibaágakat és tényleges integrációt továbbra is ellenőrizni kell."
+        ],
+        "explanation": "A formális szerződés támogatja az eszközöket, és csökkenti a kézi interfészmunkát. A konkrét bekötés továbbra is fejlesztési feladat. Ide tartozik a megfelelő belépési adat, jogosultság, hibakezelés és az egyeztetett szolgáltatással végzett teszt."
+      }
+    },
+    {
+      "id": "lap-LAP-11-19-5",
+      "revision": 1,
+      "topic": "SOAP und WSDL",
+      "source": {
+        "topicId": "LAP-11-19",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/19_SOAP_und_WSDL/README.md",
+        "slug": "11-19-soap_und_wsdl"
+      },
+      "question": "Ein Dienst sendet SOAP-Nachrichten über HTTP. Welche Folgerung ist korrekt?",
+      "answers": [
+        "Die Verwendung von SOAP aktiviert automatisch Transportverschlüsselung und Benutzerrechte.",
+        "HTTP übernimmt hier die Übertragung; daraus folgt noch nicht, dass der Dienst REST-Prinzipien erfüllt.",
+        "Jeder HTTP-Dienst ist damit automatisch eine vollständige REST-Architektur.",
+        "SOAP darf grundsätzlich nur über HTTP übertragen werden."
+      ],
+      "correct": 1,
+      "explanation": "SOAP legt Nachrichtenaufbau und Verarbeitung fest und kann an unterschiedliche Transportprotokolle gebunden werden. REST beschreibt dagegen Architekturprinzipien. Das Transportprotokoll allein entscheidet weder über REST-Konformität noch über Zugriffsschutz.",
+      "hu": {
+        "question": "Egy szolgáltatás HTTP-n küld SOAP-üzeneteket. Melyik következtetés helyes?",
+        "answers": [
+          "A SOAP használata automatikusan bekapcsolja az átviteli titkosítást és felhasználói jogokat.",
+          "Itt a HTTP végzi az átvitelt; ebből még nem következik a REST-elvek teljesítése.",
+          "Minden HTTP-szolgáltatás automatikusan teljes REST-architektúra.",
+          "SOAP-ot alapvetően kizárólag HTTP-n szabad továbbítani."
+        ],
+        "explanation": "A SOAP az üzenet felépítését és feldolgozását határozza meg, és különböző átviteli protokollokhoz köthető. A REST ezzel szemben architekturális elveket ír le. Az átviteli protokoll önmagában sem a REST-megfelelőséget, sem a hozzáférés-védelmet nem dönti el."
+      }
+    },
+    {
+      "id": "lap-LAP-11-20-1",
+      "revision": 1,
+      "topic": "REST API",
+      "source": {
+        "topicId": "LAP-11-20",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/20_REST_API/README.md",
+        "slug": "11-20-rest_api"
+      },
+      "question": "Ein Team nennt seine Schnittstelle REST, weil sie JSON über HTTP sendet. Welche zusätzliche Prüfung ist fachlich notwendig?",
+      "answers": [
+        "Ob jede Antwort dieselbe Byteanzahl besitzt.",
+        "Ob der Server ausschließlich in JavaScript programmiert ist.",
+        "Ob sie die REST-Architekturprinzipien wie Ressourcenmodell, einheitliche Schnittstelle und zustandslose Anfragen tatsächlich erfüllt.",
+        "Ob jeder Ressourcenname mindestens zehn Buchstaben hat."
+      ],
+      "correct": 2,
+      "explanation": "REST beschreibt eine Architektur mit mehreren Bedingungen, darunter Client-Server-Trennung, Cachefähigkeit und eine einheitliche Schnittstelle. JSON und HTTP allein belegen diese Bedingungen nicht. Zur einheitlichen Schnittstelle gehören auch selbstbeschreibende Nachrichten und Verweise auf mögliche nächste Schritte.",
+      "hu": {
+        "question": "Egy csapat azért nevezi REST-nek az interfészét, mert HTTP-n JSON-t küld. Milyen további vizsgálat szükséges szakmailag?",
+        "answers": [
+          "Minden válasz ugyanannyi bájtból áll-e.",
+          "Kizárólag JavaScriptben írták-e a szervert.",
+          "Ténylegesen teljesíti-e a REST-elveket, például az erőforrásmodellt, egységes interfészt és állapotmentes kéréseket.",
+          "Minden erőforrásnév legalább tízbetűs-e."
+        ],
+        "explanation": "A REST több feltételt előíró architektúra, például kliens/szerver szétválasztással, gyorsítótárazhatósággal és egységes interfésszel. A JSON és HTTP önmagában ezeket nem igazolja. Az egységes interfészhez önleíró üzenetek és a lehetséges következő lépésekre mutató hivatkozások is tartoznak."
+      }
+    },
+    {
+      "id": "lap-LAP-11-20-2",
+      "revision": 1,
+      "topic": "REST API",
+      "source": {
+        "topicId": "LAP-11-20",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/20_REST_API/README.md",
+        "slug": "11-20-rest_api"
+      },
+      "question": "DELETE /courses/15 entfernt den Kurs und antwortet mit 204. Eine identische Wiederholung erhält 404, weil der Kurs schon fehlt. Widerspricht das der Idempotenz von DELETE?",
+      "answers": [
+        "Nein. Die beabsichtigte Wirkung bleibt gleich: Der Kurs ist entfernt; die Antworten dürfen verschieden sein.",
+        "Ja. Idempotenz verlangt bytegleiche Antworten auf jede Wiederholung.",
+        "Ja. Ein idempotenter Aufruf muss nach jeder Wiederholung den Kurs neu anlegen.",
+        "Nein, aber nur wenn beide Antworten einen JSON-Body enthalten."
+      ],
+      "correct": 0,
+      "explanation": "Idempotenz betrachtet die beabsichtigte Wirkung wiederholter identischer Anfragen auf den Server. Beide Aufrufe lassen den Kurs entfernt. Statuscodes können den unterschiedlichen Ausgangszustand ausdrücken; auch zusätzliche Protokolleinträge ändern diesen Vertrag nicht.",
+      "hu": {
+        "question": "A DELETE /courses/15 eltávolítja a kurzust, és 204-et ad. Az azonos ismétlés 404-et kap, mert a kurzus már hiányzik. Ellentmond ez a DELETE idempotenciájának?",
+        "answers": [
+          "Nem. A kért hatás ugyanaz: a kurzus eltávolított állapotban van; a válaszok eltérhetnek.",
+          "Igen. Az idempotencia minden ismétlésre bájtra azonos választ követel.",
+          "Igen. Az idempotens hívásnak minden ismétlés után újra létre kell hoznia a kurzust.",
+          "Nem, de csak akkor, ha mindkét válaszban van JSON-törzs."
+        ],
+        "explanation": "Az idempotencia az azonos kérések ismétlésének kért szerveroldali hatását vizsgálja. Mindkét hívás után hiányzik a kurzus. A státuszkód jelezheti az eltérő kiinduló állapotot; további naplóbejegyzések sem változtatják meg ezt a szerződést."
+      }
+    },
+    {
+      "id": "lap-LAP-11-20-3",
+      "revision": 1,
+      "topic": "REST API",
+      "source": {
+        "topicId": "LAP-11-20",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/20_REST_API/README.md",
+        "slug": "11-20-rest_api"
+      },
+      "question": "Der API-Vertrag sieht das Lesen eines Kurses und das Anlegen einer Anmeldung vor. Welche Methodenzuordnung ist passend?",
+      "answers": [
+        "GET für beide Aufgaben, weil beide eine Antwort liefern.",
+        "POST ausschließlich zum Lesen; GET zum Anlegen, damit Links genügen.",
+        "Die Methodenwahl ist bedeutungslos, sobald HTTPS aktiv ist.",
+        "GET zum Lesen; POST zum Anlegen der Anmeldung gemäß Vertrag."
+      ],
+      "correct": 3,
+      "explanation": "GET fordert eine Repräsentation an und soll keine fachliche Änderung beauftragen. POST fordert Verarbeitung gemäß Ressourcenvertrag an, hier eine neue Anmeldung. Begleitendes Logging ist auch bei GET möglich und macht daraus keine gewünschte Buchungsaktion.",
+      "hu": {
+        "question": "Az API-szerződés kurzuslekérést és jelentkezés létrehozását írja le. Melyik metóduspárosítás megfelelő?",
+        "answers": [
+          "Mindkettőhöz GET, mert mindkettő választ ad.",
+          "Kizárólag POST a lekéréshez; GET a létrehozáshoz, hogy egy link elég legyen.",
+          "A metódusválasztás lényegtelen, amint HTTPS-t használunk.",
+          "GET a lekéréshez; POST a jelentkezés szerződés szerinti létrehozásához."
+        ],
+        "explanation": "A GET reprezentációt kér, és ne rendeljen meg üzleti állapotváltozást. A POST az erőforrás szerződése szerinti feldolgozást kéri, itt új jelentkezést. Járulékos naplózás GET-nél is történhet, ettől nem lesz belőle kért foglalási művelet."
+      }
+    },
+    {
+      "id": "lap-LAP-11-20-4",
+      "revision": 1,
+      "topic": "REST API",
+      "source": {
+        "topicId": "LAP-11-20",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/20_REST_API/README.md",
+        "slug": "11-20-rest_api"
+      },
+      "question": "Ein Server speichert Kurse in einer Datenbank. Jede Anfrage enthält die Zielressource und die nötigen Authentifizierungsinformationen. Er muss sich keine vorherige Kursauswahl des Clients merken. Wie passt das zu stateless?",
+      "answers": [
+        "Stateless erlaubt dem Server, Berechtigungen ungeprüft vom Client zu übernehmen.",
+        "Persistente Kursdaten sind vereinbar damit; die einzelne Anfrage ist ohne versteckten vorherigen Gesprächszustand verständlich.",
+        "Eine Datenbank verbietet grundsätzlich zustandslose Kommunikation.",
+        "Stateless verlangt, dass nach jeder Antwort alle Kursdaten gelöscht werden."
+      ],
+      "correct": 1,
+      "explanation": "REST-Zustandslosigkeit betrifft den Gesprächskontext zwischen Client und Server. Der Server darf Ressourcen dauerhaft speichern. Die Anfrage liefert den nötigen Kontext, während der Server Identität und Berechtigungen weiter prüft.",
+      "hu": {
+        "question": "A szerver adatbázisban tárol kurzusokat. Minden kérés tartalmazza a célerőforrást és a szükséges hitelesítési információt. Nem kell emlékeznie a kliens előző kurzusválasztására. Hogyan illik ez a stateless működéshez?",
+        "answers": [
+          "A stateless engedi a kliens jogosultságainak ellenőrzés nélküli elfogadását.",
+          "A tartós kurzusadat belefér; az egyes kérés rejtett korábbi párbeszédállapot nélkül értelmezhető.",
+          "Az adatbázis alapvetően kizárja az állapotmentes kommunikációt.",
+          "A stateless minden válasz után az összes kurzusadat törlését követeli."
+        ],
+        "explanation": "A REST állapotmentessége a kliens és szerver közötti párbeszéd kontextusára vonatkozik. A szerver tartósan tárolhat erőforrásokat. A kérés hozza a szükséges kontextust, miközben a szerver továbbra is ellenőrzi az identitást és jogosultságot."
+      }
+    },
+    {
+      "id": "lap-LAP-11-20-5",
+      "revision": 1,
+      "topic": "REST API",
+      "source": {
+        "topicId": "LAP-11-20",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/20_REST_API/README.md",
+        "slug": "11-20-rest_api"
+      },
+      "question": "Eine ansonsten nach REST-Prinzipien gestaltete API liefert eine Ressource als XML. Ist sie deshalb automatisch ein SOAP-Dienst?",
+      "answers": [
+        "Ja. REST erlaubt ausschließlich JSON-Objekte.",
+        "Nein, weil SOAP ausschließlich binäre Nachrichten verwendet.",
+        "Nein. REST schreibt JSON nicht vor; XML allein ist noch keine SOAP-Nachricht.",
+        "Ja. Jeder XML-Text ist definitionsgemäß SOAP."
+      ],
+      "correct": 2,
+      "explanation": "REST ist ein Architekturstil und legt kein einziges Repräsentationsformat fest. SOAP definiert ein bestimmtes XML-Nachrichtenmodell mit Envelope und Verarbeitungsregeln. Das Format XML allein reicht daher nicht zur Einordnung als SOAP.",
+      "hu": {
+        "question": "Egy egyébként REST-elvek szerint tervezett API XML-ben ad vissza egy erőforrást. Ettől automatikusan SOAP-szolgáltatás?",
+        "answers": [
+          "Igen. A REST kizárólag JSON-objektumokat enged.",
+          "Nem, mert a SOAP kizárólag bináris üzeneteket használ.",
+          "Nem. A REST nem ír elő JSON-t; az XML önmagában még nem SOAP-üzenet.",
+          "Igen. Minden XML-szöveg definíció szerint SOAP."
+        ],
+        "explanation": "A REST architekturális stílus, nem egyetlen kötelező reprezentációs formátum. A SOAP meghatározott XML-üzenetmodellt definiál Envelope elemmel és feldolgozási szabályokkal. Az XML-formátum önmagában ezért nem elég a SOAP-besoroláshoz."
+      }
+    },
+    {
+      "id": "lap-LAP-11-21-1",
+      "revision": 1,
+      "topic": "JSON",
+      "source": {
+        "topicId": "LAP-11-21",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/21_JSON/README.md",
+        "slug": "11-21-json"
+      },
+      "question": "Eine Schnittstelle überträgt Lernfortschritt als JSON. Die Anwendung erwartet ein Objekt mit topic als String und score als ganzer Zahl von 0 bis 5. Welche zwei Zeilen gibt die Prüfung aus?",
+      "answers": [
+        "4, dann Invalid progress.",
+        "4, dann 4.",
+        "Invalid progress, dann 4.",
+        "Invalid progress, dann Invalid progress."
+      ],
+      "correct": 0,
+      "explanation": "Beide Texte sind syntaktisch gültiges JSON. Im ersten ist score die Zahl 4 und erfüllt den Vertrag. Im zweiten ist score der String \"4\", den Number.isInteger ablehnt. Parsing und Prüfung der erwarteten Datenstruktur sind zwei getrennte Schritte.",
+      "hu": {
+        "question": "Egy interfész JSON-ban küld tanulási haladást. Az alkalmazás olyan objektumot vár, amelyben topic sztring, score pedig 0 és 5 közötti egész szám. Melyik két sort írja ki az ellenőrzés?",
+        "answers": [
+          "4, majd Invalid progress.",
+          "4, majd 4.",
+          "Invalid progress, majd 4.",
+          "Invalid progress, majd Invalid progress."
+        ],
+        "explanation": "Mindkét szöveg szintaktikailag helyes JSON. Az elsőben score a 4-es szám, amely megfelel a szerződésnek. A másodikban score a \"4\" sztring, amit a Number.isInteger elutasít. A beolvasás és az elvárt adatszerkezet ellenőrzése két külön lépés."
+      },
+      "code": "function parseProgress(text) {\n  const value = JSON.parse(text);\n  if (value === null || Array.isArray(value) ||\n      typeof value !== \"object\" ||\n      typeof value.topic !== \"string\" ||\n      !Number.isInteger(value.score) ||\n      value.score < 0 || value.score > 5) {\n    throw new Error(\"Invalid progress\");\n  }\n  return { topic: value.topic, score: value.score };\n}\nfor (const text of [\n  '{\"topic\":\"loops\",\"score\":4}',\n  '{\"topic\":\"loops\",\"score\":\"4\"}'\n]) {\n  try {\n    console.log(parseProgress(text).score);\n  } catch (error) {\n    console.log(error.message);\n  }\n}",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "4",
+        "Invalid progress"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-21-2",
+      "revision": 1,
+      "topic": "JSON",
+      "source": {
+        "topicId": "LAP-11-21",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/21_JSON/README.md",
+        "slug": "11-21-json"
+      },
+      "question": "Wie ist dieser JSON-Wert aufgebaut?",
+      "answers": [
+        "Ein Array mit zwei Objekten, deren Namen id und topics sind.",
+        "Ein einzelner String, weil JSON immer in Anführungszeichen stehen muss.",
+        "Eine JavaScript-Funktion, die beim Lesen beide Themen ausführt.",
+        "Ein Objekt mit id und einer geordneten topics-Liste, die zwei Strings enthält."
+      ],
+      "correct": 3,
+      "explanation": "Geschweifte Klammern bilden hier ein Objekt mit benannten Eigenschaften. Eckige Klammern bilden das Array; seine Reihenfolge ist Teil des Werts. JSON kann zusätzlich einfache Werte wie Zahlen, Wahrheitswerte oder null auf oberster Ebene enthalten.",
+      "hu": {
+        "question": "Hogyan épül fel ez a JSON-érték?",
+        "answers": [
+          "Két objektumból álló tömb, az objektumok neve id és topics.",
+          "Egyetlen sztring, mert a JSON-nak mindig idézőjelben kell állnia.",
+          "JavaScript-függvény, amely beolvasáskor végrehajtja mindkét témát.",
+          "Objektum id mezővel és egy rendezett topics listával, benne két sztringgel."
+        ],
+        "explanation": "A kapcsos zárójel itt névvel rendelkező tulajdonságokat tartalmazó objektumot jelöl. A szögletes zárójel tömböt ad, amelynek sorrendje az érték része. Legfelső szinten a JSON egyszerű értéket, például számot, logikai értéket vagy nullt is tartalmazhat."
+      },
+      "code": "{\n  \"id\": 15,\n  \"topics\": [\"loops\", \"arrays\"]\n}",
+      "codeLanguage": "json"
+    },
+    {
+      "id": "lap-LAP-11-21-3",
+      "revision": 1,
+      "topic": "JSON",
+      "source": {
+        "topicId": "LAP-11-21",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/21_JSON/README.md",
+        "slug": "11-21-json"
+      },
+      "question": "Welche zwei Zeilen zeigen hier den Unterschied zwischen JSON-Text und JavaScript-Laufzeitwert?",
+      "answers": [
+        "object object, dann {score:5}.",
+        "string object, dann {\"score\":5}.",
+        "object string, dann {\"score\":4}.",
+        "string string, dann {\"score\":\"41\"}."
+      ],
+      "correct": 1,
+      "explanation": "text ist ein String. JSON.parse erstellt daraus ein JavaScript-Objekt, dessen numerischer score von 4 auf 5 erhöht wird. JSON.stringify erzeugt daraus wieder JSON-Text. Der ursprüngliche Text wird durch die Objektänderung nicht verändert.",
+      "hu": {
+        "question": "Melyik két sor mutatja itt a JSON-szöveg és a JavaScript futásidejű érték különbségét?",
+        "answers": [
+          "object object, majd {score:5}.",
+          "string object, majd {\"score\":5}.",
+          "object string, majd {\"score\":4}.",
+          "string string, majd {\"score\":\"41\"}."
+        ],
+        "explanation": "A text sztring. A JSON.parse JavaScript-objektumot készít belőle, amelynek számtípusú score mezőjét 4-ről 5-re növeljük. A JSON.stringify ebből ismét JSON-szöveget állít elő. Az objektum módosítása az eredeti szöveget nem változtatja meg."
+      },
+      "code": "const text = '{\"score\":4}';\nconst value = JSON.parse(text);\nvalue.score += 1;\nconsole.log(typeof text, typeof value);\nconsole.log(JSON.stringify(value));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "string object",
+        "{\"score\":5}"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-21-4",
+      "revision": 1,
+      "topic": "JSON",
+      "source": {
+        "topicId": "LAP-11-21",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/21_JSON/README.md",
+        "slug": "11-21-json"
+      },
+      "question": "Ein Team ergänzt dieses JSON um _note. Wie behandelt ein gewöhnlicher JSON-Parser das Feld?",
+      "answers": [
+        "Als JavaScript-Anweisung, die beim Parsen ausgeführt wird.",
+        "Als ungültige Syntax, weil Eigenschaftsnamen keinen Unterstrich enthalten dürfen.",
+        "Als normale Eigenschaft mit einem Stringwert; der Unterstrich macht daraus keinen Kommentar.",
+        "Als Kommentar, der beim Parsen automatisch verschwindet."
+      ],
+      "correct": 2,
+      "explanation": "Standard-JSON hat keine Kommentar-Syntax. _note ist hier ein gewöhnlicher Schlüssel und bleibt nach dem Parsen als Datenfeld erhalten. Ob eine Anwendung ein solches Feld akzeptiert oder ignoriert, legt ihr eigener Datenvertrag fest.",
+      "hu": {
+        "question": "Egy csapat _note mezőt tesz ebbe a JSON-ba. Hogyan kezeli ezt egy szokásos JSON-elemző?",
+        "answers": [
+          "JavaScript-utasításként, amely beolvasáskor lefut.",
+          "Hibás szintaxisként, mert a tulajdonságnév nem tartalmazhat aláhúzást.",
+          "Sztringértékű, szokásos tulajdonságként; az aláhúzás nem alakítja megjegyzéssé.",
+          "Megjegyzésként, amely beolvasáskor automatikusan eltűnik."
+        ],
+        "explanation": "A szabványos JSON-nak nincs megjegyzésszintaxisa. Az _note itt közönséges kulcs, beolvasás után is adatmező marad. Az alkalmazás saját adatszerződése dönti el, elfogadja-e vagy figyelmen kívül hagyja az ilyen mezőt."
+      },
+      "code": "{\n  \"score\": 4,\n  \"_note\": \"Practice data\"\n}",
+      "codeLanguage": "json"
+    },
+    {
+      "id": "lap-LAP-11-21-5",
+      "revision": 1,
+      "topic": "JSON",
+      "source": {
+        "topicId": "LAP-11-21",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/21_JSON/README.md",
+        "slug": "11-21-json"
+      },
+      "question": "Eine API überträgt eine sehr große numerisch aussehende ID. Sie muss im JavaScript-Client exakt erhalten bleiben, wird aber nie berechnet. Welche Vereinbarung unterstützt den sprachübergreifenden Austausch?",
+      "answers": [
+        "Die ID als JSON-String übertragen und als String weiterverarbeiten.",
+        "Die ID als Number parsen und danach die verlorenen Stellen mit toFixed zurückholen.",
+        "Die ID auf drei Nachkommastellen runden, damit sie exakt wird.",
+        "Einen JSON-Zahlwert automatisch als beliebig genaue Ganzzahl in jeder Sprache voraussetzen."
+      ],
+      "correct": 0,
+      "explanation": "JSON ist sprachunabhängig, die empfangende Zahlendarstellung hat jedoch Grenzen. JavaScripts Number kann nicht jede große Ganzzahl exakt darstellen. Ein vereinbarter String erhält die Ziffern einer solchen Kennung, ohne eine Umwandlung in Number zu benötigen.",
+      "hu": {
+        "question": "Egy API nagyon nagy, számnak látszó azonosítót küld. A JavaScript-kliensben pontosan meg kell őrizni, de sosem számolunk vele. Melyik megállapodás segíti a nyelvek közötti adatcserét?",
+        "answers": [
+          "JSON-sztringként küldjük, és továbbra is sztringként kezeljük az azonosítót.",
+          "Numberként olvassuk, majd toFixeddel visszaállítjuk az elveszett számjegyeket.",
+          "Három tizedesjegyre kerekítjük, hogy pontos legyen.",
+          "Feltételezzük, hogy a JSON-szám minden nyelvben automatikusan tetszőleges pontosságú egész."
+        ],
+        "explanation": "A JSON nyelvfüggetlen, de a fogadó számábrázolása korlátos lehet. A JavaScript Number nem ábrázol minden nagy egész számot pontosan. Az egyeztetett sztring megőrzi az ilyen azonosító számjegyeit Numberré alakítás nélkül."
+      }
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   <img src="assets/logo.svg" width="128" height="128" alt="CoderQuiz" />
 </p>
 <h1 align="center">CoderQuiz</h1>
-<p align="center">Practice what you learn in CoderLAP. German and Hungarian, with explanations after every answer.</p>
+<p>Practice what you learn in CoderLAP. German and Hungarian, with explanations after every answer.</p>
 
 CoderQuiz is a static practice app for the Austrian LAP
 Applikationsentwicklung-Coding. It uses the shared Műhely interface, local fonts
@@ -17,13 +17,29 @@ accounts or server-side learning records.
 | Programming 2 | LAP-15-08 to LAP-15-14 | 35 |
 | Programming 3 | LAP-15-15 to LAP-15-20 | 30 |
 | Informatik 1 | LAP-11-01 to LAP-11-07 | 35 |
-| **Total** | **27 distinct CoderLAP topics** | **135** |
+| Informatik 2 | LAP-11-08 to LAP-11-14 | 35 |
+| Informatik 3 | LAP-11-15 to LAP-11-21 | 35 |
+| Informatik 4 | LAP-11-22 to LAP-11-28 | 35 |
+| Informatik 5 | LAP-11-29 to LAP-11-35 | 35 |
+| Informatik 6 | LAP-11-36 to LAP-11-43 | 40 |
+| **Total** | **63 distinct CoderLAP topics** | **315** |
 
 Every question has four choices, one correct answer, aligned DE/HU explanations,
-a stable ID and a link to its source topic. The four packages were checked
-against CoderLAP commit `cefce00affa0f357e7cc3e752abf082cad0ae1d0`.
+a stable ID and a link to its source topic. The nine packages were checked
+against [CoderLAP commit `cefce00`](https://github.com/goAuD/CoderLAP/tree/cefce00affa0f357e7cc3e752abf082cad0ae1d0).
 Programming covers all 100 self-check positions in its 20 subtopics; it does not
 claim a separate quiz question for every detail in the expanded learning text.
+Informatik covers all 215 self-check positions in its 43 subtopics, also without
+claiming a separate question for every detail in the expanded lessons. Package 2
+practises CSS, client/server responsibilities, development tools, CMS, stacks,
+queues and interfaces. Package 3 covers encoding, standards, embedded documents,
+webservices, SOAP/WSDL, REST and JSON. Package 4 adds agile and reactive
+development, frameworks, AngularJS maintenance, Bootstrap, jQuery and PHP/MySQL.
+Package 5 covers multitasking, mobile and responsive websites, Mobile First,
+language selection and Java web technologies. Package 6 completes the module
+with .NET, metadata, KISS/DRY, coding conventions, cross-platform development
+and CI/CD. Development scenarios distinguish current app behavior from
+hypothetical extensions.
 
 The original independent 100-question law/privacy bank remains in `questions.js`
 for local use and history. Its content review is unfinished,
@@ -39,7 +55,7 @@ node scripts/build-static.cjs
 python -m http.server 8775 --bind 127.0.0.1 --directory dist
 ```
 
-Open <http://127.0.0.1:8775/>. The homepage lists the four packages. Each has its
+Open <http://127.0.0.1:8775/>. The homepage lists the nine packages. Each has its
 own URL and saved session, so changing packages does not discard another run.
 Language preference is shared within the Quiz origin.
 
@@ -62,7 +78,12 @@ The existing per-bank development preview remains available:
 python scripts/preview_lap_pilot.py --bank lap-informatik-1
 ```
 
-Its default port is 8774. Programming previews use 8771, 8772 and 8773.
+Its default port is 8774. Use `--bank lap-informatik-2` or
+`--bank lap-informatik-3` for ports 8776 and 8777, or Informatik 4 and 5 for
+ports 8778 and 8779 (`--bank lap-informatik-4` / `--bank lap-informatik-5`).
+Informatik 6 uses port 8780 (`--bank lap-informatik-6`).
+Port 8775 remains available for the complete catalogue. Programming previews
+use 8771, 8772 and 8773.
 
 ## Validation
 
@@ -73,10 +94,14 @@ node scripts/build-static.cjs
 ```
 
 Tests cover shuffle permutations, restored/revised sessions, language changes,
-package isolation, all four complete quiz runs, executable code examples,
+package isolation, all nine complete quiz runs, executable code examples,
 bilingual question structure, generated links and the static artifact boundary.
 Deployment tests use temporary directories; symlink promotion runs on Linux in CI.
 These checks complement editorial source review and browser/mobile checks.
+With PHP CLI and PDO SQLite available, the suite also runs the HTML-escaping
+example and checks the portable SELECT/bind/fetch fragment in an isolated
+in-memory database. If PHP is absent, this one optional test is reported as
+skipped. It does not validate a live MySQL deployment.
 
 ## Content maintenance
 
@@ -87,7 +112,10 @@ These checks complement editorial source review and browser/mobile checks.
   resets with a clear notice rather than reinterpreting an old answer.
 - Explanations appear after answering. There is no separate hint or mistakes chapter.
 - Code is displayed as escaped text, never executed in the learner's browser.
-  JavaScript output is tested during development; HTML/XML fragments are labelled.
+  JavaScript output is tested during development, including boundary cases for
+  the practice scoring rule. PHP, CSS, Java, C#, INI, YAML, markup, JSON and
+  pseudocode have their own labels. Contextual framework fragments state
+  their prerequisites; they are reading examples, not standalone applications.
 - Keep DE/HU choices in the same source order; the app shuffles their display.
 
 Question banks keep a pinned CoderLAP source commit and per-question references.
@@ -110,7 +138,7 @@ CI packages only the generated `dist/` directory, with a SHA-256 checksum.
 Deploy the successful `main` build using `scripts/deploy_static.py`; its `--help`
 lists the archive, commit and checksum arguments. Keep credentials and
 machine-specific deployment notes outside Git.
-[Release notes](docs/releases/v0.1.0.md) record the first curriculum release.
+[Release notes](docs/releases/v0.2.0.md) describe the complete Informatik rollout.
 
 Only `docs/releases/` and optional public `docs/assets/` are tracked under
 `docs/`. Planning notes and local agent settings stay ignored.

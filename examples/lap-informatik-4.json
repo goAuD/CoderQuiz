@@ -1,0 +1,1103 @@
+{
+  "sourceRepository": "https://github.com/goAuD/CoderLAP",
+  "sourceCommit": "cefce00affa0f357e7cc3e752abf082cad0ae1d0",
+  "ui": {
+    "de": {
+      "moduleTitle": "CoderLAP · Informatik 4",
+      "subtitle": "35 Fragen zu agiler und reaktiver Entwicklung, Frameworks, AngularJS, Bootstrap, jQuery und PHP/MySQL.",
+      "practiceNote": "Lies die Situation und die Voraussetzungen beim Code. Die Erklärung erscheint nach deiner Antwort.",
+      "topics": {
+        "Agile Softwareentwicklung": "Agile Softwareentwicklung",
+        "Reaktive Programmierung": "Reaktive Programmierung",
+        "Frameworks": "Frameworks",
+        "Einsatzgebiet AngularJS": "AngularJS in bestehenden Anwendungen",
+        "Einsatzgebiet Bootstrap": "Bootstrap",
+        "Einsatzgebiet jQuery": "jQuery",
+        "PHP Zugriff auf MySQL": "PHP und MySQL"
+      }
+    },
+    "hu": {
+      "moduleTitle": "CoderLAP · Informatika 4",
+      "subtitle": "35 kérdés agilis és reaktív fejlesztésről, keretrendszerekről, AngularJS-ről, Bootstrapről, jQueryről és PHP/MySQL-ről.",
+      "practiceNote": "Olvasd el a helyzetet és a kódhoz megadott feltételeket. A magyarázat a válaszod után jelenik meg.",
+      "topics": {
+        "Agile Softwareentwicklung": "Agilis szoftverfejlesztés",
+        "Reaktive Programmierung": "Reaktív programozás",
+        "Frameworks": "Keretrendszerek",
+        "Einsatzgebiet AngularJS": "AngularJS meglévő alkalmazásokban",
+        "Einsatzgebiet Bootstrap": "Bootstrap",
+        "Einsatzgebiet jQuery": "jQuery",
+        "PHP Zugriff auf MySQL": "PHP és MySQL"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "lap-LAP-11-22-1",
+      "revision": 1,
+      "topic": "Agile Softwareentwicklung",
+      "source": {
+        "topicId": "LAP-11-22",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/22_Agile_Softwareentwicklung/README.md",
+        "slug": "11-22-agile_softwareentwicklung"
+      },
+      "question": "Ein Team entwickelt eine Lernplattform agil. Nach einem Nutzertest stellt sich heraus, dass eine geplante Funktion kaum hilft. Was passt am besten zu diesem Vorgehen?",
+      "answers": [
+        "Alle bisherigen Anforderungen verwerfen und ohne neues Ziel weiterarbeiten.",
+        "Die Funktion umsetzen, weil nur Fehlerberichte als Feedback gelten.",
+        "Die Erkenntnis prüfen und die nächsten Arbeiten nach Nutzen neu ordnen.",
+        "Den ursprünglichen Plan unverändert abschließen, um die Planung nicht zu entwerten."
+      ],
+      "correct": 2,
+      "explanation": "Agiles Arbeiten verbindet ein klares Ziel mit regelmäßigem Lernen. Neue Erkenntnisse können die Reihenfolge und den Umfang der nächsten Schritte ändern. Planung, Dokumentation und bereits funktionierende Teile behalten dabei ihren Wert.",
+      "hu": {
+        "question": "Egy csapat agilisan fejleszt tanulóplatformot. Egy felhasználói tesztből kiderül, hogy az egyik tervezett funkció alig segít. Melyik lépés illik legjobban ehhez a munkamódhoz?",
+        "answers": [
+          "Minden eddigi követelményt elvetnek, és új cél nélkül dolgoznak tovább.",
+          "Elkészítik a funkciót, mert csak a hibajelentés számít visszajelzésnek.",
+          "Megvizsgálják a visszajelzést, és hasznosság szerint újrarendezik a következő feladatokat.",
+          "Változatlanul végigviszik az eredeti tervet, hogy a tervezés ne veszítsen értékéből."
+        ],
+        "explanation": "Az agilis munka világos célt és rendszeres tanulást kapcsol össze. Az új felismerések módosíthatják a következő lépések sorrendjét és terjedelmét. A tervezés, dokumentálás és már működő részek közben is értékesek maradnak."
+      }
+    },
+    {
+      "id": "lap-LAP-11-22-2",
+      "revision": 1,
+      "topic": "Agile Softwareentwicklung",
+      "source": {
+        "topicId": "LAP-11-22",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/22_Agile_Softwareentwicklung/README.md",
+        "slug": "11-22-agile_softwareentwicklung"
+      },
+      "question": "Die Funktion „Thema gelernt“ soll in kleinen Schritten entstehen. Welcher erste Schritt liefert bereits überprüfbaren Nutzen?",
+      "answers": [
+        "Ein Thema markieren, die Markierung speichern und wieder entfernen können.",
+        "Alle Datenbanktabellen anlegen, aber noch keine nutzbare Aktion anbieten.",
+        "Die gesamte Oberfläche zeichnen, ohne eine Markierung speichern zu können.",
+        "Alle künftigen Statistiken spezifizieren, bevor jemand die Markierung ausprobiert."
+      ],
+      "correct": 0,
+      "explanation": "Ein kleiner durchgängiger Funktionsumfang lässt sich tatsächlich ausprobieren. Er verbindet Oberfläche, Verhalten und Speicherung für einen begrenzten Zweck. Statistiken können später folgen, während frühes Feedback bereits die Bedienung verbessert.",
+      "hu": {
+        "question": "A „Témát megtanultam” funkciót kis lépésekben készítjük. Melyik első lépés ad már ellenőrizhető hasznot?",
+        "answers": [
+          "Egy téma megjelölése, a jelölés tárolása és visszavonása.",
+          "Minden adatbázistábla létrehozása, használható művelet nélkül.",
+          "A teljes felület megrajzolása, menthető jelölés nélkül.",
+          "Az összes későbbi statisztika megtervezése, mielőtt bárki kipróbálná a jelölést."
+        ],
+        "explanation": "Egy kicsi, de végig működő funkció ténylegesen kipróbálható. Egy szűk célhoz összekapcsolja a felületet, működést és tárolást. A statisztikák később is jöhetnek, miközben a korai visszajelzés már javítja a kezelhetőséget."
+      }
+    },
+    {
+      "id": "lap-LAP-11-22-3",
+      "revision": 1,
+      "topic": "Agile Softwareentwicklung",
+      "source": {
+        "topicId": "LAP-11-22",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/22_Agile_Softwareentwicklung/README.md",
+        "slug": "11-22-agile_softwareentwicklung"
+      },
+      "question": "Ein Team arbeitet mit Kanban und kontinuierlichem Arbeitsfluss, ohne Sprints. Welche Aussage trifft zu?",
+      "answers": [
+        "Ohne Sprints ist agiles Arbeiten grundsätzlich ausgeschlossen.",
+        "Kanban und Scrum sind zwei Namen für denselben verbindlichen Ablauf.",
+        "Agil ist das Team erst, wenn es auch alle Scrum-Verantwortlichkeiten einführt.",
+        "Es kann agil arbeiten; Scrum ist ein bestimmtes Rahmenwerk und nicht mit Agilität gleichzusetzen."
+      ],
+      "correct": 3,
+      "explanation": "Agilität beschreibt Werte und Prinzipien wie Zusammenarbeit und Anpassung. Scrum setzt dafür einen konkreten Rahmen mit Sprints und definierten Verantwortlichkeiten. Ein kontinuierlicher Arbeitsfluss kann ebenfalls regelmäßiges Feedback und Anpassungen ermöglichen.",
+      "hu": {
+        "question": "Egy csapat Kanbannal és folyamatos munkafolyammal dolgozik, sprintek nélkül. Melyik állítás helyes?",
+        "answers": [
+          "Sprintek nélkül alapvetően kizárt az agilis munka.",
+          "A Kanban és Scrum ugyanannak a kötelező folyamatnak két neve.",
+          "Csak akkor agilis, ha minden Scrum-felelősségi kört is bevezet.",
+          "Dolgozhat agilisan; a Scrum egy konkrét keretrendszer, nem az agilitás másik neve."
+        ],
+        "explanation": "Az agilitás olyan értékeket és elveket fogalmaz meg, mint az együttműködés és alkalmazkodás. A Scrum ehhez konkrét keretet ad sprintekkel és meghatározott felelősségi körökkel. A folyamatos munkafolyam is lehetővé tehet rendszeres visszajelzést és alkalmazkodást."
+      }
+    },
+    {
+      "id": "lap-LAP-11-22-4",
+      "revision": 1,
+      "topic": "Agile Softwareentwicklung",
+      "source": {
+        "topicId": "LAP-11-22",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/22_Agile_Softwareentwicklung/README.md",
+        "slug": "11-22-agile_softwareentwicklung"
+      },
+      "question": "„Ein gesetztes Lernzeichen lässt sich zurücknehmen“ gilt für eine bestimmte Funktion. „Geprüft, getestet und dokumentiert“ gilt vereinbarungsgemäß für jedes fertige Inkrement. Wie ordnest du das zu?",
+      "answers": [
+        "Beide Aussagen ersetzen das fachliche Ziel der Funktion.",
+        "Ersteres ist ein Akzeptanzkriterium; Letzteres gehört zur gemeinsamen Definition of Done.",
+        "Ersteres ist die Definition of Done; Letzteres ist nur ein Akzeptanzkriterium dieser Funktion.",
+        "Beide Aussagen beschreiben ausschließlich die Reihenfolge im Product Backlog."
+      ],
+      "correct": 1,
+      "explanation": "Akzeptanzkriterien konkretisieren das erwartete Verhalten eines bestimmten Eintrags. Die Definition of Done beschreibt den gemeinsamen Qualitätszustand eines fertigen Inkrements. Ein erfülltes Einzelkriterium allein beweist daher noch nicht, dass die Arbeit insgesamt fertig ist.",
+      "hu": {
+        "question": "„A tanulási jelölés visszavonható” egy konkrét funkcióra vonatkozik. „Átnézve, tesztelve és dokumentálva” a megállapodás szerint minden kész növekményre érvényes. Hogyan sorolod be ezeket?",
+        "answers": [
+          "Mindkét állítás helyettesíti a funkció szakmai célját.",
+          "Az első elfogadási feltétel; a második a közös Definition of Done része.",
+          "Az első a Definition of Done; a második csak ennek a funkciónak az elfogadási feltétele.",
+          "Mindkét állítás kizárólag a Product Backlog sorrendjét írja le."
+        ],
+        "explanation": "Az elfogadási feltételek egy adott feladat elvárt viselkedését pontosítják. A Definition of Done a kész növekmény közös minőségi állapotát határozza meg. Egyetlen feltétel teljesülése ezért még nem bizonyítja, hogy a munka összességében kész."
+      }
+    },
+    {
+      "id": "lap-LAP-11-22-5",
+      "revision": 1,
+      "topic": "Agile Softwareentwicklung",
+      "source": {
+        "topicId": "LAP-11-22",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/22_Agile_Softwareentwicklung/README.md",
+        "slug": "11-22-agile_softwareentwicklung"
+      },
+      "question": "Nutzende verstehen einen Filter nicht. Im Team verzögern außerdem lange Review-Wartezeiten die Arbeit. Welche Zuordnung passt zu Scrum?",
+      "answers": [
+        "Den Filter in der Retrospektive mit Nutzenden abnehmen; Wartezeiten im Sprint Review bewerten.",
+        "Beide Punkte bis zum Projektende sammeln, damit der nächste Sprint ungestört bleibt.",
+        "Produktfeedback im Sprint Review besprechen; den Arbeitsablauf in der Retrospektive verbessern.",
+        "Beide Punkte nur im Daily Scrum klären, weil dort alle Entscheidungen fallen."
+      ],
+      "correct": 2,
+      "explanation": "Das Sprint Review untersucht mit Beteiligten das Ergebnis und mögliche nächste Produktschritte. Die Retrospektive richtet den Blick auf Zusammenarbeit, Werkzeuge und Arbeitsweise. Das Daily Scrum dient der täglichen Prüfung des Fortschritts zum Sprint-Ziel.",
+      "hu": {
+        "question": "A felhasználók nem értik az egyik szűrőt. A csapatban közben a hosszú átnézési várakozás lassítja a munkát. Melyik besorolás illik a Scrumhoz?",
+        "answers": [
+          "A szűrőt a retrospektíven vetetik át a felhasználókkal; a várakozást a Sprint Review-n értékelik.",
+          "Mindkettőt a projekt végéig gyűjtik, hogy a következő sprint zavartalan maradjon.",
+          "A termékvisszajelzést a Sprint Review-n beszélik meg; a munkafolyamatot a retrospektíven javítják.",
+          "Mindkettőt kizárólag a Daily Scrumon rendezik, mert ott születik minden döntés."
+        ],
+        "explanation": "A Sprint Review az eredményt és a termék lehetséges következő lépéseit vizsgálja az érintettekkel. A retrospektív az együttműködésre, eszközökre és munkamódra összpontosít. A Daily Scrum a sprintcél felé haladás napi áttekintését szolgálja."
+      }
+    },
+    {
+      "id": "lap-LAP-11-23-1",
+      "revision": 1,
+      "topic": "Reaktive Programmierung",
+      "source": {
+        "topicId": "LAP-11-23",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/23_Reaktive_Programmierung/README.md",
+        "slug": "11-23-reaktive_programmierung"
+      },
+      "question": "Ein Datenstrom liefert nacheinander 1, 2, 3 und 4. Der dargestellte Ablauf ist Pseudocode. Welche Werte erreichen die Ausgabe?",
+      "answers": [
+        "180 und 240.",
+        "60, 120, 180 und 240.",
+        "60 und 120.",
+        "3 und 4."
+      ],
+      "correct": 0,
+      "explanation": "Der Filter lässt zuerst nur 3 und 4 weiter. Die anschließende Abbildung multipliziert jeden dieser Werte mit 60. In reaktiven Bibliotheken lassen sich solche Schritte als Verarbeitungskette eines Datenstroms ausdrücken.",
+      "hu": {
+        "question": "Egy adatfolyam sorrendben 1, 2, 3 és 4 értéket ad. A bemutatott folyamat pszeudokód. Mely értékek jutnak a kimenetre?",
+        "answers": [
+          "180 és 240.",
+          "60, 120, 180 és 240.",
+          "60 és 120.",
+          "3 és 4."
+        ],
+        "explanation": "A szűrő először csak a 3-at és 4-et engedi tovább. Az utána következő leképezés mindkettőt megszorozza 60-nal. Reaktív könyvtárakban az ilyen lépések egy adatfolyam feldolgozási láncaként írhatók le."
+      },
+      "code": "source: 1, 2, 3, 4\n  -> filter(value >= 3)\n  -> map(value * 60)\n  -> output",
+      "codeLanguage": "pseudocode"
+    },
+    {
+      "id": "lap-LAP-11-23-2",
+      "revision": 1,
+      "topic": "Reaktive Programmierung",
+      "source": {
+        "topicId": "LAP-11-23",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/23_Reaktive_Programmierung/README.md",
+        "slug": "11-23-reaktive_programmierung"
+      },
+      "question": "Eine Suche sendet für „ca“ und kurz danach für „cat“ Anfragen. Die ältere Antwort für „ca“ kommt zuletzt. Welche Verarbeitung erhält das Ergebnis zur aktuellen Eingabe?",
+      "answers": [
+        "Jede Antwort sofort anzeigen, unabhängig davon, welche Eingabe inzwischen aktuell ist.",
+        "Nur die erste Anfrage der gesamten Sitzung zulassen.",
+        "Die Antwort mit der längsten Trefferliste bevorzugen.",
+        "Neue Eingaben bündeln und beim Antworten nur die noch aktuelle Anfrage berücksichtigen."
+      ],
+      "correct": 3,
+      "explanation": "Eine kurze Entprellung kann unnötige Anfragen reduzieren. Zusätzlich muss die Anwendung veraltete Antworten ignorieren oder die vorherige Verarbeitung passend ablösen. Allein eine Verzögerung beim Tippen verhindert überholende Antworten noch nicht.",
+      "hu": {
+        "question": "Egy kereső „ca”, majd röviddel később „cat” szövegre küld kérést. A régebbi, „ca” válasz érkezik meg utoljára. Melyik feldolgozás tartja meg az aktuális bevitelhez tartozó eredményt?",
+        "answers": [
+          "Minden választ azonnal megjelenítenek, függetlenül az időközben aktuális beviteltől.",
+          "A teljes munkamenetben csak az első kérést engedik.",
+          "A leghosszabb találati listát tartalmazó választ részesítik előnyben.",
+          "Összevonják a gyors beviteleket, és válaszkor csak a még aktuális kérést veszik figyelembe."
+        ],
+        "explanation": "Rövid késleltetéssel, azaz debounce-szal csökkenthetők a felesleges kérések. Emellett az alkalmazásnak figyelmen kívül kell hagynia az elavult válaszokat, vagy megfelelően le kell váltania a korábbi feldolgozást. Önmagában a gépelési késleltetés még nem akadályozza meg a válaszok előzését."
+      }
+    },
+    {
+      "id": "lap-LAP-11-23-3",
+      "revision": 1,
+      "topic": "Reaktive Programmierung",
+      "source": {
+        "topicId": "LAP-11-23",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/23_Reaktive_Programmierung/README.md",
+        "slug": "11-23-reaktive_programmierung"
+      },
+      "question": "Ein RxJS-Observable liefert bei subscribe seine Werte synchron aus einem Array. Was folgt daraus?",
+      "answers": [
+        "Synchrone Quellen lassen sich grundsätzlich nicht als Observable darstellen.",
+        "Ein Observable muss weder asynchron noch auf einem eigenen Thread arbeiten.",
+        "Observable-Werte werden immer erst nach dem nächsten Timer verarbeitet.",
+        "Jeder gelieferte Wert benötigt automatisch einen eigenen CPU-Kern."
+      ],
+      "correct": 1,
+      "explanation": "Observable beschreibt eine Möglichkeit, Werte und Benachrichtigungen zu liefern. Der konkrete Erzeuger und gegebenenfalls ein Scheduler bestimmen den zeitlichen Ablauf. Reaktiv, asynchron und parallel sind deshalb verschiedene Eigenschaften.",
+      "hu": {
+        "question": "Egy RxJS Observable a subscribe híváskor szinkron módon adja egy tömb értékeit. Mi következik ebből?",
+        "answers": [
+          "Szinkron forrás alapvetően nem ábrázolható Observable-ként.",
+          "Az Observable-nak nem kell sem aszinkron, sem külön szálon működnie.",
+          "Az Observable értékei mindig csak a következő időzítő után dolgozhatók fel.",
+          "Minden kibocsátott érték automatikusan külön CPU-magot igényel."
+        ],
+        "explanation": "Az Observable értékek és értesítések átadásának egyik módját írja le. A konkrét előállító és adott esetben az ütemező határozza meg az időbeli működést. A reaktív, aszinkron és párhuzamos ezért különböző tulajdonságok."
+      }
+    },
+    {
+      "id": "lap-LAP-11-23-4",
+      "revision": 1,
+      "topic": "Reaktive Programmierung",
+      "source": {
+        "topicId": "LAP-11-23",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/23_Reaktive_Programmierung/README.md",
+        "slug": "11-23-reaktive_programmierung"
+      },
+      "question": "Eine Oberfläche verwendet Observables. Reicht das aus, um das gesamte System nach dem Reactive Manifesto als reaktiv einzuordnen?",
+      "answers": [
+        "Ja, sobald mindestens eine HTTP-Anfrage asynchron läuft.",
+        "Nein, weil ein reaktives System ausschließlich ohne Datenbank arbeiten darf.",
+        "Nein. Auch Antwortverhalten, Ausfallsicherheit, Anpassung an Last und nachrichtenbasierte Kommunikation sind zu betrachten.",
+        "Ja. Der Import einer reaktiven Bibliothek erfüllt automatisch alle Systemeigenschaften."
+      ],
+      "correct": 2,
+      "explanation": "Das Reactive Manifesto beschreibt responsive, resilient, elastic und message-driven Systeme. Eine Bibliothek für Datenströme kann dabei helfen, belegt diese Eigenschaften aber nicht für die gesamte Architektur. Auch Fehler, Last und Abhängigkeiten müssen passend behandelt werden.",
+      "hu": {
+        "question": "Egy felület Observable-öket használ. Ettől a teljes rendszer már reaktívnak minősül a Reactive Manifesto szerint?",
+        "answers": [
+          "Igen, amint legalább egy HTTP-kérés aszinkron fut.",
+          "Nem, mert reaktív rendszer kizárólag adatbázis nélkül működhet.",
+          "Nem. A válaszkészséget, hibatűrést, terheléshez alkalmazkodást és üzenetalapú kommunikációt is vizsgálni kell.",
+          "Igen. Egy reaktív könyvtár importálása automatikusan teljesít minden rendszertulajdonságot."
+        ],
+        "explanation": "A Reactive Manifesto válaszkész, hibatűrő, rugalmasan skálázható és üzenetvezérelt rendszereket ír le. Egy adatfolyam-kezelő könyvtár segíthet ebben, de önmagában nem igazolja a teljes architektúra tulajdonságait. A hibákat, terhelést és függőségeket is megfelelően kell kezelni."
+      }
+    },
+    {
+      "id": "lap-LAP-11-23-5",
+      "revision": 1,
+      "topic": "Reaktive Programmierung",
+      "source": {
+        "topicId": "LAP-11-23",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/23_Reaktive_Programmierung/README.md",
+        "slug": "11-23-reaktive_programmierung"
+      },
+      "question": "Eine Seite meldet sich bei einem endlosen Ereignisstrom an. Nach jedem Seitenwechsel kommen doppelt so viele Aktualisierungen an. Was prüfst du zuerst?",
+      "answers": [
+        "Ob beim Verlassen alte Abonnements beendet und beim Öffnen nur die benötigten neu angelegt werden.",
+        "Ob sämtliche Ereignisse zusätzlich in einer unbegrenzten Liste gesammelt werden können.",
+        "Ob ein längerer Timer die alten Abonnements automatisch entfernt.",
+        "Ob das bloße Verbergen des DOM-Elements jedes Abonnement beendet."
+      ],
+      "correct": 0,
+      "explanation": "Ein dauerhaftes Abonnement kann nach dem Entfernen der sichtbaren Oberfläche weiterleben. Seine Lebensdauer sollte zur nutzenden Komponente passen. Passende Aufräumlogik verhindert doppelte Verarbeitung und unnötig gebundene Ressourcen.",
+      "hu": {
+        "question": "Egy oldal feliratkozik egy végtelen eseményfolyamra. Minden oldalváltás után kétszer annyi frissítés érkezik. Mit vizsgálsz meg először?",
+        "answers": [
+          "Kilépéskor megszűnnek-e a régi feliratkozások, és megnyitáskor csak a szükséges újak jönnek-e létre.",
+          "Minden esemény gyűjthető-e még egy korlátlan listába is.",
+          "Egy hosszabb időzítő automatikusan eltávolítja-e a régi feliratkozásokat.",
+          "A DOM-elem puszta elrejtése megszüntet-e minden feliratkozást."
+        ],
+        "explanation": "A tartós feliratkozás a látható felület eltávolítása után is élhet. Élettartama igazodjon az őt használó komponenshez. A megfelelő takarítás megelőzi a dupla feldolgozást és az erőforrások szükségtelen foglalását."
+      }
+    },
+    {
+      "id": "lap-LAP-11-24-1",
+      "revision": 1,
+      "topic": "Frameworks",
+      "source": {
+        "topicId": "LAP-11-24",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/24_Frameworks/README.md",
+        "slug": "11-24-frameworks"
+      },
+      "question": "Ein Webframework ruft deinen registrierten Handler auf, wenn GET /courses eintrifft. Dein Handler ruft wiederum eine Datumsbibliothek auf. Welcher Unterschied wird sichtbar?",
+      "answers": [
+        "Die Bibliothek steuert grundsätzlich alle HTTP-Anfragen; das Framework formatiert nur Daten.",
+        "Framework und Bibliothek unterscheiden sich ausschließlich durch die Dateigröße.",
+        "Ein Framework darf keinen eigenen Anwendungscode aufrufen.",
+        "Das Framework steuert den Aufruf deines Handlers; die Bibliothek rufst du aus deinem Code auf."
+      ],
+      "correct": 3,
+      "explanation": "Beim Framework liegt ein Teil der Ablaufsteuerung im vorgegebenen Rahmen. Dein Code hängt sich an definierte Stellen ein. Dieses Umkehren der Kontrolle wird Inversion of Control genannt; eine Hilfsbibliothek benutzt du dagegen gezielt durch eigene Aufrufe.",
+      "hu": {
+        "question": "Egy webes keretrendszer meghívja a regisztrált kezelődet a GET /courses kérésre. A kezelőd meghív egy dátumkönyvtárat. Milyen különbség látszik?",
+        "answers": [
+          "A könyvtár vezérel minden HTTP-kérést; a keretrendszer csak adatot formáz.",
+          "A keretrendszer és könyvtár kizárólag fájlméretben különbözik.",
+          "A keretrendszer nem hívhat saját alkalmazáskódot.",
+          "A keretrendszer vezérli a kezelőd meghívását; a könyvtárat a saját kódodból hívod."
+        ],
+        "explanation": "Keretrendszernél a folyamat vezérlésének egy része a megadott keretben van. A saját kód meghatározott pontokon kapcsolódik be. Ezt a vezérlés megfordításának, Inversion of Controlnak nevezzük; egy segédkönyvtárat ezzel szemben saját hívásokkal használunk."
+      }
+    },
+    {
+      "id": "lap-LAP-11-24-2",
+      "revision": 1,
+      "topic": "Frameworks",
+      "source": {
+        "topicId": "LAP-11-24",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/24_Frameworks/README.md",
+        "slug": "11-24-frameworks"
+      },
+      "question": "Ein Framework hat den Benutzer bereits angemeldet. Ein Handler erhält eine Kurs-ID und soll private Kursdaten ausgeben. Welche Aufgabe bleibt in der Anwendung?",
+      "answers": [
+        "Die Datenbankabfrage im Browser ausführen, um Serverprüfungen zu sparen.",
+        "Eingabe und Zugriff auf genau diesen Kurs prüfen.",
+        "Die Kurs-ID ungeprüft verwenden, weil Anmeldung jede Ressource freigibt.",
+        "Nur prüfen, ob der Browser JavaScript unterstützt."
+      ],
+      "correct": 1,
+      "explanation": "Authentifizierung beantwortet, wer anfragt. Autorisierung prüft, ob diese Person die konkrete Ressource verwenden darf. Routing und allgemeine Middleware können unterstützen, ersetzen aber keine passenden fachlichen Zugriffsregeln.",
+      "hu": {
+        "question": "A keretrendszer már beléptette a felhasználót. Egy kezelő kurzusazonosítót kap, és privát kurzusadatot adna vissza. Melyik feladat marad az alkalmazásban?",
+        "answers": [
+          "A böngészőben futtatni az adatbázis-lekérdezést, hogy ne kelljen szerveroldali ellenőrzés.",
+          "A bemenetet és az adott kurzushoz való hozzáférést ellenőrizni.",
+          "Ellenőrzés nélkül használni az azonosítót, mert a belépés minden erőforráshoz hozzáférést ad.",
+          "Csak azt ellenőrizni, hogy a böngésző támogatja-e a JavaScriptet."
+        ],
+        "explanation": "A hitelesítés megmondja, ki kérdez. A jogosultság-ellenőrzés azt vizsgálja, használhatja-e ez a személy az adott erőforrást. Az útvonalkezelés és általános köztes réteg segíthet, de nem helyettesíti a megfelelő szakmai hozzáférési szabályokat."
+      }
+    },
+    {
+      "id": "lap-LAP-11-24-3",
+      "revision": 1,
+      "topic": "Frameworks",
+      "source": {
+        "topicId": "LAP-11-24",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/24_Frameworks/README.md",
+        "slug": "11-24-frameworks"
+      },
+      "question": "Welche Einordnung ist für eine Webanwendung fachlich passend?",
+      "answers": [
+        "React ist eine Programmiersprache; JavaScript ist das zugehörige UI-Framework.",
+        "Ein Frontend-Framework ersetzt automatisch die serverseitige Rechteprüfung.",
+        "Angular kann die Oberfläche strukturieren; Spring kann serverseitige HTTP-Endpunkte bereitstellen.",
+        "Spring ist ausschließlich eine CSS-Sammlung; Angular ist ausschließlich ein Datenbanktreiber."
+      ],
+      "correct": 2,
+      "explanation": "Frameworks können unterschiedliche Schichten unterstützen. Angular ist ein Framework für Weboberflächen, Spring ein breites Java-Framework mit Webunterstützung. React bezeichnet eine Bibliothek für Benutzeroberflächen; solche Begriffe sollten nicht mit Programmiersprachen verwechselt werden.",
+      "hu": {
+        "question": "Melyik besorolás szakmailag helyes egy webalkalmazásnál?",
+        "answers": [
+          "A React programozási nyelv; a JavaScript a hozzá tartozó UI-keretrendszer.",
+          "A frontend keretrendszer automatikusan helyettesíti a szerveroldali jogosultság-ellenőrzést.",
+          "Az Angular szervezheti a felületet; a Spring szerveroldali HTTP-végpontokat adhat.",
+          "A Spring kizárólag CSS-gyűjtemény; az Angular kizárólag adatbázis-meghajtó."
+        ],
+        "explanation": "A keretrendszerek különböző rétegeket támogathatnak. Az Angular webes felületek keretrendszere, a Spring széles Java-keretrendszer webes támogatással. A React felületekhez használható könyvtár; ezeket a fogalmakat érdemes megkülönböztetni a programozási nyelvektől."
+      }
+    },
+    {
+      "id": "lap-LAP-11-24-4",
+      "revision": 1,
+      "topic": "Frameworks",
+      "source": {
+        "topicId": "LAP-11-24",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/24_Frameworks/README.md",
+        "slug": "11-24-frameworks"
+      },
+      "question": "Vier Personen entwickeln neue Seiten. Warum können gemeinsame Framework-Konventionen helfen?",
+      "answers": [
+        "Gleiche Zuständigkeiten und wiederverwendete Muster erleichtern Einarbeitung und Änderungen.",
+        "Sie machen fachliche Absprachen überflüssig.",
+        "Sie garantieren automatisch korrekte Geschäftsregeln.",
+        "Sie sorgen dafür, dass jede Seite ihre eigene Kopie aller Hilfsfunktionen benötigt."
+      ],
+      "correct": 0,
+      "explanation": "Einheitliche Orte für Routen, Darstellung und Anwendungslogik verringern Suchaufwand. Gemeinsame Bausteine können Änderungen an mehreren Stellen vermeiden. Verständliche Namen, Tests und fachliche Absprachen bleiben trotzdem notwendig.",
+      "hu": {
+        "question": "Négy ember fejleszt új oldalakat. Miért segíthetnek a keretrendszer közös konvenciói?",
+        "answers": [
+          "Az egységes felelősségek és újrahasznált minták megkönnyítik a betanulást és módosítást.",
+          "Feleslegessé teszik a szakmai egyeztetést.",
+          "Automatikusan garantálják az üzleti szabályok helyességét.",
+          "Elérik, hogy minden oldalnak saját másolat kelljen minden segédfüggvényből."
+        ],
+        "explanation": "Az útvonalak, megjelenítés és alkalmazáslogika egységes helye csökkenti a keresgélést. A közös építőelemekkel elkerülhető több hely párhuzamos módosítása. Az érthető elnevezés, tesztelés és szakmai egyeztetés továbbra is szükséges."
+      }
+    },
+    {
+      "id": "lap-LAP-11-24-5",
+      "revision": 1,
+      "topic": "Frameworks",
+      "source": {
+        "topicId": "LAP-11-24",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/24_Frameworks/README.md",
+        "slug": "11-24-frameworks"
+      },
+      "question": "Für eine kleine Informationsseite werden Links, Text und etwas CSS benötigt. Was ist eine vernünftige Entscheidung zur Framework-Auswahl?",
+      "answers": [
+        "Das größte Framework wählen, damit alle denkbaren späteren Funktionen vorbereitet sind.",
+        "Nur die Zahl der Downloads vergleichen; Wartung und Teamkenntnisse spielen keine Rolle.",
+        "Mehrere Frameworks gleichzeitig einsetzen, damit die Seite möglichst unabhängig wird.",
+        "Zuerst die Anforderungen prüfen; einfaches HTML/CSS kann bereits ausreichen."
+      ],
+      "correct": 3,
+      "explanation": "Ein Framework lohnt sich, wenn sein Nutzen Aufwand und Abhängigkeiten rechtfertigt. Anforderungen, vorhandene Kenntnisse, Wartbarkeit, Lizenz und Unterstützung sind sinnvolle Kriterien. Eine kleine statische Seite kann ohne zusätzlichen Anwendungsrahmen leichter verständlich bleiben.",
+      "hu": {
+        "question": "Egy kis információs oldalhoz linkek, szöveg és némi CSS kell. Mi észszerű döntés a keretrendszerről?",
+        "answers": [
+          "A legnagyobb keretrendszert választani, hogy minden elképzelhető későbbi funkció elő legyen készítve.",
+          "Csak a letöltésszámot összehasonlítani; a karbantartás és csapattudás nem számít.",
+          "Egyszerre több keretrendszert használni, hogy az oldal minél függetlenebb legyen.",
+          "Először megvizsgálni az igényeket; az egyszerű HTML/CSS is elegendő lehet."
+        ],
+        "explanation": "A keretrendszer akkor éri meg, ha az előnye indokolja a ráfordítást és függőségeket. Jó szempont az igény, meglévő tudás, karbantarthatóság, licenc és támogatottság. Egy kis statikus oldal további alkalmazáskeret nélkül könnyebben érthető maradhat."
+      }
+    },
+    {
+      "id": "lap-LAP-11-25-1",
+      "revision": 1,
+      "topic": "Einsatzgebiet AngularJS",
+      "source": {
+        "topicId": "LAP-11-25",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/25_Einsatzgebiet_AngularJS/README.md",
+        "slug": "11-25-einsatzgebiet_angularjs"
+      },
+      "question": "Ein Wartungsauftrag betrifft AngularJS 1.x. Welche Beschreibung hilft bei der Einordnung?",
+      "answers": [
+        "Eine ausschließlich für CSS-Raster zuständige Bibliothek.",
+        "Ein älteres JavaScript-Framework für dynamische Weboberflächen, dessen offizielle Unterstützung im Januar 2022 endete.",
+        "Die aktuelle Hauptversion von Angular, die lediglich einen längeren Namen trägt.",
+        "Eine serverseitige Java-Laufzeit für relationale Datenbanken."
+      ],
+      "correct": 1,
+      "explanation": "AngularJS wurde unter anderem für Single-Page-Anwendungen mit Datenbindung verwendet. Es ist vom heutigen Angular zu unterscheiden. Sein offizielles Supportende ist für Wartungsentscheidungen relevant, bedeutet aber nicht, dass vorhandene Anwendungen an diesem Datum automatisch aufgehört haben zu funktionieren.",
+      "hu": {
+        "question": "Egy karbantartási feladat AngularJS 1.x-et érint. Melyik leírás segít a besorolásban?",
+        "answers": [
+          "Kizárólag CSS-rácsokért felelős könyvtár.",
+          "Régebbi JavaScript-keretrendszer dinamikus webfelületekhez, amelynek hivatalos támogatása 2022 januárjában véget ért.",
+          "Az Angular aktuális főverziója, csupán hosszabb névvel.",
+          "Szerveroldali Java-futtatókörnyezet relációs adatbázisokhoz."
+        ],
+        "explanation": "Az AngularJS-t többek között adatkötéses, egyoldalas webalkalmazásokhoz használták. Megkülönböztetendő a mai Angulartól. Hivatalos támogatásának vége fontos karbantartási szempont, de nem jelenti, hogy a meglévő alkalmazások ezen a napon automatikusan leálltak."
+      }
+    },
+    {
+      "id": "lap-LAP-11-25-2",
+      "revision": 1,
+      "topic": "Einsatzgebiet AngularJS",
+      "source": {
+        "topicId": "LAP-11-25",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/25_Einsatzgebiet_AngularJS/README.md",
+        "slug": "11-25-einsatzgebiet_angularjs"
+      },
+      "question": "Dies ist ein Lesebeispiel aus einer alten AngularJS-Anwendung. AngularJS ist bereits geladen und initialisiert. Was zeigt der Absatz nach der Eingabe Anna?",
+      "answers": [
+        "Hallo {{ name }}",
+        "Der Absatz bleibt leer, bis ein Formular abgeschickt wird.",
+        "Hallo Anna",
+        "Hallo name"
+      ],
+      "correct": 2,
+      "explanation": "ng-model verbindet den Eingabewert mit name. Die Interpolation im Absatz zeigt den gebundenen Wert an. Die Bibliothek übernimmt die Aktualisierung; ohne geladenes und initialisiertes AngularJS hätte dieses HTML allein diese Funktion nicht.",
+      "hu": {
+        "question": "Ez egy régi AngularJS-alkalmazás olvasási példája. Az AngularJS már betöltődött és inicializálódott. Mit mutat a bekezdés az Anna név beírása után?",
+        "answers": [
+          "Hallo {{ name }}",
+          "A bekezdés üres marad az űrlap elküldéséig.",
+          "Hallo Anna",
+          "Hallo name"
+        ],
+        "explanation": "Az ng-model a beviteli értéket a name változóhoz köti. A bekezdés interpolációja a kötött értéket mutatja. A könyvtár végzi a frissítést; betöltött és inicializált AngularJS nélkül önmagában ez a HTML nem tudná ezt."
+      },
+      "code": "<div ng-app>\n  <label for=\"name\">Name</label>\n  <input id=\"name\" ng-model=\"name\">\n  <p>Hallo {{ name }}</p>\n</div>",
+      "codeLanguage": "html"
+    },
+    {
+      "id": "lap-LAP-11-25-3",
+      "revision": 1,
+      "topic": "Einsatzgebiet AngularJS",
+      "source": {
+        "topicId": "LAP-11-25",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/25_Einsatzgebiet_AngularJS/README.md",
+        "slug": "11-25-einsatzgebiet_angularjs"
+      },
+      "question": "Eine AngularJS-Anwendung soll auf modernes Angular umgestellt werden. Welche Planung ist realistisch?",
+      "answers": [
+        "Routen, Formulare und Schnittstellen erfassen, Verhalten absichern und die Migration in überprüfbare Schritte teilen.",
+        "Nur die Versionsnummer ändern; AngularJS-Controller werden unverändert übernommen.",
+        "Alle Tests entfernen, weil die neue Technik das alte Verhalten ohnehin ersetzt.",
+        "Ausschließlich CSS-Klassen umbenennen; die Anwendungsstruktur bleibt kompatibel."
+      ],
+      "correct": 0,
+      "explanation": "AngularJS und Angular unterscheiden sich wesentlich in Aufbau und APIs. Eine Migration ist daher mehr als ein gewöhnliches Paketupdate. Tests der wichtigen Abläufe helfen, beim schrittweisen Umbau fachliches Verhalten zu erhalten.",
+      "hu": {
+        "question": "Egy AngularJS-alkalmazást mai Angularra állítanának át. Melyik terv reális?",
+        "answers": [
+          "Felmérni az útvonalakat, űrlapokat és interfészeket, tesztekkel védeni a működést, majd ellenőrizhető lépésekre bontani az átállást.",
+          "Csak a verziószámot módosítani; az AngularJS-controllerek változatlanul átvehetők.",
+          "Minden tesztet eltávolítani, mert az új technológia úgyis helyettesíti a régi működést.",
+          "Kizárólag a CSS-osztályokat átnevezni; az alkalmazásszerkezet kompatibilis marad."
+        ],
+        "explanation": "Az AngularJS és Angular felépítése és API-jai lényegesen eltérnek. A migráció ezért több egy szokásos csomagfrissítésnél. A fontos folyamatok tesztjei segítenek megőrizni a szakmai működést a fokozatos átépítés során."
+      }
+    },
+    {
+      "id": "lap-LAP-11-25-4",
+      "revision": 1,
+      "topic": "Einsatzgebiet AngularJS",
+      "source": {
+        "topicId": "LAP-11-25",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/25_Einsatzgebiet_AngularJS/README.md",
+        "slug": "11-25-einsatzgebiet_angularjs"
+      },
+      "question": "Ein AngularJS-Formular erlaubt nur positive Mengen. Kann das Backend deshalb auf die Mengenprüfung verzichten?",
+      "answers": [
+        "Ja, wenn ng-model verwendet wird.",
+        "Ja, wenn das Eingabefeld im Browser required besitzt.",
+        "Ja, sobald die Anfrage über HTTPS übertragen wird.",
+        "Nein. Der Server muss die empfangenen Werte und die erlaubte Aktion selbst prüfen."
+      ],
+      "correct": 3,
+      "explanation": "Browserprüfungen verbessern die Bedienung. Eine Anfrage kann aber auch ohne dieses Formular oder mit veränderten Werten gesendet werden. HTTPS schützt die Übertragung, bestätigt jedoch weder den zulässigen Wertebereich noch die Berechtigung zur Aktion.",
+      "hu": {
+        "question": "Egy AngularJS-űrlap csak pozitív mennyiséget enged. Emiatt elhagyhatja a backend a mennyiség ellenőrzését?",
+        "answers": [
+          "Igen, ha ng-modelt használnak.",
+          "Igen, ha a böngészőben required van a beviteli mezőn.",
+          "Igen, amint HTTPS-en küldik a kérést.",
+          "Nem. A szervernek magának kell ellenőriznie a kapott értékeket és az engedélyezett műveletet."
+        ],
+        "explanation": "A böngésző ellenőrzései javítják a használhatóságot. Kérés azonban az űrlap nélkül vagy módosított értékekkel is küldhető. A HTTPS az átvitelt védi, de sem az elfogadható értéktartományt, sem a műveleti jogosultságot nem igazolja."
+      }
+    },
+    {
+      "id": "lap-LAP-11-25-5",
+      "revision": 1,
+      "topic": "Einsatzgebiet AngularJS",
+      "source": {
+        "topicId": "LAP-11-25",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/25_Einsatzgebiet_AngularJS/README.md",
+        "slug": "11-25-einsatzgebiet_angularjs"
+      },
+      "question": "Für ein neues, langfristig gepflegtes Projekt schlägt jemand AngularJS vor, weil es im Lehrstoff steht. Was ist die beste Schlussfolgerung?",
+      "answers": [
+        "AngularJS ist wieder offiziell unterstützt, sobald man es selbst lokal hostet.",
+        "Das Lehrthema hilft beim Verstehen alter Systeme; für das neue Projekt sollte eine passende gepflegte Lösung geprüft werden.",
+        "Die Erwähnung im Lehrstoff belegt automatisch die aktuelle Herstellerunterstützung.",
+        "Jede vorhandene AngularJS-Anwendung muss sofort abgeschaltet werden, unabhängig von ihrem Einsatz."
+      ],
+      "correct": 1,
+      "explanation": "Historische Technik ist wichtig, um vorhandene Anwendungen einordnen und warten zu können. Die Auswahl für neue Software berücksichtigt zusätzlich Wartung, Sicherheitsupdates, Anforderungen und Teamkenntnisse. Lokales Hosting ändert den Supportstatus einer Bibliothek nicht.",
+      "hu": {
+        "question": "Egy új, hosszú távon karbantartandó projekthez valaki AngularJS-t javasol, mert szerepel a tananyagban. Mi a legjobb következtetés?",
+        "answers": [
+          "Az AngularJS újra hivatalosan támogatott, amint saját szerveren tároljuk.",
+          "A téma régi rendszerek megértésében segít; az új projekthez megfelelő, karbantartott megoldást érdemes vizsgálni.",
+          "A tananyagban való szereplés automatikusan igazolja az aktuális gyártói támogatást.",
+          "Minden meglévő AngularJS-alkalmazást azonnal le kell állítani, a felhasználásától függetlenül."
+        ],
+        "explanation": "A korábbi technológiák ismerete fontos a meglévő alkalmazások megértéséhez és karbantartásához. Új szoftvernél a karbantartást, biztonsági frissítéseket, követelményeket és csapattudást is mérlegeljük. A helyi kiszolgálás nem változtatja meg egy könyvtár támogatási állapotát."
+      }
+    },
+    {
+      "id": "lap-LAP-11-26-1",
+      "revision": 1,
+      "topic": "Einsatzgebiet Bootstrap",
+      "source": {
+        "topicId": "LAP-11-26",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/26_Einsatzgebiet_Bootstrap/README.md",
+        "slug": "11-26-einsatzgebiet_bootstrap"
+      },
+      "question": "Bootstrap 5.3 ist mit unveränderten Breakpoints geladen. Wie stehen diese beiden Bereiche bei 600 und bei 900 CSS-Pixeln Viewportbreite?",
+      "answers": [
+        "Bei 600 nebeneinander, bei 900 untereinander.",
+        "Bei beiden Breiten untereinander, weil col-12 spätere Breakpoints verhindert.",
+        "Bei 600 untereinander, bei 900 nebeneinander mit je einer halben Rasterbreite.",
+        "Bei beiden Breiten nebeneinander, weil col-md-6 immer gilt."
+      ],
+      "correct": 2,
+      "explanation": "col-12 belegt zunächst alle zwölf Spalten. Ab dem md-Breakpoint bei 768 CSS-Pixeln gilt col-md-6: Jeder Bereich nutzt sechs von zwölf Spalten. Die Rasterregeln funktionieren durch CSS; dieses Beispiel benötigt kein Bootstrap-JavaScript.",
+      "hu": {
+        "question": "A Bootstrap 5.3 változatlan töréspontokkal betöltődött. Hogyan áll ez a két rész 600, illetve 900 CSS-pixel széles nézetben?",
+        "answers": [
+          "600-nál egymás mellett, 900-nál egymás alatt.",
+          "Mindkét szélességnél egymás alatt, mert a col-12 kizárja a későbbi töréspontokat.",
+          "600-nál egymás alatt, 900-nál egymás mellett, fele-fele rácsszélességgel.",
+          "Mindkét szélességnél egymás mellett, mert a col-md-6 mindig érvényes."
+        ],
+        "explanation": "A col-12 kezdetben mind a tizenkét oszlopot elfoglalja. A 768 CSS-pixeles md törésponttól a col-md-6 érvényes: mindkét rész hatot használ a tizenkét oszlopból. A rácsot CSS működteti; ehhez a példához nem kell Bootstrap-JavaScript."
+      },
+      "code": "<div class=\"container\">\n  <div class=\"row\">\n    <section class=\"col-12 col-md-6\">A</section>\n    <section class=\"col-12 col-md-6\">B</section>\n  </div>\n</div>",
+      "codeLanguage": "html"
+    },
+    {
+      "id": "lap-LAP-11-26-2",
+      "revision": 1,
+      "topic": "Einsatzgebiet Bootstrap",
+      "source": {
+        "topicId": "LAP-11-26",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/26_Einsatzgebiet_Bootstrap/README.md",
+        "slug": "11-26-einsatzgebiet_bootstrap"
+      },
+      "question": "Eine Bootstrap-5-Seite zeigt das Raster korrekt, aber ein Modal öffnet sich nicht. Nur Bootstrap-CSS wurde eingebunden. Was prüfst du zuerst?",
+      "answers": [
+        "Ob das passende Bootstrap-JavaScript und die korrekte Modal-Anbindung fehlen.",
+        "Ob jQuery zwingend fehlt, weil Bootstrap 5 ohne jQuery kein Modal unterstützen kann.",
+        "Ob das gesamte Raster auf Tabellen umgebaut werden muss.",
+        "Ob ein zusätzliches CSS-Theme automatisch die Modal-Ereignisse übernimmt."
+      ],
+      "correct": 0,
+      "explanation": "CSS gestaltet die Oberfläche; interaktive Bootstrap-Komponenten benötigen zusätzlich das entsprechende JavaScript und passende Attribute oder Aufrufe. Bootstrap 5 setzt jQuery nicht voraus. Ein anderes Theme ersetzt keine Ereignisverarbeitung.",
+      "hu": {
+        "question": "Egy Bootstrap 5-oldalon a rács jól látszik, de a modális ablak nem nyílik meg. Csak a Bootstrap CSS-ét töltötték be. Mit vizsgálsz először?",
+        "answers": [
+          "Hiányzik-e a megfelelő Bootstrap-JavaScript és a modális ablak helyes bekötése.",
+          "Kötelezően hiányzik-e a jQuery, mert a Bootstrap 5 nélküle nem támogat modális ablakot.",
+          "Át kell-e építeni a teljes rácsot táblázatokká.",
+          "Egy további CSS-téma automatikusan átveszi-e a modális események kezelését."
+        ],
+        "explanation": "A CSS megjelenít, az interaktív Bootstrap-komponensekhez emellett a megfelelő JavaScript és attribútumok vagy hívások is kellenek. A Bootstrap 5 nem követel jQueryt. Egy másik téma nem helyettesíti az eseménykezelést."
+      }
+    },
+    {
+      "id": "lap-LAP-11-26-3",
+      "revision": 1,
+      "topic": "Einsatzgebiet Bootstrap",
+      "source": {
+        "topicId": "LAP-11-26",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/26_Einsatzgebiet_Bootstrap/README.md",
+        "slug": "11-26-einsatzgebiet_bootstrap"
+      },
+      "question": "Bootstrap-CSS ist geladen. Welche Überschriftenebene hat dieses Element für die Dokumentstruktur?",
+      "answers": [
+        "Ebene 4, weil Bootstrap-Klassen den HTML-Elementtyp ersetzen.",
+        "Es ist keine Überschrift mehr, weil Element und Klasse verschiedene Zahlen haben.",
+        "Die Ebene ergibt sich ausschließlich aus der Schriftgröße auf dem Bildschirm.",
+        "Ebene 2; die Klasse h4 verändert die Gestaltung, nicht den HTML-Elementtyp."
+      ],
+      "correct": 3,
+      "explanation": "Das h2-Element trägt die Überschriftensemantik. Die Bootstrap-Klasse h4 gibt ihm eine andere visuelle Typografie. Eine sinnvolle Überschriftenhierarchie sollte sich nach dem Inhalt richten und nicht allein nach der gewünschten Schriftgröße.",
+      "hu": {
+        "question": "A Bootstrap CSS-e betöltődött. Milyen szintű címsor ez a dokumentum szerkezetében?",
+        "answers": [
+          "Negyedik szintű, mert a Bootstrap-osztályok helyettesítik a HTML-elemtípust.",
+          "Már nem címsor, mert az elem és osztály eltérő számot tartalmaz.",
+          "A szint kizárólag a képernyőn látható betűméretből következik.",
+          "Második szintű; a h4 osztály a megjelenést változtatja, nem a HTML-elemtípust."
+        ],
+        "explanation": "A címsor jelentését a h2 elem hordozza. A Bootstrap h4 osztály más vizuális tipográfiát ad neki. Az értelmes címsorhierarchia a tartalomhoz igazodjon, ne pusztán a kívánt betűmérethez."
+      },
+      "code": "<h2 class=\"h4\">Kurse</h2>",
+      "codeLanguage": "html"
+    },
+    {
+      "id": "lap-LAP-11-26-4",
+      "revision": 1,
+      "topic": "Einsatzgebiet Bootstrap",
+      "source": {
+        "topicId": "LAP-11-26",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/26_Einsatzgebiet_Bootstrap/README.md",
+        "slug": "11-26-einsatzgebiet_bootstrap"
+      },
+      "question": "Alle primären Schaltflächen sollen die Markenfarbe erhalten. Welche Anpassung ist am wartbarsten?",
+      "answers": [
+        "Für jede Seite eine getrennte vollständige Bootstrap-Kopie pflegen.",
+        "Die gemeinsame Theme-Konfiguration beziehungsweise die passenden Bootstrap-Variablen zentral anpassen.",
+        "Jeder Schaltfläche eine andere Inline-Regel geben und diese später einzeln nachziehen.",
+        "Die ausgelieferte Bibliotheksdatei an zufälligen Stellen überschreiben, ohne die Änderung festzuhalten."
+      ],
+      "correct": 1,
+      "explanation": "Zentrale Gestaltungsvorgaben halten zusammengehörige Komponenten konsistent. Je nach Build werden dafür Sass-Einstellungen oder die passenden CSS-Variablen verwendet. Einzelne Komponenten können weiterhin begründete Ausnahmen haben, ohne die gesamte Gestaltung zu duplizieren.",
+      "hu": {
+        "question": "Minden elsődleges gomb kapja meg a márkaszínt. Melyik módosítás tartható legkönnyebben karban?",
+        "answers": [
+          "Minden oldalhoz külön teljes Bootstrap-másolatot karbantartani.",
+          "Központilag módosítani a közös témabeállítást vagy a megfelelő Bootstrap-változókat.",
+          "Minden gombnak más inline szabályt adni, majd később egyesével követni a változásokat.",
+          "Véletlenszerű helyeken átírni a könyvtár kiadott fájlját, a módosítás rögzítése nélkül."
+        ],
+        "explanation": "A központi megjelenési beállítások egységesen tartják az összetartozó komponenseket. A buildtől függően erre Sass-beállítások vagy megfelelő CSS-változók használhatók. Egyes komponenseknek továbbra is lehet indokolt kivételük a teljes megjelenés másolása nélkül."
+      }
+    },
+    {
+      "id": "lap-LAP-11-26-5",
+      "revision": 1,
+      "topic": "Einsatzgebiet Bootstrap",
+      "source": {
+        "topicId": "LAP-11-26",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/26_Einsatzgebiet_Bootstrap/README.md",
+        "slug": "11-26-einsatzgebiet_bootstrap"
+      },
+      "question": "Ein Formular nutzt Bootstrap-Komponenten und sieht ordentlich aus. Welche Prüfung ist weiterhin notwendig?",
+      "answers": [
+        "Auf Tests verzichten, weil fertige Komponenten jede Kombination zugänglich machen.",
+        "Die Tab-Reihenfolge durch beliebige positive tabindex-Werte erzwingen.",
+        "Beschriftungen, Tastaturbedienung, Kontrast und verständliche Fehlermeldungen im konkreten Formular prüfen.",
+        "Nur kontrollieren, ob alle Elemente eine Bootstrap-Klasse besitzen."
+      ],
+      "correct": 2,
+      "explanation": "Eine Komponentenbibliothek liefert Hilfen, aber keine automatische Garantie für das zusammengesetzte Formular. Eigene Farben, fehlende Labels oder eine ungünstige Reihenfolge können die Nutzung erschweren. Entscheidend ist das tatsächliche Verhalten mit den verwendeten Inhalten.",
+      "hu": {
+        "question": "Egy űrlap Bootstrap-komponenseket használ és rendezettnek látszik. Milyen ellenőrzés szükséges továbbra is?",
+        "answers": [
+          "Elhagyni a teszteket, mert a kész komponensek minden összeállítást akadálymentessé tesznek.",
+          "Tetszőleges pozitív tabindex értékekkel kikényszeríteni a tabulátorsorrendet.",
+          "A konkrét űrlap feliratait, billentyűzetes használatát, kontrasztját és érthető hibajelzéseit vizsgálni.",
+          "Csak azt megnézni, hogy minden elemnek van-e Bootstrap-osztálya."
+        ],
+        "explanation": "A komponenskönyvtár segítséget ad, de nem garantálja automatikusan az összeállított űrlap hozzáférhetőségét. Saját színek, hiányzó feliratok vagy kedvezőtlen sorrend nehezíthetik a használatot. A valódi működés számít a tényleges tartalommal."
+      }
+    },
+    {
+      "id": "lap-LAP-11-27-1",
+      "revision": 1,
+      "topic": "Einsatzgebiet jQuery",
+      "source": {
+        "topicId": "LAP-11-27",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/27_Einsatzgebiet_jQuery/README.md",
+        "slug": "11-27-einsatzgebiet_jquery"
+      },
+      "question": "jQuery ist bereits geladen; das Script steht nach den gezeigten Elementen. Was geschieht nach einem Klick auf den Button?",
+      "answers": [
+        "Der Absatz erhält den Text Ready, ohne dass dafür eine Serveranfrage nötig ist.",
+        "Der Text erscheint bereits beim Registrieren des Handlers, ohne Klick.",
+        "Der Button wird durch einen neuen Absatz ersetzt.",
+        "jQuery sendet automatisch ein Formular an den Server."
+      ],
+      "correct": 0,
+      "explanation": "on registriert den Klick-Handler. Erst beim Ereignis wird der Statusabsatz ausgewählt und mit text aktualisiert. Hier ist weder Ajax noch ein Formularversand enthalten; DOM-Arbeit und Netzwerkanfragen sind getrennte Aufgaben.",
+      "hu": {
+        "question": "A jQuery már betöltődött; a script a bemutatott elemek után áll. Mi történik a gombra kattintáskor?",
+        "answers": [
+          "A bekezdés a Ready szöveget kapja, ehhez nem szükséges szerverkérés.",
+          "A szöveg már a kezelő regisztrálásakor, kattintás nélkül megjelenik.",
+          "A gombot egy új bekezdés helyettesíti.",
+          "A jQuery automatikusan űrlapot küld a szervernek."
+        ],
+        "explanation": "Az on regisztrálja a kattintáskezelőt. Az eseménykor választja ki a kód az állapotbekezdést, majd texttel frissíti. Itt nincs Ajax vagy űrlapküldés; a DOM kezelése és a hálózati kérések külön feladatok."
+      },
+      "code": "<button id=\"ready\" type=\"button\">Start</button>\n<p id=\"status\" role=\"status\"></p>\n<script>\n  $(\"#ready\").on(\"click\", () => {\n    $(\"#status\").text(\"Ready\");\n  });\n</script>",
+      "codeLanguage": "html"
+    },
+    {
+      "id": "lap-LAP-11-27-2",
+      "revision": 1,
+      "topic": "Einsatzgebiet jQuery",
+      "source": {
+        "topicId": "LAP-11-27",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/27_Einsatzgebiet_jQuery/README.md",
+        "slug": "11-27-einsatzgebiet_jquery"
+      },
+      "question": "jQuery ist geladen. Ein eingegebener Name lautet wörtlich <strong>Anna</strong>. Die Anwendung setzt ihn mit $(\"#name\").text(name) in einen normalen Absatz. Was wird dargestellt?",
+      "answers": [
+        "Nur Anna in Fettschrift, weil text HTML interpretiert.",
+        "Ein leerer Absatz, weil text alle Inhalte zwischen Klammern entfernt.",
+        "Ein neues Formularfeld, weil jQuery jeden eingegebenen Namen als Element erzeugt.",
+        "Der Text <strong>Anna</strong> einschließlich der spitzen Klammern."
+      ],
+      "correct": 3,
+      "explanation": "text behandelt den Wert als Textinhalt und erzeugt daraus keine HTML-Struktur. Das ist passend, wenn ein Name als Text erscheinen soll. Andere Ausgabekontexte wie URLs oder bewusst erzeugtes HTML brauchen jeweils eigene passende Regeln.",
+      "hu": {
+        "question": "A jQuery betöltődött. Egy megadott név szó szerint <strong>Anna</strong>. Az alkalmazás $(\"#name\").text(name) hívással teszi egy normál bekezdésbe. Mi jelenik meg?",
+        "answers": [
+          "Csak Anna félkövéren, mert a text HTML-ként értelmez.",
+          "Üres bekezdés, mert a text minden zárójelek közötti tartalmat eltávolít.",
+          "Új űrlapmező, mert a jQuery minden beírt nevet elemként hoz létre.",
+          "A <strong>Anna</strong> szöveg a csúcsos zárójelekkel együtt."
+        ],
+        "explanation": "A text szöveges tartalomként kezeli az értéket, nem hoz létre belőle HTML-szerkezetet. Ez megfelelő, ha egy nevet szövegként szeretnénk látni. Más kimeneti helyzetekhez, például URL-hez vagy szándékosan előállított HTML-hez saját megfelelő szabályok kellenek."
+      }
+    },
+    {
+      "id": "lap-LAP-11-27-3",
+      "revision": 1,
+      "topic": "Einsatzgebiet jQuery",
+      "source": {
+        "topicId": "LAP-11-27",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/27_Einsatzgebiet_jQuery/README.md",
+        "slug": "11-27-einsatzgebiet_jquery"
+      },
+      "question": "Eine neue kleine Seite benötigt nur einen Klick-Handler und eine Textänderung. Das Team kennt moderne Browser-APIs. Welche Entscheidung ist gut begründbar?",
+      "answers": [
+        "Den gesamten Inhalt nach jedem Klick vom Server neu laden, weil nur jQuery Text ändern kann.",
+        "addEventListener und textContent verwenden, wenn dadurch keine zusätzliche Bibliothek benötigt wird.",
+        "jQuery zwingend einführen, weil JavaScript selbst keine DOM-Ereignisse behandeln kann.",
+        "jQuery und native Handler parallel für denselben Effekt registrieren."
+      ],
+      "correct": 1,
+      "explanation": "Viele frühere jQuery-Hilfen haben heute gut nutzbare native Entsprechungen. Eine bestehende jQuery-Anwendung kann weiterhin sinnvoll gepflegt werden. Bei einer neuen kleinen Aufgabe zählt, ob die zusätzliche Abhängigkeit tatsächlich einen Vorteil bringt.",
+      "hu": {
+        "question": "Egy új kis oldalhoz csak kattintáskezelő és szövegcsere kell. A csapat ismeri a modern böngésző-API-kat. Melyik döntés indokolható jól?",
+        "answers": [
+          "Minden kattintás után a szerverről újratölteni a teljes tartalmat, mert csak a jQuery tud szöveget cserélni.",
+          "addEventListenert és textContentet használni, ha így nem kell további könyvtár.",
+          "Kötelezően bevezetni a jQueryt, mert a JavaScript maga nem tud DOM-eseményt kezelni.",
+          "Párhuzamosan jQuery- és natív kezelőt regisztrálni ugyanarra a hatásra."
+        ],
+        "explanation": "Sok korábbi jQuery-segédnek ma jól használható natív megfelelője van. Egy meglévő jQuery-alkalmazás továbbra is észszerűen karbantartható. Új kis feladatnál az számít, hogy a további függőség ad-e valódi előnyt."
+      }
+    },
+    {
+      "id": "lap-LAP-11-27-4",
+      "revision": 1,
+      "topic": "Einsatzgebiet jQuery",
+      "source": {
+        "topicId": "LAP-11-27",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/27_Einsatzgebiet_jQuery/README.md",
+        "slug": "11-27-einsatzgebiet_jquery"
+      },
+      "question": "Ein Kollege setzt jQuery mit dem nicht mehr offiziell unterstützten AngularJS gleich. Welche Aussage korrigiert die Einordnung?",
+      "answers": [
+        "Jede jQuery-Version erhält unbegrenzt dieselbe Pflege, deshalb sind Updates unwichtig.",
+        "Seit Version 4 ist jQuery eine eigenständige Programmiersprache ohne JavaScript.",
+        "jQuery wird weiterentwickelt; die Version 4.0.0 erschien im Januar 2026. Einsatz und Versionskompatibilität muss man trotzdem prüfen.",
+        "jQuery ist nur ein anderer Name für AngularJS und teilt deshalb dessen Supportende."
+      ],
+      "correct": 2,
+      "explanation": "jQuery ist eine JavaScript-Bibliothek mit eigener Entwicklung und eigenem Versionsverlauf. Das Projekt kann gepflegt sein, während eine konkret eingesetzte alte Version dennoch aktualisiert werden sollte. Supportstatus und Eignung für einen neuen Anwendungsfall sind getrennte Fragen.",
+      "hu": {
+        "question": "Egy kolléga a jQueryt a hivatalosan már nem támogatott AngularJS-szel veszi egy kalap alá. Melyik állítás pontosít?",
+        "answers": [
+          "Minden jQuery-verzió korlátlan ideig azonos karbantartást kap, ezért nem fontos a frissítés.",
+          "A 4-es verzió óta a jQuery önálló programozási nyelv JavaScript nélkül.",
+          "A jQueryt továbbfejlesztik; a 4.0.0 verzió 2026 januárjában jelent meg. A felhasználást és verziókompatibilitást ettől még vizsgálni kell.",
+          "A jQuery az AngularJS másik neve, ezért azonos a támogatásuk vége."
+        ],
+        "explanation": "A jQuery saját fejlesztésű és verziótörténetű JavaScript-könyvtár. A projekt lehet karbantartott, miközben egy konkrét régi verziót érdemes frissíteni. A támogatottság és az új feladathoz való alkalmasság külön kérdés."
+      }
+    },
+    {
+      "id": "lap-LAP-11-27-5",
+      "revision": 1,
+      "topic": "Einsatzgebiet jQuery",
+      "source": {
+        "topicId": "LAP-11-27",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/27_Einsatzgebiet_jQuery/README.md",
+        "slug": "11-27-einsatzgebiet_jquery"
+      },
+      "question": "Eine Seite nutzt ältere jQuery-Plugins. Vor dem Wechsel auf eine neue Hauptversion ist welcher Schritt sinnvoll?",
+      "answers": [
+        "Kompatibilität und Migrationshinweise prüfen und die betroffenen Bedienabläufe testen.",
+        "Nur den Dateinamen austauschen; Hauptversionen sind immer vollständig kompatibel.",
+        "Alle Browserwarnungen ausblenden, damit die Oberfläche unverändert wirkt.",
+        "Plugins unverändert weiterverwenden, sobald die Startseite einmal geladen hat."
+      ],
+      "correct": 0,
+      "explanation": "Eine neue Hauptversion kann veraltete APIs entfernen oder Verhalten ändern. Deshalb müssen auch abhängige Plugins berücksichtigt werden. Ein erfolgreicher Seitenaufruf allein prüft noch keine Dialoge, Formulare oder Ajax-Abläufe.",
+      "hu": {
+        "question": "Egy oldal régebbi jQuery-bővítményeket használ. Mi észszerű lépés egy új főverzióra váltás előtt?",
+        "answers": [
+          "Ellenőrizni a kompatibilitást és migrációs leírást, majd tesztelni az érintett felhasználói folyamatokat.",
+          "Csak a fájlnevet cserélni; a főverziók mindig teljesen kompatibilisek.",
+          "Elrejteni minden böngészőfigyelmeztetést, hogy a felület változatlannak tűnjön.",
+          "Változatlanul továbbhasználni a bővítményeket, amint egyszer betöltött a kezdőoldal."
+        ],
+        "explanation": "Új főverzió eltávolíthat régi API-kat vagy módosíthat viselkedést. Emiatt a függő bővítményeket is figyelembe kell venni. Egy sikeres oldalmegnyitás még nem ellenőrzi a párbeszédablakokat, űrlapokat vagy Ajax-folyamatokat."
+      }
+    },
+    {
+      "id": "lap-LAP-11-28-1",
+      "revision": 1,
+      "topic": "PHP Zugriff auf MySQL",
+      "source": {
+        "topicId": "LAP-11-28",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/28_PHP_Zugriff_auf_MySQL/README.md",
+        "slug": "11-28-php_zugriff_auf_mysql"
+      },
+      "question": "Ein Browser fordert einen Kurs an. PHP liest dazu aus MySQL. Welche Aufteilung ist passend?",
+      "answers": [
+        "Der Browser erhält die MySQL-Zugangsdaten und führt die PHP-Datei lokal aus.",
+        "SQL läuft als JavaScript-Bibliothek im Browser und ersetzt die Serveranwendung.",
+        "PDO ist die Datenbank; MySQL ist lediglich das HTML-Ausgabeformat.",
+        "PHP läuft auf dem Server, sendet eine SQL-Abfrage über einen Treiber und liefert dem Browser nur die vorgesehene Antwort."
+      ],
+      "correct": 3,
+      "explanation": "PHP ist hier die serverseitige Programmiersprache, SQL die Abfragesprache und MySQL das Datenbanksystem. PDO mit passendem Treiber oder mysqli verbindet PHP mit MySQL. Datenbankzugangsdaten bleiben auf dem Server und gehören nicht in ausgeliefertes HTML oder JavaScript.",
+      "hu": {
+        "question": "A böngésző kurzust kér. A PHP ehhez MySQL-ből olvas. Melyik felosztás megfelelő?",
+        "answers": [
+          "A böngésző megkapja a MySQL-belépési adatokat, és helyben futtatja a PHP-fájlt.",
+          "Az SQL JavaScript-könyvtárként fut a böngészőben, és helyettesíti a szerveralkalmazást.",
+          "A PDO az adatbázis; a MySQL csupán a HTML-kimeneti formátum.",
+          "A PHP a szerveren fut, meghajtón keresztül SQL-lekérdezést küld, és csak a tervezett választ adja a böngészőnek."
+        ],
+        "explanation": "A PHP itt a szerveroldali programozási nyelv, az SQL a lekérdezőnyelv, a MySQL az adatbázis-kezelő. A megfelelő meghajtós PDO vagy a mysqli köti össze a PHP-t a MySQL-lel. Az adatbázis-belépési adatok a szerveren maradnak, nem kerülnek kiküldött HTML-be vagy JavaScriptbe."
+      }
+    },
+    {
+      "id": "lap-LAP-11-28-2",
+      "revision": 1,
+      "topic": "PHP Zugriff auf MySQL",
+      "source": {
+        "topicId": "LAP-11-28",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/28_PHP_Zugriff_auf_MySQL/README.md",
+        "slug": "11-28-php_zugriff_auf_mysql"
+      },
+      "question": "Der Ausschnitt läuft in einem PHP-Handler. $pdo ist eine PDO-MySQL-Verbindung mit nativen Prepared Statements; $id wurde bereits als positive ganze Zahl geprüft. Was leistet die Parameterbindung?",
+      "answers": [
+        "Sie macht eine Prüfung des Ergebnisses auf einen fehlenden Kurs überflüssig.",
+        "Sie übergibt den Wert getrennt von der SQL-Struktur; eine zusätzliche fachliche Zugriffsprüfung kann weiterhin nötig sein.",
+        "Sie bestätigt automatisch, dass die angemeldete Person diesen Kurs sehen darf.",
+        "Sie wandelt den Kurstitel automatisch in sicher ausgegebenes HTML um."
+      ],
+      "correct": 1,
+      "explanation": "Prepared Statements trennen die feste Abfragestruktur von gebundenen Werten. Das schützt diese Wertposition vor SQL-Injection. Ob die Person den Kurs sehen darf, ob er existiert und wie sein Titel ausgegeben wird, sind eigenständige Prüfungen.",
+      "hu": {
+        "question": "A részlet egy PHP-kezelőben fut. A $pdo natív előkészített utasításokat használó PDO-MySQL-kapcsolat; az $id-t már pozitív egésznek ellenőriztük. Mit ad a paraméterkötés?",
+        "answers": [
+          "Feleslegessé teszi annak ellenőrzését, hogy a kurzus hiányzik-e az eredményből.",
+          "Az értéket az SQL szerkezetétől elkülönítve adja át; külön szakmai hozzáférés-ellenőrzés továbbra is szükséges lehet.",
+          "Automatikusan igazolja, hogy a belépett személy láthatja ezt a kurzust.",
+          "Automatikusan biztonságosan kiírt HTML-lé alakítja a kurzuscímet."
+        ],
+        "explanation": "Az előkészített utasítás elkülöníti a rögzített lekérdezésszerkezetet a kötött értékektől. Ez az értékhely védett az SQL-injection ellen. Az, hogy a személy láthatja-e a kurzust, létezik-e az, és hogyan írjuk ki a címét, külön ellenőrzés."
+      },
+      "code": "$statement = $pdo->prepare(\n    \"SELECT title FROM courses WHERE id = :id\"\n);\n$statement->bindValue(\":id\", $id, PDO::PARAM_INT);\n$statement->execute();\n$course = $statement->fetch(PDO::FETCH_ASSOC);",
+      "codeLanguage": "php"
+    },
+    {
+      "id": "lap-LAP-11-28-3",
+      "revision": 1,
+      "topic": "PHP Zugriff auf MySQL",
+      "source": {
+        "topicId": "LAP-11-28",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/28_PHP_Zugriff_auf_MySQL/README.md",
+        "slug": "11-28-php_zugriff_auf_mysql"
+      },
+      "question": "Eine Kursliste darf nach title oder created_at sortiert werden. Wie sollte ein vom Browser gewählter Spaltenname in ORDER BY behandelt werden?",
+      "answers": [
+        "Den Browserwert unverändert anhängen, wenn die Auswahl aus einem Dropdown stammt.",
+        "htmlspecialchars auf den Browserwert anwenden; dadurch ist er ein sicherer SQL-Bezeichner.",
+        "Den erlaubten Auswahlwert serverseitig auf einen festen Spaltennamen abbilden und nur diesen einsetzen.",
+        "Den Spaltennamen wie einen normalen Wert an :column binden; das macht ihn automatisch zum SQL-Bezeichner."
+      ],
+      "correct": 2,
+      "explanation": "SQL-Platzhalter stehen für vollständige Datenwerte, nicht für Spaltennamen oder SQL-Schlüsselwörter. Eine feste serverseitige Zuordnung wie title zu title und newest zu created_at begrenzt die erlaubte Struktur. Werte in WHERE-Bedingungen werden weiterhin als Parameter gebunden.",
+      "hu": {
+        "question": "Egy kurzuslista title vagy created_at szerint rendezhető. Hogyan kezeljük az ORDER BY-ban a böngészőből választott oszlopnevet?",
+        "answers": [
+          "Változatlanul hozzáfűzzük a böngésző értékét, ha legördülő listából jött.",
+          "htmlspecialchars-t alkalmazunk rá; ettől biztonságos SQL-azonosító lesz.",
+          "A megengedett választást szerveroldalon rögzített oszlopnévre képezzük le, és csak azt illesztjük be.",
+          "Az oszlopnevet normál értékként :column-hoz kötjük; ettől automatikusan SQL-azonosító lesz."
+        ],
+        "explanation": "Az SQL-helyőrzők teljes adatértékeket jelölnek, nem oszlopneveket vagy SQL-kulcsszavakat. Rögzített szerveroldali megfeleltetés, például title → title és newest → created_at korlátozza az engedett szerkezetet. A WHERE-feltételek értékeit továbbra is paraméterként kötjük."
+      }
+    },
+    {
+      "id": "lap-LAP-11-28-4",
+      "revision": 1,
+      "topic": "PHP Zugriff auf MySQL",
+      "source": {
+        "topicId": "LAP-11-28",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/28_PHP_Zugriff_auf_MySQL/README.md",
+        "slug": "11-28-php_zugriff_auf_mysql"
+      },
+      "question": "Der Handler unterscheidet ungültige IDs, fehlende Kurse und einen nicht erreichbaren Datenbankserver. Welche Behandlung ist passend?",
+      "answers": [
+        "Nach dem API-Vertrag etwa 400, 404 und 503 liefern; interne Verbindungsdetails nur geschützt protokollieren.",
+        "In allen Fällen 200 mit dem vollständigen PDO-Fehler einschließlich Verbindungsdaten liefern.",
+        "Bei einem Datenbankausfall automatisch einen leeren Kurs anlegen.",
+        "Ungültige IDs immer in 1 umwandeln, damit die Anfrage eine Antwort erhält."
+      ],
+      "correct": 0,
+      "explanation": "Unbrauchbare Eingabe, ein nicht gefundenes Objekt und ein vorübergehend nicht verfügbarer Dienst sind unterschiedliche Situationen. Die gewählten HTTP-Statuscodes sollten zum API-Vertrag passen. Technische Diagnoseinformationen gehören in ein geschütztes Protokoll, nicht in öffentliche Fehlermeldungen.",
+      "hu": {
+        "question": "A kezelő megkülönbözteti az érvénytelen azonosítót, a hiányzó kurzust és az elérhetetlen adatbázisszervert. Melyik kezelés megfelelő?",
+        "answers": [
+          "Az API-szerződés szerint például 400-at, 404-et és 503-at ad; belső kapcsolati részleteket csak védetten naplóz.",
+          "Mindig 200-at és a teljes PDO-hibát adja, a kapcsolati adatokkal együtt.",
+          "Adatbázis-kieséskor automatikusan létrehoz egy üres kurzust.",
+          "Az érvénytelen azonosítót mindig 1-re alakítja, hogy legyen válasz."
+        ],
+        "explanation": "A használhatatlan bemenet, a nem talált objektum és az átmenetileg elérhetetlen szolgáltatás különböző helyzet. A választott HTTP-státusz igazodjon az API-szerződéshez. A technikai diagnosztikai adatok védett naplóba valók, nem nyilvános hibaüzenetbe."
+      }
+    },
+    {
+      "id": "lap-LAP-11-28-5",
+      "revision": 1,
+      "topic": "PHP Zugriff auf MySQL",
+      "source": {
+        "topicId": "LAP-11-28",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/28_PHP_Zugriff_auf_MySQL/README.md",
+        "slug": "11-28-php_zugriff_auf_mysql"
+      },
+      "question": "Dieser PHP-Code wird als Inhalt eines normalen HTML-Absatzes ausgegeben. Was sieht man im Browser?",
+      "answers": [
+        "Regex & Co kursiv, weil das em-Element ausgeführt wird.",
+        "Die Zeichenfolge &lt;em&gt;Regex &amp; Co&lt;/em&gt; unverändert mit sichtbaren Entities.",
+        "Einen leeren Absatz, weil htmlspecialchars den gesamten Text löscht.",
+        "Die Zeichenfolge <em>Regex & Co</em> als Text, einschließlich der Klammern."
+      ],
+      "correct": 3,
+      "explanation": "Die PHP-Ausgabe enthält HTML-Entities. Der Browser interpretiert sie im Textkontext als die jeweiligen Zeichen, ohne daraus ein em-Element zu erzeugen. Diese Ausgabekodierung schützt den HTML-Textkontext; sie ersetzt keine SQL-Parameterbindung oder URL-Prüfung.",
+      "hu": {
+        "question": "Ezt a PHP-kódot egy normál HTML-bekezdés tartalmaként írjuk ki. Mit látunk a böngészőben?",
+        "answers": [
+          "A Regex & Co szöveget dőlten, mert létrejön az em elem.",
+          "Az &lt;em&gt;Regex &amp; Co&lt;/em&gt; karaktersort változatlanul, látható entitásokkal.",
+          "Üres bekezdést, mert a htmlspecialchars törli a teljes szöveget.",
+          "A <em>Regex & Co</em> karaktersort szövegként, a zárójelekkel együtt."
+        ],
+        "explanation": "A PHP-kimenet HTML-entitásokat tartalmaz. A böngésző szöveges helyzetben a megfelelő karakterekként értelmezi ezeket, anélkül hogy em elemet hozna létre. Ez a kimeneti kódolás a HTML-szöveges környezetet védi; nem helyettesíti az SQL-paraméterkötést vagy URL-ellenőrzést."
+      },
+      "code": "$title = \"<em>Regex & Co</em>\";\necho htmlspecialchars(\n    $title, ENT_QUOTES | ENT_SUBSTITUTE, \"UTF-8\"\n);",
+      "codeLanguage": "php",
+      "expectedOutput": [
+        "&lt;em&gt;Regex &amp; Co&lt;/em&gt;"
+      ]
+    }
+  ]
+}

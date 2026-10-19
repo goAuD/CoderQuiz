@@ -13,6 +13,11 @@ BANK_PORTS = {
     "lap-programming-2": 8772,
     "lap-programming-3": 8773,
     "lap-informatik-1": 8774,
+    "lap-informatik-2": 8776,
+    "lap-informatik-3": 8777,
+    "lap-informatik-4": 8778,
+    "lap-informatik-5": 8779,
+    "lap-informatik-6": 8780,
 }
 
 

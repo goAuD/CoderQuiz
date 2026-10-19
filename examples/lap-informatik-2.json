@@ -1,0 +1,1134 @@
+{
+  "sourceRepository": "https://github.com/goAuD/CoderLAP",
+  "sourceCommit": "cefce00affa0f357e7cc3e752abf082cad0ae1d0",
+  "ui": {
+    "de": {
+      "moduleTitle": "CoderLAP · Informatik 2",
+      "subtitle": "35 Fragen zu CSS, Client und Server, Webwerkzeugen, CMS, Stack, Queue und Benutzeroberflächen.",
+      "practiceNote": "Entscheide anhand konkreter Situationen und kleiner Codebeispiele. Die Erklärung erscheint nach deiner Antwort.",
+      "topics": {
+        "CSS und Einsatz": "CSS und Einsatz",
+        "Client und Server Scripting": "Client- und Server-Scripting",
+        "Tools fuer Webentwicklung": "Werkzeuge für Webentwicklung",
+        "CMS": "CMS",
+        "LIFO und FIFO": "LIFO und FIFO",
+        "Stack und Queue": "Stack und Queue",
+        "Userinterface": "Benutzeroberflächen"
+      }
+    },
+    "hu": {
+      "moduleTitle": "CoderLAP · Informatika 2",
+      "subtitle": "35 kérdés CSS-ről, kliensről és szerverről, webes eszközökről, CMS-ről, veremről, sorról és felületekről.",
+      "practiceNote": "Konkrét helyzetek és rövid kódpéldák alapján dönts. A magyarázat a válaszod után jelenik meg.",
+      "topics": {
+        "CSS und Einsatz": "CSS és alkalmazása",
+        "Client und Server Scripting": "Kliens- és szerveroldali programozás",
+        "Tools fuer Webentwicklung": "Webfejlesztő eszközök",
+        "CMS": "Tartalomkezelő rendszerek",
+        "LIFO und FIFO": "LIFO és FIFO",
+        "Stack und Queue": "Verem és sor",
+        "Userinterface": "Felhasználói felületek"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "lap-LAP-11-08-1",
+      "revision": 1,
+      "topic": "CSS und Einsatz",
+      "source": {
+        "topicId": "LAP-11-08",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/08_CSS_und_Einsatz/README.md",
+        "slug": "11-08-css_und_einsatz"
+      },
+      "question": "Eine Lernkarte soll einschließlich Innenabstand und Rahmen 320 px breit sein. Welche Inhaltsbreite ergibt sich aus diesem HTML-Ausschnitt, wenn keine weiteren Styles gelten?",
+      "answers": [
+        "284 px.",
+        "320 px.",
+        "352 px.",
+        "356 px."
+      ],
+      "correct": 0,
+      "explanation": "Bei border-box umfasst width Inhalt, Padding und Rahmen. Links und rechts gehen jeweils 16 px Padding und 2 px Rahmen ab: 320 - 32 - 4 = 284 px. CSS steuert hier die Darstellung des vorhandenen Inhalts.",
+      "hu": {
+        "question": "Egy tanulókártyának a belső térközzel és kerettel együtt 320 px szélesnek kell lennie. Mekkora a tartalom szélessége ebben a HTML-részletben, ha más stílus nem érvényesül?",
+        "answers": [
+          "284 px.",
+          "320 px.",
+          "352 px.",
+          "356 px."
+        ],
+        "explanation": "A border-box esetén a width a tartalmat, paddinget és keretet együtt méri. Mindkét oldalon 16 px belső térközt és 2 px keretet vonunk le: 320 - 32 - 4 = 284 px. A CSS itt a meglévő tartalom megjelenését szabályozza."
+      },
+      "code": "<style>\n  .card {\n    box-sizing: border-box;\n    width: 320px;\n    padding: 16px;\n    border: 2px solid;\n  }\n</style>\n<p class=\"card\">Lernkarte</p>",
+      "codeLanguage": "html"
+    },
+    {
+      "id": "lap-LAP-11-08-2",
+      "revision": 1,
+      "topic": "CSS und Einsatz",
+      "source": {
+        "topicId": "LAP-11-08",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/08_CSS_und_Einsatz/README.md",
+        "slug": "11-08-css_und_einsatz"
+      },
+      "question": "Nur die gezeigten Autorenregeln setzen die Textfarbe. Welche Farbe erhält der Absatz? Es gibt keine Kaskadenebenen, Animationen oder !important-Regeln.",
+      "answers": [
+        "Grün, weil der Elementname genauer als eine Klasse ist.",
+        "Dunkelblau, weil die erste passende Regel gewinnt.",
+        "Schwarz, weil mehrere passende Selektoren die Farbe aufheben.",
+        "Violett, weil die spätere .card-Regel bei gleicher Spezifität gewinnt."
+      ],
+      "correct": 3,
+      "explanation": "Der Selektor .card wählt Elemente dieser Klasse. color ist die Eigenschaft, purple ihr Wert. Beide Klassenregeln sind spezifischer als p. Zwischen ihnen entscheidet hier die Reihenfolge. Diese Reihenfolge entscheidet erst nach den vorherigen Kaskadenschritten.",
+      "hu": {
+        "question": "Csak a látható szerzői szabályok állítják a szövegszínt. Milyen színű lesz a bekezdés? Nincs kaszkádréteg, animáció vagy !important szabály.",
+        "answers": [
+          "Zöld, mert az elem neve pontosabb az osztálynál.",
+          "Sötétkék, mert az első illeszkedő szabály nyer.",
+          "Fekete, mert több illeszkedő szelektor kioltja a színt.",
+          "Lila, mert az azonos specificitású .card szabályok közül a későbbi nyer."
+        ],
+        "explanation": "A .card szelektor az ilyen osztályú elemeket választja ki. A color a tulajdonság, a purple az érték. Mindkét osztályszabály specifikusabb a p szabálynál. Közöttük itt a sorrend dönt, de csak a kaszkád korábbi döntési lépései után."
+      },
+      "code": "<style>\n  .card { color: navy; }\n  p { color: green; }\n  .card { color: purple; }\n</style>\n<p class=\"card\">Lernkarte</p>",
+      "codeLanguage": "html"
+    },
+    {
+      "id": "lap-LAP-11-08-3",
+      "revision": 1,
+      "topic": "CSS und Einsatz",
+      "source": {
+        "topicId": "LAP-11-08",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/08_CSS_und_Einsatz/README.md",
+        "slug": "11-08-css_und_einsatz"
+      },
+      "question": "Ein Themenbereich soll auf breiten Bildschirmen zwei Spalten und auf schmalen Bildschirmen eine Spalte haben. Die Themen bleiben in derselben HTML-Reihenfolge. Welche Lösung passt zur Aufgabe?",
+      "answers": [
+        "Die Reihenfolge der Datenbankeinträge abhängig von der Fensterbreite ändern.",
+        "CSS Grid für das Layout und eine Media Query für den Wechsel der Spaltenzahl.",
+        "Zwei Kopien der Themen in getrennten HTML-Seiten ohne gemeinsame Styles.",
+        "Die Themen als Bild exportieren und das Bild auf schmalen Geräten verkleinern."
+      ],
+      "correct": 1,
+      "explanation": "Grid beschreibt die Anordnung, eine Media Query passt sie an die verfügbare Breite an. Die Inhalte bleiben als HTML zugänglich. Für diese reine Layoutänderung ist keine neue Datenabfrage nötig.",
+      "hu": {
+        "question": "Egy témablokk széles képernyőn két, keskeny képernyőn egy oszlopból álljon. A témák HTML-sorrendje változatlan. Melyik megoldás illik a feladathoz?",
+        "answers": [
+          "Az adatbázis rekordjainak átrendezése az ablak szélessége alapján.",
+          "CSS Grid az elrendezéshez, media query az oszlopszám váltásához.",
+          "A témák két másolata külön HTML-oldalakon, közös stílusok nélkül.",
+          "A témák képpé alakítása, majd a kép kicsinyítése keskeny eszközön."
+        ],
+        "explanation": "A Grid írja le az elrendezést, a media query a rendelkezésre álló szélességhez igazítja. A tartalom HTML-ként hozzáférhető marad. Ehhez a puszta elrendezésváltáshoz nem kell új adatlekérés."
+      }
+    },
+    {
+      "id": "lap-LAP-11-08-4",
+      "revision": 1,
+      "topic": "CSS und Einsatz",
+      "source": {
+        "topicId": "LAP-11-08",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/08_CSS_und_Einsatz/README.md",
+        "slug": "11-08-css_und_einsatz"
+      },
+      "question": "Auf 20 Themenseiten sollen dieselben Karten künftig einen anderen Innenabstand haben. Alle Karten nutzen bereits dieselbe CSS-Klasse. Welche Pflege erleichtert eine gemeinsame Stylesheet-Datei?",
+      "answers": [
+        "Jeder Karte einen eigenen Inline-Stil geben und alle einzeln bearbeiten.",
+        "Den Inhalt aller Seiten neu schreiben, damit die Abstände übernommen werden.",
+        "Die gemeinsame Klassenregel einmal ändern und ihre Wirkung auf den Seiten prüfen.",
+        "Den Innenabstand zusätzlich in jedem Kartentext notieren."
+      ],
+      "correct": 2,
+      "explanation": "Gemeinsam verwendete CSS-Regeln bündeln die Darstellung. Eine gezielte Änderung erreicht die betroffenen Seiten, während ihre Inhalte bestehen bleiben. Die Prüfung mehrerer Ansichten zeigt, ob die gemeinsame Regel überall passt.",
+      "hu": {
+        "question": "Húsz témaoldalon ugyanazoknak a kártyáknak szeretnénk más belső térközt. Minden kártya már ugyanazt a CSS-osztályt használja. Mit könnyít meg a közös stílusfájl?",
+        "answers": [
+          "Minden kártyának saját inline stílust adunk, és egyesével szerkesztjük őket.",
+          "Újraírjuk az összes oldal tartalmát, hogy átvegye a térközt.",
+          "A közös osztályszabályt egyszer módosítjuk, majd ellenőrizzük a hatását az oldalakon.",
+          "A térközt minden kártya szövegében is feltüntetjük."
+        ],
+        "explanation": "A közös CSS-szabályok egy helyen kezelik a megjelenést. A célzott módosítás eléri az érintett oldalakat, miközben a tartalmuk megmarad. Több nézet ellenőrzésével látjuk, hogy a közös szabály mindenhol megfelelő-e."
+      }
+    },
+    {
+      "id": "lap-LAP-11-08-5",
+      "revision": 1,
+      "topic": "CSS und Einsatz",
+      "source": {
+        "topicId": "LAP-11-08",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/08_CSS_und_Einsatz/README.md",
+        "slug": "11-08-css_und_einsatz"
+      },
+      "question": "Nach einer Quizantwort soll die App den Punktestand berechnen und das Ergebnis farbig anzeigen. Welche Aufteilung beschreibt CSS und JavaScript hier passend?",
+      "answers": [
+        "JavaScript berechnet den Punktestand; CSS gestaltet den angezeigten Ergebniszustand.",
+        "CSS berechnet den Punktestand; JavaScript legt ausschließlich Schriftfarben fest.",
+        "CSS speichert die Antworten dauerhaft; HTML berechnet daraus den Punktestand.",
+        "Eine CSS-Animation bestätigt, dass die Antwort fachlich richtig ist."
+      ],
+      "correct": 0,
+      "explanation": "JavaScript kann Antworten auswerten und den Zustand der Oberfläche aktualisieren. CSS gestaltet diesen Zustand, etwa Farbe und Abstände. Eine schöne Darstellung ist dabei unabhängig davon, ob die Auswertungslogik korrekt ist.",
+      "hu": {
+        "question": "Egy kvízválasz után az alkalmazás számolja ki a pontszámot, és színesen jelenítse meg az eredményt. Mi a CSS és a JavaScript megfelelő feladatmegosztása?",
+        "answers": [
+          "A JavaScript számolja a pontszámot, a CSS formázza a megjelenített eredményállapotot.",
+          "A CSS számolja a pontszámot, a JavaScript kizárólag betűszíneket állít.",
+          "A CSS tartósan tárolja a válaszokat, a HTML kiszámolja belőlük a pontszámot.",
+          "Egy CSS-animáció igazolja a válasz tartalmi helyességét."
+        ],
+        "explanation": "A JavaScript kiértékelheti a válaszokat és frissítheti a felület állapotát. A CSS ennek például a színét és térközeit formázza. A tetszetős megjelenés és a kiértékelés helyessége külön kérdés."
+      }
+    },
+    {
+      "id": "lap-LAP-11-09-1",
+      "revision": 1,
+      "topic": "Client und Server Scripting",
+      "source": {
+        "topicId": "LAP-11-09",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/09_Client_und_Server_Scripting/README.md",
+        "slug": "11-09-client_und_server_scripting"
+      },
+      "question": "Ein Skript reagiert auf einen Klick und blendet bereits geladene Themen direkt im DOM aus. Es sendet dabei keine Anfrage. Wo läuft diese Arbeit?",
+      "answers": [
+        "Im Datenbankserver, weil Themen gefiltert werden.",
+        "Im Build-System, sobald der Benutzer klickt.",
+        "Im DNS-Server, weil die Seite eine Domain hat.",
+        "Im Browser des Benutzers."
+      ],
+      "correct": 3,
+      "explanation": "Das DOM ist die Dokumentdarstellung im Browser. Der Klickhandler verändert sie dort mit den schon geladenen Daten. Ein späterer Serverabruf wäre eine zusätzliche, getrennte Aktion.",
+      "hu": {
+        "question": "Egy szkript kattintásra már betöltött témákat rejt el közvetlenül a DOM-ban. Közben nem küld kérést. Hol történik ez a munka?",
+        "answers": [
+          "Az adatbázisszerveren, mert témákat szűrünk.",
+          "A buildrendszerben, amint a felhasználó kattint.",
+          "A DNS-szerveren, mert az oldalhoz domain tartozik.",
+          "A felhasználó böngészőjében."
+        ],
+        "explanation": "A DOM a dokumentum böngészőbeli reprezentációja. A kattintáskezelő ezt módosítja a már betöltött adatokkal. Egy későbbi szerverkérés ettől külön művelet lenne."
+      }
+    },
+    {
+      "id": "lap-LAP-11-09-2",
+      "revision": 1,
+      "topic": "Client und Server Scripting",
+      "source": {
+        "topicId": "LAP-11-09",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/09_Client_und_Server_Scripting/README.md",
+        "slug": "11-09-client_und_server_scripting"
+      },
+      "question": "Ein Node.js-Prozess auf dem Webserver prüft eine Sitzung, liest Bestellungen und erstellt eine JSON-Antwort. Warum ist das serverseitige Verarbeitung?",
+      "answers": [
+        "Weil der Browser nach Erhalt von JSON keinen eigenen Code mehr ausführen kann.",
+        "Weil diese Arbeit im Serverprozess ausgeführt wird, auch wenn die Sprache JavaScript ist.",
+        "Weil jede JSON-Antwort im Datenbankprozess erzeugt werden muss.",
+        "Weil JavaScript grundsätzlich nur auf Servern ausgeführt werden kann."
+      ],
+      "correct": 1,
+      "explanation": "Der Ausführungsort und die Aufgabe sind entscheidend. JavaScript kann sowohl im Browser als auch in Node.js laufen. Hier liegen Sitzungsprüfung und Datenzugriff auf dem Server; die Anzeige kann anschließend im Browser entstehen.",
+      "hu": {
+        "question": "A webszerveren futó Node.js-folyamat ellenőrzi a munkamenetet, rendeléseket olvas, és JSON-választ készít. Miért szerveroldali feldolgozás ez?",
+        "answers": [
+          "Mert JSON fogadása után a böngésző már nem futtathat saját kódot.",
+          "Mert a munkát a szerverfolyamat végzi, akkor is, ha JavaScript a nyelv.",
+          "Mert minden JSON-választ az adatbázis-folyamatnak kell előállítania.",
+          "Mert JavaScriptet alapvetően csak szerveren lehet futtatni."
+        ],
+        "explanation": "A végrehajtás helye és a feladat számít. JavaScript a böngészőben és Node.js-ben is futhat. Itt a munkamenet ellenőrzése és az adatlekérés a szerveren történik; a megjelenítés ezután készülhet a böngészőben."
+      }
+    },
+    {
+      "id": "lap-LAP-11-09-3",
+      "revision": 1,
+      "topic": "Client und Server Scripting",
+      "source": {
+        "topicId": "LAP-11-09",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/09_Client_und_Server_Scripting/README.md",
+        "slug": "11-09-client_und_server_scripting"
+      },
+      "question": "Ein Shop erhält Produkt-ID, Menge und einen vom Browser mitgesendeten Gesamtpreis. Welche Grundlage sollte der Server für den verbindlichen Preis verwenden?",
+      "answers": [
+        "Den Browserpreis, sofern die Anfrage über HTTPS ankommt.",
+        "Den Browserpreis, wenn die JavaScript-Datei minimiert wurde.",
+        "Geprüfte Menge und serverseitige Produktpreise sowie die gültigen Geschäftsregeln.",
+        "Den mitgesendeten Gesamtpreis, sobald das HTML-Feld readonly ist."
+      ],
+      "correct": 2,
+      "explanation": "Der Client liegt außerhalb der Vertrauensgrenze des Servers. Der Server prüft Produkt, Menge und Berechtigung und berechnet den Preis anhand seiner maßgeblichen Daten. HTTPS schützt die Übertragung, macht vom Client gelieferte Geschäftsangaben aber nicht verbindlich.",
+      "hu": {
+        "question": "Egy webshop termékazonosítót, mennyiséget és a böngésző által küldött végösszeget kap. Miből számolja a szerver a mérvadó árat?",
+        "answers": [
+          "A böngésző árából, ha HTTPS-en érkezik a kérés.",
+          "A böngésző árából, ha a JavaScript-fájlt minifikáltuk.",
+          "Ellenőrzött mennyiségből, szerveroldali termékárakból és az érvényes üzleti szabályokból.",
+          "A kapott végösszegből, ha a HTML-mező readonly."
+        ],
+        "explanation": "A kliens a szerver bizalmi határán kívül van. A szerver ellenőrzi a terméket, mennyiséget és jogosultságot, majd a saját mérvadó adataiból számol. A HTTPS az átvitelt védi, de nem teszi mérvadóvá a kliens üzleti adatait."
+      }
+    },
+    {
+      "id": "lap-LAP-11-09-4",
+      "revision": 1,
+      "topic": "Client und Server Scripting",
+      "source": {
+        "topicId": "LAP-11-09",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/09_Client_und_Server_Scripting/README.md",
+        "slug": "11-09-client_und_server_scripting"
+      },
+      "question": "Ein Formular soll sofort auf eine leere Eingabe hinweisen und einen privaten Kurs speichern. Welche Aufteilung passt?",
+      "answers": [
+        "Browser: direkte Feldrückmeldung. Server: Eingabe und Kursberechtigung prüfen, dann speichern.",
+        "Browser: Kursberechtigung verbindlich festlegen. Server: nur den grünen Rahmen zeichnen.",
+        "Browser: den Datenbankzugang geheim halten. Server: nur die HTML-Beschriftung prüfen.",
+        "Browser: alle Prüfungen durchführen. Server: jede syntaktisch gültige Anfrage speichern."
+      ],
+      "correct": 0,
+      "explanation": "Die sofortige Rückmeldung erleichtert das Ausfüllen. Der Server prüft zusätzlich die Daten und ob die angemeldete Person diesen Kurs ändern darf. Eingabeprüfung und Berechtigungsprüfung beantworten unterschiedliche Fragen.",
+      "hu": {
+        "question": "Egy űrlap azonnal jelezze az üres bevitelt, és mentsen egy privát kurzust. Mi a megfelelő feladatmegosztás?",
+        "answers": [
+          "Böngésző: közvetlen mezővisszajelzés. Szerver: adat- és kurzusjogosultság-ellenőrzés, majd mentés.",
+          "Böngésző: a kurzusjogosultság végleges eldöntése. Szerver: csak a zöld keret rajzolása.",
+          "Böngésző: az adatbázis-hozzáférés titokban tartása. Szerver: csak a HTML-címke ellenőrzése.",
+          "Böngésző: minden ellenőrzés. Szerver: minden szintaktikailag helyes kérés mentése."
+        ],
+        "explanation": "Az azonnali visszajelzés segíti a kitöltést. A szerver emellett ellenőrzi az adatokat és azt is, hogy a bejelentkezett személy módosíthatja-e ezt a kurzust. Az adatellenőrzés és a jogosultság-ellenőrzés két külön kérdésre válaszol."
+      }
+    },
+    {
+      "id": "lap-LAP-11-09-5",
+      "revision": 1,
+      "topic": "Client und Server Scripting",
+      "source": {
+        "topicId": "LAP-11-09",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/09_Client_und_Server_Scripting/README.md",
+        "slug": "11-09-client_und_server_scripting"
+      },
+      "question": "Ein Server erzeugt HTML aus aktuellen Kursdaten. Danach filtert JavaScript im Browser die geladenen Kurse ohne Neuladen. Wie ordnest du das ein?",
+      "answers": [
+        "Die Browserfilterung macht die vorherige serverseitige Erzeugung rückwirkend statisch.",
+        "Die serverseitige Erzeugung verhindert spätere Änderungen am DOM.",
+        "Jede Filteränderung erfordert automatisch eine neue Datenbankabfrage.",
+        "Serverseitige Erzeugung und clientseitige Interaktion wirken zusammen."
+      ],
+      "correct": 3,
+      "explanation": "Die erste Antwort entsteht auf dem Server. Anschließend kann der Browser die erhaltene Darstellung verändern. Beide Ausführungsorte können an derselben Seite beteiligt sein; entscheidend ist, welche konkrete Arbeit wo geschieht.",
+      "hu": {
+        "question": "A szerver aktuális kurzusadatokból HTML-t készít. Ezután a böngésző JavaScripttel, újratöltés nélkül szűri a már betöltött kurzusokat. Hogyan sorolod be ezt?",
+        "answers": [
+          "A böngészőbeli szűrés visszamenőleg statikussá teszi a szerveroldali előállítást.",
+          "A szerveroldali előállítás megakadályozza a DOM későbbi módosítását.",
+          "Minden szűrésváltozás automatikusan új adatbázis-lekérdezést igényel.",
+          "A szerveroldali előállítás és a kliensoldali interakció együtt működik."
+        ],
+        "explanation": "Az első válasz a szerveren készül. A böngésző ezután módosíthatja a megkapott megjelenítést. Ugyanazon oldal működésében mindkét végrehajtási hely részt vehet; az számít, melyik konkrét feladat hol történik."
+      }
+    },
+    {
+      "id": "lap-LAP-11-10-1",
+      "revision": 1,
+      "topic": "Tools fuer Webentwicklung",
+      "source": {
+        "topicId": "LAP-11-10",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/10_Tools_fuer_Webentwicklung/README.md",
+        "slug": "11-10-tools_fuer_webentwicklung"
+      },
+      "question": "Nach einem Deploy erscheint HTML, aber die Formatierung fehlt. Network zeigt für /assets/site.css den Status 404. Welcher nächste Schritt passt zu diesem Befund?",
+      "answers": [
+        "Die Schriftgröße erhöhen, damit der Browser die fehlende Datei findet.",
+        "Den CSS-Pfad im HTML und die tatsächlich ausgelieferten Dateien vergleichen.",
+        "Alle CSS-Selektoren durch IDs ersetzen, bevor der Dateipfad geprüft wird.",
+        "Die JavaScript-Engine wechseln, weil 404 einen Syntaxfehler bezeichnet."
+      ],
+      "correct": 1,
+      "explanation": "Die Antwort zeigt, dass die Stylesheet-Anfrage nicht erfolgreich war. Zuerst prüfen wir Pfad und Veröffentlichung der Datei. Erst wenn das Stylesheet geladen ist, lohnt sich die Untersuchung seiner Regeln in Styles und Computed.",
+      "hu": {
+        "question": "Deploy után a HTML megjelenik, de a formázás hiányzik. A Network panelen az /assets/site.css kérés 404 választ kap. Milyen következő lépést indokol ez?",
+        "answers": [
+          "Növeljük a betűméretet, hogy a böngésző megtalálja a hiányzó fájlt.",
+          "Összevetjük a HTML CSS-hivatkozását a ténylegesen kiszolgált fájlokkal.",
+          "Minden CSS-szelektort ID-re cserélünk, mielőtt az útvonalat vizsgálnánk.",
+          "JavaScript-motort váltunk, mert a 404 szintaktikai hibát jelent."
+        ],
+        "explanation": "A válasz szerint a stílusfájl lekérése nem sikerült. Először az útvonalat és a fájl közzétételét ellenőrizzük. A Styles és Computed nézetben akkor érdemes a szabályokat vizsgálni, ha a stílusfájl már betöltődött."
+      }
+    },
+    {
+      "id": "lap-LAP-11-10-2",
+      "revision": 1,
+      "topic": "Tools fuer Webentwicklung",
+      "source": {
+        "topicId": "LAP-11-10",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/10_Tools_fuer_Webentwicklung/README.md",
+        "slug": "11-10-tools_fuer_webentwicklung"
+      },
+      "question": "Ein Formular funktionierte im letzten Commit, nach einer kleinen Änderung nicht mehr. Was liefert Git für die Untersuchung besonders direkt?",
+      "answers": [
+        "Die Variablenwerte aus der aktuell laufenden Browserausführung.",
+        "Eine automatische Sicherheitsfreigabe für alle Dateien im Commit.",
+        "Einen Diff zwischen den Versionen, mit dem sich die geänderten Zeilen gezielt prüfen lassen.",
+        "Einen Nachweis, dass jede gespeicherte Änderung fachlich richtig ist."
+      ],
+      "correct": 2,
+      "explanation": "Git macht Änderungen und ihre Zusammenhänge nachvollziehbar. Ein Diff grenzt die Suche ein; ein Test oder eine Reproduktion muss zeigen, welche Änderung das Verhalten verursacht. Versionskontrolle ersetzt diese Prüfung nicht.",
+      "hu": {
+        "question": "Az űrlap az előző commitban működött, egy kis módosítás után már nem. Mit ad a Git közvetlenül a vizsgálathoz?",
+        "answers": [
+          "A böngészőben éppen futó program változóértékeit.",
+          "Automatikus biztonsági jóváhagyást a commit minden fájljára.",
+          "A verziók közötti diffet, amelyből célzottan átnézhetők a megváltozott sorok.",
+          "Bizonyítékot arra, hogy minden elmentett módosítás tartalmilag helyes."
+        ],
+        "explanation": "A Git követhetővé teszi a módosításokat és összefüggéseiket. A diff szűkíti a keresést; teszttel vagy reprodukcióval kell megállapítani, mi okozza a viselkedést. A verziókezelés ezt az ellenőrzést nem váltja ki."
+      }
+    },
+    {
+      "id": "lap-LAP-11-10-3",
+      "revision": 1,
+      "topic": "Tools fuer Webentwicklung",
+      "source": {
+        "topicId": "LAP-11-10",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/10_Tools_fuer_Webentwicklung/README.md",
+        "slug": "11-10-tools_fuer_webentwicklung"
+      },
+      "question": "Ein Node-Projekt hat passende package.json- und package-lock.json-Dateien sowie eine vereinbarte Node-Version. Was ist die Aufgabe von npm ci in der CI-Umgebung?",
+      "answers": [
+        "Abhängigkeiten gemäß Lockfile sauber installieren und vorhandenes node_modules dafür neu aufbauen.",
+        "Alle Abhängigkeiten unabhängig vom Lockfile auf ihre neuesten Versionen setzen.",
+        "Nur die JavaScript-Formatierung prüfen, ohne Abhängigkeiten zu installieren.",
+        "Den Quellcode automatisch auf den Produktionsserver übertragen."
+      ],
+      "correct": 0,
+      "explanation": "npm ci nutzt den festgehaltenen Abhängigkeitsstand und ersetzt einen vorhandenen node_modules-Ordner. Passen Manifest und Lockfile nicht zusammen, bricht es ab. Build, Tests und Deployment bleiben eigene Schritte.",
+      "hu": {
+        "question": "Egy Node-projektben egymáshoz illő package.json és package-lock.json, valamint egyeztetett Node-verzió van. Mi az npm ci feladata a CI-környezetben?",
+        "answers": [
+          "A lockfájl szerinti tiszta függőségtelepítés, a meglévő node_modules újraépítésével.",
+          "Minden függőség legújabb verzióra állítása, a lockfájltól függetlenül.",
+          "Csak a JavaScript formázásának ellenőrzése, függőségek telepítése nélkül.",
+          "A forráskód automatikus átmásolása az éles szerverre."
+        ],
+        "explanation": "Az npm ci a rögzített függőségállapotot használja, és lecseréli a meglévő node_modules könyvtárat. Ha a manifest és a lockfájl eltér, leáll. A build, teszt és deploy továbbra is külön lépés."
+      }
+    },
+    {
+      "id": "lap-LAP-11-10-4",
+      "revision": 1,
+      "topic": "Tools fuer Webentwicklung",
+      "source": {
+        "topicId": "LAP-11-10",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/10_Tools_fuer_Webentwicklung/README.md",
+        "slug": "11-10-tools_fuer_webentwicklung"
+      },
+      "question": "Ein Formular ruft eine eigene Serverroute auf. Warum reicht es zum Prüfen dieses Ablaufs nicht, die HTML-Datei nur per Doppelklick zu öffnen?",
+      "answers": [
+        "Ein Dateiaufruf verhindert grundsätzlich jede Darstellung von HTML.",
+        "JavaScript darf ausschließlich auf einem öffentlich erreichbaren Server laufen.",
+        "Ein lokaler Server ersetzt automatisch sämtliche Testdaten durch Produktionsdaten.",
+        "Die Route braucht eine laufende Serverimplementierung; eine lokale Testumgebung kann sie bereitstellen."
+      ],
+      "correct": 3,
+      "explanation": "Eine HTML-Datei allein führt keine eigene Backendroute aus. Eine passende lokale Laufzeit mit Server und Testdaten macht den Anfrageablauf überprüfbar. Auch dort werden Prüfungen, Berechtigungen und Fehlerfälle gezielt getestet.",
+      "hu": {
+        "question": "Egy űrlap saját szerveroldali útvonalat hív. Miért nem elég a működés kipróbálásához duplán kattintani a HTML-fájlra?",
+        "answers": [
+          "Fájlmegnyitáskor a böngésző egyáltalán nem jeleníthet meg HTML-t.",
+          "JavaScript kizárólag nyilvánosan elérhető szerveren futhat.",
+          "A helyi szerver minden tesztadatot automatikusan éles adatra cserél.",
+          "Az útvonalhoz futó szerveroldali megvalósítás kell, ezt adhatja a helyi tesztkörnyezet."
+        ],
+        "explanation": "Egy HTML-fájl önmagában nem futtat saját backendútvonalat. A megfelelő helyi futtatókörnyezet, szerver és tesztadat teszi ellenőrizhetővé a kérés útját. Az ellenőrzéseket, jogosultságokat és hibaágakat ott is célzottan próbáljuk ki."
+      }
+    },
+    {
+      "id": "lap-LAP-11-10-5",
+      "revision": 1,
+      "topic": "Tools fuer Webentwicklung",
+      "source": {
+        "topicId": "LAP-11-10",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/10_Tools_fuer_Webentwicklung/README.md",
+        "slug": "11-10-tools_fuer_webentwicklung"
+      },
+      "question": "Ein Formatter hat den Code einheitlich eingerückt, ein Linter meldet keine Regelverletzung. Die Summenfunktion liefert dennoch einen falschen Betrag. Welche Aussage passt?",
+      "answers": [
+        "Ein Formatter sollte die fachlich erwarteten Beträge selbst festlegen.",
+        "Formatierung und Regelprüfung ergänzen Verhaltenstests, beweisen aber nicht die richtige Summe.",
+        "Eine einheitliche Einrückung garantiert die korrekte Berechnung.",
+        "Ohne Lintermeldung kann nur noch der Bildschirm die falsche Zahl verursachen."
+      ],
+      "correct": 1,
+      "explanation": "Ein Formatter gestaltet den Code, ein Linter prüft festgelegte Regeln. Konkrete Eingaben und erwartete Summen gehören in Verhaltenstests. Die Werkzeuge prüfen verschiedene Eigenschaften und ergänzen sich.",
+      "hu": {
+        "question": "A formatter egységes behúzást készített, a linter nem jelez szabálysértést. Az összegző függvény mégis rossz összeget ad. Melyik állítás helyes?",
+        "answers": [
+          "A formatter feladata meghatározni a tartalmilag elvárt összegeket.",
+          "A formázás és szabályellenőrzés kiegészíti a működési teszteket, de nem bizonyítja a helyes összeget.",
+          "Az egységes behúzás garantálja a helyes számítást.",
+          "Linterjelzés nélkül már csak a képernyő okozhatja a hibás számot."
+        ],
+        "explanation": "A formatter a kód alakját rendezi, a linter megadott szabályokat ellenőriz. A konkrét bemenetek és elvárt összegek a működési tesztekbe tartoznak. Az eszközök különböző tulajdonságokat vizsgálnak, és kiegészítik egymást."
+      }
+    },
+    {
+      "id": "lap-LAP-11-11-1",
+      "revision": 1,
+      "topic": "CMS",
+      "source": {
+        "topicId": "LAP-11-11",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/11_CMS/README.md",
+        "slug": "11-11-cms"
+      },
+      "question": "Eine Schule möchte Nachrichten als Entwurf erfassen, prüfen lassen und erst danach veröffentlichen. Welche Aufgabe übernimmt dafür ein CMS?",
+      "answers": [
+        "Es übersetzt jede Nachricht automatisch in geprüften Programmcode.",
+        "Es ersetzt sämtliche redaktionellen Entscheidungen durch ein Theme.",
+        "Es verwaltet Inhalte, Bearbeitungszustände und den vorgesehenen Veröffentlichungsablauf.",
+        "Es ersetzt den Browser jedes Besuchers durch einen Code-Editor."
+      ],
+      "correct": 2,
+      "explanation": "Ein CMS unterstützt Erstellung, Bearbeitung, Speicherung und Veröffentlichung von Inhalten. Im beschriebenen Ablauf sind Speichern und Veröffentlichen getrennt. Rollen und Freigabestufen bestimmen, wer den nächsten Schritt ausführen darf.",
+      "hu": {
+        "question": "Egy iskola piszkozatként rögzítene híreket, ellenőriztetné őket, és csak ezután publikálná. Milyen feladatot lát el ehhez a CMS?",
+        "answers": [
+          "Minden hírt automatikusan ellenőrzött programkóddá alakít.",
+          "Egy témasablonnal kivált minden szerkesztői döntést.",
+          "Kezeli a tartalmakat, szerkesztési állapotokat és a meghatározott közzétételi folyamatot.",
+          "Minden látogató böngészőjét kódszerkesztőre cseréli."
+        ],
+        "explanation": "A CMS támogatja a tartalom létrehozását, szerkesztését, tárolását és publikálását. Ebben a folyamatban a mentés és a közzététel külön lépés. A szerepek és jóváhagyási szakaszok szabják meg, ki végezheti a következő műveletet."
+      }
+    },
+    {
+      "id": "lap-LAP-11-11-2",
+      "revision": 1,
+      "topic": "CMS",
+      "source": {
+        "topicId": "LAP-11-11",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/11_CMS/README.md",
+        "slug": "11-11-cms"
+      },
+      "question": "Redakteure sollen Nachrichtentitel und Texte pflegen, aber keine Erweiterungen installieren. Welche CMS-Einrichtung unterstützt das sinnvoll?",
+      "answers": [
+        "Bearbeitbare Inhaltsfelder und eine Rolle mit den nötigen Redaktionsrechten.",
+        "Ein gemeinsames Administratorkonto für alle Redakteure.",
+        "Direkter Schreibzugriff auf alle Serverdateien statt Inhaltsfelder.",
+        "Ein Theme-Wechsel für jede einzelne Textkorrektur."
+      ],
+      "correct": 0,
+      "explanation": "Strukturierte Felder ermöglichen Inhaltsarbeit ohne direkte Bearbeitung des Anwendungscodes. Passende Rollen begrenzen die Rechte auf die redaktionellen Aufgaben. Administratorrechte sind dafür nicht automatisch erforderlich.",
+      "hu": {
+        "question": "A szerkesztők hírcímeket és szövegeket kezeljenek, de bővítményeket ne telepíthessenek. Milyen CMS-beállítás támogatja ezt?",
+        "answers": [
+          "Szerkeszthető tartalommezők és a szükséges szerkesztői jogokra korlátozott szerep.",
+          "Közös rendszergazdai fiók minden szerkesztőnek.",
+          "Közvetlen írásjog minden szerverfájlra a tartalommezők helyett.",
+          "Témasabloncsere minden egyes szövegjavításkor."
+        ],
+        "explanation": "A strukturált mezők lehetővé teszik a tartalomkezelést az alkalmazáskód közvetlen szerkesztése nélkül. A megfelelő szerep a szerkesztői feladatokra korlátozza a jogokat. Ehhez nem szükséges automatikusan rendszergazdai jogosultság."
+      }
+    },
+    {
+      "id": "lap-LAP-11-11-3",
+      "revision": 1,
+      "topic": "CMS",
+      "source": {
+        "topicId": "LAP-11-11",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/11_CMS/README.md",
+        "slug": "11-11-cms"
+      },
+      "question": "Ein CMS speichert Titel, Text und Sprache getrennt vom Template. Das neue Design soll bestehende Nachrichten anders anordnen. Welche Änderung passt?",
+      "answers": [
+        "Alle Nachrichtentexte durch ihre neuen CSS-Klassen ersetzen.",
+        "Die Veröffentlichungsrechte in Bilddateien verlagern.",
+        "Für jeden Besucher eine neue Nachricht in der Datenbank anlegen.",
+        "Das Template anpassen und die vorhandenen Inhaltsfelder weiterverwenden."
+      ],
+      "correct": 3,
+      "explanation": "Die Inhalte beschreiben die Nachricht, das Template ihre Darstellung. Diese Trennung erlaubt eine neue Anordnung ohne Neuschreiben aller Texte. Rechteverwaltung und Erweiterungen erfüllen wiederum andere Aufgaben.",
+      "hu": {
+        "question": "Egy CMS a címet, szöveget és nyelvet a sablontól külön tárolja. Az új arculat a meglévő híreket másképp rendezné el. Melyik módosítás illik ide?",
+        "answers": [
+          "Minden hírszöveget lecserélünk az új CSS-osztályaira.",
+          "A publikálási jogosultságokat képfájlokba helyezzük.",
+          "Minden látogatóhoz új hírt hozunk létre az adatbázisban.",
+          "Módosítjuk a sablont, és tovább használjuk a meglévő tartalommezőket."
+        ],
+        "explanation": "A tartalom a hírt írja le, a sablon a megjelenítését. A szétválasztás új elrendezést tesz lehetővé az összes szöveg újraírása nélkül. A jogosultságkezelésnek és a bővítményeknek ismét más a feladata."
+      }
+    },
+    {
+      "id": "lap-LAP-11-11-4",
+      "revision": 1,
+      "topic": "CMS",
+      "source": {
+        "topicId": "LAP-11-11",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/11_CMS/README.md",
+        "slug": "11-11-cms"
+      },
+      "question": "Ein bestehendes CMS deckt Redaktion und Veröffentlichung ab. Für ein Schulprojekt fehlt eine besondere Buchungsregel. Wie lassen sich CMS und individuelle Entwicklung hier verbinden?",
+      "answers": [
+        "Ein CMS kann nur unveränderliche Seiten ohne eigene Erweiterungen verwalten.",
+        "Die Inhaltsverwaltung weiterverwenden und die fehlende Regel gezielt in einem passenden Modul ergänzen.",
+        "Jede individuelle Regel verbietet grundsätzlich den weiteren Einsatz eines CMS.",
+        "Das Theme allein garantiert jede gewünschte Buchungsregel, ohne Prüfung."
+      ],
+      "correct": 1,
+      "explanation": "Ein CMS stellt wiederverwendbare Grundfunktionen bereit. Besondere Anforderungen können passende Konfiguration oder eigene Entwicklung erfordern. Ob ein Modul geeignet ist, wird an den fachlichen Anforderungen und seiner Wartbarkeit geprüft.",
+      "hu": {
+        "question": "A meglévő CMS lefedi a szerkesztést és közzétételt. Egy iskolai projekthez viszont hiányzik egy saját foglalási szabály. Hogyan kapcsolható össze a CMS és az egyedi fejlesztés?",
+        "answers": [
+          "A CMS kizárólag változatlan oldalakat kezelhet saját bővítmény nélkül.",
+          "Megtartjuk a tartalomkezelést, és a hiányzó szabályt célzottan, megfelelő modulban egészítjük ki.",
+          "Bármilyen egyedi szabály alapvetően kizárja a CMS további használatát.",
+          "A témasablon önmagában, vizsgálat nélkül garantál minden kívánt foglalási szabályt."
+        ],
+        "explanation": "A CMS újrahasznosítható alapfunkciókat ad. Egyedi igényhez konfiguráció vagy saját fejlesztés is kellhet. A modul alkalmasságát az üzleti elvárások és karbantarthatóság alapján ellenőrizzük."
+      }
+    },
+    {
+      "id": "lap-LAP-11-11-5",
+      "revision": 1,
+      "topic": "CMS",
+      "source": {
+        "topicId": "LAP-11-11",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/11_CMS/README.md",
+        "slug": "11-11-cms"
+      },
+      "question": "Zwei Erweiterungen erfüllen dieselbe kleine Aufgabe; eine wird nicht mehr gepflegt. Welche Vorgehensweise hält den CMS-Betrieb überschaubar?",
+      "answers": [
+        "Alle Updates dauerhaft abschalten, damit die Kombination unverändert bleibt.",
+        "Weitere ähnliche Erweiterungen installieren, bis die erste Fehlermeldung verschwindet.",
+        "Den Bedarf klären, eine geeignete gepflegte Lösung prüfen und entbehrliche Erweiterungen nach Backup und Funktionsprüfung entfernen.",
+        "Beide zusätzlich mit Administratorrechten ausstatten, damit sie sich selbst abstimmen."
+      ],
+      "correct": 2,
+      "explanation": "Jede Erweiterung bringt zusätzlichen Code, mögliche Wechselwirkungen und Wartungsbedarf mit. Eine begründete Auswahl sowie geprüfte Updates und Backups helfen beim Betrieb. Die reine Anzahl beweist keine Sicherheitslücke, erhöht aber den Prüfungsumfang.",
+      "hu": {
+        "question": "Két bővítmény ugyanazt a kis feladatot végzi, az egyiket már nem tartják karban. Milyen megközelítés teszi áttekinthetőbbé a CMS üzemeltetését?",
+        "answers": [
+          "Végleg kikapcsolunk minden frissítést, hogy a kombináció változatlan maradjon.",
+          "Újabb hasonló bővítményeket telepítünk, amíg eltűnik az első hibaüzenet.",
+          "Tisztázzuk az igényt, ellenőrzünk egy megfelelő, karbantartott megoldást, és biztonsági mentés és működésellenőrzés után eltávolítjuk a fölösleges bővítményt.",
+          "Mindkettőnek rendszergazdai jogot adunk, hogy maguktól összehangolódjanak."
+        ],
+        "explanation": "Minden bővítmény további kódot, lehetséges kölcsönhatásokat és karbantartási feladatot hoz. A megalapozott választás, ellenőrzött frissítés és mentés segíti az üzemeltetést. A darabszám önmagában nem bizonyít sérülékenységet, de növeli az átnézendő felületet."
+      }
+    },
+    {
+      "id": "lap-LAP-11-12-1",
+      "revision": 1,
+      "topic": "LIFO und FIFO",
+      "source": {
+        "topicId": "LAP-11-12",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/12_LIFO_und_FIFO/README.md",
+        "slug": "11-12-lifo_und_fifo"
+      },
+      "question": "A und B werden abgelegt, ein Element wird entnommen, dann kommt C hinzu. Welche drei Zeilen gibt diese LIFO-Verarbeitung aus?",
+      "answers": [
+        "B, dann C, dann A.",
+        "A, dann B, dann C.",
+        "C, dann B, dann A.",
+        "B, dann A, dann C."
+      ],
+      "correct": 0,
+      "explanation": "pop entfernt das zuletzt eingefügte vorhandene Element. Nach dem ersten pop bleibt A. C wird darüber abgelegt und kommt deshalb als Nächstes heraus. LIFO bezieht sich auf den jeweiligen Zustand bei jeder Entnahme.",
+      "hu": {
+        "question": "Betesszük A-t és B-t, kiveszünk egy elemet, majd megérkezik C. Melyik három sort írja ki ez a LIFO-feldolgozás?",
+        "answers": [
+          "B, majd C, majd A.",
+          "A, majd B, majd C.",
+          "C, majd B, majd A.",
+          "B, majd A, majd C."
+        ],
+        "explanation": "A pop a legutóbb betett, még bent lévő elemet veszi ki. Az első pop után A marad. C fölé kerül, ezért ő távozik következőnek. A LIFO minden kivételkor az akkori állapotra vonatkozik."
+      },
+      "code": "const stack = [];\nstack.push(\"A\");\nstack.push(\"B\");\nconsole.log(stack.pop());\nstack.push(\"C\");\nconsole.log(stack.pop());\nconsole.log(stack.pop());",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "B",
+        "C",
+        "A"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-12-2",
+      "revision": 1,
+      "topic": "LIFO und FIFO",
+      "source": {
+        "topicId": "LAP-11-12",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/12_LIFO_und_FIFO/README.md",
+        "slug": "11-12-lifo_und_fifo"
+      },
+      "question": "Die Warteschlange entnimmt mit shift immer am Anfang. Welche drei Zeilen gibt das Programm aus?",
+      "answers": [
+        "B, dann C, dann A.",
+        "A, dann C, dann B.",
+        "C, dann A, dann B.",
+        "A, dann B, dann C."
+      ],
+      "correct": 3,
+      "explanation": "push fügt hinten hinzu, shift nimmt vorne heraus. Nach der ersten Entnahme von A wartet B. Das neu ankommende C wird hinter B eingereiht. So bleibt die Entnahme in der Reihenfolge des Eingangs.",
+      "hu": {
+        "question": "A várakozási sor a shift művelettel mindig az elejéről vesz ki. Melyik három sort írja ki a program?",
+        "answers": [
+          "B, majd C, majd A.",
+          "A, majd C, majd B.",
+          "C, majd A, majd B.",
+          "A, majd B, majd C."
+        ],
+        "explanation": "A push a végére tesz, a shift az elejéről vesz ki. A első kivétele után B várakozik. Az újonnan érkező C B mögé kerül. Így a kivétel az érkezés sorrendjét követi."
+      },
+      "code": "const queue = [];\nqueue.push(\"A\");\nqueue.push(\"B\");\nconsole.log(queue.shift());\nqueue.push(\"C\");\nconsole.log(queue.shift());\nconsole.log(queue.shift());",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-12-3",
+      "revision": 1,
+      "topic": "LIFO und FIFO",
+      "source": {
+        "topicId": "LAP-11-12",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/12_LIFO_und_FIFO/README.md",
+        "slug": "11-12-lifo_und_fifo"
+      },
+      "question": "Die Funktionsaufrufe sind synchron. Welche Ausgabe veranschaulicht hier den Aufruf-Stack?",
+      "answers": [
+        "outer-end, inner, outer-start.",
+        "outer-start, inner, outer-end.",
+        "outer-start, outer-end, inner.",
+        "inner, outer-start, outer-end."
+      ],
+      "correct": 1,
+      "explanation": "outer läuft bis zum Aufruf von inner. inner liegt dann oben auf dem Aufruf-Stack und wird zuerst beendet. Anschließend setzt outer seine Arbeit mit outer-end fort. Der zuletzt begonnene aktive Aufruf kehrt zuerst zurück.",
+      "hu": {
+        "question": "A függvényhívások szinkronok. Melyik kimenet szemlélteti itt a hívási verem működését?",
+        "answers": [
+          "outer-end, inner, outer-start.",
+          "outer-start, inner, outer-end.",
+          "outer-start, outer-end, inner.",
+          "inner, outer-start, outer-end."
+        ],
+        "explanation": "Az outer az inner hívásáig fut. Ekkor az inner kerül a hívási verem tetejére, és előbb fejeződik be. Az outer ezután folytatja az outer-end kiírásával. A legutóbb indult aktív hívás tér vissza először."
+      },
+      "code": "function inner() {\n  console.log(\"inner\");\n}\nfunction outer() {\n  console.log(\"outer-start\");\n  inner();\n  console.log(\"outer-end\");\n}\nouter();",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "outer-start",
+        "inner",
+        "outer-end"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-12-4",
+      "revision": 1,
+      "topic": "LIFO und FIFO",
+      "source": {
+        "topicId": "LAP-11-12",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/12_LIFO_und_FIFO/README.md",
+        "slug": "11-12-lifo_und_fifo"
+      },
+      "question": "Zwei freie Worker entnehmen erst den langen Auftrag A und danach den kurzen Auftrag B aus einer FIFO-Queue. B ist früher fertig. Welche Aussage beschreibt FIFO korrekt?",
+      "answers": [
+        "Weil B früher fertig ist, muss B auch zuerst entnommen worden sein.",
+        "Die Queue ist automatisch zu einem LIFO-Stack geworden.",
+        "Die Entnahmereihenfolge ist A vor B; parallele Bearbeitung kann eine andere Abschlussreihenfolge ergeben.",
+        "FIFO verlangt, dass A und B immer gleichzeitig fertig werden."
+      ],
+      "correct": 2,
+      "explanation": "FIFO legt die Auswahl aus der Warteschlange fest. Die Dauer bereits entnommener Aufgaben ist davon getrennt. Wer zusätzlich geordnete Ergebnisse benötigt, muss dafür eine eigene Koordination vorsehen.",
+      "hu": {
+        "question": "Két szabad feldolgozó előbb a hosszú A, majd a rövid B feladatot veszi ki egy FIFO-sorból. B hamarabb készül el. Melyik állítás írja le helyesen a FIFO-t?",
+        "answers": [
+          "Mivel B előbb kész, biztosan őt vették ki először.",
+          "A sor automatikusan LIFO-veremmé alakult.",
+          "A-t B előtt veszik ki; a párhuzamos feldolgozás befejezési sorrendje ettől eltérhet.",
+          "A FIFO megköveteli, hogy A és B mindig egyszerre készüljön el."
+        ],
+        "explanation": "A FIFO a várakozási sorból történő kiválasztás sorrendjét szabja meg. A már kivett feladatok időtartama ettől külön kérdés. Ha a kimenetek sorrendjét is meg kell őrizni, ahhoz külön összehangolás szükséges."
+      }
+    },
+    {
+      "id": "lap-LAP-11-12-5",
+      "revision": 1,
+      "topic": "LIFO und FIFO",
+      "source": {
+        "topicId": "LAP-11-12",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/12_LIFO_und_FIFO/README.md",
+        "slug": "11-12-lifo_und_fifo"
+      },
+      "question": "Eine Anwendung soll jeweils die letzte Bearbeitung rückgängig machen. Ein Drucker soll Aufträge ohne Prioritäten nach Eingang auswählen. Welche Zuordnung passt?",
+      "answers": [
+        "Rückgängig: LIFO. Auswahl der Druckaufträge: FIFO.",
+        "Rückgängig: FIFO. Auswahl der Druckaufträge: LIFO.",
+        "Beide brauchen LIFO, weil die neuesten Daten am aktuellsten sind.",
+        "Beide brauchen zufällige Auswahl, damit niemand bevorzugt wird."
+      ],
+      "correct": 0,
+      "explanation": "Beim Rückgängigmachen wird die neueste noch wirksame Aktion zuerst aufgehoben. Beim beschriebenen Drucker ist der älteste wartende Auftrag als Nächstes dran. Der fachliche Ablauf bestimmt das passende Reihenfolgeprinzip.",
+      "hu": {
+        "question": "Egy alkalmazás mindig a legutóbbi szerkesztést vonja vissza. Egy nyomtató prioritások nélkül, érkezés szerint válassza a feladatokat. Melyik párosítás illik ide?",
+        "answers": [
+          "Visszavonás: LIFO. Nyomtatási feladat választása: FIFO.",
+          "Visszavonás: FIFO. Nyomtatási feladat választása: LIFO.",
+          "Mindkettő LIFO, mert a legújabb adatok a legfrissebbek.",
+          "Mindkettő véletlenszerű, hogy senki ne kapjon előnyt."
+        ],
+        "explanation": "Visszavonáskor a legújabb, még érvényes műveletet vonjuk vissza először. A leírt nyomtatónál a legrégebben várakozó feladat következik. A feladat tartalmi működése határozza meg a megfelelő sorrendi elvet."
+      }
+    },
+    {
+      "id": "lap-LAP-11-13-1",
+      "revision": 1,
+      "topic": "Stack und Queue",
+      "source": {
+        "topicId": "LAP-11-13",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/13_Stack_und_Queue/README.md",
+        "slug": "11-13-stack_und_queue"
+      },
+      "question": "Die Funktion prüft nur runde Klammern und ignoriert andere Zeichen; sie ist kein JavaScript-Parser. Was gibt sie für die beiden Texte aus?",
+      "answers": [
+        "true, dann true.",
+        "false, dann false.",
+        "true, dann false.",
+        "false, dann true."
+      ],
+      "correct": 3,
+      "explanation": "Bei )( ist das erste Zeichen eine schließende Klammer ohne vorherige Öffnung. Der leere Stack führt sofort zu false. Beim zweiten Text werden die zuletzt geöffneten Klammern zuerst geschlossen; am Ende ist der Stack leer und das Ergebnis true.",
+      "hu": {
+        "question": "A függvény csak a kerek zárójeleket vizsgálja, a többi jelet figyelmen kívül hagyja; nem JavaScript-elemző. Mit ad a két szövegre?",
+        "answers": [
+          "true, majd true.",
+          "false, majd false.",
+          "true, majd false.",
+          "false, majd true."
+        ],
+        "explanation": "A )( szöveg első jele záró zárójel, amelyet nem előz meg nyitó zárójel. Az üres verem miatt az eredmény azonnal false. A második szövegben a legutóbb megnyitott zárójeleket zárjuk először; végül üres a verem, így az eredmény true."
+      },
+      "code": "function balancedParentheses(text) {\n  const stack = [];\n  for (const character of text) {\n    if (character === \"(\") stack.push(character);\n    if (character === \")\") {\n      if (stack.length === 0) return false;\n      stack.pop();\n    }\n  }\n  return stack.length === 0;\n}\nconsole.log(balancedParentheses(\")(\"));\nconsole.log(balancedParentheses(\"(a + (b))\"));",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-13-2",
+      "revision": 1,
+      "topic": "Stack und Queue",
+      "source": {
+        "topicId": "LAP-11-13",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/13_Stack_und_Queue/README.md",
+        "slug": "11-13-stack_und_queue"
+      },
+      "question": "queue[0] dient hier als peek, shift als dequeue. Was wird in der letzten Zeile ausgegeben?",
+      "answers": [
+        "B B A 1",
+        "A A B 1",
+        "A B A 1",
+        "A A A 2"
+      ],
+      "correct": 1,
+      "explanation": "peek liest A, ohne es zu entfernen. shift liefert ebenfalls A und entfernt es. Danach liegt B vorne und die Länge ist 1. Eine reine Vorschau und eine Entnahme verändern den Zustand also unterschiedlich.",
+      "hu": {
+        "question": "Itt a queue[0] a peek, a shift a dequeue szerepét tölti be. Mi jelenik meg az utolsó sorban?",
+        "answers": [
+          "B B A 1",
+          "A A B 1",
+          "A B A 1",
+          "A A A 2"
+        ],
+        "explanation": "A peek eltávolítás nélkül olvassa A-t. A shift szintén A-t adja, de ki is veszi. Ezután B van elöl, a hossz pedig 1. A megtekintés és a kivétel tehát eltérően módosítja az állapotot."
+      },
+      "code": "const queue = [\"A\", \"B\"];\nconst first = queue[0];\nconst removed = queue.shift();\nconsole.log(first, removed, queue[0], queue.length);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "A A B 1"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-13-3",
+      "revision": 1,
+      "topic": "Stack und Queue",
+      "source": {
+        "topicId": "LAP-11-13",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/13_Stack_und_Queue/README.md",
+        "slug": "11-13-stack_und_queue"
+      },
+      "question": "Der letzte Arrayeintrag ist die Spitze des Stacks. Welche Ausgabe zeigt den Unterschied zwischen peek und pop?",
+      "answers": [
+        "A B A 2",
+        "B B B 2",
+        "B B A 1",
+        "B A B 1"
+      ],
+      "correct": 2,
+      "explanation": "Der Zugriff auf stack[stack.length - 1] liest B ohne Entnahme. pop entfernt danach B. A bleibt als neue Spitze zurück; ein Element ist noch gespeichert. push würde ein neues Element an dieser Spitze ergänzen.",
+      "hu": {
+        "question": "A tömb utolsó eleme a verem teteje. Melyik kimenet mutatja a peek és pop különbségét?",
+        "answers": [
+          "A B A 2",
+          "B B B 2",
+          "B B A 1",
+          "B A B 1"
+        ],
+        "explanation": "A stack[stack.length - 1] eltávolítás nélkül olvassa B-t. A pop ezután kiveszi B-t. A marad az új tetőn, egy elem van még bent. A push erre a tetőre tenne új elemet."
+      },
+      "code": "const stack = [\"A\"];\nstack.push(\"B\");\nconst top = stack[stack.length - 1];\nconst removed = stack.pop();\nconsole.log(top, removed, stack[stack.length - 1], stack.length);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "B B A 1"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-13-4",
+      "revision": 1,
+      "topic": "Stack und Queue",
+      "source": {
+        "topicId": "LAP-11-13",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/13_Stack_und_Queue/README.md",
+        "slug": "11-13-stack_und_queue"
+      },
+      "question": "Diese kleine Queue verwendet die JavaScript-Arraymethoden direkt. Welche Ausgabe entsteht beim Entnehmen aus dem leeren Array?",
+      "answers": [
+        "undefined 0",
+        "null 1",
+        "0 -1",
+        "Eine Ausnahme, bevor console.log ausgeführt wird."
+      ],
+      "correct": 0,
+      "explanation": "Array.shift liefert bei einem leeren Array undefined und lässt die Länge bei 0. Andere Queue-APIs können einen anderen Leerfallvertrag haben. Deshalb gehört das Verhalten bei einer leeren Struktur zur Beschreibung ihrer Operationen.",
+      "hu": {
+        "question": "Ez a kis sor közvetlenül a JavaScript tömbműveleteit használja. Mi lesz az üres tömbből kivétel kimenete?",
+        "answers": [
+          "undefined 0",
+          "null 1",
+          "0 -1",
+          "Kivétel keletkezik a console.log végrehajtása előtt."
+        ],
+        "explanation": "Az Array.shift üres tömbnél undefined értéket ad, a hossz 0 marad. Más sor-API más szabályt is előírhat az üres esetre. Ezért az üres tároló kezelése a műveletek leírásának része."
+      },
+      "code": "const queue = [];\nconst removed = queue.shift();\nconsole.log(removed, queue.length);",
+      "codeLanguage": "javascript",
+      "expectedOutput": [
+        "undefined 0"
+      ]
+    },
+    {
+      "id": "lap-LAP-11-13-5",
+      "revision": 1,
+      "topic": "Stack und Queue",
+      "source": {
+        "topicId": "LAP-11-13",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/13_Stack_und_Queue/README.md",
+        "slug": "11-13-stack_und_queue"
+      },
+      "question": "Ein Team ersetzt die interne Array-Speicherung eines Stacks durch verkettete Knoten. push legt weiter oben ab, pop entnimmt weiter oben. Was bleibt erhalten?",
+      "answers": [
+        "Nur der Name; LIFO ist ausschließlich mit Arrays möglich.",
+        "Automatisch eine feste Laufzeit für jede mögliche Operation.",
+        "Die FIFO-Reihenfolge, weil Knoten untereinander verknüpft sind.",
+        "Der LIFO-Vertrag der Operationen, obwohl sich die interne Speicherung ändert."
+      ],
+      "correct": 3,
+      "explanation": "Stack bezeichnet ein Datenstrukturmodell mit Operationen; LIFO beschreibt deren Entnahmeregel. Verschiedene Implementierungen können denselben Vertrag erfüllen. Speicherbedarf und Laufzeit beurteilen wir zusätzlich anhand der jeweiligen Umsetzung.",
+      "hu": {
+        "question": "Egy csapat a verem belső tömbjét láncolt csomópontokra cseréli. A push továbbra is a tetejére tesz, a pop onnan vesz ki. Mi marad meg?",
+        "answers": [
+          "Csak a név; LIFO kizárólag tömbbel valósítható meg.",
+          "Automatikusan rögzített futásidő minden lehetséges műveletre.",
+          "A FIFO-sorrend, mert a csomópontok össze vannak kapcsolva.",
+          "A műveletek LIFO-szerződése, bár a belső tárolás megváltozik."
+        ],
+        "explanation": "A verem műveletekkel rendelkező adatszerkezeti modell, a LIFO a kivételi szabálya. Ezt többféle megvalósítás is teljesítheti. A tárigényt és futásidőt külön, az adott megvalósítás alapján vizsgáljuk."
+      }
+    },
+    {
+      "id": "lap-LAP-11-14-1",
+      "revision": 1,
+      "topic": "Userinterface",
+      "source": {
+        "topicId": "LAP-11-14",
+        "selfCheckNumber": 1,
+        "path": "11_Informatik/14_Userinterface/README.md",
+        "slug": "11-14-userinterface"
+      },
+      "question": "Nach dem Speichern eines Lernziels bleibt die Oberfläche unverändert. Benutzer klicken erneut, weil sie den Zustand nicht erkennen. Welche UI-Ergänzung hilft direkt?",
+      "answers": [
+        "Bei jedem Klick die Position des Speichern-Buttons wechseln.",
+        "Nur die Serverantwort im Quellcode kommentieren.",
+        "Eine verständliche Rückmeldung zum laufenden Vorgang und anschließend zu Erfolg oder Fehler.",
+        "Den internen Datenbanknamen neben jedem Button anzeigen."
+      ],
+      "correct": 2,
+      "explanation": "Die Oberfläche vermittelt zwischen Mensch und System. Sichtbare, verständliche Zustände machen die Wirkung einer Aktion nachvollziehbar. Solche Rückmeldungen sollten auch für assistive Technik zugänglich sein, etwa über eine passende Statusregion.",
+      "hu": {
+        "question": "Egy tanulási cél mentése után a felület változatlan marad. A felhasználók újra kattintanak, mert nem látják az állapotot. Milyen UI-kiegészítés segít közvetlenül?",
+        "answers": [
+          "A Mentés gomb helyének megváltoztatása minden kattintásnál.",
+          "A szerverválasz leírása kizárólag forráskód-megjegyzésben.",
+          "Érthető visszajelzés a folyamatban lévő műveletről, majd a sikerről vagy hibáról.",
+          "A belső adatbázis nevének kiírása minden gomb mellé."
+        ],
+        "explanation": "A felület közvetít az ember és a rendszer között. A látható, érthető állapotok követhetővé teszik a művelet hatását. A visszajelzés segítő technológiák számára is legyen hozzáférhető, például megfelelő állapotjelző régióval."
+      }
+    },
+    {
+      "id": "lap-LAP-11-14-2",
+      "revision": 1,
+      "topic": "Userinterface",
+      "source": {
+        "topicId": "LAP-11-14",
+        "selfCheckNumber": 2,
+        "path": "11_Informatik/14_Userinterface/README.md",
+        "slug": "11-14-userinterface"
+      },
+      "question": "Welche Verbindung ordnet in diesem Formular die sichtbare Beschriftung ausdrücklich dem Eingabefeld zu?",
+      "answers": [
+        "for=\"minutes\" am label und id=\"minutes\" am input.",
+        "name=\"duration\" am input und type=\"submit\" am button.",
+        "min=\"1\" am input und die Position des Buttons.",
+        "Der gleiche Schriftstil von label und input."
+      ],
+      "correct": 0,
+      "explanation": "Der for-Wert entspricht der Feld-ID. Damit ist die Beschriftung programmatisch zugeordnet und kann das Feld auch bei Aktivierung des Labels fokussieren. name bezeichnet dagegen den Feldnamen für die Übermittlung.",
+      "hu": {
+        "question": "Mi kapcsolja ebben az űrlapban kifejezetten a látható címkét a beviteli mezőhöz?",
+        "answers": [
+          "A label for=\"minutes\" és az input id=\"minutes\" értéke.",
+          "Az input name=\"duration\" és a button type=\"submit\" értéke.",
+          "Az input min=\"1\" értéke és a gomb elhelyezése.",
+          "A label és input azonos betűstílusa."
+        ],
+        "explanation": "A for értéke egyezik a mező ID-jával. Így a címke programozottan is a mezőhöz tartozik, és a címke aktiválása a mezőre viheti a fókuszt. A name ezzel szemben az elküldött mező nevét jelöli."
+      },
+      "code": "<form>\n  <label for=\"minutes\">Lernzeit in Minuten</label>\n  <input id=\"minutes\" name=\"duration\"\n    type=\"number\" min=\"1\" max=\"120\" required>\n  <button type=\"submit\">Speichern</button>\n</form>",
+      "codeLanguage": "html"
+    },
+    {
+      "id": "lap-LAP-11-14-3",
+      "revision": 1,
+      "topic": "Userinterface",
+      "source": {
+        "topicId": "LAP-11-14",
+        "selfCheckNumber": 3,
+        "path": "11_Informatik/14_Userinterface/README.md",
+        "slug": "11-14-userinterface"
+      },
+      "question": "Auf drei Seiten führt derselbe Button dieselbe Speicheraktion aus. Welche Gestaltung unterstützt erlernbare Bedienung?",
+      "answers": [
+        "Auf jeder Seite eine neue Bezeichnung, damit die Oberfläche abwechslungsreich bleibt.",
+        "Dasselbe Symbol abwechselnd für Speichern und Löschen verwenden.",
+        "Den Button nach jeder Eingabe zufällig umsortieren.",
+        "Gleiche Bezeichnung und wiedererkennbare Gestaltung für dieselbe Aktion."
+      ],
+      "correct": 3,
+      "explanation": "Konsistenz erlaubt, eine bereits gelernte Bedienung wiederzuverwenden. Beschriftung, Position und Rückmeldung sollten zur Bedeutung der Aktion passen. Responsive Anordnung darf sich ändern, solange der Ablauf verständlich bleibt.",
+      "hu": {
+        "question": "Három oldalon ugyanaz a gomb ugyanazt a mentést végzi. Milyen kialakítás segíti a megtanulható kezelést?",
+        "answers": [
+          "Minden oldalon új elnevezés, hogy változatos legyen a felület.",
+          "Ugyanaz az ikon felváltva mentést és törlést jelentsen.",
+          "Minden bevitel után véletlenszerűen máshová kerüljön a gomb.",
+          "Azonos művelethez azonos elnevezés és felismerhető megjelenés."
+        ],
+        "explanation": "A következetesség lehetővé teszi a már megtanult kezelés újrahasználatát. A felirat, hely és visszajelzés illeszkedjen a művelet jelentéséhez. A reszponzív elrendezés változhat, ha a folyamat érthető marad."
+      }
+    },
+    {
+      "id": "lap-LAP-11-14-4",
+      "revision": 1,
+      "topic": "Userinterface",
+      "source": {
+        "topicId": "LAP-11-14",
+        "selfCheckNumber": 4,
+        "path": "11_Informatik/14_Userinterface/README.md",
+        "slug": "11-14-userinterface"
+      },
+      "question": "Ein Formular sieht klar aus und ist per Tastatur bedienbar. Für eine einfache Anmeldung müssen Menschen trotzdem dieselben Daten in fünf Schritten erneut eingeben. Was sollte zusätzlich zum einzelnen UI-Element untersucht werden?",
+      "answers": [
+        "Ob das Formular genügend unterschiedliche Schriftarten verwendet.",
+        "Die gesamte User Experience: Aufwand, Ablauf und Verständlichkeit der Aufgabe.",
+        "Nur die Eckrundung des letzten Buttons.",
+        "Nur die Programmiersprache des Servers."
+      ],
+      "correct": 1,
+      "explanation": "UI betrifft die bedienbare Oberfläche. UX betrachtet den gesamten Nutzungsvorgang, einschließlich Aufwand und Nutzen. Ein gut gestaltetes Feld allein macht einen unnötig langen Ablauf noch nicht angenehm.",
+      "hu": {
+        "question": "Egy űrlap áttekinthető és billentyűzettel kezelhető. Egy egyszerű jelentkezéshez mégis öt lépésben újra be kell írni ugyanazokat az adatokat. Mit vizsgálnál az egyes UI-elemeken túl?",
+        "answers": [
+          "Azt, hogy elég különböző betűtípust használ-e az űrlap.",
+          "A teljes felhasználói élményt: a feladat munkaráfordítását, menetét és érthetőségét.",
+          "Csak az utolsó gomb sarkainak lekerekítését.",
+          "Csak a szerver programozási nyelvét."
+        ],
+        "explanation": "A UI a kezelhető felületet jelenti. A UX a teljes használati folyamatot, annak ráfordítását és hasznát is vizsgálja. Egy jól megtervezett mező önmagában nem tesz kényelmessé egy fölöslegesen hosszú folyamatot."
+      }
+    },
+    {
+      "id": "lap-LAP-11-14-5",
+      "revision": 1,
+      "topic": "Userinterface",
+      "source": {
+        "topicId": "LAP-11-14",
+        "selfCheckNumber": 5,
+        "path": "11_Informatik/14_Userinterface/README.md",
+        "slug": "11-14-userinterface"
+      },
+      "question": "Du prüfst ein Lernformular ohne Maus. Welche Beobachtung ist ein sinnvoller Teil der Barrierefreiheitsprüfung?",
+      "answers": [
+        "Bei Tastaturbedienung wird jeder Fokusrahmen entfernt.",
+        "Der Submit-Button wurde durch ein div ohne Tastaturverhalten ersetzt.",
+        "Alle Bedienelemente sind in nachvollziehbarer Reihenfolge erreichbar, der Fokus ist sichtbar und Aktionen lassen sich per Tastatur ausführen.",
+        "Alle Elemente haben dieselbe Farbe, unabhängig von ihrer Funktion."
+      ],
+      "correct": 2,
+      "explanation": "Tastaturbedienung und sichtbarer Fokus ermöglichen Orientierung und Aktionen ohne Maus. Labels und verständliche Statusmeldungen ergänzen dies. Dieser Durchgang ist ein wichtiger Teil der Prüfung, aber kein vollständiger Nachweis aller Anforderungen an Barrierefreiheit.",
+      "hu": {
+        "question": "Egér nélkül ellenőrzöl egy tanulási űrlapot. Melyik megfigyelés érdemi része az akadálymentességi vizsgálatnak?",
+        "answers": [
+          "Billentyűzetes használatkor minden fókuszkeret eltűnik.",
+          "A küldésgombot billentyűzetes működés nélküli div váltotta fel.",
+          "Minden vezérlő követhető sorrendben elérhető, a fókusz látható, és a műveletek billentyűzettel végrehajthatók.",
+          "Minden elem azonos színű, függetlenül a funkciójától."
+        ],
+        "explanation": "A billentyűzetes kezelés és látható fókusz egér nélkül is lehetővé teszi a tájékozódást és műveletvégzést. Ezt címkék és érthető állapotüzenetek egészítik ki. Ez fontos része a vizsgálatnak, de nem bizonyítja az összes akadálymentességi követelmény teljesülését."
+      }
+    }
+  ]
+}
