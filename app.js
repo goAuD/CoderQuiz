@@ -66,7 +66,7 @@ function appendQuestionCode(container, question) {
   pre.className = "question-code";
   pre.setAttribute("tabindex", "0");
   const language = question.codeLanguage === "pseudocode" ? t("pseudocodeLabel")
-    : ({ html: "HTML", xml: "XML", javascript: "JavaScript" })[question.codeLanguage] || "JavaScript";
+    : ({ html: "HTML", xml: "XML", json: "JSON", javascript: "JavaScript" })[question.codeLanguage] || "JavaScript";
   pre.setAttribute("aria-label", language);
   pre.dataset.language = language;
   const code = document.createElement("code");
