@@ -7,8 +7,9 @@ import unittest
 import xml.etree.ElementTree as ET
 
 
-BANK = json.loads((Path(__file__).resolve().parents[1] / 'examples/lap-databases-1.json').read_text(encoding='utf-8'))
-QUESTIONS = {q['id']: q for q in BANK['questions']}
+EXAMPLES = Path(__file__).resolve().parents[1] / 'examples'
+BANKS = [json.loads((EXAMPLES / f'lap-databases-{number}.json').read_text(encoding='utf-8')) for number in (1, 2)]
+QUESTIONS = {q['id']: q for bank in BANKS for q in bank['questions']}
 
 
 def execute_example(database, code):
@@ -31,7 +32,7 @@ class DatabaseExamplesTest(unittest.TestCase):
     def test_every_displayed_sql_example_has_the_documented_result(self):
         self.assertGreaterEqual(sqlite3.sqlite_version_info, (3, 16, 0))
         examples = [q for q in QUESTIONS.values() if q.get('codeLanguage') == 'sql']
-        self.assertEqual(len(examples), 9)
+        self.assertEqual(len(examples), 18)
         for question in examples:
             with self.subTest(question=question['id']):
                 with closing(sqlite3.connect(':memory:', isolation_level=None)) as database:
@@ -72,6 +73,50 @@ class DatabaseExamplesTest(unittest.TestCase):
                 with self.subTest(key=key), self.assertRaises(sqlite3.IntegrityError):
                     database.execute('INSERT INTO questions (id, title) VALUES (?, ?)', (key, 'Another title'))
             self.assertEqual(database.execute('SELECT id, title FROM questions ORDER BY id').fetchall(), [('q1', 'SQL'), ('q2', 'SQL')])
+
+    def test_unscoped_delete_is_rolled_back_with_all_rows_restored(self):
+        with closing(sqlite3.connect(':memory:', isolation_level=None)) as database:
+            rows = execute_example(database, QUESTIONS['lap-LAP-16-08-4']['code'])
+            self.assertEqual(rows, [[0], [2]])
+            self.assertFalse(database.in_transaction)
+            self.assertEqual(database.execute('SELECT id FROM notes ORDER BY id').fetchall(), [(1,), (2,)])
+
+    def test_composite_key_accepts_new_pairs_but_not_duplicates_or_null_parts(self):
+        with closing(sqlite3.connect(':memory:', isolation_level=None)) as database:
+            execute_example(database, QUESTIONS['lap-LAP-16-10-1']['code'])
+            database.execute('INSERT INTO memberships VALUES (2, 10)')
+            for pair in [(1, 10), (None, 12), (1, None)]:
+                with self.subTest(pair=pair), self.assertRaises(sqlite3.IntegrityError):
+                    database.execute('INSERT INTO memberships VALUES (?, ?)', pair)
+            self.assertEqual(database.execute('SELECT student_id, course_id FROM memberships ORDER BY student_id, course_id').fetchall(), [(1, 10), (1, 11), (2, 10)])
+
+    def test_set_null_keeps_child_but_still_rejects_a_nonexistent_manager(self):
+        with closing(sqlite3.connect(':memory:', isolation_level=None)) as database:
+            rows = execute_example(database, QUESTIONS['lap-LAP-16-10-2']['code'])
+            self.assertEqual(rows, [[2, None]])
+            with self.assertRaises(sqlite3.IntegrityError):
+                database.execute('UPDATE employees SET manager_id = 99 WHERE id = 2')
+            self.assertEqual(database.execute('SELECT id, manager_id FROM employees').fetchall(), [(2, None)])
+
+    def test_junction_key_alone_does_not_verify_parent_existence(self):
+        with closing(sqlite3.connect(':memory:', isolation_level=None)) as database:
+            database.execute('PRAGMA foreign_keys = ON')
+            execute_example(database, QUESTIONS['lap-LAP-16-10-5']['code'])
+            # No parent tables or foreign keys exist in this deliberately incomplete model.
+            database.execute("INSERT INTO enrollments VALUES (999, 888, '2026W')")
+            with self.assertRaises(sqlite3.IntegrityError):
+                database.execute("INSERT INTO enrollments VALUES (999, 888, '2027S')")
+
+    def test_ordinary_index_allows_duplicates_while_unique_index_enforces_a_rule(self):
+        with closing(sqlite3.connect(':memory:', isolation_level=None)) as database:
+            execute_example(database, QUESTIONS['lap-LAP-16-11-5']['code'])
+            with self.assertRaises(sqlite3.IntegrityError):
+                database.execute('CREATE UNIQUE INDEX uq_contacts_email ON contacts(email)')
+            database.execute('DELETE FROM contacts WHERE id = 2')
+            database.execute('CREATE UNIQUE INDEX uq_contacts_email ON contacts(email)')
+            with self.assertRaises(sqlite3.IntegrityError):
+                database.execute("INSERT INTO contacts VALUES (3, 'team@example.test')")
+            database.execute("INSERT INTO contacts VALUES (4, 'other@example.test')")
 
     def test_xml_reading_sample_is_a_document_with_two_topic_elements(self):
         xml = QUESTIONS['lap-LAP-16-02-4']['code']
