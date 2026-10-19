@@ -11,9 +11,9 @@ test('production package contains every reviewed bank, working local links, and 
   const output = path.join(temporary, 'site');
   t.after(() => fs.rmSync(temporary, { recursive: true }));
   const banks = build(output);
-  assert.equal(banks.length, 9);
-  assert.equal(banks.reduce((sum, bank) => sum + bank.questionCount, 0), 315);
-  assert.equal(new Set(banks.flatMap(bank => bank.topicIds)).size, 63);
+  assert.equal(banks.length, 12);
+  assert.equal(banks.reduce((sum, bank) => sum + bank.questionCount, 0), 410);
+  assert.equal(new Set(banks.flatMap(bank => bank.topicIds)).size, 82);
   const files = fs.readdirSync(output, { recursive: true }).map(String)
     .filter(file => fs.statSync(path.join(output, file)).isFile());
   assert.ok(files.length > 15);
@@ -22,7 +22,7 @@ test('production package contains every reviewed bank, working local links, and 
   assert.equal(fs.readFileSync(path.join(output, 'robots.txt'), 'utf8'), 'User-agent: *\nDisallow: /\n');
   const home = fs.readFileSync(path.join(output, 'index.html'), 'utf8');
   assert.ok(!home.includes('id="quiz-screen"'));
-  assert.equal((home.match(/data-bank=/g) || []).length, 9);
+  assert.equal((home.match(/data-bank=/g) || []).length, 12);
 
   for (const file of files.filter(name => name.endsWith('.html'))) {
     const html = fs.readFileSync(path.join(output, file), 'utf8');

@@ -1,0 +1,853 @@
+{
+  "sourceRepository": "https://github.com/goAuD/CoderLAP",
+  "sourceCommit": "cefce00affa0f357e7cc3e752abf082cad0ae1d0",
+  "ui": {
+    "de": {
+      "moduleTitle": "CoderLAP · Datenbanken 3",
+      "subtitle": "25 Fragen zu betrieblichen Informationssystemen, ERP, BI, Data Warehouses, Datenbankschemata und Transaktionen.",
+      "practiceNote": "Achte auf die Geschäftsregeln und darauf, wofür eine Datenzeile steht. Die SQL-Beispiele verwenden SQLite; das PHP-Beispiel nennt seine Voraussetzungen. Die Erklärung folgt nach deiner Antwort.",
+      "topics": {
+        "Betriebliches Informationssystem BIS": "Betriebliche Informationssysteme",
+        "ERP Systeme": "ERP-Systeme",
+        "BI und BW Systeme": "BI und Data Warehouse",
+        "Umsetzung von Datenmodellen in Datenbanken": "Datenmodelle umsetzen",
+        "Zugriffsschnittstelle und Transaktionskonzept": "Datenzugriff und Transaktionen"
+      }
+    },
+    "hu": {
+      "moduleTitle": "CoderLAP · Adatbázisok 3",
+      "subtitle": "25 kérdés vállalati információs rendszerekről, ERP-ről, BI-ról, adattárházakról, adatbázissémákról és tranzakciókról.",
+      "practiceNote": "Figyeld az üzleti szabályokat és azt, hogy mit jelent egy adatsor. Az SQL-példák SQLite-ot használnak; a PHP-példánál külön jelezzük a feltételeket. A magyarázat a válaszod után jelenik meg.",
+      "topics": {
+        "Betriebliches Informationssystem BIS": "Vállalati információs rendszerek",
+        "ERP Systeme": "ERP-rendszerek",
+        "BI und BW Systeme": "BI és adattárházak",
+        "Umsetzung von Datenmodellen in Datenbanken": "Adatmodellek megvalósítása",
+        "Zugriffsschnittstelle und Transaktionskonzept": "Adathozzáférés és tranzakciók"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "lap-LAP-16-15-1",
+      "revision": 1,
+      "topic": "Betriebliches Informationssystem BIS",
+      "source": {
+        "topicId": "LAP-16-15",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/15_Betriebliches_Informationssystem_BIS/README.md",
+        "slug": "16-15-betriebliches_informationssystem_bis"
+      },
+      "question": "Eine Reparaturwerkstatt erfasst Aufträge, reserviert Ersatzteile und informiert Kunden nach der Freigabe. Was beschreibt ihr betriebliches Informationssystem am vollständigsten?",
+      "answers": [
+        "Die Datenbankdateien samt Indexen, unabhängig davon, wer die Informationen pflegt.",
+        "Die eingesetzten Programme; Zuständigkeiten und Freigaberegeln liegen grundsätzlich außerhalb des Systems.",
+        "Das Zusammenspiel von Menschen, Daten, Technik und geregelten Abläufen zur Unterstützung der Werkstatt.",
+        "Nur die monatlichen Auswertungen, weil einzelne Reparaturen noch keine betrieblichen Informationen sind."
+      ],
+      "correct": 2,
+      "explanation": "Ein BIS umfasst die Organisation der Informationsverarbeitung ebenso wie die Technik. Im Beispiel gehören Auftragsdaten, Rollen, Freigabe und Kundenbenachrichtigung zusammen. Datenbank und Anwendungen sind wichtige Bestandteile, beschreiben aber allein noch nicht den gesamten Ablauf.",
+      "hu": {
+        "question": "Egy javítóműhely munkalapokat rögzít, alkatrészeket foglal, és jóváhagyás után értesíti az ügyfeleket. Mi írja le legteljesebben a vállalati információs rendszerét?",
+        "answers": [
+          "Az adatbázisfájlok és indexek, függetlenül attól, ki tartja karban az információkat.",
+          "A használt programok; a felelősségek és jóváhagyási szabályok alapvetően a rendszeren kívül vannak.",
+          "Az emberek, adatok, technika és szabályozott folyamatok együttműködése a műhely támogatására.",
+          "Csak a havi kimutatások, mert az egyes javítások még nem vállalati információk."
+        ],
+        "explanation": "A BIS az információfeldolgozás szervezetét és technikáját egyaránt magában foglalja. A példában a munkalap adatai, a szerepek, a jóváhagyás és az ügyfél értesítése összetartozik. Az adatbázis és az alkalmazások fontos részek, de önmagukban még nem írják le a teljes folyamatot."
+      }
+    },
+    {
+      "id": "lap-LAP-16-15-2",
+      "revision": 1,
+      "topic": "Betriebliches Informationssystem BIS",
+      "source": {
+        "topicId": "LAP-16-15",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/15_Betriebliches_Informationssystem_BIS/README.md",
+        "slug": "16-15-betriebliches_informationssystem_bis"
+      },
+      "question": "Die Datenbank einer Werkstatt funktioniert technisch. Trotzdem stehen abgeschlossene Reparaturen weiterhin auf 'in Arbeit', weil niemand den Abschluss einträgt. Welche Verbesserung setzt am eigentlichen Problem an?",
+      "answers": [
+        "Den Abschluss als klaren Prozessschritt mit verantwortlicher Rolle und überprüfbarem Statuswechsel festlegen.",
+        "Nur einen zusätzlichen Index auf die Statusspalte legen.",
+        "Abgeschlossene Reparaturen nachts ohne weitere Prüfung automatisch vermuten.",
+        "Alle Statuswerte durch einen einzigen gemeinsamen Wert ersetzen."
+      ],
+      "correct": 0,
+      "explanation": "Die Information wird erst verlässlich, wenn Zuständigkeit und Arbeitsablauf geklärt sind. Ein schnellerer Datenzugriff korrigiert keine fehlende Pflege. Ein brauchbarer Abnahmetest führt deshalb eine Reparatur einschließlich Abschluss und Benachrichtigung durch, nicht nur einen Datenbank-Verbindungstest.",
+      "hu": {
+        "question": "A műhely adatbázisa műszakilag működik. A kész javítások mégis 'folyamatban' státuszban maradnak, mert senki sem rögzíti a lezárást. Melyik javítás célozza a valódi problémát?",
+        "answers": [
+          "A lezárást egyértelmű folyamatlépésként meghatározni, felelős szereppel és ellenőrizhető státuszváltással.",
+          "Csak egy további indexet létrehozni a státuszoszlopon.",
+          "Éjszakánként további ellenőrzés nélkül automatikusan késznek feltételezni a javításokat.",
+          "Minden státuszt egyetlen közös értékre cserélni."
+        ],
+        "explanation": "Az információ akkor lesz megbízható, ha tisztázott a felelősség és a munkafolyamat. A gyorsabb adatelérés nem pótolja az elmaradt adatfrissítést. Egy hasznos átvételi próba ezért a lezárásig és értesítésig végigvezeti a javítást, nem csak az adatbázis-kapcsolatot teszteli."
+      }
+    },
+    {
+      "id": "lap-LAP-16-15-3",
+      "revision": 1,
+      "topic": "Betriebliches Informationssystem BIS",
+      "source": {
+        "topicId": "LAP-16-15",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/15_Betriebliches_Informationssystem_BIS/README.md",
+        "slug": "16-15-betriebliches_informationssystem_bis"
+      },
+      "question": "Welche Zuordnung trennt operative Arbeit und Analyse im BIS einer Werkstatt passend?",
+      "answers": [
+        "Operativ: Reparaturzeiten des letzten Jahres vergleichen. Analytisch: einen neuen Auftrag anlegen.",
+        "Operativ: nur Hardware betreiben. Analytisch: alle Datenbankänderungen ausführen.",
+        "Operativ und analytisch unterscheiden sich ausschließlich durch die verwendete Programmiersprache.",
+        "Operativ: Ersatzteile für einen Auftrag buchen. Analytisch: durchschnittliche Reparaturzeiten mehrerer Monate vergleichen."
+      ],
+      "correct": 3,
+      "explanation": "Operative Verarbeitung unterstützt einzelne laufende Geschäftsvorfälle. Analysen betrachten Daten vieler Vorgänge, um Entwicklungen zu beurteilen. Beide können dieselben fachlichen Informationen nutzen, verfolgen aber unterschiedliche Aufgaben. Eine Analyse erklärt mögliche Ursachen nicht allein durch das Anzeigen einer Kennzahl.",
+      "hu": {
+        "question": "Melyik párosítás különíti el helyesen az operatív munkát és az elemzést egy műhely BIS-rendszerében?",
+        "answers": [
+          "Operatív: az előző év javítási idejeinek összevetése. Elemző: új munkalap létrehozása.",
+          "Operatív: csak a hardver működtetése. Elemző: minden adatbázis-módosítás végrehajtása.",
+          "Az operatív és az elemző feladat kizárólag a használt programozási nyelvben tér el.",
+          "Operatív: alkatrészek felhasználásának rögzítése egy munkalaphoz. Elemző: több hónap átlagos javítási idejének összevetése."
+        ],
+        "explanation": "Az operatív feldolgozás az egyes folyamatban lévő üzleti eseményeket támogatja. Az elemzés sok esemény adatait vizsgálja a változások megítéléséhez. Használhatnak azonos üzleti információkat, de más feladatot látnak el. Egy mutató megjelenítése önmagában még nem magyarázza meg a lehetséges okokat."
+      }
+    },
+    {
+      "id": "lap-LAP-16-15-4",
+      "revision": 1,
+      "topic": "Betriebliches Informationssystem BIS",
+      "source": {
+        "topicId": "LAP-16-15",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/15_Betriebliches_Informationssystem_BIS/README.md",
+        "slug": "16-15-betriebliches_informationssystem_bis"
+      },
+      "question": "Ein Unternehmen führt ein ERP ein, nutzt daneben ein CRM und erstellt BI-Berichte. Wie passt dies zum Begriff BIS?",
+      "answers": [
+        "BIS ist ein anderer Name ausschließlich für das ERP; CRM und BI können nicht dazugehören.",
+        "ERP, CRM und BI können Bestandteile des umfassenderen BIS sein, zusammen mit den zugehörigen Daten, Personen und Abläufen.",
+        "Mit dem ERP entfällt das BIS, weil jetzt eine einzelne Software die Organisation ersetzt.",
+        "BIS bezeichnet nur die Schnittstelle zwischen CRM und BI, nicht die betrieblichen Anwendungen selbst."
+      ],
+      "correct": 1,
+      "explanation": "Das BIS ist der übergeordnete Zusammenhang. Ein ERP integriert betriebliche Aufgaben, ein CRM unterstützt Kundenbeziehungen und BI die Auswertung. Wie diese Bausteine verbunden werden und wer Daten pflegt oder freigibt, gehört ebenfalls zur Gestaltung des Informationssystems.",
+      "hu": {
+        "question": "Egy vállalat ERP-t vezet be, mellette CRM-et használ, és BI-riportokat készít. Hogyan kapcsolódik ez a BIS fogalmához?",
+        "answers": [
+          "A BIS kizárólag az ERP másik neve; a CRM és a BI nem tartozhat hozzá.",
+          "Az ERP, a CRM és a BI a tágabb BIS része lehet, a hozzájuk tartozó adatokkal, emberekkel és folyamatokkal együtt.",
+          "Az ERP bevezetésével megszűnik a BIS, mert egyetlen szoftver helyettesíti a szervezetet.",
+          "A BIS csak a CRM és a BI közötti interfészt jelenti, magukat az üzleti alkalmazásokat nem."
+        ],
+        "explanation": "A BIS az átfogó rendszer. Az ERP üzleti feladatokat integrál, a CRM az ügyfélkapcsolatokat, a BI az elemzést támogatja. Az információs rendszer kialakításához az is hozzátartozik, hogyan kapcsolódnak ezek az elemek, és ki tartja karban vagy hagyja jóvá az adatokat."
+      }
+    },
+    {
+      "id": "lap-LAP-16-15-5",
+      "revision": 1,
+      "topic": "Betriebliches Informationssystem BIS",
+      "source": {
+        "topicId": "LAP-16-15",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/15_Betriebliches_Informationssystem_BIS/README.md",
+        "slug": "16-15-betriebliches_informationssystem_bis"
+      },
+      "question": "Ein Auftrag wird vom Verkauf ans Lager übergeben. Bisher tippt das Lager alle Daten erneut ab und kann spätere Änderungen nicht zuordnen. Welche Verbesserung nutzt den Informationsfluss im BIS am besten?",
+      "answers": [
+        "Jede Abteilung vergibt bewusst eine neue, unverbundene Auftragsnummer.",
+        "Das Lager erhält nur einen täglichen Gesamtbetrag statt der benötigten Auftragsdaten.",
+        "Eine durchgängige Auftragskennung, klar definierte Übergabedaten und nachvollziehbare Statusänderungen verbinden beide Arbeitsschritte.",
+        "Alle Abteilungen bekommen uneingeschränkt Zugriff auf sämtliche Kunden- und Personaldaten."
+      ],
+      "correct": 2,
+      "explanation": "Eine gemeinsame fachliche Kennung macht denselben Vorgang über Abteilungsgrenzen hinweg erkennbar. Definierte Übergaben verringern erneute Eingaben und erleichtern Rückfragen. Das bedeutet nicht, dass alle alles sehen dürfen: Jede Rolle erhält die Informationen und Rechte, die sie für ihren Schritt benötigt.",
+      "hu": {
+        "question": "Az értékesítés átad egy rendelést a raktárnak. Eddig a raktár mindent újra begépelt, és nem tudta a későbbi változásokat a rendeléshez kapcsolni. Melyik javítás használja ki legjobban a BIS információáramlását?",
+        "answers": [
+          "Minden részleg szándékosan új, egymáshoz nem kapcsolt rendelési számot ad.",
+          "A raktár a szükséges rendelési adatok helyett csak napi összértéket kap.",
+          "Végig követhető rendelésazonosító, meghatározott átadási adatok és visszakereshető státuszváltozások kapcsolják össze a két lépést.",
+          "Minden részleg korlátlan hozzáférést kap az összes ügyfél- és személyzeti adathoz."
+        ],
+        "explanation": "A közös üzleti azonosító a részlegek között is felismerhetővé teszi ugyanazt az ügyet. A meghatározott átadás csökkenti az újragépelést és segíti a visszakérdezést. Ettől még nem láthat mindenki mindent: minden szerep a saját lépéséhez szükséges információt és jogosultságot kapja."
+      }
+    },
+    {
+      "id": "lap-LAP-16-16-1",
+      "revision": 1,
+      "topic": "ERP Systeme",
+      "source": {
+        "topicId": "LAP-16-16",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/16_ERP_Systeme/README.md",
+        "slug": "16-16-erp_systeme"
+      },
+      "question": "Einkauf, Lager und Buchhaltung verwenden bisher getrennte Listen für dieselben Artikel. Was ist das zentrale Ziel einer ERP-Einführung in dieser Situation?",
+      "answers": [
+        "Geschäftsprozesse und fachliche Daten so verbinden, dass die Bereiche mit abgestimmten Informationen arbeiten.",
+        "Nur die drei bisherigen Listen in derselben Schriftart anzeigen.",
+        "Ausschließlich Monatsberichte erzeugen und alle operativen Schritte außerhalb des Systems belassen.",
+        "Alle Abteilungen zu identischen Tätigkeiten verpflichten, damit keine Schnittstellen mehr nötig sind."
+      ],
+      "correct": 0,
+      "explanation": "Ein ERP integriert unterschiedliche betriebliche Aufgaben und ihre Daten. Die Bereiche behalten eigene Aufgaben, können sich aber auf konsistente Kennungen und abgestimmte Abläufe beziehen. Das verlangt nicht zwingend eine einzige physische Datenbank; entscheidend ist die fachliche Integration.",
+      "hu": {
+        "question": "A beszerzés, a raktár és a könyvelés eddig külön listákon tartotta ugyanazokat a cikkeket. Mi az ERP bevezetésének központi célja ebben a helyzetben?",
+        "answers": [
+          "Úgy összekapcsolni az üzleti folyamatokat és adatokat, hogy a részlegek összehangolt információval dolgozzanak.",
+          "Csak azonos betűtípussal megjeleníteni a három eddigi listát.",
+          "Kizárólag havi riportokat készíteni, minden operatív lépést a rendszeren kívül hagyva.",
+          "Minden részleget azonos feladatokra kötelezni, hogy ne kelljenek interfészek."
+        ],
+        "explanation": "Az ERP különböző üzleti feladatokat és adataikat integrálja. A részlegek megtartják saját feladataikat, de következetes azonosítókra és összehangolt folyamatokra támaszkodhatnak. Ez nem követel feltétlenül egyetlen fizikai adatbázist; az üzleti integráció a lényeg."
+      }
+    },
+    {
+      "id": "lap-LAP-16-16-2",
+      "revision": 1,
+      "topic": "ERP Systeme",
+      "source": {
+        "topicId": "LAP-16-16",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/16_ERP_Systeme/README.md",
+        "slug": "16-16-erp_systeme"
+      },
+      "question": "Im ERP sind 14 Adapter bestellt, 11 tatsächlich eingegangen und 14 in Rechnung gestellt. Die Freigaberegel verlangt den Abgleich aller drei Mengen. Was sollte der Ablauf sichtbar machen?",
+      "answers": [
+        "Der Lagerbestand muss auf 14 erhöht werden, sobald die Rechnung eingeht.",
+        "Die Bestellmenge muss rückwirkend auf 11 geändert werden, damit kein offener Rest bleibt.",
+        "Die Finanzabteilung benötigt nur die Rechnung; Wareneingänge sind für diesen Abgleich grundsätzlich ohne Bedeutung.",
+        "Drei Stück sind noch offen; die Abweichung zwischen Wareneingang und Rechnung muss vor der Freigabe geklärt werden."
+      ],
+      "correct": 3,
+      "explanation": "Bestellung, Wareneingang und Rechnung beschreiben unterschiedliche Sachverhalte. Die Integration ermöglicht ihren Abgleich, statt reale Unterschiede durch Überschreiben zu verdecken. Einkauf, Lager und Rechnungswesen greifen dabei auf denselben Vorgang zu, führen aber unterschiedliche Schritte aus.",
+      "hu": {
+        "question": "Az ERP-ben 14 adaptert rendeltek, ténylegesen 11 érkezett be, a számlán pedig 14 szerepel. A jóváhagyási szabály mindhárom mennyiség összevetését követeli meg. Mit kell láthatóvá tennie a folyamatnak?",
+        "answers": [
+          "A számla beérkezésekor 14-re kell emelni a raktárkészletet.",
+          "Utólag 11-re kell módosítani a rendelt mennyiséget, hogy ne maradjon nyitott rész.",
+          "A pénzügynek csak a számla kell; az áruátvétel alapvetően lényegtelen ennél az egyeztetésnél.",
+          "Három darab még nyitott; az áruátvétel és a számla eltérését jóváhagyás előtt tisztázni kell."
+        ],
+        "explanation": "A rendelés, az áruátvétel és a számla különböző tényeket ír le. Az integráció az összevetésüket teszi lehetővé, ahelyett hogy felülírással rejtené el a valós eltérést. A beszerzés, a raktár és a könyvelés ugyanahhoz az ügyhöz kapcsolódik, de eltérő lépéseket végez."
+      }
+    },
+    {
+      "id": "lap-LAP-16-16-3",
+      "revision": 1,
+      "topic": "ERP Systeme",
+      "source": {
+        "topicId": "LAP-16-16",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/16_ERP_Systeme/README.md",
+        "slug": "16-16-erp_systeme"
+      },
+      "question": "Zwei Altsysteme verwenden für denselben Artikel die Kennungen A-17 und P-204. Beim ERP-Import werden daraus zwei unabhängige Artikel mit getrennten Beständen. Was hätte vor dem Import geklärt werden müssen?",
+      "answers": [
+        "Ob beide Kennungen dieselbe Zeichenlänge haben; dann können sie unverändert übernommen werden.",
+        "Die fachliche Identität des Artikels und eine geprüfte Zuordnung der alten Kennungen zum gemeinsamen Artikelstamm.",
+        "Welche Abteilung ihre Kennung zuerst eingibt; diese darf später sämtliche anderen Artikel überschreiben.",
+        "Nur die Darstellung der Artikelbezeichnung im Dashboard."
+      ],
+      "correct": 1,
+      "explanation": "Integration setzt abgestimmte Stammdaten voraus. Eine geprüfte Zuordnung verhindert, dass derselbe Artikel unbeabsichtigt getrennt geführt wird. Gleiche Namen allein beweisen die Identität nicht; Einheiten, Varianten und bestehende Verweise müssen bei der Bereinigung berücksichtigt werden.",
+      "hu": {
+        "question": "Két régi rendszer ugyanazt a cikket A-17 és P-204 azonosítóval kezeli. Az ERP-import két független cikket hoz létre külön készlettel. Mit kellett volna az import előtt tisztázni?",
+        "answers": [
+          "Hogy az azonosítók azonos hosszúságúak-e; akkor változtatás nélkül átvehetők.",
+          "A cikk üzleti azonosságát és a régi azonosítók ellenőrzött megfeleltetését a közös cikktörzsnek.",
+          "Melyik részleg írja be először az azonosítóját; később az írhat felül minden más cikket.",
+          "Csak azt, hogyan jelenik meg a cikknév a dashboardon."
+        ],
+        "explanation": "Az integráció összehangolt törzsadatokat igényel. Az ellenőrzött megfeleltetés megakadályozza, hogy ugyanazt a cikket véletlenül külön kezeljük. Azonos név önmagában nem bizonyít azonosságot; a mértékegységeket, változatokat és meglévő hivatkozásokat is figyelembe kell venni a tisztításkor."
+      }
+    },
+    {
+      "id": "lap-LAP-16-16-4",
+      "revision": 1,
+      "topic": "ERP Systeme",
+      "source": {
+        "topicId": "LAP-16-16",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/16_ERP_Systeme/README.md",
+        "slug": "16-16-erp_systeme"
+      },
+      "question": "Welche Kombination nutzt den Integrationsvorteil eines ERP und erhält zugleich sinnvolle Zuständigkeiten?",
+      "answers": [
+        "Alle Mitarbeitenden dürfen Lieferanten-Bankdaten und Zahlungsfreigaben ändern, weil die Daten gemeinsam genutzt werden.",
+        "Jede Abteilung erfasst denselben Lieferanten separat, damit die Rollen getrennt bleiben.",
+        "Das Lager sieht den zur Bestellung gehörenden Wareneingang; Zahlungsfreigaben bleiben den dafür berechtigten Rollen vorbehalten.",
+        "Ein gemeinsames Datenmodell ersetzt sämtliche Prüfungen der Benutzerrechte."
+      ],
+      "correct": 2,
+      "explanation": "Gemeinsame Informationen erleichtern den durchgängigen Prozess. Gemeinsame Datennutzung bedeutet aber keine einheitlichen Änderungsrechte für alle. Rollen und Freigaben begrenzen, wer welchen Schritt ausführen darf; sie ergänzen die Integration.",
+      "hu": {
+        "question": "Melyik megoldás használja az ERP integrációs előnyét, miközben megtartja az ésszerű felelősségi köröket?",
+        "answers": [
+          "Minden dolgozó módosíthat szállítói bankszámlát és fizetési jóváhagyást, mert közösek az adatok.",
+          "Minden részleg külön rögzíti ugyanazt a szállítót, hogy elkülönüljenek a szerepek.",
+          "A raktár látja a rendeléshez tartozó áruátvételt; a kifizetés jóváhagyása az erre jogosult szerepeknél marad.",
+          "A közös adatmodell kiváltja a felhasználói jogosultságok minden ellenőrzését."
+        ],
+        "explanation": "A közös információ segíti a végig követhető folyamatot. A közös adathasználat azonban nem jelent mindenki számára azonos módosítási jogot. A szerepek és jóváhagyások meghatározzák, ki melyik lépést végezheti el; ezek kiegészítik az integrációt."
+      }
+    },
+    {
+      "id": "lap-LAP-16-16-5",
+      "revision": 1,
+      "topic": "ERP Systeme",
+      "source": {
+        "topicId": "LAP-16-16",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/16_ERP_Systeme/README.md",
+        "slug": "16-16-erp_systeme"
+      },
+      "question": "Bei einer ERP-Migration meldet das Importprogramm Erfolg, und die Anzahl der Artikel stimmt. Was ist vor der Abnahme zusätzlich besonders sinnvoll?",
+      "answers": [
+        "Bestände und fachlich abstimmbare Summen vergleichen sowie Teillieferung, Rückgabe und Korrektur mit den betroffenen Rollen durchspielen.",
+        "Nur prüfen, ob die neue Startseite schneller lädt als die alte.",
+        "Die Migration abnehmen, weil gleiche Zeilenzahlen auch korrekte Inhalte und Beziehungen beweisen.",
+        "Alle Anpassungen erst nach dem Löschen der Altdaten testen."
+      ],
+      "correct": 0,
+      "explanation": "Ein erfolgreicher Import und gleiche Zeilenzahlen sind wichtige, aber begrenzte Signale. Werte, Verweise und Geschäftsabläufe können trotzdem abweichen. Fachliche Abstimmung, realistische Prozessfälle und eingewiesene Benutzer zeigen, ob Daten und Arbeitsweise tatsächlich zusammenpassen.",
+      "hu": {
+        "question": "ERP-migrációnál az importprogram sikert jelez, és a cikkek darabszáma egyezik. Mi különösen hasznos még az átvétel előtt?",
+        "answers": [
+          "Összevetni a készleteket és az üzletileg egyeztethető összegeket, majd az érintett szerepekkel kipróbálni a részszállítást, visszárut és javítást.",
+          "Csak azt megnézni, gyorsabban tölt-e az új kezdőoldal a réginél.",
+          "Átvenni a migrációt, mert azonos rekordszám mellett az adatok és kapcsolatok is bizonyítottan helyesek.",
+          "Minden módosítást csak a régi adatok törlése után tesztelni."
+        ],
+        "explanation": "A sikeres import és azonos darabszám fontos, de korlátozott jelzés. Az értékek, hivatkozások és üzleti folyamatok ettől még eltérhetnek. A szakmai egyeztetés, életszerű folyamatpróbák és felkészített felhasználók mutatják meg, hogy valóban illeszkedik-e az adat és a munkamenet."
+      }
+    },
+    {
+      "id": "lap-LAP-16-17-1",
+      "revision": 1,
+      "topic": "BI und BW Systeme",
+      "source": {
+        "topicId": "LAP-16-17",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/17_BI_und_BW_Systeme/README.md",
+        "slug": "16-17-bi_und_bw_systeme"
+      },
+      "question": "Diese SQLite-Auswertung verwendet Nettopreise in Eurocent. Jede Zeile ist eine Verkaufsposition. Welche Aussage beschreibt Ergebnis und Aussagekraft passend?",
+      "answers": [
+        "book: 3750, tool: 400; die Stückzahlen spielen für Umsatz keine Rolle.",
+        "book: 5000, tool: 1200; damit ist bewiesen, dass Bücher den höheren Gewinn erzielen.",
+        "book: 3, tool: 3; GROUP BY zählt automatisch die verkauften Stücke.",
+        "book: 5000, tool: 1200; das sind Umsätze dieses Ausschnitts, keine Erklärung ihrer Ursachen und keine Gewinnberechnung."
+      ],
+      "correct": 3,
+      "explanation": "SUM(quantity * unit_price_cents) addiert die Positionsumsätze je Kategorie: bei book 2500 + 2500, bei tool 1200 Cent. BI macht solche Daten für Entscheidungen auswertbar. Ohne Kosten lässt sich daraus kein Gewinn ableiten; für Vergleiche müssen auch Zeitraum, Währung und Nettobedeutung klar sein.",
+      "hu": {
+        "question": "Ez az SQLite-kimutatás eurócentben megadott nettó egységárakat használ. Minden sor egy eladási tétel. Melyik állítás írja le helyesen az eredményt és a jelentését?",
+        "answers": [
+          "book: 3750, tool: 400; a darabszámok nem számítanak a bevételnél.",
+          "book: 5000, tool: 1200; ez bizonyítja, hogy a könyvek nagyobb nyereséget hoznak.",
+          "book: 3, tool: 3; a GROUP BY automatikusan az eladott darabokat számolja.",
+          "book: 5000, tool: 1200; ezek az adatrészlet bevételei, nem az okok magyarázatai és nem nyereségszámítások."
+        ],
+        "explanation": "A SUM(quantity * unit_price_cents) kategóriánként összeadja a tételbevételeket: book esetén 2500 + 2500, tool esetén 1200 centet. A BI döntésekhez teszi elemezhetővé az ilyen adatokat. Költségek nélkül ebből nem következik nyereség; összehasonlításhoz az időszaknak, pénznemnek és nettó értelmezésnek is egyértelműnek kell lennie."
+      },
+      "code": "CREATE TABLE sales (\n  id INTEGER PRIMARY KEY,\n  category TEXT NOT NULL,\n  quantity INTEGER NOT NULL,\n  unit_price_cents INTEGER NOT NULL\n);\nINSERT INTO sales VALUES\n  (1, 'book', 2, 1250), (2, 'book', 1, 2500), (3, 'tool', 3, 400);\nSELECT category, SUM(quantity * unit_price_cents) AS revenue_cents\nFROM sales GROUP BY category ORDER BY category;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          "book",
+          5000
+        ],
+        [
+          "tool",
+          1200
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-17-2",
+      "revision": 1,
+      "topic": "BI und BW Systeme",
+      "source": {
+        "topicId": "LAP-16-17",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/17_BI_und_BW_Systeme/README.md",
+        "slug": "16-17-bi_und_bw_systeme"
+      },
+      "question": "Ein ERP liefert Beträge in Euro, ein zweites System in Cent und beide verwenden unterschiedliche Artikelkennungen. Welche Aufgabe gehört zur Vorbereitung einer verlässlichen Datengrundlage im Data Warehouse?",
+      "answers": [
+        "Alle Beträge unverändert addieren; die spätere Diagrammfarbe gleicht verschiedene Einheiten aus.",
+        "Einheiten und Artikelkennungen nach dokumentierten Regeln vereinheitlichen und Herkunft sowie Ladezeit der Daten nachvollziehbar halten.",
+        "Aus jedem System nur den höchsten Betrag laden, damit sich widersprüchliche Daten nicht begegnen.",
+        "Die Quellsysteme bei jeder Analyse vollständig durch ein neues ERP ersetzen."
+      ],
+      "correct": 1,
+      "explanation": "Ein Warehouse führt Daten so zusammen, dass sie fachlich vergleichbar ausgewertet werden können. Dazu gehören geprüfte Umrechnungen und Zuordnungen. Bei ETL erfolgt die Transformation vor dem Laden in das Ziel, bei ELT danach. In beiden Fällen müssen die Regeln und die Datenqualität stimmen.",
+      "hu": {
+        "question": "Egy ERP euróban, egy másik rendszer centben adja az összegeket, és eltérő cikkazonosítókat használnak. Mi tartozik a megbízható adattárházi alap előkészítéséhez?",
+        "answers": [
+          "Változatlanul összeadni minden összeget; a későbbi diagram színe kiegyenlíti az eltérő egységeket.",
+          "Dokumentált szabályokkal egységesíteni a mértékegységeket és azonosítókat, visszakövethetően megőrizve az adatok eredetét és betöltési idejét.",
+          "Minden rendszerből csak a legnagyobb összeget betölteni, hogy ne találkozzanak ellentmondó adatok.",
+          "Minden elemzésnél teljesen új ERP-re cserélni a forrásrendszereket."
+        ],
+        "explanation": "Az adattárház úgy egyesíti az adatokat, hogy üzleti szempontból összehasonlíthatók legyenek. Ehhez ellenőrzött átszámítások és megfeleltetések is kellenek. ETL-nél az átalakítás a célba töltés előtt, ELT-nél utána történik. Mindkét esetben helyes szabályokra és megfelelő adatminőségre van szükség."
+      }
+    },
+    {
+      "id": "lap-LAP-16-17-3",
+      "revision": 1,
+      "topic": "BI und BW Systeme",
+      "source": {
+        "topicId": "LAP-16-17",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/17_BI_und_BW_Systeme/README.md",
+        "slug": "16-17-bi_und_bw_systeme"
+      },
+      "question": "Welche Aussage unterscheidet BI und Data Warehouse, ohne eine unnötige technische Pflicht daraus zu machen?",
+      "answers": [
+        "BI umfasst Auswertung und Entscheidungsunterstützung; ein Warehouse kann dafür eine aufbereitete historische Datengrundlage liefern, ist aber nicht für jede BI-Lösung zwingend nötig.",
+        "BI bezeichnet nur einen Speicherort, während ein Warehouse ausschließlich Diagramme zeichnet.",
+        "Jeder BI-Bericht muss zwingend auf SAP BW laufen, sonst ist er kein BI-Bericht.",
+        "BI und Warehouse sind austauschbare Namen für eine einzelne operative Buchung."
+      ],
+      "correct": 0,
+      "explanation": "BI beschreibt die Nutzung von Daten für Analysen und Entscheidungen. Ein Data Warehouse unterstützt diese Nutzung durch geeignete Datenhaltung und Aufbereitung. BW begegnet insbesondere als SAP-Produktname; DWH beziehungsweise Data Warehouse ist die allgemeine Bezeichnung. Auch andere Architekturen können BI ermöglichen.",
+      "hu": {
+        "question": "Melyik állítás különbözteti meg a BI-t és az adattárházat anélkül, hogy indokolatlan technikai követelményt állítana?",
+        "answers": [
+          "A BI elemzést és döntéstámogatást foglal magában; az adattárház előkészített történeti adatalapot adhat hozzá, de nem minden BI-megoldáshoz kötelező.",
+          "A BI csak egy tárolási hely, az adattárház pedig kizárólag diagramokat rajzol.",
+          "Minden BI-riportnak feltétlenül SAP BW-n kell futnia, különben nem BI-riport.",
+          "A BI és az adattárház egyetlen operatív könyvelési művelet felcserélhető neve."
+        ],
+        "explanation": "A BI az adatok elemzési és döntéstámogatási felhasználását írja le. Az adattárház megfelelő adattárolással és előkészítéssel támogatja ezt. A BW különösen SAP-terméknévként fordul elő; az általános elnevezés a DWH, illetve data warehouse. Más architektúrák is lehetővé tehetnek BI-t."
+      }
+    },
+    {
+      "id": "lap-LAP-16-17-4",
+      "revision": 1,
+      "topic": "BI und BW Systeme",
+      "source": {
+        "topicId": "LAP-16-17",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/17_BI_und_BW_Systeme/README.md",
+        "slug": "16-17-bi_und_bw_systeme"
+      },
+      "question": "Ein Bericht übernimmt ERP-Bestellungen und ihre Positionen. total_cents ist der Gesamtbetrag je Bestellung. Was liefert diese SQLite-Abfrage, und was ist für den Umsatz beider Bestellungen zu beachten?",
+      "answers": [
+        "6000; SUM erkennt automatisch, dass die erste Bestellung zweimal im Join erscheint.",
+        "3000; gleiche Bestellbeträge werden von SUM grundsätzlich nur einmal gezählt.",
+        "9000; der erste Bestellbetrag wird zweimal gezählt. Für 6000 müssen die Beträge auf Bestellungsebene jeweils einmal summiert werden.",
+        "9000; das ist korrekt, weil jede Position zusätzlich den vollen Bestellbetrag als eigenen Umsatz erzeugt."
+      ],
+      "correct": 2,
+      "explanation": "Der Join liefert hier drei Zeilen: zweimal Bestellung 1 und einmal Bestellung 2. Der Betrag der ersten Bestellung wird daher wiederholt. Das ist eine Frage der Granularität, also der Bedeutung einer Zeile. SUM(DISTINCT total_cents) wäre ebenfalls unpassend: Die zwei echten Bestellungen haben zufällig denselben Betrag und ergäben dann nur 3000. Für diesen Bericht genügt SUM(total_cents) direkt aus orders.",
+      "hu": {
+        "question": "Egy riport ERP-rendeléseket és tételeiket veszi át. A total_cents rendelésenként a teljes összeg. Mit ad ez az SQLite-lekérdezés, és mire kell figyelni a két rendelés bevételénél?",
+        "answers": [
+          "6000-et; a SUM automatikusan felismeri, hogy az első rendelés kétszer szerepel a JOIN-ban.",
+          "3000-et; az azonos rendelési összegeket a SUM alapvetően csak egyszer számolja.",
+          "9000-et; az első rendelési összeg kétszer számít. A 6000-hez rendelési szinten, rendelésenként egyszer kell összegezni.",
+          "9000-et; ez helyes, mert minden tétel külön bevételként létrehozza a teljes rendelési összeget."
+        ],
+        "explanation": "A JOIN itt három sort ad: kétszer az 1-es, egyszer a 2-es rendelést. Emiatt ismétlődik az első rendelés összege. Ez a szemcsézettség kérdése, vagyis azé, hogy mit jelent egy sor. A SUM(DISTINCT total_cents) sem jó javítás: a két valódi rendelés összege véletlenül azonos, így csak 3000 lenne az eredmény. Ehhez a riporthoz elég közvetlenül az orders táblán SUM(total_cents)-et számolni."
+      },
+      "code": "CREATE TABLE orders (id INTEGER PRIMARY KEY, total_cents INTEGER NOT NULL);\nCREATE TABLE items (id INTEGER PRIMARY KEY, order_id INTEGER NOT NULL);\nINSERT INTO orders VALUES (1, 3000), (2, 3000);\nINSERT INTO items VALUES (11, 1), (12, 1), (21, 2);\nSELECT SUM(o.total_cents)\nFROM orders AS o JOIN items AS i ON i.order_id = o.id;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          9000
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-17-5",
+      "revision": 1,
+      "topic": "BI und BW Systeme",
+      "source": {
+        "topicId": "LAP-16-17",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/17_BI_und_BW_Systeme/README.md",
+        "slug": "16-17-bi_und_bw_systeme"
+      },
+      "question": "Ein Dashboard soll den tatsächlich erzielten Umsatz des Vorjahres zeigen. Im Artikelstamm stehen nur die heutigen Verkaufspreise. Welche Datenbasis ist dafür passend?",
+      "answers": [
+        "Die damaligen Stückzahlen mit den heutigen Preisen multiplizieren und das Ergebnis als tatsächlich erzielten Vorjahresumsatz ausgeben.",
+        "Alle alten Verkäufe beim nächsten Preiswechsel mit dem neuen Preis überschreiben.",
+        "Nur den aktuellen Gesamtbestand auswerten; daraus ergibt sich der frühere Umsatz eindeutig.",
+        "Die damaligen Verkaufspositionen mit ihren tatsächlich berechneten Preisen und einem klaren Zeitraum auswerten."
+      ],
+      "correct": 3,
+      "explanation": "Ein historischer Verkaufspreis ist eine Eigenschaft des damaligen Vorgangs. Er ist nicht dasselbe wie der aktuelle Listenpreis eines Artikels. Historische Fakten und bei Bedarf versionierte Zuordnungen ermöglichen nachvollziehbare Vergleiche. Eine Neubewertung zu heutigen Preisen kann ein eigener Bericht sein, muss aber anders bezeichnet werden.",
+      "hu": {
+        "question": "Egy dashboard az előző év tényleges bevételét mutatná. A cikktörzsben csak a mai eladási árak szerepelnek. Melyik adatalap megfelelő?",
+        "answers": [
+          "Az akkori darabszámokat a mai árakkal szorozni, és az eredményt tényleges előző évi bevételként megjeleníteni.",
+          "A következő árváltozáskor minden régi eladás árát felülírni az új árral.",
+          "Csak a jelenlegi összkészletet elemezni; abból egyértelműen következik a régi bevétel.",
+          "Az akkori eladási tételeket a ténylegesen felszámított áraikkal, egyértelmű időszakra elemezni."
+        ],
+        "explanation": "A történeti eladási ár az akkori ügylet tulajdonsága. Nem ugyanaz, mint a termék jelenlegi listaára. A történeti tények és szükség esetén verziózott megfeleltetések visszakövethető összehasonlítást tesznek lehetővé. A mai árakon végzett újraértékelés lehet külön riport, de másként kell megnevezni."
+      }
+    },
+    {
+      "id": "lap-LAP-16-18-1",
+      "revision": 1,
+      "topic": "Umsetzung von Datenmodellen in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-18",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/18_Umsetzung_von_Datenmodellen_in_Datenbanken/README.md",
+        "slug": "16-18-umsetzung_von_datenmodellen_in_datenbanken"
+      },
+      "question": "Ein einfaches relationales Modell enthält den Entitätstyp Kunde mit den Attributen Kundennummer und Name. Welche Umsetzung passt dazu?",
+      "answers": [
+        "Für jeden einzelnen Kunden eine eigene Tabelle mit einer Spalte anlegen.",
+        "Eine Tabelle customers mit passenden Spalten anlegen; einzelne Kunden werden darin als Zeilen gespeichert.",
+        "Die Namen aller Kunden als neue Spaltennamen verwenden.",
+        "Nur einen Index customers anlegen; Tabellenzeilen entstehen dann automatisch aus dem Modell."
+      ],
+      "correct": 1,
+      "explanation": "Beim üblichen relationalen Abbilden wird der Entitätstyp zur Tabelle, das Attribut zur Spalte und die konkrete Instanz zur Zeile. Ein geeigneter Schlüssel identifiziert die einzelne Zeile. Das Modell beschreibt die Struktur; es erzeugt nicht von selbst die tatsächlichen Kundendaten.",
+      "hu": {
+        "question": "Egy egyszerű relációs modellben Ügyfél egyedtípus szerepel ügyfélszám és név attribútummal. Melyik megvalósítás illik hozzá?",
+        "answers": [
+          "Minden egyes ügyfélhez saját, egyoszlopos táblát létrehozni.",
+          "Megfelelő oszlopokkal customers táblát létrehozni; az egyes ügyfelek sorokként kerülnek bele.",
+          "Minden ügyfél nevét új oszlopnévként használni.",
+          "Csak egy customers indexet létrehozni; a táblasorok ezután automatikusan létrejönnek a modellből."
+        ],
+        "explanation": "A szokásos relációs leképezésnél az egyedtípusból tábla, az attribútumból oszlop, a konkrét példányból sor lesz. Az egyes sorokat megfelelő kulcs azonosítja. A modell a szerkezetet írja le; a tényleges ügyféladatokat nem állítja elő magától."
+      }
+    },
+    {
+      "id": "lap-LAP-16-18-2",
+      "revision": 1,
+      "topic": "Umsetzung von Datenmodellen in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-18",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/18_Umsetzung_von_Datenmodellen_in_Datenbanken/README.md",
+        "slug": "16-18-umsetzung_von_datenmodellen_in_datenbanken"
+      },
+      "question": "Ein Kundencode muss einschließlich führender Nullen erhalten bleiben und ist keine Rechengröße. Warum passt TEXT in diesem SQLite-Beispiel?",
+      "answers": [
+        "Der Code bleibt als Zeichenfolge '00123' erhalten; sein Zweck ist die Identifikation, nicht eine Berechnung.",
+        "TEXT wandelt den Code automatisch in die Zahl 123 um und stellt die Nullen erst bei Bedarf wieder her.",
+        "Jede TEXT-Spalte ist automatisch eindeutig, deshalb ist kein Schlüssel nötig.",
+        "TEXT prüft automatisch, ob der Code nach sämtlichen Geschäftsregeln gültig ist."
+      ],
+      "correct": 0,
+      "explanation": "Datentypen sollen die Bedeutung der Attribute unterstützen. Die Abfrage liefert '00123' und den Speichertyp 'text'. Für Eindeutigkeit oder erlaubte Zeichenfolgen wären zusätzliche Regeln nötig. Ähnlich sind Telefonnummern meist Text, obwohl sie Ziffern enthalten.",
+      "hu": {
+        "question": "Egy ügyfélkódnak a kezdő nullákkal együtt kell megmaradnia, és nem számolunk vele. Miért megfelelő a TEXT ebben az SQLite-példában?",
+        "answers": [
+          "A kód megmarad '00123' karakterláncként; azonosításra szolgál, nem számításhoz.",
+          "A TEXT automatikusan 123 számmá alakítja, és csak szükség esetén állítja vissza a nullákat.",
+          "Minden TEXT oszlop automatikusan egyedi, ezért nem kell kulcs.",
+          "A TEXT automatikusan ellenőrzi, hogy a kód minden üzleti szabály szerint érvényes-e."
+        ],
+        "explanation": "Az adattípusnak az attribútum jelentését kell támogatnia. A lekérdezés '00123'-at és 'text' tárolási típust ad vissza. Az egyediséghez vagy a megengedett karakterláncokhoz további szabályok kellenének. Hasonlóan, a telefonszám is többnyire szöveg, bár számjegyeket tartalmaz."
+      },
+      "code": "CREATE TABLE customers (id INTEGER PRIMARY KEY, customer_code TEXT NOT NULL);\nINSERT INTO customers VALUES (1, '00123');\nSELECT customer_code, typeof(customer_code) FROM customers;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          "00123",
+          "text"
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-18-3",
+      "revision": 1,
+      "topic": "Umsetzung von Datenmodellen in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-18",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/18_Umsetzung_von_Datenmodellen_in_Datenbanken/README.md",
+        "slug": "16-18-umsetzung_von_datenmodellen_in_datenbanken"
+      },
+      "question": "In dieser SQLite-Datenbank darf jede Person jeden Workshop höchstens einmal buchen. Was zeigt die Abfrage, und wo wird die Beziehung gespeichert?",
+      "answers": [
+        "Sie zeigt nur einen Workshop, weil eine Person mit Primärschlüssel nur eine Beziehung haben darf.",
+        "Sie zeigt zwei Personenzeilen; die Workshops werden beim JOIN dauerhaft in people kopiert.",
+        "Sie zeigt Mira mit SQL und Mira mit Testing; bookings speichert die beiden Zuordnungen.",
+        "Sie erzeugt die fehlenden Buchungen erst beim Lesen; die Verknüpfungstabelle ist nur eine leere Vorlage."
+      ],
+      "correct": 2,
+      "explanation": "Die Verknüpfungstabelle bildet die n:m-Beziehung ab. Ihr zusammengesetzter Schlüssel verhindert dieselbe Paarung zweimal; die Fremdschlüssel verlangen vorhandene Personen und Workshops. JOIN setzt die gespeicherten Zuordnungen für die Ausgabe zusammen, ohne die Tabellen zu verändern. RESTRICT schützt hier referenzierte Stammdaten vor dem Löschen.",
+      "hu": {
+        "question": "Ebben az SQLite-adatbázisban minden személy minden műhelyfoglalkozásra legfeljebb egyszer jelentkezhet. Mit mutat a lekérdezés, és hol tároljuk a kapcsolatot?",
+        "answers": [
+          "Csak egy foglalkozást mutat, mert egy elsődleges kulcsú személynek csak egy kapcsolata lehet.",
+          "Két személysort mutat; a JOIN végleg bemásolja a foglalkozásokat a people táblába.",
+          "Mirát SQL-lel és Mirát Testinggel mutatja; a bookings tárolja a két hozzárendelést.",
+          "Csak az olvasáskor hozza létre a hiányzó jelentkezéseket; a kapcsolótábla pusztán üres sablon."
+        ],
+        "explanation": "A kapcsolótábla az n:m kapcsolatot írja le. Összetett kulcsa megakadályozza az azonos pár ismétlését; az idegen kulcsok létező személyeket és foglalkozásokat követelnek meg. A JOIN a tárolt hozzárendeléseket állítja össze a kimenethez, a táblák megváltoztatása nélkül. A RESTRICT itt megvédi a hivatkozott törzsadatot a törléstől."
+      },
+      "code": "PRAGMA foreign_keys = ON;\nCREATE TABLE people (id INTEGER PRIMARY KEY, name TEXT NOT NULL);\nCREATE TABLE workshops (id INTEGER PRIMARY KEY, title TEXT NOT NULL);\nCREATE TABLE bookings (\n  person_id INTEGER NOT NULL REFERENCES people(id) ON DELETE RESTRICT,\n  workshop_id INTEGER NOT NULL REFERENCES workshops(id) ON DELETE RESTRICT,\n  PRIMARY KEY (person_id, workshop_id)\n);\nINSERT INTO people VALUES (1, 'Mira');\nINSERT INTO workshops VALUES (10, 'SQL'), (20, 'Testing');\nINSERT INTO bookings VALUES (1, 10), (1, 20);\nSELECT p.name, w.title\nFROM bookings AS b\nJOIN people AS p ON p.id = b.person_id\nJOIN workshops AS w ON w.id = b.workshop_id\nORDER BY w.id;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          "Mira",
+          "SQL"
+        ],
+        [
+          "Mira",
+          "Testing"
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-18-4",
+      "revision": 1,
+      "topic": "Umsetzung von Datenmodellen in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-18",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/18_Umsetzung_von_Datenmodellen_in_Datenbanken/README.md",
+        "slug": "16-18-umsetzung_von_datenmodellen_in_datenbanken"
+      },
+      "question": "Diese SQLite-Tabelle enthält bereits (1, 2). Welches zusätzliche Wertepaar (id, seats) erfüllt die angegebenen Regeln?",
+      "answers": [
+        "(2, NULL)",
+        "(2, 0)",
+        "(1, 3)",
+        "(2, 4)"
+      ],
+      "correct": 3,
+      "explanation": "NOT NULL verlangt eine Angabe, CHECK begrenzt sie hier auf den Bereich 1 bis 4 und der Primärschlüssel verlangt eine neue ID. Daher passt (2, 4). Datenbankregeln gelten auch für andere schreibende Programme; eine reine Prüfung im Formular würde diese Zugriffe nicht absichern.",
+      "hu": {
+        "question": "Ez az SQLite-tábla már tartalmazza az (1, 2) sort. Melyik további (id, seats) értékpár felel meg a megadott szabályoknak?",
+        "answers": [
+          "(2, NULL)",
+          "(2, 0)",
+          "(1, 3)",
+          "(2, 4)"
+        ],
+        "explanation": "A NOT NULL megköveteli az értéket, a CHECK itt 1 és 4 közé korlátozza, az elsődleges kulcs pedig új ID-t igényel. Ezért a (2, 4) megfelelő. Az adatbázis szabályai a többi író programra is érvényesek; egy kizárólag űrlapon végzett ellenőrzés nem védené ezeket a hozzáféréseket."
+      },
+      "code": "CREATE TABLE reservations (\n  id INTEGER PRIMARY KEY,\n  seats INTEGER NOT NULL CHECK (seats BETWEEN 1 AND 4)\n);\nINSERT INTO reservations VALUES (1, 2);",
+      "codeLanguage": "sql",
+      "expectedRows": []
+    },
+    {
+      "id": "lap-LAP-16-18-5",
+      "revision": 1,
+      "topic": "Umsetzung von Datenmodellen in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-18",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/18_Umsetzung_von_Datenmodellen_in_Datenbanken/README.md",
+        "slug": "16-18-umsetzung_von_datenmodellen_in_datenbanken"
+      },
+      "question": "Das logische Modell legt fest: Ein Kunde kann mehrere Bestellungen besitzen; jede Bestellung gehört genau einem Kunden. Welche weitere Entscheidung betrifft vor allem die konkrete physische Umsetzung?",
+      "answers": [
+        "Ob eine Bestellung fachlich einem oder mehreren Kunden gehören darf.",
+        "Welcher konkrete Datentyp für die Schlüssel und welcher Index für die häufige Kundensuche im gewählten DBMS verwendet werden.",
+        "Ob Kunden und Bestellungen überhaupt unterschiedliche fachliche Begriffe sind.",
+        "Ob die Beziehung fachlich optional oder verpflichtend sein soll."
+      ],
+      "correct": 1,
+      "explanation": "Das logische Modell legt die fachliche Struktur einschließlich Beziehungen fest. Bei der physischen Umsetzung werden passende DBMS-Typen, Indexe und weitere technische Details gewählt. Änderungen an einem bestehenden Schema gehören in nachvollziehbare Migrationen; neue Pflichtfelder benötigen dabei auch einen Plan für vorhandene Daten.",
+      "hu": {
+        "question": "A logikai modell szerint egy ügyfélnek több rendelése lehet, minden rendelés pedig pontosan egy ügyfélhez tartozik. Melyik további döntés érinti elsősorban a konkrét fizikai megvalósítást?",
+        "answers": [
+          "Hogy üzleti szempontból egy vagy több ügyfélhez tartozhat-e egy rendelés.",
+          "Milyen konkrét kulcsadattípust és a gyakori ügyfél szerinti kereséshez milyen indexet használunk a választott adatbázis-kezelőben.",
+          "Hogy az ügyfél és a rendelés egyáltalán eltérő üzleti fogalom-e.",
+          "Hogy üzleti szempontból opcionális vagy kötelező-e a kapcsolat."
+        ],
+        "explanation": "A logikai modell az üzleti szerkezetet, köztük a kapcsolatokat rögzíti. A fizikai megvalósításnál választjuk ki a megfelelő DBMS-adattípusokat, indexeket és további műszaki részleteket. A meglévő sémát visszakövethető migrációkkal változtatjuk; új kötelező mezőnél a meglévő adatok rendezését is meg kell tervezni."
+      }
+    },
+    {
+      "id": "lap-LAP-16-19-1",
+      "revision": 1,
+      "topic": "Zugriffsschnittstelle und Transaktionskonzept",
+      "source": {
+        "topicId": "LAP-16-19",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/19_Zugriffsschnittstelle_und_Transaktionskonzept/README.md",
+        "slug": "16-19-zugriffsschnittstelle_und_transaktionskonzept"
+      },
+      "question": "PHP 8 mit PDO-SQLite: $pdo ist bereits verbunden, courses enthält (7, 'SQL') und (8, 'Testing'), und $courseId ist 7. Welche Rollenverteilung beschreibt diesen Datenzugriff?",
+      "answers": [
+        "PDO mit seinem SQLite-Treiber vermittelt den Aufruf; die Datenbank führt die Abfrage aus, und fetch liefert hier ['title' => 'SQL'] an PHP zurück.",
+        "PDO überträgt nur den Tabellennamen; PHP liest anschließend die Datenbankdatei selbst ohne Treiber.",
+        "prepare prüft automatisch die Berechtigung des angemeldeten Benutzers auf den Kurs.",
+        "Der Platzhalter :id ersetzt beim Ausführen den Namen der Tabelle courses."
+      ],
+      "correct": 0,
+      "explanation": "Die Zugriffsschnittstelle verbindet den Anwendungscode mit der Datenbank. execute übergibt den Wert getrennt von der SQL-Vorlage, fetch liest das Ergebnis. Platzhalter stehen für Werte, nicht für beliebige Tabellen- oder Spaltennamen. Fachliche Prüfung und Zugriffsrechte bleiben zusätzliche Aufgaben der Anwendung; ein ORM wäre eine weitere Abbildungsschicht.",
+      "hu": {
+        "question": "PHP 8, PDO-SQLite: a $pdo már csatlakozott, a courses tartalma (7, 'SQL') és (8, 'Testing'), a $courseId értéke 7. Melyik szerepfelosztás írja le ezt az adatelérést?",
+        "answers": [
+          "A PDO és az SQLite-drivere közvetíti a hívást; az adatbázis futtatja a lekérdezést, a fetch itt ['title' => 'SQL'] eredményt ad vissza a PHP-nak.",
+          "A PDO csak a táblanevet továbbítja; a PHP utána driver nélkül maga olvassa az adatbázisfájlt.",
+          "A prepare automatikusan ellenőrzi a bejelentkezett felhasználó hozzáférését a kurzushoz.",
+          "A :id helyőrző futtatáskor a courses tábla nevét helyettesíti."
+        ],
+        "explanation": "A hozzáférési interfész összeköti az alkalmazáskódot és az adatbázist. Az execute az SQL-sablontól elkülönítve adja át az értéket, a fetch kiolvassa az eredményt. A helyőrző értéknek szól, nem tetszőleges tábla- vagy oszlopnévnek. Az üzleti ellenőrzés és hozzáférési jogosultság az alkalmazás további feladata; egy ORM még egy leképezési réteg lenne."
+      },
+      "code": "$statement = $pdo->prepare('SELECT title FROM courses WHERE id = :id');\n$statement->execute(['id' => $courseId]);\n$course = $statement->fetch(PDO::FETCH_ASSOC);",
+      "codeLanguage": "php"
+    },
+    {
+      "id": "lap-LAP-16-19-2",
+      "revision": 1,
+      "topic": "Zugriffsschnittstelle und Transaktionskonzept",
+      "source": {
+        "topicId": "LAP-16-19",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/19_Zugriffsschnittstelle_und_Transaktionskonzept/README.md",
+        "slug": "16-19-zugriffsschnittstelle_und_transaktionskonzept"
+      },
+      "question": "Eine Bestellung und die dazugehörige Bestandsänderung sollen nur gemeinsam gespeichert werden. Welche Umsetzung bildet dafür eine sinnvolle Transaktion?",
+      "answers": [
+        "Beide Anweisungen nacheinander bei aktivem Autocommit ausführen; die Reihenfolge macht sie bereits zu einer gemeinsamen Einheit.",
+        "Nur die Bestandsänderung in eine Transaktion aufnehmen und die Bestellung vorher unabhängig bestätigen.",
+        "Die zusammengehörigen Änderungen in einer expliziten Transaktion ausführen, Bedingungen und Ergebnisse prüfen und erst dann gemeinsam bestätigen.",
+        "Nur eine gemeinsame Datenbankverbindung verwenden; dadurch werden alle Anweisungen automatisch bis zum Programmende gesammelt."
+      ],
+      "correct": 2,
+      "explanation": "Eine Verbindung ist noch keine passende Transaktionsgrenze. Mit einer expliziten Transaktion können die zusammengehörigen Änderungen gemeinsam bestätigt oder bei einem Problem zurückgenommen werden. Die Anwendung muss weiterhin prüfen, ob ihre fachlichen Bedingungen erfüllt sind. Eine Transaktion kann grundsätzlich auch nur eine Anweisung enthalten.",
+      "hu": {
+        "question": "Egy rendelést és a hozzá tartozó készletváltozást csak együtt szabad menteni. Melyik megvalósítás alkot ehhez ésszerű tranzakciót?",
+        "answers": [
+          "Bekapcsolt autocommit mellett egymás után futtatni a két utasítást; a sorrend már közös egységgé teszi őket.",
+          "Csak a készletváltozást tranzakcióba venni, a rendelést előtte függetlenül véglegesíteni.",
+          "Az összetartozó változásokat explicit tranzakcióban végrehajtani, a feltételeket és eredményeket ellenőrizni, majd együtt véglegesíteni.",
+          "Csak közös adatbázis-kapcsolatot használni; ettől minden utasítás automatikusan a program végéig gyűlik."
+        ],
+        "explanation": "Egy kapcsolat még nem megfelelő tranzakcióhatár. Explicit tranzakcióval az összetartozó változások együtt véglegesíthetők, vagy probléma esetén visszavonhatók. Az alkalmazásnak továbbra is ellenőriznie kell az üzleti feltételeket. Egy tranzakció egyébként akár egyetlen utasításból is állhat."
+      }
+    },
+    {
+      "id": "lap-LAP-16-19-3",
+      "revision": 1,
+      "topic": "Zugriffsschnittstelle und Transaktionskonzept",
+      "source": {
+        "topicId": "LAP-16-19",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/19_Zugriffsschnittstelle_und_Transaktionskonzept/README.md",
+        "slug": "16-19-zugriffsschnittstelle_und_transaktionskonzept"
+      },
+      "question": "Diese abgeschlossene SQLite-Übung verwendet zwei vorhandene Testkonten und feste Centbeträge. Welchen Zustand bestätigt COMMIT, und was zeigt das abschließende SELECT?",
+      "answers": [
+        "(1, 1200) und (2, 300), weil COMMIT nur eine Vorschau berechnet.",
+        "(1, 1000) und (2, 500); beide Änderungen werden gemeinsam bestätigt, die Gesamtsumme bleibt 1500 Cent.",
+        "(1, 1000) und (2, 300), weil COMMIT nur die erste Änderung bestätigt.",
+        "(1, 1200) und (2, 500); die Belastung benötigt einen zusätzlichen INSERT."
+      ],
+      "correct": 1,
+      "explanation": "COMMIT bestätigt die Änderungen der offenen Transaktion. Hier werden 200 Cent von einem vorhandenen Testkonto auf das andere umgebucht. Ein späteres ROLLBACK macht diesen bereits bestätigten Vorgang nicht rückgängig. Für echte Eingaben müssten unter anderem Betrag, Berechtigung, Deckung und betroffene Zeilen geprüft werden; die Übung beschränkt sich auf zwei bekannte Testkonten und einen festen positiven Betrag.",
+      "hu": {
+        "question": "Ez a lezárt SQLite-gyakorlat két létező tesztszámlával és rögzített centösszegekkel dolgozik. Melyik állapotot véglegesíti a COMMIT, és mit mutat az utolsó SELECT?",
+        "answers": [
+          "(1, 1200) és (2, 300), mert a COMMIT csak előnézetet számol.",
+          "(1, 1000) és (2, 500); a két változás együtt véglegesül, az összeg 1500 cent marad.",
+          "(1, 1000) és (2, 300), mert a COMMIT csak az első változást véglegesíti.",
+          "(1, 1200) és (2, 500); a terheléshez további INSERT kell."
+        ],
+        "explanation": "A COMMIT a nyitott tranzakció módosításait véglegesíti. Itt 200 cent kerül át az egyik létező tesztszámláról a másikra. Egy későbbi ROLLBACK nem vonja vissza ezt a már véglegesített műveletet. Valódi bemenetnél többek között az összeget, jogosultságot, fedezetet és az érintett sorokat is ellenőrizni kellene; a gyakorlat két ismert tesztszámlára és egy rögzített pozitív összegre korlátozódik."
+      },
+      "code": "CREATE TABLE accounts (\n  id INTEGER PRIMARY KEY,\n  balance_cents INTEGER NOT NULL CHECK (balance_cents >= 0)\n);\nINSERT INTO accounts VALUES (1, 1200), (2, 300);\nBEGIN;\nUPDATE accounts SET balance_cents = balance_cents - 200 WHERE id = 1;\nUPDATE accounts SET balance_cents = balance_cents + 200 WHERE id = 2;\nCOMMIT;\nSELECT id, balance_cents FROM accounts ORDER BY id;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          1,
+          1000
+        ],
+        [
+          2,
+          500
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-19-4",
+      "revision": 1,
+      "topic": "Zugriffsschnittstelle und Transaktionskonzept",
+      "source": {
+        "topicId": "LAP-16-19",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/19_Zugriffsschnittstelle_und_Transaktionskonzept/README.md",
+        "slug": "16-19-zugriffsschnittstelle_und_transaktionskonzept"
+      },
+      "question": "Im SQLite-Beispiel fehlt das Zielkonto 99. Die Anwendung prüft unmittelbar nach der Gutschrift die betroffenen Zeilen und wählt bei 0 ausdrücklich ROLLBACK, wie hier gezeigt. Was liefern die beiden SELECT-Anweisungen?",
+      "answers": [
+        "changes(): 1; danach (1, 1000) und (2, 300).",
+        "changes(): 0; danach (1, 1000) und (2, 300).",
+        "changes(): 0; danach wird automatisch ein neues Konto 99 mit 200 Cent angelegt.",
+        "changes(): 0; danach (1, 1200) und (2, 300), weil auch die vorherige Belastung zurückgenommen wird."
+      ],
+      "correct": 3,
+      "explanation": "UPDATE auf eine nicht vorhandene ID kann erfolgreich ausgeführt werden und trotzdem keine Zeile ändern. Deshalb zählt die Ergebnisprüfung. Das ausdrücklich ausgeführte ROLLBACK nimmt hier alle noch unbestätigten Änderungen dieser Transaktion zurück. Ohne diese Entscheidung wäre die frühere Belastung nicht allein durch das fehlende Ziel automatisch korrigiert.",
+      "hu": {
+        "question": "Az SQLite-példában nem létezik a 99-es célszámla. Az alkalmazás közvetlenül a jóváírás után ellenőrzi az érintett sorokat, és 0 esetén kifejezetten ROLLBACK-et választ, ahogy itt látható. Mit ad vissza a két SELECT?",
+        "answers": [
+          "changes(): 1; utána (1, 1000) és (2, 300).",
+          "changes(): 0; utána (1, 1000) és (2, 300).",
+          "changes(): 0; utána automatikusan létrejön a 99-es számla 200 centtel.",
+          "changes(): 0; utána (1, 1200) és (2, 300), mert a korábbi terhelés is visszavonódik."
+        ],
+        "explanation": "Nem létező ID-ra futtatott UPDATE végrehajtódhat sikeresen úgy is, hogy egyetlen sort sem módosít. Ezért számít az eredmény ellenőrzése. A kifejezetten végrehajtott ROLLBACK itt a tranzakció minden még nem véglegesített módosítását visszavonja. E döntés nélkül a hiányzó cél önmagában nem javítaná ki automatikusan az előző terhelést."
+      },
+      "code": "CREATE TABLE accounts (\n  id INTEGER PRIMARY KEY,\n  balance_cents INTEGER NOT NULL CHECK (balance_cents >= 0)\n);\nINSERT INTO accounts VALUES (1, 1200), (2, 300);\nBEGIN;\nUPDATE accounts SET balance_cents = balance_cents - 200 WHERE id = 1;\nUPDATE accounts SET balance_cents = balance_cents + 200 WHERE id = 99;\nSELECT changes();\nROLLBACK;\nSELECT id, balance_cents FROM accounts ORDER BY id;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          0
+        ],
+        [
+          1,
+          1200
+        ],
+        [
+          2,
+          300
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-19-5",
+      "revision": 1,
+      "topic": "Zugriffsschnittstelle und Transaktionskonzept",
+      "source": {
+        "topicId": "LAP-16-19",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/19_Zugriffsschnittstelle_und_Transaktionskonzept/README.md",
+        "slug": "16-19-zugriffsschnittstelle_und_transaktionskonzept"
+      },
+      "question": "Eine Anwendung speichert in einer lokalen Datenbanktransaktion eine Reservierung, versendet danach eine E-Mail und rollt wegen eines weiteren Fehlers die Datenbanktransaktion zurück. Welche Aussage ist richtig?",
+      "answers": [
+        "Die Datenbankänderung kann zurückgenommen werden; die bereits versandte E-Mail wird dadurch nicht zurückgeholt und braucht einen passend gestalteten Ablauf.",
+        "ROLLBACK holt automatisch jede E-Mail zurück, die während der Transaktion verschickt wurde.",
+        "Sobald eine E-Mail versendet wurde, wird die Datenbanktransaktion automatisch bestätigt.",
+        "Die ACID-Eigenschaften erlauben keine externen Aktionen in Anwendungen, die Datenbanken nutzen."
+      ],
+      "correct": 0,
+      "explanation": "Die atomare Einheit einer lokalen Datenbanktransaktion umfasst ihre Datenbankänderungen. Externe Wirkungen gehören nicht automatisch dazu. Ein zuverlässiger Ablauf kann beispielsweise die Absicht zur Benachrichtigung gemeinsam mit der Reservierung speichern und den Versand nach dem Commit mit kontrollierter Wiederholung abarbeiten. Wiederholungen müssen dabei bedacht werden; die Datenbank allein garantiert keinen einmaligen E-Mail-Versand.",
+      "hu": {
+        "question": "Egy alkalmazás helyi adatbázis-tranzakcióban ment egy foglalást, utána e-mailt küld, majd újabb hiba miatt visszavonja az adatbázis-tranzakciót. Melyik állítás helyes?",
+        "answers": [
+          "Az adatbázis-módosítás visszavonható; a már elküldött e-mailt ez nem hívja vissza, ezért megfelelően kialakított folyamat kell.",
+          "A ROLLBACK automatikusan visszahív minden, a tranzakció alatt küldött e-mailt.",
+          "Amint e-mailt küldtünk, az adatbázis-tranzakció automatikusan véglegesül.",
+          "Az ACID-tulajdonságok tiltják a külső műveleteket az adatbázist használó alkalmazásokban."
+        ],
+        "explanation": "Egy helyi adatbázis-tranzakció atomi egysége az adatbázis-módosításait fogja össze. A külső hatások nem kerülnek automatikusan bele. Megbízható megoldás lehet például az értesítési szándék mentése a foglalással együtt, majd a küldés feldolgozása COMMIT után, ellenőrzött újrapróbálással. Az ismétlésekkel számolni kell; az adatbázis önmagában nem garantál egyszeri e-mail-küldést."
+      }
+    }
+  ]
+}

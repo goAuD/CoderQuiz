@@ -25,7 +25,7 @@ jobs:
       - name: Quiz behavior and bilingual question validation
         run: node --test tests/*.test.cjs
 
-      - name: Test release promotion in temporary directories
+      - name: Test SQL examples and isolated release promotion
         run: python3 -m unittest discover -s tests -p 'test_*.py'
 
       - name: Build the static release

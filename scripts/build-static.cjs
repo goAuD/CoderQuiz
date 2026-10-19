@@ -82,7 +82,7 @@ function build(output) {
   const home = frame
     .replace(/<!-- page content -->[\s\S]*?<!-- \/page content -->/, content)
     .replace(/<title>.*?<\/title>/, '<title>CoderQuiz · Quizpakete aus dem CoderLAP</title>')
-    .replace(/(<meta name="description" content=")[^"]*/, '$1Programmieren und Informatik mit zweisprachigen Quizpaketen aus dem CoderLAP üben.')
+    .replace(/(<meta name="description" content=")[^"]*/, '$1Programmieren, Informatik und Datenbankgrundlagen mit zweisprachigen Quizpaketen aus dem CoderLAP üben.')
     .replace(navigation, navigation.replace('class="site-nav-link"', 'class="site-nav-link" aria-current="page"'))
     .replace(/<p class="sources">.*?<\/p>/, sourceFooter)
     .replace('src="questions.js"', 'src="catalog-data.js"').replace('src="app.js"', 'src="catalog.js"');

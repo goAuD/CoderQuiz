@@ -1,0 +1,1153 @@
+{
+  "sourceRepository": "https://github.com/goAuD/CoderLAP",
+  "sourceCommit": "cefce00affa0f357e7cc3e752abf082cad0ae1d0",
+  "ui": {
+    "de": {
+      "moduleTitle": "CoderLAP · Datenbanken 1",
+      "subtitle": "35 Fragen zu Datenbanksystemen, SQL, DBMS, CMS, Integrität, Redundanz und Datenmodellierung.",
+      "practiceNote": "Lies die Situation und die angegebenen Voraussetzungen. Die SQL-Beispiele verwenden SQLite; die Erklärung erscheint nach deiner Antwort.",
+      "topics": {
+        "Datenbanksysteme": "Datenbanksysteme",
+        "Datenbankabfragen SQL SQL XML": "SQL und SQL/XML",
+        "DBMS": "Datenbankmanagementsysteme",
+        "CMS": "CMS",
+        "Integritaet in Datenbanken": "Integrität in Datenbanken",
+        "Redundanz in Datenbanken": "Redundanz in Datenbanken",
+        "Vorgehensweise bei der Datenmodellierung": "Vorgehensweise bei der Datenmodellierung"
+      }
+    },
+    "hu": {
+      "moduleTitle": "CoderLAP · Adatbázisok 1",
+      "subtitle": "35 kérdés adatbázisrendszerekről, SQL-ről, DBMS-ről, CMS-ről, integritásról, redundanciáról és adatmodellezésről.",
+      "practiceNote": "Olvasd el a helyzetet és a megadott feltételeket. Az SQL-példák SQLite-ot használnak; a magyarázat a válaszod után jelenik meg.",
+      "topics": {
+        "Datenbanksysteme": "Adatbázisrendszerek",
+        "Datenbankabfragen SQL SQL XML": "SQL és SQL/XML lekérdezések",
+        "DBMS": "Adatbázis-kezelő rendszerek",
+        "CMS": "Tartalomkezelő rendszerek",
+        "Integritaet in Datenbanken": "Adatintegritás",
+        "Redundanz in Datenbanken": "Adatredundancia",
+        "Vorgehensweise bei der Datenmodellierung": "Az adatmodellezés menete"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "lap-LAP-16-01-1",
+      "revision": 1,
+      "topic": "Datenbanksysteme",
+      "source": {
+        "topicId": "LAP-16-01",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/01_Datenbanksysteme/README.md",
+        "slug": "16-01-datenbanksysteme"
+      },
+      "question": "Eine gedachte Erweiterung von CoderQuiz speichert Übungsversuche in einer Datenbank und verwendet MariaDB zur Verwaltung. Was bildet das Datenbanksystem im engeren fachlichen Sinn?",
+      "answers": [
+        "Die gespeicherte Datenbank zusammen mit dem verwaltenden DBMS.",
+        "Die Datenbank zusammen mit der Oberfläche, aber ohne Verwaltungssoftware.",
+        "Das DBMS allein, unabhängig davon, ob es eine Datenbank verwaltet.",
+        "Alle Browser und Benutzerkonten, jedoch nicht die gespeicherten Daten."
+      ],
+      "correct": 0,
+      "explanation": "Den Kern bilden Datenbank und DBMS. Browser, Anwendung, Personen und Hardware gehören zum weiteren Betriebsumfeld. Die Erweiterung ist ein Übungsszenario; das aktuelle CoderQuiz speichert Durchläufe im Browser.",
+      "hu": {
+        "question": "A CoderQuiz egy elképzelt bővítése adatbázisban tárolná a gyakorlóköröket, és MariaDB-vel kezelné őket. Mi alkotja az adatbázisrendszert szűk szakmai értelemben?",
+        "answers": [
+          "A tárolt adatbázis és az azt kezelő DBMS együtt.",
+          "Az adatbázis és a felület, a kezelőszoftver nélkül.",
+          "Önmagában a DBMS, függetlenül attól, hogy kezel-e adatbázist.",
+          "Az összes böngésző és felhasználói fiók, a tárolt adatok nélkül."
+        ],
+        "explanation": "A rendszer magja az adatbázis és a DBMS. A böngésző, az alkalmazás, a résztvevők és a hardver a tágabb működési környezethez tartoznak. A bővítés gyakorlóhelyzet; a jelenlegi CoderQuiz a böngészőben menti a köröket."
+      }
+    },
+    {
+      "id": "lap-LAP-16-01-2",
+      "revision": 1,
+      "topic": "Datenbanksysteme",
+      "source": {
+        "topicId": "LAP-16-01",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/01_Datenbanksysteme/README.md",
+        "slug": "16-01-datenbanksysteme"
+      },
+      "question": "Eine geplante Lernplattform besteht aus Browser, Serveranwendung und PostgreSQL. Die Serveranwendung greift mit einem eigenen Datenbankkonto auf die Tabellen zu. Welche zusätzliche Zuständigkeit braucht sie beim Lesen persönlicher Übungsversuche?",
+      "answers": [
+        "Nur das DBMS muss anhand des HTTP-Cookies erkennen, wem der Versuch gehört.",
+        "Der Browser entscheidet verbindlich, welche fremden Versuche er anfordern darf.",
+        "Die Serveranwendung prüft den angemeldeten Benutzer und dessen Zugriffsrecht; das DBMS führt die erlaubte Abfrage aus.",
+        "Die Tabelle ersetzt die Anmeldung, sobald jede Zeile eine eindeutige ID besitzt."
+      ],
+      "correct": 2,
+      "explanation": "Ein Datenbanksystem arbeitet mit seiner Umgebung zusammen. Die Anwendung kennt die angemeldete Person und muss deren fachliche Berechtigung prüfen. Die Datenbankrechte des Dienstes ersetzen diese Prüfung nicht; das DBMS verwaltet Abfragen und hinterlegte Datenregeln.",
+      "hu": {
+        "question": "Egy tervezett tanulóplatform böngészőből, szerveralkalmazásból és PostgreSQL-ből áll. A szerveralkalmazás saját adatbázis-fiókkal éri el a táblákat. Mi a további feladata személyes gyakorlókörök olvasásakor?",
+        "answers": [
+          "Csak a DBMS feladata a HTTP-sütiből felismerni, kihez tartozik a kör.",
+          "A böngésző dönt véglegesen arról, mely idegen köröket kérheti le.",
+          "A szerveralkalmazás ellenőrzi a bejelentkezett személy hozzáférését; a DBMS végrehajtja az engedélyezett lekérdezést.",
+          "A tábla kiváltja a belépést, amint minden sora egyedi azonosítót kap."
+        ],
+        "explanation": "Az adatbázisrendszer együttműködik a környezetével. A bejelentkezett személyt az alkalmazás ismeri, ezért annak hozzáférését is ellenőriznie kell. A szolgáltatás adatbázis-jogosultsága ezt nem helyettesíti; a DBMS a lekérdezéseket és a megadott adatszabályokat kezeli."
+      }
+    },
+    {
+      "id": "lap-LAP-16-01-3",
+      "revision": 1,
+      "topic": "Datenbanksysteme",
+      "source": {
+        "topicId": "LAP-16-01",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/01_Datenbanksysteme/README.md",
+        "slug": "16-01-datenbanksysteme"
+      },
+      "question": "Ein lokales Lernprogramm legt Tabellen in practice.db ab und greift über die eingebettete SQLite-Bibliothek darauf zu. Welche Zuordnung stimmt?",
+      "answers": [
+        "practice.db ist das DBMS; SQLite enthält ausschließlich die gespeicherten Übungsdaten.",
+        "practice.db enthält die Datenbank; SQLite ist die verwaltende Datenbanksoftware.",
+        "Beides sind nur Datensicherungen; ein DBMS benötigt immer einen eigenen Netzwerkserver.",
+        "SQLite ist die Benutzeroberfläche; die Datei führt die SQL-Abfragen selbst aus."
+      ],
+      "correct": 1,
+      "explanation": "SQLite verwaltet die Datenbank innerhalb des Anwendungsprozesses. Ein separater Datenbankserver ist dafür nicht erforderlich. Die Datei speichert Daten und Struktur; die Bibliothek verarbeitet SQL und unterstützt Transaktionen.",
+      "hu": {
+        "question": "Egy helyi tanulóprogram a practice.db fájlban tárol táblákat, és a beágyazott SQLite-könyvtáron keresztül használja őket. Melyik hozzárendelés helyes?",
+        "answers": [
+          "A practice.db a DBMS, az SQLite kizárólag a gyakorlási adatokat tartalmazza.",
+          "A practice.db az adatbázist tartalmazza, az SQLite a kezelőszoftver.",
+          "Mindkettő csak biztonsági mentés, mert a DBMS-hez mindig külön hálózati szerver kell.",
+          "Az SQLite a felhasználói felület, az SQL-lekérdezéseket maga a fájl hajtja végre."
+        ],
+        "explanation": "Az SQLite az alkalmazás folyamatán belül kezeli az adatbázist, külön adatbázis-kiszolgáló nélkül. A fájl az adatokat és a szerkezetet tárolja; az SQL-t és a tranzakciókat a könyvtár kezeli."
+      }
+    },
+    {
+      "id": "lap-LAP-16-01-4",
+      "revision": 1,
+      "topic": "Datenbanksysteme",
+      "source": {
+        "topicId": "LAP-16-01",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/01_Datenbanksysteme/README.md",
+        "slug": "16-01-datenbanksysteme"
+      },
+      "question": "Zwei Lehrpersonen bearbeiten dieselbe Kursliste. Bisher tauschen sie Kopien einer Datei aus und überschreiben dabei Änderungen. Welcher Nutzen einer gemeinsamen Datenbank beschreibt die Verbesserung am genauesten?",
+      "answers": [
+        "Alle Änderungen werden automatisch fachlich richtig, sobald die Daten auf einem Server liegen.",
+        "Jede Person erhält eine eigene verbindliche Kopie, die nie mit anderen abgeglichen werden muss.",
+        "Gleichzeitiges Bearbeiten ist ausgeschlossen, weil eine Datenbank immer nur einen Benutzer unterstützt.",
+        "Beide arbeiten über einen gemeinsamen Dienst am selben Datenbestand; Rechte und gleichzeitige Änderungen lassen sich nach festgelegten Regeln koordinieren."
+      ],
+      "correct": 3,
+      "explanation": "Ein gemeinsamer Datenbestand reduziert widersprüchliche Dateiversionen. Ein DBMS bietet Mittel zur Koordination, doch Zugriffsrechte, Transaktionen und fachliche Regeln müssen passend gestaltet sein. Zentral gespeichert bedeutet nicht automatisch inhaltlich korrekt.",
+      "hu": {
+        "question": "Két oktató ugyanazt a kurzuslistát szerkeszti. Eddig fájlmásolatokat küldtek egymásnak, és néha felülírták a másik módosítását. Melyik válasz írja le legpontosabban a közös adatbázis előnyét?",
+        "answers": [
+          "Minden módosítás automatikusan tartalmilag helyes lesz, amint az adatok szerverre kerülnek.",
+          "Mindenki saját hiteles másolatot kap, amelyet soha nem kell másokéval egyeztetni.",
+          "A párhuzamos szerkesztés kizárt, mert egy adatbázist mindig csak egy személy használhat.",
+          "Közös szolgáltatáson át ugyanazzal az adatkészlettel dolgoznak; a jogosultságok és párhuzamos módosítások meghatározott szabályok szerint kezelhetők."
+        ],
+        "explanation": "A közös adatkészlet csökkenti az ellentmondó fájlváltozatokat. A DBMS eszközöket ad az együttműködéshez, de a jogosultságokat, tranzakciókat és üzleti szabályokat megfelelően kell kialakítani. A központi tárolás önmagában nem garantál tartalmi helyességet."
+      }
+    },
+    {
+      "id": "lap-LAP-16-01-5",
+      "revision": 1,
+      "topic": "Datenbanksysteme",
+      "source": {
+        "topicId": "LAP-16-01",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/01_Datenbanksysteme/README.md",
+        "slug": "16-01-datenbanksysteme"
+      },
+      "question": "Welche beiden Aufgaben sind typische Beispiele für den Einsatz eines Datenbanksystems mit verknüpften, veränderlichen Datensätzen?",
+      "answers": [
+        "Bestellungen mit ihren Positionen verwalten und Bibliotheksausleihen Büchern zuordnen.",
+        "Zwei Schriftarten in einer CSS-Datei auswählen und ein Logo als SVG zeichnen.",
+        "Ein statisches HTML-Dokument anzeigen und eine PNG-Datei verlustfrei kopieren.",
+        "Einen Quelltext formatieren und einen Farbverlauf im Browser darstellen."
+      ],
+      "correct": 0,
+      "explanation": "Bestellungen und Ausleihen besitzen Beziehungen, Änderungen und Regeln, die strukturiert verwaltet werden müssen. Das sind typische Datenbankaufgaben. Eine reine Darstellungsaufgabe benötigt nicht schon deshalb ein Datenbanksystem, weil sie im Browser stattfindet.",
+      "hu": {
+        "question": "Melyik két feladat tipikus példa összekapcsolt, változó rekordokat kezelő adatbázisrendszer használatára?",
+        "answers": [
+          "Rendelések és tételeik kezelése, valamint könyvtári kölcsönzések könyvekhez rendelése.",
+          "Két betűtípus kiválasztása CSS-ben és egy logó megrajzolása SVG-ként.",
+          "Statikus HTML-dokumentum megjelenítése és egy PNG-fájl veszteségmentes másolása.",
+          "Forráskód formázása és színátmenet megjelenítése a böngészőben."
+        ],
+        "explanation": "A rendelésekhez és kölcsönzésekhez kapcsolatok, változások és kezelendő szabályok tartoznak, ezért tipikus adatbázis-feladatok. Egy puszta megjelenítési feladathoz attól még nem kell adatbázisrendszer, hogy böngészőben történik."
+      }
+    },
+    {
+      "id": "lap-LAP-16-02-1",
+      "revision": 1,
+      "topic": "Datenbankabfragen SQL SQL XML",
+      "source": {
+        "topicId": "LAP-16-02",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/02_Datenbankabfragen_SQL_SQL_XML/README.md",
+        "slug": "16-02-datenbankabfragen_sql_sql_xml"
+      },
+      "question": "Führe das Beispiel gedanklich einmal in einer leeren SQLite-Datenbank aus. Welche Beschreibung der drei SQL-Anweisungen stimmt?",
+      "answers": [
+        "Alle drei Anweisungen fragen nur bereits vorhandene Daten ab.",
+        "CREATE TABLE legt die Oberfläche an, INSERT legt eine Datenbankverbindung an, SELECT speichert Änderungen.",
+        "CREATE TABLE definiert die Tabelle, INSERT fügt einen Datensatz ein, SELECT liest den Titel.",
+        "CREATE TABLE sichert die Daten, INSERT ersetzt die ganze Tabelle, SELECT entfernt Duplikate."
+      ],
+      "correct": 2,
+      "explanation": "SQL dient sowohl zur Beschreibung von Strukturen als auch zum Einfügen, Ändern und Abfragen von Daten. Hier entsteht eine Tabelle mit einer Zeile. Die abschließende Abfrage liefert den Titel SQL, ohne diese Zeile zu verändern.",
+      "hu": {
+        "question": "Futtasd végig gondolatban a példát egyszer egy üres SQLite-adatbázisban. Melyik leírás helyes a három SQL-utasításról?",
+        "answers": [
+          "Mindhárom utasítás kizárólag már meglévő adatokat kérdez le.",
+          "A CREATE TABLE felületet készít, az INSERT adatbázis-kapcsolatot nyit, a SELECT menti a változtatást.",
+          "A CREATE TABLE meghatározza a táblát, az INSERT beszúr egy rekordot, a SELECT kiolvassa a címet.",
+          "A CREATE TABLE mentést készít, az INSERT lecseréli az egész táblát, a SELECT eltávolítja az ismétlődéseket."
+        ],
+        "explanation": "Az SQL adatszerkezetek leírására, valamint adatok beszúrására, módosítására és lekérdezésére is használható. Itt egyetlen sort tartalmazó tábla készül. A záró lekérdezés az SQL címet adja vissza, és nem módosítja a sort."
+      },
+      "code": "CREATE TABLE topics (\n  id INTEGER PRIMARY KEY,\n  title TEXT NOT NULL\n);\nINSERT INTO topics (id, title) VALUES (16, 'SQL');\nSELECT title FROM topics ORDER BY id;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          "SQL"
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-02-2",
+      "revision": 1,
+      "topic": "Datenbankabfragen SQL SQL XML",
+      "source": {
+        "topicId": "LAP-16-02",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/02_Datenbankabfragen_SQL_SQL_XML/README.md",
+        "slug": "16-02-datenbankabfragen_sql_sql_xml"
+      },
+      "question": "Das SQLite-Beispiel läuft einmal in einer leeren Übungsdatenbank. Welche IDs liefert der SELECT in dieser Reihenfolge?",
+      "answers": [
+        "1, 3, weil die Einfügereihenfolge jede Sortierung überschreibt.",
+        "3, 1, weil nur passende SQL-Zeilen bleiben und points absteigend sortiert wird.",
+        "3, 2, 1, weil WHERE nur die angezeigten Spalten festlegt.",
+        "Nur 3, weil points >= 2 den Wert 2 ausschließt."
+      ],
+      "correct": 1,
+      "explanation": "WHERE behält die Zeilen 1 und 3: Beide gehören zu sql und erreichen mindestens zwei Punkte. ORDER BY points DESC ordnet drei Punkte vor zwei Punkte. id ist das zusätzliche Sortierkriterium bei gleichem Punktwert; SELECT liest nur.",
+      "hu": {
+        "question": "A SQLite-példa egyszer fut egy üres gyakorló adatbázisban. Mely azonosítókat adja vissza a SELECT, és milyen sorrendben?",
+        "answers": [
+          "1, 3, mert a beszúrás sorrendje felülír minden rendezést.",
+          "3, 1, mert csak a megfelelő SQL-sorok maradnak, és a points szerint csökkenő a rendezés.",
+          "3, 2, 1, mert a WHERE csak a megjelenítendő oszlopokat jelöli ki.",
+          "Csak 3, mert a points >= 2 kizárja a 2-es értéket."
+        ],
+        "explanation": "A WHERE az 1-es és 3-as sort tartja meg: mindkettő az sql témához tartozik, és legalább két pontot ér. Az ORDER BY points DESC a három pontot a kettő elé rendezi. Az id azonos pontszámnál további rendezési szempont; a SELECT csak olvas."
+      },
+      "code": "CREATE TABLE questions (\n  id INTEGER PRIMARY KEY,\n  topic TEXT NOT NULL,\n  points INTEGER NOT NULL\n);\nINSERT INTO questions VALUES\n  (1, 'sql', 2), (2, 'html', 1), (3, 'sql', 3);\nSELECT id FROM questions\nWHERE topic = 'sql' AND points >= 2\nORDER BY points DESC, id;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          3
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-02-3",
+      "revision": 1,
+      "topic": "Datenbankabfragen SQL SQL XML",
+      "source": {
+        "topicId": "LAP-16-02",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/02_Datenbankabfragen_SQL_SQL_XML/README.md",
+        "slug": "16-02-datenbankabfragen_sql_sql_xml"
+      },
+      "question": "Das folgende SQLite-Beispiel startet mit einer leeren Datenbank. Welcher Datensatz wird eingefügt?",
+      "answers": [
+        "id = SQL und title = 16, denn nur die Reihenfolge in CREATE TABLE zählt.",
+        "Keiner, denn INSERT darf keine eigene Spaltenliste angeben.",
+        "Zwei Datensätze, einer für den Titel und einer für die ID.",
+        "Ein Datensatz mit id = 16 und title = SQL, gemäß der Spaltenliste des INSERT."
+      ],
+      "correct": 3,
+      "explanation": "INSERT ordnet seine Werte der ausdrücklich angegebenen Spaltenliste zu. Hier kommt zuerst title, danach id. Die Datenbank speichert deshalb eine neue Zeile mit ID 16 und Titel SQL; SELECT zeigt anschließend diese Werte.",
+      "hu": {
+        "question": "A következő SQLite-példa üres adatbázissal indul. Milyen rekordot szúr be?",
+        "answers": [
+          "id = SQL és title = 16, mert kizárólag a CREATE TABLE oszlopsorrendje számít.",
+          "Semmilyet, mert az INSERT nem adhat meg saját oszloplistát.",
+          "Két rekordot, egyet a címnek és egyet az azonosítónak.",
+          "Egy rekordot, amelyben id = 16 és title = SQL, az INSERT oszloplistája alapján."
+        ],
+        "explanation": "Az INSERT a megadott oszloplistához rendeli az értékeket. Itt először a title, majd az id szerepel. Így egy új sor jön létre 16-os azonosítóval és SQL címmel; a SELECT ezeket az értékeket mutatja meg."
+      },
+      "code": "CREATE TABLE topics (\n  id INTEGER PRIMARY KEY,\n  title TEXT NOT NULL\n);\nINSERT INTO topics (title, id) VALUES ('SQL', 16);\nSELECT id, title FROM topics ORDER BY id;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          16,
+          "SQL"
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-02-4",
+      "revision": 1,
+      "topic": "Datenbankabfragen SQL SQL XML",
+      "source": {
+        "topicId": "LAP-16-02",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/02_Datenbankabfragen_SQL_SQL_XML/README.md",
+        "slug": "16-02-datenbankabfragen_sql_sql_xml"
+      },
+      "question": "Ein Übungssystem erhält dieses XML und möchte dessen Einträge innerhalb einer Datenbankabfrage als Zeilen auswerten. Welcher Begriff beschreibt die dafür vorgesehenen XML-Funktionen im SQL-Umfeld?",
+      "answers": [
+        "SQL/XML; die tatsächlich verfügbaren Funktionen sind beim gewählten DBMS zu prüfen.",
+        "HTML, weil jedes Dokument mit spitzen Klammern eine Webseite ist.",
+        "Ein SQL-Backup; XML-Elemente lassen sich ausschließlich als vollständige Sicherung einspielen.",
+        "CSS-Selektoren; sie übernehmen im DBMS die Umwandlung in Tabellenzeilen."
+      ],
+      "correct": 0,
+      "explanation": "SQL/XML verbindet SQL mit der Verarbeitung von XML-Werten. PostgreSQL bietet beispielsweise XMLTABLE zum Abbilden von XML-Inhalten auf Zeilen und Spalten. Das ist keine Zusage, dass dieselbe Funktion in SQLite oder jedem anderen DBMS verfügbar ist.",
+      "hu": {
+        "question": "Egy gyakorlórendszer ezt az XML-t kapja, és adatbázis-lekérdezésen belül sorokként szeretné feldolgozni a bejegyzéseit. Melyik fogalom nevezi meg az SQL-környezetben erre szolgáló XML-funkciókat?",
+        "answers": [
+          "SQL/XML; a ténylegesen elérhető függvényeket a választott DBMS-nél kell ellenőrizni.",
+          "HTML, mert minden hegyes zárójeleket tartalmazó dokumentum weboldal.",
+          "SQL-mentés; XML-elemeket kizárólag teljes biztonsági mentésként lehet betölteni.",
+          "CSS-szelektorok; a DBMS-ben ezek alakítják táblasorokká az adatokat."
+        ],
+        "explanation": "Az SQL/XML az SQL-t XML-értékek feldolgozásával kapcsolja össze. PostgreSQL-ben például az XMLTABLE XML-tartalmat képezhet sorokra és oszlopokra. Ez nem jelenti azt, hogy ugyanaz a függvény SQLite-ban vagy bármely más DBMS-ben is rendelkezésre áll."
+      },
+      "code": "<topics>\n  <topic id=\"16\"><title>SQL</title></topic>\n  <topic id=\"17\"><title>Tests</title></topic>\n</topics>",
+      "codeLanguage": "xml"
+    },
+    {
+      "id": "lap-LAP-16-02-5",
+      "revision": 1,
+      "topic": "Datenbankabfragen SQL SQL XML",
+      "source": {
+        "topicId": "LAP-16-02",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/02_Datenbankabfragen_SQL_SQL_XML/README.md",
+        "slug": "16-02-datenbankabfragen_sql_sql_xml"
+      },
+      "question": "Aufgabe A liest Titel aus einer relationalen topics-Tabelle. Aufgabe B erzeugt aus Datensätzen ein strukturiertes XML-Dokument. Welche Einordnung passt?",
+      "answers": [
+        "Beide Aufgaben benötigen SQL/XML, weil jede Tabelle intern XML sein muss.",
+        "SQL/XML ersetzt SQL vollständig und kann keine relationalen Daten einbeziehen.",
+        "A ist eine normale SQL-Abfrage; B kann passende SQL/XML-Funktionen des DBMS nutzen.",
+        "A ist SQL/XML; B ist ausschließlich mit CREATE TABLE lösbar."
+      ],
+      "correct": 2,
+      "explanation": "Eine normale SELECT-Abfrage benötigt keine XML-Verarbeitung. Für das Erzeugen oder Auswerten von XML stehen in unterstützenden DBMS zusätzliche SQL/XML-Funktionen bereit. Die konkrete Unterstützung ist eine Eigenschaft des jeweiligen Systems.",
+      "hu": {
+        "question": "Az A feladat címeket olvas egy relációs topics táblából. A B feladat rekordokból strukturált XML-dokumentumot készít. Melyik besorolás illik rájuk?",
+        "answers": [
+          "Mindkettőhöz SQL/XML kell, mert belül minden tábla kötelezően XML.",
+          "Az SQL/XML teljesen leváltja az SQL-t, és nem használhat relációs adatokat.",
+          "Az A szokásos SQL-lekérdezés; a B használhatja a DBMS megfelelő SQL/XML-funkcióit.",
+          "Az A SQL/XML-feladat, a B kizárólag CREATE TABLE utasítással oldható meg."
+        ],
+        "explanation": "Egy szokásos SELECT-lekérdezéshez nem kell XML-feldolgozás. XML létrehozásához vagy kiértékeléséhez az ezt támogató DBMS-ek további SQL/XML-funkciókat kínálnak. A konkrét támogatást az adott rendszer határozza meg."
+      }
+    },
+    {
+      "id": "lap-LAP-16-03-1",
+      "revision": 1,
+      "topic": "DBMS",
+      "source": {
+        "topicId": "LAP-16-03",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/03_DBMS/README.md",
+        "slug": "16-03-dbms"
+      },
+      "question": "Ein Server sendet SELECT title FROM topics an PostgreSQL. Welche Arbeit übernimmt dabei das DBMS?",
+      "answers": [
+        "Es zeichnet die Tabellenüberschrift auf dem Bildschirm des Lernenden.",
+        "Es entscheidet allein aus dem Wort title, welche Lernziele die Schule verlangt.",
+        "Es verarbeitet die Abfrage und liest die passenden Daten über einen Ausführungsplan.",
+        "Es ersetzt die Serveranwendung und übersetzt den Titel automatisch ins Ungarische."
+      ],
+      "correct": 2,
+      "explanation": "Das DBMS verarbeitet SQL, prüft die angesprochenen Objekte und berücksichtigt Zugriffsrechte. Es plant und führt den Datenzugriff aus. Die Anwendung kümmert sich unter anderem darum, wie das Ergebnis fachlich verwendet und dargestellt wird.",
+      "hu": {
+        "question": "Egy szerver a SELECT title FROM topics utasítást küldi a PostgreSQL-nek. Melyik munkát végzi el a DBMS?",
+        "answers": [
+          "Megrajzolja a táblázat fejlécét a tanuló képernyőjén.",
+          "Önmagában a title szóból meghatározza az iskola tanulási követelményeit.",
+          "Feldolgozza a lekérdezést, és végrehajtási terv alapján kiolvassa a megfelelő adatokat.",
+          "Kiváltja a szerveralkalmazást, és automatikusan magyarra fordítja a címet."
+        ],
+        "explanation": "A DBMS feldolgozza az SQL-t, ellenőrzi a hivatkozott objektumokat, és figyelembe veszi a hozzáférési jogokat. Megtervezi és végrehajtja az adatelérést. Az eredmény alkalmazásbeli felhasználása és megjelenítése más feladatkör."
+      }
+    },
+    {
+      "id": "lap-LAP-16-03-2",
+      "revision": 1,
+      "topic": "DBMS",
+      "source": {
+        "topicId": "LAP-16-03",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/03_DBMS/README.md",
+        "slug": "16-03-dbms"
+      },
+      "question": "Dieses Beispiel verwendet SQLite ab Version 3.16 und eine leere Übungsdatenbank. Die Tabelle enthält noch keine Themenzeilen. Warum liefert die Abfrage trotzdem name und 1?",
+      "answers": [
+        "SQLite legt bei CREATE TABLE automatisch eine Themenzeile mit dem Titel name an.",
+        "Die Abfrage liest Spaltenmetadaten; 1 kennzeichnet hier das ausdrücklich gesetzte NOT NULL der Spalte name.",
+        "Jede leere Tabelle enthält intern einen normalen Datensatz mit der ID 1.",
+        "Das DBMS zählt mit name automatisch alle Benutzer, die die Tabelle geöffnet haben."
+      ],
+      "correct": 1,
+      "explanation": "pragma_table_info liefert in SQLite Informationen über die Tabellenstruktur. Die Spalte name des Ergebnisses enthält hier den Spaltennamen; notnull meldet die NOT-NULL-Eigenschaft. Diese Metadaten existieren unabhängig davon, ob die Tabelle bereits Inhaltszeilen besitzt.",
+      "hu": {
+        "question": "A példa legalább SQLite 3.16-tal, üres gyakorló adatbázisban fut. A tábla még nem tartalmaz témasorokat. Miért ad mégis name és 1 értéket a lekérdezés?",
+        "answers": [
+          "A SQLite a CREATE TABLE hatására automatikusan létrehoz egy name című témasort.",
+          "A lekérdezés oszlop-metaadatokat olvas; az 1 itt a name oszlop kifejezetten megadott NOT NULL tulajdonságát jelzi.",
+          "Minden üres tábla tartalmaz belül egy szokásos, 1-es azonosítójú rekordot.",
+          "A DBMS a name segítségével automatikusan megszámolja a táblát megnyitó felhasználókat."
+        ],
+        "explanation": "A pragma_table_info a SQLite-ban a tábla szerkezetéről ad információt. Az eredmény name oszlopa itt az oszlopnevet, a notnull a NOT NULL tulajdonságot mutatja. Ezek a metaadatok akkor is léteznek, ha a táblában még nincsenek tartalmi sorok."
+      },
+      "code": "CREATE TABLE topics (\n  id INTEGER PRIMARY KEY,\n  name TEXT NOT NULL\n);\nSELECT name, \"notnull\"\nFROM pragma_table_info('topics')\nWHERE name = 'name';",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          "name",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-03-3",
+      "revision": 1,
+      "topic": "DBMS",
+      "source": {
+        "topicId": "LAP-16-03",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/03_DBMS/README.md",
+        "slug": "16-03-dbms"
+      },
+      "question": "Eine Lehrperson öffnet phpMyAdmin im Browser und betrachtet eine MySQL-Tabelle mit Kursen. Welche Aussage trennt Oberfläche, DBMS und Daten korrekt?",
+      "answers": [
+        "phpMyAdmin ist die Verwaltungsoberfläche, MySQL das DBMS, die Kursdatensätze sind gespeicherte Daten.",
+        "phpMyAdmin ist die Datenbank; MySQL ist nur der Name einer ihrer Tabellen.",
+        "Der Browser ist das DBMS; MySQL speichert ausschließlich HTML-Vorlagen.",
+        "Die Kursdatensätze sind das DBMS; phpMyAdmin ist ihre SQL-Abfragesprache."
+      ],
+      "correct": 0,
+      "explanation": "Eine Verwaltungsoberfläche hilft beim Bedienen eines DBMS, übernimmt aber nicht dessen Rolle. Die Kursdaten gehören zur Datenbank. Schließt man phpMyAdmin, beendet das nicht automatisch den MySQL-Dienst oder löscht seine Daten.",
+      "hu": {
+        "question": "Egy oktató böngészőben megnyitja a phpMyAdmint, és egy MySQL-tábla kurzusait nézi. Melyik állítás választja szét helyesen a felületet, a DBMS-t és az adatokat?",
+        "answers": [
+          "A phpMyAdmin a kezelőfelület, a MySQL a DBMS, a kurzusrekordok a tárolt adatok.",
+          "A phpMyAdmin az adatbázis, a MySQL csupán az egyik táblájának neve.",
+          "A böngésző a DBMS, a MySQL kizárólag HTML-sablonokat tárol.",
+          "A kurzusrekordok alkotják a DBMS-t, a phpMyAdmin pedig a lekérdezőnyelvük."
+        ],
+        "explanation": "A kezelőfelület segít a DBMS használatában, de nem veszi át annak szerepét. A kurzusadatok az adatbázis részei. A phpMyAdmin bezárása nem állítja le automatikusan a MySQL-szolgáltatást, és nem törli az adatait."
+      }
+    },
+    {
+      "id": "lap-LAP-16-03-4",
+      "revision": 1,
+      "topic": "DBMS",
+      "source": {
+        "topicId": "LAP-16-03",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/03_DBMS/README.md",
+        "slug": "16-03-dbms"
+      },
+      "question": "Für einen Kurs ist genau ein Platz frei. Zwei Serveranfragen lesen gleichzeitig diese Information. Beide wollen einen Platz buchen. Welche Umsetzung kann die Regel „höchstens eine weitere Buchung“ zuverlässig absichern?",
+      "answers": [
+        "Beide Browser prüfen nur ihren zuvor angezeigten Wert und melden danach Erfolg.",
+        "Beide Anfragen schreiben unabhängig voneinander den Restwert 0; dadurch ist jede doppelte Buchung ausgeschlossen.",
+        "Die Oberfläche verzögert die zweite Anfrage um eine feste Sekunde, ohne den Bestand erneut zu prüfen.",
+        "Die Anwendung verwendet eine passend abgesicherte Transaktion oder atomare bedingte Änderung und wertet aus, welche Buchung erfolgreich war."
+      ],
+      "correct": 3,
+      "explanation": "Die Prüfung und Änderung müssen gegenüber konkurrierenden Zugriffen passend zusammenwirken. Ein DBMS stellt dafür Transaktionen und weitere Mechanismen bereit. Die Anwendung muss die Buchungsregel damit umsetzen und erfolglose Vorgänge behandeln; ein vorher gelesener Wert allein reserviert keinen Platz.",
+      "hu": {
+        "question": "Egy kurzuson pontosan egy hely maradt. Két szerverkérés egyszerre olvassa ezt, majd mindkettő foglalni szeretne. Melyik megoldás tudja megbízhatóan betartatni a „legfeljebb még egy foglalás” szabályt?",
+        "answers": [
+          "Mindkét böngésző csak a korábban megjelenített értéket ellenőrzi, majd sikert jelez.",
+          "Mindkét kérés egymástól függetlenül 0-ra írja a maradékot; ez kizár minden kettős foglalást.",
+          "A felület egy másodperccel késlelteti a második kérést, újabb ellenőrzés nélkül.",
+          "Az alkalmazás megfelelően védett tranzakciót vagy atomi feltételes módosítást használ, és ellenőrzi, melyik foglalás sikerült."
+        ],
+        "explanation": "Az ellenőrzésnek és módosításnak a párhuzamos hozzáférésekkel szemben is együtt kell működnie. A DBMS ehhez tranzakciókat és más eszközöket ad. Az alkalmazás ezekkel valósítja meg a foglalási szabályt, és kezeli a sikertelen esetet; egy korábban kiolvasott érték még nem foglalja le a helyet."
+      }
+    },
+    {
+      "id": "lap-LAP-16-03-5",
+      "revision": 1,
+      "topic": "DBMS",
+      "source": {
+        "topicId": "LAP-16-03",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/03_DBMS/README.md",
+        "slug": "16-03-dbms"
+      },
+      "question": "Für eine Projektdokumentation sollst du ausschließlich drei DBMS nennen. Welche Liste erfüllt das?",
+      "answers": [
+        "PostgreSQL, phpMyAdmin, MariaDB.",
+        "WordPress, TYPO3, Drupal.",
+        "PostgreSQL, MariaDB, SQLite.",
+        "SQL, XML, JSON."
+      ],
+      "correct": 2,
+      "explanation": "PostgreSQL, MariaDB und SQLite sind Datenbankmanagementsysteme. Sie unterscheiden sich unter anderem in Architektur und Einsatzmöglichkeiten. Verwaltungsoberflächen, CMS und Daten- oder Abfragesprachen sind andere Kategorien.",
+      "hu": {
+        "question": "Egy projektdokumentációban kizárólag három DBMS-t kell felsorolnod. Melyik lista felel meg ennek?",
+        "answers": [
+          "PostgreSQL, phpMyAdmin, MariaDB.",
+          "WordPress, TYPO3, Drupal.",
+          "PostgreSQL, MariaDB, SQLite.",
+          "SQL, XML, JSON."
+        ],
+        "explanation": "A PostgreSQL, a MariaDB és az SQLite adatbázis-kezelő rendszerek, eltérő felépítéssel és alkalmazási lehetőségekkel. A kezelőfelületek, CMS-ek, adatleíró és lekérdezőnyelvek más kategóriába tartoznak."
+      }
+    },
+    {
+      "id": "lap-LAP-16-04-1",
+      "revision": 1,
+      "topic": "CMS",
+      "source": {
+        "topicId": "LAP-16-04",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/04_CMS/README.md",
+        "slug": "16-04-cms"
+      },
+      "question": "Eine Schule möchte, dass Redakteure Lerntexte als Entwurf bearbeiten und berechtigte Personen sie veröffentlichen. Welche Aufgabe erfüllt ein CMS in diesem Ablauf hauptsächlich?",
+      "answers": [
+        "Es ersetzt jede fachliche Prüfung des Lerntexts durch einen Datenbankindex.",
+        "Es unterstützt das Erstellen, Verwalten und Veröffentlichen der Inhalte über passende Oberflächen und Rollen.",
+        "Es entscheidet allein anhand des Dateinamens, welche Prüfung der Text abdeckt.",
+        "Es stellt ausschließlich SQL-Verbindungen für andere Programme bereit."
+      ],
+      "correct": 1,
+      "explanation": "Ein CMS unterstützt den redaktionellen Umgang mit Inhalten. Rollen und Arbeitsabläufe müssen zum eingesetzten System passen und eingerichtet werden. Ob Entwürfe, Freigaben und Versionen genau wie gewünscht funktionieren, gehört zur Prüfung der gewählten Lösung.",
+      "hu": {
+        "question": "Egy iskola azt szeretné, hogy a szerkesztők piszkozatként dolgozhassanak a tananyagokon, és megfelelő jogosultságú személyek publikálhassák őket. Mi a CMS fő feladata ebben?",
+        "answers": [
+          "Minden tartalmi ellenőrzést adatbázisindexszel helyettesít.",
+          "Megfelelő felületekkel és szerepkörökkel támogatja a tartalmak létrehozását, kezelését és közzétételét.",
+          "Kizárólag a fájlnévből eldönti, melyik vizsgához tartozik a szöveg.",
+          "Kizárólag SQL-kapcsolatokat ad más programoknak."
+        ],
+        "explanation": "A CMS a tartalmak szerkesztői kezelését támogatja. A szerepköröknek és folyamatoknak illeszkedniük kell a választott rendszerhez, és be is kell állítani őket. A piszkozatok, jóváhagyások és verziók kívánt működését a konkrét megoldásnál ellenőrizzük."
+      }
+    },
+    {
+      "id": "lap-LAP-16-04-2",
+      "revision": 1,
+      "topic": "CMS",
+      "source": {
+        "topicId": "LAP-16-04",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/04_CMS/README.md",
+        "slug": "16-04-cms"
+      },
+      "question": "Ein Redaktionsteam nutzt ein CMS, das Inhalte in Dateien speichert und daraus statische Seiten erzeugt. Es betreibt keinen separaten Datenbankserver. Wie ist das einzuordnen?",
+      "answers": [
+        "Es kann kein CMS sein, weil jedes CMS zwingend einen separaten SQL-Server braucht.",
+        "Es ist automatisch ein DBMS, weil es Dateien lesen und schreiben kann.",
+        "Es ist nur dann ein CMS, wenn jeder Besucher eigene Schreibrechte auf die Quelldateien erhält.",
+        "Es kann ein CMS sein; Inhaltsverwaltung ist sein Zweck, die Speicherform ist eine Architekturentscheidung."
+      ],
+      "correct": 3,
+      "explanation": "Viele CMS verwenden eine Datenbank, etwa für Inhalte, Rollen und Einstellungen. Die Aufgabe Inhaltsverwaltung ist aber nicht an einen separaten Datenbankserver gebunden. Auch dateibasierte Systeme können einen redaktionellen Arbeitsablauf und statische Ausgabe unterstützen.",
+      "hu": {
+        "question": "Egy szerkesztőség olyan CMS-t használ, amely fájlokban tárolja a tartalmakat, és statikus oldalakat készít belőlük. Külön adatbázis-kiszolgáló nincs. Hogyan értelmezzük ezt?",
+        "answers": [
+          "Nem lehet CMS, mert minden CMS-hez kötelező külön SQL-szerver.",
+          "Automatikusan DBMS, mert tud fájlokat olvasni és írni.",
+          "Csak akkor CMS, ha minden látogató írási jogot kap a forrásfájlokra.",
+          "Lehet CMS: a célja a tartalomkezelés, a tárolási mód architekturális döntés."
+        ],
+        "explanation": "Sok CMS adatbázisban tárolja például a tartalmakat, szerepköröket és beállításokat. A tartalomkezelési feladat azonban nem kötődik külön adatbázis-kiszolgálóhoz. Fájlalapú rendszerek is támogathatnak szerkesztési folyamatot és statikus kimenetet."
+      }
+    },
+    {
+      "id": "lap-LAP-16-04-3",
+      "revision": 1,
+      "topic": "CMS",
+      "source": {
+        "topicId": "LAP-16-04",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/04_CMS/README.md",
+        "slug": "16-04-cms"
+      },
+      "question": "Ein TYPO3-Projekt nutzt MariaDB. Eine Redakteurin ändert einen Artikel im TYPO3-Backend. Welche Beschreibung der beteiligten Ebenen stimmt?",
+      "answers": [
+        "TYPO3 bietet den redaktionellen Ablauf; MariaDB verwaltet die zugrunde liegende Datenbank.",
+        "MariaDB stellt das TYPO3-Backend als integrierten Artikel-Editor bereit.",
+        "TYPO3 ist der SQL-Speichermotor; MariaDB ist das sichtbare Seitentheme.",
+        "Das TYPO3-Frontend ist die Datenbank; das Backend ist nur deren Sicherungskopie."
+      ],
+      "correct": 0,
+      "explanation": "TYPO3 ist das CMS mit Verwaltungsoberfläche und Funktionen für die Inhaltsarbeit. MariaDB ist in diesem Beispiel das DBMS. Backend und Frontend bezeichnen bei TYPO3 die Verwaltungs- beziehungsweise Besucherseite, nicht zwei Datenbankkopien.",
+      "hu": {
+        "question": "Egy TYPO3-projekt MariaDB-t használ. Egy szerkesztő a TYPO3 backendjében módosít egy cikket. Melyik leírás helyes az érintett rétegekről?",
+        "answers": [
+          "A TYPO3 biztosítja a szerkesztési folyamatot, a MariaDB kezeli az alatta lévő adatbázist.",
+          "A MariaDB beépített cikkszerkesztőként szolgáltatja a TYPO3 backendjét.",
+          "A TYPO3 az SQL-tárolómotor, a MariaDB az oldal látható témasablonja.",
+          "A TYPO3 frontendje az adatbázis, a backendje csak annak biztonsági másolata."
+        ],
+        "explanation": "A TYPO3 a CMS, amely felületet és funkciókat ad a tartalmi munkához. Ebben a példában a MariaDB a DBMS. A TYPO3 backendje az adminisztrációs, frontendje a látogatói oldalt jelenti, nem két adatbázismásolatot."
+      }
+    },
+    {
+      "id": "lap-LAP-16-04-4",
+      "revision": 1,
+      "topic": "CMS",
+      "source": {
+        "topicId": "LAP-16-04",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/04_CMS/README.md",
+        "slug": "16-04-cms"
+      },
+      "question": "Du sollst zwei bestehende Systeme als Kandidaten für redaktionelle Inhaltsverwaltung vergleichen. Welche Paarung besteht aus zwei CMS?",
+      "answers": [
+        "MariaDB und SQLite.",
+        "phpMyAdmin und Adminer.",
+        "TYPO3 und WordPress.",
+        "Caddy und Nginx."
+      ],
+      "correct": 2,
+      "explanation": "TYPO3 und WordPress sind CMS. Die anderen Paare nennen Datenbanksoftware, Datenbank-Verwaltungsoberflächen beziehungsweise Webserver. Die Produktkategorie klärt die Grundaufgabe; die Eignung für konkrete Anforderungen braucht einen eigenen Vergleich.",
+      "hu": {
+        "question": "Két meglévő rendszert kell összehasonlítanod szerkesztői tartalomkezeléshez. Melyik pár áll két CMS-ből?",
+        "answers": [
+          "MariaDB és SQLite.",
+          "phpMyAdmin és Adminer.",
+          "TYPO3 és WordPress.",
+          "Caddy és Nginx."
+        ],
+        "explanation": "A TYPO3 és a WordPress CMS-ek. A többi pár adatbázis-kezelő szoftvereket, adatbázis-kezelőfelületeket, illetve webszervereket nevez meg. A termékkategória az alapfeladatot tisztázza; a konkrét igényekhez való megfelelés külön összehasonlítást kíván."
+      }
+    },
+    {
+      "id": "lap-LAP-16-04-5",
+      "revision": 1,
+      "topic": "CMS",
+      "source": {
+        "topicId": "LAP-16-04",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/04_CMS/README.md",
+        "slug": "16-04-cms"
+      },
+      "question": "Bei einem angenommenen CMS-Umzug sind Artikel und Rollen im Datenbank-Dump enthalten. Hochgeladene Bilder liegen laut Projektkonfiguration im Dateisystem. Nach dem Import erscheinen Texte, aber keine Bilder. Was fehlt bei der Wiederherstellung?",
+      "answers": [
+        "Ein zusätzlicher Primärschlüssel für jede Absatzzeile; dann erzeugt das DBMS die Bilddateien neu.",
+        "Die gesicherten Upload-Dateien und passende Konfiguration beziehungsweise Codeversionen müssen ebenfalls bereitstehen und geprüft werden.",
+        "Ein erneuter Import desselben Dumps mit anderer Zeilenreihenfolge stellt automatisch die Bilddateien her.",
+        "Nur ein anderes Theme; Upload-Dateien können grundsätzlich aus Artikeltiteln rekonstruiert werden."
+      ],
+      "correct": 1,
+      "explanation": "Ein CMS kann Daten auf mehrere Speicherorte verteilen. Ein Datenbank-Dump enthält nicht automatisch Dateien außerhalb der Datenbank. Eine Wiederherstellungsprobe muss deshalb auch Medien, Konfiguration, kompatiblen Code und den redaktionellen Ablauf einbeziehen.",
+      "hu": {
+        "question": "Egy elképzelt CMS-költözésnél a cikkek és szerepkörök benne vannak az adatbázismentésben. A projekt beállítása szerint a feltöltött képek a fájlrendszerben találhatók. Import után a szövegek látszanak, a képek nem. Mi hiányzik a helyreállításból?",
+        "answers": [
+          "Minden bekezdéshez egy új elsődleges kulcs, hogy a DBMS újragenerálja a képfájlokat.",
+          "A mentett feltöltött fájlokat, valamint a megfelelő konfigurációt és kódverziókat is biztosítani és ellenőrizni kell.",
+          "Ugyanannak a dumpnak más sorsorrendben történő importja automatikusan helyreállítja a képfájlokat.",
+          "Csak egy másik témasablon, mert a feltöltött fájlok mindig előállíthatók a cikkcímekből."
+        ],
+        "explanation": "A CMS több helyen tárolhat adatokat. Az adatbázismentés nem tartalmazza automatikusan az adatbázison kívüli fájlokat. A visszaállítási próbának ezért a médiákra, konfigurációra, kompatibilis kódra és a szerkesztési folyamatra is ki kell terjednie."
+      }
+    },
+    {
+      "id": "lap-LAP-16-05-1",
+      "revision": 1,
+      "topic": "Integritaet in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-05",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/05_Integritaet_in_Datenbanken/README.md",
+        "slug": "16-05-integritaet_in_datenbanken"
+      },
+      "question": "Eine gedachte Ergebnistabelle erzwingt score NOT NULL und CHECK (score BETWEEN 0 AND 5). Eine gespeicherte Zeile enthält score = 4. Was belegt die erfolgreiche Prüfung dieser Regeln?",
+      "answers": [
+        "Dass die Person tatsächlich vier Aufgaben richtig gelöst hat.",
+        "Dass die Zeile automatisch dem richtigen Benutzerkonto zugeordnet ist.",
+        "Dass der Punktestand unveränderlich und gegen jeden unberechtigten Zugriff geschützt ist.",
+        "Dass der gespeicherte Wert vorhanden ist und innerhalb des festgelegten Bereichs liegt."
+      ],
+      "correct": 3,
+      "explanation": "Integritätsregeln erzwingen die Bedingungen, die tatsächlich definiert wurden. Sie können einen fehlenden oder außerhalb des Bereichs liegenden Wert abweisen. Ob die Auswertung fachlich stimmt und die Person darauf zugreifen darf, benötigt zusätzliche Anwendungsregeln.",
+      "hu": {
+        "question": "Egy elképzelt eredménytábla score NOT NULL és CHECK (score BETWEEN 0 AND 5) szabályt ír elő. Egy tárolt sor score értéke 4. Mit igazol ezeknek a szabályoknak a sikeres ellenőrzése?",
+        "answers": [
+          "Hogy a személy valóban négy feladatot oldott meg helyesen.",
+          "Hogy a sor automatikusan a megfelelő felhasználói fiókhoz tartozik.",
+          "Hogy a pontszám megváltoztathatatlan, és minden jogosulatlan hozzáféréstől védett.",
+          "Hogy a tárolt érték meg van adva, és a meghatározott tartományon belül található."
+        ],
+        "explanation": "Az integritási szabályok a ténylegesen megadott feltételeket kényszerítik ki. Elutasíthatják a hiányzó vagy tartományon kívüli értéket. A kiértékelés tartalmi helyességéhez és a hozzáféréshez további alkalmazásszabályok kellenek."
+      }
+    },
+    {
+      "id": "lap-LAP-16-05-2",
+      "revision": 1,
+      "topic": "Integritaet in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-05",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/05_Integritaet_in_Datenbanken/README.md",
+        "slug": "16-05-integritaet_in_datenbanken"
+      },
+      "question": "Das Schema wird in einer leeren SQLite-Datenbank angelegt; die Fremdschlüsselprüfung ist eingeschaltet. Eine neue Frage hat eine bisher unbenutzte ID. Welche Werte sind für ihr topic_id nach genau diesen Regeln zulässig?",
+      "answers": [
+        "16 oder NULL: Die vorhandene Themen-ID ist gültig, die Zuordnung ist hier aber nicht verpflichtend.",
+        "Nur 16: Ein Fremdschlüssel schließt NULL immer automatisch aus.",
+        "Jede ganze Zahl: REFERENCES dient ausschließlich als Beschreibung für Entwickler.",
+        "Nur NULL: Die vorhandene 16 ist bereits als Primärschlüssel verbraucht."
+      ],
+      "correct": 0,
+      "explanation": "Ein gesetzter Fremdschlüsselwert muss auf einen vorhandenen Schlüssel verweisen. Weil topic_id hier kein NOT NULL besitzt, ist auch eine fehlende Zuordnung erlaubt. Soll jede Frage ein Thema haben, wird zusätzlich NOT NULL benötigt. SQLite aktiviert die Prüfung hier ausdrücklich mit PRAGMA.",
+      "hu": {
+        "question": "A séma üres SQLite-adatbázisban készül el, bekapcsolt idegenkulcs-ellenőrzéssel. Egy új kérdés eddig nem használt azonosítót kap. Pontosan ezek a szabályok milyen topic_id értékeket engednek neki?",
+        "answers": [
+          "16 vagy NULL: a létező témaazonosító érvényes, de a hozzárendelés itt nem kötelező.",
+          "Csak 16: az idegen kulcs mindig automatikusan kizárja a NULL-t.",
+          "Bármely egész szám: a REFERENCES kizárólag a fejlesztőknek szóló leírás.",
+          "Csak NULL: a létező 16-ost már elhasználtuk elsődleges kulcsként."
+        ],
+        "explanation": "A megadott idegenkulcsértéknek létező kulcsra kell mutatnia. Mivel a topic_id mellett nincs NOT NULL, a hiányzó hozzárendelés is megengedett. Kötelező témakapcsolathoz NOT NULL is kell. A SQLite-ellenőrzést itt kifejezetten bekapcsolja a PRAGMA."
+      },
+      "code": "PRAGMA foreign_keys = ON;\nCREATE TABLE topics (\n  id INTEGER PRIMARY KEY\n);\nCREATE TABLE questions (\n  id INTEGER PRIMARY KEY,\n  topic_id INTEGER REFERENCES topics(id)\n);\nINSERT INTO topics VALUES (16);",
+      "codeLanguage": "sql",
+      "expectedRows": []
+    },
+    {
+      "id": "lap-LAP-16-05-3",
+      "revision": 1,
+      "topic": "Integritaet in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-05",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/05_Integritaet_in_Datenbanken/README.md",
+        "slug": "16-05-integritaet_in_datenbanken"
+      },
+      "question": "Dieses SQLite-Beispiel läuft einmal in einer leeren Übungsdatenbank. Was geschieht mit der eingefügten Zeile, und welche Ergänzung würde einen zwingend angegebenen score verlangen?",
+      "answers": [
+        "Das INSERT scheitert bereits; BETWEEN verbietet automatisch jeden NULL-Wert.",
+        "NULL wird durch CHECK automatisch auf 0 gesetzt; DEFAULT 0 würde diesen Effekt verhindern.",
+        "Die Zeile wird gespeichert und SELECT liefert 1; zusätzliches NOT NULL würde einen angegebenen Wert verlangen.",
+        "Die ganze Tabelle wird geleert; UNIQUE würde den Wert auf den Bereich 0 bis 5 begrenzen."
+      ],
+      "correct": 2,
+      "explanation": "CHECK weist in SQLite einen Ausdruck mit dem Ergebnis 0 zurück. Bei score = NULL ergibt die Bereichsprüfung NULL und verletzt diesen CHECK nicht. Deshalb bleibt die Zeile erhalten; score IS NULL liefert 1. Eine Pflichtangabe verlangt zusätzlich NOT NULL.",
+      "hu": {
+        "question": "A SQLite-példa egyszer fut egy üres gyakorló adatbázisban. Mi történik a beszúrt sorral, és milyen kiegészítés tenné kötelezővé a score megadását?",
+        "answers": [
+          "Az INSERT már most sikertelen, mert a BETWEEN automatikusan minden NULL-t tilt.",
+          "A CHECK automatikusan 0-ra cseréli a NULL-t; a DEFAULT 0 akadályozná meg ezt.",
+          "A sor bekerül, a SELECT 1-et ad; a külön megadott NOT NULL tenné kötelezővé az értéket.",
+          "Az egész tábla kiürül; a UNIQUE korlátozná 0 és 5 közé az értéket."
+        ],
+        "explanation": "A SQLite CHECK az olyan kifejezést utasítja el, amelynek eredménye 0. A score = NULL esetén a tartományvizsgálat eredménye NULL, ami ezt a CHECK-et nem sérti. A sor ezért megmarad, és a score IS NULL eredménye 1. A kötelező megadáshoz NOT NULL is kell."
+      },
+      "code": "CREATE TABLE attempts (\n  id INTEGER PRIMARY KEY,\n  score INTEGER CHECK (score BETWEEN 0 AND 5)\n);\nINSERT INTO attempts (id, score) VALUES (1, NULL);\nSELECT score IS NULL AS missing_score FROM attempts;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-05-4",
+      "revision": 1,
+      "topic": "Integritaet in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-05",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/05_Integritaet_in_Datenbanken/README.md",
+        "slug": "16-05-integritaet_in_datenbanken"
+      },
+      "question": "Zwei neue Quizfragen sollen denselben sichtbaren Titel haben dürfen. Das folgende SQLite-Schema enthält bereits q1. Welche zusätzliche Zeile erfüllt die angegebenen Schlüsselregeln?",
+      "answers": [
+        "Noch einmal id = q1 mit dem Titel JOIN, weil unterschiedliche Titel den Schlüssel eindeutig machen.",
+        "id = q2 mit dem Titel SQL, weil die ID eindeutig sein muss, der Titel aber nicht als UNIQUE definiert ist.",
+        "id = NULL mit dem Titel JOIN, weil PRIMARY KEY hier NOT NULL ausdrücklich aufhebt.",
+        "Keine: Ein Primärschlüssel verlangt immer auch eindeutige Werte in allen übrigen Spalten."
+      ],
+      "correct": 1,
+      "explanation": "Der Primärschlüssel identifiziert den Datensatz über id, nicht über den sichtbaren Titel. q2 ist eine neue, angegebene ID. Wiederholte Titel sind nach diesem Schema erlaubt. NOT NULL ist bei diesem SQLite-Textschlüssel ausdrücklich gesetzt.",
+      "hu": {
+        "question": "Két új kvízkérdésnek lehessen azonos látható címe. Az alábbi SQLite-sémában már szerepel q1. Melyik további sor felel meg a megadott kulcsszabályoknak?",
+        "answers": [
+          "Újra id = q1, JOIN címmel, mert az eltérő cím egyedivé teszi a kulcsot.",
+          "id = q2, SQL címmel, mert az ID-nak kell egyedinek lennie, a title nem kapott UNIQUE szabályt.",
+          "id = NULL, JOIN címmel, mert a PRIMARY KEY itt kifejezetten feloldja a NOT NULL-t.",
+          "Egyik sem, mert az elsődleges kulcs minden más oszlopban is egyedi értékeket követel."
+        ],
+        "explanation": "Az elsődleges kulcs az id alapján azonosítja a rekordot, nem a megjelenített cím szerint. A q2 új, megadott azonosító. Az ismétlődő címet ez a séma megengedi. Ennél a SQLite-szövegkulcsnál a NOT NULL kifejezetten szerepel."
+      },
+      "code": "CREATE TABLE questions (\n  id TEXT NOT NULL PRIMARY KEY,\n  title TEXT NOT NULL\n);\nINSERT INTO questions (id, title) VALUES ('q1', 'SQL');",
+      "codeLanguage": "sql",
+      "expectedRows": []
+    },
+    {
+      "id": "lap-LAP-16-05-5",
+      "revision": 1,
+      "topic": "Integritaet in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-05",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/05_Integritaet_in_Datenbanken/README.md",
+        "slug": "16-05-integritaet_in_datenbanken"
+      },
+      "question": "Eine geplante App prüft Punktestände im Browser. Zusätzlich schreibt ein Importdienst direkt in dieselbe Datenbank. Wie wird die gemeinsame Regel „score muss angegeben sein und zwischen 0 und 5 liegen“ sinnvoll abgesichert?",
+      "answers": [
+        "Die Prüfung im Browser reicht, weil jeder Datenbankzugriff durch diesen Browser läuft.",
+        "Nur der Importdienst prüft; alle anderen Schreibwege dürfen beliebige Werte speichern.",
+        "Die Regel wird als Kommentar im Quelltext notiert, damit sie das DBMS automatisch übernimmt.",
+        "Die Schreibwege validieren passend zur Aufgabe; die Datenbank erzwingt die gemeinsame Regel zusätzlich mit NOT NULL und CHECK."
+      ],
+      "correct": 3,
+      "explanation": "Die Datenbank kann dieselbe Integritätsregel für mehrere Schreibwege durchsetzen. Anwendungsvalidierung bleibt nützlich, etwa für verständliche Rückmeldungen und fachliche Prüfungen. Ein zusätzlicher Importpfad darf die zentrale Regel nicht umgehen.",
+      "hu": {
+        "question": "Egy tervezett alkalmazás a böngészőben ellenőrzi a pontszámokat. Emellett egy importszolgáltatás közvetlenül ugyanabba az adatbázisba ír. Hogyan érdemes betartatni a közös szabályt: „a score kötelező, értéke 0 és 5 közötti”?",
+        "answers": [
+          "Elég a böngészős ellenőrzés, mert minden adatbázis-hozzáférés ezen a böngészőn át történik.",
+          "Csak az importszolgáltatás ellenőriz, a többi írási út tetszőleges értéket menthet.",
+          "A szabályt kódmegjegyzésbe írjuk, hogy a DBMS automatikusan átvegye.",
+          "Az írási utak a feladatnak megfelelően validálnak; az adatbázis NOT NULL és CHECK szabállyal is kikényszeríti a közös követelményt."
+        ],
+        "explanation": "Az adatbázis több írási útra is ugyanazt az integritási szabályt alkalmazhatja. Az alkalmazásoldali validáció továbbra is hasznos, például érthető visszajelzéshez és üzleti ellenőrzéshez. Az új importálási út sem kerülheti meg a közös szabályt."
+      }
+    },
+    {
+      "id": "lap-LAP-16-06-1",
+      "revision": 1,
+      "topic": "Redundanz in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-06",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/06_Redundanz_in_Datenbanken/README.md",
+        "slug": "16-06-redundanz_in_datenbanken"
+      },
+      "question": "Eine neue Quizdatenbank soll stets den aktuellen Titel eines Themenbereichs anzeigen. Welche Speicherung wiederholt dabei dieselbe Information unnötig?",
+      "answers": [
+        "Den aktuellen Thementitel zusätzlich in jeder zugehörigen Frage speichern und bei jeder Umbenennung alle Kopien aktualisieren.",
+        "Die Themen-ID in mehreren Fragen speichern, damit diese auf dasselbe Thema verweisen.",
+        "Eine deutsche und eine ungarische Fassung einer Erklärung speichern.",
+        "Für zwei tatsächlich absolvierte Durchläufe jeweils eine eigene Durchlauf-ID speichern."
+      ],
+      "correct": 0,
+      "explanation": "Mehrere Kopien desselben aktuellen Thementitels müssen synchron gehalten werden. Eine eigene Themenzeile mit Verweisen vermeidet diese Wiederholung. Eine Übersetzung, ein eigener Durchlauf oder ein gespeicherter historischer Stand beschreibt dagegen andere Information.",
+      "hu": {
+        "question": "Egy új kvízadatbázis mindig egy témakör aktuális címét mutassa. Melyik tárolás ismétli szükségtelenül ugyanazt az információt?",
+        "answers": [
+          "Az aktuális témacímet minden hozzá tartozó kérdésbe is beírjuk, és átnevezéskor az összes másolatot frissítjük.",
+          "Több kérdésben tároljuk ugyanazt a témaazonosítót, hogy ugyanarra a témára hivatkozzanak.",
+          "Egy magyarázat német és magyar változatát is tároljuk.",
+          "Két ténylegesen teljesített gyakorlókörhöz külön-külön körazonosítót tárolunk."
+        ],
+        "explanation": "Ugyanannak az aktuális témacímnek több másolatát összehangoltan kell frissíteni. A saját témarekord és az arra mutató hivatkozások elkerülik ezt az ismétlést. A fordítás, egy másik kör vagy egy történeti állapot viszont más információt fejez ki."
+      }
+    },
+    {
+      "id": "lap-LAP-16-06-2",
+      "revision": 1,
+      "topic": "Redundanz in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-06",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/06_Redundanz_in_Datenbanken/README.md",
+        "slug": "16-06-redundanz_in_datenbanken"
+      },
+      "question": "Eine Tabelle speichert pro Kursanmeldung auch Kurstitel und Kursbeschreibung. Es gibt keine eigene Kurstabelle. Nach dem Entfernen der letzten Anmeldung verschwindet der Kurs aus dem Datenbestand. Welche Modelländerung erhält einen Kurs auch ohne Teilnehmende?",
+      "answers": [
+        "Anmeldungen grundsätzlich nie löschen und leere Namen als Platzhalter verwenden.",
+        "Den Kurstitel zusätzlich in jeder Benutzerzeile speichern.",
+        "Kurse und Anmeldungen getrennt speichern; eine Anmeldung verweist auf einen unabhängig vorhandenen Kurs.",
+        "Den Kursnamen zur einzigen ID jeder Anmeldung machen."
+      ],
+      "correct": 2,
+      "explanation": "Mit einer eigenen Kurstabelle bleibt die Information über den Kurs unabhängig von einzelnen Anmeldungen erhalten. Eine Anmeldung bildet nur die Teilnahmebeziehung ab. Auch ein neuer Kurs ohne Teilnehmende lässt sich dann sinnvoll speichern.",
+      "hu": {
+        "question": "Egy tábla minden kurzusjelentkezésnél tárolja a kurzuscímet és leírást is, külön kurzustábla nincs. Az utolsó jelentkezés eltávolításakor a kurzus is eltűnik az adatokból. Milyen modellváltoztatás őrzi meg résztvevők nélkül is?",
+        "answers": [
+          "Soha nem törlünk jelentkezést, és üres nevekkel helyettesítő sorokat hozunk létre.",
+          "A kurzuscímet minden felhasználói sorba is bemásoljuk.",
+          "Külön tároljuk a kurzusokat és a jelentkezéseket; a jelentkezés az önállóan létező kurzusra hivatkozik.",
+          "A kurzusnevet minden jelentkezés egyetlen azonosítójává tesszük."
+        ],
+        "explanation": "Önálló kurzustáblával a kurzus adatai megmaradnak az egyes jelentkezésektől függetlenül. A jelentkezés csak a részvételi kapcsolatot írja le. Így egy új, még résztvevő nélküli kurzus is értelmesen rögzíthető."
+      }
+    },
+    {
+      "id": "lap-LAP-16-06-3",
+      "revision": 1,
+      "topic": "Redundanz in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-06",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/06_Redundanz_in_Datenbanken/README.md",
+        "slug": "16-06-redundanz_in_datenbanken"
+      },
+      "question": "Dieses SQLite-Beispiel startet leer. topic_title soll immer den aktuellen Titel des Themas 16 bedeuten, keinen historischen Stand. Wie viele verschiedene Titel liefert die Zählung nach dem UPDATE, und welche Struktur vereinfacht künftige Umbenennungen?",
+      "answers": [
+        "1; alle Zeilen mit gleicher topic_id werden durch das UPDATE automatisch mitgeändert.",
+        "2; den aktuellen Titel einmal in einer Thementabelle speichern und Fragen über topic_id darauf verweisen lassen.",
+        "2; jeder Frage zusätzlich eine weitere Kopie des aktuellen Titels geben.",
+        "0; COUNT(DISTINCT ...) entfernt die beiden Titel aus der Tabelle."
+      ],
+      "correct": 1,
+      "explanation": "WHERE id = 1 ändert nur die erste Frage. Die zweite behält den alten Titel, deshalb zählt die Abfrage zwei verschiedene Werte. Ein eigener Themen-Datensatz bietet einen gemeinsamen Ort für den aktuellen Titel; die Fragen speichern die Beziehung über ihre Themen-ID.",
+      "hu": {
+        "question": "A SQLite-példa üres adatbázissal indul. A topic_title mindig a 16-os téma aktuális címét jelentse, ne történeti állapotot. Hány különböző címet számol az UPDATE után, és milyen szerkezet egyszerűsíti az átnevezést?",
+        "answers": [
+          "1-et, mert az UPDATE automatikusan minden azonos topic_id értékű sort módosít.",
+          "2-t; az aktuális címet egyszer tároljuk tématáblában, a kérdések pedig topic_id-val hivatkozzanak rá.",
+          "2-t; minden kérdéshez adjunk még egy másolatot az aktuális címből.",
+          "0-t, mert a COUNT(DISTINCT ...) kitörli a két címet a táblából."
+        ],
+        "explanation": "A WHERE id = 1 csak az első kérdést módosítja. A második megtartja a korábbi címet, ezért a lekérdezés két különböző értéket számol. Az önálló témarekord közös helyet ad az aktuális címnek; a kérdések a témaazonosítóval tárolják a kapcsolatot."
+      },
+      "code": "CREATE TABLE questions (\n  id INTEGER PRIMARY KEY,\n  topic_id INTEGER NOT NULL,\n  topic_title TEXT NOT NULL\n);\nINSERT INTO questions VALUES\n  (1, 16, 'Datenbanken'), (2, 16, 'Datenbanken');\nUPDATE questions SET topic_title = 'Daten & SQL'\nWHERE id = 1;\nSELECT COUNT(DISTINCT topic_title)\nFROM questions WHERE topic_id = 16;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-06-4",
+      "revision": 1,
+      "topic": "Redundanz in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-06",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/06_Redundanz_in_Datenbanken/README.md",
+        "slug": "16-06-redundanz_in_datenbanken"
+      },
+      "question": "Nach einer Modellüberarbeitung gibt es students, courses und enrollments. In enrollments taucht dieselbe student_id bei mehreren unterschiedlichen Kursen auf. Ist das bereits unnötige Redundanz?",
+      "answers": [
+        "Ja, jede wiederholte Zahl muss unabhängig von ihrer Bedeutung entfernt werden.",
+        "Ja, deshalb darf eine Person nur noch einen Kurs besuchen.",
+        "Nein, weil eine Fremdschlüsselspalte grundsätzlich keine Bedeutung trägt.",
+        "Nein, die wiederholte ID beschreibt unterschiedliche Teilnahmen; der aktuelle Name kann einmal bei students gespeichert bleiben."
+      ],
+      "correct": 3,
+      "explanation": "Wiederholte Fremdschlüssel können verschiedene Beziehungen ausdrücken. Die Verbindung einer Person mit mehreren Kursen ist eigenständige Information. Ziel der Normalisierung ist die passende Zuordnung von Fakten, nicht das Entfernen jeder mehrfach vorkommenden Zahl.",
+      "hu": {
+        "question": "A modell átalakítása után students, courses és enrollments táblák vannak. Az enrollments táblában ugyanaz a student_id több különböző kurzusnál is szerepel. Ez már önmagában szükségtelen redundancia?",
+        "answers": [
+          "Igen, minden ismétlődő számot a jelentésétől függetlenül el kell távolítani.",
+          "Igen, ezért egy személy többé csak egy kurzusra járhat.",
+          "Nem, mert az idegenkulcs-oszlopnak alapvetően nincs jelentése.",
+          "Nem, az ismétlődő ID különböző részvételeket ír le; az aktuális név egyszer tárolható a students táblában."
+        ],
+        "explanation": "Az ismétlődő idegen kulcsok eltérő kapcsolatokat fejezhetnek ki. Egy személy több kurzushoz kapcsolása önálló információ. A normalizálás célja a tények megfelelő helyre rendezése, nem minden többször előforduló szám eltüntetése."
+      }
+    },
+    {
+      "id": "lap-LAP-16-06-5",
+      "revision": 1,
+      "topic": "Redundanz in Datenbanken",
+      "source": {
+        "topicId": "LAP-16-06",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/06_Redundanz_in_Datenbanken/README.md",
+        "slug": "16-06-redundanz_in_datenbanken"
+      },
+      "question": "Eine gemessene langsame Auswertung berechnet sehr häufig dieselbe Fragenanzahl je Thema. Das Team erwägt einen zusätzlich gespeicherten Zähler. Wann ist das eine begründbare kontrollierte Redundanz?",
+      "answers": [
+        "Wenn der Nutzen belegt ist und Aktualisierung, Neuberechnung sowie der Umgang mit veralteten Werten festgelegt und geprüft sind.",
+        "Sobald der Zähler einmal stimmt; spätere Änderungen an Fragen sind dann unerheblich.",
+        "Wenn der Zähler die Fragen vollständig ersetzt und nie mehr überprüft werden kann.",
+        "Grundsätzlich nie: Auch abgeleitete Berichtswerte dürfen in keinem System gespeichert werden."
+      ],
+      "correct": 0,
+      "explanation": "Ein vorab gespeicherter Zähler kann wiederholte Berechnung sparen, muss aber konsistent gehalten werden. Dafür braucht es einen klaren Aktualisierungs- und Prüfweg. Zuerst wird gemessen; zusätzliche Kopien ohne erkennbaren Nutzen erhöhen nur den Pflegeaufwand.",
+      "hu": {
+        "question": "Egy mérés szerint lassú kimutatás nagyon gyakran számolja újra ugyanazt a témánkénti kérdésszámot. A csapat külön tárolt számlálót fontolgat. Mikor indokolható ez ellenőrzött redundanciaként?",
+        "answers": [
+          "Ha az előny igazolt, és a frissítés, újraszámítás, valamint az elavult értékek kezelése meghatározott és ellenőrzött.",
+          "Amint a számláló egyszer helyes, mert a kérdések későbbi változásai már nem számítanak.",
+          "Ha a számláló teljesen kiváltja a kérdéseket, és többé nem ellenőrizhető.",
+          "Soha, mert származtatott kimutatási értéket semmilyen rendszerben nem szabad tárolni."
+        ],
+        "explanation": "Az előre tárolt számláló megtakaríthat ismételt számítást, de az összhangját fenn kell tartani. Ehhez egyértelmű frissítési és ellenőrzési út kell. Előbb mérünk; az érdemi előny nélküli másolatok csak karbantartási munkát adnak."
+      }
+    },
+    {
+      "id": "lap-LAP-16-07-1",
+      "revision": 1,
+      "topic": "Vorgehensweise bei der Datenmodellierung",
+      "source": {
+        "topicId": "LAP-16-07",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/07_Vorgehensweise_bei_der_Datenmodellierung/README.md",
+        "slug": "16-07-vorgehensweise_bei_der_datenmodellierung"
+      },
+      "question": "Eine Bibliothek möchte nicht nur Buchtitel, sondern einzelne ausleihbare Exemplare und deren Ausleihen verwalten. Was ist das wichtigste Ziel der Datenmodellierung?",
+      "answers": [
+        "Zuerst die Farbe jeder Schaltfläche festzulegen, damit die Tabellen daraus abgeleitet werden.",
+        "Alle Bücher, Personen und Ausleihen in einem einzigen Freitextfeld zusammenzufassen.",
+        "Die benötigten Objekte, ihre Beziehungen und Regeln so festzulegen, dass etwa zwei Exemplare desselben Titels unterscheidbar sind.",
+        "Möglichst viele Tabellen anzulegen, unabhängig von den tatsächlichen Arbeitsabläufen."
+      ],
+      "correct": 2,
+      "explanation": "Das Modell übersetzt Anforderungen in eine passende Datenstruktur. Ein Buchtitel und ein einzelnes Exemplar sind hier unterschiedliche Dinge. Erst diese Unterscheidung erlaubt es, Ausleihen zuverlässig dem tatsächlich verliehenen Exemplar zuzuordnen.",
+      "hu": {
+        "question": "Egy könyvtár nemcsak könyvcímeket, hanem külön kölcsönözhető példányokat és kölcsönzéseiket is nyilvántartaná. Mi az adatmodellezés legfontosabb célja?",
+        "answers": [
+          "Először minden gomb színét meghatározni, hogy ebből vezessük le a táblákat.",
+          "Minden könyvet, személyt és kölcsönzést egyetlen szabad szöveges mezőbe írni.",
+          "Úgy meghatározni a szükséges objektumokat, kapcsolataikat és szabályaikat, hogy például ugyanazon cím két példánya megkülönböztethető legyen.",
+          "Minél több táblát létrehozni a tényleges munkafolyamatoktól függetlenül."
+        ],
+        "explanation": "A modell a követelményeket megfelelő adatszerkezetté alakítja. A könyvcím és a konkrét példány itt két külön dolog. Ez a különbség teszi lehetővé, hogy a kölcsönzés a ténylegesen kiadott példányhoz kapcsolódjon."
+      }
+    },
+    {
+      "id": "lap-LAP-16-07-2",
+      "revision": 1,
+      "topic": "Vorgehensweise bei der Datenmodellierung",
+      "source": {
+        "topicId": "LAP-16-07",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/07_Vorgehensweise_bei_der_Datenmodellierung/README.md",
+        "slug": "16-07-vorgehensweise_bei_der_datenmodellierung"
+      },
+      "question": "Ein Kursanbieter sagt: „Eine Person kann mehrere Kurse besuchen, ein Kurs hat mehrere Teilnehmende.“ Welche Reihenfolge passt zum Entwurf einer relationalen Datenbank?",
+      "answers": [
+        "Tabellen aus Bildschirmfarben ableiten, anschließend nach möglichen Nutzern suchen.",
+        "Anforderungen klären, Entitäten und Attribute bestimmen, Beziehungen und Schlüssel festlegen, das Modell normalisieren und konkret umsetzen.",
+        "Zuerst für jede Anmeldung eine neue Datenbank installieren, danach die Beziehungen festlegen.",
+        "Alle denkbaren Spalten anlegen und die fachlichen Regeln erst nach dem Produktivstart erfragen."
+      ],
+      "correct": 1,
+      "explanation": "Anforderungen wie Mehrfachteilnahme, Pflichtangaben und Löschregeln bestimmen das Modell. Für die n:m-Beziehung kann eine eigene Anmeldungstabelle entstehen. Der Entwurf wird mit konkreten Abläufen geprüft und bei Bedarf überarbeitet.",
+      "hu": {
+        "question": "Egy képzőhely szerint „egy személy több kurzusra járhat, egy kurzusnak több résztvevője lehet”. Melyik sorrend illik egy relációs adatbázis megtervezéséhez?",
+        "answers": [
+          "A képernyő színeiből táblákat vezetünk le, majd lehetséges felhasználókat keresünk.",
+          "Tisztázzuk az igényeket, meghatározzuk az entitásokat és attribútumokat, kapcsolatokat és kulcsokat, majd normalizálunk és megvalósítunk.",
+          "Először minden jelentkezéshez új adatbázist telepítünk, utána határozzuk meg a kapcsolatokat.",
+          "Létrehozunk minden elképzelhető oszlopot, az üzleti szabályokat pedig élesítés után kérdezzük meg."
+        ],
+        "explanation": "A több kurzuson való részvétel, a kötelező adatok és a törlési szabályok meghatározzák a modellt. Az n:m kapcsolathoz külön jelentkezési tábla készülhet. A tervet konkrét folyamatokkal ellenőrizzük, és szükség esetén módosítjuk."
+      }
+    },
+    {
+      "id": "lap-LAP-16-07-3",
+      "revision": 1,
+      "topic": "Vorgehensweise bei der Datenmodellierung",
+      "source": {
+        "topicId": "LAP-16-07",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/07_Vorgehensweise_bei_der_Datenmodellierung/README.md",
+        "slug": "16-07-vorgehensweise_bei_der_datenmodellierung"
+      },
+      "question": "Ein Werkstattbetrieb verwaltet Geräte mit Seriennummer, Modellbezeichnung und Anschaffungsdatum. Welche Zuordnung beschreibt Entität und Attribute sinnvoll?",
+      "answers": [
+        "Die Modellbezeichnung ist die Entität; alle Geräte mit demselben Modell müssen deshalb ein einziges Gerät sein.",
+        "Die Schriftart der Eingabemaske ist die Entität; die Seriennummer ist ihre Darstellung.",
+        "Das Anschaffungsdatum ersetzt jede Gerätekennung, weil an einem Tag nur ein Gerät angeschafft werden kann.",
+        "Ein Gerät ist eine Entität; Seriennummer, Modellbezeichnung und Anschaffungsdatum sind Eigenschaften, deren Regeln gesondert festgelegt werden."
+      ],
+      "correct": 3,
+      "explanation": "Eine Entität ist ein unterscheidbares Objekt, über das das Modell Informationen verwaltet. Attribute beschreiben dieses Objekt. Ob beispielsweise eine Seriennummer global eindeutig ist, muss aus den Anforderungen hervorgehen, statt allein aus ihrem Namen angenommen zu werden.",
+      "hu": {
+        "question": "Egy műhely sorozatszámmal, modellnévvel és beszerzési dátummal tartja nyilván az eszközeit. Melyik hozzárendelés írja le értelmesen az entitást és attribútumait?",
+        "answers": [
+          "A modellnév az entitás, ezért az összes azonos modellű eszköz egyetlen eszköznek számít.",
+          "A beviteli űrlap betűtípusa az entitás, a sorozatszám pedig annak megjelenése.",
+          "A beszerzési dátum minden eszközazonosítót kivált, mert egy napon csak egy eszköz szerezhető be.",
+          "Az eszköz entitás; a sorozatszám, modellnév és beszerzési dátum tulajdonságok, amelyek szabályait külön kell meghatározni."
+        ],
+        "explanation": "Az entitás egy megkülönböztethető objektum, amelyről a modell adatokat kezel. Az attribútumok ezt írják le. Például a sorozatszám globális egyediségét az igényekből kell tisztázni, nem pusztán a mező nevéből feltételezni."
+      }
+    },
+    {
+      "id": "lap-LAP-16-07-4",
+      "revision": 1,
+      "topic": "Vorgehensweise bei der Datenmodellierung",
+      "source": {
+        "topicId": "LAP-16-07",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/07_Vorgehensweise_bei_der_Datenmodellierung/README.md",
+        "slug": "16-07-vorgehensweise_bei_der_datenmodellierung"
+      },
+      "question": "Ein Entwurf beschreibt customers, orders und ihre Schlüsselbeziehung. Später werden für ein bestimmtes DBMS konkrete Datentypen, Indizes und Speicheroptionen ausgewählt. Welche Unterscheidung passt?",
+      "answers": [
+        "Der erste Teil beschreibt das logische relationale Modell; die konkreten Entscheidungen für das DBMS gehören zur physischen Umsetzung.",
+        "Der erste Teil ist das physische Modell; konkrete DBMS-Einstellungen gehören ausschließlich zum fachlichen Wunschzettel.",
+        "Beide Teile beschreiben nur das Farbschema der Anwendung.",
+        "Ein logisches Modell darf keine Schlüssel enthalten; daher ist schon der erste Teil ungültig."
+      ],
+      "correct": 0,
+      "explanation": "Das logische Modell beschreibt die Datenstruktur mit Tabellen, Schlüsseln und Beziehungen. Die physische Umsetzung passt diese Struktur an das gewählte DBMS und seine Möglichkeiten an. Fachliche Beziehungen sollten nachvollziehbar bleiben, auch wenn sich technische Details ändern.",
+      "hu": {
+        "question": "Egy terv customers és orders táblákat, valamint kulcskapcsolatukat írja le. Később egy adott DBMS-hez konkrét adattípusokat, indexeket és tárolási beállításokat választanak. Melyik megkülönböztetés helyes?",
+        "answers": [
+          "Az első rész a logikai relációs modellt írja le; a konkrét DBMS-hez kötött döntések a fizikai megvalósításhoz tartoznak.",
+          "Az első rész a fizikai modell; a konkrét DBMS-beállítások kizárólag az üzleti kívánságlistához tartoznak.",
+          "Mindkét rész csak az alkalmazás színsémáját írja le.",
+          "A logikai modell nem tartalmazhat kulcsokat, ezért már az első rész is érvénytelen."
+        ],
+        "explanation": "A logikai modell táblákkal, kulcsokkal és kapcsolatokkal írja le az adatszerkezetet. A fizikai megvalósítás ezt a választott DBMS lehetőségeihez igazítja. Az üzleti kapcsolatoknak akkor is követhetőnek kell maradniuk, ha technikai részletek változnak."
+      }
+    },
+    {
+      "id": "lap-LAP-16-07-5",
+      "revision": 1,
+      "topic": "Vorgehensweise bei der Datenmodellierung",
+      "source": {
+        "topicId": "LAP-16-07",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/07_Vorgehensweise_bei_der_Datenmodellierung/README.md",
+        "slug": "16-07-vorgehensweise_bei_der_datenmodellierung"
+      },
+      "question": "Ein normalisierter Entwurf speichert Thementitel in topics und Fragen mit einem Verweis darauf. Das SQLite-Beispiel startet leer. Welche Ausgabe zeigt, dass auch ein Thema ohne Frage eigenständig erhalten bleibt?",
+      "answers": [
+        "SQL | 2; CMS fehlt, weil jede Verknüpfung zwingend eine passende Frage verlangt.",
+        "SQL | 2 und CMS | 1; COUNT(q.id) zählt auch die fehlende Frage als Datensatz.",
+        "SQL | 2 und CMS | 0; LEFT JOIN erhält das Thema, COUNT(q.id) zählt nur vorhandene Frage-IDs.",
+        "SQL | 1 und CMS | 1; GROUP BY setzt jeden Zähler automatisch auf 1."
+      ],
+      "correct": 2,
+      "explanation": "Der Thementitel muss nicht in jeder Frage wiederholt werden. LEFT JOIN erhält beide Themen, auch CMS ohne Frage. COUNT(q.id) zählt nur nicht-NULL-Frage-IDs, weshalb CMS den Wert 0 erhält. Mit COUNT(*) würde die erhaltene Join-Zeile dagegen mitgezählt.",
+      "hu": {
+        "question": "Egy normalizált terv a témacímeket a topics táblában, a kérdéseket pedig erre mutató hivatkozással tárolja. A SQLite-példa üresen indul. Melyik kimenet mutatja, hogy a kérdés nélküli téma is önállóan megmarad?",
+        "answers": [
+          "SQL | 2, a CMS kimarad, mert minden kapcsolás kötelezően megfelelő kérdést igényel.",
+          "SQL | 2 és CMS | 1, mert a COUNT(q.id) a hiányzó kérdést is rekordnak számolja.",
+          "SQL | 2 és CMS | 0, mert a LEFT JOIN megtartja a témát, a COUNT(q.id) csak a létező kérdésazonosítókat számolja.",
+          "SQL | 1 és CMS | 1, mert a GROUP BY automatikusan 1-re állít minden számlálót."
+        ],
+        "explanation": "A témacímet nem kell minden kérdésben megismételni. A LEFT JOIN mindkét témát megtartja, a kérdés nélküli CMS-t is. A COUNT(q.id) csak a nem NULL kérdésazonosítókat számolja, ezért a CMS értéke 0. A COUNT(*) ezzel szemben a megtartott kapcsolási sort is számolná."
+      },
+      "code": "PRAGMA foreign_keys = ON;\nCREATE TABLE topics (\n  id INTEGER PRIMARY KEY, title TEXT NOT NULL\n);\nCREATE TABLE questions (\n  id INTEGER PRIMARY KEY,\n  topic_id INTEGER NOT NULL REFERENCES topics(id)\n);\nINSERT INTO topics VALUES (1, 'SQL'), (2, 'CMS');\nINSERT INTO questions VALUES (10, 1), (11, 1);\nSELECT t.title, COUNT(q.id) AS question_count\nFROM topics AS t\nLEFT JOIN questions AS q ON q.topic_id = t.id\nGROUP BY t.id, t.title\nORDER BY t.id;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          "SQL",
+          2
+        ],
+        [
+          "CMS",
+          0
+        ]
+      ]
+    }
+  ]
+}
