@@ -1,0 +1,1156 @@
+{
+  "sourceRepository": "https://github.com/goAuD/CoderLAP",
+  "sourceCommit": "cefce00affa0f357e7cc3e752abf082cad0ae1d0",
+  "ui": {
+    "de": {
+      "moduleTitle": "CoderLAP · Datenbanken 2",
+      "subtitle": "35 Fragen zu CRUD, Normalformen, Schlüsseln, Indexen, Datenbankauswahl, Sicherungen und Sperren.",
+      "practiceNote": "Die ausführbaren SQL-Beispiele verwenden SQLite. Bei Sperrfragen ist MySQL/InnoDB ausdrücklich angegeben. Die Erklärung erscheint nach deiner Antwort.",
+      "topics": {
+        "Grundlegende Datenbankoperationen": "Grundlegende Datenbankoperationen",
+        "Erste drei Normalformen": "Die ersten drei Normalformen",
+        "Primaerschluessel Fremdschluessel Relationen": "Schlüssel und Relationen",
+        "Index Vor und Nachteile": "Indexe: Nutzen und Kosten",
+        "Freeware Datenbanken Vor und Nachteile": "Datenbanken ohne Lizenzkosten",
+        "Sicherungsmethoden": "Sicherung und Wiederherstellung",
+        "Sperrtabelle und Sperrverhalten": "Sperren und Nebenläufigkeit"
+      }
+    },
+    "hu": {
+      "moduleTitle": "CoderLAP · Adatbázisok 2",
+      "subtitle": "35 kérdés CRUD-műveletekről, normálformákról, kulcsokról, indexekről, adatbázis-választásról, mentésekről és zárolásokról.",
+      "practiceNote": "A futtatható SQL-példák SQLite-ot használnak. A zárolási kérdéseknél külön jelezzük a MySQL/InnoDB környezetet. A magyarázat a válaszod után jelenik meg.",
+      "topics": {
+        "Grundlegende Datenbankoperationen": "Alapvető adatbázis-műveletek",
+        "Erste drei Normalformen": "Az első három normálforma",
+        "Primaerschluessel Fremdschluessel Relationen": "Kulcsok és relációk",
+        "Index Vor und Nachteile": "Indexek: előnyök és költségek",
+        "Freeware Datenbanken Vor und Nachteile": "Licencdíj nélkül elérhető adatbázisok",
+        "Sicherungsmethoden": "Mentés és helyreállítás",
+        "Sperrtabelle und Sperrverhalten": "Zárolások és párhuzamos működés"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "lap-LAP-16-08-1",
+      "revision": 1,
+      "topic": "Grundlegende Datenbankoperationen",
+      "source": {
+        "topicId": "LAP-16-08",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/08_Grundlegende_Datenbankoperationen/README.md",
+        "slug": "16-08-grundlegende_datenbankoperationen"
+      },
+      "question": "Eine Bibliothek erfasst ein Buch, zeigt seinen Datensatz an, ändert den Standort und entfernt schließlich den Datensatz. Welche SQL-Folge entspricht diesen vier CRUD-Schritten?",
+      "answers": [
+        "CREATE TABLE, SELECT, UPDATE, DROP TABLE",
+        "INSERT, SELECT, ALTER TABLE, DELETE",
+        "INSERT, SELECT, UPDATE, DELETE",
+        "INSERT, SELECT, UPDATE, DROP TABLE"
+      ],
+      "correct": 2,
+      "explanation": "CRUD beschreibt das Anlegen, Lesen, Ändern und Löschen von Datensätzen. In diesem Ablauf passen INSERT, SELECT, UPDATE und DELETE. CREATE TABLE und ALTER TABLE verändern die Tabellenstruktur; DROP TABLE entfernt die Tabelle selbst.",
+      "hu": {
+        "question": "Egy könyvtár felvesz egy könyvet, megjeleníti az adatlapját, módosítja a helyét, végül törli a rekordot. Melyik SQL-sorozat felel meg ennek a négy CRUD-lépésnek?",
+        "answers": [
+          "CREATE TABLE, SELECT, UPDATE, DROP TABLE",
+          "INSERT, SELECT, ALTER TABLE, DELETE",
+          "INSERT, SELECT, UPDATE, DELETE",
+          "INSERT, SELECT, UPDATE, DROP TABLE"
+        ],
+        "explanation": "A CRUD rekordok létrehozását, olvasását, módosítását és törlését jelenti. Itt az INSERT, SELECT, UPDATE és DELETE illik a folyamatba. A CREATE TABLE és az ALTER TABLE a tábla szerkezetét módosítja; a DROP TABLE magát a táblát távolítja el."
+      }
+    },
+    {
+      "id": "lap-LAP-16-08-2",
+      "revision": 1,
+      "topic": "Grundlegende Datenbankoperationen",
+      "source": {
+        "topicId": "LAP-16-08",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/08_Grundlegende_Datenbankoperationen/README.md",
+        "slug": "16-08-grundlegende_datenbankoperationen"
+      },
+      "question": "Welche IDs liefert das abschließende SELECT in dieser frischen SQLite-Datenbank, und was passiert dabei mit den gespeicherten Datensätzen?",
+      "answers": [
+        "1 und 3; alle drei Datensätze bleiben gespeichert.",
+        "Nur 1; SELECT liefert ohne LIMIT höchstens eine Zeile.",
+        "1 und 3; der Datensatz mit ID 2 wird entfernt.",
+        "1, 2 und 3; WHERE wirkt nur bei Änderungen."
+      ],
+      "correct": 0,
+      "explanation": "WHERE wählt hier die offenen Datensätze aus; ORDER BY legt ihre Reihenfolge fest. SELECT liest die ausgewählten Spalten. Es verändert in diesem Beispiel weder den Status noch die Anzahl der gespeicherten Datensätze.",
+      "hu": {
+        "question": "Melyik ID-ket adja vissza az utolsó SELECT ebben a friss SQLite-adatbázisban, és mi történik a tárolt rekordokkal?",
+        "answers": [
+          "1 és 3; mindhárom rekord megmarad.",
+          "Csak 1; LIMIT nélkül a SELECT legfeljebb egy sort ad vissza.",
+          "1 és 3; a 2-es ID-jű rekord törlődik.",
+          "1, 2 és 3; a WHERE csak módosításnál hat."
+        ],
+        "explanation": "A WHERE itt a nyitott rekordokat választja ki; az ORDER BY meghatározza a sorrendjüket. A SELECT a kiválasztott oszlopokat olvassa. Ebben a példában sem a státuszokat, sem a tárolt rekordok számát nem módosítja."
+      },
+      "code": "CREATE TABLE tasks (id INTEGER PRIMARY KEY, status TEXT NOT NULL);\nINSERT INTO tasks VALUES (1, 'open'), (2, 'done'), (3, 'open');\nSELECT id FROM tasks WHERE status = 'open' ORDER BY id;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-08-3",
+      "revision": 1,
+      "topic": "Grundlegende Datenbankoperationen",
+      "source": {
+        "topicId": "LAP-16-08",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/08_Grundlegende_Datenbankoperationen/README.md",
+        "slug": "16-08-grundlegende_datenbankoperationen"
+      },
+      "question": "Welche Zeilen liefert das SELECT nach dieser SQLite-Aktualisierung?",
+      "answers": [
+        "(1, 2) und (2, 4)",
+        "(1, 7) und (2, 9)",
+        "(1, 5) und (2, 4)",
+        "(1, 7) und (2, 4)"
+      ],
+      "correct": 3,
+      "explanation": "WHERE id = 1 begrenzt die Änderung auf einen Datensatz. SET quantity = quantity + 2 berechnet dessen neuen Wert aus dem bisherigen Wert 5. Die zweite Zeile bleibt unverändert. UPDATE legt hier keine zusätzliche Zeile an.",
+      "hu": {
+        "question": "Mely sorokat adja vissza a SELECT az SQLite-módosítás után?",
+        "answers": [
+          "(1, 2) és (2, 4)",
+          "(1, 7) és (2, 9)",
+          "(1, 5) és (2, 4)",
+          "(1, 7) és (2, 4)"
+        ],
+        "explanation": "A WHERE id = 1 egyetlen rekordra korlátozza a módosítást. A SET quantity = quantity + 2 az eddigi 5-ös értékből számolja az új mennyiséget. A második sor változatlan marad. Az UPDATE itt nem hoz létre új sort."
+      },
+      "code": "CREATE TABLE stock (id INTEGER PRIMARY KEY, quantity INTEGER NOT NULL);\nINSERT INTO stock VALUES (1, 5), (2, 4);\nUPDATE stock SET quantity = quantity + 2 WHERE id = 1;\nSELECT id, quantity FROM stock ORDER BY id;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-08-4",
+      "revision": 1,
+      "topic": "Grundlegende Datenbankoperationen",
+      "source": {
+        "topicId": "LAP-16-08",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/08_Grundlegende_Datenbankoperationen/README.md",
+        "slug": "16-08-grundlegende_datenbankoperationen"
+      },
+      "question": "Das Beispiel läuft in einer wegwerfbaren SQLite-Datenbank. Welche beiden Anzahlen liefern die SELECT-Anweisungen nacheinander?",
+      "answers": [
+        "2, dann 2",
+        "0, dann 2",
+        "0, dann 0",
+        "Ein Fehler, weil DELETE immer ein WHERE benötigt."
+      ],
+      "correct": 1,
+      "explanation": "DELETE ohne WHERE entfernt hier alle Zeilen, aber nicht die Tabelle. Da die Löschung innerhalb der noch offenen Transaktion liegt, stellt ROLLBACK die beiden zuvor gespeicherten Zeilen wieder her. Nach einem COMMIT wäre dieses ROLLBACK keine nachträgliche Wiederherstellung.",
+      "hu": {
+        "question": "A példa egy eldobható SQLite-adatbázisban fut. Milyen két darabszámot adnak vissza egymás után a SELECT utasítások?",
+        "answers": [
+          "2, majd 2",
+          "0, majd 2",
+          "0, majd 0",
+          "Hibát kapunk, mert a DELETE mindig igényel WHERE feltételt."
+        ],
+        "explanation": "A WHERE nélküli DELETE itt minden sort eltávolít, de a táblát megtartja. A törlés még nyitott tranzakción belül történt, ezért a ROLLBACK visszaállítja a korábban tárolt két sort. Egy COMMIT után ez a ROLLBACK már nem lenne utólagos helyreállítás."
+      },
+      "code": "CREATE TABLE notes (id INTEGER PRIMARY KEY);\nINSERT INTO notes VALUES (1), (2);\nBEGIN;\nDELETE FROM notes;\nSELECT COUNT(*) FROM notes;\nROLLBACK;\nSELECT COUNT(*) FROM notes;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          0
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-08-5",
+      "revision": 1,
+      "topic": "Grundlegende Datenbankoperationen",
+      "source": {
+        "topicId": "LAP-16-08",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/08_Grundlegende_Datenbankoperationen/README.md",
+        "slug": "16-08-grundlegende_datenbankoperationen"
+      },
+      "question": "Eine Anwendung soll einen Artikel nur dann verkaufen, wenn noch Bestand vorhanden ist, und den Verkauf zusammen mit der Bestandsänderung speichern. Welche Beschreibung passt zu einer zuverlässigen Umsetzung?",
+      "answers": [
+        "Zuerst den Verkauf speichern; ein späterer SELECT kann die Bestandsänderung ersetzen.",
+        "Den Bestand im Browser lesen und beide Änderungen unabhängig voneinander senden.",
+        "Bedingung und Änderungen gegen konkurrierende Zugriffe absichern und die zusammengehörigen Änderungen gemeinsam bestätigen oder zurücknehmen.",
+        "Nur die Reihenfolge INSERT vor UPDATE festlegen; dadurch werden parallele Verkäufe automatisch verhindert."
+      ],
+      "correct": 2,
+      "explanation": "CRUD ist das Handwerkszeug für den fachlichen Ablauf. Zusätzlich braucht dieser Ablauf eine Transaktion und eine passende Absicherung der Bestandsprüfung, etwa eine bedingte Aktualisierung mit Prüfung der betroffenen Zeilen. Ein vorheriges SELECT allein reserviert noch keinen Bestand.",
+      "hu": {
+        "question": "Egy alkalmazás csak akkor adhat el egy terméket, ha van készlet, és az eladást a készletváltozással együtt kell mentenie. Melyik leírás illik a megbízható megvalósításhoz?",
+        "answers": [
+          "Először mentse az eladást; egy későbbi SELECT kiválthatja a készlet módosítását.",
+          "Olvassa ki a készletet a böngészőben, majd küldje el egymástól függetlenül a két módosítást.",
+          "Védje a feltétel ellenőrzését és a módosításokat a párhuzamos hozzáféréstől, majd együtt véglegesítse vagy vonja vissza az összetartozó változásokat.",
+          "Csak az INSERT, majd UPDATE sorrendet kell rögzíteni; ez automatikusan megakadályozza a párhuzamos eladásokat."
+        ],
+        "explanation": "A CRUD a folyamat alapműveleteit adja. Ehhez az üzleti folyamathoz tranzakció és a készletellenőrzés megfelelő védelme is kell, például feltételes módosítás az érintett sorok számának ellenőrzésével. Egy előzetes SELECT önmagában még nem foglal készletet."
+      }
+    },
+    {
+      "id": "lap-LAP-16-09-1",
+      "revision": 1,
+      "topic": "Erste drei Normalformen",
+      "source": {
+        "topicId": "LAP-16-09",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/09_Erste_drei_Normalformen/README.md",
+        "slug": "16-09-erste_drei_normalformen"
+      },
+      "question": "Eine Bestellung kann beliebig viele Produkte enthalten. Das bisherige Modell speichert product1, product2 und product3 in einer Bestellzeile. Welche Umgestaltung beseitigt diese wiederholte Attributgruppe sinnvoll?",
+      "answers": [
+        "Alle Produkte als kommagetrennten Text in einer einzigen Spalte speichern.",
+        "Eine Bestellposition pro Produkt in einer eigenen Tabelle speichern, mit Verweis auf die Bestellung.",
+        "Zusätzliche Spalten bis product100 anlegen, damit genug Platz vorhanden ist.",
+        "Die drei Produktspalten behalten und nur eine eindeutige Bestell-ID ergänzen."
+      ],
+      "correct": 1,
+      "explanation": "Eine eigene Positionstabelle bildet beliebig viele Positionen als Zeilen ab. Unter der Regel 'jedes Produkt höchstens einmal je Bestellung' kann das Paar aus Bestell-ID und Produkt-ID eine Position identifizieren. Die 1. Normalform richtet sich nach dem gewählten Wertebereich; sie verlangt etwa nicht, jedes Datum in Tag, Monat und Jahr zu zerlegen.",
+      "hu": {
+        "question": "Egy rendelés tetszőleges számú terméket tartalmazhat. A jelenlegi modell product1, product2 és product3 oszlopokat tárol egy rendelési sorban. Melyik átalakítás szünteti meg ésszerűen ezt az ismétlődő attribútumcsoportot?",
+        "answers": [
+          "Az összes terméket egyetlen oszlopban, vesszővel elválasztott szövegként tárolni.",
+          "Termékenként külön rendelési tételt tárolni egy önálló táblában, a rendelésre hivatkozva.",
+          "Új oszlopokat felvenni product100-ig, hogy legyen elég hely.",
+          "Megtartani a három termékoszlopot, és csak egy egyedi rendelésazonosítót hozzáadni."
+        ],
+        "explanation": "A külön tételtábla sorokkal ír le tetszőleges számú tételt. Ha egy termék rendelésenként legfeljebb egyszer szerepelhet, a rendelésazonosító és a termékazonosító együtt azonosíthat egy tételt. Az 1. normálforma a választott értéktartományhoz igazodik; például nem követeli meg, hogy minden dátumot napra, hónapra és évre bontsunk."
+      }
+    },
+    {
+      "id": "lap-LAP-16-09-2",
+      "revision": 1,
+      "topic": "Erste drei Normalformen",
+      "source": {
+        "topicId": "LAP-16-09",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/09_Erste_drei_Normalformen/README.md",
+        "slug": "16-09-erste_drei_normalformen"
+      },
+      "question": "In order_items ist (order_id, product_id) der einzige Kandidatenschlüssel. quantity gehört zur Kombination, product_name hängt laut Geschäftsregel nur von product_id ab. Welche Änderung behebt diese Verletzung der 2. Normalform?",
+      "answers": [
+        "product_name in jeder Position beibehalten und nur alphabetisch sortieren.",
+        "quantity in die Produkttabelle verschieben, weil alle Mengen Zahlen sind.",
+        "product_id entfernen und product_name als zusätzlichen Schlüsselteil verwenden.",
+        "product_name in products(product_id, product_name) auslagern und product_id in order_items behalten."
+      ],
+      "correct": 3,
+      "explanation": "product_name hängt nur von einem echten Teil des zusammengesetzten Kandidatenschlüssels ab. Das ist eine partielle Abhängigkeit. Die Produkttabelle speichert den Produktnamen an der passenden Stelle; die Positionsmenge bleibt bei der Kombination aus Bestellung und Produkt.",
+      "hu": {
+        "question": "Az order_items egyetlen kulcsjelöltje az (order_id, product_id) pár. A quantity ehhez a párhoz tartozik, a product_name viszont az üzleti szabály szerint csak a product_id-től függ. Melyik változtatás szünteti meg a 2. normálforma e megsértését?",
+        "answers": [
+          "A product_name minden tételben megmarad, csak ábécérendbe rendezzük.",
+          "A quantity a terméktáblába kerül, mert minden mennyiség szám.",
+          "Elhagyjuk a product_id-t, és a product_name lesz egy további kulcsrész.",
+          "A product_name a products(product_id, product_name) táblába kerül, a product_id az order_items táblában is megmarad."
+        ],
+        "explanation": "A product_name az összetett kulcsjelölt valódi részhalmazától függ. Ez részleges függés. A terméktábla a megfelelő helyen tárolja a termék nevét; a tétel mennyisége továbbra is a rendelés és a termék párosához tartozik."
+      }
+    },
+    {
+      "id": "lap-LAP-16-09-3",
+      "revision": 1,
+      "topic": "Erste drei Normalformen",
+      "source": {
+        "topicId": "LAP-16-09",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/09_Erste_drei_Normalformen/README.md",
+        "slug": "16-09-erste_drei_normalformen"
+      },
+      "question": "orders enthält order_id, customer_id und current_customer_name. Jede Bestellung gehört genau einem Kunden; dessen aktueller Name wird durch customer_id bestimmt. Wo sollte dieser aktuelle Name bei einer Normalisierung zur 3. Normalform liegen?",
+      "answers": [
+        "In customers, dessen Schlüssel customer_id ist; orders behält den Fremdschlüssel.",
+        "In jeder Bestellung, weil order_id die Zeile bereits eindeutig macht.",
+        "In einer neuen Spalte customer_name_copy innerhalb jeder Bestellung.",
+        "In der Bestell-ID selbst, damit keine zusätzliche Tabelle nötig ist."
+      ],
+      "correct": 0,
+      "explanation": "Der aktuelle Kundenname hängt in diesem Modell über customer_id von order_id ab. Die Kundentabelle vermeidet diese transitive Abhängigkeit im Bestelldatensatz. Ein ausdrücklich benötigter historischer Rechnungsname wäre dagegen eine andere fachliche Information und muss gesondert modelliert werden.",
+      "hu": {
+        "question": "Az orders táblában order_id, customer_id és current_customer_name szerepel. Minden rendelés pontosan egy ügyfélhez tartozik; az ügyfél aktuális nevét a customer_id határozza meg. Hová kerüljön ez az aktuális név a 3. normálformára hozáskor?",
+        "answers": [
+          "A customer_id kulcsú customers táblába; az orders megtartja az idegen kulcsot.",
+          "Minden rendelésbe, mert az order_id már egyedivé teszi a sort.",
+          "Egy új customer_name_copy oszlopba, minden rendelésben.",
+          "Magába a rendelésazonosítóba, hogy ne kelljen új tábla."
+        ],
+        "explanation": "Ebben a modellben az aktuális ügyfélnév a customer_id-n keresztül függ az order_id-től. Az ügyféltábla megszünteti ezt a tranzitív függést a rendelési rekordban. Egy külön megőrzendő, korabeli számlázási név más üzleti adat lenne, amelyet ennek megfelelően kell modellezni."
+      }
+    },
+    {
+      "id": "lap-LAP-16-09-4",
+      "revision": 1,
+      "topic": "Erste drei Normalformen",
+      "source": {
+        "topicId": "LAP-16-09",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/09_Erste_drei_Normalformen/README.md",
+        "slug": "16-09-erste_drei_normalformen"
+      },
+      "question": "Zu einer Tabelle mit dem Kandidatenschlüssel (order_id, product_id) kommt eine künstliche item_id als Primärschlüssel hinzu. Das ursprüngliche Paar bleibt eindeutig; product_name hängt weiterhin nur von product_id ab. Was folgt für die Normalisierung?",
+      "answers": [
+        "Der neue einspaltige Primärschlüssel garantiert automatisch die 3. Normalform.",
+        "Alle bisherigen funktionalen Abhängigkeiten verschwinden mit dem Schlüsselwechsel.",
+        "Die zusätzliche ID allein behebt die Abhängigkeit nicht; auch die weiteren Kandidatenschlüssel müssen betrachtet werden.",
+        "Die Tabelle verliert durch eine künstliche ID grundsätzlich die 1. Normalform."
+      ],
+      "correct": 2,
+      "explanation": "Eine technische ID erleichtert das Identifizieren einer Zeile, ändert aber nicht die fachlichen Abhängigkeiten. Für die 2. Normalform zählen alle Kandidatenschlüssel, nicht nur der ausgewählte Primärschlüssel. product_name gehört weiterhin zum Produkt und nicht zur einzelnen Bestellposition.",
+      "hu": {
+        "question": "Az (order_id, product_id) kulcsjelöltű táblához egy mesterséges item_id elsődleges kulcsot adunk. Az eredeti pár továbbra is egyedi; a product_name továbbra is csak a product_id-től függ. Mi következik ebből a normalizálásra nézve?",
+        "answers": [
+          "Az új, egyoszlopos elsődleges kulcs automatikusan garantálja a 3. normálformát.",
+          "A kulcs cseréjével minden korábbi funkcionális függés megszűnik.",
+          "Az új ID önmagában nem oldja meg a függést; a többi kulcsjelöltet is vizsgálni kell.",
+          "A mesterséges ID miatt a tábla szükségszerűen elveszíti az 1. normálformát."
+        ],
+        "explanation": "Egy technikai ID megkönnyíti a sor azonosítását, de nem változtatja meg az üzleti függéseket. A 2. normálformánál minden kulcsjelölt számít, nem csak a kiválasztott elsődleges kulcs. A product_name továbbra is a termékhez, nem az egyes rendelési tételekhez tartozik."
+      }
+    },
+    {
+      "id": "lap-LAP-16-09-5",
+      "revision": 1,
+      "topic": "Erste drei Normalformen",
+      "source": {
+        "topicId": "LAP-16-09",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/09_Erste_drei_Normalformen/README.md",
+        "slug": "16-09-erste_drei_normalformen"
+      },
+      "question": "In einer kleinen Beispieltabelle hat jeder Nachname zufällig genau eine Postleitzahl. Darf daraus surname → postal_code als fachliche funktionale Abhängigkeit für das Datenmodell abgeleitet werden?",
+      "answers": [
+        "Ja, sobald in der aktuellen Tabelle keine Ausnahme vorkommt.",
+        "Nein; maßgeblich ist, ob eine Geschäftsregel diese Zuordnung für alle zulässigen Daten garantiert.",
+        "Ja, wenn surname als TEXT und postal_code als Zahl gespeichert wird.",
+        "Nein; funktionale Abhängigkeiten können nur zwischen künstlichen IDs bestehen."
+      ],
+      "correct": 1,
+      "explanation": "Eine funktionale Abhängigkeit beschreibt eine Regel für alle zulässigen Zustände. Zufällig passende Beispieldaten beweisen sie nicht: Zwei Personen mit demselben Nachnamen dürfen an unterschiedlichen Orten wohnen. Solche Abhängigkeiten werden aus der Bedeutung und den Regeln der Daten abgeleitet.",
+      "hu": {
+        "question": "Egy kis mintatáblában véletlenül minden vezetéknévhez pontosan egy irányítószám tartozik. Levezethető ebből a surname → postal_code üzleti funkcionális függés az adatmodellhez?",
+        "answers": [
+          "Igen, ha az aktuális táblában nincs kivétel.",
+          "Nem; az számít, hogy üzleti szabály garantálja-e ezt a hozzárendelést minden megengedett adat esetén.",
+          "Igen, ha a surname TEXT, a postal_code pedig szám típusú.",
+          "Nem; funkcionális függés csak mesterséges ID-k között létezhet."
+        ],
+        "explanation": "A funkcionális függés minden megengedett állapotra érvényes szabályt ír le. Az esetlegesen illeszkedő mintaadatok nem bizonyítják: két azonos vezetéknevű ember lakhat különböző településeken. A függéseket az adatok jelentéséből és a rájuk vonatkozó szabályokból vezetjük le."
+      }
+    },
+    {
+      "id": "lap-LAP-16-10-1",
+      "revision": 1,
+      "topic": "Primaerschluessel Fremdschluessel Relationen",
+      "source": {
+        "topicId": "LAP-16-10",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/10_Primaerschluessel_Fremdschluessel_Relationen/README.md",
+        "slug": "16-10-primaerschluessel_fremdschluessel_relationen"
+      },
+      "question": "Die SQLite-Tabelle enthält bereits die beiden gezeigten Zeilen. Welches weitere Wertepaar wäre bezüglich der deklarierten Schlüssel- und NOT-NULL-Regeln zulässig?",
+      "answers": [
+        "(1, 10)",
+        "(NULL, 12)",
+        "(1, NULL)",
+        "(2, 10)"
+      ],
+      "correct": 3,
+      "explanation": "Der zusammengesetzte Primärschlüssel verlangt eindeutige Paare. Einzelne Werte dürfen sich wiederholen, solange die Kombination neu ist. Beide Spalten sind hier ausdrücklich NOT NULL. Das ist bei gewöhnlichen SQLite-Tabellen auch für solche Primärschlüssel wichtig.",
+      "hu": {
+        "question": "Az SQLite-tábla már tartalmazza a bemutatott két sort. Melyik új értékpár felelne meg a deklarált kulcs- és NOT NULL szabályoknak?",
+        "answers": [
+          "(1, 10)",
+          "(NULL, 12)",
+          "(1, NULL)",
+          "(2, 10)"
+        ],
+        "explanation": "Az összetett elsődleges kulcs egyedi párokat követel meg. Az egyes értékek ismétlődhetnek, ha a kombináció új. Itt mindkét oszlop kifejezetten NOT NULL. A hagyományos SQLite-tábláknál ilyen elsődleges kulcsok esetén is fontos ez a kikötés."
+      },
+      "code": "CREATE TABLE memberships (\n  student_id INTEGER NOT NULL,\n  course_id INTEGER NOT NULL,\n  PRIMARY KEY (student_id, course_id)\n);\nINSERT INTO memberships VALUES (1, 10), (1, 11);",
+      "codeLanguage": "sql",
+      "expectedRows": []
+    },
+    {
+      "id": "lap-LAP-16-10-2",
+      "revision": 1,
+      "topic": "Primaerschluessel Fremdschluessel Relationen",
+      "source": {
+        "topicId": "LAP-16-10",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/10_Primaerschluessel_Fremdschluessel_Relationen/README.md",
+        "slug": "16-10-primaerschluessel_fremdschluessel_relationen"
+      },
+      "question": "Was liefert das letzte SELECT? Die Fremdschlüsselprüfung ist in dieser frischen SQLite-Verbindung aktiviert.",
+      "answers": [
+        "Die Zeile (2, NULL).",
+        "Keine Zeile, weil auch der Mitarbeiter gelöscht wird.",
+        "Die Zeile (2, 1), obwohl die Führungskraft nicht mehr existiert.",
+        "DELETE wird abgelehnt, weil jeder Fremdschlüssel das Löschen grundsätzlich verbietet."
+      ],
+      "correct": 0,
+      "explanation": "Der Fremdschlüssel verweist auf dieselbe Tabelle. ON DELETE SET NULL behält den Mitarbeiter und leert dessen Verweis auf die gelöschte Führungskraft. manager_id erlaubt dafür NULL. Ob SET NULL, RESTRICT oder CASCADE fachlich passt, hängt von der Bedeutung der Beziehung ab.",
+      "hu": {
+        "question": "Mit ad vissza az utolsó SELECT? Az idegen kulcsok ellenőrzése engedélyezve van ebben a friss SQLite-kapcsolatban.",
+        "answers": [
+          "A (2, NULL) sort.",
+          "Egyetlen sort sem, mert a munkatárs is törlődik.",
+          "A (2, 1) sort, bár a vezető már nem létezik.",
+          "A DELETE elutasításra kerül, mert minden idegen kulcs feltétlenül tiltja a törlést."
+        ],
+        "explanation": "Az idegen kulcs ugyanarra a táblára hivatkozik. Az ON DELETE SET NULL megtartja a munkatársat, és kiüríti a törölt vezetőre mutató hivatkozását. A manager_id ehhez megengedi a NULL értéket. Az üzleti kapcsolat jelentése dönti el, hogy SET NULL, RESTRICT vagy CASCADE illik-e hozzá."
+      },
+      "code": "PRAGMA foreign_keys = ON;\nCREATE TABLE employees (\n  id INTEGER PRIMARY KEY,\n  manager_id INTEGER REFERENCES employees(id) ON DELETE SET NULL\n);\nINSERT INTO employees VALUES (1, NULL), (2, 1);\nDELETE FROM employees WHERE id = 1;\nSELECT id, manager_id FROM employees ORDER BY id;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          2,
+          null
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-10-3",
+      "revision": 1,
+      "topic": "Primaerschluessel Fremdschluessel Relationen",
+      "source": {
+        "topicId": "LAP-16-10",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/10_Primaerschluessel_Fremdschluessel_Relationen/README.md",
+        "slug": "16-10-primaerschluessel_fremdschluessel_relationen"
+      },
+      "question": "Welche Aussage unterscheidet eine Relation im relationalen Modell von einer Beziehung zwischen Entitäten?",
+      "answers": [
+        "Eine Relation ist ausschließlich ein Fremdschlüssel zwischen zwei Tabellen.",
+        "Relation bezeichnet nur eine 1:n-Beziehung; n:m heißt Tabelle.",
+        "Eine Relation ist eine Menge von Tupeln mit festgelegten Attributen; eine Beziehung beschreibt beispielsweise die Zuordnung von Kunden zu Bestellungen.",
+        "Eine Relation ist die physische Sortierreihenfolge der Zeilen auf dem Datenträger."
+      ],
+      "correct": 2,
+      "explanation": "Im relationalen Modell beschreibt eine Relation strukturierte Tupel; eine Tabelle ist ihre übliche Darstellung. Eine fachliche Beziehung wird beispielsweise durch Fremdschlüssel umgesetzt. SQL-Tabellen und Abfrageergebnisse können ohne entsprechende Regeln auch Duplikate enthalten, die das mathematische Mengenmodell nicht kennt.",
+      "hu": {
+        "question": "Melyik állítás különbözteti meg a relációs modell relációját az egyedek közötti kapcsolattól?",
+        "answers": [
+          "A reláció kizárólag két tábla közötti idegen kulcs.",
+          "A reláció csak 1:n kapcsolatot jelent; az n:m neve tábla.",
+          "A reláció meghatározott attribútumú tuple-ök, azaz adatsorok halmaza; a kapcsolat például ügyfelek és rendelések összetartozását írja le.",
+          "A reláció a sorok fizikai rendezési sorrendje az adathordozón."
+        ],
+        "explanation": "A relációs modellben a reláció strukturált adatsorokat ír le; szokásos megjelenítése egy tábla. Az üzleti kapcsolatot például idegen kulcsokkal valósítjuk meg. Az SQL-táblák és lekérdezési eredmények megfelelő szabályok nélkül ismétlődő sorokat is tartalmazhatnak, szemben a matematikai halmazmodellel."
+      }
+    },
+    {
+      "id": "lap-LAP-16-10-4",
+      "revision": 1,
+      "topic": "Primaerschluessel Fremdschluessel Relationen",
+      "source": {
+        "topicId": "LAP-16-10",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/10_Primaerschluessel_Fremdschluessel_Relationen/README.md",
+        "slug": "16-10-primaerschluessel_fremdschluessel_relationen"
+      },
+      "question": "Warum sind die beiden Bestellungen zulässig, und welches Ergebnis liefert die Abfrage in SQLite?",
+      "answers": [
+        "Ein Fremdschlüssel ist automatisch eindeutig; die zweite Bestellung wird abgelehnt.",
+        "Mehrere Bestellungen dürfen denselben gültigen Kunden referenzieren; das Ergebnis ist (7, 2).",
+        "Der Fremdschlüssel legt für jede Bestellung einen neuen Kunden an; das Ergebnis ist (7, 1).",
+        "GROUP BY entfernt eine Bestellung dauerhaft; danach bleibt eine Zeile in orders."
+      ],
+      "correct": 1,
+      "explanation": "Bei einer 1:n-Beziehung liegt der Fremdschlüssel auf der n-Seite. Hier muss customer_id auf einen vorhandenen Kunden zeigen, darf sich in orders aber wiederholen. COUNT(*) zählt die zwei Bestellungen dieser Kundengruppe; die Abfrage verändert die Tabellen nicht.",
+      "hu": {
+        "question": "Miért megengedett a két rendelés, és milyen eredményt ad a lekérdezés SQLite-ban?",
+        "answers": [
+          "Az idegen kulcs automatikusan egyedi; a második rendelés elutasításra kerül.",
+          "Több rendelés hivatkozhat ugyanarra a létező ügyfélre; az eredmény (7, 2).",
+          "Az idegen kulcs minden rendeléshez új ügyfelet hoz létre; az eredmény (7, 1).",
+          "A GROUP BY végleg eltávolít egy rendelést; utána egy sor marad az orders táblában."
+        ],
+        "explanation": "Az 1:n kapcsolat idegen kulcsa az n oldalon van. Itt a customer_id-nek létező ügyfélre kell mutatnia, de az orders táblában ismétlődhet. A COUNT(*) az ügyfélcsoport két rendelését számolja meg; a lekérdezés nem változtatja meg a táblákat."
+      },
+      "code": "PRAGMA foreign_keys = ON;\nCREATE TABLE customers (id INTEGER PRIMARY KEY);\nCREATE TABLE orders (\n  id INTEGER PRIMARY KEY,\n  customer_id INTEGER NOT NULL REFERENCES customers(id)\n);\nINSERT INTO customers VALUES (7);\nINSERT INTO orders VALUES (101, 7), (102, 7);\nSELECT customer_id, COUNT(*) FROM orders GROUP BY customer_id;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          7,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-10-5",
+      "revision": 1,
+      "topic": "Primaerschluessel Fremdschluessel Relationen",
+      "source": {
+        "topicId": "LAP-16-10",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/10_Primaerschluessel_Fremdschluessel_Relationen/README.md",
+        "slug": "16-10-primaerschluessel_fremdschluessel_relationen"
+      },
+      "question": "Studierende können mehrere Kurse besuchen, Kurse mehrere Studierende. Jede Zuordnung darf nur einmal vorkommen. Welche zwei Regeln fehlen in dieser SQLite-Tabelle, damit auch die referenzierten Personen und Kurse existieren müssen?",
+      "answers": [
+        "Je ein UNIQUE auf student_id und course_id.",
+        "Ein zusätzlicher Index nur auf semester.",
+        "Ein eigener Primärschlüssel für semester.",
+        "Ein Fremdschlüssel von student_id nach students(id) und einer von course_id nach courses(id)."
+      ],
+      "correct": 3,
+      "explanation": "Die Zwischentabelle bildet die n:m-Beziehung ab. Ihr zusammengesetzter Primärschlüssel verhindert doppelte Zuordnungen, prüft aber allein nicht die Existenz von Person und Kurs. Dafür braucht sie die zwei Fremdschlüssel und aktivierte Fremdschlüsselprüfung. semester ist eine Eigenschaft der Zuordnung. Die Regel dieses Beispiels schließt wiederholte Einschreibungen in denselben Kurs aus.",
+      "hu": {
+        "question": "A hallgatók több kurzusra járhatnak, egy kurzusnak több hallgatója lehet. Minden hozzárendelés csak egyszer szerepelhet. Melyik két szabály hiányzik ebből az SQLite-táblából ahhoz, hogy a hivatkozott személynek és kurzusnak is léteznie kelljen?",
+        "answers": [
+          "Egy-egy UNIQUE a student_id és a course_id oszlopon.",
+          "Egy további index csak a semester oszlopon.",
+          "Egy külön elsődleges kulcs a semester számára.",
+          "Egy idegen kulcs a student_id-ről a students(id)-re, és egy a course_id-ről a courses(id)-re."
+        ],
+        "explanation": "A kapcsolótábla az n:m kapcsolatot írja le. Összetett elsődleges kulcsa megakadályozza az ismétlődő hozzárendelést, de önmagában nem ellenőrzi a személy és a kurzus létezését. Ehhez a két idegen kulcs és bekapcsolt idegenkulcs-ellenőrzés kell. A semester a kapcsolat tulajdonsága. E példa szabálya kizárja az ismételt felvételt ugyanarra a kurzusra."
+      },
+      "code": "CREATE TABLE enrollments (\n  student_id INTEGER NOT NULL,\n  course_id INTEGER NOT NULL,\n  semester TEXT NOT NULL,\n  PRIMARY KEY (student_id, course_id)\n);",
+      "codeLanguage": "sql",
+      "expectedRows": []
+    },
+    {
+      "id": "lap-LAP-16-11-1",
+      "revision": 1,
+      "topic": "Index Vor und Nachteile",
+      "source": {
+        "topicId": "LAP-16-11",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/11_Index_Vor_und_Nachteile/README.md",
+        "slug": "16-11-index_vor_und_nachteile"
+      },
+      "question": "Eine große Tabelle wird häufig nach customer_id durchsucht. Was stellt ein geeigneter Index grundsätzlich bereit?",
+      "answers": [
+        "Eine zusätzliche Zugriffsstruktur, die das Finden passender Datensätze erleichtern kann.",
+        "Eine automatisch aktualisierte Sicherung, aus der gelöschte Bestellungen wiederhergestellt werden.",
+        "Eine feste physische Reihenfolge, die jedes SELECT ohne ORDER BY übernehmen muss.",
+        "Eine neue fachliche Regel, die jede customer_id in der Tabelle eindeutig macht."
+      ],
+      "correct": 0,
+      "explanation": "Ein Index unterstützt den Zugriff auf Daten, etwa beim Filtern, Verbinden oder Sortieren. Ob der Optimierer ihn tatsächlich nutzt, hängt von Abfrage und Daten ab. Er ersetzt weder eine Sicherung noch ein ORDER BY; ein gewöhnlicher Index erzwingt auch keine Eindeutigkeit.",
+      "hu": {
+        "question": "Egy nagy táblában gyakran keresünk customer_id alapján. Mit biztosít alapvetően egy megfelelő index?",
+        "answers": [
+          "Kiegészítő elérési struktúrát, amely megkönnyítheti az illeszkedő rekordok megtalálását.",
+          "Automatikusan frissülő mentést, amelyből visszaállíthatók a törölt rendelések.",
+          "Rögzített fizikai sorrendet, amelyet minden SELECT-nek ORDER BY nélkül is követnie kell.",
+          "Új üzleti szabályt, amely a tábla minden customer_id értékét egyedivé teszi."
+        ],
+        "explanation": "Az index az adatok elérését segíti, például szűrésnél, összekapcsolásnál vagy rendezésnél. A lekérdezéstől és az adatoktól függ, hogy az optimalizáló valóban használja-e. Nem helyettesíti a mentést vagy az ORDER BY-t; a közönséges index egyediséget sem követel meg."
+      }
+    },
+    {
+      "id": "lap-LAP-16-11-2",
+      "revision": 1,
+      "topic": "Index Vor und Nachteile",
+      "source": {
+        "topicId": "LAP-16-11",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/11_Index_Vor_und_Nachteile/README.md",
+        "slug": "16-11-index_vor_und_nachteile"
+      },
+      "question": "Warum ist (customer_id, ordered_on) ein sinnvoller Indexkandidat für diese wiederkehrende Abfrage auf einer großen Tabelle? Die wenigen SQLite-Beispielzeilen dienen nur zum Lesen des Ergebnisses.",
+      "answers": [
+        "Weil das Anlegen eines Indexes alle späteren Schreibvorgänge überflüssig macht.",
+        "Weil dadurch jede Bestellung eines Kunden dasselbe Datum bekommen muss.",
+        "Weil zuerst ein Kunde und danach ein Datumsbereich innerhalb dieses Kunden gesucht wird.",
+        "Weil jeder Index unabhängig von der Spaltenreihenfolge jede Abfrage gleich stark beschleunigt."
+      ],
+      "correct": 2,
+      "explanation": "Die Abfrage schränkt die erste Indexspalte auf einen Wert ein und verwendet danach einen Bereich der zweiten Spalte. Das passt zur gewählten Reihenfolge. Die Beispielabfrage liefert nur ID 2. Den tatsächlichen Geschwindigkeitsgewinn prüft man mit repräsentativen Daten, Abfrageplan und Messung; diese drei Zeilen beweisen ihn nicht.",
+      "hu": {
+        "question": "Miért ésszerű indexjelölt a (customer_id, ordered_on) ehhez a nagy táblán rendszeresen futó lekérdezéshez? A kevés SQLite-mintasor csak az eredmény értelmezését segíti.",
+        "answers": [
+          "Mert egy index létrehozása feleslegessé tesz minden későbbi írást.",
+          "Mert ettől egy ügyfél minden rendelésének azonos dátumot kell kapnia.",
+          "Mert először egy ügyfelet, majd az ügyfél rendelésein belül egy dátumtartományt keresünk.",
+          "Mert az oszlopsorrendtől függetlenül minden index ugyanannyira gyorsít minden lekérdezést."
+        ],
+        "explanation": "A lekérdezés az első indexoszlopot egyetlen értékre szűkíti, majd a második oszlop tartományát használja. Ez illik a választott sorrendhez. A példa csak a 2-es ID-t adja vissza. A valódi gyorsulást életszerű adatokkal, végrehajtási tervvel és méréssel vizsgáljuk; ez a három sor nem bizonyítja."
+      },
+      "code": "CREATE TABLE orders (\n  id INTEGER PRIMARY KEY,\n  customer_id INTEGER NOT NULL,\n  ordered_on TEXT NOT NULL\n);\nINSERT INTO orders VALUES\n  (1, 7, '2026-01-10'), (2, 7, '2026-02-12'), (3, 8, '2026-02-12');\nCREATE INDEX idx_orders_customer_date ON orders(customer_id, ordered_on);\nSELECT id FROM orders\nWHERE customer_id = 7 AND ordered_on >= '2026-02-01'\nORDER BY ordered_on, id;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-11-3",
+      "revision": 1,
+      "topic": "Index Vor und Nachteile",
+      "source": {
+        "topicId": "LAP-16-11",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/11_Index_Vor_und_Nachteile/README.md",
+        "slug": "16-11-index_vor_und_nachteile"
+      },
+      "question": "Eine Anwendung schreibt sehr viele Messwerte und liest sie nur selten. Das Team möchte vorsorglich jede Spalte indexieren. Welcher Aufwand muss dabei berücksichtigt werden?",
+      "answers": [
+        "Indexe benötigen nur beim ersten SELECT Speicherplatz.",
+        "Jeder zusätzliche Index benötigt Speicher und kann bei betroffenen Schreibvorgängen zusätzliche Pflege verursachen.",
+        "Sobald ein Index existiert, müssen die eigentlichen Tabellenzeilen nicht mehr gespeichert werden.",
+        "Indexe machen nur Lesezugriffe langsamer; Schreibzugriffe bleiben grundsätzlich gleich schnell."
+      ],
+      "correct": 1,
+      "explanation": "Indexe werden aus Tabellendaten aufgebaut und bei relevanten INSERT-, UPDATE- und DELETE-Vorgängen mitgeführt. Ihr Nutzen muss diese Speicher- und Schreibkosten rechtfertigen. Bei vielen Schreibzugriffen wählt man Indexe deshalb anhand tatsächlicher wichtiger Abfragen und misst die Auswirkungen.",
+      "hu": {
+        "question": "Egy alkalmazás nagyon sok mérési értéket ír, és ritkán olvassa őket. A csapat elővigyázatosságból minden oszlopot indexelne. Milyen ráfordítással kell számolni?",
+        "answers": [
+          "Az indexek csak az első SELECT-nél foglalnak tárhelyet.",
+          "Minden további index tárhelyet igényel, és az érintett írásoknál karbantartási többletet okozhat.",
+          "Amint van index, a tényleges táblasorokat már nem kell tárolni.",
+          "Az indexek csak az olvasást lassítják; az írások szükségszerűen ugyanolyan gyorsak maradnak."
+        ],
+        "explanation": "Az indexek a tábla adataiból épülnek fel, és az őket érintő INSERT, UPDATE és DELETE műveleteknél követniük kell a változásokat. A hasznuknak indokolnia kell a tárhely- és írási költséget. Sok írásnál ezért valódi, fontos lekérdezések alapján választunk indexeket, és mérjük a hatásukat."
+      }
+    },
+    {
+      "id": "lap-LAP-16-11-4",
+      "revision": 1,
+      "topic": "Index Vor und Nachteile",
+      "source": {
+        "topicId": "LAP-16-11",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/11_Index_Vor_und_Nachteile/README.md",
+        "slug": "16-11-index_vor_und_nachteile"
+      },
+      "question": "Nach dem Anlegen eines Indexes verwendet der Optimierer für eine Abfrage auf fast alle Zeilen weiterhin einen Tabellenscan. Was ist der sinnvollste nächste Schritt?",
+      "answers": [
+        "Weitere identische Indexe anlegen, bis der Optimierer einen davon auswählt.",
+        "Aus dem Tabellenscan schließen, dass das Datenbanksystem beschädigt ist.",
+        "Den Index grundsätzlich erzwingen, weil ein Indexzugriff immer weniger Arbeit verursacht.",
+        "Abfrageplan, Datenverteilung und Laufzeit prüfen; bei vielen Treffern kann ein Scan günstiger sein."
+      ],
+      "correct": 3,
+      "explanation": "Ein Index ist eine mögliche Zugriffsroute. Wenn fast alle Zeilen gebraucht werden oder die Tabelle sehr klein ist, kann direktes Lesen günstiger sein. Entscheidend ist die gemessene Gesamtarbeit. EXPLAIN hilft beim Verständnis; Varianten wie EXPLAIN ANALYZE führen die untersuchte Anweisung tatsächlich aus und brauchen entsprechend eine sichere Testumgebung.",
+      "hu": {
+        "question": "Egy index létrehozása után az optimalizáló továbbra is táblabejárást választ egy majdnem minden sort érintő lekérdezéshez. Mi a legésszerűbb következő lépés?",
+        "answers": [
+          "További azonos indexeket létrehozni, amíg az optimalizáló választ egyet.",
+          "A táblabejárásból arra következtetni, hogy az adatbázis-kezelő megsérült.",
+          "Feltétlenül kikényszeríteni az indexet, mert az indexelérés mindig kevesebb munkával jár.",
+          "Megvizsgálni a tervet, az adatok eloszlását és a futásidőt; sok találatnál a bejárás kedvezőbb lehet."
+        ],
+        "explanation": "Az index egy lehetséges elérési út. Ha szinte minden sor kell, vagy a tábla nagyon kicsi, a közvetlen olvasás olcsóbb lehet. A teljes mért ráfordítás számít. Az EXPLAIN segít a terv értelmezésében; az EXPLAIN ANALYZE típusú változatok ténylegesen futtatják a vizsgált utasítást, ezért megfelelően biztonságos tesztkörnyezetet igényelnek."
+      }
+    },
+    {
+      "id": "lap-LAP-16-11-5",
+      "revision": 1,
+      "topic": "Index Vor und Nachteile",
+      "source": {
+        "topicId": "LAP-16-11",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/11_Index_Vor_und_Nachteile/README.md",
+        "slug": "16-11-index_vor_und_nachteile"
+      },
+      "question": "Welchen Wert liefert COUNT(*) in dieser frischen SQLite-Datenbank?",
+      "answers": [
+        "2, weil CREATE INDEX ohne UNIQUE gleiche email-Werte zulässt.",
+        "1, weil jeder Index doppelte Werte automatisch zusammenfasst.",
+        "0, weil eine indizierte Spalte nicht eingefügt werden darf.",
+        "Die zweite Zeile wird wegen des Indexes abgelehnt."
+      ],
+      "correct": 0,
+      "explanation": "Ein gewöhnlicher Index dient dem Zugriff und erzwingt keine Eindeutigkeit. Sollen E-Mail-Werte nach der fachlichen Regel eindeutig sein, braucht es eine entsprechende UNIQUE-Regel. Eine solche Regel und ihre mögliche technische Umsetzung durch einen Index sind unterschiedliche Betrachtungsebenen.",
+      "hu": {
+        "question": "Milyen értéket ad vissza a COUNT(*) ebben a friss SQLite-adatbázisban?",
+        "answers": [
+          "2-t, mert a UNIQUE nélküli CREATE INDEX megengedi az azonos email értékeket.",
+          "1-et, mert minden index automatikusan összevonja az ismétlődő értékeket.",
+          "0-t, mert indexelt oszlopba nem lehet beszúrni.",
+          "A második sor az index miatt elutasításra kerül."
+        ],
+        "explanation": "A közönséges index az elérést szolgálja, és nem követel egyediséget. Ha az üzleti szabály szerint az e-mail-értékeknek egyedinek kell lenniük, megfelelő UNIQUE szabály szükséges. Ez a szabály és az indexszel történő lehetséges technikai megvalósítása két külön nézőpont."
+      },
+      "code": "CREATE TABLE contacts (id INTEGER PRIMARY KEY, email TEXT NOT NULL);\nCREATE INDEX idx_contacts_email ON contacts(email);\nINSERT INTO contacts VALUES (1, 'team@example.test'), (2, 'team@example.test');\nSELECT COUNT(*) FROM contacts;",
+      "codeLanguage": "sql",
+      "expectedRows": [
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "lap-LAP-16-12-1",
+      "revision": 1,
+      "topic": "Freeware Datenbanken Vor und Nachteile",
+      "source": {
+        "topicId": "LAP-16-12",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/12_Freeware_Datenbanken_Vor_und_Nachteile/README.md",
+        "slug": "16-12-freeware_datenbanken_vor_und_nachteile"
+      },
+      "question": "Ein Lernprojekt wählt PostgreSQL für den eigenen Server. Welcher Vorteil ergibt sich aus dessen frei verfügbarer Open-Source-Ausgabe tatsächlich?",
+      "answers": [
+        "Alle Hosting-, Wartungs- und Wiederherstellungskosten entfallen.",
+        "Der Hersteller muss kostenlos einen Rund-um-die-Uhr-Support bereitstellen.",
+        "Für PostgreSQL selbst fällt keine Lizenzgebühr an, und sein Quellcode ist unter der PostgreSQL-Lizenz verfügbar.",
+        "Die Datenbank erfüllt unabhängig von ihrer Konfiguration automatisch sämtliche Sicherheitsanforderungen."
+      ],
+      "correct": 2,
+      "explanation": "Die frei verfügbare Software erleichtert Einstieg und Prüfung des Quellcodes. Betrieb, Schulung, Updates, Sicherung und Support bleiben eigene Aufgaben oder eingekaufte Leistungen. 'Kostenlos herunterladbar' und 'Open Source' sind außerdem keine Synonyme; bei jedem Produkt zählt die konkrete Lizenz.",
+      "hu": {
+        "question": "Egy tanulóprojekt PostgreSQL-t választ a saját szerverére. Melyik előny származik ténylegesen annak szabadon elérhető, nyílt forráskódú kiadásából?",
+        "answers": [
+          "Megszűnik minden tárhely-, karbantartási és helyreállítási költség.",
+          "A gyártó köteles díjmentes, éjjel-nappali támogatást adni.",
+          "Magáért a PostgreSQL-ért nincs licencdíj, és a forráskód a PostgreSQL-licenc alatt elérhető.",
+          "Az adatbázis a beállításaitól függetlenül automatikusan teljesít minden biztonsági követelményt."
+        ],
+        "explanation": "A szabadon elérhető szoftver megkönnyíti az indulást és a forráskód vizsgálatát. Az üzemeltetés, képzés, frissítés, mentés és támogatás saját feladat vagy megvásárolt szolgáltatás marad. Az ingyenes letöltés és a nyílt forráskód ráadásul nem szinonima; minden terméknél a konkrét licenc számít."
+      }
+    },
+    {
+      "id": "lap-LAP-16-12-2",
+      "revision": 1,
+      "topic": "Freeware Datenbanken Vor und Nachteile",
+      "source": {
+        "topicId": "LAP-16-12",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/12_Freeware_Datenbanken_Vor_und_Nachteile/README.md",
+        "slug": "16-12-freeware_datenbanken_vor_und_nachteile"
+      },
+      "question": "Ein Angebot für eine selbst betriebene Datenbank rechnet mit null Gesamtkosten, weil die Community-Ausgabe keine Lizenzgebühr verlangt. Welcher Posten fehlt in dieser Rechnung besonders?",
+      "answers": [
+        "Eine Pflichtgebühr für jeden SELECT, die bei allen Community-Ausgaben anfällt.",
+        "Arbeitszeit und Infrastruktur für Updates, Überwachung, Sicherungen und erprobte Wiederherstellung.",
+        "Der erneute Kauf jeder Tabelle nach einem Neustart.",
+        "Eine unvermeidbare Cloud-Abonnementgebühr, auch bei rein lokalem Betrieb."
+      ],
+      "correct": 1,
+      "explanation": "Die Gesamtbetriebskosten umfassen mehr als den Softwarepreis. Auch freie Datenbanken brauchen passend dimensionierte Infrastruktur, Fachwissen und regelmäßigen Betrieb. Ein bezahlter Supportvertrag kann sinnvoll sein, ist aber eine gesonderte Entscheidung und nicht automatisch Voraussetzung jeder Community-Ausgabe.",
+      "hu": {
+        "question": "Egy saját üzemeltetésű adatbázis ajánlata nulla összköltséggel számol, mert a Community kiadásért nincs licencdíj. Melyik tétel hiányzik különösen ebből a számításból?",
+        "answers": [
+          "Az összes Community kiadásnál kötelező, SELECT-enként fizetendő díj.",
+          "A frissítéshez, felügyelethez, mentéshez és kipróbált helyreállításhoz szükséges munkaidő és infrastruktúra.",
+          "Minden tábla újbóli megvásárlása újraindítás után.",
+          "Az elkerülhetetlen felhő-előfizetés akkor is, ha minden helyben fut."
+        ],
+        "explanation": "A teljes üzemeltetési költség több a szoftver áránál. A szabadon elérhető adatbázisokhoz is megfelelő infrastruktúra, szaktudás és rendszeres üzemeltetés kell. A fizetett támogatási szerződés hasznos lehet, de külön döntés, nem minden Community kiadás automatikus előfeltétele."
+      }
+    },
+    {
+      "id": "lap-LAP-16-12-3",
+      "revision": 1,
+      "topic": "Freeware Datenbanken Vor und Nachteile",
+      "source": {
+        "topicId": "LAP-16-12",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/12_Freeware_Datenbanken_Vor_und_Nachteile/README.md",
+        "slug": "16-12-freeware_datenbanken_vor_und_nachteile"
+      },
+      "question": "Welche Zuordnung beschreibt diese drei verfügbaren Datenbanklösungen zutreffend?",
+      "answers": [
+        "PostgreSQL und SQLite erfordern einen Cloud-Dienst; MySQL Community ist nur ein Browserwerkzeug.",
+        "SQLite ist ein Server für beliebig viele gleichzeitige Schreibtransaktionen; PostgreSQL ist ein Dateiformat.",
+        "PostgreSQL, MySQL Community und SQLite verwenden dieselbe Lizenz und dieselbe Betriebsarchitektur.",
+        "PostgreSQL und MySQL Community können als Datenbankserver laufen; SQLite wird als Bibliothek in eine Anwendung eingebettet."
+      ],
+      "correct": 3,
+      "explanation": "PostgreSQL verwendet die PostgreSQL-Lizenz, MySQL Community ist unter der GPL verfügbar, und der veröffentlichte SQLite-Kern ist Public Domain. Die Lösungen unterscheiden sich sowohl in den Lizenzbedingungen als auch im Betrieb. Ihre freie Verfügbarkeit macht sie nicht zu austauschbaren Kopien.",
+      "hu": {
+        "question": "Melyik párosítás írja le helyesen ezt a három elérhető adatbázis-megoldást?",
+        "answers": [
+          "A PostgreSQL és az SQLite felhőszolgáltatást igényel; a MySQL Community csak böngészős eszköz.",
+          "Az SQLite tetszőlegesen sok egyidejű írási tranzakciót kezelő szerver; a PostgreSQL fájlformátum.",
+          "A PostgreSQL, a MySQL Community és az SQLite azonos licencet és működési architektúrát használ.",
+          "A PostgreSQL és a MySQL Community adatbázisszerverként futhat; az SQLite könyvtárként épül be az alkalmazásba."
+        ],
+        "explanation": "A PostgreSQL a PostgreSQL-licencet használja, a MySQL Community GPL alatt érhető el, a közzétett SQLite-mag pedig közkincs, azaz Public Domain. A megoldások licencfeltételeikben és működésükben is különböznek. A szabad elérhetőség nem teszi őket egymással felcserélhető másolatokká."
+      }
+    },
+    {
+      "id": "lap-LAP-16-12-4",
+      "revision": 1,
+      "topic": "Freeware Datenbanken Vor und Nachteile",
+      "source": {
+        "topicId": "LAP-16-12",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/12_Freeware_Datenbanken_Vor_und_Nachteile/README.md",
+        "slug": "16-12-freeware_datenbanken_vor_und_nachteile"
+      },
+      "question": "Zwei Anwendungen brauchen eine Datenbank: eine persönliche Offline-Notizapp und ein zentraler Dienst mit vielen konkurrierenden Schreibzugriffen. Welche Auswahlstrategie passt am besten?",
+      "answers": [
+        "SQLite für die eingebettete Offline-App prüfen und für den zentralen Dienst ein Client-Server-DBMS unter realistischen Last- und Betriebsanforderungen vergleichen.",
+        "Für beide ausschließlich den kleinsten Download wählen; Nebenläufigkeit betrifft nur die Oberfläche.",
+        "Für beide zwingend dieselbe Datenbank wählen, weil unterschiedliche Anforderungen die Auswahl nicht beeinflussen.",
+        "Für die Offline-App immer einen entfernten Server voraussetzen und für den zentralen Dienst Transaktionen abschalten."
+      ],
+      "correct": 0,
+      "explanation": "Die Architektur muss zum Einsatz passen. SQLite eignet sich für viele eingebettete, lokale Aufgaben. Viele gleichzeitige Schreibzugriffe können für ein Client-Server-System sprechen. Das ist keine starre Nutzerzahlgrenze: Schreibmuster, Datenmenge, Sicherung, Rechte und vorhandenes Betriebswissen gehören zur Entscheidung.",
+      "hu": {
+        "question": "Két alkalmazásnak kell adatbázis: egy személyes, offline jegyzetappnak és egy központi szolgáltatásnak sok párhuzamos írással. Melyik választási módszer illik legjobban hozzájuk?",
+        "answers": [
+          "Az offline apphoz megvizsgálni az SQLite-ot, a központi szolgáltatáshoz pedig valós terhelési és üzemeltetési igények alapján összevetni a kliens-szerver adatbázis-kezelőket.",
+          "Mindkettőhöz kizárólag a legkisebb letöltést választani; a párhuzamos működés csak a felületet érinti.",
+          "Mindkettőhöz kötelezően ugyanazt választani, mert az eltérő követelmények nem befolyásolják a döntést.",
+          "Az offline apphoz mindig távoli szervert előírni, a központi szolgáltatásnál pedig kikapcsolni a tranzakciókat."
+        ],
+        "explanation": "Az architektúrának a felhasználáshoz kell illenie. Az SQLite sok beágyazott, helyi feladatra alkalmas. Sok egyidejű írás indokolhat kliens-szerver rendszert. Ez nem merev felhasználószám-határ: az írási mintázat, adatmennyiség, mentés, jogosultságok és az üzemeltetési tudás is része a döntésnek."
+      }
+    },
+    {
+      "id": "lap-LAP-16-12-5",
+      "revision": 1,
+      "topic": "Freeware Datenbanken Vor und Nachteile",
+      "source": {
+        "topicId": "LAP-16-12",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/12_Freeware_Datenbanken_Vor_und_Nachteile/README.md",
+        "slug": "16-12-freeware_datenbanken_vor_und_nachteile"
+      },
+      "question": "Ein Anbieter bietet Community- und Enterprise-Ausgaben an. Das Team benötigt verbindliche Reaktionszeiten bei Störungen. Was sollte es vergleichen?",
+      "answers": [
+        "Nur die Namen: Enterprise garantiert bei jedem Anbieter automatisch dieselben Leistungen.",
+        "Nur die Lizenzgebühr; zugesagte Unterstützung ist bei beiden Ausgaben zwangsläufig identisch.",
+        "Die konkreten Funktionen, Lizenzbedingungen und vertraglich zugesagten Supportleistungen der angebotenen Ausgaben.",
+        "Nur die Zahl der Tabellen; eine Community-Ausgabe darf grundsätzlich nur eine Tabelle speichern."
+      ],
+      "correct": 2,
+      "explanation": "Community und Enterprise sind Produktbezeichnungen, keine einheitliche technische Norm. Funktionen, Werkzeuge und Support unterscheiden sich je nach Anbieter und Vertrag. Verbindliche Reaktionszeiten ergeben sich aus einer konkreten Vereinbarung; ein kostenloser Download verspricht sie nicht automatisch.",
+      "hu": {
+        "question": "Egy szolgáltató Community és Enterprise kiadásokat kínál. A csapatnak szerződésben vállalt válaszidő kell üzemzavar esetére. Mit érdemes összehasonlítania?",
+        "answers": [
+          "Csak a neveket: az Enterprise minden szolgáltatónál automatikusan ugyanazt garantálja.",
+          "Csak a licencdíjat; a vállalt támogatás szükségszerűen azonos a két kiadásnál.",
+          "A kiadások konkrét funkcióit, licencfeltételeit és szerződésben vállalt támogatását.",
+          "Csak a táblák számát; egy Community kiadás alapvetően csak egy táblát tárolhat."
+        ],
+        "explanation": "A Community és az Enterprise termékelnevezés, nem egységes műszaki szabvány. A funkciók, eszközök és támogatás szolgáltatónként és szerződésenként eltérhetnek. A vállalt válaszidőt konkrét megállapodás rögzíti; az ingyenes letöltés ezt nem ígéri meg automatikusan."
+      }
+    },
+    {
+      "id": "lap-LAP-16-13-1",
+      "revision": 1,
+      "topic": "Sicherungsmethoden",
+      "source": {
+        "topicId": "LAP-16-13",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/13_Sicherungsmethoden/README.md",
+        "slug": "16-13-sicherungsmethoden"
+      },
+      "question": "Eine versehentliche Änderung wird erst zwei Tage später bemerkt. Was muss eine Sicherungsstrategie leisten, damit sie bei diesem Vorfall tatsächlich hilft?",
+      "answers": [
+        "Nur bestätigen, dass der aktuelle Datenbankprozess noch erreichbar ist.",
+        "Einen ausreichend alten, verwendbaren Datenstand und einen getesteten Weg zu dessen Wiederherstellung bereitstellen.",
+        "Die aktuelle fehlerhafte Datenbank sofort über alle älteren Sicherungen kopieren.",
+        "Nur die Struktur der Tabellen kennen; die gespeicherten Inhalte lassen sich daraus vollständig berechnen."
+      ],
+      "correct": 1,
+      "explanation": "Eine Sicherung bewahrt wiederherstellbare Datenstände. Aufbewahrungsdauer, Konsistenz und ein erprobter Restore müssen zum möglichen Schaden passen. Ein erfolgreicher Sicherungsjob allein beweist noch nicht, dass alle benötigten Daten, Schlüssel und Betriebsmittel für die Wiederherstellung verfügbar sind.",
+      "hu": {
+        "question": "Egy téves módosításra csak két nappal később derül fény. Mit kell biztosítania a mentési stratégiának, hogy ennél az esetnél valóban segítsen?",
+        "answers": [
+          "Csak azt igazolnia, hogy az aktuális adatbázis-folyamat még elérhető.",
+          "Egy megfelelően régi, használható adatállapotot és annak kipróbált helyreállítási módját.",
+          "Azonnal rá kell másolnia a jelenlegi hibás adatbázist minden régebbi mentésre.",
+          "Elég ismernie a táblák szerkezetét; abból az összes tárolt adat teljesen kiszámítható."
+        ],
+        "explanation": "A mentés helyreállítható adatállapotokat őriz meg. A megőrzési időnek, a konzisztenciának és a kipróbált visszaállításnak igazodnia kell a lehetséges kárhoz. Egy sikeres mentési feladat önmagában nem bizonyítja, hogy a helyreállításhoz minden adat, kulcs és üzemeltetési feltétel rendelkezésre áll."
+      }
+    },
+    {
+      "id": "lap-LAP-16-13-2",
+      "revision": 1,
+      "topic": "Sicherungsmethoden",
+      "source": {
+        "topicId": "LAP-16-13",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/13_Sicherungsmethoden/README.md",
+        "slug": "16-13-sicherungsmethoden"
+      },
+      "question": "Am Sonntag entsteht eine Vollsicherung. Die Sicherungen am Montag, Dienstag und Mittwoch enthalten jeweils nur die Änderungen seit der unmittelbar vorherigen Sicherung. Welche Kette stellt den Stand vom Mittwoch wieder her?",
+      "answers": [
+        "Nur die Mittwochssicherung.",
+        "Die Vollsicherung und nur die Mittwochssicherung.",
+        "Montag, Dienstag und Mittwoch, ohne die Vollsicherung.",
+        "Die Vollsicherung, danach Montag, Dienstag und Mittwoch in dieser Reihenfolge."
+      ],
+      "correct": 3,
+      "explanation": "Die beschriebenen inkrementellen Sicherungen bauen aufeinander auf. Für den Zielstand werden die Vollsicherung und alle nötigen Zwischenschritte benötigt. Eine differenzielle Sicherung hätte dagegen die Änderungen seit der letzten Vollsicherung enthalten; das ist hier ausdrücklich nicht die verwendete Methode.",
+      "hu": {
+        "question": "Vasárnap teljes mentés készül. A hétfői, keddi és szerdai mentés mindig csak a közvetlenül előző mentés óta történt változásokat tartalmazza. Melyik lánc állítja vissza a szerdai állapotot?",
+        "answers": [
+          "Csak a szerdai mentés.",
+          "A teljes mentés és csak a szerdai mentés.",
+          "Hétfő, kedd és szerda, a teljes mentés nélkül.",
+          "A teljes mentés, majd hétfő, kedd és szerda ebben a sorrendben."
+        ],
+        "explanation": "A leírt inkrementális mentések egymásra épülnek. A célállapothoz a teljes mentés és minden szükséges köztes lépés kell. A differenciális mentés ezzel szemben az utolsó teljes mentés óta történt változásokat tartalmazná; itt kifejezetten nem ezt a módszert használjuk."
+      }
+    },
+    {
+      "id": "lap-LAP-16-13-3",
+      "revision": 1,
+      "topic": "Sicherungsmethoden",
+      "source": {
+        "topicId": "LAP-16-13",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/13_Sicherungsmethoden/README.md",
+        "slug": "16-13-sicherungsmethoden"
+      },
+      "question": "Ein Export enthält die ausgewählte Tabellenstruktur als CREATE TABLE und deren Zeilen als INSERT-Anweisungen. Wie lässt sich diese Sicherung sinnvoll einordnen?",
+      "answers": [
+        "Als logische Sicherung; ob sie vollständig oder inkrementell ist, ist eine zusätzliche, getrennte Frage.",
+        "Als physische Sicherung, weil auch SQL-Text am Ende in einer Datei liegt.",
+        "Als inkrementelle Sicherung, allein weil mehrere INSERT-Anweisungen vorkommen.",
+        "Als Replikation, weil dieselben Daten später auf einem anderen Server stehen können."
+      ],
+      "correct": 0,
+      "explanation": "Logische Sicherungen beschreiben Datenbankobjekte und Daten auf der SQL-Ebene. Physische Sicherungen arbeiten mit den erforderlichen Datenbankdateien beziehungsweise Speicherstrukturen und brauchen ein konsistentes Verfahren. Vollständig oder inkrementell beschreibt dagegen den Umfang beziehungsweise die Abhängigkeiten der Sicherung.",
+      "hu": {
+        "question": "Egy export a kiválasztott táblák szerkezetét CREATE TABLE, a soraikat INSERT utasításokkal tartalmazza. Hogyan sorolható be ésszerűen ez a mentés?",
+        "answers": [
+          "Logikai mentés; az, hogy teljes vagy inkrementális, egy további, ettől különálló kérdés.",
+          "Fizikai mentés, mert az SQL-szöveg végül szintén fájlba kerül.",
+          "Inkrementális mentés, pusztán azért, mert több INSERT utasítást tartalmaz.",
+          "Replikáció, mert az adatok később másik szerveren is szerepelhetnek."
+        ],
+        "explanation": "A logikai mentés adatbázis-objektumokat és adatokat ír le SQL-szinten. A fizikai mentés a szükséges adatbázisfájlokkal, illetve tárolási struktúrákkal dolgozik, és konzisztens eljárást igényel. A teljes vagy inkrementális jelző ezzel szemben a mentés terjedelmét, illetve függőségeit írja le."
+      }
+    },
+    {
+      "id": "lap-LAP-16-13-4",
+      "revision": 1,
+      "topic": "Sicherungsmethoden",
+      "source": {
+        "topicId": "LAP-16-13",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/13_Sicherungsmethoden/README.md",
+        "slug": "16-13-sicherungsmethoden"
+      },
+      "question": "MySQL: Eine verwendbare Vollsicherung stammt von 02:00. Die lückenlosen Binärlogs seit dieser Sicherung sind vorhanden. Um 10:15 wurde eine unerwünschte Löschtransaktion bestätigt. Wie lässt sich der Zustand unmittelbar vor dieser Transaktion gezielt prüfen?",
+      "answers": [
+        "Nur die Vollsicherung einspielen; sie enthält automatisch auch die Änderungen bis 10:15.",
+        "Alle Binärlogs einschließlich der Löschtransaktion wiedergeben; dadurch wird die Löschung rückgängig.",
+        "In einer getrennten Wiederherstellungsumgebung die Vollsicherung laden, die Logs bis vor die Löschtransaktion anwenden und den Datenstand fachlich prüfen.",
+        "Auf dem laufenden Produktionsserver ROLLBACK ausführen, obwohl die Löschung bereits bestätigt wurde."
+      ],
+      "correct": 2,
+      "explanation": "Bei Point-in-Time Recovery ergänzt eine passende Logkette die Basissicherung bis zum gewählten Zielpunkt. Die unerwünschte Transaktion darf dabei nicht erneut angewendet werden. Ein isolierter Restore erlaubt Prüfung von Daten und Anwendungsabfragen, bevor über die Rückübernahme entschieden wird. Dazu gehören passende Logpositionen und alle benötigten Betriebsdaten.",
+      "hu": {
+        "question": "MySQL: 02:00-kor használható teljes mentés készült. Az azóta keletkezett bináris naplók hiánytalanul megvannak. 10:15-kor véglegesítettek egy nem kívánt törlési tranzakciót. Hogyan vizsgálható célzottan a közvetlenül előtte lévő állapot?",
+        "answers": [
+          "Csak a teljes mentést visszatölteni; az automatikusan tartalmazza a 10:15-ig történt változásokat is.",
+          "Minden bináris naplót visszajátszani, a törlési tranzakcióval együtt; ettől a törlés visszavonódik.",
+          "Külön helyreállítási környezetben betölteni a teljes mentést, a naplókat a törlési tranzakció előtti pontig alkalmazni, majd üzleti szempontból ellenőrizni az adatokat.",
+          "ROLLBACK-et futtatni az éles szerveren, bár a törlést már véglegesítették."
+        ],
+        "explanation": "Az időpontra történő helyreállításnál megfelelő naplólánc egészíti ki az alapmentést a választott célig. A nem kívánt tranzakciót eközben nem szabad újra alkalmazni. Az elkülönített visszaállítás után ellenőrizhetők az adatok és az alkalmazás lekérdezései, mielőtt döntünk az átvételről. Ehhez megfelelő naplópozíciók és minden szükséges üzemeltetési adat kell."
+      }
+    },
+    {
+      "id": "lap-LAP-16-13-5",
+      "revision": 1,
+      "topic": "Sicherungsmethoden",
+      "source": {
+        "topicId": "LAP-16-13",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/13_Sicherungsmethoden/README.md",
+        "slug": "16-13-sicherungsmethoden"
+      },
+      "question": "Ein Datenbankserver repliziert Änderungen sofort auf einen zweiten Server. Warum bleibt eine unabhängige, versionierte Sicherung trotzdem wichtig?",
+      "answers": [
+        "Weil Replikation grundsätzlich keine neuen Datensätze übertragen kann.",
+        "Weil auch eine versehentliche Löschung repliziert werden kann und eine frühere wiederherstellbare Version erhalten bleiben muss.",
+        "Weil ein zweiter Server nur den Quellcode, niemals Daten speichert.",
+        "Weil eine Sicherung jede fachliche Fehlbedienung bereits vor dem Speichern verhindert."
+      ],
+      "correct": 1,
+      "explanation": "Replikation verbessert je nach Aufbau Verfügbarkeit und Verteilung, bewahrt aber nicht automatisch alle früheren Zustände. Ein Fehler kann schnell auf beide Systeme gelangen. Getrennt aufbewahrte Sicherungen mit geeigneter Versionierung und getesteter Wiederherstellung ergänzen daher die Replikation.",
+      "hu": {
+        "question": "Egy adatbázisszerver azonnal replikálja a változásokat egy második szerverre. Miért fontos ettől még a független, verziókat megőrző mentés?",
+        "answers": [
+          "Mert a replikáció alapvetően nem képes új rekordokat továbbítani.",
+          "Mert a véletlen törlés is replikálódhat, és szükség lehet egy korábbi, helyreállítható változatra.",
+          "Mert a második szerver csak forráskódot tárol, adatot soha.",
+          "Mert a mentés már a tárolás előtt megakadályoz minden üzleti kezelési hibát."
+        ],
+        "explanation": "A replikáció a felépítéstől függően javítja az elérhetőséget és az adatelosztást, de nem őriz meg automatikusan minden korábbi állapotot. Egy hiba gyorsan mindkét rendszerre átkerülhet. A megfelelő verziómegőrzésű, elkülönítetten tárolt mentés és kipróbált helyreállítás ezért kiegészíti a replikációt."
+      }
+    },
+    {
+      "id": "lap-LAP-16-14-1",
+      "revision": 1,
+      "topic": "Sperrtabelle und Sperrverhalten",
+      "source": {
+        "topicId": "LAP-16-14",
+        "selfCheckNumber": 1,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/14_Sperrtabelle_und_Sperrverhalten/README.md",
+        "slug": "16-14-sperrtabelle_und_sperrverhalten"
+      },
+      "question": "Zwei Transaktionen möchten gleichzeitig das letzte verfügbare Ticket verkaufen. Welche Aufgabe haben passende Datenbanksperren in einem abgesicherten Buchungsablauf?",
+      "answers": [
+        "Sie ersetzen die Prüfung, ob überhaupt noch ein Ticket verfügbar ist.",
+        "Sie machen jede Abfrage automatisch schneller, unabhängig von der Last.",
+        "Sie speichern nach jeder Buchung eine historische Sicherungskopie.",
+        "Sie koordinieren konkurrierende Zugriffe auf betroffene Daten, damit Prüfung und Änderung nicht widersprüchlich ineinandergreifen."
+      ],
+      "correct": 3,
+      "explanation": "Eine Sperre ist ein Koordinationsmittel. Die Anwendung muss weiterhin die fachliche Bedingung prüfen und die passende Transaktionsgrenze wählen. Eine interne Sperrverwaltung merkt sich betroffene Ressourcen und Sperrhalter; dafür wird nicht von Hand eine gewöhnliche Anwendungstabelle mit Sperrmarkierungen gepflegt.",
+      "hu": {
+        "question": "Két tranzakció egyszerre szeretné eladni az utolsó szabad jegyet. Mi a megfelelő adatbázis-zárolások feladata egy védett foglalási folyamatban?",
+        "answers": [
+          "Kiváltják annak ellenőrzését, hogy maradt-e még jegy.",
+          "Minden lekérdezést automatikusan gyorsítanak, a terheléstől függetlenül.",
+          "Minden foglalás után történeti mentésmásolatot készítenek.",
+          "Összehangolják az érintett adatok párhuzamos elérését, hogy az ellenőrzés és a módosítás ne ellentmondásosan fonódjon össze."
+        ],
+        "explanation": "A zárolás összehangolási eszköz. Az alkalmazásnak továbbra is ellenőriznie kell az üzleti feltételt, és megfelelő tranzakcióhatárt kell választania. A belső zárkezelés nyilvántartja az érintett erőforrásokat és a zár birtokosát; ehhez nem kézzel vezetünk szokásos alkalmazástáblát zárolási jelölésekkel."
+      }
+    },
+    {
+      "id": "lap-LAP-16-14-2",
+      "revision": 1,
+      "topic": "Sperrtabelle und Sperrverhalten",
+      "source": {
+        "topicId": "LAP-16-14",
+        "selfCheckNumber": 2,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/14_Sperrtabelle_und_Sperrverhalten/README.md",
+        "slug": "16-14-sperrtabelle_und_sperrverhalten"
+      },
+      "question": "MySQL 8.0 mit InnoDB: A hält in einer offenen Transaktion die durch SELECT ... FOR UPDATE erworbene Sperre auf einer bestehenden Bestandszeile. B versucht dieselbe Zeile ebenfalls mit SELECT ... FOR UPDATE zu sperren, ohne NOWAIT oder SKIP LOCKED. Was ist bei sonst unverändertem Ablauf zu erwarten?",
+      "answers": [
+        "B wartet auf die Freigabe oder erreicht ein Wartezeitlimit; ein gewöhnliches konsistentes SELECT muss dadurch nicht ebenfalls blockieren.",
+        "B bekommt sofort dieselbe exklusive Sperre, weil beide Anweisungen mit SELECT beginnen.",
+        "Jeder lesende Zugriff auf jede Tabelle der Datenbank wird zwingend blockiert.",
+        "A verliert die Sperre bereits dadurch, dass B dieselbe Zeile anfragt."
+      ],
+      "correct": 0,
+      "explanation": "Konkurrierende sperrende Zugriffe auf dieselbe Zeile müssen koordiniert werden. InnoDB kann gewöhnliche konsistente Lesezugriffe dagegen aus passenden Versionen bedienen. Die FOR-UPDATE-Sperre von A bleibt bis COMMIT oder ROLLBACK bestehen. B muss nach dem Warten den dann gelesenen Bestand für seine Entscheidung verwenden.",
+      "hu": {
+        "question": "MySQL 8.0, InnoDB: A egy nyitott tranzakcióban tartja a SELECT ... FOR UPDATE által megszerzett zárat egy létező készletsoron. B ugyanazt a sort próbálja SELECT ... FOR UPDATE utasítással zárolni, NOWAIT és SKIP LOCKED nélkül. Mi várható, ha egyébként nem változik a helyzet?",
+        "answers": [
+          "B vár a feloldásra, vagy eléri a várakozási időkorlátot; ettől egy szokásos, konzisztens SELECT-nek még nem feltétlenül kell blokkolnia.",
+          "B azonnal megkapja ugyanazt a kizárólagos zárat, mert mindkét utasítás SELECT-tel kezdődik.",
+          "Az adatbázis összes táblájának minden olvasása szükségszerűen blokkolódik.",
+          "A már attól elveszíti a zárat, hogy B ugyanazt a sort kéri."
+        ],
+        "explanation": "Az ugyanarra a sorra irányuló versengő zároló hozzáféréseket össze kell hangolni. Az InnoDB a szokásos konzisztens olvasásokat ezzel szemben megfelelő adatverziókból is kiszolgálhatja. A FOR UPDATE zár A COMMIT vagy ROLLBACK műveletéig megmarad. B-nek a várakozás után kiolvasott készlet alapján kell döntenie."
+      }
+    },
+    {
+      "id": "lap-LAP-16-14-3",
+      "revision": 1,
+      "topic": "Sperrtabelle und Sperrverhalten",
+      "source": {
+        "topicId": "LAP-16-14",
+        "selfCheckNumber": 3,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/14_Sperrtabelle_und_Sperrverhalten/README.md",
+        "slug": "16-14-sperrtabelle_und_sperrverhalten"
+      },
+      "question": "Der Ablauf ist Pseudocode für zwei offene InnoDB-Transaktionen mit exklusiven Zeilensperren. Warum entsteht vor der Auflösung durch das DBMS ein Deadlock?",
+      "answers": [
+        "Weil zwei Transaktionen grundsätzlich niemals dieselbe Tabelle verwenden dürfen.",
+        "Weil jede einzelne Wartezeit bereits ein Deadlock ist, auch ohne gegenseitige Abhängigkeit.",
+        "Weil A auf eine von B gehaltene Sperre wartet und B gleichzeitig auf eine von A gehaltene Sperre wartet.",
+        "Weil beide Transaktionen automatisch COMMIT ausgeführt haben."
+      ],
+      "correct": 2,
+      "explanation": "Die Wartebeziehungen bilden einen Kreis. InnoDB kann diesen erkennen und eine betroffene Transaktion vollständig zurückrollen, damit die andere weiterkommt. Das ist etwas anderes als ein einseitiges Warten. Eine konsistente Reihenfolge beim Sperren mehrerer Datensätze reduziert solche Konflikte.",
+      "hu": {
+        "question": "A folyamat két nyitott InnoDB-tranzakciót mutat pszeudokóddal, kizárólagos sorzárakkal. Miért alakul ki holtpont, mielőtt az adatbázis-kezelő feloldaná?",
+        "answers": [
+          "Mert két tranzakció alapvetően soha nem használhatja ugyanazt a táblát.",
+          "Mert minden egyes várakozás már holtpont, kölcsönös függés nélkül is.",
+          "Mert A egy B által tartott zárra vár, B pedig közben egy A által tartott zárra vár.",
+          "Mert mindkét tranzakció automatikusan COMMIT-et hajtott végre."
+        ],
+        "explanation": "A várakozási kapcsolatok kört alkotnak. Az InnoDB ezt észlelheti, és teljesen visszavonhatja az egyik érintett tranzakciót, hogy a másik folytatódhasson. Ez különbözik az egyirányú várakozástól. Több rekord következetes sorrendű zárolása csökkenti az ilyen ütközéseket."
+      },
+      "code": "A: BEGIN\nB: BEGIN\nA: lock row 1\nB: lock row 2\nA: request row 2 -> waits for B\nB: request row 1 -> waits for A",
+      "codeLanguage": "pseudocode"
+    },
+    {
+      "id": "lap-LAP-16-14-4",
+      "revision": 1,
+      "topic": "Sperrtabelle und Sperrverhalten",
+      "source": {
+        "topicId": "LAP-16-14",
+        "selfCheckNumber": 4,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/14_Sperrtabelle_und_Sperrverhalten/README.md",
+        "slug": "16-14-sperrtabelle_und_sperrverhalten"
+      },
+      "question": "InnoDB meldet einen Deadlock und hat die Transaktion einer Buchung vollständig zurückgerollt. Was muss die Anwendung für einen kontrollierten erneuten Versuch tun?",
+      "answers": [
+        "Nur COMMIT wiederholen, weil alle bisherigen Änderungen erhalten geblieben sind.",
+        "Den ganzen fachlichen Transaktionsablauf mit erneuter Prüfung ausführen, mit begrenzten Wiederholungen und sauberer Fehlerbehandlung.",
+        "Nur das letzte UPDATE außerhalb einer Transaktion wiederholen.",
+        "Alle Datenbankfehler unbegrenzt ignorieren, bis die Oberfläche Erfolg meldet."
+      ],
+      "correct": 1,
+      "explanation": "Nach dem Deadlock-Rollback sind die Änderungen dieser Transaktion verworfen. Ein erneuter Versuch muss daher auch seine Voraussetzungen neu lesen und prüfen. Die Wiederholung darf keine externen Nebenwirkungen wie eine zweite Zahlung auslösen. Ein Lock-Timeout ist davon zu unterscheiden: InnoDB rollt dabei standardmäßig nur die wartende Anweisung zurück.",
+      "hu": {
+        "question": "Az InnoDB holtpontot jelez, és teljesen visszavonta egy foglalás tranzakcióját. Mit kell tennie az alkalmazásnak egy ellenőrzött újrapróbáláshoz?",
+        "answers": [
+          "Csak a COMMIT-et megismételni, mert minden korábbi módosítás megmaradt.",
+          "Újra végrehajtani a teljes üzleti tranzakciót, friss ellenőrzéssel, korlátozott próbálkozásszámmal és rendezett hibakezeléssel.",
+          "Csak az utolsó UPDATE-et megismételni tranzakción kívül.",
+          "Korlátlanul figyelmen kívül hagyni minden adatbázishibát, amíg a felület sikert nem jelez."
+        ],
+        "explanation": "A holtpont miatti visszavonás eldobja az érintett tranzakció módosításait. Az új próbálkozásnak ezért a feltételeket is újra ki kell olvasnia és ellenőriznie. Az ismétlés nem okozhat megkettőzött külső műveletet, például újabb fizetést. A zárvárakozási időtúllépés ettől különbözik: annál az InnoDB alapértelmezésben csak a várakozó utasítást vonja vissza."
+      }
+    },
+    {
+      "id": "lap-LAP-16-14-5",
+      "revision": 1,
+      "topic": "Sperrtabelle und Sperrverhalten",
+      "source": {
+        "topicId": "LAP-16-14",
+        "selfCheckNumber": 5,
+        "path": "16_Datenbanken_Datenmodelle_Datenstrukturen/14_Sperrtabelle_und_Sperrverhalten/README.md",
+        "slug": "16-14-sperrtabelle_und_sperrverhalten"
+      },
+      "question": "Eine Anwendung sperrt eine Bestandszeile und wartet dann innerhalb derselben Transaktion auf eine manuelle Bestätigung im Browser. Andere Buchungen stauen sich. Welche Änderung ist fachlich sinnvoll?",
+      "answers": [
+        "Die Zeilensperre durch eine Sperre auf die gesamte Tabelle ersetzen und weiterhin auf die Person warten.",
+        "Die Wartezeitlimits beliebig erhöhen und die Transaktion unverändert offenhalten.",
+        "Die Bestandsprüfung entfernen, damit alle Buchungen ohne Koordination schreiben können.",
+        "Die menschliche Bestätigung außerhalb der kurzen Buchungstransaktion einholen und den Bestand vor der endgültigen Änderung erneut abgesichert prüfen."
+      ],
+      "correct": 3,
+      "explanation": "Lange gehaltene Sperren erhöhen die Wartezeiten anderer Zugriffe. Die abschließende Buchung soll ihre Prüfung und Änderung kurz und geschützt ausführen. Soll ein Bestand während einer längeren Benutzerentscheidung reserviert bleiben, braucht das einen ausdrücklich modellierten Reservierungsablauf mit Ablaufzeit, nicht eine minutenlang offene Datenbanktransaktion.",
+      "hu": {
+        "question": "Egy alkalmazás zárol egy készletsort, majd ugyanabban a tranzakcióban kézi böngészős megerősítésre vár. Más foglalások feltorlódnak. Melyik változtatás ésszerű üzleti szempontból?",
+        "answers": [
+          "A sorzárat teljes táblazárra cserélni, és továbbra is várni a személyre.",
+          "Tetszőlegesen megnövelni a várakozási korlátokat, és változatlanul nyitva tartani a tranzakciót.",
+          "Elhagyni a készletellenőrzést, hogy minden foglalás összehangolás nélkül írhasson.",
+          "Az emberi megerősítést a rövid foglalási tranzakción kívül kérni, majd a végleges módosítás előtt újra, védetten ellenőrizni a készletet."
+        ],
+        "explanation": "A sokáig tartott zárak növelik a többi hozzáférés várakozását. A végleges foglalás rövid, védett egységben végezze az ellenőrzést és a módosítást. Ha hosszabb felhasználói döntés közben is fenn kell tartani a foglalást, ahhoz külön modellezett, lejáró foglalási folyamat kell, nem percekig nyitott adatbázis-tranzakció."
+      }
+    }
+  ]
+}
