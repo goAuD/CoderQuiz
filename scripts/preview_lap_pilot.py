@@ -8,6 +8,7 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 BANK_PORTS = {
+    "lap-databases-1": 8781,
     "lap-pilot": 8770,
     "lap-programming-1": 8771,
     "lap-programming-2": 8772,

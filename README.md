@@ -22,10 +22,11 @@ accounts or server-side learning records.
 | Informatik 4 | LAP-11-22 to LAP-11-28 | 35 |
 | Informatik 5 | LAP-11-29 to LAP-11-35 | 35 |
 | Informatik 6 | LAP-11-36 to LAP-11-43 | 40 |
-| **Total** | **63 distinct CoderLAP topics** | **315** |
+| Databases 1 | LAP-16-01 to LAP-16-07 | 35 |
+| **Total** | **70 distinct CoderLAP topics** | **350** |
 
 Every question has four choices, one correct answer, aligned DE/HU explanations,
-a stable ID and a link to its source topic. The nine packages were checked
+a stable ID and a link to its source topic. The ten packages were checked
 against [CoderLAP commit `cefce00`](https://github.com/goAuD/CoderLAP/tree/cefce00affa0f357e7cc3e752abf082cad0ae1d0).
 Programming covers all 100 self-check positions in its 20 subtopics; it does not
 claim a separate quiz question for every detail in the expanded learning text.
@@ -41,6 +42,11 @@ with .NET, metadata, KISS/DRY, coding conventions, cross-platform development
 and CI/CD. Development scenarios distinguish current app behavior from
 hypothetical extensions.
 
+Databases 1 covers the first seven of 19 database subtopics: database systems,
+SQL and SQL/XML, DBMS, CMS, integrity, redundancy and data modelling. Nine SQL
+examples specify SQLite as their environment; the metadata example needs SQLite
+3.16 or newer. These are learning examples, not a database backend for CoderQuiz.
+
 The original independent 100-question law/privacy bank remains in `questions.js`
 for local use and history. Its content review is unfinished,
 so it is **not included in the published site**. The eight-question pilot is also
@@ -55,7 +61,7 @@ node scripts/build-static.cjs
 python -m http.server 8775 --bind 127.0.0.1 --directory dist
 ```
 
-Open <http://127.0.0.1:8775/>. The homepage lists the nine packages. Each has its
+Open <http://127.0.0.1:8775/>. The homepage lists the ten packages. Each has its
 own URL and saved session, so changing packages does not discard another run.
 Language preference is shared within the Quiz origin.
 
@@ -82,6 +88,7 @@ Its default port is 8774. Use `--bank lap-informatik-2` or
 `--bank lap-informatik-3` for ports 8776 and 8777, or Informatik 4 and 5 for
 ports 8778 and 8779 (`--bank lap-informatik-4` / `--bank lap-informatik-5`).
 Informatik 6 uses port 8780 (`--bank lap-informatik-6`).
+Databases 1 uses port 8781 (`--bank lap-databases-1`).
 Port 8775 remains available for the complete catalogue. Programming previews
 use 8771, 8772 and 8773.
 
@@ -94,10 +101,13 @@ node scripts/build-static.cjs
 ```
 
 Tests cover shuffle permutations, restored/revised sessions, language changes,
-package isolation, all nine complete quiz runs, executable code examples,
+package isolation, all ten complete quiz runs, executable code examples,
 bilingual question structure, generated links and the static artifact boundary.
 Deployment tests use temporary directories; symlink promotion runs on Linux in CI.
 These checks complement editorial source review and browser/mobile checks.
+Python's standard-library SQLite module executes all database snippets in fresh
+in-memory databases. It also checks constraint boundaries and nullable foreign
+keys. No database server or additional Python package is required.
 With PHP CLI and PDO SQLite available, the suite also runs the HTML-escaping
 example and checks the portable SELECT/bind/fetch fragment in an isolated
 in-memory database. If PHP is absent, this one optional test is reported as
@@ -113,9 +123,13 @@ skipped. It does not validate a live MySQL deployment.
 - Explanations appear after answering. There is no separate hint or mistakes chapter.
 - Code is displayed as escaped text, never executed in the learner's browser.
   JavaScript output is tested during development, including boundary cases for
-  the practice scoring rule. PHP, CSS, Java, C#, INI, YAML, markup, JSON and
+  the practice scoring rule. SQL, PHP, CSS, Java, C#, INI, YAML, markup, JSON and
   pseudocode have their own labels. Contextual framework fragments state
   their prerequisites; they are reading examples, not standalone applications.
+- SQL snippets use `expectedRows` for their tested result rows, or an empty list
+  for setup-only examples. They run only in development tests, never in the app.
+- Choose examples that clarify the topic. They may use these projects or another
+  concrete domain; project-specific scenarios are optional.
 - Keep DE/HU choices in the same source order; the app shuffles their display.
 
 Question banks keep a pinned CoderLAP source commit and per-question references.
